@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 locale: "en-US"
-title: Blog Richardson Lima # Title of your site
+title: "Blog Richardson Lima"
 url: "http://blog.richardsonlima.com.br" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
 google_analytics_key: ""
@@ -51,6 +50,4 @@ social_icons:
   - Twitter
   - YouTube
   - RSS
-=======
 theme: jekyll-theme-cayman
->>>>>>> 80e53d0f8ac6605c241f52c9b54f4f3ff56e6e6a
