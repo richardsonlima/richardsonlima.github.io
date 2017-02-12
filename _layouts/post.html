@@ -43,10 +43,14 @@ layout: default
               <li><a href="{{ page.next.url }}" class="button">Read More</a></li>
             </ul>
           </footer>
+          {% if site.disqus_shortname %}
+          {% include disqus.html %}
+          {% endif %}
         </article>
       {% endif %}
+      {% include disqus.html %}
       </div>
     </footer>
   </article>
 </div>
-{% include disqus.html %}
+
