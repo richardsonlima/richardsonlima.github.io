@@ -6,6 +6,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus fringilla 
 
 Vestibulum id metus eu nisl sodales consectetur. Phasellus et ultrices lacus.
 
+<img src="/images/fulls/docker_icinga2_icingaweb2_03.png" class="fit image">
 Curabitur orci turpis, egestas placerat velit eget, dictum pellentesque ipsum. Suspendisse potenti. Suspendisse ac maximus arcu. Sed ut mattis ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum eleifend odio vitae varius aliquam. Quisque ac pretium nisi. Curabitur tempus urna ac ultrices commodo.
 
 Curabitur iaculis est at mattis mattis. Aliquam erat volutpat. Etiam vitae cursus quam. Nunc ultricies nunc non lorem fringilla cursus. Etiam dapibus libero ac turpis accumsan pulvinar. Sed auctor velit eget mi consequat bibendum. Aliquam interdum purus eget metus pretium ullamcorper.
