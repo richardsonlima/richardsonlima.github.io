@@ -13,11 +13,14 @@ twitter_username: infradevops
 default_img: 
 
 # Profile settings
-name: 
-profile_img: 
+name: Richardson Lima 
+profile_img: https://raw.githubusercontent.com/richardsonlima/blog/master/images/avatar-big-richardsonlima.jpg
 profile: 
 social:
   github: richardsonlima
+  linkedin: richardsonlima
+  twitter: infradevops
+
 
 # Build settings
 include: ["_categories"]
