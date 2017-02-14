@@ -15,7 +15,14 @@ default_img: https://raw.githubusercontent.com/richardsonlima/blog/master/images
 # Profile settings
 name: Richardson Lima 
 profile_img: https://raw.githubusercontent.com/richardsonlima/blog/master/images/avatar-big-richardsonlima-2000x1200.jpg
-profile: 
+profile: I have a strong focus on infrastructure automation, configuration management and 
+service orchestration tools, high experience with deploying, administering and maintaining 
+services in a large computing environment. Practical knowledge of Web Pentest (Ethical Hacking) ,
+Virtual Servers in Cloud, Docker Containers, Web Apps Management, Scalable Storage, 
+Global Content Delivery Network, Automate Code Deployment and firewalls. I love all flavors of Linux, 
+BSD Unix and I was adopted the DevOps culture about 2 years, I develop DevOps tools using Python 
+and Shell Scripting to work with IaaS APIs and I share it with my colleagues and many professionals 
+around the world.
 social:
   github: https://github.com/richardsonlima
   linkedin: http://us.linkedin.com/in/richardsonlima
