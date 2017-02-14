@@ -14,8 +14,8 @@ default_img:
 
 # Profile settings
 name: Richardson Lima 
-profile_img: images/avatar-big-richardsonlima.jpg
-profile: Richardson Lima Richardson Lima Richardson Lima Richardson Lima
+profile_img: https://unsplash.it/2000/1200?image=1003
+profile: 
 social:
   github: richardsonlima
   linkedin: richardsonlima
