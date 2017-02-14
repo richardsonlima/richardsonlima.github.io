@@ -10,11 +10,11 @@ title: Blog Richardson Lima
 description: Blog Richardson Lima
 url: ""
 twitter_username: infradevops
-default_img: 
+default_img: https://raw.githubusercontent.com/richardsonlima/blog/master/images/avatar-big-richardsonlima.jpg
 
 # Profile settings
 name: Richardson Lima 
-profile_img: https://unsplash.it/2000/1200?image=1003
+profile_img: https://raw.githubusercontent.com/richardsonlima/blog/master/images/avatar-big-richardsonlima.jpg
 profile: 
 social:
   github: https://github.com/richardsonlima
