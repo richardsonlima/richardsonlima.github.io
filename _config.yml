@@ -6,8 +6,8 @@ paginate_path: "/blog/page-:num"
 google_analytics: 
 
 # SEO settings
-title: Blog Richardson Lima 
-description: Blog Richardson Lima
+title: RichOps Things
+description: Blog RichOps Things
 url: ""
 twitter_username: infradevops
 default_img: https://raw.githubusercontent.com/richardsonlima/blog/master/images/avatar-big-richardsonlima.jpg
@@ -15,7 +15,7 @@ default_img: https://raw.githubusercontent.com/richardsonlima/blog/master/images
 # Profile settings
 name: Richardson Lima 
 profile_img: https://raw.githubusercontent.com/richardsonlima/blog/master/images/avatar-big-richardsonlima-2000x1200.jpg
-profile: I'm an Information Technology Infrastructure Analyst , I have a strong focus on Cloud computing, DevOps things, Ethical Hacking, Python and Ruby Programming language and IoT.
+profile: I'm an Information Technology Infrastructure Analyst , I have a strong focus on Cloud computing, DevOps things, Ethical Hacking, IoT, Python and Ruby Programming language.
 social:
   github: https://github.com/richardsonlima
   linkedin: http://us.linkedin.com/in/richardsonlima
