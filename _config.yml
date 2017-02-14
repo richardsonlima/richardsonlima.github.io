@@ -17,9 +17,9 @@ name: Richardson Lima
 profile_img: https://unsplash.it/2000/1200?image=1003
 profile: 
 social:
-  github: richardsonlima
-  linkedin: richardsonlima
-  twitter: infradevops
+  github: https://github.com/richardsonlima
+  linkedin: http://us.linkedin.com/in/richardsonlima
+  twitter: http://twitter.com/infradevops
 
 
 # Build settings
