@@ -14,7 +14,15 @@ Today I read this quote and I thought so much about this. I really believe that 
 
 <figure>
   <img src="https://raw.githubusercontent.com/richardsonlima/blog/master/images/Quotefancy-18100-3840x2160.jpg" alt="Placeholder"/>
+  <figcaption>Quote by Tobias Wolff</figcaption>
 </figure>
+
+
+  "a true piece of writing is a dangerous thing. It can change your life."  https://www.theguardian.com/books/2004/jan/24/featuresreviews.guardianreview19 
+
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/0MZ3oKPFf90" frameborder="0" allowfullscreen></iframe>
+
 
 <ul>
   <li>Actually YOLO marfa tofu shabby chic snackwave. Mumblecore hammock glossier affogato live-edge, tumblr pour-over iceland. Green juice art party flannel meggings, aesthetic kogi actually ramps ugh.</li>
