@@ -18,7 +18,7 @@ Today I read this quote and I thought so much about this. I really believe that 
 </figure>
 
 
-  "a true piece of writing is a dangerous thing. It can change your life."  https://www.theguardian.com/books/2004/jan/24/featuresreviews.guardianreview19 
+  "a true piece of writing is a dangerous thing. It can change your life." Tobias Wolff, from *Old School*
 
 
 <iframe width="697" height="392" src="https://www.youtube.com/embed/0MZ3oKPFf90" frameborder="0" allowfullscreen></iframe>
@@ -81,3 +81,6 @@ Pinterest cold-pressed selfies man bun twee williamsburg irony, art party snackw
   <img src="https://unsplash.it/2000/1200?image=845" alt="Placeholder"/>
   <figcaption>Gentrify cray pug authentic, cliche listicle actually subway tile woke semiotics af.</figcaption>
 </figure>
+
+
+<iframe width="697" height="392" src="https://www.youtube.com/embed/0MZ3oKPFf90" frameborder="0" allowfullscreen></iframe>
