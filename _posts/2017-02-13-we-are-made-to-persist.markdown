@@ -9,7 +9,7 @@ description:
 image: https://unsplash.it/2000/1200?image=841
 image-sm: https://unsplash.it/500/300?image=841
 ---
-Today I read this quote and I thought so much about this. I really believe that we are made to persist, then if I ask you if you belive in this quote, what would your answer be? 
+Today I read this quote and I thought so much about this. I really believe that we are made to persist, then if I ask you if you believe in this quote, what would your answer be? 
 
 
 <figure>
