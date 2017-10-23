@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html>
+---
+layout: base
+---
 
-  {% include head.html %}
-
-  <body>
-
-    <main>
-      {{ content }}
-    </main>
-
-    {% include footer.html %}
-
-  </body>
-
-</html>
+<div class="header">
+    <div class="title">Richardson Lima</div>
+    <div class="subtitle">
+        <a href="/">Blog</a>
+        <a href="/about.html">About</a>
+    </div>
+</div>
+<div class="content">
+    {{ content }}
+</div>
