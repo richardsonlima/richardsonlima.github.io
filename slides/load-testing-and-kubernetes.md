@@ -3,7 +3,7 @@ class: center, middle, inverse-slide
 ### _So you built a service, now what?_
 <img src="/images/slides/load-testing-and-kubernetes/kubernetes.svg" width="100px"/>
 
-.footnote[Harrison Harnisch ([@hjharnis](https://twitter.com/hjharnis))]
+.footnote[hash1d([@infradevops](https://twitter.com/infradevops))]
 ---
 ## This Talk *Might* Be Enhanced If You're Familiar These
 - `kubectl` command line tool
