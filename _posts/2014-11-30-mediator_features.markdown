@@ -7,9 +7,11 @@ tags: featured
 image: /assets/article_images/2014-11-30-mediator_features/night-track.JPG
 image2: /assets/article_images/2014-11-30-mediator_features/night-track-mobile.JPG
 ---
+
+Before start the `how to` we need to know what's Kubernetes in fact. So, Kubernetes is an FOSS platform or framework created by Google to automate deployments, staling and operating using containers (like a docker swarm), but with kubernetes one of the major advantage is that we can perform actions that can be respond to customer demand quickly and then it's really amazing. 
+
 Bootstrapping Clusters with kubeadm on Ubuntu Server mininal 16.04 LTS
 ===================================
-
 
 1. Swap disabled. You must disable swap in order for the kubelet to work properly.
 ```bash
