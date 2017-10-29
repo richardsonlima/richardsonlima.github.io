@@ -27,6 +27,12 @@ sudo cat /sys/class/dmi/id/product_uuid
 
 3. Check required ports
 
+| Header  | Another header |
+|---------|----------------|
+| field 1 | something      |
+| field 2 | something else |
+
+
 Master node(s) - kube-master: 192.168.1.111
 | Port Range | Purpose |
 | -------- |:--------:|
