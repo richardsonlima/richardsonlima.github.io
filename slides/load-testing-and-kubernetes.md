@@ -109,7 +109,7 @@ class: middle, inverse-slide
 - Containers are exceeding resource limits
 - Kubernetes constantly kills containers
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/under-allocation.png" width="60%"/>
+<img src="images/slides/load-testing-and-kubernetes/under-allocation.png" width="60%"/>
 ]
 ---
 .left-column[
@@ -131,9 +131,9 @@ class: middle, inverse-slide
 ## But it becomes a problem when you _scale up your replicas_
 ---
 class: center, middle, inverse-slide
-<img src="/images/slides/load-testing-and-kubernetes/over-allocation.png" width="40%"/>
+<img src="images/slides/load-testing-and-kubernetes/over-allocation.png" width="40%"/>
 ## vs
-<img src="/images/slides/load-testing-and-kubernetes/just-right.png" width="40%"/>
+<img src="images/slides/load-testing-and-kubernetes/just-right.png" width="40%"/>
 ---
 class: middle, inverse-slide
 ## That's an .green-text[extra container] you could be running
@@ -171,7 +171,7 @@ class: middle, inverse-slide
 .right-column-middle[
 - Constant
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/constant.png" width="80%"/>
+<img src="images/slides/load-testing-and-kubernetes/constant.png" width="80%"/>
 ]
 ---
 .left-column[
@@ -180,7 +180,7 @@ class: middle, inverse-slide
 .right-column-middle[
 - Bursty
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/bursty.png" width="80%"/>
+<img src="images/slides/load-testing-and-kubernetes/bursty.png" width="80%"/>
 ]
 ---
 class: middle, inverse-slide
@@ -211,7 +211,7 @@ class: middle, inverse-slide
 .right-column-middle[
 - Run a test where we slowly increase the load over time until we hit the breaking point
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/breakingpoint.png" width="80%"/>
+<img src="images/slides/load-testing-and-kubernetes/breakingpoint.png" width="80%"/>
 ]
 ---
 .left-column[
@@ -240,7 +240,7 @@ class: middle, inverse-slide
 .right-column-middle[
 - When the test is too easy or the resources are overallocated, you’ll likely see no change in the system performance over time
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/overallocated.png" width="80%"/>
+<img src="images/slides/load-testing-and-kubernetes/overallocated.png" width="80%"/>
 ]
 ---
 .left-column[
@@ -250,7 +250,7 @@ class: middle, inverse-slide
 .right-column-middle[
 - When resource limits are at a good level you’ll likely see the performance degrade slowly over time
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/goodtest.png" width="80%"/>
+<img src="images/slides/load-testing-and-kubernetes/goodtest.png" width="80%"/>
 ]
 ---
 .left-column[
@@ -290,7 +290,7 @@ class: middle, inverse-slide
   - High response times
   - Large variance in response times
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/bad-duration-load-test.png" width="80%"/>
+<img src="images/slides/load-testing-and-kubernetes/bad-duration-load-test.png" width="80%"/>
 ]
 ---
 .left-column[
@@ -300,7 +300,7 @@ class: middle, inverse-slide
 .right-column-middle[
 - When things are looking good you *should* see consistent performance over time
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/good-duration-load-test.png" width="80%"/>
+<img src="images/slides/load-testing-and-kubernetes/good-duration-load-test.png" width="80%"/>
 ]
 ---
 class: middle, inverse-slide
@@ -332,7 +332,7 @@ class: middle, blue-slide
 - Scale up replicas when load exceeds a certain threshold
 - Could even automate the load testing process and *auto set* thresholds
 <br><br>
-<img src="/images/slides/load-testing-and-kubernetes/metrics.png" width="100%"/>
+<img src="images/slides/load-testing-and-kubernetes/metrics.png" width="100%"/>
 ]
 ---
 class: middle
