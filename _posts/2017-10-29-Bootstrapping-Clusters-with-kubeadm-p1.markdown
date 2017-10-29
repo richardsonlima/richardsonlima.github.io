@@ -34,6 +34,7 @@ sudo cat /sys/class/dmi/id/product_uuid
 
 
 Master node(s) - kube-master: 192.168.1.111
+
 | Port Range | Purpose |
 | -------- |:--------:|
 | 6443*     | Kubernetes API server     |
