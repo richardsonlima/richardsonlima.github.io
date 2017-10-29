@@ -27,12 +27,6 @@ sudo cat /sys/class/dmi/id/product_uuid
 
 3. Check required ports
 
-| Header  | Another header |
-|---------|----------------|
-| field 1 | something      |
-| field 2 | something else |
-
-
 Master node(s) - kube-master: 192.168.1.111
 
 | Port Range | Purpose |
@@ -64,7 +58,9 @@ This is a requirement for CNI plugins to work, for more information please see h
 ```bash
 apt install ebtables ethtool -y 
 ```
+
 6 . Installing Docker
+
 ```bash
 apt update
 apt install -y docker.io
@@ -106,6 +102,7 @@ Using kubeadm to Create a Cluster
 ```bash
 kubeadm init
 ```
+
 To start using your cluster, you need to run (as a regular user):
 
 ```bash
