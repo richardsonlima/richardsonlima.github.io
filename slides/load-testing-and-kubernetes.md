@@ -1,7 +1,7 @@
 class: center, middle, inverse-slide
 ## Load Testing and Optimizing .kubernetes-text[K8S] Deployment Memory/CPU Limits
 ### _So you built a service, now what?_
-<img src="/images/slides/load-testing-and-kubernetes/kubernetes.svg" width="100px"/>
+<img src="images/slides/load-testing-and-kubernetes/kubernetes.svg" width="100px"/>
 
 .footnote[hash1d([@infradevops](https://twitter.com/infradevops))]
 ---
