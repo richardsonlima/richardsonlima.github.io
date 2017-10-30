@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Bootstrapping Clusters with kubeadm on Ubuntu Server mininal 16.04 LTS"
+title:  "Bootstrapping microservices clusters with kubeadm"
 date:   2017-10-29 14:34:25
 categories: Kubernetes
 tags: featured
@@ -8,24 +8,14 @@ image: /assets/article_images/2017-10-29-bootstrapping-clusters-with-kubeadm/wha
 image2: /assets/article_images/2017-10-29-bootstrapping-clusters-with-kubeadm/whale-by-thomas-kelly-mobile.JPG 
 ---
 
- Before start the how to we need to know what’s Kubernetes in fact. So, Kubernetes is an FOSS platform or framework created by Google to automate deployments, staling and operating using containers (like a docker swarm), but with kubernetes one of the major advantage is that we can perform actions that can be respond to customer demand quickly and then it’s really amazing.
+ Before start the how to we need to know what’s Kubernetes in fact. So, Kubernetes is a FOSS platform or framework created by Google to automate deployments, staling and operating using containers (like a docker swarm), but with kubernetes one of the major advantage is that we can perform actions that can be respond to customer demand quickly and then it’s really amazing.
 
 
-Bootstrapping Clusters with kubeadm on Ubuntu Server mininal 16.04 LTS
-===================================
+Starting bootstrapping clusters with kubeadmon. So, I chose the Linux distribuiton [ubuntu server mininal] `16.04 LTS` because Ubuntu have an awesome lifecycle and this specific version is extremely tiny and clean, a good option to create a secure environment with a mininal portion of tools.
 
-1. Swap disabled. You must disable swap in order for the kubelet to work properly.
-```bash
-swapoff -a    
-```
+First, we need avoid a little issue that should be apear during the deployment, it's related to `swap memory`, then to avoid this for now we'll  disable it on our OS, using `swapff -a` you can disable swap in order for the kubelet to work properly, after that we need verify the MAC address and product_uuid and take a look certifying if it are unique for every node, for that you can perform the command  `sudo cat /sys/class/dmi/id/product_uuid`
 
-2. Verify the MAC address and product_uuid are unique for every node
-The product_uuid can be checked by using the command 
-```bash
-sudo cat /sys/class/dmi/id/product_uuid
-```
-
-3. Check required ports
+Check required ports
 
 Master node(s) - kube-master: 192.168.1.111
 
@@ -103,14 +93,13 @@ Using kubeadm to Create a Cluster
 kubeadm init
 ```
 
+{% highlight bash %}
 To start using your cluster, you need to run (as a regular user):
-
-```bash
 mkdir -p $HOME/.kube
 sudo echo "127.0.0.1 kube-master" >> /etc/hosts
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
+{% endhighlight %}
 
 You should now deploy a pod network to the cluster.
 
@@ -138,3 +127,5 @@ kubeadm join --token <token> <master-ip>:<master-port> --discovery-token-ca-cert
 ```bash
 kubectl get nodes
 ```
+
+[ubuntu server mininal]: https://help.ubuntu.com/community/Installation/MinimalCD
