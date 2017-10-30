@@ -11,9 +11,9 @@ image2: /assets/article_images/2017-10-29-bootstrapping-clusters-with-kubeadm/wh
  Before start the how to we need to know what’s Kubernetes in fact. So, Kubernetes is a FOSS platform or framework created by Google to automate deployments, staling and operating using containers (like a docker swarm), but with kubernetes one of the major advantage is that we can perform actions that can be respond to customer demand quickly and then it’s really amazing.
 
 
-Starting bootstrapping clusters with kubeadmon. So, I chose the Linux distribuiton [ubuntu server mininal] `16.04 LTS` because Ubuntu have an awesome lifecycle and this specific version is extremely tiny and clean, a good option to create a secure environment with a mininal portion of tools.
+Starting bootstrapping clusters with kubeadmon. So, I chose the Linux distribuiton [ubuntu server mininal] **16.04 LTS** because Ubuntu have an awesome lifecycle and this specific version is extremely tiny and clean, a good option to create a secure environment with a mininal portion of tools.
 
-First, we need avoid a little issue that should be apear during the deployment, it's related to `swap memory`, then to avoid this for now we'll  disable it on our OS, using `swapff -a` you can disable swap in order for the kubelet to work properly, after that we need verify the MAC address and product_uuid and take a look certifying if it are unique for every node, for that you can perform the command  `sudo cat /sys/class/dmi/id/product_uuid`
+First, we need avoid a little issue that should be apear during the deployment, it's related to **swap memory**, then to avoid this for now we'll  disable it on our OS, using `swapff -a` you can disable swap in order for the kubelet to work properly, after that we need verify the MAC address and product_uuid and take a look certifying if it are unique for every node, for that you can perform the command  `sudo cat /sys/class/dmi/id/product_uuid`
 
 Check required ports
 
