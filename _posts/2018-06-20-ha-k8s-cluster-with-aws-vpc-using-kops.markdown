@@ -23,20 +23,26 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Jekyll also offers powerful support for code snippets:
 
-{% highlight json %}
-$ aws ec2 create-vpc --cidr-block 10.0.0.0/16 --region eu-west-1 { "Vpc": { "VpcId": "vpc-a55e77c1", "InstanceTenancy": "default", "Tags": [], "State": "pending", "DhcpOptionsId": "dopt-b8ee9cdd", "CidrBlock": "10.0.0.0/16", "IsDefault": false } }
+{% highlight bash %}
+$ aws ec2 create-vpc \
+--cidr-block 10.0.0.0/16 \
+--region eu-west-1 { "Vpc": { "VpcId": "vpc-a55e77c1", "InstanceTenancy": "default", "Tags": [], "State": "pending", "DhcpOptionsId": "dopt-b8ee9cdd", "CidrBlock": "10.0.0.0/16", "IsDefault": false } }
 {% endhighlight %}
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
 {% highlight ruby %}
 
-$ aws ec2 modify-vpc-attribute --vpc-id <VPC_ID> --enable-dns-hostnames "{\"Value\":true}" --region eu-west-1
+$ aws ec2 modify-vpc-attribute \
+--vpc-id <VPC_ID> \
+--enable-dns-hostnames "{\"Value\":true}" \
+--region eu-west-1
 {% endhighlight %}
 
 {% highlight js %}
 
-$ aws ec2 create-internet-gateway --region eu-west-1
+$ aws ec2 create-internet-gateway \
+--region eu-west-1
 {% endhighlight %}
 
 [kops-official-repo]: https://github.com/kubernetes/kops
