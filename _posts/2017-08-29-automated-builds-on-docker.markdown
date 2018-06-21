@@ -2,7 +2,7 @@
 layout: post
 title:  "Automated builds on Docker"
 date:   2014-08-29 14:34:25
-categories: docker 
+categories: docker
 tags: featured
 image: /assets/article_images/2014-08-29-welcome-to-jekyll/desktop.JPG
 ---

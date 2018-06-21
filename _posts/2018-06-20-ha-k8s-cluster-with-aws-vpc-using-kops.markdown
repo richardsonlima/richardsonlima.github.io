@@ -4,7 +4,7 @@ title:  "Configuring a Kubernetes HA Cluster with AWS VPC using Kops"
 date:   2018-06-20 20:55:14
 categories: kubernetes k8s kops
 tags: kops k8s kubernetes
-image: /assets/article_images/2018-06-20-ha-k8s-cluster-with-aws-vpc-using-kops/justin-campbell-706421-unsplash.jpg
+image: /assets/article_images/2018-06-20-ha-k8s-cluster-with-aws-vpc-using-kops/justin-campbell-706421--unsplash.jpg
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve --watch`, which launches a web server and auto-regenerates your site when a file is updated.
 
