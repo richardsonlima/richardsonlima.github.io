@@ -2,18 +2,18 @@
 layout: post
 title:  "Configuring a Kubernetes HA Cluster with AWS VPC using Kops"
 date:   2018-06-20 20:55:14
-categories: kubernetes k8s kops
-tags: kops k8s kubernetes
+categories: kops
+tags: kops
 image: /assets/article_images/2018-06-20-ha-k8s-cluster-with-aws-vpc-using-kops/justin-campbell-706421--unsplash.jpg
 ---
 
 
-TL;DR It should be the first post in a series of Kops here. So the intention of this post is to provide a guide   to setting up a prod ready k8s on AWS using [Kops][kops-official-repo] , you need to know that exists lots of options to accomplish this using tools like techtonic, stackpoing, etc. But Kops seems to have gained a lot of traction and is an awesome FOSS project.
+TL;DR It should be the first post in a series of Kops. So the intention of this post is to provide a guide   to setting up a prod ready k8s on AWS using [Kops][kops-official-repo] , you need to know that exists lots of options to accomplish this using tools like techtonic, stackpoing, etc. But Kops seems to have gained a lot of traction and it's an awesome FOSS project.
 
   Prereq:
 In order to follow along with this guide, you need a couple of tools and an AWS account.
 - An AWS programmatic access and `aws cli tool`;
-- `Kops` installed on you machine (latest version);
+- `Kops` installed on machine (latest version);
 - `kubectl`
 
 
@@ -23,25 +23,20 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Jekyll also offers powerful support for code snippets:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+{% highlight json %}
+$ aws ec2 create-vpc --cidr-block 10.0.0.0/16 --region eu-west-1 { "Vpc": { "VpcId": "vpc-a55e77c1", "InstanceTenancy": "default", "Tags": [], "State": "pending", "DhcpOptionsId": "dopt-b8ee9cdd", "CidrBlock": "10.0.0.0/16", "IsDefault": false } }
 {% endhighlight %}
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
+{% highlight ruby %}
+
+$ aws ec2 modify-vpc-attribute --vpc-id <VPC_ID> --enable-dns-hostnames "{\"Value\":true}" --region eu-west-1
+{% endhighlight %}
+
 {% highlight js %}
 
-<footer class="site-footer">
- <a class="subscribe" href="{{ "/feed.xml" | prepend: site.baseurl }}"> <span class="tooltip"> <i class="fa fa-rss"></i> Subscribe!</span></a>
-  <div class="inner">a
-   <section class="copyright">All content copyright <a href="mailto:{{ site.email}}">{{ site.name }}</a> &copy; {{ site.time | date: '%Y' }} &bull; All rights reserved.</section>
-   <section class="poweredby">Made with <a href="http://jekyllrb.com"> Jekyll</a></section>
-  </div>
-</footer>
+$ aws ec2 create-internet-gateway --region eu-west-1
 {% endhighlight %}
 
 [kops-official-repo]: https://github.com/kubernetes/kops
