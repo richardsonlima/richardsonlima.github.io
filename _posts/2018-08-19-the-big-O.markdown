@@ -1,0 +1,33 @@
+---
+layout: post
+title:  "The big O"
+date:   2018-08-19 20:13:21
+categories: programming
+tags: featured
+image: /assets/article_images/2014-08-29-welcome-to-jekyll/desktop.JPG
+---
+
+So you worked extremely hard to save more `CPU` cycle in the central loop but your code still slowly ? I think that you need to know more about `time complexity` . 
+
+"Hey but what's time complexity ?"
+
+Time complexity is related how your code spend time, memory and cpu according of size of input. For example, if we will want to answer some questions such as " If my algorithm spends 1 minute to process a 1000-byte input, how many minutes does it spend to process 2000-byte input ?" 
+
+A direct way of calculating complexity would be to find some formula that gives the exact number of operations done by the algorithm to arrive  at the result, depending on the size of the input. 
+
+{% highlight ruby %}
+ for(i=0; i<N; i++){
+     print(i);
+ }
+{% endhighlight %}
+
+Check out the [Big O notation][Big O notation] for more info on how to get the most out of 
+
+{% highlight js %}
+
+
+
+A Big-O function is a mathematical term that gives a rough estimation of how the speed of an algorithm changes with the size of the input data.
+
+
+[Big O notation]:      http://web.mit.edu/16.070/www/lecture/big_o.pdf
