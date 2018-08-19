@@ -31,7 +31,7 @@ $ aws ec2 create-vpc \
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
-{% highlight ruby %}
+{% highlight bash %}
 
 $ aws ec2 modify-vpc-attribute \
 --vpc-id <VPC_ID> \
@@ -39,13 +39,10 @@ $ aws ec2 modify-vpc-attribute \
 --region eu-west-1
 {% endhighlight %}
 
-{% highlight js %}
+{% highlight bash %}
 
 $ aws ec2 create-internet-gateway \
 --region eu-west-1
 {% endhighlight %}
 
 [kops-official-repo]: https://github.com/kubernetes/kops
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
