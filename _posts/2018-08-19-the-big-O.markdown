@@ -36,7 +36,7 @@ However, it takes a lot work to make a super accurate account of these and usual
  T(N) = 10*N² + 137*N + 15
 {% endhighlight %}
 
-
+In this case the quadratic term `10 * N²` is more important than the others because for almost any value of `N` it will dominate the `sum` total. From `N ≥ 14` the quadratic term is already responsible for most of the execution time and for `N > 1000` it is already responsible for more than 99%. For estimation purposes we could simplify the formula for `T (N) = 10 * N²` without losing much.
 
 A Big-O function is a mathematical term that gives a rough estimation of how the speed of an algorithm changes with the size of the input data.
 
