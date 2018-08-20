@@ -44,9 +44,9 @@ Therefore, the most popular way of working with time and space complexity in alg
 
 Let's start with O-large, which is a way to give an upper bound on the time spent by an algorithm. `(G)` describes the class of functions that grow at most as fast as the function `g` and when we say that `f ∈ O (g)` we mean that g grows at least as fast as `f`. Formally:
 
-Given the two functions f and g, we say that f ∈ O (g) if there exist constants x0 and c such that for all x> x0 is f (x) <c * g (x)
+Given the two functions `f` and `g`, we say that `f ∈ O (g)` if there exist constants `x0` and `c` such that for all `x> x0` is `f (x) <c * g (x)`
 
-In this definition, the constant c gives us scope to ignore constant factors (which allows us to say that `10 * N is O (N)`) and the constant `x0` says that we only care for the behavior of `f` and `g` when `N` is large and terms that grow faster dominate the total value.
+In this definition, the constant `c` gives us scope to ignore constant factors (which allows us to say that `10 * N is O (N)`) and the constant `x0` says that we only care for the behavior of `f` and `g` when `N` is large and terms that grow faster dominate the total value.
 
 For a concrete example, consider that time function `f (n) = 10 * N ^ 2 + 137 * N + 15` from before. We can say that its growth is quadratic:
 
