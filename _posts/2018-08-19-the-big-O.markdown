@@ -21,8 +21,8 @@ A direct way of calculating complexity would be to find some formula that gives 
  }
 {% endhighlight %}
 
-Check out the [Big O notation][big-o-notation] for more info on how to get the most out of 
-
 A Big-O function is a mathematical term that gives a rough estimation of how the speed of an algorithm changes with the size of the input data.
+
+Check out the [Big O notation][big-o-notation] for more info on how to get the most out of 
 
 [big-o-notation]: http://web.mit.edu/16.070/www/lecture/big_o.pdf
