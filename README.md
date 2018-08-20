@@ -1,14 +1,8 @@
-mediator
+Richardson Lima Blog 
 ========
 
-A medium inspired Jekyll blog theme. The basic idea came from the Ghost theme
+A medium inspired Jekyll blog. The basic idea came from the Ghost theme
 [Readium 2.0](http://www.svenread.com/readium-ghost-theme/). I use mediator on my own blog [The Base](http://blog.base68.com).
-
-Screenshots
---------
-![screenshot](/assets/images/screenshot1.jpg)
-![screenshot](/assets/images/screenshot2.jpg)
-![screenshot](/assets/images/screenshot3.jpg)
 
 Features
 -------
