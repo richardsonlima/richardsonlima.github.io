@@ -9,7 +9,7 @@ image: /assets/article_images/2014-08-29-welcome-to-jekyll/desktop.JPG
 
 So you worked extremely hard to save more `CPU` cycle in the central loop but your code still slowly ? I think that you need to know more about `time complexity` . 
 
-"Hey but what's time complexity ?"
+"Hey, but what's time complexity ?"
 
 Time complexity is related how your code spend time, memory and cpu according of size of input. For example, if we will want to answer some questions such as " If my algorithm spends 1 minute to process a 1000-byte input, how many minutes does it spend to process 2000-byte input ?" 
 
@@ -20,6 +20,23 @@ A direct way of calculating complexity would be to find some formula that gives 
      print(i);
  }
 {% endhighlight %}
+
+So we could say that time spent is 
+
+{% highlight ruby %}
+T(N) =
+    N*(time spent by a comparison betwhen i and N) +
+    N*(time spent to increase i) +
+    N*(time spent by a print)
+{% endhighlight %}
+
+However, it takes a lot work to make a super accurate account of these and usually neither is it worth it. For example, suppose we've worked hard and discovered that a certain algorithm spends time. 
+
+{% highlight ruby %}
+ T(N) = 10*N² + 137*N + 15
+{% endhighlight %}
+
+
 
 A Big-O function is a mathematical term that gives a rough estimation of how the speed of an algorithm changes with the size of the input data.
 
