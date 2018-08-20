@@ -4,7 +4,7 @@ title:  "The big O"
 date:   2018-08-19 20:13:21
 categories: programming
 tags: featured
-image: /assets/article_images/2014-08-29-welcome-to-jekyll/desktop.JPG
+image: /assets/article_images/big-O.jpg
 ---
 
 So you worked extremely hard to save more `CPU` cycle in the central loop but your code still slowly ? I think that you need to know more about `time complexity` . 
