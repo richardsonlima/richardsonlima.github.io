@@ -38,6 +38,39 @@ However, it takes a lot work to make a super accurate account of these and usual
 
 In this case the quadratic term `10 * N²` is more important than the others because for almost any value of `N` it will dominate the `sum` total. From `N ≥ 14` the quadratic term is already responsible for most of the execution time and for `N > 1000` it is already responsible for more than 99%. For estimation purposes we could simplify the formula for `T (N) = 10 * N²` without losing much.
 
+Another point at which we can simplify our formula is the constant factor multiplying the `N²`. To predict how fast the runtime grows depending on the input, it does not matter whether `T (N) = 10 * N or T (N) = 1000 * N`; in both cases doubling the N will quadruple the execution time.
+
+Therefore, the most popular way of working with time and space complexity in algorithm analysis is asymptotic complexity, which ignores these constant factors and the slower growing terms. It is now that the story of `O-big`, `Θ-big` and `Ω-big` comes in: these are notations that we use to characterize an asymptotic complexity.
+
+Let's start with O-large, which is a way to give an upper bound on the time spent by an algorithm. `(G)` describes the class of functions that grow at most as fast as the function `g` and when we say that `f ∈ O (g)` we mean that g grows at least as fast as `f`. Formally:
+
+Given the two functions f and g, we say that f ∈ O (g) if there exist constants x0 and c such that for all x> x0 is f (x) <c * g (x)
+
+In this definition, the constant c gives us scope to ignore constant factors (which allows us to say that `10 * N is O (N)`) and the constant `x0` says that we only care for the behavior of `f` and `g` when `N` is large and terms that grow faster dominate the total value.
+
+For a concrete example, consider that time function `f (n) = 10 * N ^ 2 + 137 * N + 15` from before. We can say that its growth is quadratic:
+
+We can say that `f ∈ O (N²)`, since for `c = 11 and N>`
+
+{% highlight ruby %}
+10 * N 2 + 137 * N + 15
+{% endhighlight %}
+
+We can choose other values ​​for `c` and `x0`, for example `c = 1000` and `N> 1000` (which make the account quite obvious). The exact value of these pairs does not matter, what matters is being able to convince yourself that at least one of them exists.
+
+In the opposite direction of the big `O` we have the big `Ω`, which is for lower bounds. When we say that `f` is `Ω (g)`, we are saying that `f` grows at least as fast as `g`. In our recurrent example, we can also say that `f (n)` grows as fast as a quadratic function:
+
+We can say that `f` is `Ω (N²)`, since for `c = 1` and `N> 0` it is valid
+
+{% highlight ruby %}
+10 * N² + 137 * N + 15> c * N ^ 2
+{% endhighlight %}
+
+Finally, Θ-large has to do with fair approximations, when f and g grow at the same rate (except for a possible constant factor). The difference between `Θ-large` for `O-large` and `Ω-large` is that they assume loose approximations, (eg `N² ∈ O (N³)`) in which one of the functions grows much faster than the other.
+
+Of these three notations, the most common to see is that of the O-grande. Normally, complexity analyzes are only concerned with the worst case execution time so the upper limit given by O-large is sufficient.
+
+
 A Big-O function is a mathematical term that gives a rough estimation of how the speed of an algorithm changes with the size of the input data.
 
 Check out the [Big O notation][big-o-notation] for more info on how to get the most out of 
