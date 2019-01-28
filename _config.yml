@@ -6,7 +6,7 @@ gems:
 # Site settings
 title: "Richardson Lima "
 description: > # this means to ignore newlines until "email:"
-   Rich DevSecOps - A brain dump related to DevSecOps, DevOps, Kubernetes, Infrastructure as a code and Cloud. 
+   Rich DevSecOps - A brain dump about DevSecOps, DevOps, Kubernetes, Infrastructure as a code and Cloud. 
 
 email: contato@richardsonlima.com.br 
 #blog logo
