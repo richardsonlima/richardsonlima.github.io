@@ -6,7 +6,7 @@ gems:
 # Site settings
 title: "Richardson Lima "
 description: > # this means to ignore newlines until "email:"
-   Infra DevOps - A brain dump related to Infrastructure as a code, DevOps and Cloud. 
+   Rich DevSecOps - A brain dump related to DevSecOps, DevOps, Kubernetes, Infrastructure as a code and Cloud. 
 
 email: contato@richardsonlima.com.br 
 #blog logo
