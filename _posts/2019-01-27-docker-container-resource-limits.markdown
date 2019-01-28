@@ -7,7 +7,7 @@ tags: featured
 image: /assets/article_images/docker-wallpaper-black.jpg
 ---
 
-Similar as we've resource limits on Kubernetes Cluster we've the same thing on Docker, a container without limits can use all of cpu, memory and will have access on all resources on Docker host or Swarm Cluster, it can potentially `starving` on process and resources, to avoid it, on this article we'll understand how to setup docker resource limits  
+ Similar as we've resource limits on Kubernetes Cluster we've the same thing on Docker, a container without limits can use all of cpu, memory and will have access on all resources on Docker host or Swarm Cluster, it can potentially `starving` on process and resources, to avoid it, on this article we'll understand how to setup docker resource limits  
  
 
 ### Working with container memory limit
