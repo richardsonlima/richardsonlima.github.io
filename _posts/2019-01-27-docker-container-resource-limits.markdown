@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Docker resource limits"
-date:   2018-01-27 20:13:21
+date:   2019-01-27 20:13:21
 categories: programming
 tags: featured
 image: /assets/article_images/docker-wallpaper-black.jpg
