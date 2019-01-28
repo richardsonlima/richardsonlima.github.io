@@ -25,7 +25,7 @@ paginate:	5
 url: "https://richardsonlima.github.io" # the base hostname & protocol for your site
 baseurl: ""
 #used to display twitter cards
-twitter_handle: '@infradevops'
+twitter_handle: '@richdevsecops'
 
 #fill in disqus shortname to use disqus
 #disqus: disqus-shortname
@@ -35,7 +35,7 @@ google_analytics: UA-48988720-2
 # social icons and sharing options
 social:
   - icon:	twitter
-    url:	https://twitter.com/infradevops
+    url:	https://twitter.com/richdevsecops
     desc: Follow me on twitter
     share_url: http://twitter.com/share
     share_title: ?text=
