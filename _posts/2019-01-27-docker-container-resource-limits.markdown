@@ -7,25 +7,22 @@ tags: featured
 image: /assets/article_images/docker-wallpaper-black.jpg
 ---
 
- Similar as we've resource limits on Kubernetes Cluster we've the same thing on Docker, a container without limits can use all of cpu, memory and will have access on all resources on Docker host or Swarm Cluster, it can potentially `starving` on process and resources, to avoid it, on this article we'll understand how to setup docker resource limits  
- 
+Similar as we can set resources limits on Kubernete’s Cluster, we can (and should) do the same thing on Docker. A container without limitations can eventually use all of the CPU, memory and have access to all of the resources on the Docker host or Swarm Cluster,  and it can potentially starve on processes and resources. On this article I’ll show you how to setup Docker resources limits, in order to avoid things like that. 
 
 ### Working with container memory limit
 
-While startup a container using `run` command we can specify some options to limit memory usage following these suffix b,k,m,g. 
+While starting up a container using the run command, we can specify some options to limit the memory usage using the –memory flag. The amount of memory that the container is going to be limited can be assigned in either bytes (b), kylobytes (k), megabytes(m) or gigabytes (g). In the example below I’m starting up a container with a 256 megabytes RAM maximum usage limitation, and another one with 1 gigabyte.
 
 {% highlight ruby %}
    $ sudo docker run -d -p 8081:80 --memory="256m" nginx
    $ sudo docker run -it --memory="1g" alpine /bin/bash
 {% endhighlight %}
 
-But it can ever work with swap memory limitation using the --memory-swap option, following the exemple below we'll limit memory to 1026m and swap to 2g.
+There’s also the option to limit the amount of swap memory available. To do this, use the flag –memory-swap. In the exemple below we’ll limit the memory usage to 1024m and the swap to 2g.
 
 {% highlight ruby %}
    $ sudo docker run -d -p 8081:80 --memory="1024m" --memory-swap"2g" alpine
 {% endhighlight %}
-
-
 
 ### Working with contaimer cpu limit
 
@@ -33,12 +30,9 @@ But it can ever work with swap memory limitation using the --memory-swap option,
    $ sudo docker run -d -p 8081:80 --memory="1024m" --memory-swap"2g" --cpus=".7" alpine
 {% endhighlight %}
 
-Now our container can use 1025mb ( 1g ) memory, 2g of swap memory and 70000, if we prefer add limit of cpu shares that by default if 1024, increasing and decreasing it and allowing container to use a greater or lesser portion of host machine cpu cycles 
+Our container can now use 1024MB (1G) of memory, 2G of swap memory and 70000. If we rather limit the amount of CPU shares (which by default if 1024MB), increasing and decreasing it and allowing container to use a greater or lesser portion of host machine cpu cycles
 	
-
 ### Conclusion
-
-asdasdasdasda
 
 > " Deploying new containers has become ridiculously easy (In a good way). Once containers are running, it is even easier to scale. 
 > Doubling or even tripling the number of running containers can occur with a simple keystroke but can your container infrastructure handle it?
