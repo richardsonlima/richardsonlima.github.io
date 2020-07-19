@@ -20,7 +20,7 @@ name: 'Richardson Lima'
 author: 'Richardson Lima'
 author_image: "/assets/images/author.jpg"
 
-paginate:	5
+paginate:	100
 
 url: "https://richardsonlima.github.io" # the base hostname & protocol for your site
 baseurl: ""
