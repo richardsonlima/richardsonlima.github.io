@@ -4,7 +4,7 @@ title:  "Go lang - API on AWS using Lambda,ApiGateway and DynamoDB"
 date:   2021-07-21 21:18:21
 categories: programming
 tags: featured
-image: /assets/article_images/docker-wallpaper-black.jpg
+image: /assets/article_images/prateek-katyal-MGRv3qZfyTs-unsplash.jpg
 ---
 
 ### Why Serverless
@@ -49,7 +49,7 @@ Performs operations on the database
 Returns the result for the API Gateway
 In Go, a Lambda function will always call main, which should invoke the necessary handler. That is:
 
-{% highlight ruby %}
+{% highlight go %}
 func main () {
   lambda.Start (handler)
 }
