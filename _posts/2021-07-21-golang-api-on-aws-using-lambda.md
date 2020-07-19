@@ -57,7 +57,7 @@ func main () {
 
 As our application handles two different routes, we will use a router instead of the handler, so that he can decide what to do based on the request route. With that, our main.go file should look like this:
 
-{% highlight ruby %}
+{% highlight go %}
 // main.go
 
 package main
