@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Go lang - API on AWS using Lambda,ApiGateway and DynamoDB"
+title:  "Go lang API on AWS"
 date:   2021-07-21 21:18:21
 categories: programming
 tags: featured
