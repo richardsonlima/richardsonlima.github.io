@@ -4,7 +4,7 @@ title:  "Go lang API on AWS"
 date:   2021-07-21 21:18:21
 categories: programming
 tags: featured
-image: /assets/article_images/prateek-katyal-DnhTymxDS3E-unsplash.jpg
+image: /assets/article_images/martijn-baudoin-4h0HqC3K4-c-unsplash.jpg
 ---
 
 ## Why Serverless
