@@ -2,8 +2,7 @@
 gems:
   - jemoji
   - jekyll-paginate
-#  - jekyll-mermaid
-
+  
 # Site settings
 title: "Richardson Lima "
 description: > # this means to ignore newlines until "email:"
@@ -62,6 +61,3 @@ social:
 #    share_url:
 #    share_title:
 #    share_link:
-
-#mermaid:
-#  src: 'custom-libs/mermaid.js'
