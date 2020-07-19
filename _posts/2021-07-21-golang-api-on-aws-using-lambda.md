@@ -24,13 +24,7 @@ Obviously, you must first access the AWS dashboard and perform login on it! 😉
 > 
 > **Lambda:** code to be executed in order to verify the request made, obtain the necessary data, process it and return to the API.
 
-{% mermaid %}
-graph LR
-A[user] -- HTTP PUT --> B((API Gateway))
-B --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-{% endmermaid %}
+
 
 To begin, select the Lambda service, click the Create a function button, give it the name you prefer (here, we'll call it go-serverless-api) and choose Go as the runtime. For this project, we will use a default role: choose Create a new role from template, give it a name (we choose microservice-role) and choose Simple Microservice permissions as the template to be used. On the next page, select the Select a test event input and choose Configure test events. Clicking Create new test event, create an empty body ({}) and name it as you prefer (we chose Blank). READY! Lambda created!
 
