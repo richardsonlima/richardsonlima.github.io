@@ -2,7 +2,7 @@
 gems:
   - jemoji
   - jekyll-paginate
-  - jekyll-mermaid
+#  - jekyll-mermaid
 
 # Site settings
 title: "Richardson Lima "
@@ -63,5 +63,5 @@ social:
 #    share_title:
 #    share_link:
 
-mermaid:
-  src: 'custom-libs/mermaid.js'
+#mermaid:
+#  src: 'custom-libs/mermaid.js'
