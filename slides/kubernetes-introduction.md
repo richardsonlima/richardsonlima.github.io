@@ -28,8 +28,24 @@ class: middle, inverse-slide
 class: middle, inverse-slide
 ## Em sua base, o Kubernetes reúne máquinas físicas ou virtuais individuais em um cluster usando uma rede compartilhada para comunicar entre cada servidor. Esse cluster é a plataforma física onde todos os componentes, recursos, e cargas de trabalho do Kubernetes são configurados.
 ---
+class: middle, inverse-slide
+## Cada uma das máquinas do cluster recebe um papel dentro do ecossistema do Kubernetes
+---
+class: middle, inverse-slide
+## Um servidor (ou um pequeno grupo nos deployments de alta disponibilidade) funciona como o servidor [mestre].
+---
+class: middle, inverse-slide
+## Esse servidor age como um gateway e um cérebro para o cluster, expondo uma API para usuários e clientes, verificando a saúde de outros servidores, decidindo a melhor forma de dividir e atribuir trabalho [onhecido como “scheduling”], e orquestrando a comunicação entre outros componentes. 
+
+---
+class: middle, inverse-slide
+## Cada uma das máquinas do cluster recebe um papel dentro do ecossistema do Kubernetes
+---
+class: middle, inverse-slide
+## ## Cada uma das máquinas do cluster recebe um papel dentro do ecossistema do Kubernetes
+---
 .left-column[
-## What We Don’t Know
+## Cada uma das máquinas do cluster recebe um papel dentro do ecossistema do Kubernetes
 ]
 .right-column-middle[
 - What’s the failure point of the system?
