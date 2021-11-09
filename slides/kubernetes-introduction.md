@@ -26,7 +26,10 @@ class: middle, inverse-slide
 ## Para entender como o Kubernetes é capaz de fornecer esses recursos, é útil ter uma noção de como ele é projetado e organizado em alto nível
 ---
 class: middle, inverse-slide
-## Em sua base, o Kubernetes reúne máquinas físicas ou virtuais individuais em um cluster usando uma rede compartilhada para comunicar entre cada servidor. Esse cluster é a plataforma física onde todos os componentes, recursos, e cargas de trabalho do Kubernetes são configurados.
+## Em sua base, o Kubernetes reúne máquinas físicas ou virtuais individuais em um cluster usando uma rede compartilhada para comunicar entre cada servidor. 
+---
+class: middle, inverse-slide
+## Esse cluster é a plataforma física onde todos os componentes, recursos, e cargas de trabalho do Kubernetes são configurados.
 ---
 class: middle, inverse-slide
 ## Cada uma das máquinas do cluster recebe um papel dentro do ecossistema do Kubernetes
@@ -35,24 +38,80 @@ class: middle, inverse-slide
 ## Um servidor (ou um pequeno grupo nos deployments de alta disponibilidade) funciona como o servidor [mestre].
 ---
 class: middle, inverse-slide
-## Esse servidor age como um gateway e um cérebro para o cluster, expondo uma API para usuários e clientes, verificando a saúde de outros servidores, decidindo a melhor forma de dividir e atribuir trabalho [onhecido como “scheduling”], e orquestrando a comunicação entre outros componentes. 
-
+## Esse servidor age como um gateway e um cérebro para o cluster, expondo uma API para usuários e clientes, verificando a saúde de outros servidores.
 ---
 class: middle, inverse-slide
-## Cada uma das máquinas do cluster recebe um papel dentro do ecossistema do Kubernetes
----
-class: middle, inverse-slide
-## ## Cada uma das máquinas do cluster recebe um papel dentro do ecossistema do Kubernetes
+## decidindo a melhor forma de dividir e atribuir trabalho [onhecido como “scheduling”], e orquestrando a comunicação entre outros componentes.
 ---
 .left-column[
-## Cada uma das máquinas do cluster recebe um papel dentro do ecossistema do Kubernetes
+## Componentes do Servidor Mestre
 ]
 .right-column-middle[
-- What’s the failure point of the system?
-    - Quantitative
-      - Requests per second
+- Quais componentes são esses?
+    - etcd
+    - kube-apiserver
+    - kube-controller-manager
+    - kube-scheduler
+    - cloud-controller-manager
 ]
 ---
+.left-column[
+## Componentes do Servidor de Nodes
+]
+.right-column-middle[
+- Quais componentes são esses?
+    - Um Runtime de Container
+    - kubelet
+    - kube-proxy
+]
+---
+.left-column[
+## Objetos e Cargas de Trabalho do Kubernetes
+]
+.right-column-middle[
+- Quais componentes são esses?
+    - Pods
+]
+---
+.left-column[
+## Controladores de Replicação e Conjuntos de Replicação
+]
+.right-column-middle[
+- Quais componentes são esses?
+    - Replication Controller ou controlador de replicação
+    - Replication Sets ou Conjuntos de Replicação
+]
+---
+.left-column[
+## Deployments
+]
+.right-column-middle[
+- Deployments são uma das cargas de trabalho mais comuns para se criar e gerenciar diretamente
+    - Os deployments usam os replication sets como blocos construtivos 
+    - Adicionam a funcionalidade de gerenciamento flexível do ciclo de vida.
+]
+---
+.left-column[
+## Deployments
+]
+.right-column-middle[
+- Deployments são uma das cargas de trabalho mais comuns para se criar e gerenciar diretamente
+    - Os deployments usam os replication sets como blocos construtivos 
+    - Adicionam a funcionalidade de gerenciamento flexível do ciclo de vida.
+]
+---
+.left-column[
+## Stateful Sets
+]
+.right-column-middle[
+- Stateful Sets ou Conjuntos com preservação de estado
+    - São pods controladores especializados que oferecem pedidos e garantias de exclusividade
+    - Primeiramente, eles são usados para ter um controle mais refinado quando você tem requisitos especiais relacionados ao pedido de implantação
+    - Dados persistentes ou redes estáveis.
+]
+*Por exemplo, stateful sets são geralmente associados a aplicações orientadas a dados, como bancos de dados*
+---
+
 .left-column[
 ## What We Don’t Know
 ]
