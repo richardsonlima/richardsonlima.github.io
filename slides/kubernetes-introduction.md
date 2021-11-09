@@ -6,10 +6,15 @@ class: center, middle, inverse-slide
 .footnote[([@RichDevSecOps](https://twitter.com/RichDevSecOps))]
 ---
 ## O que é o *Kubernetes*?
-### _Kubernetes, em seu nível mais básico, é um sistema para executar e coordenar aplicações em container através de um cluster de máquinas. É uma plataforma desenhada para gerenciar completamente o ciclo de aplicações e serviços em container utilizando métodos que fornecem previsibilidade, escalabilidade, e alta disponibilidade._
+class: middle, inverse-slide
+## Kubernetes, em seu nível mais [básico]
+- É um sistema para executar e coordenar aplicações em container através de um cluster de máquinas
+- É uma plataforma desenhada para gerenciar completamente o ciclo de aplicações e serviços em container
+- Utilizando métodos que fornecem previsibilidade, escalabilidade, e alta disponibilidade
+- How do you recover from a failure?
 
-- Large-scale cluster management at Google with Borg [Large-scale cluster management at Google with Borg](https://research.google/pubs/pub43438/)
 *Já ouviu falar do borg*
+- [Large-scale cluster management at Google with Borg](https://research.google/pubs/pub43438/)
 ---
 class: middle, inverse-slide
 ## You’ve shipped your first deployment to .kubernetes-text[Kubernetes] 🎉🎉🎉
