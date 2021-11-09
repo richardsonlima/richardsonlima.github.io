@@ -5,7 +5,6 @@ class: center, middle, inverse-slide
 
 .footnote[([@RichDevSecOps](https://twitter.com/RichDevSecOps))]
 ---
-## O que é o *Kubernetes*?
 class: middle, inverse-slide
 ## Kubernetes, em seu nível mais [básico]
 - É um sistema para executar e coordenar aplicações em container através de um cluster de máquinas
@@ -17,14 +16,17 @@ class: middle, inverse-slide
 - [Large-scale cluster management at Google with Borg](https://research.google/pubs/pub43438/)
 ---
 class: middle, inverse-slide
-## You’ve shipped your first deployment to .kubernetes-text[Kubernetes] 🎉🎉🎉
-### ... _and you’re done right?_
+## O K8s permite definir e gerenciar suas aplicações com alto grau de flexibilidade, potência, e confiabilidade 🎉🎉🎉
+### ... _Vamos então explorar mais?_
 ---
 class: middle, inverse-slide
-## Well, .purple-text[not exactly] 😬
+## Arquitetura do Kubernetes 😬
 ---
 class: middle, inverse-slide
-## There are still some things we .blue-text[don’t know]
+## Para entender como o Kubernetes é capaz de fornecer esses recursos, é útil ter uma noção de como ele é projetado e organizado em alto nível
+---
+class: middle, inverse-slide
+## Em sua base, o Kubernetes reúne máquinas físicas ou virtuais individuais em um cluster usando uma rede compartilhada para comunicar entre cada servidor. Esse cluster é a plataforma física onde todos os componentes, recursos, e cargas de trabalho do Kubernetes são configurados.
 ---
 .left-column[
 ## What We Don’t Know
