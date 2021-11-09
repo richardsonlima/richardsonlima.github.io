@@ -53,11 +53,11 @@ class: middle, inverse-slide
 ]
 .right-column-middle[
 - Quais componentes são esses?
-    - etcd
-    - kube-apiserver
-    - kube-controller-manager
-    - kube-scheduler
-    - cloud-controller-manager
+    - etcd: banco de armazenamento de chave-valor leve e distribuído
+    - kube-apiserver: é o servidor de API do cluster 
+    - kube-controller-manager: gerencia diferentes controladores que regulam o estado do cluster, gerencia o ciclo de vida das cargas de trabalho
+    - kube-scheduler: lê os requisitos operacionais da carga de trabalho, analisa o ambiente de infraestrutura atual ...
+    - cloud-controller-manager: permite o Kubernetes interagir com provedores
 ]
 ---
 .left-column[
@@ -65,9 +65,9 @@ class: middle, inverse-slide
 ]
 .right-column-middle[
 - Quais componentes são esses?
-    - Um Runtime de Container
-    - kubelet
-    - kube-proxy
+    - Um Runtime de Container: docker, rkt etc 
+    - kubelet: comunica-se com os componentes do mestre para autenticar no cluster
+    - kube-proxy: gerenciar sub-redes de hosts individuais e tornar os serviços disponíveis
 ]
 ---
 .left-column[
