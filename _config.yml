@@ -6,19 +6,19 @@ gems:
 # Site settings
 title: "Richardson Lima "
 description: > # this means to ignore newlines until "email:"
-   A brain dump about DevSecOps, DevOps, Kubernetes, Infrastructure as a code and Cloud. 
+   A brain dump about DataOps, DevSecOps, DevOps and SRE. 
 
-email: contato@richardsonlima.com.br 
+email: rick@richardsonlima.com.br 
 #blog logo
-logo: "/assets/images/df_logo.jpg"
+logo: "/assets/images/richardson_avatar_social.jpeg"
 float_logo: true # true, false (default)
 
 # blog cover
-cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
+cover: "/assets/images/photo-1618171889969-0feeb769fe78.png"
 
 name: 'Richardson Lima'
 author: 'Richardson Lima'
-author_image: "/assets/images/author.jpg"
+author_image: "/assets/images/richardson_avatar_social.jpeg"
 
 paginate:	100
 
@@ -55,9 +55,3 @@ social:
     share_title:
     share_link:
 
-#  - icon:	google-plus
-#    url:	https://google.com/???
-#    desc:	Add me on google+
-#    share_url:
-#    share_title:
-#    share_link:
