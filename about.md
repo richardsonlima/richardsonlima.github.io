@@ -19,7 +19,7 @@ As a guitar player by hobbie I've an specific interest in singers and musicians 
 
 [Daniel Jobim - Águas de Março - Ao Vivo](https://www.youtube.com/watch?v=achxrz7ixxY&list=RDEMavVpSFR4FaOsgmiSjRFdRg&start_radio=1&rv=ErE2Cpko1XI)
 
-[John Pizzarelli And Daniel Jobim 'Meditation/Quiet Nights of Quiet Stars' | Live Studio Session](https://www.youtube.com/watch?v=ErE2Cpko1XI&list=RDEMavVpSFR4FaOsgmiSjRFdRg&index=2)
+[John Pizzarelli And Daniel Jobim - Meditation/Quiet Nights of Quiet Stars](https://www.youtube.com/watch?v=ErE2Cpko1XI&list=RDEMavVpSFR4FaOsgmiSjRFdRg&index=2)
 
 	
 ![](https://i.imgsafe.org/60/607aec4f21.png)
