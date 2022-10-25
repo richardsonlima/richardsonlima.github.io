@@ -8,9 +8,6 @@ Hey, professionally I'm a Platform Engineer (SRE, DevOps, DataOps), designing an
 
 I'm a generalist trying to be specialist (ha-ha-ha!), usually curious, fast learner, with some restricted interests and tend to like seeing the connections between several areas or understanding the bigger picture of whatever [6A02.0](https://www.youtube.com/watch?v=kVBAYmY8slM). Into these areas I could highlight New Classic Music ([Hans Zimmer](https://www.youtube.com/watch?v=kottjfEd7Zw), [Ólafur Arnalds](https://www.youtube.com/watch?v=Kb34JCz5wvY&t=1213s), [Max Richter](https://www.youtube.com/watch?v=b_YHE4Sx-08), [Víkingur Ólafsson](https://www.youtube.com/watch?v=h3-rNMhIyuQ), [Stjepan Hauser](https://www.youtube.com/watch?v=kn1gcjuhlhg), [Ludovico Einaudi](https://www.youtube.com/watch?v=70cfoPloJq8)), [Surf](https://www.youtube.com/watch?v=jyq_xRhSMTc) (I love the Ocean, Sea and Nature), JiuJitsu (Wellness, Discipline, Body Conditioning, Networking) and Drawing with Nanquim.
 
-> “As above, so below, as within, so without, as the universe, so the soul…” 
-> ― Hermes Trismegistus
-
 ### Normally I take a look on books of these themes in literature:
 - Business & Finance
 - Personal Finance
@@ -47,7 +44,16 @@ As a guitar player by hobbie I've a specific interest in singers and musicians t
 
 [The Aristocrats - Bad Asteroid](https://www.youtube.com/watch?v=B8gOMUjwtwQ)
 
-	
+### Inspirational Quotes
+
+> “Listen within yourself and look into the infinitude of Space and Time. There can be heard the songs of the Constellations, the voices of the Numbers, and the harmonies of the Spheres.”
+
+> “The present issues from the past, and the future from the present. Everything is made one by this continuity. Time is like a circle, where all the points are so linked that one cannot say where it begins or ends, for all points precede and follow one another for ever.”
+
+> “Quod enmim est erit semper” 
+
+> “Close your eyes and let the mind expand. Let no fear of death or darkness arrest its course. Allow the mind to merge with Mind. Let it flow out upon the great curve of consciousness. Let it soar on the wings of the great bird of duration, up to the very Circle of Eternity.”
+
 ![](https://i.imgsafe.org/60/607aec4f21.png)
 ![](https://i.imgsafe.org/60/6078e2a31f.png)
 ![](https://i.imgsafe.org/60/60775a2051.png)
