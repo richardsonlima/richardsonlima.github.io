@@ -44,7 +44,7 @@ As a guitar player by hobbie I've a specific interest in singers and musicians t
 
 [The Aristocrats - Bad Asteroid](https://www.youtube.com/watch?v=B8gOMUjwtwQ)
 
-[JOHN MAYER - Ain't No Sunshine](https://www.youtube.com/watch?v=ktyhXq00RxQ)
+[John Mayer - Ain't No Sunshine](https://www.youtube.com/watch?v=ktyhXq00RxQ)
 
 [Eric Clapton - Tears in Heaven](https://www.youtube.com/watch?v=fvVqPi92CcY)
 
