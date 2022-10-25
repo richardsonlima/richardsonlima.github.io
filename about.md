@@ -24,7 +24,7 @@ I'm a generalist trying to be specialist (ha-ha-ha!), usually curious, fast lear
 - Space Exploration
 - General & Miscellaneous Philosophy
 
-As a guitar player by hobbie I've a specific interest in singers and musicians that makes Jazz, Folk-pop indie, Bossa, Progressive rock and Texas blues an incredible flavor of art. Then if you don't mind take a look into the list below and enjoy it ✨.
+As a guitar player by hobbie I've a specific interest in singers and musicians that makes Jazz, Folk-pop indie, Bossa, Progressive rockTexas blues, Downtempo, Soul, Dream pop and Trip hop an incredible flavor of art. Then if you don't mind take a look into the list below and enjoy it ✨.
 
 [Olivia Dean - Live At The Jazz Cafe](https://www.youtube.com/watch?v=St7G1F4mu_4&t=1572s)
 
@@ -43,6 +43,24 @@ As a guitar player by hobbie I've a specific interest in singers and musicians t
 [Culture Shock - Polyphia](https://www.youtube.com/watch?v=EF-PT-3IggA&list=OLAK5uy_n0DUffe79AzN1W2kP5U35qiHi1dvRJwoc)
 
 [The Aristocrats - Bad Asteroid](https://www.youtube.com/watch?v=B8gOMUjwtwQ)
+
+[JOHN MAYER - Ain't No Sunshine](https://www.youtube.com/watch?v=ktyhXq00RxQ)
+
+[Eric Clapton - Tears in Heaven](https://www.youtube.com/watch?v=fvVqPi92CcY)
+
+[Heart - Stairway to Heaven Led Zeppelin](https://www.youtube.com/watch?v=2cZ_EFAmj08)
+
+[Gregory Porter performs It's Probably Me](https://www.youtube.com/watch?v=lSzICmwmRsA)
+
+[Jacob Collier,Daniel Caesar - Best Part](https://www.youtube.com/watch?v=fD4rxj7-uO0)
+
+[Chet Faker - I'm Into You](https://www.youtube.com/watch?v=DuX2MkflGYs)
+
+[Cigarettes After Sex - NPR Music](https://www.youtube.com/watch?v=HcAxgErAkTw)
+
+[City And Colour - Live 2007](https://www.youtube.com/watch?v=_p0rOaUf9pQ)
+
+[Diana Krall - Walk On By](https://www.youtube.com/watch?v=yCwc-5YTBb0)
 
 ### Inspirational Quotes
 
