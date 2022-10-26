@@ -26,6 +26,8 @@ I'm a generalist trying to be specialist (ha-ha-ha!), usually curious, fast lear
 
 As a guitar player by hobbie I've a specific interest in singers and musicians that makes Jazz, Folk-pop indie, Bossa, Progressive rockTexas blues, Downtempo, Soul, Dream pop and Trip hop an incredible flavor of art. Then if you don't mind take a look into the list below and enjoy it ✨.
 
+[[피키라이브] 혁오 - isn't She Lovely](https://www.youtube.com/watch?v=bEq_HIQF3XY&list=RDbEq_HIQF3XY&start_radio=1)
+
 [Olivia Dean - Live At The Jazz Cafe](https://www.youtube.com/watch?v=St7G1F4mu_4&t=1572s)
 
 [Jeff Healey - As The Years Go Passing By](https://www.youtube.com/watch?v=gIkOaTVu8uM&list=RDgIkOaTVu8uM&start_radio=1)
