@@ -15,11 +15,11 @@ When I was a little boy I started a specific interest in the universe, one of my
 
 blah blah blah. 
 
-![A Black Hole Infographic](/assets/article_images/black_holes_infographic-v2.jpg "A Black Hole Infographic")
+![A Black Hole Infographic](/assets/article_images/black_holes_infographic-v2.jpg#center "A Black Hole Infographic")
 
 blah blah blah. 
 
-![Black Holes - From Start To End](/assets/article_images/black-hole-92358__480-3304184125.jpeg "Black Holes - From Start To End")
+![Black Holes - From Start To End](/assets/article_images/black-hole-92358__480-3304184125.jpeg#center "Black Holes - From Start To End")
 
 blah blah blah. 
 
@@ -27,7 +27,7 @@ blah blah blah.
 
 In simple words a singularity is, a force of gravity that could compress you down into an infinitely tiny point, imagine you into it, hahaha! So you will occupy literally no volume. That sounds impossible, and it is. These "singularities" are found in the centers of black holes. 
 
-![Singularity](/assets/article_images/c94435eaa002103a10e7b5883475f115.jpg "Singularity")
+![Singularity](/assets/article_images/c94435eaa002103a10e7b5883475f115.jpg#center "Singularity")
 
 >There are places in the universe where our laws of physics simply break down
 
@@ -35,7 +35,7 @@ In simple words a singularity is, a force of gravity that could compress you dow
 
 blah blah blah. 
 
-![Singularity and Black Hole](/assets/article_images/58d5d9eebbc3c4abcffa8cbce75a9a18.jpg "Singularity and Black Hole")
+![Singularity and Black Hole](/assets/article_images/58d5d9eebbc3c4abcffa8cbce75a9a18.jpg#center "Singularity and Black Hole")
 
 blah blah blah. 
 
@@ -47,7 +47,7 @@ blah blah blah.
 
 Dark is a German science fiction thriller television series ...
 
-[![Netflix Dark - You are Me](/assets/article_images/24-7-e1588885277490-2124452654.jpeg "Netflix Dark - You are Me")](https://www.youtube.com/watch?v=mloOTbcuB5I)
+[![Netflix Dark - You are Me](/assets/article_images/24-7-e1588885277490-2124452654.jpeg#center "Netflix Dark - You are Me")](https://www.youtube.com/watch?v=mloOTbcuB5I)
 
 blah blah blah. [Netflix Dark - family tree](https://www.behance.net/gallery/99759907/Infographic-DARK/modules/576574441)
 
@@ -57,13 +57,13 @@ In the first two seasons of Dark, the triquetra seems to symbolize the caves' cl
 
 This symbol is seen on the Emerald Tablet, the steel door in the cave leading to the passage, among the Stranger's papers, in the Sic Mundus photograph, on the leather notebook, and more.[2]
 
-![Triquetra](/assets/article_images/6a635992e8caa11cc108a49db9da0776.jpg "Triquetra")
+![Triquetra](/assets/article_images/6a635992e8caa11cc108a49db9da0776.jpg#center "Triquetra")
 
 
 The **Emerald Tablet**, also known as the Smaragdine Table, or Tabula Smaragdina, is a piece of the Hermetica (Egyptian-Greek wisdom texts from the 2nd century AD), reputed to contain the secret of the prima materia – the essence of all matter. It was regarded by European alchemists as the foundation of their art.
 The line "Sic Mundus Creatus Est," which is written on the door to the **wormhole**, is derived from the text.
 
-![The Emerald Tablet of Hermes - Author: Hermes Trismegistus](/assets/article_images/8c2d7cc2faf2217e4cbcfd9c5e77b958.jpg "The Emerald Tablet of Hermes - Author: Hermes Trismegistus")
+![The Emerald Tablet of Hermes - Author: Hermes Trismegistus](/assets/article_images/8c2d7cc2faf2217e4cbcfd9c5e77b958.jpg#center "The Emerald Tablet of Hermes - Author: Hermes Trismegistus")
 
 
 **Appearances and references**
@@ -77,7 +77,7 @@ The series features several references to the tablet. A painting depicting the E
 blah blah blah. 
 
 
-[![Interstellar - Landing in the Tesseract Scene 1080p HD](/assets/article_images/Interstellar-Landing-in-the-TesseractScene-1080p-HD.png)](https://www.youtube.com/watch?v=iJio07EtKYc)
+[![Interstellar - Landing in the Tesseract Scene 1080p HD](/assets/article_images/Interstellar-Landing-in-the-TesseractScene-1080p-HD.png#center)](https://www.youtube.com/watch?v=iJio07EtKYc)
 
 > The most mind blowing part of this scene, is that even though he's looking through the back of the bookcase (at Murph), he still does not know that he's the 'ghost' that Murph had been experiencing, he's so taken back by the entire experience that he's completely unaware he traveled back in time. I've seen this scene about 20 times, and it still blows me away. Fucking GENIUS!!!! (by Christopher Banuelos)
 
