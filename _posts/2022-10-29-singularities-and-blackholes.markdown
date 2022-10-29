@@ -18,11 +18,15 @@ blah blah blah.
 
 In simple words a singularity is, a force of gravity that could compress you down into an infinitely tiny point, imagine you into it, hahaha! So you will occupy literally no volume. That sounds impossible, and it is. These "singularities" are found in the centers of black holes. 
 
+![Singularity](/assets/article_images/c94435eaa002103a10e7b5883475f115.jpg "Singularity")
+
 >There are places in the universe where our laws of physics simply break down
 
 ### Singularities and Black Holes
 
 blah blah blah. 
+
+![Singularity and Black Hole](/assets/article_images/58d5d9eebbc3c4abcffa8cbce75a9a18.jpg "Singularity and Black Hole")
 
 
 ### Spacetime singularities
