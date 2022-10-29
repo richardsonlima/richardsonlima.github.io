@@ -50,6 +50,11 @@ Dark is a German science fiction thriller television series ...
 ![Netflix Dark](/assets/article_images/24-7-e1588885277490-2124452654.jpeg "Netflix Dark")
 
 
+> The most mind blowing part of this scene, is that even though he's looking through the back of the bookcase (at Murph), he still does not know that he's the 'ghost' that Murph had been experiencing, he's so taken back by the entire experience that he's completely unaware he traveled back in time. I've seen this scene about 20 times, and it still blows me away. Fucking GENIUS!!!! (by Christopher Banuelos)
+
+> The incredible thing about this scene is that it could all be completely true - or at least partly. There is a credible theory floating around the physics community which states that at the singularity of every black hole lies a whole new universe. This means that our universe, everything we know and understand, could actually be the singularity of a black hole originating from a higher 'parent' universe. And at the centre of each and every black hole within our own universe, lies a new 'baby' universe born from our own. We would just never be able to physically see, let alone travel to these other universes because there is no possible way to survive the crushing gravity found inside the event horizon of a black hole. Mind = blown o.O (by Alexander McAllister)
+
+
 [![Interstellar - Landing in the Tesseract Scene 1080p HD](/assets/article_images/Interstellar-Landing-in-the-TesseractScene-1080p-HD.png)](https://www.youtube.com/watch?v=iJio07EtKYc)
 
 blah blah blah. 
