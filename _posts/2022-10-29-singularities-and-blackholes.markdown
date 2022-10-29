@@ -47,11 +47,31 @@ blah blah blah.
 
 Dark is a German science fiction thriller television series ...
 
-[![Netflix Dark](/assets/article_images/24-7-e1588885277490-2124452654.jpeg "Netflix Dark - S1E6 - The Stranger stops Jonas from taking Mikkel back
-")](https://www.youtube.com/watch?v=mloOTbcuB5I)
+[![Netflix Dark - You are Me](/assets/article_images/24-7-e1588885277490-2124452654.jpeg "Netflix Dark - You are Me")](https://www.youtube.com/watch?v=mloOTbcuB5I)
 
 blah blah blah. 
 
+The **triquetra** is a three-pointed symbol that has been used in ancient Nordic, Celtic, German, and Japanese cultures. It has been used in both pagan and Christian religious imagery as well, symbolizing the Holy Trinity in the latter. It is sometimes interlaced within a circle or combined/interlaced with additional triquetras to form different geometric shapes like crosses, celtic knots, trikelions, and the three-hare symbol are all related.[1]
+
+In the first two seasons of Dark, the triquetra seems to symbolize the caves' closed time loops with each year being thirty-three years apart, with the past affecting the future and the future influencing the past.[2] In the third season, it comes to symbolize the three different worlds as well.
+
+This symbol is seen on the Emerald Tablet, the steel door in the cave leading to the passage, among the Stranger's papers, in the Sic Mundus photograph, on the leather notebook, and more.[2]
+
+![Triquetra](/assets/article_images/6a635992e8caa11cc108a49db9da0776.jpg "Triquetra")
+
+
+The **Emerald Tablet**, also known as the Smaragdine Table, or Tabula Smaragdina, is a piece of the Hermetica (Egyptian-Greek wisdom texts from the 2nd century AD), reputed to contain the secret of the prima materia – the essence of all matter. It was regarded by European alchemists as the foundation of their art.
+The line "Sic Mundus Creatus Est," which is written on the door to the wormhole, is derived from the text.
+
+![The Emerald Tablet of Hermes - Author: Hermes Trismegistus | Publisher: Merchant Books | Publication Date: November 16, 2013 | Number of Pages: 44 pages | Language: English | Binding: Paperback | ISBN-10: 1603866140 | ISBN-13: 9781603866149](/assets/article_images/8c2d7cc2faf2217e4cbcfd9c5e77b958.jpg "The Emerald Tablet of Hermes - Author: Hermes Trismegistus | Publisher: Merchant Books | Publication Date: November 16, 2013 | Number of Pages: 44 pages | Language: English | Binding: Paperback | ISBN-10: 1603866140 | ISBN-13: 9781603866149")
+
+
+
+**Appearances and references**
+The series features several references to the tablet. A painting depicting the Emerald Tablet by Heinrich Khunrath from 1606, with a triquetra added at the bottom, is seen in multiple places throughout the series.
+
+[1]: <https://en.wikipedia.org/wiki/Triquetra>
+[2]: <https://dark.netflix.io/triquetra/>
 
 **Interstellar movie - Landing in the Tesseract Scene**
 
