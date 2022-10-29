@@ -21,7 +21,19 @@ In simple words a singularity is, a force of gravity that could compress you dow
 >There are places in the universe where our laws of physics simply break down
 
 ### Singularities and Black Holes
+
 blah blah blah. 
+
+
+### Spacetime singularities
+
+blah blah blah. 
+
+### Time travelling
+
+Dark is a German science fiction thriller television series ...
+
+![Netflix Dark](/assets/article_images/24-7-e1588885277490-2124452654.jpeg "Netflix Dark")
 
 
 ### References:
@@ -29,3 +41,7 @@ blah blah blah.
 [What Is a Black Hole?](https://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-a-black-hole-k4.html)
 
 [Singularities and Black Holes](https://plato.stanford.edu/entries/spacetime-singularities/)
+
+[Spacetime singularities](https://www.einstein-online.info/en/spotlight/singularities/)
+
+
