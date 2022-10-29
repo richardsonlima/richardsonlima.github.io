@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Singularities and Black Holes"
+title:  "Singularities, Black Holes, Time travelling and some intereting thinks"
 date:   2022-10-29 17:17:17
 categories: astronomy
 tags: astronomy
