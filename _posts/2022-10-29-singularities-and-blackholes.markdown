@@ -11,9 +11,16 @@ When I was a little boy I started a specific interest in the universe, one of my
 
 
 
+
+
 ### Black Holes
 
-blah blah blah. 
+Black holes commonly known as star killers, typically when black holes are supermassive they kill stars by "spaghettification" in a process where the stars suffer from being ripped to shreds. Bizarre, right?
+
+![Rare 'Death by Spaghettification' captured](/assets/article_images/Spaghettification-AT2019qiz-ESO-MKornmesser-3588088401.jpeg "Rare 'Death by Spaghettification' captured")
+
+"The idea of a black hole 'sucking in' a nearby star sounds like science fiction. But this is exactly what happens in a tidal disruption event," the new study's lead author Matt Nicholl, a lecturer and Royal Astronomical Society research fellow at the University of Birmingham in the United Kingdom, said in a European Southern Observatory statement (opens in new tab). Researchers caught the event in action using numerous telescopes, including ESO's Very Large Telescope and New Technology Telescope.
+
 
 ![A Black Hole Infographic](/assets/article_images/black_holes_infographic-v2.jpg#center "A Black Hole Infographic")
 
