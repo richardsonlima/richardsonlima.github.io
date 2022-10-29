@@ -61,7 +61,7 @@ This symbol is seen on the Emerald Tablet, the steel door in the cave leading to
 
 
 The **Emerald Tablet**, also known as the Smaragdine Table, or Tabula Smaragdina, is a piece of the Hermetica (Egyptian-Greek wisdom texts from the 2nd century AD), reputed to contain the secret of the prima materia – the essence of all matter. It was regarded by European alchemists as the foundation of their art.
-The line "Sic Mundus Creatus Est," which is written on the door to the wormhole, is derived from the text.
+The line "Sic Mundus Creatus Est," which is written on the door to the **wormhole**, is derived from the text.
 
 ![The Emerald Tablet of Hermes - Author: Hermes Trismegistus](/assets/article_images/8c2d7cc2faf2217e4cbcfd9c5e77b958.jpg "The Emerald Tablet of Hermes - Author: Hermes Trismegistus")
 
