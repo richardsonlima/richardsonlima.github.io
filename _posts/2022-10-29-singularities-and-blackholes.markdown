@@ -12,6 +12,15 @@ When I was a little boy I started a specific interest in the universe, one of my
 
 
 ### Black Holes
+
+blah blah blah. 
+
+![A Black Hole Infographic](/assets/article_images/black_holes_infographic-v2.jpg "A Black Hole Infographic")
+
+blah blah blah. 
+
+![Black Holes - From Start To End](/assets/article_images/black-hole-92358__480-3304184125.jpeg "Black Holes - From Start To End")
+
 blah blah blah. 
 
 ### Singularity
@@ -28,6 +37,7 @@ blah blah blah.
 
 ![Singularity and Black Hole](/assets/article_images/58d5d9eebbc3c4abcffa8cbce75a9a18.jpg "Singularity and Black Hole")
 
+blah blah blah. 
 
 ### Spacetime singularities
 
@@ -39,6 +49,7 @@ Dark is a German science fiction thriller television series ...
 
 ![Netflix Dark](/assets/article_images/24-7-e1588885277490-2124452654.jpeg "Netflix Dark")
 
+blah blah blah. 
 
 ### References:
 
