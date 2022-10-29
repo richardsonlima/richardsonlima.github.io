@@ -49,7 +49,7 @@ Dark is a German science fiction thriller television series ...
 
 [![Netflix Dark - You are Me](/assets/article_images/24-7-e1588885277490-2124452654.jpeg "Netflix Dark - You are Me")](https://www.youtube.com/watch?v=mloOTbcuB5I)
 
-blah blah blah. 
+blah blah blah. [Netflix Dark - family tree](https://www.behance.net/gallery/99759907/Infographic-DARK/modules/576574441)
 
 The **triquetra** is a three-pointed symbol that has been used in ancient Nordic, Celtic, German, and Japanese cultures. It has been used in both pagan and Christian religious imagery as well, symbolizing the Holy Trinity in the latter. It is sometimes interlaced within a circle or combined/interlaced with additional triquetras to form different geometric shapes like crosses, celtic knots, trikelions, and the three-hare symbol are all related.[1]
 
