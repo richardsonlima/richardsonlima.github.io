@@ -15,7 +15,10 @@ When I was a little boy I started a specific interest in the universe, one of my
 blah blah blah. 
 
 ### Singularity
-blah blah blah. 
+
+In simple words a singularity is, a force of gravity that could compress you down into an infinitely tiny point, imagine you into it, hahaha! So you will occupy literally no volume. That sounds impossible, and it is. These "singularities" are found in the centers of black holes. 
+
+>There are places in the universe where our laws of physics simply break down
 
 ### Singularities and Black Holes
 blah blah blah. 
@@ -24,4 +27,5 @@ blah blah blah.
 ### References:
 
 [What Is a Black Hole?](https://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-a-black-hole-k4.html)
+
 [Singularities and Black Holes](https://plato.stanford.edu/entries/spacetime-singularities/)
