@@ -15,7 +15,7 @@ When I was a little boy I started a specific interest in the universe, one of my
 
 ### Black Holes
 
-Black holes commonly known as star killers, typically when black holes are supermassive they kill stars by "spaghettification" in a process where the stars suffer from being ripped to shreds. Bizarre, right?
+Black holes commonly known as **star killers**, typically when black holes are supermassive they kill stars by "spaghettification" in a process where the stars suffer from being ripped to shreds. Bizarre, right?
 
 ![Rare 'Death by Spaghettification' captured](/assets/article_images/Spaghettification-AT2019qiz-ESO-MKornmesser-3588088401.jpeg "Rare 'Death by Spaghettification' captured")
 
