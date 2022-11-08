@@ -18,7 +18,11 @@ Taken from ‘The Blue Notebooks’ (2018) – new recording
 
 ![I can imagine](/assets/article_images/dylan-mcleod-6wgaW60CWQU-unsplash.jpg "I can imagine")
 
->It is actually kinda relaxing. I'm finishing my tea, working on my computer, listening to music. When this song start playing, I can imagine a cat climbed onto my lap. Like so many times before, but this time, this time it felt like everything was exactly as it is supposed to be. Thereby I wish to all the people listening to this song to find their inner peace. You all deserve that.
+>It is actually kinda relaxing. I'm finishing my tea, working on my computer, listening to music. When this song start playing.
+
+![My tea](/assets/article_images/mahalon-blake-ZDxwMYZk2fk-unsplash.jpg "My tea")
+
+ >I can imagine a cat climbed onto my lap. Like so many times before, but this time, this time it felt like everything was exactly as it is supposed to be. Thereby I wish to all the people listening to this song to find their inner peace. You all deserve that.
 
 ![A Scottish Fold Cat](/assets/article_images/eric-han-Hd7vwFzZpH0-unsplash.jpg#center "A Scottish Fold Cat")
 
