@@ -16,7 +16,7 @@ Taken from ‘The Blue Notebooks’ (2018) – new recording
 
 >I'm just imagine sitting on a rooftop terrace of a very cool place into the nature. You believe that I can hear cars and noise of the city, but it is just a ambient noise, nothing disturbing.
 
-![I can imagine](/assets/article_images/dylan-mcleod-6wgaW60CWQU-unsplash.jpg "I can imagine")
+![I can imagine](/assets/article_images/skyler-smith-VduXA-Cw9pc-unsplash.jpg "I can imagine")
 
 >It is actually kinda relaxing. I'm finishing my tea, working on my computer, listening to music. When this song start playing.
 
@@ -24,5 +24,5 @@ Taken from ‘The Blue Notebooks’ (2018) – new recording
 
  >I can imagine a cat climbed onto my lap. Like so many times before, but this time, this time it felt like everything was exactly as it is supposed to be. Thereby I wish to all the people listening to this song to find their inner peace. You all deserve that.
 
-![A Scottish Fold Cat](/assets/article_images/eric-han-Hd7vwFzZpH0-unsplash.jpg#center "A Scottish Fold Cat")
+![A Scottish Fold Cat](/assets/article_images/bob-van-aubel-kLi1-IIOH5s-unsplash.jpg#center "A Scottish Fold Cat")
 
