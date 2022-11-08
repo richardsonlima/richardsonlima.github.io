@@ -12,19 +12,7 @@ image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
 Max Richter: On The Nature Of Daylight (Entropy)
 Taken from ‘The Blue Notebooks’ (2018) – new recording 
 
-<iframe
-    width="640"
-    height="480"
-    src="https://www.youtube.com/watch?v=b_YHE4Sx-08"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
->
-</iframe>
-
-
-[![IMAGE_ALT](https://img.youtube.com/vi/b_YHE4Sx-08/default.jpg)](https://www.youtube.com/watch?v=b_YHE4Sx-08)
-
+[![Youtube - Max Richter: On The Nature Of Daylight (Entropy)](https://img.youtube.com/vi/b_YHE4Sx-08/maxresdefault.jpg)](https://www.youtube.com/watch?v=b_YHE4Sx-08)
 
 >I'm just imagine sitting on a rooftop terrace of a very cool place into the nature. You believe that I can hear cars and noise of the city, but it is just a ambient noise, nothing disturbing.
 
