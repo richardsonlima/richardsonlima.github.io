@@ -4,7 +4,7 @@ title:  "On The Nature Of Daylight"
 date:   2022-11-07 23:04:02
 categories: surreal-music
 tags: surreal-music
-image: /assets/article_images/Spaghettification-AT2019qiz-ESO-MKornmesser-3588088401.jpeg
+image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
 ---
 
 # On The Nature Of Daylight
@@ -15,13 +15,15 @@ Taken from ‘The Blue Notebooks’ (2018) – new recording
 <iframe
     width="640"
     height="480"
-    src="https://www.youtube.com/watch?v=b_YHE4Sx-08&list=RDMM&index=6"
+    src="https://www.youtube.com/watch?v=b_YHE4Sx-08"
     frameborder="0"
     allow="autoplay; encrypted-media"
     allowfullscreen
 >
 </iframe>
 
+
+[![IMAGE_ALT](https://img.youtube.com/vi/b_YHE4Sx-08/default.jpg)](https://www.youtube.com/watch?v=b_YHE4Sx-08)
 
 
 >I'm just imagine sitting on a rooftop terrace of a very cool place into the nature. You believe that I can hear cars and noise of the city, but it is just a ambient noise, nothing disturbing.
