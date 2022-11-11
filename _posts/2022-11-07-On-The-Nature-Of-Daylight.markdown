@@ -8,7 +8,7 @@ image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
 ---
 
 # On The Nature Of Daylight
->"The song's immaculate slow build, the melancholy of its minor keys, the exuberance of the string section at the song's peak, all of this allows "On the Nature of Daylight" to lend poignant emotional resonance to any scene in which it's used- at least the shadow of it." [by cherwell](https://cherwell.org/2020/04/27/stop-using-max-richters-on-the-nature-of-daylight-in-everything/)
+The song's immaculate slow build, the melancholy of its minor keys, the exuberance of the string section at the song's peak, all of this allows "On the Nature of Daylight" to lend poignant emotional resonance to any scene in which it's used- at least the shadow of it. [by cherwell](https://cherwell.org/2020/04/27/stop-using-max-richters-on-the-nature-of-daylight-in-everything/)
 
 [![Youtube - Max Richter: On The Nature Of Daylight (Entropy)](https://img.youtube.com/vi/b_YHE4Sx-08/maxresdefault.jpg)](https://www.youtube.com/watch?v=b_YHE4Sx-08)
 
