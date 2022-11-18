@@ -14,7 +14,7 @@ Where are you now besides here, inside of me? We did it right unintentionally, I
 
 Because you’re with me all the time and when I look at the sea, there’s something that tells me that life goes on and giving in is foolish.
 
-![It’s gonna be hard without you.](/assets/article_images/joseph-barrientos-oQl0eVYd_n8-unsplash.jpg "It’s gonna be hard without you.")
+![It’s gonna be hard without you. Because you’re with me all the time and when I look at the sea.](/assets/article_images/joseph-barrientos-oQl0eVYd_n8-unsplash.jpg "It’s gonna be hard without you. Because you’re with me all the time and when I look at the sea.")
 
 As you’re not here, What I can do is take care of me, I want to be happy at least. Remember that we planned on being fine?
 
