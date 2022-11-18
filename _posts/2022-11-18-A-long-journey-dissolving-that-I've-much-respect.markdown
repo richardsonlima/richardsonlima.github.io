@@ -16,7 +16,7 @@ Because you’re with me all the time and when I look at the sea, there’s some
 
 ![It’s gonna be hard without you. Because you’re with me all the time and when I look at the sea ...](/assets/article_images/joseph-barrientos-oQl0eVYd_n8-unsplash.jpg "It’s gonna be hard without you. Because you’re with me all the time and when I look at the sea ...")
 
-As you’re not here, What I can do is take care of me, I want to be happy at least. Remember that we planned on being fine?
+As you’re not here, What I can do is take care of me, I want that you be happy at least. Remember that we planned on being fine?
 
 I know that I do this to survive the pain, I let the wave hit me and the wind will take the pain all away.
 
