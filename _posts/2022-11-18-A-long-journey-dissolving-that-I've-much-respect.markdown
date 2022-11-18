@@ -7,7 +7,7 @@ tags: life
 image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
 ---
 
-# A long journey dissolving that I've much respect
+# Our dreams is what I miss the most. When we looked together at the same direction
 
 ![Our dreams is what I miss the most](/assets/article_images/austin-neill-HAKTHWgeDWE-unsplash.jpg "Our dreams is what I miss the most")
 
