@@ -20,7 +20,7 @@ As you’re not here, What I can do is take care of me, I want to be happy at le
 
 I know that I do this to survive the pain, I let the wave hit me and the wind will take the pain all away.
 
-[![No Words)](https://img.youtube.com/vi/Ua-84AiHiEI/maxresdefault.jpg)](https://www.youtube.com/watch?v=Ua-84AiHiEI)
+[![With shortness of breath. No Words.](https://img.youtube.com/vi/Ua-84AiHiEI/maxresdefault.jpg)](https://www.youtube.com/watch?v=Ua-84AiHiEI)
 
 >With shortness of breath, I'll explain the infinite 
 How rare and beautiful it truly is that we exist
