@@ -7,34 +7,12 @@ tags: life
 image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
 ---
 
-# Our dreams is what I miss the most. When we looked together at the same direction
+Now it’s too far away, looking at, the horizon lines distracts me, our dreams is what I miss the most, when we looked together at the same direction.
+Where are you now besides here, inside of me? We did it right unintentionally, It was time who got it wrong, It’s gonna be hard without you.
+Because you’re with me all the time and when I look at the sea, there’s something that tells me that life goes on and giving in is foolish.
 
-![Our dreams is what I miss the most](/assets/article_images/austin-neill-HAKTHWgeDWE-unsplash.jpg "Our dreams is what I miss the most")
+![Our dreams is what I miss the most. When we looked together at the same direction.](/assets/article_images/austin-neill-HAKTHWgeDWE-unsplash.jpg "Our dreams is what I miss the most. When we looked together at the same direction.")
 
-Now it’s too far away, looking at
-The horizon lines distracts me
-Our dreams is what I miss the most
-When we looked together at the same direction
-Where are you now besides here, inside of me?
-We did it right unintentionally
-It was time who got it wrong
-It’s gonna be hard without you
-Because you’re with me all the time
-And when I look at the sea
-There’s something that tells me
-That life goes on and giving in is foolish
+As you’re not here, What I can do is take care of me, I want to be happy at least. Remember that we planned on being fine?
 
-As you’re not here
-What I can do
-Is take care of me
-I want to be happy at least
-Remember that we planned on being fine?
-
-Hey, look what I found
-Seahorses
-
-I know that I do this to forget
-I let the wave hit me
-And the wind takes it all away
-
-![Hey, look what I found](/assets/article_images/david-clode-1zglnBe3QJw-unsplash.jpg "Hey, look what I found")
+I know that I do this to survive the pain, I let the wave hit me and the wind will take the pain all away.
