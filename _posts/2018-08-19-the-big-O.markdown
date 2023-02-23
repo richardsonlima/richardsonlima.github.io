@@ -1,11 +1,23 @@
 ---
 layout: post
-title:  "The big O"
+title:  "Big O Notation and Other Alternatives"
 date:   2018-08-19 20:13:21
 categories: programming
 tags: featured
 image: /assets/article_images/big-O.jpg
 ---
+
+## Introduction
+
+Big O notation is a mathematical concept used in computer science to describe the efficiency of algorithms. It is a useful tool for measuring the runtime and space complexity of an algorithm. However, it is not the only way to analyze algorithms. In this blog post, we will explore Big O notation, other alternatives, and how to apply them in real life.
+
+## Big O Notation
+
+Big O notation is a way to describe the upper bound of an algorithm's runtime or space complexity. It is denoted as O(f(n)), where f(n) is a function that represents the time or space complexity of the algorithm. The most common time complexities are O(1), O(log n), O(n), O(n log n), O(n²), and O(2^n). A constant-time algorithm has a time complexity of O(1), while an algorithm that has to iterate through every element in an array has a time complexity of O(n).
+
+Big O notation is a useful tool for comparing the efficiency of different algorithms. If two algorithms have the same time complexity, they will take roughly the same amount of time to run on the same input. However, it is important to note that Big O notation only describes the upper bound of an algorithm's runtime. It does not provide information about the best-case or average-case scenario.
+
+Big O notation is a useful tool for analyzing the efficiency of algorithms, but it is not the only way. Omega notation and Theta notation can also be useful in certain situations. By applying these concepts in real life, developers can optimize their code and improve the performance of their websites and apps.
 
 So you worked extremely hard to save more `CPU` cycle in the central loop but your code still slowly ? I think that you need to know more about `time complexity` . 
 
@@ -70,8 +82,21 @@ Finally, Θ-large has to do with fair approximations, when f and g grow at the s
 
 Of these three notations, the most common to see is that of the O-grande. Normally, complexity analyzes are only concerned with the worst case execution time so the upper limit given by O-large is sufficient.
 
+## Other Alternatives
 
-A Big-O function is a mathematical term that gives a rough estimation of how the speed of an algorithm changes with the size of the input data.
+While Big O notation is the most common way to analyze algorithms, there are other alternatives that can be useful in certain situations. One such alternative is Omega notation, which describes the lower bound of an algorithm's runtime. Omega notation is denoted as Ω(f(n)). If an algorithm has a time complexity of Ω(f(n)), it means that its runtime cannot be faster than f(n) for any input size.
+
+Another alternative is Theta notation, which describes both the upper and lower bounds of an algorithm's runtime. Theta notation is denoted as Θ(f(n)). If an algorithm has a time complexity of Θ(f(n)), it means that its runtime is between O(f(n)) and Ω(f(n)) for all input sizes.
+
+## Applying Big O Notation in Real Life
+
+Big O notation can be applied in real-life scenarios, such as optimizing code for a website or app. By analyzing the time and space complexity of different algorithms, developers can choose the most efficient one for their needs. For example, if a website needs to sort a large amount of data, an algorithm with a time complexity of O(n log n) would be more efficient than one with a time complexity of O(n²).
+
+Another real-life application of Big O notation is in database optimization. By analyzing the time complexity of database queries, developers can optimize them to run faster and more efficiently. This can lead to faster load times for websites and apps, improving the user experience.
+
+## Conclusion
+
+Big O notation is a useful tool for analyzing the efficiency of algorithms, but it is not the only way. Omega notation and Theta notation can also be useful in certain situations. By applying these concepts in real life, developers can optimize their code and improve the performance of their websites and apps.
 
 Check out the [Big O notation][big-o-notation] for more info on how to get the most out of 
 
