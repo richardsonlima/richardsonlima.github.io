@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[draft] Singularity, Black Holes, Time travelling and some interesting things"
+title:  "Singularity, Black Holes, Time travelling and some interesting things"
 date:   2022-10-29 17:17:17
 categories: astronomy
 tags: astronomy
