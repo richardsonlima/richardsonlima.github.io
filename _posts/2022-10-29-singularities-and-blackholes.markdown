@@ -44,11 +44,8 @@ In simple words a singularity is, a force of gravity that could compress you dow
 
 ### Singularities and Black Holes
 
-blah blah blah. 
-
 ![Singularity and Black Hole](/assets/article_images/58d5d9eebbc3c4abcffa8cbce75a9a18.jpg#center "Singularity and Black Hole")
 
-blah blah blah. 
 
 ### Spacetime singularities
 
@@ -121,7 +118,7 @@ The scene where Cooper (Matthew McConaughey) lands in the Tesseract, a four-dime
 > The incredible thing about this scene is that it could all be completely true - or at least partly. There is a credible theory floating around the physics community which states that at the singularity of every black hole lies a whole new universe. This means that our universe, everything we know and understand, could actually be the singularity of a black hole originating from a higher 'parent' universe. And at the centre of each and every black hole within our own universe, lies a new 'baby' universe born from our own. We would just never be able to physically see, let alone travel to these other universes because there is no possible way to survive the crushing gravity found inside the event horizon of a black hole. Mind = blown o.O (by Alexander McAllister)
 
 ### Curious about Tesseract?
-In geometry, the tesseract is the four-dimensional analogue of the cube; the tesseract is to the cube as the cube is to the square. Just as the surface of the cube consists of six square faces, the hypersurface of the tesseract consists of eight cubical cells. The tesseract is one of the six convex regular 4-polytopes. __Wikipedia__
+"In geometry, the tesseract is the four-dimensional analogue of the cube; the tesseract is to the cube as the cube is to the square. Just as the surface of the cube consists of six square faces, the hypersurface of the tesseract consists of eight cubical cells. The tesseract is one of the six convex regular 4-polytopes." __Wikipedia__
 
 
 ## Conclusion
