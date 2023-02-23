@@ -2,7 +2,7 @@
 layout: post
 title:  "What is DataOps and How it Impacts Data Management"
 date:   2023-02-23 13:04:21
-categories: computing
+categories: dataops
 tags: featured
 image: /assets/article_images/kaleidico-3V8xo5Gbusk-unsplash.jpg
 ---
