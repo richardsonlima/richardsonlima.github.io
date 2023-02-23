@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Programming in Golang from Zero with Real Examples"
+title:  "Basic overview about Golang from Zero with Real Examples"
 date:   2023-02-22 20:01:28
 categories: programming
 tags: featured
