@@ -7,8 +7,6 @@ tags: featured
 image: /assets/article_images/shane-rounce-PHKgQSGzwpw-unsplash.jpg
 ---
 
-## Introduction
-
 Artificial intelligence (AI) has been a buzzword for several years now. From Siri and Alexa to self-driving cars and robots, AI is changing the way we live and work. In this blog post, we will explore the present and future of AI.
 
 ## Present: Advancements in AI

@@ -7,8 +7,6 @@ tags: featured
 image: /assets/article_images/big-O.jpg
 ---
 
-## Introduction
-
 Big O notation is a mathematical concept used in computer science to describe the efficiency of algorithms. It is a useful tool for measuring the runtime and space complexity of an algorithm. However, it is not the only way to analyze algorithms. In this blog post, we will explore Big O notation, other alternatives, and how to apply them in real life.
 
 ## Big O Notation
