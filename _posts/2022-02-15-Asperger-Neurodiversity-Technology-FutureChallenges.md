@@ -26,3 +26,9 @@ Another challenge is the stigma and discrimination that individuals with Asperge
 ## Conclusion
 
 Asperger Syndrome and neurodiversity can bring unique perspectives and skills to the tech industry, making it more innovative and inclusive. However, there are still many challenges to be addressed, such as lack of understanding and accommodation in the workplace, and stigma and discrimination in society. It is up to all of us to work towards a more inclusive future, where neurodiversity is recognized and celebrated as a valuable human difference.
+
+## Tribute to my daughter
+
+![Photo by <a href="https://unsplash.com/@kingrawen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Federico Enni</a> on <a href="https://unsplash.com/photos/-wWIFyel9NU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  ](/assets/article_images/federico-enni--wWIFyel9NU-unsplash.jpg "Photo by <a href="https://unsplash.com/@kingrawen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Federico Enni</a> on <a href="https://unsplash.com/photos/-wWIFyel9NU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  ")
