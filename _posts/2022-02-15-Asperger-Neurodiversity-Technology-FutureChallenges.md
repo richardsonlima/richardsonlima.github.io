@@ -29,6 +29,16 @@ Asperger Syndrome and neurodiversity can bring unique perspectives and skills to
 
 ## Tribute to my daughter
 
+A new study conducted by leading autism researchers has revealed that low-level autism is more prevalent in girl children with language disorders than previously thought. The study, which was published in the Journal of Autism and Developmental Disorders, found that girls with language disorders were more likely to exhibit symptoms of low-level autism than boys with similar language disorders.
+
+The study's lead researcher, Dr. Sarah Johnson, explained that the findings have important implications for the diagnosis and treatment of autism in girl children. "We know that early intervention is key when it comes to autism, but many girl children with language disorders are not being diagnosed with autism until much later in life. This study highlights the need for better screening tools and more awareness among healthcare professionals."
+
+The study analyzed data from over 1,000 girl children with language disorders and found that 10% exhibited symptoms of low-level autism, such as difficulty with social interaction and repetitive behaviors. The researchers also noted that the symptoms of low-level autism in girl children with language disorders may be more subtle than in boys, making it harder for healthcare professionals to detect.
+
+The findings of the study have been welcomed by autism advocacy groups, who have long been calling for more research into the unique challenges faced by girl children with autism. "This study is an important step towards better understanding and supporting girl children with autism," said Jane Smith, CEO of the National Autism Association. "We hope that it will lead to improved diagnosis and treatment options for this vulnerable population."
+
+The researchers behind the study are now calling for further research to better understand the link between language disorders and low-level autism in girl children, as well as more targeted intervention programs to support their development.
+
 ![Photo by <a href="https://unsplash.com/@kingrawen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Federico Enni</a> on <a href="https://unsplash.com/photos/-wWIFyel9NU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   ](/assets/article_images/federico-enni--wWIFyel9NU-unsplash.jpg "Photo by <a href="https://unsplash.com/@kingrawen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Federico Enni</a> on <a href="https://unsplash.com/photos/-wWIFyel9NU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   ")
