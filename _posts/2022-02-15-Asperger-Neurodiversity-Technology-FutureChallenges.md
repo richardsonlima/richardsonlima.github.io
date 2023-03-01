@@ -12,7 +12,7 @@ Asperger Syndrome is a neurodevelopmental disorder that affects an individual's 
 ![Photo by <a href="https://unsplash.com/pt-br/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/photos/nP9J7O90HfY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   ](/assets/article_images/annie-spratt-nP9J7O90HfY-unsplash.jpg "Photo by <a href="https://unsplash.com/pt-br/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/photos/nP9J7O90HfY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   ")
-  
+
 ## Neurodiversity in Technology
 
 Neurodiversity refers to the idea that neurological differences should be recognized and respected as any other human variation. In the context of technology, neurodiversity can bring a lot of benefits. Individuals with Asperger Syndrome often have exceptional skills in areas such as pattern recognition, attention to detail, and logical reasoning. These skills are highly valued in fields such as software development, data analysis, and cybersecurity. Many tech companies have recognized the value of neurodiversity and have launched initiatives to hire more individuals with Asperger Syndrome and other neurodiverse conditions.
@@ -27,7 +27,7 @@ Another challenge is the stigma and discrimination that individuals with Asperge
 
 Asperger Syndrome and neurodiversity can bring unique perspectives and skills to the tech industry, making it more innovative and inclusive. However, there are still many challenges to be addressed, such as lack of understanding and accommodation in the workplace, and stigma and discrimination in society. It is up to all of us to work towards a more inclusive future, where neurodiversity is recognized and celebrated as a valuable human difference.
 
-## Tribute to my daughter
+## Fact in tribute to my daughter
 
 A new study conducted by leading autism researchers has revealed that low-level autism is more prevalent in girl children with language disorders than previously thought. The study, which was published in the Journal of Autism and Developmental Disorders, found that girls with language disorders were more likely to exhibit symptoms of low-level autism than boys with similar language disorders.
 
