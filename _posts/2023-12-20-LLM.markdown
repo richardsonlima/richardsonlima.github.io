@@ -4,7 +4,7 @@ title:  "Unleashing the power of Artificial Intelligence Language Model"
 date:   2023-12-20 18:05:02
 categories: ai
 tags: technology
-image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
+image: /assets/article_images/hitesh-choudhary-t1PaIbMTJIM-unsplash.jpg
 ---
 
 # Transformative Impact of Large Language Models (LLMs)

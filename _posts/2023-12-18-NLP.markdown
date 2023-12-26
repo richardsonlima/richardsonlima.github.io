@@ -4,7 +4,7 @@ title:  "Natural Language Processing (NLP)"
 date:   2023-12-18 18:05:02
 categories: ai
 tags: technology
-image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
+image: /assets/article_images/gertruda-valaseviciute-xMObPS6V_gY-unsplash-2.jpg
 ---
 
 # Natural Language Processing (NLP) Overview
