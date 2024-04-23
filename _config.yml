@@ -10,7 +10,7 @@ description: > # this means to ignore newlines until "email:"
 
 email: rick@richardsonlima.com.br 
 #blog logo
-logo: "/assets/images/richardson_avatar_social.jpeg"
+logo: "/assets/images/linkedin-avatar-1713727981804.jpeg"
 float_logo: true # true, false (default)
 
 # blog cover
@@ -18,7 +18,7 @@ cover: "/assets/images/photo-1618171889969-0feeb769fe78.png"
 
 name: 'Richardson Lima'
 author: 'Richardson Lima'
-author_image: "/assets/images/richardson_avatar_social.jpeg"
+author_image: "/assets/images/linkedin-avatar-1713727981804.jpeg"
 
 paginate:	100
 
