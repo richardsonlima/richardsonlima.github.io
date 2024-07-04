@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Azure AI Loader"
-date:   2024-07-04 20:01:28
+date:   2024-07-03 20:01:28
 categories: programming
 tags: featured
 image: /assets/article_images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg
