@@ -4,83 +4,58 @@ title: About
 permalink: /about/
 ---
 
-Hey, professionally I'm a Platform Engineer (SRE, DevOps, DataOps), designing and building toolchains and workflows that enable self-service capabilities for software engineering in the cloud-native era. Working on an integrated product most often referred to as an “Internal Developer Platform” covering the operational necessities of the entire lifecycle of an application. Currently  doing my Master of Science degree at the Aeronautics Institute of Technology - [ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics). Dev with ♥ for Ops!
+## The Nexus of Technology and Human Potential
 
-I'm a generalist with a focus on being a specialist (ha-ha-ha!), usually curious, fast learner, with some restricted interests and tend to like seeing the connections between several areas or understanding the bigger picture of whatever (High abilities/giftedness (HA/G), Asperger (SA) -  "high potential in any of the following areas, alone or in combination: intellectual, academic, leadership, psychomotor and arts."). Into these areas I could highlight New Classic Music ([Hans Zimmer](https://www.youtube.com/watch?v=kottjfEd7Zw), [Ólafur Arnalds](https://www.youtube.com/watch?v=Kb34JCz5wvY&t=1213s), [Max Richter](https://www.youtube.com/watch?v=b_YHE4Sx-08), [Víkingur Ólafsson](https://www.youtube.com/watch?v=h3-rNMhIyuQ), [Stjepan Hauser](https://www.youtube.com/watch?v=kn1gcjuhlhg), [Ludovico Einaudi](https://www.youtube.com/watch?v=70cfoPloJq8)), [Surf](https://www.youtube.com/watch?v=jyq_xRhSMTc) (I love the Ocean, Sea and Nature), JiuJitsu (Wellness, Discipline, Body Conditioning, Networking) and Drawing with Nanquim.
+In the ever-evolving landscape of technology, where the boundaries of possibility are constantly being redefined, I stand as a Platform Engineer—a pioneer in the cloud-native era. My work is not just about building systems; it's about crafting the digital ecosystems that empower the creators of tomorrow. With a focus on SRE, DevOps, and DataOps, I design and construct toolchains and workflows that enable software engineers to operate with unprecedented autonomy. This integrated product, often referred to as an "Internal Developer Platform," is not merely a tool but a catalyst for innovation, covering the operational necessities of an application's entire lifecycle.
 
-### Normally I take a look on books of these themes in literature:
-- Business & Finance
-- Personal Finance
-- Astronomy    
-- Mathematics
-- Quantum mechanics
-- Psychology
-- Anime & Manga 
-- Comic Books
-- Algorithms and Data Structures
-- Artificial Intelligence (AI)
-- Cryptography
-- Linguistics
-- Space Exploration
-- General & Miscellaneous Philosophy
+Amidst this technological odyssey, I am also pursuing a Master of Science degree at the Aeronautics Institute of Technology ([ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics)). Here, I dive deeper into the intricate weave of science and technology, further sharpening the tools of my trade. It is a journey that bridges the abstract with the tangible, the theoretical with the practical—a true fusion of mind and matter.
 
-### Books that I read:
- - 2022
-   ...
- - 2023
-   ...
- - 2024
-   ...
-  
-As a guitar player by hobbie I've a specific interest in singers and musicians that makes Jazz, Folk-pop indie, Bossa, Progressive rockTexas blues, Downtempo, Soul, Dream pop and Trip hop an incredible flavor of art. Then if you don't mind take a look into the list below and enjoy it ✨.
+### The Paradox of the Generalist Specialist
 
-[[피키라이브] 혁오 - isn't She Lovely](https://www.youtube.com/watch?v=bEq_HIQF3XY&list=RDbEq_HIQF3XY&start_radio=1)
+In a world that often demands specialization, I embrace the paradox of being a generalist with a specialist's precision. Curiosity drives me—a relentless pursuit of knowledge that knows no bounds. I am fast to learn, my mind a labyrinth of interconnected ideas, always seeking to understand the broader tapestry of existence. My path is shaped by High Abilities/Giftedness (HA/G) and Asperger's (SA), with a focus on every day elevate my potential across intellectual, academic, leadership, psychomotor, and artistic realms. It is not just about being more; it is about seeing more—grasping the threads that bind disparate disciplines into a coherent whole.
 
-[Olivia Dean - Live At The Jazz Cafe](https://www.youtube.com/watch?v=St7G1F4mu_4&t=1572s)
+### A Symphony of Interests
 
-[Jeff Healey - As The Years Go Passing By](https://www.youtube.com/watch?v=gIkOaTVu8uM&list=RDgIkOaTVu8uM&start_radio=1)
+My intellectual pursuits are as diverse as they are profound. I find solace in the harmonies of New Classical Music, where the compositions of [Hans Zimmer](https://www.youtube.com/watch?v=kottjfEd7Zw), [Ólafur Arnalds](https://www.youtube.com/watch?v=Kb34JCz5wvY&t=1213s), and [Max Richter](https://www.youtube.com/watch?v=b_YHE4Sx-08) resonate with the rhythms of my soul. The ocean, with its vast, uncharted depths, is both a metaphor and a muse—an embodiment of the infinite possibilities that lie before us. My passions extend to jiujitsu, wellness, discipline, body conditioning, networking, and the intricate art of Drawing with Nanquim—a medium that captures the stark contrast of existence in bold, precise strokes.
 
-[Stevie Ray Vaughan - Texas Flood - from Live at the El Mocambo](https://www.youtube.com/watch?v=KC5H9P4F5Uk)
+### The Intellectual Landscape
 
-[Kings Of Convenience - Know How ft. Feist - live at Le Bataclan](https://www.youtube.com/watch?v=HuJOswNKuwo)
+In literature, I traverse a broad intellectual landscape, delving into the following themes:
+- **Business & Finance**: The engines of our global society, driving both innovation and inequality.
+- **Astronomy**: The study of the cosmos, where the laws of nature unfold in their purest form.
+- **Mathematics & Quantum Mechanics**: The languages of the universe, where reality itself is written.
+- **Psychology**: The exploration of the mind, a journey into the depths of human consciousness.
+- **Anime & Manga, Comic Books**: Modern mythologies that reflect our deepest fears and aspirations.
+- **Algorithms, AI, Cryptography**: The building blocks of our digital future, where data becomes power.
+- **Linguistics, Space Exploration, Philosophy**: The disciplines that explore the fundamental questions of existence.
 
-[Daniel Jobim - Águas de Março - Ao Vivo](https://www.youtube.com/watch?v=achxrz7ixxY&list=RDEMavVpSFR4FaOsgmiSjRFdRg&start_radio=1&rv=ErE2Cpko1XI)
+### A Catalogue of Wisdom
 
-[John Pizzarelli And Daniel Jobim - Meditation/Quiet Nights of Quiet Stars](https://www.youtube.com/watch?v=ErE2Cpko1XI&list=RDEMavVpSFR4FaOsgmiSjRFdRg&index=2)
+The books I read are the threads that weave the fabric of my understanding. They are not mere collections of words but repositories of wisdom, each offering a glimpse into the complex machinery of reality. My reading list evolves with time, a testament to my ever-expanding quest for knowledge.
 
-[Isn't She Lovely - Toshiki Soejima - feat.Yoshua Yoshida](https://www.youtube.com/watch?v=eHxiYwYdTZM)
+### The Art of Sound
 
-[Culture Shock - Polyphia](https://www.youtube.com/watch?v=EF-PT-3IggA&list=OLAK5uy_n0DUffe79AzN1W2kP5U35qiHi1dvRJwoc)
+Music is a language unto itself, a way to express the inexpressible. As a guitarist, I find joy in the intricate patterns of Jazz, the soulful rhythms of Texas blues, and the ethereal melodies of Progressive Rock. Each genre offers a unique lens through which to view the world—a symphony of perspectives that together form the soundtrack of my life. Here are some of the melodies that resonate with my journey:
 
-[The Aristocrats - Bad Asteroid](https://www.youtube.com/watch?v=B8gOMUjwtwQ)
-
-[John Mayer - Ain't No Sunshine](https://www.youtube.com/watch?v=ktyhXq00RxQ)
-
-[Eric Clapton - Tears in Heaven](https://www.youtube.com/watch?v=fvVqPi92CcY)
-
-[Heart - Stairway to Heaven Led Zeppelin](https://www.youtube.com/watch?v=2cZ_EFAmj08)
-
-[Gregory Porter performs It's Probably Me](https://www.youtube.com/watch?v=lSzICmwmRsA)
-
-[Jacob Collier,Daniel Caesar - Best Part](https://www.youtube.com/watch?v=fD4rxj7-uO0)
-
-[Chet Faker - I'm Into You](https://www.youtube.com/watch?v=DuX2MkflGYs)
-
-[Cigarettes After Sex - NPR Music](https://www.youtube.com/watch?v=HcAxgErAkTw)
-
-[City And Colour - Live 2007](https://www.youtube.com/watch?v=_p0rOaUf9pQ)
-
-[Diana Krall - Walk On By](https://www.youtube.com/watch?v=yCwc-5YTBb0)
+- [[피키라이브] 혁오 - isn't She Lovely](https://www.youtube.com/watch?v=bEq_HIQF3XY&list=RDbEq_HIQF3XY&start_radio=1)
+- [Olivia Dean - Live At The Jazz Cafe](https://www.youtube.com/watch?v=St7G1F4mu_4&t=1572s)
+- [Jeff Healey - As The Years Go Passing By](https://www.youtube.com/watch?v=gIkOaTVu8uM&list=RDgIkOaTVu8uM&start_radio=1)
+- [Stevie Ray Vaughan - Texas Flood - from Live at the El Mocambo](https://www.youtube.com/watch?v=KC5H9P4F5Uk)
+- [Kings Of Convenience - Know How ft. Feist - live at Le Bataclan](https://www.youtube.com/watch?v=HuJOswNKuwo)
+- [Daniel Jobim - Águas de Março - Ao Vivo](https://www.youtube.com/watch?v=achxrz7ixxY&list=RDEMavVpSFR4FaOsgmiSjRFdRg&start_radio=1&rv=ErE2Cpko1XI)
 
 ### Inspirational Quotes
 
 > “Listen within yourself and look into the infinitude of Space and Time. There can be heard the songs of the Constellations, the voices of the Numbers, and the harmonies of the Spheres.”
 
-> “The present issues from the past, and the future from the present. Everything is made one by this continuity. Time is like a circle, where all the points are so linked that one cannot say where it begins or ends, for all points precede and follow one another for ever.”
+> “The present issues from the past, and the future from the present. Everything is made one by this continuity. Time is like a circle, where all the points are so linked that one cannot say where it begins or ends, for all points precede and follow one another forever.”
 
-> “Quod enmim est erit semper” 
+> “Quod enim est erit semper”
 
 > “Close your eyes and let the mind expand. Let no fear of death or darkness arrest its course. Allow the mind to merge with Mind. Let it flow out upon the great curve of consciousness. Let it soar on the wings of the great bird of duration, up to the very Circle of Eternity.”
+
+> “In this vast cosmos of knowledge, technology, and art, I find myself not just as an observer but as a participant—a creator of systems, a seeker of truth, and a weaver of dreams. The future is not something that happens"
+
 
 ![](https://i.imgsafe.org/60/607aec4f21.png)
 ![](https://i.imgsafe.org/60/6078e2a31f.png)
