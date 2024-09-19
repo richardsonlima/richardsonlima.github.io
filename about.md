@@ -4,9 +4,15 @@ title: About
 permalink: /about/
 ---
 
-## The Nexus of Technology and Human Potential
+### Hi there 👋
 
-In the ever-evolving landscape of technology, where the boundaries of possibility are constantly being redefined, I stand as a Platform Engineer—a pioneer in the cloud-native era. My work is not just about building systems; it's about crafting the digital ecosystems that empower the creators of tomorrow. With a focus on SRE, DevOps, and DataOps, I design and construct toolchains and workflows that enable software engineers to operate with unprecedented autonomy. This integrated product, often referred to as an "Internal Developer Platform," is not merely a tool but a catalyst for innovation, covering the operational necessities of an application's entire lifecycle.
+<!--
+**richardsonlima/richardsonlima** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+-->
+
+In the ever-evolving landscape of technology, where the boundaries of possibility are constantly being redefined, I stand as a Data Platform Engineer—a pioneer in the cloud-native era. My work is not just about building systems; it's about crafting the digital ecosystems that empower the creators of tomorrow. With a focus on SRE, DevOps, and DataOps, I design and construct toolchains and workflows that enable software engineers to operate with unprecedented autonomy. This integrated product, often referred to as an "Internal Developer Platform," is not merely a tool but a catalyst for innovation, covering the operational necessities of an application's entire lifecycle.
 
 Amidst this technological odyssey, I am also pursuing a Master of Science degree at the Aeronautics Institute of Technology ([ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics)). Here, I dive deeper into the intricate weave of science and technology, further sharpening the tools of my trade. It is a journey that bridges the abstract with the tangible, the theoretical with the practical—a true fusion of mind and matter.
 
@@ -14,11 +20,18 @@ Amidst this technological odyssey, I am also pursuing a Master of Science degree
 
 In a world that often demands specialization, I embrace the paradox of being a generalist with a specialist's precision. Curiosity drives me—a relentless pursuit of knowledge that knows no bounds. I am fast to learn, my mind a labyrinth of interconnected ideas, always seeking to understand the broader tapestry of existence. My path is shaped by High Abilities/Giftedness (HA/G) and Asperger's (SA), with a focus on every day elevate my potential across intellectual, academic, leadership, psychomotor, and artistic realms. It is not just about being more; it is about seeing more—grasping the threads that bind disparate disciplines into a coherent whole.
 
-### A Symphony of Interests
+- 🔭 I’m currently working on [itau bank](https://www.itau.com.br);
+- 🌱 I’m currently coding with Python and Golang;
+- ⚡ I’m currently learning about Data Engineering, Data Science, Artificial Inteligence and Complex Systems;
+- 👯 Always looking to collaborate on [Kubernetes](https://github.com/kubernetes), [AWS](https://github.com/aws), [Golang](https://github.com/golang) and [HashiCorp](https://github.com/hashicorp) official projects;
+- 🤔 I’m looking for help with  Kubernetes, AWS, Golang and HashiCorp projects.
+- 💬 Ask me about Kubernetes, AWS, Golang, Python and HashiCorp projects;
+- 📫 How to reach me: [Blog](https://www.richardsonlima.com.br), [Twitter](https://twitter.com/RichDevSecOps), [LinkedIn](https://www.linkedin.com/in/richardsonlima/);
+- ⚡ Fun fact: My intellectual pursuits are as diverse as they are profound. I find solace in the harmonies of New Classical Music, where the compositions of [Víkingur Ólafsson](https://www.youtube.com/watch?v=h3-rNMhIyuQ), [Stjepan Hauser](https://www.youtube.com/watch?v=kn1gcjuhlhg), [Ludovico Einaudi](https://www.youtube.com/watch?v=70cfoPloJq8), [Hans Zimmer](https://www.youtube.com/watch?v=kottjfEd7Zw), [Ólafur Arnalds](https://www.youtube.com/watch?v=Kb34JCz5wvY&t=1213s), and [Max Richter](https://www.youtube.com/watch?v=b_YHE4Sx-08) resonate with the rhythms of my soul. The ocean, with its vast, uncharted depths, is both a metaphor and a muse—an embodiment of the infinite possibilities that lie before us. My passions extend to jiujitsu, wellness, discipline, body conditioning, networking, and the intricate art of Drawing with Nanquim—a medium that captures the stark contrast of existence in bold, precise strokes.
 
-My intellectual pursuits are as diverse as they are profound. I find solace in the harmonies of New Classical Music, where the compositions of [Víkingur Ólafsson](https://www.youtube.com/watch?v=h3-rNMhIyuQ), [Stjepan Hauser](https://www.youtube.com/watch?v=kn1gcjuhlhg), [Ludovico Einaudi](https://www.youtube.com/watch?v=70cfoPloJq8), [Hans Zimmer](https://www.youtube.com/watch?v=kottjfEd7Zw), [Ólafur Arnalds](https://www.youtube.com/watch?v=Kb34JCz5wvY&t=1213s), and [Max Richter](https://www.youtube.com/watch?v=b_YHE4Sx-08) resonate with the rhythms of my soul. The ocean, with its vast, uncharted depths, is both a metaphor and a muse—an embodiment of the infinite possibilities that lie before us. My passions extend to jiujitsu, wellness, discipline, body conditioning, networking, and the intricate art of Drawing with Nanquim—a medium that captures the stark contrast of existence in bold, precise strokes.
+### A Catalogue of Wisdom
 
-### The Intellectual Landscape
+The books I read are the threads that weave the fabric of my understanding. They are not mere collections of words but repositories of wisdom, each offering a glimpse into the complex machinery of reality. My reading list evolves with time, a testament to my ever-expanding quest for knowledge.
 
 In literature, I traverse a broad intellectual landscape, delving into the following themes:
 - **Business & Finance**: The engines of our global society, driving both innovation and inequality.
@@ -28,11 +41,7 @@ In literature, I traverse a broad intellectual landscape, delving into the follo
 - **Anime & Manga, Comic Books**: Modern mythologies that reflect our deepest fears and aspirations.
 - **Algorithms, AI, Cryptography**: The building blocks of our digital future, where data becomes power.
 - **Linguistics, Space Exploration, Philosophy**: The disciplines that explore the fundamental questions of existence.
-
-### A Catalogue of Wisdom
-
-The books I read are the threads that weave the fabric of my understanding. They are not mere collections of words but repositories of wisdom, each offering a glimpse into the complex machinery of reality. My reading list evolves with time, a testament to my ever-expanding quest for knowledge.
-
+  
 ### The Art of Sound
 
 Music is a language unto itself, a way to express the inexpressible. As a guitarist, I find joy in the intricate patterns of Jazz, the soulful rhythms of Texas blues, and the ethereal melodies of Progressive Rock. Each genre offers a unique lens through which to view the world—a symphony of perspectives that together form the soundtrack of my life. Here are some of the melodies that resonate with my journey:
@@ -56,6 +65,7 @@ Music is a language unto itself, a way to express the inexpressible. As a guitar
 
 > “In this vast cosmos of knowledge, technology, and art, I find myself not just as an observer but as a participant—a creator of systems, a seeker of truth, and a weaver of dreams. The future is not something that happens"
 
+![Github stats](https://github-readme-stats.vercel.app/api?username=richardsonlima&show_icons=true&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=151515&count_private=true)
 
 ![](https://i.imgsafe.org/60/607aec4f21.png)
 ![](https://i.imgsafe.org/60/6078e2a31f.png)
