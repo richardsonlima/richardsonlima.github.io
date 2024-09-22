@@ -18,7 +18,7 @@ Amidst this technological odyssey, I am also pursuing a Master of Science degree
 
 ### The Paradox of the Generalist Specialist
 
-In a world that often demands specialization, I embrace the paradox of being a generalist with a specialist's precision. Curiosity drives me—a relentless pursuit of knowledge that knows no bounds. I am fast to learn, my mind a labyrinth of interconnected ideas, always seeking to understand the broader tapestry of existence. My path is shaped by High Abilities/Giftedness (HA/G) and Asperger's (6A02.0), with a focus on every day elevate my potential across intellectual, academic, leadership, psychomotor, and artistic realms. It is not just about being more; it is about seeing more—grasping the threads that bind disparate disciplines into a coherent whole.
+In a world that often demands specialization, I embrace the paradox of being a generalist with a specialist's precision. Curiosity drives me—a relentless pursuit of knowledge that knows no bounds. I am fast to learn, my mind a labyrinth of interconnected ideas, always seeking to understand the broader tapestry of existence. My path is shaped with a focus on every day elevate my potential across intellectual, academic, leadership, psychomotor, and artistic realms. It is not just about being more; it is about seeing more—grasping the threads that bind disparate disciplines into a coherent whole.
 
 - 🔭 I’m currently working on [itau bank](https://www.itau.com.br);
 - 🌱 I’m currently coding with Python and Golang;
