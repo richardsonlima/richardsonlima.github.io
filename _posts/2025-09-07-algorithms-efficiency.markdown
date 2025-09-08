@@ -226,8 +226,7 @@ This is why exponential algorithms quickly become impractical.
 
 Formal definition:  
 
-$$ f(n) \in O(g(n)) \iff \exists c > 0, n_0 > 0 : f(n) \leq c \cdot g(n), \forall n \geq n_0 $$
-
+\[ f(n) \in O(g(n)) \iff \exists c > 0, n_0 > 0 : f(n) \leq c \cdot g(n), \forall n \geq n_0 \]
 
 - Example: `2n + 10 ∈ O(n)` (choose `c=3, n₀=10`).  
 

@@ -2,7 +2,16 @@
 gems:
   - jemoji
   - jekyll-paginate
-  
+
+# Use GitHub-style markdown
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  parse_block_html: true
+  hard_wrap: false
+
 # Site settings
 title: "Richardson Lima "
 description: > # this means to ignore newlines until "email:"
