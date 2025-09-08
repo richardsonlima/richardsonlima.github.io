@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Algorithm Analysis: Asymptotic notations explained"
+title:  "Asymptotic notations explained"
 date:   2025-09-06 23:00:00
 categories: programming
 tags: algorithms complexity 
-image: /assets/article_images/big-O.jpg
+image: /assets/article_images/thomas-t-OPpCbAAKWv8-unsplash.jpg
 ---
 
 The efficiency of an algorithm is one of the most important aspects in computer science. It is not enough for an algorithm to be **correct** — it also needs to be **feasible** for large inputs.  
