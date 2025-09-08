@@ -1,25 +1,34 @@
 ---
 layout: post
-title:  "Asymptotic notations explained"
-date:   2025-09-06 23:00:00
+title:  "A Gentle Journey Through Asymptotic Notation"
+date:   2025-09-08 21:00:00
 categories: programming
-tags: algorithms complexity 
+tags: algorithms complexity big-o omega theta
 image: /assets/article_images/thomas-t-OPpCbAAKWv8-unsplash.jpg
 ---
 
-The efficiency of an algorithm is one of the most important aspects in computer science. It is not enough for an algorithm to be **correct** — it also needs to be **feasible** for large inputs.  
-In this article, we will review the fundamental concepts of **growth rates** and **asymptotic notations**: **O (Big-Oh)**, **Ω (Omega)** and **Θ (Theta)**.  
+The efficiency of an algorithm is one of the most important aspects in computer science.  
+It is not enough for an algorithm to be **correct** — it also needs to be **feasible** for large inputs.  
+
+This post is structured like a **mini-book**, where each chapter builds upon the previous one.  
+If you skip ahead, you may miss the logical thread — so follow the journey step by step.  
 
 ---
 
-## Execution Time: Real vs. Theoretical
+# Why Efficiency Matters
 
-In practice, we can measure the real execution time of a program by running it on different inputs.  
-But the **absolute time depends on the hardware, compiler, and operating system**.  
+- Real programs can run correctly but still take years to finish on large inputs.  
+- Measuring execution time directly (with a stopwatch) depends on **hardware, compiler, OS**.  
+- To reason in a universal way, we need **theoretical analysis**, independent of environment.  
 
-To abstract away these details, we use **theoretical complexity analysis**, based on counting **primitive operations** (assignments, comparisons, array accesses, etc.).
+This is where **primitive operations** come into play.  
 
 ---
+
+# From Reality to the Theoretical Model
+
+A **primitive operation** is any basic step: assignment, comparison, arithmetic, array access, function call.  
+We assume each takes constant time.  
 
 ## Example: Counting Operations
 
@@ -169,71 +178,164 @@ Hardware or software differences will change only the absolute constant factors,
 
 ---
 
-## Growth Functions
+# Digging Deeper into Counting
 
-Every algorithm has an **intrinsic growth rate**. Typical examples include:
+Let’s carefully analyze the primitive operations in `array_max`:  
 
-- **O(1)** → constant (accessing an element of a list).
-- **O(log n)** → logarithmic (binary search).
-- **O(n)** → linear (scanning all elements).
-- **O(n log n)** → near-linear (optimal sorting algorithms).
-- **O(n²)** → quadratic (nested loops over a matrix).
-- **O(2ⁿ)** → exponential (brute force enumeration).
+- **Initialization:** 2 ops  
+- **Loop control:** ≈ 2(n-1) ops  
+- **Loop body:** 2 (best case) to 4 (worst case) per iteration  
+- **Return:** 1 op  
 
-A log-log graph clearly shows the differences: the slope of the line indicates the order of growth.
+**Best case:**  
+\[ T(n) = 4n - 1 \]  
 
----
+**Worst case:**  
+\[ T(n) = 6n - 3 \]  
 
-## Asymptotic Notations
+### Another viewpoint
+Some analyses conclude the worst case is `6n - 1`.  
+The difference comes from conventions: whether we count the final failed loop test, etc.  
 
-### 1. Big-O (O)
-Provides an **upper bound** for the growth of a function.  
-Example: if `T(n) = 10n² + 137n + 15`, then `T(n) = O(n²)`.
+### Two hypothetical analysts
+- **Alice (meticulous):** counts everything → `6n - 3`.  
+- **Bob (pragmatic):** ignores some constants → `6n - 1`.  
 
-Formally:
-> f(n) ∈ O(g(n)) if there exist constants `c > 0` and `n₀ > 0` such that  
-> f(n) ≤ c·g(n), ∀ n ≥ n₀.
-
-### 2. Omega (Ω)
-Provides a **lower bound**.  
-In the example above, we also have `T(n) = Ω(n²)`.
-
-### 3. Theta (Θ)
-When both Big-O and Omega coincide, we say the function has an **exact growth rate**:  
-`T(n) = Θ(n²)`.
+➡️ Both agree: **linear growth, Θ(n)**. Constants don’t matter in the big picture.  
 
 ---
 
-## Practical Example in Python
+# Growth Rates
 
-Consider two algorithms for summing the elements of a list:
+Algorithms have **intrinsic growth rates**. Typical examples:  
 
+- Constant → O(1)  
+- Logarithmic → O(log n)  
+- Linear → O(n)  
+- Quasi-linear → O(n log n)  
+- Quadratic → O(n²)  
+- Cubic → O(n³)  
+- Exponential → O(2ⁿ)  
+
+On a **log-log plot**, the slope corresponds to growth rate.  
+This is why exponential algorithms quickly become impractical.  
+
+---
+
+# Big-O as the Upper Bound
+
+Formal definition:  
+
+\[
+f(n) ∈ O(g(n)) \iff ∃ c > 0, n₀ > 0 : f(n) ≤ c \cdot g(n), ∀ n ≥ n₀
+\]
+
+- Example: `2n + 10 ∈ O(n)` (choose `c=3, n₀=10`).  
+
+### Reminders
+- “f(n) = O(g(n))” means **membership**, not equality.  
+- Constants and small terms are ignored.  
+- Ex: `10n² + 10 log n = O(n²)`.  
+
+---
+
+# Beyond Big-O: Ω and Θ
+
+- **Ω (Omega):** lower bound. Ex: `12n² - 10 ∈ Ω(n²)` but not Ω(n³).  
+- **Θ (Theta):** both upper and lower bounds. Ex: `6n⁴ + 12n³ + 12 ∈ Θ(n⁴)`.  
+
+### Limit-based view
+- If f(n)/g(n) → constant > 0 → f ∈ Θ(g).  
+- If f(n)/g(n) → 0 → f ∈ o(g).  
+- If f(n)/g(n) → ∞ → f ∈ ω(g).  
+
+This trio (O, Ω, Θ) allows us to bound functions precisely.  
+
+---
+
+# Polynomial Functions and Hierarchy
+
+For polynomials: degree dominates.  
+\[ p(n) = a_k n^k + … ⇒ p(n) ∈ O(n^k) \]  
+
+Natural hierarchy:  
+\[ O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < … < O(2ⁿ) \]  
+
+This ordering is the backbone of algorithm classification.  
+
+---
+
+# Applying Big-O in Real Algorithms
+
+Rules of thumb:  
+- Conditionals → test + slower branch.  
+- Consecutive commands → sum (dominated by larger).  
+- Nested loops → multiplication.  
+- Function calls → cost of function body.  
+
+### Example in Python
 ```python
-# Algorithm 1: iterative
+# Iterative sum
 def sum_iterative(A):
     total = 0
     for x in A:
         total += x
-    return total  # T(n) = Θ(n)
+    return total   # Θ(n)
 
-# Algorithm 2: using a mathematical formula
+# Formula sum
 def sum_formula(n):
-    return n * (n + 1) // 2  # T(n) = Θ(1)
+    return n * (n + 1) // 2  # Θ(1)
 ```
 
-- `sum_iterative` traverses all elements → linear time O(n).  
-- `sum_formula` solves it in a single step → constant time O(1).  
+One traverses the array → O(n). The other uses math → O(1).  
 
 ---
 
-## Unlocking the Big Picture
+# Problem Bounds (UB and LB)
 
-- Asymptotic analysis ignores **constants** and **lower-order terms**, focusing only on what really matters for large inputs.  
-- Big-O, Ω and Θ are fundamental tools to **compare algorithms independently of hardware**.  
-- Mastering these concepts is the first step to understanding more complex algorithms such as sorting, graph search, and dynamic programming.
+- **Upper bound (UB):** complexity of best known algorithm.  
+- **Lower bound (LB):** theoretical minimum for any algorithm.  
+- A problem is *solved* when:  
+\[ UB(P) ∈ Θ(LB(P)) \]  
+
+This shifts focus from “an algorithm” to “the problem itself”.  
+
+---
+
+# The Synthesis: Asymptotic Analysis
+
+Now the puzzle is complete:  
+
+1. Count primitive operations.  
+2. Abstract constants away.  
+3. Express growth with O/Ω/Θ.  
+4. Place function in the hierarchy.  
+5. Apply rules to analyze code.  
+6. Relate algorithms to problem bounds.  
+
+➡️ Asymptotic analysis = **the essence of performance**, beyond machines and languages.  
+
+---
+
+# 🚀 The Big Takeaway
+
+- Constants vanish, small terms fade.  
+- Growth rate remains the **signature of an algorithm**.  
+- Big-O, Ω, Θ let us compare algorithms objectively.  
+- Mastery here opens the door to sorting, graph algorithms, dynamic programming, and beyond.  
+
+> **In short:** asymptotic notation strips away noise to reveal the algorithm’s true nature.  
+
+---
+
+## 📝 Exercises
+
+- Design a **parallel algorithm** to find the maximum of an array of size `n`.  
+- Hint: with `n` processors, time can drop drastically.  
+- Bonus: can you design one that uses fewer processors efficiently?  
 
 ---
 
 📚 References:  
 - [Cormen, Leiserson, Rivest, Stein. *Introduction to Algorithms*](https://a.co/d/5kl59AV)  
-- [Knuth, Donald. *The Art of Computer Programming*](https://www.amazon.com.br/Computer-Programming-Volumes-1-4a-Boxed/dp/0321751043)  
+- [Knuth, Donald. *The Art of Computer Programming*](https://www.amazon.com.br/Computer-Programming-Volumes-1-4a-Boxed/dp/0321751043)
