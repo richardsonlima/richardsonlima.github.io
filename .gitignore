@@ -1,0 +1,42 @@
+# ===============================
+# Git Ignore for Jekyll Blog
+# Richardson Lima Blog
+# ===============================
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.swp
+*~
+.nfs*
+
+# Ruby / Bundler
+.bundle/
+vendor/
+Gemfile.lock
+
+# Jekyll build outputs
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Logs and temp files
+*.log
+tmp/
+*.tmp
+
+# IDE / Editor files
+.idea/
+.vscode/
+*.iml
+
+# Node (if using npm/yarn for assets)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Cache
+.cache/
+
