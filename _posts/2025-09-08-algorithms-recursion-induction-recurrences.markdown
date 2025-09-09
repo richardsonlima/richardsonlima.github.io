@@ -11,15 +11,6 @@ image: /assets/article_images/thomas-t-OPpCbAAKWv8-unsplash.jpg
 > **Reading order matters.** This post is a direct sequel to our [previous article on growth rates and asymptotic notation](https://www.richardsonlima.com.br/programming/2025/09/08/algorithms-efficiency.html). We’ll use those ideas to *prove properties*, *design recursive algorithms*, and *analyze their running time*.
 
 ---
-# TESTE 
-This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine. You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`. If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
-
-To use display mode, again surround your expression with `$$` and place it as a separate paragraph. Here is an example:
-
-$$
-\sum_{k=1}^\infty |\langle x, e_k \rangle|^2 \leq \|x\|^2
-$$
-# FIM TESTE
 
 # 1. Mathematical Induction: The Foundation of Recursion
 
