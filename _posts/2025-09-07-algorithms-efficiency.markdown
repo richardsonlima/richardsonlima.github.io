@@ -226,7 +226,7 @@ This is why exponential algorithms quickly become impractical.
 
 Formal definition:  
 
-![Big-O formal definition](/assets/images/math-01.png)
+![](/assets/images/math-01.png)
 
 - Example: `2n + 10 ∈ O(n)` (choose `c=3, n₀=10`).  
 
