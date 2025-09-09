@@ -246,6 +246,25 @@ DEBUG: Inline
 
 $f(n) \\in O(g(n)) \\iff \\exists c > 0, n_0 > 0 : f(n) \\leq c \\cdot g(n), \\forall n \\geq n_0$
 
+DEBUG: raw math
+
+{% raw %}
+$$
+f(n) \in O(g(n)) \iff \exists c > 0, n_0 > 0 : f(n) \leq c \cdot g(n), \forall n \geq n_0
+$$
+{% endraw %}
+
+DEBUG: raw html math
+
+Formal definition:
+
+{% raw %}
+<div>
+$$
+f(n) \in O(g(n)) \iff \exists c > 0, n_0 > 0 : f(n) \leq c \cdot g(n), \forall n \geq n_0
+$$
+</div>
+{% endraw %}
 
 
 - Example: `2n + 10 ∈ O(n)` (choose `c=3, n₀=10`).  
