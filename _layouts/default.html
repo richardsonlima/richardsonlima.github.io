@@ -3,15 +3,19 @@
 
   {% include head.html %}
 
-  <!-- MathJax for LaTeX rendering -->
+  <!-- MathJax configuration (supports $...$, $$...$$, \(...\), \[...\]) -->
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [["\\(", "\\)"]],
-        displayMath: [["\\[", "\\]"]]
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['ams']}
       },
       options: {
-        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre"]
+        // Don't try to typeset inside code/pre/script, etc.
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
