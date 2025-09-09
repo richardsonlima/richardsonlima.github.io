@@ -6,51 +6,51 @@ categories: programming
 tags: algorithms complexity big-o omega theta
 image: /assets/article_images/thomas-t-OPpCbAAKWv8-unsplash.jpg
 ---
-
 The efficiency of an algorithm is one of the most important aspects in computer science.  
 It is not enough for an algorithm to be **correct** — it also needs to be **feasible** for large inputs.  
 
+
 This post is structured like a **mini-book**, where each chapter builds upon the previous one.  
 If you skip ahead, you may miss the logical thread — so follow the journey step by step.  
-
 ---
+
 
 # Why Efficiency Matters
 
 - Real programs can run correctly but still take years to finish on large inputs.  
 - Measuring execution time directly (with a stopwatch) depends on **hardware, compiler, OS**.  
 - To reason in a universal way, we need **theoretical analysis**, independent of environment.  
-
 This is where **primitive operations** come into play.  
+
 
 ---
 
 # From Reality to the Theoretical Model
-
 A **primitive operation** is any basic step: assignment, comparison, arithmetic, array access, function call.  
 We assume each takes constant time.  
+
 
 ## Example: Counting Operations
 
 Let’s analyze a simple algorithm that finds the maximum element in an array:
-
 ```python
 def array_max(A):
+
     current_max = A[0]          # 1 assignment
     for i in range(1, len(A)):  # n-1 iterations
         if A[i] > current_max:  # 1 comparison per iteration
             current_max = A[i]  # up to 1 assignment per iteration
     return current_max          # 1 return
 ```
-
 In the **worst case**, this algorithm performs approximately `6n` primitive operations.  
 Therefore, the execution time grows **linearly** with the input size.
+
 
 ## Detailed Primitive Operation Count for `array_max`
 
 Let’s carefully analyze the number of **primitive operations** (assignments, comparisons, array accesses, increments, etc.) performed by the algorithm.
-
 ---
+
 
 ### Step 1 – Initial assignment
 ```python
@@ -58,8 +58,8 @@ current_max = A[0]
 ```
 - **1 assignment** (`current_max`)  
 - **1 array access** (`A[0]`)  
-
 ✔️ **2 operations**
+
 
 ---
 
@@ -72,8 +72,8 @@ for i in range(1, len(A)):
 - Each iteration (total: `n-1` times):  
   - **1 comparison** (`i < len(A)`)  
   - **1 increment** (`i = i + 1`)  
-
 ✔️ **≈ 2(n-1) + 2 operations**
+
 
 ---
 
@@ -116,14 +116,14 @@ Let `n = len(A)`:
 - Step 4: `1`
 
 **Best case (no updates to `current_max`):**
-\[
+$$
 T(n) = 2 + (2n - 2) + (2n - 2) + 1 = 4n - 1
-\]
+$$
 
 **Worst case (update every iteration):**
-\[
+$$
 T(n) = 2 + (2n - 2) + (4n - 4) + 1 = 6n - 3
-\]
+$$
 
 ---
 
@@ -132,15 +132,15 @@ T(n) = 2 + (2n - 2) + (4n - 4) + 1 = 6n - 3
 - **Best case**: `4n - 1` operations  
 - **Worst case**: `6n - 3` operations  
 - **Asymptotic complexity**:  
-\[
+$$
 T(n) = Θ(n)
-\]
+$$
 
 ### ⚠️ Step-by-step breakdown (another point of view)
 
 According to some points of view, the algorithm could in the worst case execute:
 
-\[ T(n) = 6n - 1 \]
+$$ T(n) = 6n - 1 $$
 
 primitive operations.
 
@@ -169,9 +169,9 @@ primitive operations.
 
 No matter which convention you use, the **asymptotic complexity** is the same:
 
-\[
+$$
 T(n) = Θ(n)
-\]
+$$
 
 This means that the **intrinsic growth rate** of `array_max` is linear.  
 Hardware or software differences will change only the absolute constant factors, never the growth rate.  
@@ -188,10 +188,10 @@ Let’s carefully analyze the primitive operations in `array_max`:
 - **Return:** 1 op  
 
 **Best case:**  
-\[ T(n) = 4n - 1 \]  
+$$ T(n) = 4n - 1 $$  
 
 **Worst case:**  
-\[ T(n) = 6n - 3 \]  
+$$ T(n) = 6n - 3 $$  
 
 ### Another viewpoint
 Some analyses conclude the worst case is `6n - 1`.  
@@ -256,10 +256,10 @@ This trio (O, Ω, Θ) allows us to bound functions precisely.
 # Polynomial Functions and Hierarchy
 
 For polynomials: degree dominates.  
-\[ p(n) = a_k n^k + … ⇒ p(n) ∈ O(n^k) \]  
+$$ p(n) = a_k n^k + … ⇒ p(n) ∈ O(n^k) $$  
 
 Natural hierarchy:  
-\[ O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < … < O(2ⁿ) \]  
+$$ O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < … < O(2ⁿ) $$  
 
 This ordering is the backbone of algorithm classification.  
 
@@ -296,7 +296,7 @@ One traverses the array → O(n). The other uses math → O(1).
 - **Upper bound (UB):** complexity of best known algorithm.  
 - **Lower bound (LB):** theoretical minimum for any algorithm.  
 - A problem is *solved* when:  
-\[ UB(P) ∈ Θ(LB(P)) \]  
+$$ UB(P) ∈ Θ(LB(P)) $$  
 
 This shifts focus from “an algorithm” to “the problem itself”.  
 
