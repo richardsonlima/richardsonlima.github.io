@@ -266,6 +266,12 @@ $$
 </div>
 {% endraw %}
 
+DEBUG:
+
+<script type="math/tex; mode=display">
+f(n) \in O(g(n)) \iff \exists c &gt; 0, n_0 &gt; 0 : f(n) \leq c \cdot g(n), \forall n \geq n_0
+</script>
+
 
 - Example: `2n + 10 ∈ O(n)` (choose `c=3, n₀=10`).  
 
