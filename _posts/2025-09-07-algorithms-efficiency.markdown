@@ -336,4 +336,4 @@ Now the puzzle is complete:
 
 📚 References:  
 - [Cormen, Leiserson, Rivest, Stein. *Introduction to Algorithms*](https://a.co/d/5kl59AV)  
-- [Knuth, Donald. *The Art of Computer Programming*](https://www.amazon.com.br/Computer-Programming-Volumes-1-4a-Boxed/dp/0321751043)
+- [Knuth, Donald. *The Art of Computer Programming*](https://a.co/d/ipVU0sr)
