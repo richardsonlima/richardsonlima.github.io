@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "From Growth Rates to Recursion: Induction, Recursive Algorithms, and Recurrences"
+title:  "From Growth Rates to Recursion"
 date:   2025-09-08 23:00:00
 categories: programming
 tags: algorithms complexity recursion induction recurrences

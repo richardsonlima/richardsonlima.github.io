@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A Gentle Journey Through Asymptotic Notation"
+title:  "A Journey Through Asymptotic Notation"
 date:   2025-09-08 21:00:00
 categories: programming
 tags: algorithms complexity big-o omega theta
