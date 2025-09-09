@@ -49,13 +49,6 @@ layout: default
             <span class="post-reading-time"></span> read
           </div>
 
-          {% if page.toc and page.toc.beginning %}
-            <div id="table-of-contents">
-              {% toc %}
-            </div>
-            <hr>
-          {% endif %}
-
           <a name="topofpage"></a>
           <div id="markdown-content">
             {{ content }}
