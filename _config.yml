@@ -1,16 +1,105 @@
 # Build settings
-plugins:
-  - jemoji
-  - jekyll-paginate
+
+
 
 # Use GitHub-style markdown
 markdown: kramdown
 
+# kramdown:
+#   input: GFM
+#   math_engine: mathjax
+#   parse_block_html: true
+#   hard_wrap: false
+
+###
+# Markdown and syntax highlight
+markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
-  math_engine: mathjax
-  parse_block_html: true
-  hard_wrap: false
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+###
+
+# -----------------------------------------------------------------------------
+# Optional Features
+# -----------------------------------------------------------------------------
+
+# enable_google_analytics: false # enables google analytics
+# enable_cronitor_analytics: false # enables cronitor RUM analytics
+# enable_pirsch_analytics: false # enables Pirsch analytics (https://pirsch.io/)
+# enable_openpanel_analytics: false # enables Openpanel analytics (https://openpanel.dev/)
+# enable_google_verification: false # enables google site verification
+# enable_bing_verification: false # enables bing site verification
+# enable_masonry: true # enables automatic project cards arrangement
+enable_math: true # enables math typesetting (uses MathJax)
+# enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
+# enable_darkmode: true # enables switching between light/dark modes
+# enable_navbar_social: false # enables displaying social links in the navbar on the about page
+# enable_project_categories: true # enables categorization of projects into multiple categories
+# enable_medium_zoom: true # enables image zoom feature (as on medium.com)
+# enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
+# enable_video_embedding: false # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
+
+# -----------------------------------------------------------------------------
+# Library versions
+# -----------------------------------------------------------------------------
+
+# Add the url, version and integrity hash of the libraries you use in your site.
+# The integrity hash is used to ensure that the library is not tampered with.
+# Integrity hashes not provided by the libraries were generated using https://www.srihash.org/
+third_party_libraries:
+  download: false # if true, download the versions of the libraries specified below and use the downloaded files
+  mathjax:
+    integrity:
+      js: "sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="
+    local:
+      fonts: "output/chtml/fonts/woff-v2/"
+    url:
+      fonts: "https://cdn.jsdelivr.net/npm/mathjax@{{version}}/es5/output/chtml/fonts/woff-v2/"
+      js: "https://cdn.jsdelivr.net/npm/mathjax@{{version}}/es5/tex-mml-chtml.js"
+    version: "3.2.2"
+  mermaid:
+    integrity:
+      js: "sha256-TtLOdUA8mstPoO6sGvHIGx2ceXrrX4KgIItO06XOn8A="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/mermaid@{{version}}/dist/mermaid.min.js"
+    version: "10.7.0"
+  plotly:
+    integrity:
+      js: "sha256-oy6Be7Eh6eiQFs5M7oXuPxxm9qbJXEtTpfSI93dW16Q="
+    url:
+      js: "https://cdn.jsdelivr.net/npm/plotly.js@{{version}}/dist/plotly.min.js"
+    version: "3.0.1"
+  polyfill:
+    url:
+      js: "https://cdnjs.cloudflare.com/polyfill/v{{version}}/polyfill.min.js?features=es6"
+    version: "3"
+
+# Plug-ins
+plugins:
+  - jekyll-archives-v2
+  - jekyll-email-protect
+  - jekyll-feed
+  - jekyll-get-json
+  - jekyll-imagemagick
+  - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate
+  - jekyll-regex-replace
+  - jekyll/scholar
+  - jekyll-sitemap
+  - jekyll-tabs
+  - jekyll-terser
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji
 
 # Site settings
 title: "Richardson Lima "
@@ -63,4 +152,10 @@ social:
     share_url:
     share_title:
     share_link:
+
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: "posts"
 
