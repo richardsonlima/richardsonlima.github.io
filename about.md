@@ -20,12 +20,6 @@ Amidst this technological odyssey, I am also pursuing a Master of Science degree
 
 In a world that often demands specialization, I embrace the paradox of being a generalist with a specialist's precision. Curiosity drives me a relentless pursuit of knowledge that knows no bounds. I am fast to learn, my mind a labyrinth of interconnected ideas, always seeking to understand the broader tapestry of existence. My path is shaped with a focus on every day elevate my potential across intellectual, academic, leadership, psychomotor, and artistic realms. It is not just about being more; it is about seeing more grasping the threads that bind disparate disciplines into a coherent whole.
 
-- 🔭 I’m currently working on [itau bank](https://www.itau.com.br);
-- 🌱 I’m currently coding with Python and Golang;
-- ⚡ I’m currently learning about Data Engineering, Data Science, Artificial Inteligence and Complex Systems;
-- 👯 Always looking to collaborate on [Kubernetes](https://github.com/kubernetes), [AWS](https://github.com/aws), [Golang](https://github.com/golang) and [HashiCorp](https://github.com/hashicorp) official projects;
-- 🤔 I’m looking for help with  Kubernetes, AWS, Golang and HashiCorp projects.
-- 💬 Ask me about Kubernetes, AWS, Golang, Python and HashiCorp projects;
 - 📫 How to reach me: [Blog](https://www.richardsonlima.com.br), [Twitter](https://twitter.com/RichDevSecOps), [LinkedIn](https://www.linkedin.com/in/richardsonlima/);
 - ⚡ Fun fact: My intellectual pursuits are as diverse as they are profound. I find solace in the harmonies of New Classical Music, where the compositions of [Víkingur Ólafsson](https://www.youtube.com/watch?v=h3-rNMhIyuQ), [Stjepan Hauser](https://www.youtube.com/watch?v=kn1gcjuhlhg), [Ludovico Einaudi](https://www.youtube.com/watch?v=70cfoPloJq8), [Hans Zimmer](https://www.youtube.com/watch?v=kottjfEd7Zw), [Ólafur Arnalds](https://www.youtube.com/watch?v=Kb34JCz5wvY&t=1213s), and [Max Richter](https://www.youtube.com/watch?v=b_YHE4Sx-08) resonate with the rhythms of my soul. The ocean, with its vast, uncharted depths, is both a metaphor and a muse an embodiment of the infinite possibilities that lie before us. My passions extend to jiujitsu, wellness, discipline, body conditioning, networking, and the intricate art of Drawing with Nanquim a medium that captures the stark contrast of existence in bold, precise strokes.
 
