@@ -97,7 +97,9 @@ Therefore, the execution time grows **linearly** with the input size.
 
 **So:**
 Initialization: a handful of constant operations (≈5)
+
 Loop: (n-1) * 6 operations
+
 Total: 6n - 1, which we approximate as ≈ 6n.
 
 In other words:
