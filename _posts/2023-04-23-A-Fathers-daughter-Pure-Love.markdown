@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "[Poem] A Father's and daughter pure love"
+title:  "A Father's and daughter pure love"
 date:   2023-04-23 22:44:02
-categories: life
-tags: life
+categories: poem
+tags: poem
 image: /assets/article_images/liane-metzler-B32qg6Ua34Y-unsplash.jpg
 ---
 

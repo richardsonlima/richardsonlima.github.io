@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "[Poem] Eco do Amanhã"
+title:  "Eco do Amanhã"
 date:   2024-09-04 00:15:02
-categories: life
-tags: life
+categories: poem
+tags: poem
 image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
 ---
 

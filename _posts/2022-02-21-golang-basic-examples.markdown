@@ -7,7 +7,7 @@ tags: featured
 image: /assets/article_images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg
 ---
 
-Golang, also known as Go, is an open-source programming language created by Google in 2007. It is designed to be fast, simple, and efficient, making it an excellent choice for building scalable web applications and network services. In this blog post, we will explore the basics of programming in Golang and provide real-world examples to help you become a Golang hero!
+> Golang, also known as Go, is an open-source programming language created by Google in 2007. It is designed to be fast, simple, and efficient, making it an excellent choice for building scalable web applications and network services. In this blog post, we will explore the basics of programming in Golang and provide real-world examples to help you become a Golang hero!
 
 ## Features of Golang
 

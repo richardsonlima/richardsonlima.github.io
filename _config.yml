@@ -1,17 +1,12 @@
 # Build settings
 
 
-
-# Use GitHub-style markdown
-markdown: kramdown
-
 # kramdown:
 #   input: GFM
 #   math_engine: mathjax
 #   parse_block_html: true
 #   hard_wrap: false
 
-###
 # Markdown and syntax highlight
 markdown: kramdown
 highlighter: rouge
@@ -24,7 +19,6 @@ kramdown:
     block:
       line_numbers: false
       start_line: 1
-###
 
 # -----------------------------------------------------------------------------
 # Optional Features

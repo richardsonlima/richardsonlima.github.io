@@ -1,13 +1,14 @@
 ---
 layout: post
-title:  "Asperger Syndrome, Neurodiversity in Technology, and Future Challenges"
+title:  "Neurodiversity in Technology, and Future Challenges"
 date:   2023-02-15 23:11:23
 categories: programming
 tags: featured
 image: /assets/article_images/jeswin-thomas--hgJu2ykh4E-unsplash.jpg
 ---
 
-Asperger Syndrome is a neurodevelopmental disorder that affects an individual's ability to socialize and communicate effectively. However, individuals with Asperger Syndrome often possess unique abilities that can be valuable in certain fields, such as technology. In this blog post, we will discuss the importance of neurodiversity in technology, particularly in the context of Asperger Syndrome, and the challenges that must be addressed to ensure a more inclusive future.
+>  Asperger Syndrome is a neurodevelopmental disorder that affects an individual's ability to socialize and communicate effectively. However, individuals with Asperger Syndrome often possess unique abilities that can be valuable in certain fields, such as technology. In this blog post, we will discuss the importance of neurodiversity in technology, particularly in the context of Asperger Syndrome, and the challenges that must be addressed to ensure a more inclusive future.
+
 
 ![Photo by <a href="https://unsplash.com/pt-br/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/photos/nP9J7O90HfY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   ](/assets/article_images/annie-spratt-nP9J7O90HfY-unsplash.jpg "Photo by <a href="https://unsplash.com/pt-br/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/photos/nP9J7O90HfY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

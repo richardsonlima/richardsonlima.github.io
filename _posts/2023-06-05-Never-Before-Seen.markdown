@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "[Poem] Never Before Seen"
+title:  "Never Before Seen"
 date:   2023-06-05 18:05:02
-categories: life
-tags: life
+categories: poem
+tags: poem
 image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
 ---
 
