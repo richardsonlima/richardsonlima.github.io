@@ -235,7 +235,7 @@ Therefore, `n = 6` means the number of elements in the vector.
 If we use zero-based indexing (as in C, Java, Python), the indices range from 0 to n-1.
 
 **In our case:** indices from 0 to 5.
-The for loop `(i = 1; i < n; i++) runs from i = 1 to i = 5`.
+The for loop `(i = 1; i < n; i++)` runs from `i = 1` to `i = 5`.
 Therefore, we have exactly `n-1 = 5` iterations.
 
 **🔑 Didactic summary:**
@@ -542,12 +542,10 @@ $ 2(n-1) = 2n - 2 $
 
 ---
 
-## 📚 Suggested reading
-
+> 📚 **Suggested reading (in case you forgot distributive property)**
 If you’d like to refresh this basic algebra topic, check out:
+Any **Middle School / High School Algebra textbook**, chapter on **properties of multiplication**. A quick online reference: [Khan Academy — Distributive property](https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:expanding/x2f8bb11595b61c86:distributive-property/v/distributive-property-over-multiplication) 
 
-- Any **Middle School / High School Algebra textbook**, chapter on **properties of multiplication**.  
-- A quick online reference: [Khan Academy — Distributive property](https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:expanding/x2f8bb11595b61c86:distributive-property/v/distributive-property-over-multiplication) 
 
 ---
 
@@ -622,14 +620,10 @@ Think of Big-O like a **speed limit** sign:
 - What matters is: you’ll *never* exceed 100 km/h.  
 - Similarly, saying $T(n) = O(n)$ means the algorithm’s cost will *never grow faster than linear*.  
 
-
 We use **Big-O as an upper bound** because it:
 - Guarantees safety (worst-case performance).  
 - Ignores machine-specific constants.  
 - Captures the essential growth rate of algorithms.  
-
-
-
 
 ---
 
@@ -804,8 +798,60 @@ Now the puzzle is complete:
 > **In short:** asymptotic notation strips away noise to reveal the algorithm’s true nature.  
 
 ---
+## 📚 Math Fundamentals to Review to Fully Understand This Post
 
-## 📝 Exercises
+### 1. Algebra basics
+- Arithmetic with integers and fractions.  
+- Laws of exponents:  
+  - $a^m \cdot a^n = a^{m+n}$  
+  - $(a^m)^n = a^{mn}$  
+  - $a^{-n} = 1/a^n$  
+- Logarithms (base 2 and base 10 especially):  
+  - $\log(ab) = \log a + \log b$  
+  - $\log(a^k) = k \log a$  
+  - Change of base: $\log_a b = \frac{\log b}{\log a}$  
+
+---
+
+### 2. Functions and growth
+- Definition of functions $f(n)$ with integer input $n$.  
+- Linear, quadratic, cubic, polynomial forms.  
+- Exponential functions ($2^n$) and their explosive growth.  
+- Logarithmic functions and their slow growth.  
+- How to compare growth rates (e.g., why $\log n < n < n^2 < 2^n$).  
+
+---
+
+### 3. Inequalities and estimation
+- How to prove inequalities (e.g., show $n^2 < 2^n$ for $n > 4$).  
+- Approximation skills: dropping lower-order terms (e.g., $n^2 + n \approx n^2$ for large $n$).  
+- Ignoring constants in asymptotic analysis (e.g., $10n \approx n$).  
+
+---
+
+### 4. Summations and series
+- Arithmetic series: $1 + 2 + \dots + n = \frac{n(n+1)}{2}$.  
+- Geometric series: $1 + r + r^2 + \dots + r^k = \frac{r^{k+1}-1}{r-1}$.  
+- Understanding that summations can often be bounded by simple functions.  
+
+---
+
+### 5. Distributive property & simplification
+- Expanding: $a(b+c) = ab + ac$, $2(n-1) = 2n - 2$.  
+- Simplifying polynomials by focusing on the dominant term.  
+
+---
+
+**To follow this post without gaps, it’s important to be comfortable with:**
+- Exponents, logarithms, inequalities, and summations.  
+- Recognizing how functions grow and comparing them.  
+- Simplifying algebraic expressions using distributive and other basic rules.  
+
+These skills provide the **mathematical backbone** for understanding growth rates and asymptotic analysis in algorithms.
+
+---
+
+## 📝 Challenge
 
 - Design a **parallel algorithm** to find the maximum of an array of size `n`.  
 - Hint: with `n` processors, time can drop drastically.  
