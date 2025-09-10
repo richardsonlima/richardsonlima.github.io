@@ -570,7 +570,21 @@ This is why exponential algorithms quickly become impractical.
 
 Formal definition:  
 
-![](/assets/images/math-01.png)
+$ f(n) \in O(g(n)) 
+   \;\;\iff\;\; 
+   \exists c > 0, n_0 > 0 : f(n) \leq c \cdot g(n), \; \forall n \geq n_0 $  
+
+Application example:  
+
+$ f(n) = 2n + 10 $  
+
+$ f(n) \leq 3n, \;\; \forall n \geq 10 $  
+
+Therefore:  
+
+$ f(n) = 2n + 10 \in O(n) $  
+
+
 
 - Example: `2n + 10 ∈ O(n)` (choose `c=3, n₀=10`).  
 
