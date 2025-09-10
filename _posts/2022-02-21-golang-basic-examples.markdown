@@ -3,7 +3,7 @@ layout: post
 title:  "Basic overview about Golang from Zero with Real Examples"
 date:   2023-02-22 20:01:28
 categories: programming
-tags: featured
+tags: programming
 image: /assets/article_images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg
 ---
 

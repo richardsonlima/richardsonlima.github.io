@@ -3,7 +3,7 @@ layout: post
 title:  "A Father's and daughter pure love"
 date:   2023-04-23 22:44:02
 categories: poem
-tags: poem
+tags: featured
 image: /assets/article_images/liane-metzler-B32qg6Ua34Y-unsplash.jpg
 ---
 

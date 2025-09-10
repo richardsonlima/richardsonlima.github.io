@@ -1,6 +1,14 @@
 # Build settings
 
 
+# Lazy loading images
+#   If you enable lazy loading, all images will add the loading="lazy" attribute.
+#   This will make your site load faster, but it may not be supported in all browsers.
+#   You can also set loading="" to other values for specific images to override the default behavior.
+#   Options: "auto", "eager", "lazy"
+#   See https://web.dev/browser-level-image-lazy-loading/ for more information.
+lazy_loading_images: true # enables lazy loading of images (recommended)
+
 # kramdown:
 #   input: GFM
 #   math_engine: mathjax
@@ -105,6 +113,10 @@ email: rick@richardsonlima.com.br
 logo: "/assets/images/linkedin-avatar-1713727981804.jpeg"
 float_logo: true # true, false (default)
 
+lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
+icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+last_updated: false # set to true if you want to display last updated in the footer
+
 # blog cover
 cover: "/assets/images/photo-1618171889969-0feeb769fe78.png"
 
@@ -112,7 +124,7 @@ name: 'Richardson Lima'
 author: 'Richardson Lima'
 author_image: "/assets/images/linkedin-avatar-1713727981804.jpeg"
 
-paginate:	100
+paginate:	500
 
 url: "https://richardsonlima.github.io" # the base hostname & protocol for your site
 baseurl: ""

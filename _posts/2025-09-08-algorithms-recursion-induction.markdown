@@ -2,7 +2,7 @@
 layout: post
 title:  "From Growth Rates to Recursion"
 categories: programming
-tags: algorithms complexity recursion induction recurrences
+tags: featured
 image: /assets/article_images/thomas-t-OPpCbAAKWv8-unsplash.jpg
 ---
 > **Reading order matters.** This post is a direct sequel to our [previous article on growth rates and asymptotic notation](https://www.richardsonlima.com.br/programming/2025/09/08/algorithms-efficiency.html). We’ll use those ideas to *prove properties*, *design recursive algorithms*, and *analyze their running time*.

@@ -3,7 +3,7 @@ layout: post
 title:  "On The Nature Of Daylight"
 date:   2022-11-07 23:04:02
 categories: music
-tags: music
+tags: featured
 image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
 ---
 

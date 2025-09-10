@@ -3,7 +3,7 @@ layout: post
 title:  "Present and Future of Artificial Intelligence"
 date:   2023-02-22 20:01:28
 categories: artificial-intelligence
-tags: featured
+tags: artificial-intelligence
 image: /assets/article_images/shane-rounce-PHKgQSGzwpw-unsplash.jpg
 ---
 

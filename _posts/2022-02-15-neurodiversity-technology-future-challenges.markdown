@@ -3,7 +3,7 @@ layout: post
 title:  "Neurodiversity in Technology, and Future Challenges"
 date:   2023-02-15 23:11:23
 categories: programming
-tags: featured
+tags: neurodiversity
 image: /assets/article_images/jeswin-thomas--hgJu2ykh4E-unsplash.jpg
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title:  "A Journey Through Asymptotic Notation"
 date:   2025-09-08 21:00:00
 categories: programming
-tags: algorithms complexity big-o omega theta
+tags: featured
 image: /assets/article_images/thomas-t-OPpCbAAKWv8-unsplash.jpg
 ---
 
