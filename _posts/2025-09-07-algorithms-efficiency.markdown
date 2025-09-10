@@ -4,7 +4,7 @@ title:  "A Journey Through Asymptotic Notation"
 date:   2025-09-08 21:00:00
 categories: programming
 tags: featured
-image: /assets/article_images/thomas-t-OPpCbAAKWv8-unsplash.jpg
+image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
 ---
 
 > The efficiency of an algorithm is one of the most important aspects in computer science.  
