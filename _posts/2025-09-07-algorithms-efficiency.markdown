@@ -214,8 +214,9 @@ T(n) = O(n)
 📌 **Final takeaway:**
 The exact count is `6n - 1`, but for large `n` the `-1` is negligible, so the algorithm runs in about `6n` steps — which is why its time complexity is **linear**.
 
-#####
-#### To be more clear, let's use operations inside the loop (with A = [4, 7, -1, 9, 3, 9]) array:
+#### To be more clear, let's use operations inside the loop:
+
+(with A = [4, 7, -1, 9, 3, 9]) array
 
 **We start with:**
 
