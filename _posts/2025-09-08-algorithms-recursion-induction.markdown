@@ -92,7 +92,7 @@ Every recursive call stores:
 - Local variables
 - Return address
 
-These frames are pushed onto a **stack**. The most recent call is always the first to resume — a LIFO mechanism.
+These frames are pushed onto a **stack**. The most recent call is always the first to resume —> a LIFO mechanism.
 
 ➡️ This is why recursion can always be rewritten iteratively, using an **explicit stack**.
 
@@ -139,7 +139,7 @@ def fib(n):
 
 Recurrence:
 $T(n) = T(n-1) + T(n-2) + b$
-Solution: $T(n) = \Omega(2^{n/2})$ — exponential growth.
+Solution: $T(n) = \Omega(2^{n/2})$ —> exponential growth.
 
 Iterative version (linear time):
 
