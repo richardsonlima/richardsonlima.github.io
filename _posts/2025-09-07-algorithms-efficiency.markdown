@@ -237,6 +237,7 @@ If we use zero-based indexing (as in C, Java, Python), the indices range from 0 
 **In our case:** indices from 0 to 5.
 The for loop `(i = 1; i < n; i++) runs from i = 1 to i = 5`.
 Therefore, we have exactly `n-1 = 5` iterations.
+
 **🔑 Didactic summary:**
 `n` = size of the vector (how many elements it has).
 `n-1` = number of times the loop executes, because the first element `(A[0])` was already considered during initialization `(currentMax = A[0])`.
