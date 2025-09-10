@@ -428,7 +428,7 @@ T(n) = 2 + (2n - 2) + (4n - 4) + 1 = 6n - 3
  
 ---
 
-### Two hypothetical analysts
+### Know let's imagine two hypothetical analysts solving it 💭
 
 - **Alice (the meticulous analyst):** counts every array access, assignment, and the final failed loop comparison. She concludes the algorithm performs about **6n - 3** operations in the worst case.  
 
@@ -479,7 +479,7 @@ Let’s carefully analyze the primitive operations in `array_max`:
 Some analyses conclude the worst case is `6n - 1`.  
 The difference comes from conventions: whether we count the final failed loop test, etc.  
 
-### Two hypothetical analysts
+### Each hypothetical analysts conclude
 - **Alice (meticulous):** counts everything → `6n - 3`.  
 - **Bob (pragmatic):** ignores some constants → `6n - 1`.  
 
