@@ -109,9 +109,16 @@ The identity is preserved.
 Induction is not just a technique. It is a worldview. To master the infinite, one secures the first case and the transition. In music, Bach’s fugues and Pachelbel’s Canon build entire universes from repeated steps. In life, habits form character by induction: one action leading inevitably to the next.
 
 ## 11. A Musical Reflection
-If induction is the logic of dominoes, then music is its art. Pachelbel’s Canon in D repeats a ground bass while voices rise, overlap, and continue without end. Each new entry is justified by the one before, just as each proof step secures the next. The infinite is conquered by repetition.
+If induction is the logic of dominoes, then music is its art. **Pachelbel’s Canon in D** repeats a ground bass while voices rise, overlap, and continue without end. Each new entry is justified by the one before, just as each proof step secures the next. The infinite is conquered by repetition.
 
-[Listen to Pachelbel’s Canon in D](https://www.youtube.com/watch?v=NlprozGcs80)
+**Version 01**
+[Listen to Pachelbel’s Canon in D](https://www.youtube.com/watch?v=JvNQLJ1_HQ0&list=RDJvNQLJ1_HQ0&start_radio=1)
+
+**Version 02**
+[Johann Pachelbel - Canon in D - Jacob's Piano](https://www.youtube.com/watch?v=1elGqARTb1Q&list=RD1elGqARTb1Q&start_radio=1)
+
+**Version 03**
+[𝐂𝐚𝐧𝐨𝐧 𝐢𝐧 𝐃 (𝐏𝐚𝐜𝐡𝐞𝐥𝐛𝐞𝐥) 𝐩𝐞𝐫𝐟𝐨𝐫𝐦𝐞𝐝 𝐛𝐲 𝐏𝐞𝐫-𝐎𝐥𝐨𝐯 𝐊𝐢𝐧𝐝𝐠𝐫𝐞𝐧 with 𝐜𝐥𝐚𝐬𝐬𝐢𝐜𝐚𝐥 𝐠𝐮𝐢𝐭𝐚𝐫](https://www.youtube.com/watch?v=jXC9tuumjiA&list=RDjXC9tuumjiA&start_radio=1)
 
 ## 12. The Big Takeaway
 Mathematical induction is the art of proving eternity with a single gesture. Once the base is solid and the step reliable, the whole infinite structure unfolds. It is logic, philosophy, and music all at once.
