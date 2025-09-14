@@ -4,7 +4,7 @@ title: "Between Brazil and Bach: The Eternal Breath of Villa-Lobos"
 date: 2025-09-13
 categories: [music, philosophy, reflection]
 tags: featured
-image: /assets/article_images/villalobos-bachianas.jpg
+image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
 mathjax: true
 ---
 
@@ -84,4 +84,4 @@ If tears come, let them. They are not an interruption they are the continuation 
 
 - Heitor Villa-Lobos, *Bachianas Brasileiras No. 5* (1938/1945).  
 - Plínio Fernandes (guitar), Sheku Kanneh-Mason (cello). *Bachianas Brasileiras No. 5*. Decca, 2022.  
-- On the fusion of Bach and Brazilian modernism: [arXiv:2103.01234](https://arxiv.org/abs/2103.01234).  
+- On the fusion of Bach and Brazilian modernism: [Bachianas Brasileiras](https://en.wikipedia.org/wiki/Bachianas_Brasileiras).  
