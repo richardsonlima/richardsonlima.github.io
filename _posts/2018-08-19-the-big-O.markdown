@@ -5,15 +5,6 @@ date:   2018-08-19 20:13:21
 categories: programming
 tags: programming
 image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
----
-
----
-layout: post
-title: "Big O Notation and Other Alternatives"
-date: 2018-08-19 20:13:21
-categories: [algorithms, complexity]
-tags: [big-o, complexity, algorithms, asymptotics]
-image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
 mathjax: true
 ---
 
