@@ -17,7 +17,7 @@ Parallel to this technological journey, I am pursuing a Master of Science degree
 
 In a world that often demands narrow specialization, I embrace the paradox of being a generalist with the precision of a specialist. Curiosity drives me: a restless pursuit of knowledge that knows no boundaries. My mind thrives on connections, weaving ideas across disciplines into a coherent whole.  
 
-My path is shaped by a daily commitment to elevate potential across intellectual, academic, leadership, psychomotor, and artistic realms. It is not merely about being more; it is about seeing more—tracing the hidden threads that bind seemingly disparate domains.
+My path is shaped by a daily commitment to elevate potential across intellectual, academic, leadership, psychomotor, and artistic realms. It is not merely about being more; it is about seeing more tracing the hidden threads that bind seemingly disparate domains.
 
 ---
 
