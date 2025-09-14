@@ -20,9 +20,9 @@ To prove a statement P(n) for all integers n greater than or equal to n0:
 
 From these two steps, one concludes that P(n) holds for all n greater than or equal to n0. Symbolically,
 
-\[
+$$
 P(n0) \wedge \forall k \geq n0 (P(k) \Rightarrow P(k+1)) \implies \forall n \geq n0, P(n)
-\]
+$$
 
 ## 3. Weak and Strong Induction
 - Weak induction assumes P(k) alone to prove P(k+1).  
@@ -33,22 +33,22 @@ The two are logically equivalent, but strong induction is often more natural whe
 ## 4. Classic Examples
 
 ### 4.1 The Sum of the First n Integers
-\[
+$$
 1+2+3+...+n = \frac{n(n+1)}{2}
-\]
+$$
 
 The base case n=1 gives 1=1. Assume the identity for k. Then
 
-\[
+$$
 1+2+...+k+(k+1) = \frac{k(k+1)}{2}+(k+1) = \frac{(k+1)(k+2)}{2}
-\]
+$$
 
 The formula holds for k+1, and thus for all n.
 
 ### 4.2 The Sum of Odd Numbers
-\[
+$$
 1+3+5+...+(2n-1) = n^2
-\]
+$$
 
 One may visualize this as growing squares of dots. Induction formalizes the image.
 
@@ -57,14 +57,14 @@ Prove that n^3+2n is divisible by 3 for all n ≥ 0.
 Base: n=0 yields 0. Step: Expand (k+1)^3+2(k+1) and regroup terms to use the hypothesis. The factor 3 emerges naturally.
 
 ### 4.4 Factorial Growth
-\[
+$$
 2^n < n! \quad \text{for } n > 3
-\]
+$$
 
 Base: n=4 gives 16<24. Step: assuming 2^k < k!, then 2^{k+1}=2·2^k < 2·k! ≤ (k+1)!.
 
 ### 4.5 Binary Length
-The binary expansion of n > 0 has exactly \(\lfloor \log_2 n \rfloor + 1\) bits. Induction on n shows that each doubling adds one bit.
+The binary expansion of n > 0 has exactly $\lfloor \log_2 n \rfloor + 1$ bits. Induction on n shows that each doubling adds one bit.
 
 ## 5. Induction and Recursion
 In computer science, recursion is the algorithmic twin of induction. Consider factorial:
@@ -81,7 +81,7 @@ Correctness follows the same pattern. Base cases check directly. The recursive s
 ## 6. Combinatorics and Algebra
 The binomial theorem
 
-\[(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^{n-k} b^k\]
+$$(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^{n-k} b^k$$
 
 is proved elegantly by induction on n. Telescoping sums, Fibonacci identities, and formulas for geometric progressions all yield to induction.
 
@@ -92,9 +92,9 @@ There are seductive but false proofs. The notorious “all horses have the same 
 **Claim:** 1+2+4+...+2^n = 2^{n+1}-1.  
 Base: n=0 gives 1=1. Step: assume the sum up to 2^k equals 2^{k+1}-1. Then
 
-\[
+$$
 (2^{k+1}-1)+(2^{k+1}) = 2^{k+2}-1
-\]
+$$
 
 The identity is preserved.
 
