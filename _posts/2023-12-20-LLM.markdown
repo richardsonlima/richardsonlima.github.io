@@ -16,7 +16,7 @@ We will move from intuition to equations, from small code to scaling laws, then 
 
 ## 1. From sequence to structure
 
-A text sequence is a list of tokens \(x_1, x_2, \dots, x_n\). The job of a causal language model is to estimate
+A text sequence is a list of tokens $$(x_1, x_2, \dots, x_n)$$. The job of a causal language model is to estimate
 
 $$
 p(x_1,\dots,x_n)=\prod_{t=1}^{n}p(x_t\mid x_{<t}).
