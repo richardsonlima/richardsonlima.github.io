@@ -534,6 +534,22 @@ body
     &:hover
       color: #333
 
+.video-container
+  position: relative
+  padding-bottom: 56.25%   // 16:9
+  height: 0
+  overflow: hidden
+
+.video-container iframe,
+.video-container object,
+.video-container embed
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  border: 0
+
 .bottom-closer
   width: 100%
   position: relative
@@ -619,19 +635,4 @@ pre
     border: 0
     padding-right: 0
     padding-left: 0
-
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  padding-top: 25px;
-  height: 0;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
