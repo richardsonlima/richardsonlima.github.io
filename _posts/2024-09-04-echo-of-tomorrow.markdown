@@ -7,6 +7,10 @@ tags: poem music guitar
 image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
 mathjax: false
 ---
+> There’s a whisper in the tides,  
+A herald of the days to come,  
+Where every wave arrives carrying  
+The hint of lives not yet begun.
 
 ### "Echo of Tomorrow"
 
