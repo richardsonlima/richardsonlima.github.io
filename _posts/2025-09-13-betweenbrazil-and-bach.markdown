@@ -18,7 +18,7 @@ The [performance of *Bachianas Brasileiras No. 5* by Plínio Fernandes (guitar) 
     width="560" 
     height="315" 
     src="https://www.youtube.com/embed/xFvARkTrc0k?si=PAI2-qszBrgvJi0P" 
-    title="YouTube video player" 
+    title="performance of *Bachianas Brasileiras No. 5* by Plínio Fernandes (guitar) and Sheku Kanneh-Mason (cello)" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
     referrerpolicy="strict-origin-when-cross-origin" 
