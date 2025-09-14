@@ -35,12 +35,30 @@ Every genre opens a different portal—Jazz whispers patterns like constellation
 
 #### 🎼 Classical Echoes & Timeless Reverberations
 - [Bachianas Brasileiras No.5 - Heitor Villa-Lobos](https://www.youtube.com/watch?v=ZVGB132KyMc&list=RDZVGB132KyMc&start_radio=1)  
+- ["Fabio Lima - Aria na Corda Sol - nso J. S. Bach](https://www.youtube.com/watch?v=ylL8sJ6BoHs&list=RDylL8sJ6BoHs&start_radio=1)
+- [Ludovico Einaudi - Experience (Live At Fabric, London/2013)](https://www.youtube.com/watch?v=hN_q-_nGv4U)
+- [Ólafur Arnalds, Alice Sara Ott - Reminiscence (Live at Yellow Lounge Berlin)](https://www.youtube.com/watch?v=9-1ESx99HcE&list=RD9-1ESx99HcE&start_radio=1)
+- [HAUSER - Adagio (Albinoni)](https://www.youtube.com/watch?v=kn1gcjuhlhg&list=RDkn1gcjuhlhg&start_radio=1)
+- [HAUSER - Adagio for Strings (Barber)HAUSER - Adagio for Strings (Barber)](https://www.youtube.com/watch?v=Hc8gYoXkLZ4&list=RDHc8gYoXkLZ4&start_radio=1)
+-[HAUSER - Adagio (Secret Garden)](https://www.youtube.com/watch?v=S4IOlze0fJE&list=RDS4IOlze0fJE&start_radio=1)
+- [2CELLOS - With Or Without You](https://www.youtube.com/watch?v=jNziABZJhj0&list=RDjNziABZJhj0&start_radio=1)
+- [HAUSER - Air on the G String (J. S. Bach)](https://www.youtube.com/watch?v=CvglW3KNSsQ&list=RDCvglW3KNSsQ&start_radio=1)
+- [HAUSER - Caruso](https://www.youtube.com/watch?v=H7uakHWdSr4&list=RDH7uakHWdSr4&start_radio=1)
+- [HAUSER - Mia & Sebastian’s Theme - La La Land](https://www.youtube.com/watch?v=oTN7xO6emU0&list=RDoTN7xO6emU0&start_radio=1)
+- [2CELLOS - Thunderstruck](https://www.youtube.com/watch?v=uT3SBzmDxGk&list=RDuT3SBzmDxGk&start_radio=1)
 - [Alicia Keys performing Beethoven's "Moonlight Sonata"](https://www.youtube.com/watch?v=bT6WmWVYPhI&list=RDbT6WmWVYPhI&start_radio=1)  
 - [Emma Kok Sings Voilà – André Rieu](https://www.youtube.com/watch?v=KdIhq1tb8Co)  
 - [Frank Sinatra - The Girl From Ipanema ft. Antonio Carlos Jobim](https://www.youtube.com/watch?v=NldPFVKYmiw&list=RDNldPFVKYmiw&start_radio=1)  
-- [Julio Iglesias - Crazy](https://www.youtube.com/watch?v=ziliGKfW2I0&list=RDziliGKfW2I0&start_radio=1)  
+- [Julio Iglesias - Crazy](https://www.youtube.com/watch?v=ziliGKfW2I0&list=RDziliGKfW2I0&start_radio=1)
+- [Nils Frahm - Live at the Philharmonie de Paris](https://www.youtube.com/watch?v=HPPzQgTaLbo&list=RDHPPzQgTaLbo&start_radio=1)  
+
 
 #### 🎸 Blues, Jazz & Soulful Truths
+- [The Reign of Kindo - Out of Sight, Out of Mind](https://www.youtube.com/watch?v=PncG8D58AvI&list=RDPncG8D58AvI&start_radio=1)
+- [The Reign of Kindo - Just Wait](https://www.youtube.com/watch?v=tIZRIf1LnSY&list=RDtIZRIf1LnSY&start_radio=1)
+- [The Reign of Kindo - Hold Out](https://www.youtube.com/watch?v=BD9IT9a63RM&list=RDBD9IT9a63RM&start_radio=1)
+- [Esperanza Spalding - "I Know You Know / Smile Like That" (Live in San Sebastian july 23, 2009 - 3/9)](https://www.youtube.com/watch?v=2aRC3YY3svs&list=RD2aRC3YY3svs&start_radio=1)
+- [Jamie Cullum - These Are The Days](https://www.youtube.com/watch?v=M1569dXGOMc&list=RDM1569dXGOMc&start_radio=1)
 - [Jeff Healey - As The Years Go Passing By](https://www.youtube.com/watch?v=gIkOaTVu8uM&list=RDgIkOaTVu8uM&start_radio=1)  
 - [Stevie Ray Vaughan - Texas Flood - from Live at the El Mocambo](https://www.youtube.com/watch?v=KC5H9P4F5Uk)  
 - [Diana Krall - Frim Fram Sauce](https://www.youtube.com/watch?v=ZS_6vtAGTE0&list=RDZS_6vtAGTE0&start_radio=1)  
@@ -49,15 +67,35 @@ Every genre opens a different portal—Jazz whispers patterns like constellation
 - [John Mayer - Slow Dancing In A Burning Room](https://www.youtube.com/watch?v=32GZ3suxRn4&list=RD32GZ3suxRn4&start_radio=1)  
 - [Jacob Collier & Daniel Caesar - Best Part](https://www.youtube.com/watch?v=fD4rxj7-uO0&list=RDfD4rxj7-uO0&start_radio=1)  
 - [Daniel Caesar (feat. H.E.R.) perform Best Part on Later](https://www.youtube.com/watch?v=j045yEf2cLg&list=RDj045yEf2cLg&start_radio=1)  
+- [Tori Amos Thank You](https://www.youtube.com/watch?v=7ZTemHFLpZM&list=RDjmk0AVNRBIY&index=2)
 
 #### 🌍 Brazilian Waves & Poetic Horizons
-- [Daniel Jobim - Águas de Março - Ao Vivo](https://www.youtube.com/watch?v=achxrz7ixxY&list=RDEMavVpSFR4FaOsgmiSjRFdRg&start_radio=1&rv=ErE2Cpko1XI)  
+- [Daniel Jobim - Águas de Março - Ao Vivo](https://www.youtube.com/watch?v=achxrz7ixxY&list=RDEMavVpSFR4FaOsgmiSjRFdRg&start_radio=1&rv=ErE2Cpko1XI) 
+- [Toquinho - Aquarela](https://www.youtube.com/watch?v=T-hRvA9jUzs&list=RDT-hRvA9jUzs&start_radio=1)
+- [Djavan - Acelerou](https://www.youtube.com/watch?v=981mL2ai2n8&list=RD981mL2ai2n8&start_radio=1)
+- [Legião Urbana - Índios](https://www.youtube.com/watch?v=nM_gEzvhsM0&list=RDnM_gEzvhsM0&start_radio=1)
+- [Los Hermanos - Último Romance ](https://www.youtube.com/watch?v=hvbuYbwrpxc&list=RDhvbuYbwrpxc&start_radio=1) 
+- [Engenheiros do Hawaii - Somos Quem Podemos Ser](https://www.youtube.com/watch?v=Dv6-2mOd0EY&list=RDDv6-2mOd0EY&start_radio=1)
+- [Capital Inicial - Primeiros Erros](https://www.youtube.com/watch?v=jabmx3QoJGA&list=RDjabmx3QoJGA&start_radio=1)
+- [Nenhum de Nós - O Astronauta de Mármore](https://www.youtube.com/watch?v=1NDxPTLxcrg&list=RD1NDxPTLxcrg&start_radio=1)
+- [Biquini Cavadão - Vento Ventania](https://www.youtube.com/watch?v=drVHBpVXkjI&list=RDdrVHBpVXkjI&start_radio=1)
+- [Roupa Nova - Linda Demais](https://www.youtube.com/watch?v=GUVoVoQ1oRM&list=RDGUVoVoQ1oRM&start_radio=1)
+- [Fábio Jr. - Caça e Caçador](https://www.youtube.com/watch?v=2UWIUm7u640&list=RD2UWIUm7u640&start_radio=1)
+- [Lobão - Me Chama](https://www.youtube.com/watch?v=zv0oB7CfAAc&list=RDzv0oB7CfAAc&start_radio=1)
 - [Rubel - Quando ...](https://www.youtube.com/watch?v=tMWpm_GOLaA&list=RDtMWpm_GOLaA&start_radio=1)  
 - [João Bosco - Quando O Amor Acontece](https://www.youtube.com/watch?v=M68VWs-0c_U&list=RDM68VWs-0c_U&start_radio=1)  
 - [Emílio Santiago - Saigon](https://www.youtube.com/watch?v=VyoDm3D4uEE&list=RDVyoDm3D4uEE&start_radio=1)  
-- [Ivan Lins - Vieste](https://www.youtube.com/watch?v=zOauB4hKIAM&list=RDzOauB4hKIAM&start_radio=1)  
+- [Ivan Lins - Vieste](https://www.youtube.com/watch?v=zOauB4hKIAM&list=RDzOauB4hKIAM&start_radio=1) 
+- [Oswaldo Montenegro - Bandolins](https://www.youtube.com/watch?v=E6iINnuoQHY&list=RDE6iINnuoQHY&start_radio=1) 
 - [Placa Luminosa](https://www.youtube.com/watch?v=XDJe4fvR98Y&list=RDXDJe4fvR98Y&start_radio=1)  
-- [14 Bis - Linda Juventude](https://www.youtube.com/watch?v=ZZMmbi1kfUo&list=RDZZMmbi1kfUo&start_radio=1)  
+- [Luane/   Vanessa - Sealed With a Kiss](https://www.youtube.com/watch?v=ZqoClsU2cnU&list=RDZqoClsU2cnU&start_radio=1)
+- [14 Bis - Linda Juventude](https://www.youtube.com/watch?v=ZZMmbi1kfUo&list=RDZZMmbi1kfUo&start_radio=1)
+- [Flávio Venturini- Todo Azul do Mar](https://www.youtube.com/watch?v=rWeQHoAKyVg&list=RDrWeQHoAKyVg&start_radio=1)  
+- [Dalto - Muito Estranho (Cuida Bem de Mim)](https://www.youtube.com/watch?v=cwd9PaXBKzM&list=RDcwd9PaXBKzM&start_radio=1)
+- [Flávio Venturini- Noites com Sol](https://www.youtube.com/watch?v=22ht3PJjfVo&list=RD22ht3PJjfVo&start_radio=1)
+- [Flávio Venturini- Espanhola](https://www.youtube.com/watch?v=wWrK0syYfxQ&list=RDwWrK0syYfxQ&start_radio=1)
+- [Guilherme Arantes - Meu Mundo e Nada Mais](https://www.youtube.com/watch?v=WsyVE0RhAd8&list=RDWsyVE0RhAd8&start_radio=1)
+- [Vander Lee - Alma nua](https://www.youtube.com/watch?v=8yzB_NBlOEg&list=RD8yzB_NBlOEg&start_radio=1)
 
 #### 🌌 Rock, Dreams & Eternal Flames
 - [Sting - Every Breath you Take](https://www.youtube.com/watch?v=H-4yodHCvu0&list=RDH-4yodHCvu0&start_radio=1)  
@@ -88,7 +126,7 @@ Every genre opens a different portal—Jazz whispers patterns like constellation
 - [JINJER - Pisces](https://www.youtube.com/watch?v=SQNtGoM3FVU&list=RDSQNtGoM3FVU&start_radio=1)  
 - [NIGHTWISH - The Phantom Of The Opera](https://www.youtube.com/watch?v=tL25rbnvM4o&list=RDtL25rbnvM4o&start_radio=1)  
 
-#### 🌿 Nordic, Folk & Mystical Voices
+#### 🌿 Nordic, Folk & Nature Voices
 - [Wardruna and Aurora - Helvegen](https://www.youtube.com/watch?v=FnkTuHP9q3o&list=RDFnkTuHP9q3o&start_radio=1)  
 - [Eivør Pálsdóttir: Tròdlabùndin](https://www.youtube.com/watch?v=wsl-KHGe4Kk&list=RDwsl-KHGe4Kk&start_radio=1)  
 
