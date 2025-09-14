@@ -80,6 +80,19 @@ If tears come, let them. They are not an interruption they are the continuation 
 
 ---
 
+<div class="video-container">
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/ZW_X4CSwLj8?si=-EGJVMJJ8doYRKIr" 
+    title="Plínio Fernandes - Bachianas Brasileiras No. 4: I. Prelúdio (Introdução)" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+
 ## References
 
 - Heitor Villa-Lobos, *Bachianas Brasileiras No. 5* (1938/1945).  
