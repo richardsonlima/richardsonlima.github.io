@@ -205,4 +205,4 @@ Once you see recursion, you start noticing it everywhere — in algorithms, in p
 - Knuth, D.E. *The Art of Computer Programming*.  
 - [USP Algorithm Course](https://www.ime.usp.br/~pf/analise_de_algoritmos/)  
 - [ITA Teaching Material](http://www.comp.ita.br/~alonso/ensino.html)  
-- [MIT OpenCourseWare – Algorithms](https://ocw.mit.edu/courses/
+- [MIT OpenCourseWare – Algorithms](https://ocw.mit.edu/courses/)
