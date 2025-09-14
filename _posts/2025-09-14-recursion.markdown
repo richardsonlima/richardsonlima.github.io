@@ -186,7 +186,7 @@ A fractal coastline, a Bach fugue, the self-similarity of galaxies: all are recu
 
 Mathematical induction gives us certainty, recursion gives us expression, and together they let us model infinite processes with finite rules.  
 
-Once you see recursion, you start noticing it everywhere — in algorithms, in proofs, and even in life’s repeating cycles.
+Once you see recursion, you start noticing it everywhere  in algorithms, in proofs, and even in life’s repeating cycles.
 
 ---
 
