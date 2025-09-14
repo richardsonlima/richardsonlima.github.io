@@ -10,18 +10,25 @@ mathjax: true>
 
 > The world sighs and time bends when the first notes of *Come, Sweet Death* emerge in five cello voices. There is no hurry, no unnecessary ornament, only the weight of sound spreading like fog across a silent morning field.  
 
-The music does not beginit has always been there, waiting. The opening chord is a door inward: the body feels its gravity, the breath slows, the heart hesitates.
+The [Music video by Sheku Kanneh-Mason, Hannah Roberts, Ben Davies, Desmond Neysmith, Max Ruisi performing J.S. Bach: Come, Sweet Death (Arr. for 5 Cellos)](https://www.youtube.com/watch?v=koFTQvGmNfU&list=RDkoFTQvGmNfU&start_radio=1) does not beginit has always been there, waiting. The opening chord is a door inward: the body feels its gravity, the breath slows, the heart hesitates.
 
-[Music video by Sheku Kanneh-Mason, Hannah Roberts, Ben Davies, Desmond Neysmith, Max Ruisi performing J.S. Bach: Come, Sweet Death (Arr. for 5 Cellos)](https://www.youtube.com/watch?v=koFTQvGmNfU&list=RDkoFTQvGmNfU&start_radio=1)
+<div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/koFTQvGmNfU" 
+    title="J.S. Bach: Come, Sweet Death (5 Cellos)" 
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
+</div>
 
 ---
 
 ## The first dim light
 
-Johann Sebastian Bach composed *Komm, süßer Tod* in the 17th century as a meditation on death, not as rupture, but as rest.  
+**Johann Sebastian Bach** composed *Komm, süßer Tod* in the 17th century as a meditation on death, not as rupture, but as rest.  
 In this arrangement for five cellos, the melody acquires another dimension: it ceases to be a solitary prayer and becomes a shared confession.  
 
-Each cello is an inner voice:  
+**Each cello is an inner voice:**  
 - One whispers resignation.  
 - Another rises in supplication.  
 - A third echoes as distant memory.  
@@ -36,8 +43,9 @@ We do not hear instruments alone. We hear the layers of a soul letting go.
 
 There is something mathematical in the grief of this piece. Phrases return, not identical, but subtly transformed. Each recurrence is a cycle of thought: **acceptance → resistance → surrender → silence**.  
 
-This recursive sound enfolds us, as though Bach had written a spiritual algorithm of dying.  
-In symbolic form:
+This recursive sound enfolds us, as though Bach had written a spiritual algorithm of dying.
+ 
+**In symbolic form:**
 
 $$
 Death = \lim_{n \to \infty} (Pain_n + Beauty_n)
@@ -53,7 +61,7 @@ Sheku Kanneh-Mason and his fellow cellists do not merely play notes: they offici
 There are moments when the collective resonance is so dense that even the surrounding silence vibrates.  
 It is in this suspension that tears arisenot from pure sorrow, but from recognizing beauty inhabiting the end.  
 
-It is impossible not to recall Rilke:  
+**It is impossible not to recall Rilke:**  
 *"Beauty is nothing but the beginning of terror we are still able to bear."*  
 
 And Schopenhauer, who saw in music the purest expression of Will. Here, the Will no longer struggles. It rests.
