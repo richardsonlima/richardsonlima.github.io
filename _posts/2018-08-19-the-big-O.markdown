@@ -7,95 +7,177 @@ tags: programming
 image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
 ---
 
-> Big O notation is a mathematical concept used in computer science to describe the efficiency of algorithms. It is a useful tool for measuring the runtime and space complexity of an algorithm. However, it is not the only way to analyze algorithms. In this blog post, we will explore Big O notation, other alternatives, and how to apply them in real life.
+---
+layout: post
+title: "Big O Notation and Other Alternatives"
+date: 2018-08-19 20:13:21
+categories: [algorithms, complexity]
+tags: [big-o, complexity, algorithms, asymptotics]
+image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
+mathjax: true
+---
 
-## Big O Notation
+> Big-O is more than a notation. It is the universal score sheet where algorithms reveal their rhythm in the face of infinity.  
+> If Θ sets the tempo and Ω marks the bass line, O describes the dramatic crescendo of the worst case.
 
-Big O notation is a way to describe the upper bound of an algorithm's runtime or space complexity. It is denoted as O(f(n)), where f(n) is a function that represents the time or space complexity of the algorithm. The most common time complexities are O(1), O(log n), O(n), O(n log n), O(n²), and O(2^n). A constant-time algorithm has a time complexity of O(1), while an algorithm that has to iterate through every element in an array has a time complexity of O(n).
+# Introduction
 
-Big O notation is a useful tool for comparing the efficiency of different algorithms. If two algorithms have the same time complexity, they will take roughly the same amount of time to run on the same input. However, it is important to note that Big O notation only describes the upper bound of an algorithm's runtime. It does not provide information about the best-case or average-case scenario.
+In computer science, asymptotic analysis is the shared language that allows us to compare algorithms fairly.  
+Some grow like flickering meteors, vanishing in exponential time, while others shine steadily across the sky, sustained by polynomial growth.  
 
-Big O notation is a useful tool for analyzing the efficiency of algorithms, but it is not the only way. Omega notation and Theta notation can also be useful in certain situations. By applying these concepts in real life, developers can optimize their code and improve the performance of their websites and apps.
+This post revisits **Big-O**, introduces **Ω** and **Θ** with mathematical precision, and walks through concrete examples — from  
+$$T(n) = 10n^2 + 137n + 15$$  
+to the classical **ArrayMax** algorithm and **Horner’s method** for polynomial evaluation.  
 
-So you worked extremely hard to save more `CPU` cycle in the central loop but your code still slowly ? I think that you need to know more about `time complexity` . 
+# Formal Definitions
 
-"Hey, but what's time complexity ?"
+Let $f(n)$ and $g(n)$ be functions from $\mathbb{N}$ to $\mathbb{R}^+$.  
 
-Time complexity is related how your code spend time, memory and cpu according of size of input. For example, if we will want to answer some questions such as " If my algorithm spends 1 minute to process a 1000-byte input, how many minutes does it spend to process 2000-byte input ?" 
+- **Big-O (upper bound):**  
+$$
+f(n) \in O(g(n)) \iff \exists c>0, n_0>0 : \forall n \geq n_0, f(n) \leq c \cdot g(n)
+$$
 
-A direct way of calculating complexity would be to find some formula that gives the exact number of operations done by the algorithm to arrive  at the result, depending on the size of the input. 
+- **Big-Omega (lower bound):**  
+$$
+f(n) \in \Omega(g(n)) \iff \exists c>0, n_0>0 : \forall n \geq n_0, f(n) \geq c \cdot g(n)
+$$
 
-{% highlight ruby %}
- for(i=0; i<N; i++){
-     print(i);
- }
-{% endhighlight %}
+- **Big-Theta (tight bound):**  
+$$
+f(n) \in \Theta(g(n)) \iff f(n) \in O(g(n)) \wedge f(n) \in \Omega(g(n))
+$$
 
-So we could say that time spent is 
+- **Little-o (strictly smaller growth):**  
+$$
+f(n) \in o(g(n)) \iff \forall c>0, \exists n_0 : \forall n \geq n_0, f(n) < c \cdot g(n)
+$$
 
-{% highlight ruby %}
-T(N) =
-    N*(time spent by a comparison betwhen i and N) +
-    N*(time spent to increase i) +
-    N*(time spent by a print)
-{% endhighlight %}
+- **Little-omega (strictly larger growth):**  
+$$
+f(n) \in \omega(g(n)) \iff \forall c>0, \exists n_0 : \forall n \geq n_0, f(n) > c \cdot g(n)
+$$
 
-However, it takes a lot work to make a super accurate account of these and usually neither is it worth it. For example, suppose we've worked hard and discovered that a certain algorithm spends time. 
+These definitions formalize the intuition: constants and lower-order terms fade into irrelevance, and only the dominant term survives the infinity test.  
 
-{% highlight ruby %}
- T(N) = 10*N² + 137*N + 15
-{% endhighlight %}
+# Worked Example 1: The Quadratic Dominator
 
-In this case the quadratic term `10 * N²` is more important than the others because for almost any value of `N` it will dominate the `sum` total. From `N ≥ 14` the quadratic term is already responsible for most of the execution time and for `N > 1000` it is already responsible for more than 99%. For estimation purposes we could simplify the formula for `T (N) = 10 * N²` without losing much.
+Consider
+$$
+T(n) = 10n^2 + 137n + 15.
+$$
 
-Another point at which we can simplify our formula is the constant factor multiplying the `N²`. To predict how fast the runtime grows depending on the input, it does not matter whether `T (N) = 10 * N or T (N) = 1000 * N`; in both cases doubling the N will quadruple the execution time.
+- For $n = 10$: $T(10) = 12{,}585$, where the quadratic term is still modest.  
+- For $n = 1000$: $T(1000) \approx 10^7$, with the quadratic term accounting for more than 99% of the value.  
 
-Therefore, the most popular way of working with time and space complexity in algorithm analysis is asymptotic complexity, which ignores these constant factors and the slower growing terms. It is now that the story of `O-big`, `Θ-big` and `Ω-big` comes in: these are notations that we use to characterize an asymptotic complexity.
+Formally:
+$$
+T(n) \in \Theta(n^2).
+$$
 
-Let's start with O-large, which is a way to give an upper bound on the time spent by an algorithm. `(G)` describes the class of functions that grow at most as fast as the function `g` and when we say that `f ∈ O (g)` we mean that g grows at least as fast as `f`. Formally:
+The lower terms are like supporting instruments in an orchestra: present, but eventually drowned by the booming percussion of $n^2$.  
 
-Given the two functions `f` and `g`, we say that `f ∈ O (g)` if there exist constants `x0` and `c` such that for all `x> x0` is `f (x) <c * g (x)`
+# Worked Example 2: ArrayMax (Operation Count)
 
-In this definition, the constant `c` gives us scope to ignore constant factors (which allows us to say that `10 * N is O (N)`) and the constant `x0` says that we only care for the behavior of `f` and `g` when `N` is large and terms that grow faster dominate the total value.
+From Alonso’s classic material, the algorithm to find the maximum element in an array of size $n$ is:
 
-For a concrete example, consider that time function `f (n) = 10 * N ^ 2 + 137 * N + 15` from before. We can say that its growth is quadratic:
+```c
+int arrayMax(int A[], int n) {
+    int currentMax = A[0];
+    for (int i=1; i<n; i++) {
+        if (A[i] > currentMax)
+            currentMax = A[i];
+    }
+    return currentMax;
+}
+```
 
-We can say that `f ∈ O (N²)`, since for `c = 11 and N>`
+Counting primitive operations yields:
+$$
+T(n) = 6n - 1.
+$$
 
-{% highlight ruby %}
-10 * N 2 + 137 * N + 15
-{% endhighlight %}
+This is linear, so
+$$
+T(n) \in \Theta(n).
+$$
 
-We can choose other values ​​for `c` and `x0`, for example `c = 1000` and `N> 1000` (which make the account quite obvious). The exact value of these pairs does not matter, what matters is being able to convince yourself that at least one of them exists.
+Doubling the input size doubles the runtime. Linearity is the algorithm’s fingerprint.  
 
-In the opposite direction of the big `O` we have the big `Ω`, which is for lower bounds. When we say that `f` is `Ω (g)`, we are saying that `f` grows at least as fast as `g`. In our recurrent example, we can also say that `f (n)` grows as fast as a quadratic function:
+# Worked Example 3: Horner’s Method vs. Classical Evaluation
 
-We can say that `f` is `Ω (N²)`, since for `c = 1` and `N> 0` it is valid
+Evaluating a polynomial conventionally requires:
 
-{% highlight ruby %}
-10 * N² + 137 * N + 15> c * N ^ 2
-{% endhighlight %}
+- $n$ additions  
+- $\frac{n(n+1)}{2}$ multiplications  
 
-Finally, Θ-large has to do with fair approximations, when f and g grow at the same rate (except for a possible constant factor). The difference between `Θ-large` for `O-large` and `Ω-large` is that they assume loose approximations, (eg `N² ∈ O (N³)`) in which one of the functions grows much faster than the other.
+Horner’s method rewrites
+$$
+p(x) = a_nx^n + a_{n-1}x^{n-1} + \dots + a_1x + a_0
+$$
+as
+$$
+p(x) = a_0 + x(a_1 + x(a_2 + \dots + x(a_n)\dots))
+$$
 
-Of these three notations, the most common to see is that of the O-grande. Normally, complexity analyzes are only concerned with the worst case execution time so the upper limit given by O-large is sufficient.
+requiring only:
 
-## Other Alternatives
+- $n$ additions  
+- $n$ multiplications  
 
-While Big O notation is the most common way to analyze algorithms, there are other alternatives that can be useful in certain situations. One such alternative is Omega notation, which describes the lower bound of an algorithm's runtime. Omega notation is denoted as Ω(f(n)). If an algorithm has a time complexity of Ω(f(n)), it means that its runtime cannot be faster than f(n) for any input size.
+In Python:
 
-Another alternative is Theta notation, which describes both the upper and lower bounds of an algorithm's runtime. Theta notation is denoted as Θ(f(n)). If an algorithm has a time complexity of Θ(f(n)), it means that its runtime is between O(f(n)) and Ω(f(n)) for all input sizes.
+```python
+def horner(coeffs, x):
+    result = 0
+    for a in reversed(coeffs):
+        result = result * x + a
+    return result
+```
 
-## Applying Big O Notation in Real Life
+The complexity is $\Theta(n)$, a dramatic improvement over the quadratic classical method.  
 
-Big O notation can be applied in real-life scenarios, such as optimizing code for a website or app. By analyzing the time and space complexity of different algorithms, developers can choose the most efficient one for their needs. For example, if a website needs to sort a large amount of data, an algorithm with a time complexity of O(n log n) would be more efficient than one with a time complexity of O(n²).
+# Mini-Proof with Induction
 
-Another real-life application of Big O notation is in database optimization. By analyzing the time complexity of database queries, developers can optimize them to run faster and more efficiently. This can lead to faster load times for websites and apps, improving the user experience.
+Induction pairs beautifully with asymptotics. Consider:
 
-## Conclusion
+**Claim:** $2^n < n!$ for all $n > 3$.  
 
-Big O notation is a useful tool for analyzing the efficiency of algorithms, but it is not the only way. Omega notation and Theta notation can also be useful in certain situations. By applying these concepts in real life, developers can optimize their code and improve the performance of their websites and apps.
+- **Base case:** $n=4$, $2^4 = 16 < 24 = 4!$.  
+- **Inductive step:** Assume $2^n < n!$. Then
+$$
+2^{n+1} = 2 \cdot 2^n < 2 \cdot n! < (n+1)!,
+$$
+because $n+1 > 2$ for $n > 3$.  
 
-Check out the [Big O notation][big-o-notation] for more info on how to get the most out of 
+Thus the inequality holds for all $n > 3$.  
 
-[big-o-notation]: http://web.mit.edu/16.070/www/lecture/big_o.pdf
+This shows factorial growth outpaces exponentials, anchoring why algorithms like brute-force permutations are catastrophic in practice.  
+
+# Reflection: Why This Matters
+
+Big-O, Θ, and Ω are not merely theoretical ornaments. They are survival maps for software engineers navigating the unknown territories of scale.  
+When millions of transactions, requests, or data points arrive, these notations predict whether our systems endure or collapse.  
+
+# Beyond the Notation
+
+Mathematical notation is often mistaken for abstraction. But in truth, it is poetry — compressed, symbolic, universal.  
+Big-O is not the cage of an algorithm; it is its cosmic signature. Knowing whether a function grows linearly or quadratically is like knowing whether a star burns for billions of years or collapses in a brief supernova.  
+
+The study of growth rates opens the door to recursion, sorting, and graph algorithms. Step by step, we move from rhythm to harmony, from single melodies to symphonies of complexity.  
+
+# Exercises
+
+1. Prove that $n^2 + 10n + 100 \in \Theta(n^2)$.  
+2. Show by induction that the binary representation of $n$ requires $\lfloor \log_2 n \rfloor + 1$ bits.  
+3. Compare the number of operations required to evaluate $p(x) = x^5 + x^4 + x^3 + x^2 + x + 1$ conventionally and with Horner’s method.  
+4. Suppose an algorithm has runtime $T(n) = 5n \log n + 20n$. Show that $T(n) \in \Theta(n \log n)$.  
+
+# References
+
+- Cormen, Leiserson, Rivest, Stein. *Introduction to Algorithms*.  
+- Knuth, D.E. *The Art of Computer Programming*.  
+- Sedgewick, R., Wayne, K. *Algorithms*.  
+- ArXiv: [The asymptotics of ranking algorithms](https://arxiv.org/abs/1204.1688)  
+- ArXiv: [Dimensional Complexity & Algorithmic Efficiency](https://arxiv.org/pdf/2201.05050)  
+- ArXiv: [Calculation of the Comparative Efficiency of Algorithms Using a Single Metric](https://arxiv.org/pdf/2406.15510)

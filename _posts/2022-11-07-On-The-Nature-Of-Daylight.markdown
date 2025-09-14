@@ -33,7 +33,7 @@ Some pieces of music refuse to remain mere sounds. They become landscapes. Max R
 
 When this piece plays, it is easy to imagine yourself on a rooftop terrace, balanced between the city and nature. The distant hum of traffic is not a disturbance; it is simply part of the atmosphere, a faint backdrop against the strings.
 
-![Imagined view](/assets/article_images/skyler-smith-VduXA-Cw9pc-unsplash.jpg "Imagined view")
+![Imagined view](/assets/article_images/skyler-smith-VduXA-Cw9pc-unsplash.jpg)
 
 The music suspends time itself. Each note feels like a thread of light bending softly, as if dawn and dusk were happening at once.
 
@@ -43,11 +43,11 @@ The music suspends time itself. Each note feels like a thread of light bending s
 
 In that suspended state, even the smallest gestures become luminous. The tea cooling slowly next to the computer, the cat climbing into your lap without asking — all these details merge seamlessly with the music.  
 
-![My tea](/assets/article_images/mahalon-blake-ZDxwMYZk2fk-unsplash.jpg "My tea")
+![My tea](/assets/article_images/mahalon-blake-ZDxwMYZk2fk-unsplash.jpg)
 
 Richter composes not for spectacle, but for everyday life. The extraordinary here is not fireworks of sound but the way repetition, crescendo, and density weave the feeling of eternity.
 
-![A Scottish Fold Cat](/assets/article_images/bob-van-aubel-kLi1-IIOH5s-unsplash.jpg#center "A Scottish Fold Cat")
+![A Scottish Fold Cat](/assets/article_images/bob-van-aubel-kLi1-IIOH5s-unsplash.jpg#center)
 
 ---
 
@@ -59,7 +59,7 @@ Just as mathematics describes universal patterns, Richter describes an affective
 
 ---
 
-## 🌌 Beyond the Song
+## Beyond the Song
 
 What remains after the last note is not silence, but reconciliation. Everything feels as it should be. This piece teaches something both simple and radical: peace is not found by escaping the world, but by inhabiting its most ordinary instants with full presence.  
 
