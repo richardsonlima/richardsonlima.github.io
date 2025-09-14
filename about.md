@@ -6,10 +6,10 @@ permalink: /about/
 
 ### Hi there 👋
 
-In the ever-shifting landscape of technology, where the boundaries of possibility are constantly redrawn, I stand as a Data & Software Engineer navigating the cloud-native and data-driven era. My work goes beyond building systems; it is about shaping digital ecosystems and intelligent platforms that empower the creators of tomorrow.  
+In the ever shifting landscape of technology, where the boundaries of possibility are constantly redrawn, I stand as a Data & Software Engineer navigating the cloud-native and data-driven era. My work goes beyond building systems; it is about shaping digital ecosystems and intelligent platforms that empower the creators of tomorrow.  
 
-With a strong foundation in UNIX internals, SRE, DevOps, DataOps, and Red team offensive security (pentest), my career has been deeply focused on Software Engineering, Data Engineering, Machine Learning, and Data Science. I design and implement architectures, toolchains, and workflows that give engineers unprecedented autonomy. This integrated approach—embodied in Internal Developer Platforms and modern data platforms—is more than a collection of tools: it is a catalyst for innovation, supporting the ful...
-Parallel to this technological journey, I am pursuing a Master of Science degree at the Aeronautics Institute of Technology ([ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics)). There, I dive deeper into the intricate weave of science and technology, sharpening the tools of my trade and bridging theory with practice—a true fusion of mind and matter.
+With a strong foundation in UNIX internals, SRE, DevOps, DataOps, and Red team offensive security (pentest), my career has been deeply focused on Software Engineering, Data Engineering, Machine Learning, and Data Science. I design and implement architectures, toolchains, and workflows that give engineers unprecedented autonomy. This integrated approach embodied in Internal Developer Platforms and modern data platforms is more than a collection of tools: it is a catalyst for innovation, supporting the ful...
+Parallel to this technological journey, I am pursuing a Master of Science degree at the Aeronautics Institute of Technology ([ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics)). There, I dive deeper into the intricate weave of science and technology, sharpening the tools of my trade and bridging theory with practice a true fusion of mind and matter.
 
 ---
 
