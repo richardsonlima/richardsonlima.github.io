@@ -2,6 +2,7 @@
 layout: post
 title:  "From Growth Rates to Recursion"
 categories: programming
+date: 2025-08-31
 tags: featured
 image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
 ---

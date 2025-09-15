@@ -5,7 +5,6 @@ date: 2025-09-14
 categories: [algorithms, complexity, sorting]
 tags: featured
 image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
-
 mathjax: true
 ---
 

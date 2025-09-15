@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Between Sound and Silence: Bach and the Sweetness of Death"
-date: 2025-09-13
+date: 2025-08-31
 categories: [music, philosophy, reflection]
 tags: featured
 image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
