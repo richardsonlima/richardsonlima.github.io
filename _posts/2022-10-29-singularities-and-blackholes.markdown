@@ -34,7 +34,7 @@ Black holes are often described as **star killers**. When supermassive, they can
 > "The idea of a black hole 'sucking in' a nearby star sounds like science fiction. But this is exactly what happens in a tidal disruption event."  
 > — Matt Nicholl, Royal Astronomical Society research fellow.
 
-Black holes are regions of space where gravity is so extreme that nothing, not even light, can escape. They form when massive stars collapse, leaving behind a singularity—an infinitely dense point.  
+Black holes are regions of space where gravity is so extreme that nothing, not even light, can escape. They form when massive stars collapse, leaving behind a singularity an infinitely dense point.  
 
 ---
 
@@ -59,17 +59,17 @@ Einstein’s field equations of General Relativity describe how matter curves sp
 
 $$ R_{\mu\nu} - \tfrac{1}{2}g_{\mu\nu}R + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu} $$
 
-For spherical, non-rotating black holes, the Schwarzschild solution gives the spacetime metric. For rotating black holes, the Kerr solution adds angular momentum:
+For spherical, non rotating black holes, the Schwarzschild solution gives the spacetime metric. For rotating black holes, the Kerr solution adds angular momentum:
 
 $$ r_\pm = \frac{GM}{c^2} \pm \sqrt{\left(\frac{GM}{c^2}\right)^2 - a^2} $$
 
 where $a$ is the rotation parameter.  
 
-One of the most mind-bending consequences is **time dilation**. Near the event horizon, time slows down relative to distant observers:
+One of the most mind bending consequences is **time dilation**. Near the event horizon, time slows down relative to distant observers:
 
 $$ t' = \frac{t}{\sqrt{1 - \frac{r_s}{r}}} $$
 
-This is not just mathematics—it has been simulated with extraordinary accuracy in cinema.
+This is not just mathematics it has been simulated with extraordinary accuracy in cinema.
 
 ---
 
@@ -133,7 +133,7 @@ Time travel remains one of the most fascinating bridges between science and fict
   </iframe>
 </div>
 
-The German series *Dark* built its entire structure around time loops, paradoxes, and deterministic cycles. Its central theme—that past, present, and future are interwoven—is conceptually tied to relativistic spacetime. While not strictly based on physics, *Dark* captures the philosophical essence of what singularities imply: a place where linear time ceases to exist.
+The German series *Dark* built its entire structure around time loops, paradoxes, and deterministic cycles. Its central theme that past, present, and future are interwoven is conceptually tied to relativistic spacetime. While not strictly based on physics, *Dark* captures the philosophical essence of what singularities imply: a place where linear time ceases to exist.
 
 ---
 
@@ -143,7 +143,7 @@ Black holes are not only astrophysical objects but also symbols. They unite rigo
 
 From Einstein’s equations to Kip Thorne’s simulations, from *Interstellar*’s Gargantua to *Dark*’s time loops, we see the same truth: black holes are mirrors of our imagination as much as they are realities of the cosmos.  
 
-They remind us that the universe still guards its deepest secrets—and that perhaps, at the boundary of physics and storytelling, we are already peering into the abyss.
+They remind us that the universe still guards its deepest secrets and that perhaps, at the boundary of physics and storytelling, we are already peering into the abyss.
 
 ---
 
