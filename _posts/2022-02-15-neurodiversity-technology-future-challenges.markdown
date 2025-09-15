@@ -121,15 +121,15 @@ Felipe designs platforms as if composing symphonies. He anticipates scaling prob
 
 ---
 
-### Twice-Exceptional: ASC + Giftedness
+### Twice-Exceptional: Autism Spectrum (ASC/Level 1) + Giftedness
 **Clara, AI Researcher at Apple**  
 Clara is extraordinary at seeing mathematical structures behind neural networks, connecting them to physics and philosophy. Yet, she freezes when asked to “network” in corporate events. Her breakthroughs happen in solitude, but the corporate world prizes visibility. A manager who advocates for her ensures her genius is recognized without forcing her into painful social molds.
 
 ### Twice-Exceptional: ADHD + Giftedness
 **João, Senior Data Engineer at AWS**  
-João is the spark in every brainstorming. His ideas feel like firecrackers—brilliant but overwhelming. He once redesigned a data ingestion pipeline overnight, cutting costs by 40%, but also forgot to update the documentation, leaving teammates puzzled. Mentorship channels his energy, so the fireworks light up the sky instead of burning the ground.
+João is the spark in every brainstorming. His ideas feel like firecrackers brilliant but overwhelming. He once redesigned a data ingestion pipeline overnight, cutting costs by 40%, but also forgot to update the documentation, leaving teammates puzzled. Mentorship channels his energy, so the fireworks light up the sky instead of burning the ground.
 
-### Triple Intersection: ASC + ADHD + Giftedness
+### Triple Intersection: Autism Spectrum (ASC/Level 1) + ADHD + Giftedness
 **Sofia, Principal Software Engineer at Microsoft**  
 Sofia embodies paradox. Her focus can dissect a problem for 16 hours straight, but her ADHD makes her inbox a labyrinth of unread emails. She challenges conventional thinking, sometimes clashing with corporate rituals. Yet, when aligned with a supportive team, she creates innovations that become patents, reshaping products millions use. Sofia doesn’t fit the system; the system bends to fit her.
 
