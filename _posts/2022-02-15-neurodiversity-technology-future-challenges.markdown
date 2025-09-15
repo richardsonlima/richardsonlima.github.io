@@ -99,6 +99,44 @@ A **twice-exceptional** profile refers to the coexistence of **giftedness/high a
 - **Integrated Support**  
   Ideal care stimulates high potential (through enrichment in areas of interest) while providing structured interventions for challenges (therapies, coaching, educational or workplace accommodations).
 
+## Workplace Vignettes: Living Neurodivergence in Tech
+
+Stories help us imagine realities we might otherwise overlook. These short portraits are not diagnoses but metaphors of how cognitive diversity can manifest in real workplaces—Apple, Microsoft, AWS, global banks, or data-driven startups. They are reminders: your colleague’s brilliance and struggles may both be true at once.
+
+### Autism Spectrum (ASC/Level 1)
+**Ana, Software Engineer at Microsoft**  
+Ana writes code like a watchmaker: precise, consistent, and elegant. She can spot anomalies in distributed systems that escape entire QA teams. Yet, the chaos of last-minute sprint meetings drains her energy. Clear tickets and well-documented APIs allow her genius to shine; vague instructions suffocate it. Colleagues learn that giving Ana structure is not a courtesy—it is a multiplier of value.
+
+### ADHD
+**Lucas, Data Scientist at Apple**  
+Lucas thrives in hackathons. His brain leaps across datasets, finding correlations no one else sees. But his JIRA board looks like a storm: half-finished tasks, sudden pivots, nights of hyperfocus followed by mornings of exhaustion. Pairing him with a project manager who breaks down milestones turns his bursts of insight into deliverables that transform products.
+
+### ADD (Predominantly Inattentive Type)
+**Marina, Cloud Engineer at AWS**  
+Marina doesn’t interrupt, doesn’t rush. She drifts in meetings, seemingly absent, until she quietly delivers a refactoring proposal that saves thousands in infrastructure costs. She misses details in fast Slack exchanges, but when given time to reflect, her clarity is unmatched. Patience with her slower rhythm uncovers diamonds of thought.
+
+### Giftedness / High Abilities
+**Felipe, Software Architect in a Global Bank**  
+Felipe designs platforms as if composing symphonies. He anticipates scaling problems before the first commit. But routine code reviews bore him; he forgets to push commits or misplaces documentation. His colleagues oscillate between awe and frustration. When given freedom to explore architectures, he produces systems years ahead of their time.
+
+---
+
+### Twice-Exceptional: ASC + Giftedness
+**Clara, AI Researcher at Apple**  
+Clara is extraordinary at seeing mathematical structures behind neural networks, connecting them to physics and philosophy. Yet, she freezes when asked to “network” in corporate events. Her breakthroughs happen in solitude, but the corporate world prizes visibility. A manager who advocates for her ensures her genius is recognized without forcing her into painful social molds.
+
+### Twice-Exceptional: ADHD + Giftedness
+**João, Senior Data Engineer at AWS**  
+João is the spark in every brainstorming. His ideas feel like firecrackers—brilliant but overwhelming. He once redesigned a data ingestion pipeline overnight, cutting costs by 40%, but also forgot to update the documentation, leaving teammates puzzled. Mentorship channels his energy, so the fireworks light up the sky instead of burning the ground.
+
+### Triple Intersection: ASC + ADHD + Giftedness
+**Sofia, Principal Software Engineer at Microsoft**  
+Sofia embodies paradox. Her focus can dissect a problem for 16 hours straight, but her ADHD makes her inbox a labyrinth of unread emails. She challenges conventional thinking, sometimes clashing with corporate rituals. Yet, when aligned with a supportive team, she creates innovations that become patents, reshaping products millions use. Sofia doesn’t fit the system; the system bends to fit her.
+
+---
+
+These stories are not meant to label colleagues but to **invite empathy**. The person next to you may not say why bright light bothers them, why they forget deadlines but deliver breakthroughs, or why they avoid happy hours. To work with neurodivergent peers is not charity—it is collaboration with minds that expand what technology can be.
+
 ---
 
 ### References
