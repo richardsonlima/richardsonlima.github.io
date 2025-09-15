@@ -1,0 +1,250 @@
+---
+layout: post
+title: "Heapsort, Max-Heaps, and the Art of In‑Place Order"
+date: 2025-09-15
+categories: [algorithms, data-structures]
+tags: featured
+image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
+mathjax: true
+---
+
+> *Series arc:* In the last posts we learned how growth rates shape our thinking, how induction and recursion are twin lenses, and how divide and conquer gives us Mergesort and Quicksort. Today we complete the trilogy of classical \(\Theta(n \log n)\) sorting with **Heapsort**. Unlike Mergesort, it is **in‑place**. Unlike Quicksort, its **worst‑case** time is always \(\Theta(n \log n)\). It sits at the intersection of order and structure: a sorting method powered by a data structure.
+
+# Heapsort, Max‑Heaps, and the Art of In‑Place Order
+
+Metaphor: think of a **max‑heap** as a balanced amphitheater. Every seat below must host a value no larger than those above it. The stage is always the maximum, ready to exit first.
+
+## 1. The Max‑Heap
+
+A **max‑heap** is a complete binary tree stored in an array. For indices beginning at 1:
+
+- Parent of \(i\): \(\lfloor i/2 \rfloor\).
+- Children of \(i\): \(2i\) and \(2i+1\) if they exist.
+- Heap property: for all valid \(i > 1\), \(A[\lfloor i/2 \rfloor] \ge A[i]\).
+
+We will use 0‑based Python arrays but keep the 1‑based formulas in the analysis because they make algebra cleaner.
+
+### 1.1 Why heaps are great
+
+- **Selection in \(O(1)\)**: the maximum is at the root.
+- **Adjust in \(O(\log n)\)**: restoring the heap after updates walks a root‑to‑leaf path.
+- **In‑place representation**: no pointers, no extra arrays.
+
+## 2. Heapsort in one paragraph
+
+1) Build a max‑heap from the array.  
+2) Repeatedly swap the maximum at the root with the last element of the heap, shrink the heap size by one, and **sift down** the new root to restore the heap property.  
+3) When the heap size reaches 1, the array is sorted in increasing order.
+
+The magic is that step (1) is **linear time** and step (2) repeats \(n-1\) times at cost \(O(\log n)\) each.
+
+## 3. Core routines
+
+### 3.1 Sift down (a.k.a. `heapify_down`)
+
+Given a heap except possibly at the root, move the root down until the heap property holds.
+
+```python
+def heapify_down(a, start, end):
+    """Restore max-heap property in a[start:end] where start may violate it.
+    end is exclusive. 0-based indices.
+    """
+    i = start
+    while True:
+        left = 2 * i + 1
+        right = left + 1
+        largest = i
+        if left < end and a[left] > a[largest]:
+            largest = left
+        if right < end and a[right] > a[largest]:
+            largest = right
+        if largest == i:
+            break
+        a[i], a[largest] = a[largest], a[i]
+        i = largest
+```
+
+Time: in the worst case we travel one root‑to‑leaf path, so \(O(\log n)\).
+
+### 3.2 Build‑heap in \(O(n)\)
+
+Floyd's method: start from the last internal node and sift down each node.
+
+```python
+def build_max_heap(a):
+    """In-place build of a max-heap from array a in O(n)."""
+    n = len(a)
+    # Start from the last parent and go upward to the root
+    for i in range((n // 2) - 1, -1, -1):
+        heapify_down(a, i, n)
+```
+
+Why \(O(n)\)? Nodes near the bottom are many but move little; nodes near the top are few but may move far. The amortized sum is linear:
+
+$$
+\sum_{h=0}^{\lfloor \log n \rfloor} \left(\text{nodes at height } h\right) \cdot h \in O(n).
+$$
+
+A crisp bound: at most \(\frac{n}{2^{h+1}}\) nodes can be at height \(h\), hence
+
+$$
+\sum_{h \ge 0} \frac{n}{2^{h+1}} h
+= n \sum_{h \ge 0} \frac{h}{2^{h+1}}
+= n\cdot 1
+\in O(n).
+$$
+
+### 3.3 Heapsort itself
+
+```python
+def heapsort(a):
+    """In-place Heapsort. Sorts a in nondecreasing order."""
+    n = len(a)
+    build_max_heap(a)
+    # Repeatedly move the max to the end of the working region
+    for end in range(n - 1, 0, -1):
+        a[0], a[end] = a[end], a[0]  # move current max to its final place
+        heapify_down(a, 0, end)      # restore heap on the reduced prefix
+    return a
+```
+
+- Space: \(O(1)\) extra words aside from recursion stack (the code above is iterative).  
+- Time: \(O(n)\) to build + \(O((n-1)\log n)\) to extract = \(\Theta(n \log n)\).
+
+## 4. Correctness with invariants
+
+At the start of each loop iteration with `end` as the first index **not** in the heap we have:
+
+1. `a[0:end]` is a max‑heap.  
+2. `a[end:n]` is sorted in nondecreasing order.  
+3. Every element in the heap is no larger than the elements already placed in `a[end:n]`.
+
+Initialization is true after `build_max_heap`. Preservation follows from the swap and `heapify_down`. Termination holds because `end` decreases to 1, at which point the whole array is sorted.
+
+### Mini‑recap
+
+- Heapsort maintains a shrinking heap prefix.  
+- Each step places the global maximum into its final slot.  
+- The data structure enforces order with local comparisons only.
+
+## 5. Worked example
+
+Let `a = [4, 7, -1, 9, 3, 9]`.
+
+1. Build heap → one valid max‑heap is `[9, 9, 4, 7, 3, -1]`.  
+2. Swap `a[0]` with `a[5]` → `[-1, 9, 4, 7, 3, 9]`, then heapify prefix `0:5` → `[9, 7, 4, -1, 3, 9]`.  
+3. Swap `a[0]` with `a[4]` → `[3, 7, 4, -1, 9, 9]`, heapify `0:4` → `[7, 3, 4, -1, 9, 9]`.  
+4. Swap `a[0]` with `a[3]` → `[-1, 3, 4, 7, 9, 9]`, heapify `0:3` → `[4, 3, -1, 7, 9, 9]`.  
+5. Swap `a[0]` with `a[2]` → `[-1, 3, 4, 7, 9, 9]`, heapify `0:2` → `[3, -1, 4, 7, 9, 9]`.  
+6. Swap `a[0]` with `a[1]` → `[-1, 3, 4, 7, 9, 9]` and done.
+
+The array is now sorted. The amphitheater emptied in rows from the top.
+
+## 6. Complexity landscape and trade‑offs
+
+- **Worst case**: \(\Theta(n \log n)\) comparisons and moves.  
+- **Best case**: still \(\Omega(n)\), because we must at least build the heap and read the input.  
+- **In‑place**: only constant extra memory, unlike Mergesort.  
+- **Not stable**: equal keys may reorder. If stability is needed, consider pairing keys with original indices or use a stable sorting algorithm.  
+- **Cache behavior**: access pattern jumps around due to tree geometry in an array. This can be slower than Quicksort in practice on modern caches.
+
+### Proof sketch that build‑heap is \(O(n)\)
+
+Using heights:
+
+$$
+\sum_{h=0}^{\lfloor \log n \rfloor} O\!\left(\frac{n}{2^{h+1}}\right)\cdot O(h)
+\in O\!\left(n \sum_{h\ge 0} \frac{h}{2^{h}}\right)
+= O(n).
+$$
+
+This is why the overall running time is dominated by the extraction phase.
+
+## 7. A clean iterative version in one piece
+
+Some assignments require no helper functions. Here is a single‑block implementation that embeds everything:
+
+```python
+def heapsort_iterative(a):
+    n = len(a)
+    # build heap
+    for i in range((n // 2) - 1, -1, -1):
+        # sift down at i
+        j = i
+        while True:
+            left = 2 * j + 1
+            right = left + 1
+            largest = j
+            if left < n and a[left] > a[largest]:
+                largest = left
+            if right < n and a[right] > a[largest]:
+                largest = right
+            if largest == j:
+                break
+            a[j], a[largest] = a[largest], a[j]
+            j = largest
+
+    # extract max repeatedly
+    for end in range(n - 1, 0, -1):
+        a[0], a[end] = a[end], a[0]
+        j = 0
+        while True:
+            left = 2 * j + 1
+            right = left + 1
+            largest = j
+            if left < end and a[left] > a[largest]:
+                largest = left
+            if right < end and a[right] > a[largest]:
+                largest = right
+            if largest == j:
+                break
+            a[j], a[largest] = a[largest], a[j]
+            j = largest
+    return a
+```
+
+## 8. Variants and extensions
+
+- **Min‑heap** yields nonincreasing order.  
+- **k‑largest elements**: build a max‑heap and extract k times in \(O(n + k \log n)\).  
+- **Priority queues**: heaps are the data structure behind Dijkstra, Prim, and event simulation.
+
+### Exercise: descending order
+
+Adapt `heapsort` to produce strictly decreasing order using either a min‑heap or by reversing the final array. Compare both approaches for clarity and performance.
+
+## 9. Induction meets recursion
+
+Heapsort is iterative above, yet induction still proves correctness. Induction on the loop invariant gives the sorted suffix property. This mirrors how we proved Mergesort and Quicksort earlier: recursive or not, the logic relies on structure and a shrinking measure of disorder.
+
+### Mini‑recap
+
+- Invariants carry the argument.  
+- The measure that shrinks is the heap size.  
+- Linear build + logarithmic sifts gives the \(n \log n\) profile.
+
+## 10. Exercises
+
+1. **Lower bound**. Explain why any comparison sort needs \(\Omega(n \log n)\) in the worst case and where Heapsort sits in that bound.  
+2. **Best‑case is linear**. Prove that Heapsort takes at least \(\Omega(n)\) even on arrays that are already sorted. Hint: reading and heap construction.  
+3. **Stability challenge**. Modify Heapsort to be stable by decorating keys with indices, then measure the constant factor overhead.  
+4. **Cache experiment**. Benchmark Python implementations of Heapsort, Quicksort (Timsort is Python’s built‑in), and Mergesort analogs for random and nearly sorted arrays.  
+5. **k‑largest**. Show how to get the k largest elements in \(O(n + k\log n)\) using a heap.  
+6. **Proof workout**. Give a full, detailed proof that `heapsort` preserves the three invariants listed in Section 4.
+
+---
+
+## Beyond the Algorithm
+
+A heap teaches a quiet lesson: local order, globally enforced, is enough to shape a universe. You do not need to sort everything at once. You only need a structure where the largest truth floats to the top and leaves the stage gracefully. Then repeat. Like a conductor cueing last notes, Heapsort finishes with silence that already contains order.
+
+## 11. References and further study
+
+- **USP IME**: Paulo Feofiloff, *Ordenação: Heapsort*. Updated 2020‑05‑08. An accessible analysis and exercises.  
+  Link: <https://www.ime.usp.br/~pf/analise_de_algoritmos/aulas/hpsrt.html>  
+- **MIT OpenCourseWare**: *Introduction to Algorithms* recitation notes on heaps and heapsort.  
+  Link: <https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/mit6_006f11_rec08/>  
+- **Stanford CS161**: Lecture notes on heaps and priority queues.  
+  Link: <https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lectures/lecture2.pdf>  
+- **Wikipedia**: Heapsort overview with invariants, stability, and complexity summaries.  
+  Link: <https://en.wikipedia.org/wiki/Heapsort>
