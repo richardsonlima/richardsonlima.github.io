@@ -9,6 +9,19 @@ image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
 
 > A poetic meditation on two inner currents: one dazzling yet fragile, like a crystal that fractures under pressure; the other steady and guiding, like a star or a rock that sustains. A reflection on learning where to anchor the soul. There are those who can tear your soul apart, devastate with words, and minutes later act as if nothing ever happened. Learn to perceive the nuances, so as not to lose yourself.
 
+<div class="video-container">
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/c2gVYB5oZ7o?si=46B3rEqaxlzrtbmF" 
+    title="Víkingur Ólafsson – Bach: Concerto in D Minor, BWV 974 - 2. Adagio" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+
 # Two Currents  
 
 There are lights that dazzle,  
