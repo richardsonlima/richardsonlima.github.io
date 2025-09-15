@@ -129,8 +129,7 @@ floor$ and $\lceil 	\frac{n-1}{2}
 ceil$:
 
 $$
-C_{\text{best}}(n) = C_{\text{best}}(\lceil \tfrac{n-1}{2} \rceil) 
-+ C_{\text{best}}(\lfloor \tfrac{n-1}{2} \rfloor) + (n-1).
+C_{\text{best}}(n)=C_{\text{best}}(\lceil \tfrac{n-1}{2}\rceil)+C_{\text{best}}(\lfloor \tfrac{n-1}{2}\rfloor)+(n-1).
 $$
 
 This solves to $\Theta(n \log n)$.  
