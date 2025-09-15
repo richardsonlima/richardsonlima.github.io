@@ -8,7 +8,7 @@ image: /assets/article_images/jeswin-thomas--hgJu2ykh4E-unsplash.jpg
 mathjax: true
 ---
 
-> Neurodivergence is not a deficit; it is a spectrum of cognitive architectures. Within this spectrum lie forms of brilliance that are often misunderstood: giftedness and high abilities, autism spectrum condition level 1 (formerly called Asperger), and attention-related profiles such as ADD/ADHD. In the world of technology, these minds are not outliers—they are catalysts.
+> Neurodivergence is not a deficit; it is a spectrum of cognitive architectures. Within this spectrum lie forms of brilliance that are often misunderstood: giftedness and high abilities, autism spectrum condition level 1 (formerly called Asperger), and attention related profiles such as ADD/ADHD. In the world of technology, these minds are not outliers they are catalysts.
 
 ![Photo by Annie Spratt on Unsplash](/assets/article_images/annie-spratt-nP9J7O90HfY-unsplash.jpg)
 
@@ -101,15 +101,15 @@ A **twice-exceptional** profile refers to the coexistence of **giftedness/high a
 
 ## Workplace Vignettes: Living Neurodivergence in Tech
 
-Stories help us imagine realities we might otherwise overlook. These short portraits are not diagnoses but metaphors of how cognitive diversity can manifest in real workplaces—Apple, Microsoft, AWS, global banks, or data-driven startups. They are reminders: your colleague’s brilliance and struggles may both be true at once.
+Stories help us imagine realities we might otherwise overlook. These short portraits are not diagnoses but metaphors of how cognitive diversity can manifest in real workplaces Apple, Microsoft, AWS, global banks, or data-driven startups. They are reminders: your colleague’s brilliance and struggles may both be true at once.
 
 ### Autism Spectrum (ASC/Level 1)
 **Ana, Software Engineer at Microsoft**  
-Ana writes code like a watchmaker: precise, consistent, and elegant. She can spot anomalies in distributed systems that escape entire QA teams. Yet, the chaos of last-minute sprint meetings drains her energy. Clear tickets and well-documented APIs allow her genius to shine; vague instructions suffocate it. Colleagues learn that giving Ana structure is not a courtesy—it is a multiplier of value.
+Ana writes code like a watchmaker: precise, consistent, and elegant. She can spot anomalies in distributed systems that escape entire QA teams. Yet, the chaos of last minute sprint meetings drains her energy. Clear tickets and well documented APIs allow her genius to shine; vague instructions suffocate it. Colleagues learn that giving Ana structure is not a courtesy it is a multiplier of value.
 
 ### ADHD
 **Lucas, Data Scientist at Apple**  
-Lucas thrives in hackathons. His brain leaps across datasets, finding correlations no one else sees. But his JIRA board looks like a storm: half-finished tasks, sudden pivots, nights of hyperfocus followed by mornings of exhaustion. Pairing him with a project manager who breaks down milestones turns his bursts of insight into deliverables that transform products.
+Lucas thrives in hackathons. His brain leaps across datasets, finding correlations no one else sees. But his JIRA board looks like a storm: half finished tasks, sudden pivots, nights of hyperfocus followed by mornings of exhaustion. Pairing him with a project manager who breaks down milestones turns his bursts of insight into deliverables that transform products.
 
 ### ADD (Predominantly Inattentive Type)
 **Marina, Cloud Engineer at AWS**  
@@ -135,7 +135,7 @@ Sofia embodies paradox. Her focus can dissect a problem for 16 hours straight, b
 
 ---
 
-These stories are not meant to label colleagues but to **invite empathy**. The person next to you may not say why bright light bothers them, why they forget deadlines but deliver breakthroughs, or why they avoid happy hours. To work with neurodivergent peers is not charity—it is collaboration with minds that expand what technology can be.
+These stories are not meant to label colleagues but to **invite empathy**. The person next to you may not say why bright light bothers them, why they forget deadlines but deliver breakthroughs, or why they avoid happy hours. To work with neurodivergent peers is not charity it is collaboration with minds that expand what technology can be.
 
 ---
 
