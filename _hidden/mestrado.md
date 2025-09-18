@@ -12,26 +12,6 @@ robots: noindex
 
 ## Disciplinas
 
-<div class="table-scroll">
-
-| Disciplina | Sigla | Status | Créditos | 2021 | 2022 | 2023 | 2024 | 2025 |
-|------------|-------|--------|----------|------|------|------|------|------|
-| Seleção Mestrado | N/A | Aprovado | N/A | Semestre 1 |  |  |  |  |
-| CT-234 | CT-234 | Cancelada | 3 | Semestre 2 |  |  |  |  |
-| Fundamentos de Engenharia de Software | CE-220 | Aprovado | 3 |  | Semestre 1 |  |  |  |
-| Estágio: Docência I | CT-601 | Aprovado | 3 |  | Semestre 1 |  |  |  |
-| Metodologia de Pesquisa em Computação | CE-221 | Aprovado | 3 |  | Semestre 2 |  |  |  |
-| Engenharia de Requisitos de Sistemas Complexos com Software | CE-294 | Aprovado | 3 |  |  | Semestre 1 |  |  |
-| Qualidade, Confiabilidade e Segurança de Software | CE-230 | Aprovado | 3 |  |  | Semestre 2 (evoluir o MECADE e tentar publicar outro artigo (SBSI 2024)) |  |  |
-| Estruturas de Dados, Análise de Algoritmos e Complexidade Estrutural | CT-234 | Aluno visitante | 3 |  |  |  | Semestre 1 |  |
-| Tese | CT-500 | - - | - - | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 |  |
-| Tese | CT-500 | - - | - - | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 |  | Semestre 1 |
-| Estruturas de Dados, Análise de Algoritmos e Complexidade Estrutural | CT-234 | Cursando | 3 |  |  |  |  | Semestre 2 |
-
-</div>
-
-## Disciplinas
-
 | Disciplina | Sigla | Status | Créditos | 2021 | 2022 | 2023 | 2024 | 2025 |
 |------------|-------|--------|----------|-------|-------|-------|-------|-------|
 | Seleção Mestrado | N/A | Aprovado | N/A | Semestre 1 | | | | |
@@ -102,31 +82,4 @@ robots: noindex
 - [Calendário ITA](http://www.ita.br/posgrad/calendario)
 - [Mestrado ITA](https://www.pgfis.ita.br/pt/post/mestrado)
 - [Processo Seletivo](https://www.pgfis.ita.br/post/processo-seletivo)
-- [PG-EEC](https://www.pgfis.ita.br/post/pg-eec)
-
-## Test - gantt
-
-gantt
-    title PG-EEC I — Timeline (18 créditos fecham em 2025.2)
-    dateFormat  YYYY-MM-DD
-    axisFormat  %b %Y
-    excludes    weekends
-
-    section Aluno Especial
-    Seleção de Mestrado (aprovado)            :milestone, m1, 2021-04-01, 1d
-    CT-234 (cancelada)                         :2021-08-01, 2021-12-15
-    CE-220 (Fund. Eng. Software) — 3 cr        :2022-03-01, 2022-07-31
-    CT-601 (Docência I) — 3 cr                 :2022-03-01, 2022-07-31
-    CE-221 (Metod. Pesquisa) — 3 cr            :2022-08-01, 2022-12-15
-    CE-294 (Req. de Sistemas) — 3 cr           :2023-03-01, 2023-07-31
-    CE-230 (Qualid./Confiab./Segurança) — 3 cr :2023-08-01, 2023-12-15
-
-    section Transição (Especial → Regular)
-    CT-234 (aluno visitante, **sem créditos**)  :2024-03-01, 2024-07-31
-    Mudança para Aluno Regular                  :milestone, m2, 2024-08-01, 1d
-
-    section Aluno Regular
-    CT-500 (Tese)                               :2024-08-01, 2026-12-15
-    CT-234 (regular, 3 cr)                      :2025-08-01, 2025-12-15
-    18 créditos **concluídos**                  :milestone, m3, 2025-12-15, 1d
-    Defesa da Tese (CT-500)                     :milestone, m4, 2026-09-30, 1d
+- [PG-EEC](https://www.pgfis.ita.br/post/pg-eec)                :milestone, m4, 2026-09-30, 1d
