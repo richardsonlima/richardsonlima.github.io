@@ -25,15 +25,43 @@ The ocean is my metaphor and muse, a reminder of infinite possibilities. My pass
 
 ---
 
+### Inspirational Quotes
+
+“Listen within yourself and look into the infinitude of Space and Time. There can be heard the songs of the Constellations, the voices of the Numbers, and the harmonies of the Spheres.”  
+
+“The present issues from the past, and the future from the present. Everything is made one by this continuity. Time is like a circle, where all the points are so linked that one cannot say where it begins or ends, for all points precede and follow one another forever.”  
+
+“Quod enim est erit semper.”  
+
+“Close your eyes and let the mind expand. Let no fear of death or darkness arrest its course. Allow the mind to merge with Mind. Let it flow out upon the great curve of consciousness. Let it soar on the wings of the great bird of duration, up to the very Circle of Eternity.”  
+
+“In this vast cosmos of knowledge, technology, and art, I find myself not just as an observer but as a participant—a creator of systems, a seeker of truth, and a weaver of dreams. The future is not something that happens; it is something we tune into, like a hidden frequency of the universe.”  
+
+---
+
+- 📫 Reach me: [Github](https://github.com/richardsonlima), [Twitter](https://twitter.com/RichDevSecOps), [LinkedIn](https://www.linkedin.com/in/richardsonlima/)  
+
+![Github stats](https://github-readme-stats.vercel.app/api?username=richardsonlima&show_icons=true&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=151515&count_private=true)
+
+![](https://i.imgsafe.org/60/607aec4f21.png)
+![](https://i.imgsafe.org/60/6078e2a31f.png)
+![](https://i.imgsafe.org/60/60775a2051.png)
+
+*Here, code and cosmos meet.*
+
+---
+
 ### The Art of Sound
 
 Music is a language beyond language, a geometry of the soul, a vibration where time folds into eternity. As a guitarist, I traverse its landscapes as one might walk through galaxies: each note a star, each silence a void that breathes meaning.  
 
-Every genre opens a different portal—Jazz whispers patterns like constellations, Texas blues cries like an ancient ocean, and Progressive Rock paints horizons where imagination burns brighter than the sun. These pieces form my personal cosmology, a surreal atlas of sound:
+Every genre opens a different portal, Jazz whispers patterns like constellations, Texas blues cries like an ancient ocean, and Progressive Rock paints horizons where imagination burns brighter than the sun. These pieces form my personal cosmology, a surreal atlas of sound:
 
 ⚡ I find inspiration in the works of [Víkingur Ólafsson](https://www.youtube.com/watch?v=h3-rNMhIyuQ), [Stjepan Hauser](https://www.youtube.com/watch?v=kn1gcjuhlhg), [Ludovico Einaudi](https://www.youtube.com/watch?v=70cfoPloJq8), [Hans Zimmer](https://www.youtube.com/watch?v=kottjfEd7Zw), [Ólafur Arnalds](https://www.youtube.com/watch?v=Kb34JCz5wvY&t=1213s), and [Max Richter](https://www.youtube.com/watch?v=b_YHE4Sx-08). 
 
-#### 🎼 Classical Echoes & Timeless Reverberations
+<details>
+  <summary>🎼 Classical Echoes & Timeless Reverberations</summary>
+
 - [Bachianas Brasileiras No.5 - Heitor Villa-Lobos](https://www.youtube.com/watch?v=ZVGB132KyMc&list=RDZVGB132KyMc&start_radio=1)  
 - ["Fabio Lima - Aria na Corda Sol - nso J. S. Bach](https://www.youtube.com/watch?v=ylL8sJ6BoHs&list=RDylL8sJ6BoHs&start_radio=1)
 - [Ludovico Einaudi - Experience (Live At Fabric, London/2013)](https://www.youtube.com/watch?v=hN_q-_nGv4U)
@@ -53,7 +81,11 @@ Every genre opens a different portal—Jazz whispers patterns like constellation
 - [Nils Frahm - Live at the Philharmonie de Paris](https://www.youtube.com/watch?v=HPPzQgTaLbo&list=RDHPPzQgTaLbo&start_radio=1)  
 
 
-#### 🎸 Blues, Jazz & Soulful Truths
+
+</details>
+<details>
+  <summary>🎸 Blues, Jazz & Soulful Truths</summary>
+
 - [The Reign of Kindo - Out of Sight, Out of Mind](https://www.youtube.com/watch?v=PncG8D58AvI&list=RDPncG8D58AvI&start_radio=1)
 - [The Reign of Kindo - Just Wait](https://www.youtube.com/watch?v=tIZRIf1LnSY&list=RDtIZRIf1LnSY&start_radio=1)
 - [The Reign of Kindo - Hold Out](https://www.youtube.com/watch?v=BD9IT9a63RM&list=RDBD9IT9a63RM&start_radio=1)
@@ -69,7 +101,11 @@ Every genre opens a different portal—Jazz whispers patterns like constellation
 - [Daniel Caesar (feat. H.E.R.) perform Best Part on Later](https://www.youtube.com/watch?v=j045yEf2cLg&list=RDj045yEf2cLg&start_radio=1)  
 - [Tori Amos Thank You](https://www.youtube.com/watch?v=7ZTemHFLpZM&list=RDjmk0AVNRBIY&index=2)
 
-#### 🌍 Brazilian Waves & Poetic Horizons
+
+</details>
+<details>
+  <summary>🌍 Brazilian Waves & Poetic Horizons</summary>
+
 - [Daniel Jobim - Águas de Março - Ao Vivo](https://www.youtube.com/watch?v=achxrz7ixxY&list=RDEMavVpSFR4FaOsgmiSjRFdRg&start_radio=1&rv=ErE2Cpko1XI) 
 - [Toquinho - Aquarela](https://www.youtube.com/watch?v=T-hRvA9jUzs&list=RDT-hRvA9jUzs&start_radio=1)
 - [Djavan - Acelerou](https://www.youtube.com/watch?v=981mL2ai2n8&list=RD981mL2ai2n8&start_radio=1)
@@ -97,7 +133,11 @@ Every genre opens a different portal—Jazz whispers patterns like constellation
 - [Guilherme Arantes - Meu Mundo e Nada Mais](https://www.youtube.com/watch?v=WsyVE0RhAd8&list=RDWsyVE0RhAd8&start_radio=1)
 - [Vander Lee - Alma nua](https://www.youtube.com/watch?v=8yzB_NBlOEg&list=RD8yzB_NBlOEg&start_radio=1)
 
-#### 🌌 Rock, Dreams & Eternal Flames
+
+</details>
+<details>
+  <summary>🌌 Rock, Dreams & Eternal Flames</summary>
+
 - [Sting - Every Breath you Take](https://www.youtube.com/watch?v=H-4yodHCvu0&list=RDH-4yodHCvu0&start_radio=1)  
 - [Tears For Fears - Everybody Wants To Rule The World](https://www.youtube.com/watch?v=NZ-o1N2swMw&list=RDNZ-o1N2swMw&start_radio=1)  
 - [[피키라이브] 혁오 - isn't She Lovely](https://www.youtube.com/watch?v=bEq_HIQF3XY&list=RDbEq_HIQF3XY&start_radio=1)  
@@ -116,7 +156,11 @@ Every genre opens a different portal—Jazz whispers patterns like constellation
 - [Oasis - Don't Look Back In Anger](https://www.youtube.com/watch?v=MpNHqJs7rXQ)  
 - [a-ha - Take On Me](https://www.youtube.com/watch?v=-xKM3mGt2pE&list=RD-xKM3mGt2pE&start_radio=1)  
 
-#### ⚡ Metal & Symphonic Shadows
+
+</details>
+<details>
+  <summary>⚡ Metal & Symphonic Shadows</summary>
+
 - [Metallica - Nothing Else Matters](https://www.youtube.com/watch?v=Lli99OmkPwM&list=RDLli99OmkPwM&start_radio=1)  
 - [Stairway to Heaven Led Zeppelin](https://www.youtube.com/watch?v=2cZ_EFAmj08&list=RD2cZ_EFAmj08&start_radio=1)  
 - [Nirvana - The Man Who Sold The World](https://www.youtube.com/watch?v=OgeR2oqZGTs&list=RDOgeR2oqZGTs&start_radio=1)  
@@ -126,34 +170,13 @@ Every genre opens a different portal—Jazz whispers patterns like constellation
 - [JINJER - Pisces](https://www.youtube.com/watch?v=SQNtGoM3FVU&list=RDSQNtGoM3FVU&start_radio=1)  
 - [NIGHTWISH - The Phantom Of The Opera](https://www.youtube.com/watch?v=tL25rbnvM4o&list=RDtL25rbnvM4o&start_radio=1)  
 
-#### 🌿 Nordic, Folk & Nature Voices
+
+</details>
+<details>
+  <summary>🌿 Nordic, Folk & Nature Voices</summary>
+
 - [Wardruna and Aurora - Helvegen](https://www.youtube.com/watch?v=FnkTuHP9q3o&list=RDFnkTuHP9q3o&start_radio=1)  
 - [Eivør Pálsdóttir: Tròdlabùndin](https://www.youtube.com/watch?v=wsl-KHGe4Kk&list=RDwsl-KHGe4Kk&start_radio=1)  
 
 ---
 
-### Inspirational Quotes
-
-“Listen within yourself and look into the infinitude of Space and Time. There can be heard the songs of the Constellations, the voices of the Numbers, and the harmonies of the Spheres.”  
-
-“The present issues from the past, and the future from the present. Everything is made one by this continuity. Time is like a circle, where all the points are so linked that one cannot say where it begins or ends, for all points precede and follow one another forever.”  
-
-“Quod enim est erit semper.”  
-
-“Close your eyes and let the mind expand. Let no fear of death or darkness arrest its course. Allow the mind to merge with Mind. Let it flow out upon the great curve of consciousness. Let it soar on the wings of the great bird of duration, up to the very Circle of Eternity.”  
-
-“In this vast cosmos of knowledge, technology, and art, I find myself not just as an observer but as a participant—a creator of systems, a seeker of truth, and a weaver of dreams. The future is not something that happens; it is something we tune into, like a hidden frequency of the universe.”  
-
----
-
-- 📫 Reach me: [Github](https://github.com/richardsonlima), [Twitter](https://twitter.com/RichDevSecOps), [LinkedIn](https://www.linkedin.com/in/richardsonlima/)  
-
-![Github stats](https://github-readme-stats.vercel.app/api?username=richardsonlima&show_icons=true&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=151515&count_private=true)
-
-![](https://i.imgsafe.org/60/607aec4f21.png)
-![](https://i.imgsafe.org/60/6078e2a31f.png)
-![](https://i.imgsafe.org/60/60775a2051.png)
-
----
-
-*Here, code and cosmos meet.*
