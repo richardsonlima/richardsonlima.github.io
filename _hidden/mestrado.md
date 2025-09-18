@@ -12,8 +12,6 @@ robots: noindex
 
 ## 📚 Jornada pelas Disciplinas
 
-<div class="timeline">
-
 - **2021.1 – Seleção**
   - ✅ Seleção Mestrado aprovada  
   - Início da jornada no PG-EEC I  
@@ -60,8 +58,6 @@ robots: noindex
 
 - **2026.2 – Conclusão**
   - 🏁 Defesa da Tese (CT-500)  
-
-</div>
 
 ---
 
