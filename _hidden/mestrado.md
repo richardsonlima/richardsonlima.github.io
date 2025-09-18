@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Mestrado
-permalink: /hidden/
+permalink: /mestrado/
 sitemap: false          
 robots: noindex         
 ---
