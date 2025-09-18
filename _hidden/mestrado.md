@@ -21,6 +21,26 @@ Meu percurso como aluno de mestrado no PG-EEC I do ITA, as disciplinas já cursa
 
 ---
 
+## 👨‍🏫 Meu Professor Orientador
+
+**Prof. Dr. Johnny Marques**  
+Coordenador do [GIMPS – Grupo de Interesse em Métodos e Processos](https://www.gimps.info/home).  
+
+Atua como professor nos programas de **Pós-graduação em Engenharia Eletrônica e Computação (PG/EEC-I)**, área de Informática, e no programa de **Pós-graduação em Ciências e Tecnologias Espaciais (PG/CTE-E)**, área de Sistemas.
+
+### 🌐 Perfis Acadêmicos
+- [Lattes](https://www.gimps.info/equipe/coordenador)  
+- [ORCID](https://www.gimps.info/equipe/coordenador)  
+- [Google Scholar](https://www.gimps.info/equipe/coordenador)  
+- [Scopus](https://www.gimps.info/equipe/coordenador)  
+- [ResearchGate](https://www.gimps.info/equipe/coordenador)  
+- [LinkedIn](https://www.gimps.info/equipe/coordenador)  
+
+---
+
+O professor Johnny Marques tem forte atuação em pesquisa aplicada, orientando projetos que envolvem **engenharia de software, dependabilidade de sistemas, metodologias de desenvolvimento e sistemas críticos**. Sua liderança no GIMPS garante um espaço de colaboração acadêmica que conecta mestrandos, doutorandos e egressos em pesquisas de impacto.
+
+
 ## 📌 Visão Rápida
 
 - ✅ **Aprovado na seleção** em 2021.1 
@@ -31,10 +51,10 @@ Meu percurso como aluno de mestrado no PG-EEC I do ITA, as disciplinas já cursa
 
 Estas são exigências fundamentais que guiam meu trajeto no mestrado:
 
-- **Mínimo de 18 créditos** aprovados (atribuídos pela Comissão de Contagem de Créditos) para conclusão. :contentReference[oaicite:1]{index=1}  
-- Média mínima de **7,5** nas disciplinas **2xx** do ITA, que façam parte da contagem de créditos. :contentReference[oaicite:2]{index=2}  
-- Aprovação nas disciplinas obrigatórias da área de concentração. :contentReference[oaicite:4]{index=4}  
-- Aprovação no **Exame de Dissertação** pela banca examinadora, entrega da versão final e aceitação da dissertação. :contentReference[oaicite:5]{index=5}  
+- **Mínimo de 18 créditos** aprovados (atribuídos pela Comissão de Contagem de Créditos) para conclusão. 
+- Média mínima de **7,5** nas disciplinas **2xx** do ITA, que façam parte da contagem de créditos. 
+- Aprovação nas disciplinas obrigatórias da área de concentração. 
+- Aprovação no **Exame de Dissertação** pela banca examinadora, entrega da versão final e aceitação da dissertação. 
 
 ---
 
@@ -81,7 +101,7 @@ Estas são exigências fundamentais que guiam meu trajeto no mestrado:
 
 ## Marcos Importantes & Desafios
 
-- Exame de inglês: planejar aprovação **até dois períodos após minha matrícula inicial** para não acumular pendências. :contentReference[oaicite:6]{index=6}  
+- Exame de inglês: planejar aprovação **até dois períodos após minha matrícula inicial** para não acumular pendências.  
 - Publicação: já envolvido em projeto de pesquisa ligado ao MECade com a meta de submeter artigo para o SBSI 2024.  
 - Comissão de Contagem de Créditos: acompanhar de perto, garantir que as disciplinas isoladas, artigos ou qualquer coautoria com o orientador sejam reconhecidas.  
 - Gerenciar o tempo como aluno especial vs. aluno regular: planejamento das disciplinas, status de aluno visitante e regular, sempre alinhado com regulamento.
