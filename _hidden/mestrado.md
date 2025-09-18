@@ -12,6 +12,26 @@ robots: noindex
 
 ## Disciplinas
 
+<div class="table-scroll">
+
+| Disciplina | Sigla | Status | Créditos | 2021 | 2022 | 2023 | 2024 | 2025 |
+|------------|-------|--------|----------|------|------|------|------|------|
+| Seleção Mestrado | N/A | Aprovado | N/A | Semestre 1 |  |  |  |  |
+| CT-234 | CT-234 | Cancelada | 3 | Semestre 2 |  |  |  |  |
+| Fundamentos de Engenharia de Software | CE-220 | Aprovado | 3 |  | Semestre 1 |  |  |  |
+| Estágio: Docência I | CT-601 | Aprovado | 3 |  | Semestre 1 |  |  |  |
+| Metodologia de Pesquisa em Computação | CE-221 | Aprovado | 3 |  | Semestre 2 |  |  |  |
+| Engenharia de Requisitos de Sistemas Complexos com Software | CE-294 | Aprovado | 3 |  |  | Semestre 1 |  |  |
+| Qualidade, Confiabilidade e Segurança de Software | CE-230 | Aprovado | 3 |  |  | Semestre 2 (evoluir o MECADE e tentar publicar outro artigo (SBSI 2024)) |  |  |
+| Estruturas de Dados, Análise de Algoritmos e Complexidade Estrutural | CT-234 | Aluno visitante | 3 |  |  |  | Semestre 1 |  |
+| Tese | CT-500 | - - | - - | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 |  |
+| Tese | CT-500 | - - | - - | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 |  | Semestre 1 |
+| Estruturas de Dados, Análise de Algoritmos e Complexidade Estrutural | CT-234 | Cursando | 3 |  |  |  |  | Semestre 2 |
+
+</div>
+
+## Disciplinas
+
 | Disciplina | Sigla | Status | Créditos | 2021 | 2022 | 2023 | 2024 | 2025 |
 |------------|-------|--------|----------|-------|-------|-------|-------|-------|
 | Seleção Mestrado | N/A | Aprovado | N/A | Semestre 1 | | | | |
