@@ -10,21 +10,60 @@ robots: noindex
 
 **Programa de Pós-graduação em Engenharia Eletrônica e Computação (PG-EEC I)**
 
-## Disciplinas
+## 📚 Jornada pelas Disciplinas
 
-| Disciplina | Sigla | Status | Créditos | 2021 | 2022 | 2023 | 2024 | 2025 |
-|------------|-------|--------|----------|-------|-------|-------|-------|-------|
-| Seleção Mestrado | N/A | Aprovado | N/A | Semestre 1 | | | | |
-| CT-234 | CT-234 | Cancelada | 3 | Semestre 2 | | | | |
-| Fundamentos de Engenharia de Software | CE-220 | Aprovado | 3 | | Semestre 1 | | | |
-| Estágio: Docência I | CT-601 | Aprovado | 3 | | Semestre 1 | | | |
-| Metodologia de Pesquisa em Computação | CE-221 | Aprovado | 3 | | Semestre 2 | | | |
-| Engenharia de Requisitos de Sistemas Complexos com Software | CE-294 | Aprovado | 3 | | | Semestre 1 | | |
-| Qualidade, Confiabilidade e Segurança de Software | CE-230 | Aprovado | 3 | | | Semestre 2 (evoluir o MECADE e tentar publicar outro artigo (SBSI 2024)) | | |
-| Estruturas de Dados, Análise de Algoritmos e Complexidade Estrutural | CT-234 | Aluno visitante | 3 | | | | Semestre 1 | |
-| Tese | CT-500 | - - | - - | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 | |
-| Tese | CT-500 | - - | - - | Semestre 1/2 | Semestre 1/2 | Semestre 1/2 | | Semestre 1 |
-| Estruturas de Dados, Análise de Algoritmos e Complexidade Estrutural | CT-234 | Cursando | 3 | | | | | Semestre 2|
+<div class="timeline">
+
+- **2021.1 – Seleção**
+  - ✅ Seleção Mestrado aprovada  
+  - Início da jornada no PG-EEC I  
+
+- **2021.2 – 1º Ano (Aluno Especial)**
+  - ❌ CT-234 (cancelada, 0 créditos)  
+  - Início formal da Tese (CT-500)  
+
+- **2022.1 – 2º Ano**
+  - 🎓 CE-220 (Fundamentos de Engenharia de Software)  
+  - 🎓 CT-601 (Estágio: Docência I)  
+  - **6 créditos acumulados**  
+
+- **2022.2 – 2º Ano**
+  - 🎓 CE-221 (Metodologia de Pesquisa em Computação)  
+  - **9 créditos acumulados**  
+
+- **2023.1 – 3º Ano**
+  - 🎓 CE-294 (Engenharia de Requisitos de Sistemas Complexos com Software)  
+  - **12 créditos acumulados**  
+
+- **2023.2 – 3º Ano**
+  - 🎓 CE-230 (Qualidade, Confiabilidade e Segurança de Software)  
+  - **15 créditos acumulados**  
+  - ✍️ Evoluir o modelo + tentativa de publicação no SBSI 2024  
+
+- **2024.1 – 4º Ano**
+  - 👥 CT-234 (cursada apenas como *aluno visitante*, créditos não válidos)  
+
+- **2024.2 – Transição**
+  - 🔄 Continuidade da Tese (CT-500)  
+  - Encerramento como **Aluno Especial**  
+  - Início como **Aluno Regular**  
+
+- **2025.1 – 5º Ano**
+  - 👥 CT-234 (novamente como visitante, ainda sem créditos válidos)  
+
+- **2025.2 – 5º Ano**
+  - 🎓 CT-234 (agora oficialmente como **Aluno Regular**)  
+  - **18 créditos finalmente concluídos ✅**  
+
+- **2026.1 – 6º Ano**
+  - 📝 Continuidade da Tese (CT-500)  
+
+- **2026.2 – Conclusão**
+  - 🏁 Defesa da Tese (CT-500)  
+
+</div>
+
+---
 
 ## Linha do Tempo
 
