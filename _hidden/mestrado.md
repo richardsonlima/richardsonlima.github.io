@@ -19,7 +19,9 @@ robots: noindex
 
 ## 📌 Visão Rápida
 
-- ✅ **Aprovado na seleção** em 2021.1  - [Relação dos Candidatos Aceitos no Processo Seletivo dos Cursos de Mestrado e Doutorado para a 2° Período de 2021](http://www.ita.br/noticias323)
+- ✅ **Aprovado na seleção** em 2021.1 
+
+- [Relação dos Candidatos Aceitos no Processo Seletivo dos Cursos de Mestrado e Doutorado para a 2° Período de 2021](http://www.ita.br/noticias323)
 
 - 📚 **créditoséditos válidos**:  
   - 2022.1: CE-220 (3), CT-601 (3) → **6**  
