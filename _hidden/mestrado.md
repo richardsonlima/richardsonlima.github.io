@@ -19,7 +19,8 @@ robots: noindex
 
 ## 📌 Visão Rápida
 
-- ✅ **Aprovado na seleção** em 2021.1  
+- ✅ **Aprovado na seleção** em 2021.1  - [Relação dos Candidatos Aceitos no Processo Seletivo dos Cursos de Mestrado e Doutorado para a 2° Período de 2021](http://www.ita.br/noticias323)
+
 - 📚 **créditoséditos válidos**:  
   - 2022.1: CE-220 (3), CT-601 (3) → **6**  
   - 2022.2: CE-221 (3) → **9**  
@@ -92,7 +93,13 @@ Checkpoints:
 - [ ] **18 créditos (2025.2)**
 
 ---
+## Publicações 
 
+**Workshop on Theses and Dissertations on Information Systems**
+[MECADE: Chaos Engineering Model for Assessing Dependability Assurance in Financial Systems](https://sol.sbc.org.br/index.php/sbsi_estendido/article/view/21575)
+**Período:** 2022-05-16
+
+---
 ## 🧪 Tese (CT-500) — Fluxo de Trabalho
 
 - **2021–2023:** Levantamento, leituras fundamentais e delineamento de problema  
