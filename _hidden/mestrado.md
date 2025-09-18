@@ -27,12 +27,12 @@ robots: noindex
   - 2023.1: CE-294 (3) → **12**  
   - 2023.2: CE-230 (3) → **15**  
   - 2025.2: CT-234 (3, **regular**) → **18** ✅  
-- 👥 **CT-234 como visitante**: 2024.1 e 2025.1 (**sem créditoséditos**)  
+- 👥 **CT-234 como visitante**: 2024.1 e 2025.1 (**sem créditos**)  
 - 🧪 **Tese (CT-500)**: trabalho contínuo 2021–2026
 
 ---
 
-## 🧭 Linha do Tempo (créditosonológica)
+## 🧭 Linha do Tempo (cronológica)
 
 ### Início
 - [x] **2021.1** — Seleção de Mestrado aprovada
@@ -79,13 +79,13 @@ robots: noindex
 
 ---
 
-## 🎯 créditoséditos e Marcos
+## 🎯 Créditos e Marcos
 
 - **Total esperado**: **18 créditos**  
 - **Status atual**: **15 créditos concluídos** (até 2023.2)  
 - **Fechamento**: **18 créditos** em **2025.2** com CT-234 (regular) ✅
 
-Checkpoints:
+**Checkpoints:**
 - [x] 6 créditos (2022.1)  
 - [x] 9 créditos (2022.2)  
 - [x] 12 créditos (2023.1)  
