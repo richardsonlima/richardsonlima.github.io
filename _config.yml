@@ -1,5 +1,20 @@
 # Build settings
 
+# Hide "hidden" collection from the main site
+collections:
+  hidden:
+    output: true
+    permalink: /hidden/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: hidden
+    values:
+      layout: page
+      sitemap: false
+      robots: noindex
+
 
 # Lazy loading images
 #   If you enable lazy loading, all images will add the loading="lazy" attribute.
