@@ -97,6 +97,7 @@ robots: noindex
 
 **Workshop on Theses and Dissertations on Information Systems**
 [MECADE: Chaos Engineering Model for Assessing Dependability Assurance in Financial Systems](https://sol.sbc.org.br/index.php/sbsi_estendido/article/view/21575)
+
 **Período:** 2022-05-16
 
 ---
