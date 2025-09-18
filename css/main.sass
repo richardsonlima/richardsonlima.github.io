@@ -635,24 +635,3 @@ pre
     border: 0
     padding-right: 0
     padding-left: 0
-
-
-/* Tabelas responsivas e legíveis em páginas */
-.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.post table, .table-scroll table { width: 100%; border-collapse: collapse; }
-.post table th, .post table td,
-.table-scroll table th, .table-scroll table td {
-  border: 1px solid #e5e5e5; padding: 6px 8px; vertical-align: top;
-}
-
-/* Evitar quebra nas colunas de anos e centralizar */
-.post table th:nth-child(n+5), .post table td:nth-child(n+5),
-.table-scroll table th:nth-child(n+5), .table-scroll table td:nth-child(n+5) {
-  white-space: nowrap; text-align: center;
-}
-
-/* Deixar a primeira coluna respirar (nomes longos) */
-.post table th:first-child, .post table td:first-child,
-.table-scroll table th:first-child, .table-scroll table td:first-child {
-  min-width: 240px;
-}
