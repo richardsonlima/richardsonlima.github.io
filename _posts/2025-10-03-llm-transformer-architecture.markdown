@@ -1,6 +1,6 @@
 ---
 layout: slides
-title: LLM Transformer Architecture
+title: Transformers Architecture Overview
 slides: llm-transformer-architecture.md
 ---
 
