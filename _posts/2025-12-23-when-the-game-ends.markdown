@@ -4,7 +4,7 @@ title: "When the Game Ends: Time, Equilibrium, and Asymptotic Dominance"
 date: 2025-12-23
 categories: [math, philosophy, reflection]
 tags: featured
-image: /assets/article_images/alireza-mahmoudi-ab5OK9mx8do-unsplash.jpg
+image: /assets/article_images/nicolas-langellotti-R1hzOfRC-08-unsplash.jpg
 mathjax: true> 
 ---
 
