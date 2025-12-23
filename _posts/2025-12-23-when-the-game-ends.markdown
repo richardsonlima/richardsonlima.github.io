@@ -10,13 +10,13 @@ mathjax: true>
 
 **A philosophical, strategic, and psychological synthesis**
 
-> For most of our lives, we are trained to interpret reality through **local outcomes**. Who won this argument. Who lost that negotiation. Who gained power today. Who conceded. This framing is intuitive, emotionally compelling—and deeply misleading.
+> For most of our lives, we are trained to interpret reality through **local outcomes**. Who won this argument. Who lost that negotiation. Who gained power today. Who conceded. This framing is intuitive, emotionally compelling and deeply misleading.
 
 <div class="video-container">
   <iframe 
     width="560"
     height="315"
-    src="https://youtu.be/Lh_wesEZtKM?si=WdgD-6xhbsOx5qQg" 
+    src="https://www.youtube.com/embed/Lh_wesEZtKM?si=LgFtwOU7x327nyl_" 
     title="Russian Circles - Conduit (Official Audio)" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -32,7 +32,7 @@ Time does not negotiate. It does not compromise. It does not care about intent, 
 Game theory, psychology, ethics, and systems thinking converge on a single uncomfortable truth:  
 **many systems persist not because they are good, but because they have not yet been tested by time**.
 
-This essay explores how equilibria collapse, why control fails asymptotically, and why coherence—quiet, unglamorous, often misunderstood—wins when the horizon becomes infinite.
+This essay explores how equilibria collapse, why control fails asymptotically, and why coherence quiet, unglamorous, often misunderstood wins when the horizon becomes infinite.
 
 ---
 
@@ -40,7 +40,7 @@ This essay explores how equilibria collapse, why control fails asymptotically, a
 
 In game theory, a **Nash Equilibrium** is a configuration in which no agent can improve their payoff by changing strategy unilaterally, given that others maintain theirs.
 
-This definition is precise—and dangerously incomplete.
+This definition is precise and dangerously incomplete.
 
 A Nash equilibrium:
 - does **not** require fairness  
@@ -71,9 +71,9 @@ The moment we introduce time, a more important question replaces equilibrium:
 
 Formally, this is the **time derivative of payoff**:
 
-\[
+$$
 \frac{\partial \pi}{\partial t}
-\]
+$$
 
 Two systems may look identical at a given instant and be radically different when projected forward.
 
@@ -97,15 +97,15 @@ Each act is defensible in isolation. Together, they accumulate.
 
 Let these micro-gains be denoted as:
 
-\[
+$$
 \sum \delta_i
-\]
+$$
 
 They accumulate silently until they reach a **critical threshold**:
 
-\[
+$$
 \kappa
-\]
+$$
 
 Crossing this threshold does not produce adjustment. It produces **phase transition**.
 
@@ -154,9 +154,9 @@ An agent is asymptotically dominant if, as time approaches infinity:
 - their strategy does not require escalation
 - their payoff does not depend on destabilizing others
 
-In such cases, dominance is not achieved by victory—but by **survival without distortion**.
+In such cases, dominance is not achieved by victory but by **survival without distortion**.
 
-Formally:
+**Formally:**
 
 $$
 Nash[∂π/∂t] = ∅ ⇒ max{U₁, U₂} = U₁
@@ -189,7 +189,7 @@ Endurance beats cleverness when the horizon is long enough.
 
 ## The Ethical Layer: Time as Moral Arbiter
 
-Beyond strategy lies ethics—not as rules, but as **structural alignment**.
+Beyond strategy lies ethics not as rules, but as **structural alignment**.
 
 - Lies require maintenance.
 - Truth requires only persistence.
@@ -202,7 +202,7 @@ Time rewards internal consistency.
 This is why unethical systems feel powerful early and fragile later.  
 And why ethical systems often feel weak early and inevitable later.
 
-Time is not moral—but it **selects for moral structures**.
+Time is not moral but it **selects for moral structures**.
 
 ---
 
@@ -221,7 +221,7 @@ At that point:
 
 The unstable system dissolves under its own temporal weight.
 
-And the dominant structure remains—not triumphant, but intact.
+And the dominant structure remains not triumphant, but intact.
 
 ---
 
@@ -238,25 +238,25 @@ Time favors distance.
 
 ### Portuguese
 
-- **Teoria dos Jogos** — John von Neumann & Oskar Morgenstern  
-- **Antifrágil** — Nassim Nicholas Taleb  
-- **A Lógica do Cisne Negro** — Nassim Nicholas Taleb  
-- **O Ego é Seu Inimigo** — Ryan Holiday  
+- **Teoria dos Jogos** - John von Neumann & Oskar Morgenstern  
+- **Antifrágil** - Nassim Nicholas Taleb  
+- **A Lógica do Cisne Negro** - Nassim Nicholas Taleb  
+- **O Ego é Seu Inimigo** - Ryan Holiday  
 
 ### English
 
-- **Game Theory** — Drew Fudenberg & Jean Tirole  
-- **The Evolution of Cooperation** — Robert Axelrod  
-- **The Strategy of Conflict** — Thomas Schelling  
-- **Games People Play** — Eric Berne  
-- **Antifragile** — Nassim Nicholas Taleb  
-- **The Moral Landscape** — Sam Harris  
-- **Coercive Control** — Evan Stark  
+- **Game Theory** - Drew Fudenberg & Jean Tirole  
+- **The Evolution of Cooperation** - Robert Axelrod  
+- **The Strategy of Conflict** - Thomas Schelling  
+- **Games People Play** - Eric Berne  
+- **Antifragile** - Nassim Nicholas Taleb  
+- **The Moral Landscape** - Sam Harris  
+- **Coercive Control** - Evan Stark  
 
 ---
 
 ## Reflection
 
-**If you project your current way of acting ten, twenty, or thirty years forward—does it simplify, or does it demand increasing distortion to survive?**
+**If you project your current way of acting ten, twenty, or thirty years forward does it simplify, or does it demand increasing distortion to survive?**
 
 Time will answer either way.
