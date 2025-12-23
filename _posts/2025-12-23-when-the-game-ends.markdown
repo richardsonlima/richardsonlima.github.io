@@ -25,6 +25,8 @@ mathjax: true>
   </iframe>
 </div>
 
+---
+
 It ignores the only player that never exits the game: **time**.
 
 Time does not negotiate. It does not compromise. It does not care about intent, justification, or narrative. It only reveals whether a system can **continue without contradicting itself**.
