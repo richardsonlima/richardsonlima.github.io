@@ -236,24 +236,169 @@ Time favors distance.
 
 ---
 
-## Recommended Reading
+## Recommended books to Reading 
 
-### Portuguese
+Below is a brief explanation of **why each book is included**, what it teaches, and how it contributes to emotionally mature, constructive strategies focused on **personal life**, autonomy, and long-term coherence.
 
-- **Teoria dos Jogos** - John von Neumann & Oskar Morgenstern  
-- **Antifrágil** - Nassim Nicholas Taleb  
-- **A Lógica do Cisne Negro** - Nassim Nicholas Taleb  
-- **O Ego é Seu Inimigo** - Ryan Holiday  
+---
 
-### English
+### **Theory of Games** - John von Neumann & Oskar Morgenstern  
+**Why this book?**  
+It is the formal foundation of strategic interaction, payoff, and rational choice. Every discussion about equilibrium, utility, and dominance traces back to this work.
 
-- **Game Theory** - Drew Fudenberg & Jean Tirole  
-- **The Evolution of Cooperation** - Robert Axelrod  
-- **The Strategy of Conflict** - Thomas Schelling  
-- **Games People Play** - Eric Berne  
-- **Antifragile** - Nassim Nicholas Taleb  
-- **The Moral Landscape** - Sam Harris  
-- **Coercive Control** - Evan Stark  
+**Core insight:**  
+Not every conflict is about winning; many are about avoiding loss. Rational systems can generate deeply human outcomes.
+
+**Practical value (personal life):**  
+- Recognizing when interactions become strategic rather than authentic.  
+- Understanding hidden incentives behind repeated conflicts.  
+- Choosing disengagement when the game itself is negative-sum.
+
+Emotional defense: **strategic clarity without paranoia**.
+
+---
+
+### **Antifragile** - Nassim Nicholas Taleb  
+**Why this book?**  
+Your article aligns directly with the idea of systems that improve over time versus those that collapse under stress.
+
+**Core insight:**  
+What survives time is not what avoids stress, but what does not require distortion to function.
+
+**Practical value (personal life):**  
+- Building an identity that does not depend on constant validation.  
+- Creating relationships that tolerate friction without collapse.  
+- Developing resilience without emotional numbness.
+
+Emotional defense: **internal robustness**.
+
+---
+
+### **The Black Swan** - Nassim Nicholas Taleb  
+**Why this book?**  
+It reveals how apparent stability often ignores rare but decisive events.
+
+**Core insight:**  
+The greatest risks come from what systems cannot absorb, not from what they anticipate.
+
+**Practical value (personal life):**  
+- Maintaining emotional and relational safety margins.  
+- Avoiding overconfidence in narratives about people or situations.  
+- Accepting uncertainty without paralysis.
+
+Emotional defense: **structural humility**.
+
+---
+
+### **Ego Is the Enemy** - Ryan Holiday  
+**Why this book?**  
+Because ego frequently sabotages long-term personal coherence.
+
+**Core insight:**  
+Ego pushes for short-term emotional wins that generate long-term instability.
+
+**Practical value (personal life):**  
+- Letting go of the need to be right.  
+- Reducing reactivity in tense situations.  
+- Preserving dignity without escalation.
+
+Emotional defense: **self-restraint**.
+
+---
+
+### **Game Theory** - Drew Fudenberg & Jean Tirole  
+**Why this book?**  
+It offers rigorous treatment of dynamic and repeated games, essential for understanding time-dependent interactions.
+
+**Core insight:**  
+Optimal behavior depends on horizon, not momentary advantage.
+
+**Practical value (personal life):**  
+- Viewing relationships as repeated interactions, not single moments.  
+- Prioritizing consistency over cleverness.  
+- Avoiding impulsive decisions with delayed costs.
+
+Emotional defense: **long-term awareness**.
+
+---
+
+### **The Evolution of Cooperation** - Robert Axelrod  
+**Why this book?**  
+It empirically demonstrates how cooperation can emerge without naive altruism.
+
+**Core insight:**  
+Predictability and reciprocity outperform manipulation over time.
+
+**Practical value (personal life):**  
+- Building trust without overexposure.  
+- Setting boundaries that do not require hostility.  
+- Cooperating while remaining autonomous.
+
+Emotional defense: **selective trust**.
+
+---
+
+### **The Strategy of Conflict** - Thomas Schelling  
+**Why this book?**  
+It reframes conflict as something that can be stabilized without domination.
+
+**Core insight:**  
+Power often lies in restraint rather than escalation.
+
+**Practical value (personal life):**  
+- Managing interpersonal tension without drama.  
+- Knowing when not to respond.  
+- Preserving leverage through calm consistency.
+
+Emotional defense: **measured assertiveness**.
+
+---
+
+### **Games People Play** - Eric Berne  
+**Why this book?**  
+Because many personal conflicts are driven by unconscious psychological games.
+
+**Core insight:**  
+People repeat dysfunctional patterns because they feel familiar, not because they work.
+
+**Practical value (personal life):**  
+- Identifying emotional scripts early.  
+- Exiting repetitive cycles without blame.  
+- Choosing authenticity over intensity.
+
+Emotional defense: **relational awareness**.
+
+---
+
+### **The Moral Landscape** - Sam Harris  
+**Why this book?**  
+It treats morality as structural alignment rather than subjective preference.
+
+**Core insight:**  
+Some ways of living are more psychologically sustainable than others.
+
+**Practical value (personal life):**  
+- Aligning values with behavior.  
+- Reducing internal contradiction.  
+- Choosing coherence over justification.
+
+Emotional defense: **internal coherence**.
+
+---
+
+### **Coercive Control** - Evan Stark  
+**Why this book?**  
+It describes interpersonal systems that appear stable but are sustained by escalating control.
+
+**Core insight:**  
+Control strategies may function temporarily but require increasing effort and contradiction to persist.
+
+**Practical value (personal life):**  
+- Recognizing subtle patterns of domination early.  
+- Leaving unhealthy dynamics without explosive confrontation.  
+- Strengthening emotional autonomy and self-trust.
+
+Emotional defense: **freedom without rupture**.
 
 ---
 
