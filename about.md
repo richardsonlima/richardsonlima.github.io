@@ -155,13 +155,15 @@ To honor attention and depth, I selected only the three most viscerally powerful
 
 ---
 
-### The Most Brutal: Moonlight Sonata – Two Faces of Eternal Longing
+### The Most Brutal: Moonlight Sonata, Two Faces of Eternal Longing
 
 Some pieces refuse to stay in any category. They transcend genre, era, and context. They become events that rewrite the listener.
 
 Beethoven's *Moonlight Sonata* (first movement) is such a work: a quiet storm in triple time, arpeggios that ripple like moonlight on black water, a slow funeral march disguised as calm. It speaks of loss that cannot be spoken, of beauty that hurts to behold.
 
 I keep two performances apart from all others not because they are technically flawless, but because they are brutally human. One honors the sudden void left by death. The other dramatizes the composer's own descent into silence. Together they form a diptych of what music can do when words fail.
+
+---
 
 **First: Alicia Keys at the Celebration of Life for Kobe & Gianna Bryant (2020)**
 
@@ -174,6 +176,8 @@ This is mourning turned into architecture: structured sorrow, held together by B
 <div class="video-container">
   <iframe src="https://www.youtube.com/embed/bT6WmWVYPhI" title="Alicia Keys – Moonlight Sonata (Kobe Bryant Memorial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
+
+---
 
 **Second: The Immortal Beloved Scene – Gary Oldman as Beethoven**
 
@@ -194,7 +198,7 @@ These two moments one public elegy, one private agony remind us that the deepest
 Listen to both when the night is long and the questions are harder than usual. Let them remind you: beauty is not always gentle. Sometimes it arrives as a wound that heals us.
 
 **A quiet challenge**  
-Play one after the other, in a dark room, no distractions. Feel how the same notes can carry completely different weights depending on the story behind the fingers. What does that tell you about the systems we design and the humans who must live inside them?
+Play one after the other, in a dark room, no distractions. Feel how the same notes can carry completely different weights depending on the story behind the fingers.
 
 ---
 
