@@ -153,6 +153,8 @@ To honor attention and depth, I selected only the three most viscerally powerful
 
 </details>
 
+---
+
 ### The Most Brutal: Moonlight Sonata – Two Faces of Eternal Longing
 
 Some pieces refuse to stay in any category. They transcend genre, era, and context. They become events that rewrite the listener.
