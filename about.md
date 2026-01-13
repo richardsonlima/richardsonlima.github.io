@@ -69,7 +69,16 @@ To honor attention and depth, I selected only the three most viscerally powerful
   The slow burn of this piece has often been the soundtrack to late night debugging sessions where patience becomes architecture.
 
   <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/Hc8gYoXkLZ4" title="HAUSER – Adagio for Strings" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe 
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/Hc8gYoXkLZ4" 
+      title="HAUSER – Adagio for Strings" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
   </div>
 
 </details>
@@ -85,7 +94,16 @@ To honor attention and depth, I selected only the three most viscerally powerful
   Raw, electric truth the musical equivalent of tracing a memory leak back to its root cause at 3 a.m.
 
   <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/KC5H9P4F5Uk" title="Stevie Ray Vaughan – Texas Flood" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe 
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/KC5H9P4F5Uk" 
+      title="Stevie Ray Vaughan – Texas Flood" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
   </div>
 
 </details>
@@ -101,8 +119,18 @@ To honor attention and depth, I selected only the three most viscerally powerful
   The cyclical poetry of time and renewal perfect for reflecting on system lifecycles and graceful degradation.
 
   <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/achxrz7ixxY" title="Daniel Jobim – Águas de Março" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe 
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/achxrz7ixxY" 
+      title="Daniel Jobim – Águas de Março" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
   </div>
+
 
 </details>
 
@@ -117,8 +145,18 @@ To honor attention and depth, I selected only the three most viscerally powerful
   Fragile intensity that reminds us even the most elegant systems eventually demand grace under pressure.
 
   <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/vLHcHWDvgfQ" title="Jeff Buckley – Lover, You Should've Come Over" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe 
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/vLHcHWDvgfQ" 
+      title="Jeff Buckley – Lover, You Should've Come Over" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
   </div>
+
 
 </details>
 
@@ -133,8 +171,18 @@ To honor attention and depth, I selected only the three most viscerally powerful
   The clean arpeggios opening into controlled chaos — a metaphor for clean code scaling into real-world complexity.
 
   <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/Lli99OmkPwM" title="Metallica – Nothing Else Matters" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe 
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/Lli99OmkPwM" 
+      title="Metallica – Nothing Else Matters" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
   </div>
+
 
 </details>
 
@@ -148,7 +196,16 @@ To honor attention and depth, I selected only the three most viscerally powerful
   Ancient resonance meeting modern breath a reminder that the deepest systems are built on timeless patterns.
 
   <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/FnkTuHP9q3o" title="Wardruna and Aurora – Helvegen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe 
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/FnkTuHP9q3o" 
+      title="Wardruna and Aurora – Helvegen" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
   </div>
 
 </details>
@@ -174,8 +231,18 @@ There is no showmanship here. Only restraint, gravity, and a profound tenderness
 This is mourning turned into architecture: structured sorrow, held together by Beethoven's form, made unbearable and beautiful by human loss.
 
 <div class="video-container">
-  <iframe src="https://www.youtube.com/embed/bT6WmWVYPhI" title="Alicia Keys – Moonlight Sonata (Kobe Bryant Memorial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe 
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/bT6WmWVYPhI" 
+    title="Alicia Keys – Moonlight Sonata (Kobe Bryant Memorial" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
 </div>
+
 
 ---
 
@@ -190,7 +257,16 @@ Beethoven's deafness was progressive, cruel, and total. Yet from that isolation 
 It is brutal because it shows the price of genius. The music that moves millions was forged in a private hell where even the composer could no longer hear it clearly.
 
 <div class="video-container">
-  <iframe src="https://www.youtube.com/embed/524VlYD0PVw" title="Immortal Beloved – Moonlight Sonata Scene" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe 
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/524VlYD0PVw" 
+    title="Immortal Beloved – Moonlight Sonata Scene" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
 </div>
 
 These two moments one public elegy, one private agony remind us that the deepest art often emerges from rupture. In code, in systems, in life, we build structures to contain chaos. Sometimes the most powerful thing we can do is let the chaos speak through the structure.
