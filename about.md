@@ -55,7 +55,7 @@ Every genre opens a different portal, Jazz whispers patterns like constellations
 ## 🎧 A Personal Soundtrack – Hidden Chapters
 
 Here are some pieces that have accompanied me through different seasons of code, study, and silence.  
-I've grouped them into emotional climates — each one a different resonance chamber for the mind when logic alone is not enough.  
+I've grouped them into emotional climates each one a different resonance chamber for the mind when logic alone is not enough.  
 To honor attention and depth, I selected only the three most viscerally powerful tracks from each world. These are the ones that stop time, rewrite memory, and return unbidden at 3 a.m. when the system is finally quiet.
 
 <details markdown="1">
@@ -66,7 +66,7 @@ To honor attention and depth, I selected only the three most viscerally powerful
   - [Ludovico Einaudi – Experience (Live At Fabric, London/2013)](https://www.youtube.com/watch?v=hN_q-_nGv4U) — relentless build, release, and rebirth; the musical metaphor for gradient descent finding its minimum.
 
   **Featured moment: HAUSER – Adagio for Strings (Barber)**  
-  The slow burn of this piece has often been the soundtrack to late-night debugging sessions — where patience becomes architecture.
+  The slow burn of this piece has often been the soundtrack to late night debugging sessions where patience becomes architecture.
 
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/Hc8gYoXkLZ4" title="HAUSER – Adagio for Strings" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -82,7 +82,7 @@ To honor attention and depth, I selected only the three most viscerally powerful
   - [Nina Simone – Ain't Got No, I Got Life](https://www.youtube.com/watch?v=L5jI9I03q8E&list=RDL5jI9I03q8E&start_radio=1) — defiant joy in the face of void; the ultimate assertion of presence amid absence.
 
   **Featured moment: Stevie Ray Vaughan – Texas Flood (Live)**  
-  Raw, electric truth — the musical equivalent of tracing a memory leak back to its root cause at 3 a.m.
+  Raw, electric truth the musical equivalent of tracing a memory leak back to its root cause at 3 a.m.
 
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/KC5H9P4F5Uk" title="Stevie Ray Vaughan – Texas Flood" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -98,7 +98,7 @@ To honor attention and depth, I selected only the three most viscerally powerful
   - [Legião Urbana – Índios](https://www.youtube.com/watch?v=nM_gEzvhsM0&list=RDnM_gEzvhsM0&start_radio=1) — urgent call to roots and future; a reminder that identity is both inheritance and rebellion.
 
   **Featured moment: Daniel Jobim – Águas de Março (Live)**  
-  The cyclical poetry of time and renewal — perfect for reflecting on system lifecycles and graceful degradation.
+  The cyclical poetry of time and renewal perfect for reflecting on system lifecycles and graceful degradation.
 
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/achxrz7ixxY" title="Daniel Jobim – Águas de Março" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -145,7 +145,7 @@ To honor attention and depth, I selected only the three most viscerally powerful
   - [Eivør Pálsdóttir: Tròdlabùndin](https://www.youtube.com/watch?v=wsl-KHGe4Kk&list=RDwsl-KHGe4Kk&start_radio=1) — primal invocation; the voice that calls forth what lies beneath the surface.
 
   **Featured moment: Wardruna & Aurora – Helvegen**  
-  Ancient resonance meeting modern breath — a reminder that the deepest systems are built on timeless patterns.
+  Ancient resonance meeting modern breath a reminder that the deepest systems are built on timeless patterns.
 
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/FnkTuHP9q3o" title="Wardruna and Aurora – Helvegen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
