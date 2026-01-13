@@ -57,7 +57,8 @@ Every genre opens a different portal, Jazz whispers patterns like constellations
 ## 🎧 A Personal Soundtrack – Hidden Chapters
 
 Here are some pieces that have accompanied me through different seasons of code, study, and silence.  
-I've grouped them into emotional climates. Click to reveal each universe.
+I've grouped them into emotional climates — each one a different resonance chamber for the mind when logic alone is not enough.  
+Click to reveal each universe.
 
 <details>
   <summary>🎼 Classical Echoes & Timeless Reverberations</summary>
@@ -79,6 +80,14 @@ I've grouped them into emotional climates. Click to reveal each universe.
   - [Frank Sinatra – The Girl From Ipanema ft. Antonio Carlos Jobim](https://www.youtube.com/watch?v=NldPFVKYmiw&list=RDNldPFVKYmiw&start_radio=1)
   - [Julio Iglesias – Crazy](https://www.youtube.com/watch?v=ziliGKfW2I0&list=RDziliGKfW2I0&start_radio=1)
   - [Nils Frahm – Live at the Philharmonie de Paris](https://www.youtube.com/watch?v=HPPzQgTaLbo&list=RDHPPzQgTaLbo&start_radio=1)
+
+  **Featured moment: HAUSER – Adagio for Strings (Barber)**  
+  The slow burn of this piece has often been the soundtrack to late-night debugging sessions — where patience becomes architecture.
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/Hc8gYoXkLZ4" title="HAUSER – Adagio for Strings" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
 </details>
 
 <details>
@@ -98,6 +107,14 @@ I've grouped them into emotional climates. Click to reveal each universe.
   - [Jacob Collier & Daniel Caesar – Best Part](https://www.youtube.com/watch?v=fD4rxj7-uO0&list=RDfD4rxj7-uO0&start_radio=1)
   - [Daniel Caesar (feat. H.E.R.) perform Best Part on Later](https://www.youtube.com/watch?v=j045yEf2cLg&list=RDj045yEf2cLg&start_radio=1)
   - [Tori Amos – Thank You](https://www.youtube.com/watch?v=7ZTemHFLpZM&list=RDjmk0AVNRBIY&index=2)
+
+  **Featured moment: Stevie Ray Vaughan – Texas Flood (Live)**  
+  Raw, electric truth — the musical equivalent of tracing a memory leak back to its root cause at 3 a.m.
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/KC5H9P4F5Uk" title="Stevie Ray Vaughan – Texas Flood" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
 </details>
 
 <details>
@@ -129,6 +146,14 @@ I've grouped them into emotional climates. Click to reveal each universe.
   - [Flávio Venturini – Espanhola](https://www.youtube.com/watch?v=wWrK0syYfxQ&list=RDwWrK0syYfxQ&start_radio=1)
   - [Guilherme Arantes – Meu Mundo e Nada Mais](https://www.youtube.com/watch?v=WsyVE0RhAd8&list=RDWsyVE0RhAd8&start_radio=1)
   - [Vander Lee – Alma nua](https://www.youtube.com/watch?v=8yzB_NBlOEg&list=RD8yzB_NBlOEg&start_radio=1)
+
+  **Featured moment: Daniel Jobim – Águas de Março (Live)**  
+  The cyclical poetry of time and renewal — perfect for reflecting on system lifecycles and graceful degradation.
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/achxrz7ixxY" title="Daniel Jobim – Águas de Março" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
 </details>
 
 <details>
@@ -151,6 +176,14 @@ I've grouped them into emotional climates. Click to reveal each universe.
   - [The Strokes – You Only Live Once](https://www.youtube.com/watch?v=pT68FS3YbQ4&list=RDpT68FS3YbQ4&start_radio=1)
   - [Oasis – Don't Look Back In Anger](https://www.youtube.com/watch?v=MpNHqJs7rXQ)
   - [a-ha – Take On Me](https://www.youtube.com/watch?v=-xKM3mGt2pE&list=RD-xKM3mGt2pE&start_radio=1)
+
+  **Featured moment: Jeff Buckley – Lover, You Should've Come Over**  
+  Fragile intensity that reminds us even the most elegant systems eventually demand grace under pressure.
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/vLHcHWDvgfQ" title="Jeff Buckley – Lover, You Should've Come Over" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
 </details>
 
 <details>
@@ -164,6 +197,14 @@ I've grouped them into emotional climates. Click to reveal each universe.
   - [Thirty Seconds To Mars – A Beautiful Lie](https://www.youtube.com/watch?v=4Kvd-uquuhI&list=RD4Kvd-uquuhI&start_radio=1)
   - [JINJER – Pisces](https://www.youtube.com/watch?v=SQNtGoM3FVU&list=RDSQNtGoM3FVU&start_radio=1)
   - [NIGHTWISH – The Phantom Of The Opera](https://www.youtube.com/watch?v=tL25rbnvM4o&list=RDtL25rbnvM4o&start_radio=1)
+
+  **Featured moment: Metallica – Nothing Else Matters**  
+  The clean arpeggios opening into controlled chaos — a metaphor for clean code scaling into real-world complexity.
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/Lli99OmkPwM" title="Metallica – Nothing Else Matters" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
 </details>
 
 <details>
@@ -171,6 +212,14 @@ I've grouped them into emotional climates. Click to reveal each universe.
 
   - [Wardruna and Aurora – Helvegen](https://www.youtube.com/watch?v=FnkTuHP9q3o&list=RDFnkTuHP9q3o&start_radio=1)
   - [Eivør Pálsdóttir: Tròdlabùndin](https://www.youtube.com/watch?v=wsl-KHGe4Kk&list=RDwsl-KHGe4Kk&start_radio=1)
+
+  **Featured moment: Wardruna & Aurora – Helvegen**  
+  Ancient resonance meeting modern breath — a reminder that the deepest systems are built on timeless patterns.
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/FnkTuHP9q3o" title="Wardruna and Aurora – Helvegen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
 </details>
 
 ---
