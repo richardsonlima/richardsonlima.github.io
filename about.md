@@ -6,8 +6,6 @@ permalink: /about/
 
 ### Hi there 👋
 
-### Hi there 👋
-
 In an ever shifting technological landscape, where complexity grows faster than abstractions, I work as a Software & Data and Machine Learning Engineer focused on building resilient, cloud native, and intelligence driven platforms, currently with focus on GenAI (agent pattern, data retrieval, multi agent protocol). My work is not just about delivering systems, but about designing digital ecosystems that scale human potential and enable engineers to operate with clarity, autonomy, and purpose.
 
 My background spans UNIX internals, SRE, DevOps, DataOps, and offensive security, with deep hands-on experience in Software Engineering, Data Engineering, Machine Learning, and applied Data Science. Over the years, I have specialized in architecting platforms, toolchains, and workflows that reduce cognitive load, simplify complexity, and turn infrastructure into a strategic advantage.
