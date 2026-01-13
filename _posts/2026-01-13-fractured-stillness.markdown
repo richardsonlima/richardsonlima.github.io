@@ -4,6 +4,7 @@ title: "Fractured Stillness: The Recursive Wound of Ólafur Arnalds' Live in the
 date: 2026-01-13
 categories: [music, philosophy, recursion, algorithms]
 tags: [olafur-arnalds, minimalism, silence, existence, neo-classical]
+tags: featured
 image: /assets/article_images/joshua-wordel-HfEcEJd8MWY-unsplash.jpg
 mathjax: true
 ---
