@@ -18,7 +18,7 @@ The term **neurodivergence** frames differences not as disorders but as variatio
 
 - **Gifted and high-ability individuals** often think in leaps rather than steps. Their minds are nonlinear engines of association, capable of grasping abstract systems intuitively. In programming, this manifests in elegant solutions to problems others may not even perceive.
 - **Autism level 1 (high-functioning autism)** is characterized by deep focus, attention to detail, and strong pattern recognition. In software engineering, this can mean identifying system anomalies that evade standard testing frameworks.
-- **ADD/ADHD profiles** often embody divergent thinking and creative problem-solving under pressure. They can pivot between contexts rapidly, an asset in environments that demand innovation and adaptability.
+- **ADD/ADHD profiles** often embody divergent thinking and creative problem solving under pressure. They can pivot between contexts rapidly, an asset in environments that demand innovation and adaptability.
 
 These profiles are not mutually exclusive; many technologists embody intersections of them.
 
@@ -84,7 +84,7 @@ A **twice-exceptional** profile refers to the coexistence of **giftedness/high a
 
 ### Features of Each Condition
 
-- **Giftedness/High Abilities (AH/SD):** intellectual, academic, artistic, or leadership capacities above average; creativity and unconventional problem-solving.  
+- **Giftedness/High Abilities (AH/SD):** intellectual, academic, artistic, or leadership capacities above average; creativity and unconventional problem solving.  
 - **Autism Spectrum Condition (ASC/TEA):** differences in communication, social interaction, restricted interests, repetitive behaviors; in adults, challenges in flexibility, sensory sensitivities, and frustration management.  
 - **ADHD:** inattention, impulsivity, chronic disorganization, difficulty with task management, and frequent frustration.
 
@@ -101,7 +101,7 @@ A **twice-exceptional** profile refers to the coexistence of **giftedness/high a
 
 ## Workplace Vignettes: Living Neurodivergence in Tech
 
-Stories help us imagine realities we might otherwise overlook. These short portraits are not diagnoses but metaphors of how cognitive diversity can manifest in real workplaces Apple, Microsoft, AWS, global banks, or data-driven startups. They are reminders: your colleague’s brilliance and struggles may both be true at once.
+Stories help us imagine realities we might otherwise overlook. These short portraits are not diagnoses but metaphors of how cognitive diversity can manifest in real workplaces Apple, Microsoft, AWS, global banks, or data driven startups. They are reminders: your colleague’s brilliance and struggles may both be true at once.
 
 ### Autism Spectrum (ASC/Level 1)
 **Ana, Software Engineer at Microsoft**  
