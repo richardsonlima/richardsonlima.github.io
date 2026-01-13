@@ -30,25 +30,6 @@ The *Live in the Lobby* session, filmed on December 7, 2011, in the modest commo
 </div>
 
 ---
-**Bonus track**
-
-[Ólafur Arnalds - Full Performance (Live on KEXP)](https://www.youtube.com/embed/-BQZRmuseHc?si=NPKahvO4e_Jaf1tu)  
-
-
-<div class="video-container">
-  <iframe 
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/-BQZRmuseHc?si=NPKahvO4e_Jaf1tu"
-    title="Ólafur Arnalds - Full Performance (Live on KEXP)" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
-</div>
-
----
 
 ## The Base Case: Silence That Remembers Everything
 
@@ -128,6 +109,26 @@ That admission, raw and recursive, is the closest thing to truth I have felt in 
 2. Listen to the entire session without once checking your phone. If you fail, start over. This is your new spiritual practice.
 
 3. After the final silence, do not speak for one hour. Write down whatever surfaces. Burn the paper afterward.
+
+---
+
+**Bonus track**
+
+[Ólafur Arnalds - Full Performance (Live on KEXP)](https://www.youtube.com/embed/-BQZRmuseHc?si=NPKahvO4e_Jaf1tu)  
+
+
+<div class="video-container">
+  <iframe 
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/-BQZRmuseHc?si=NPKahvO4e_Jaf1tu"
+    title="Ólafur Arnalds - Full Performance (Live on KEXP)" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
 
 ---
 
