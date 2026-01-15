@@ -16,8 +16,8 @@ mathjax: true>
   <iframe 
     width="560"
     height="315"
-    src="https://www.youtube.com/watch?v=5PRXZ4UTodw&list=RDDJ1LBm1gz0A&index=18" 
-    title="Mono / Pure as snow ( Live in Bangkok )" 
+    src="https://www.youtube.com/embed/ab6F56hw6CA?si=qqOrB9SroPE7-egE" 
+    title="Ef - Lake Vaettern (Ghost City Sessions)" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
