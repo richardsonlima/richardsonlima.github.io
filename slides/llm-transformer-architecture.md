@@ -1,189 +1,140 @@
 class: center, middle, inverse-slide
-## Whispers of Focus: The .transformers-text[Transformer] Architecture as a Symphony of Human Attention
-### _Decoding the architecture that mirrored the human mind_
+## Whispers of Focus: The .transformers-text[Transformer] Architecture
+### _A Deep Dive into the Symphony of Machine Attention_
 <img src="/assets/article_images/transformer-symphony.jpg" width="150px" style="border-radius: 50%;"/>
 
-.footnote[Inspired by the work of Vaswani et al. (2017)]
----
-## This Presentation *Might* Be Enhanced If You're Familiar With
-- Neural Network basics (Neurons, Layers)
-- Sequence models (RNNs/LSTMs)
-- Linear Algebra (Matrix Multiplication)
+**Richardson Lima** .footnote[Inspired by Vaswani et al. (2017) | "Attention Is All You Need"]
 
-*But like a good symphony, you can still enjoy the melody without reading the sheet music.*
 ---
-class: middle, inverse-slide
-## You’ve built an RNN for your sequence data 🎉🎉🎉
-### ... _and it works perfectly, right?_
----
-class: middle, inverse-slide
-## Well, .purple-text[not exactly] 😬
----
-class: middle, inverse-slide
-## There are still some .blue-text[bottlenecks] we can't ignore
----
-.left-column[
-## The RNN Struggle
-]
-.right-column-middle[
-- **Sequential Nature**
-    - You must process word $A$ before word $B$
-    - No parallelization = Slow training
-]
----
-.left-column[
-## The RNN Struggle
-]
-.right-column-middle[
-- **Vanishing Memories**
-    - Distant dependencies get lost in the "fog"
-    - The model forgets the beginning of the sentence by the time it reaches the end
-]
----
-.left-column[
-## The RNN Struggle
-]
-.right-column-middle[
-- **Fixed-length context**
-    - Trying to squeeze a whole book into a single vector
-]
----
-class: middle, inverse-slide
-## We can solve this by <br> .green-text[eliminating recurrence]
----
-class: middle
-## Attention is All You Need
+## The Context: Why are we here?
 
-> [cite_start]"Attention allows modeling dependencies regardless of distance, akin to how our prefrontal cortex integrates distant memories." [cite: 1]
+Before 2017, machines "read" like humans read a physical book: **word-by-word**.
+
+- **RNNs and LSTMs** were sequential chains.
+- To understand the last word of a sentence, the model had to remember everything that came before.
+- **The Problem:** Like a game of "telephone", the meaning often got distorted or lost over long distances.
+
+.blue-text[**The Transformer changed the game: It doesn't read in a line; it looks at the whole page at once.**]
 
 ---
 class: middle, inverse-slide
-## How does the .transformers-text[Transformer] achieve this?
+## Part 1: The RNN Bottleneck 🧱
+### _Why the old ways had to die_
+---
+.left-column[
+## The Struggle
+]
+.right-column-middle[
+### 1. The Sequential Trap
+You cannot compute word #10 until word #9 is finished. This makes training on modern GPUs incredibly slow.
+
+### 2. Vanishing Context
+Try to remember the first name mentioned in a 50-page chapter. RNNs struggle with this "Long-term Dependency" problem.
+
+### 3. The "Information Bottleneck"
+We tried to squeeze the meaning of an entire sentence into one single, fixed-size vector.
+]
+
 ---
 class: middle, inverse-slide
-## It treats information as a .blue-text[Dynamic Symphony]
+## Part 2: Enter the .transformers-text[Self-Attention] 🧠
+### _The "Crowded Room" Analogy_
+---
+## How Attention Works
+
+Imagine you are in a **crowded party**. 10 people are talking at once. 
+
+1. Your ears hear all the sound (Input).
+2. Your brain filters out 90% of the noise.
+3. You **attend** only to the person talking to you.
+
+**In Transformers, words do the same:**
+Every word in a sentence "looks" at every other word to decide which one is most relevant to its own meaning.
+
 ---
 .left-column[
-## The Architecture
+## The Math of Focus
 ]
 .right-column-middle[
-- **Encoder Stack**: The Listener. [cite_start]It weaves the input into a rich tapestry of meaning. [cite: 1]
+### The Query, Key, and Value (Q, K, V)
+
+- **Query ($Q$):** "What am I looking for?" (The current word).
+- **Key ($K$):** "What do I offer?" (The label of other words).
+- **Value ($V$):** "What information do I have?" (The content).
+
+
+
+$$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+
+**Translation:** We multiply Query and Key to find the "score" (relevance), then use that score to weight the Values.
 ]
+
 ---
 .left-column[
-## The Architecture
+## Multi-Head Attention
 ]
 .right-column-middle[
-- **Decoder Stack**: The Speaker. [cite_start]It generates the output note-by-note, while "blindfolded" to the future. [cite: 1]
+### Why "Multi-Head"?
+
+If you look at the sentence *"The animal didn't cross the street because it was too tired"*, your brain does two things:
+1. One "head" realizes **"it"** refers to the **animal**.
+2. Another "head" realizes **"tired"** is the **reason**.
+
+By having 8 or 16 heads working in parallel, the model captures **grammar, meaning, and context** all at the same time.
+
+
 ]
----
-.left-column[
-## The Architecture
-]
-.right-column-middle[
-- **Positional Encoding**: The Metronome. [cite_start]It injects order using sine and cosine functions. [cite: 1]
-]
+
 ---
 class: middle, inverse-slide
-## .green-text[Query] / .blue-text[Key] / .purple-text[Value]
+## Part 3: The Architecture 🏗️
+### _Encoder, Decoder, and the Sine Waves_
 ---
 .left-column[
-## The Mechanism
-### Scaled Dot-Product
+## The Components
 ]
 .right-column-middle[
-- Think of a classroom:
-- **Query**: What am I looking for?
-- **Key**: How relevant is this student's answer?
-- **Value**: The actual information provided.
-<br><br>
-[cite_start]$$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$ [cite: 1]
+### 1. Positional Encoding
+Since Transformers process everything at once, they don't know the "order" of words. 
+We add **Sine and Cosine waves** to the data to give each word a "GPS coordinate" in the sentence.
+
+### 2. The Encoder (The Listener)
+Reads the input and creates a high-dimensional "map" of how words relate to each other.
+
+### 3. The Decoder (The Speaker)
+Uses the Encoder's map to generate an output (like a translation), predicting the next word based on all previous words it has already spoken.
 ]
----
-.left-column[
-## The Mechanism
-### Scaled Dot-Product
-### Multi-Head Attention
-]
-.right-column-middle[
-- Why have one listener when you can have eight?
-- [cite_start]Some heads focus on grammar (The Librarians). [cite: 1]
-- [cite_start]Some heads focus on emotion (The Poets). [cite: 1]
-<br><br>
-]
+
 ---
 class: middle, inverse-slide
-## Multi-Head Attention is a .purple-text[parallel] process
+## Part 4: The Impact 🚀
+### _From Translation to AGI_
 ---
-class: middle, inverse-slide
-## It allows the model to "see" the entire sequence .green-text[at once]
----
-class: center, middle, inverse-slide
-<img src="/assets/article_images/rnn-chain.png" width="40%"/>
-## Sequential (RNN)
-## vs
-<img src="/assets/article_images/transformer-web.png" width="40%"/>
-## Attentive Web (Transformer)
----
-class: middle, inverse-slide
-## That's a .green-text[massive boost] in training efficiency
+## Why did this change the world?
+
+1. **Parallelization:** We can now train on trillions of words because we don't wait for word-by-word processing.
+2. **Global Reach:** A word at the end of a book can attend to a word at the very beginning instantly.
+3. **The Foundation:** This architecture is the "engine" inside:
+    - **BERT** (Understanding)
+    - **GPT-3 / GPT-4** (Generation)
+    - **Stable Diffusion** (Images)
+
 ---
 .left-column[
-## Why it Works
-### Parallelization
-### Constant Path Length
+## Summary
 ]
 .right-column-middle[
-- In self-attention, the distance between any two words is exactly **1**.
-- [cite_start]No more "forgetting" the start of the sentence. [cite: 1]
+### The Symphony
+- **Attention** is the melody (Focus).
+- **Multi-Head** is the harmony (Complexity).
+- **Positional Encoding** is the rhythm (Order).
+
+The Transformer proved that with enough data and the right mathematical "focus", machines can begin to mirror human understanding.
 ]
+
 ---
-.left-column[
-## Why it Works
-### Parallelization
-### Constant Path Length
-### Philosophical Edge
-]
-.right-column-middle[
-- [cite_start]It mirrors human focus: deciding what matters most in a crowded room. [cite: 1]
-]
----
-class: middle, inverse-slide
-## Now let's see the .red-text[results] 👹
----
-.left-column[
-## Performance
-]
-.right-column-middle[
-- [cite_start]SOTA BLEU scores for English-to-German and English-to-French. [cite: 1]
-- [cite_start]Faster training on 8 GPUs compared to traditional RNN ensembles. [cite: 1]
-]
----
-.left-column[
-## Performance
-### Scaling Up
-]
-.right-column-middle[
-- [cite_start]As Ilya Sutskever noted: "Intelligence is an emergent property of scale." [cite: 1]
-- The Transformer is the engine that made GPT and Gemini possible.
-]
----
-class: middle, blue-slide
-# What Now?
----
-.left-column[
-## The Path Ahead
-]
-.right-column-middle[
-- [cite_start]**Read the paper**: "Attention Is All You Need" (Vaswani et al.) [cite: 1]
-- [cite_start]**Build your own**: Start with a simple Scaled Dot-Product in Python. [cite: 1]
-- [cite_start]**Explore the Philosophy**: How does silicon mimic the "soul" of attention? [cite: 1]
-]
----
-class: middle
-## Just A Thought...
-> [cite_start]"If machines attend like humans, what philosophical boundaries blur between silicon and soul?" [cite: 1]
----
-class: middle
-# Questions?
-.footnote[Made with [remark](https://github.com/gnab/remark) | Based on the post "Whispers of Focus"]
+class: center, middle
+# The Floor is Yours
+### _Questions?_
+
+[https://www.richardsonlima.com.br](https://www.richardsonlima.com.br)
