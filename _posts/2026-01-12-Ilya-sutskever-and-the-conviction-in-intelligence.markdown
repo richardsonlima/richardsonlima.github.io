@@ -10,17 +10,11 @@ mathjax: true
 
 > "AI is a mirror of our own minds. By building it, we are discovering what it means to be human."
 
-Imagine being in the year 2012. The world of computer vision believed that neural networks were an academic dead end. But one young researcher, driven by a **profound conviction** and the intuition that the human brain was the existence proof that neural circuits can solve anything, decided to bet everything. 
-
-
-[Ilya Sutskever: Deep Learning | Lex Fridman Podcast #94](https://www.youtube.com/embed/13CZPWmke6A?si=9ukya9nnno2f0GF4)  
-
-
 <div class="video-container">
   <iframe 
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/13CZPWmke6A?si=9ukya9nnno2f0GF4"
+    src="https://www.youtube.com/watch?v=13CZPWmke6A"
     title="Ilya Sutskever: Deep Learning | Lex Fridman Podcast #94" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -29,7 +23,10 @@ Imagine being in the year 2012. The world of computer vision believed that neura
   </iframe>
 </div>
 
+Imagine being in the year 2012. The world of computer vision believed that neural networks were an academic dead end. But one young researcher, driven by a **profound conviction** and the intuition that the human brain was the existence proof that neural circuits can solve anything, decided to bet everything. 
+
 ---
+
 
 That man was **Ilya Sutskever**. Alongside Alex Krizhevsky and Geoffrey Hinton, he published the *AlexNet* paper, the Big Bang that started the current Deep Learning revolution.
 

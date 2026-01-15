@@ -3,7 +3,7 @@ layout: post
 title: "When the Game Ends: Time, Equilibrium, and Asymptotic Dominance"
 date: 2025-12-23
 categories: [math, philosophy, reflection]
-tags: featured
+ vv vv
 image: /assets/article_images/nicolas-langellotti-R1hzOfRC-08-unsplash.jpg
 mathjax: true> 
 ---
@@ -16,8 +16,8 @@ mathjax: true>
   <iframe 
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/Lh_wesEZtKM?si=LgFtwOU7x327nyl_" 
-    title="Russian Circles - Conduit (Official Audio)" 
+    src="https://www.youtube.com/watch?v=5PRXZ4UTodw&list=RDDJ1LBm1gz0A&index=18" 
+    title="Mono / Pure as snow ( Live in Bangkok )" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
