@@ -14,7 +14,7 @@ mathjax: true
   <iframe 
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/13CZPWmke6A?si=uvWSaUJLZfqkxAm5" 
+    src="https://www.youtube.com/embed/13CZPWmke6A?si=v_8FZuXFmyjNI156" 
     title="Ilya Sutskever: Deep Learning | Lex Fridman Podcast #94" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
