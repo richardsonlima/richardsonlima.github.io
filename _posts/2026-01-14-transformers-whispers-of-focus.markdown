@@ -147,9 +147,6 @@ def scaled_dot_product_attention(Q, K, V):
 
 ---
 
-[Transformers: The best idea in AI | Andrej Karpathy and Lex Fridman](https://www.youtube.com/embed/9uw3F6rndnA?si=KriLWusOruf-ga7F)  
-
-
 <div class="video-container">
   <iframe 
     width="560"
