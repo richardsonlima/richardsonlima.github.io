@@ -3,20 +3,51 @@ layout: base
 ---
 
 <script src="/static/remark-0.14.0.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+
 <script>
-  // async load the page slides
+  // MathJax basic configuration
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Configured();
+
+  // Async load the markdown file for the slides
   var url = "/slides/{{page.slides}}";
   var jsonFile = new XMLHttpRequest();
-      jsonFile.open("GET", url, true);
-      jsonFile.send();
+  jsonFile.open("GET", url, true);
+  jsonFile.send();
 
-      jsonFile.onreadystatechange =
-        function(){
-          if (jsonFile.readyState== 4 && jsonFile.status == 200){
-            var slideshow = remark.create({
-              source: jsonFile.responseText,
-              highlightStyle: 'googlecode'
-            });
-          }
-        }
+  jsonFile.onreadystatechange = function() {
+    if (jsonFile.readyState == 4 && jsonFile.status == 200) {
+      // Initialize Remark slideshow with the fetched content
+      var slideshow = remark.create({
+        source: jsonFile.responseText,
+        highlightStyle: 'googlecode',
+        highlightLines: true,
+        ratio: '16:9'
+      });
+
+      // Crucial: Tell MathJax to scan and typeset the new content
+      // Since Remark injects the slides after the page load, 
+      // we must manually trigger the math rendering.
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
 </script>
+
+<style>
+  /* Ensure MathJax formulas scale correctly within the slide container */
+  .MathJax_Display {
+    margin: 1em 0 !important;
+  }
+  .mjx-chtml {
+    font-size: 110% !important;
+  }
+</style>
