@@ -17,13 +17,15 @@ layout: default
     <div class="custom-links">
       {% for social in site.social %}
         {% if social.url %}
-            <a class="icon-{{ social.icon }}" href="{{ social.url }}" {% if social.desc %} title="{{ social.desc }}"{% endif %}">
+            <a class="icon-{{ social.icon }}" href="{{ social.url }}" {% if social.desc %} title="{{ social.desc }}"{% endif %}>
               <i class="fa fa-{{ social.icon }}"></i>
             </a>
             &nbsp;&nbsp;·&nbsp;&nbsp;
         {% endif %}
       {% endfor %}
-      <a href={{ "/about/" | prepend: site.baseurl }}>About</a>
+      <a href="{{ "/slides/llm-transformer-architecture.html" | prepend: site.baseurl }}">Slides</a>
+      &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="{{ "/about/" | prepend: site.baseurl }}">About</a>
     </div>
 </header>
 
@@ -45,7 +47,6 @@ layout: default
             </section>
             <div class="post-meta">
               <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
-  <!--            <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span>-->
             </div>
           </div>
         </article>
@@ -67,7 +68,6 @@ layout: default
             </section>
             <div class="post-meta">
               <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
-<!--            <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span>-->
             </div>
           </div>
         </article>
@@ -89,15 +89,13 @@ layout: default
     </nav>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENN9Y5P9RJ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6SCN0W0C28"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-ENN9Y5P9RJ');
+      gtag('config', 'G-6SCN0W0C28');
     </script>
-    <!-- {{!! After all the posts, we have the previous/next pagination links }}
-    {{pagination}} -->
 
 </main>
