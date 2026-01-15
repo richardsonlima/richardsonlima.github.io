@@ -14,7 +14,7 @@ This page tracks my academic progress, research milestones, and systematic mappi
 ---
 
 ## 🏛️ Academic Institutional Profile
-* **Institution:** Technological Institute of Aeronautics (ITA)
+* **Institution:** [Technological Institute of Aeronautics (ITA)](http://www.ita.br)
 * **Program:** Graduate Program in Electronics and Computer Engineering (PG-EEC)
 * **Status:** Regular Graduate Student (since 2024.2)
 * **Advisor:** [Prof. Dr. Johnny Marques](https://www.gimps.info/equipe/coordenador) (GIMPS Group)
@@ -129,7 +129,6 @@ The primary goal of this research is to create an **Assessment Model for Dependa
 - [ITA Master's Degree](https://www.pgfis.ita.br/pt/post/mestrado) 
 - [Selection Process](https://www.pgfis.ita.br/post/processo-seletivo)  
 - [PG-EEC](https://www.pgfis.ita.br/post/pg-eec)
-- [ORCID: 0000-0002-1551-435X](https://orcid.org/0000-0002-1551-435X)
 
 ---
 *.last-updated: {{ "now" | date: "%B %Y" }}*
