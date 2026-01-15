@@ -122,13 +122,11 @@ Every symphony needs its maestros. The Transformer was not a solitary discovery 
 **Key figures in the ensemble:**
 
 * **Jakob Uszkoreit (The Visionary):** He provided the "spark" for the entire project. While others saw attention as a minor helper for old models, Jakob proposed that attention was sufficient on its own, leading to the paper's provocative title.
-* **Noam Shazeer (The Efficiency Architect):** He was the force behind **Multi-Head Attention**. Noam realized that the model shouldn't just have one "gaze"—it needed multiple parallel eyes (heads) to capture different nuances of language simultaneously.
+* **Noam Shazeer (The Efficiency Architect):** He was the force behind **Multi-Head Attention**. Noam realized that the model shouldn't just have one "gaze"-it needed multiple parallel eyes (heads) to capture different nuances of language simultaneously.
 * **Ashish Vaswani (The Formalizer):** As the lead author, Ashish orchestrated the mathematical framework, ensuring that the disparate ideas of attention and feed-forward networks resonated as a singular, powerful architecture.
 * **Niki Parmar (The Explorer):** She played a vital role in proving the model's versatility, showing that these "whispers of focus" could extend far beyond simple translation into broader realms of data.
 
 > "The Transformer is the result of eight minds deciding that sequential thinking was a cage, and that parallel attention was the key to setting machine intelligence free."
-
----
 
 ---
 
