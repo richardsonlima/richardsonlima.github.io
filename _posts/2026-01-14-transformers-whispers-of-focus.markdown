@@ -12,7 +12,7 @@ mathjax: true
 
 This is attention not just mechanical, but profoundly human, a dance of neurons firing in harmony. In the realm of machines, the Transformer echoes this: a model that listens, weighs, and transforms sequences with the elegance of a Bach fugue.
 
-The Transformer, introduced in the seminal paper *"Attention Is All You Need"*, revolutionized how we build neural networks for language and beyond. Drawing from human cognition—where our brains selectively attend to stimuli, forming memories and predictions we'll unpack its architecture step by step. Think of it as a cerebral orchestra: each component a musician, contributing to a cohesive whole.
+The Transformer, introduced in the seminal paper *"Attention Is All You Need"*, revolutionized how we build neural networks for language and beyond. Drawing from human cognition where our brains selectively attend to stimuli, forming memories and predictions we'll unpack its architecture step by step. Think of it as a cerebral orchestra: each component a musician, contributing to a cohesive whole.
 
 ---
 
@@ -115,13 +115,9 @@ In the end, what emerges is not mere translation or generation, but something st
 
 ---
 
----
-
 ## The Architects of Attention: The Minds Behind the Machine
 
 Every symphony needs its maestros. The Transformer was not a solitary discovery but a collective breakthrough by a group of researchers at Google, immortalized in the paper *"Attention Is All You Need"*.
-
-
 
 **Key figures in the ensemble:**
 
