@@ -14,7 +14,7 @@ mathjax: true
   <iframe 
     width="560"
     height="315"
-    src="https://www.youtube.com/watch?v=13CZPWmke6A"
+    src="https://www.youtube.com/embed/13CZPWmke6A?si=uvWSaUJLZfqkxAm5" 
     title="Ilya Sutskever: Deep Learning | Lex Fridman Podcast #94" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -22,6 +22,7 @@ mathjax: true
     allowfullscreen>
   </iframe>
 </div>
+
 
 Imagine being in the year 2012. The world of computer vision believed that neural networks were an academic dead end. But one young researcher, driven by a **profound conviction** and the intuition that the human brain was the existence proof that neural circuits can solve anything, decided to bet everything. 
 
