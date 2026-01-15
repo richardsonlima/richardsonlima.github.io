@@ -1,220 +1,189 @@
----
-layout: slide
-title: "Attention Is All You Need: The Transformer Architecture Revolution"
-author: Richardson Lima 
-date: 2025-10-03
----
-
 class: center, middle, inverse-slide
+## Whispers of Focus: The .transformers-text[Transformer] Architecture as a Symphony of Human Attention
+### _Decoding the architecture that mirrored the human mind_
+<img src="/assets/article_images/transformer-symphony.jpg" width="150px" style="border-radius: 50%;"/>
 
-# Attention Is All You Need
-## The LLM Revolution That Changed AI Forever
-
-.footnote[Based on the seminal paper by Vaswani et al. (2017)]
-
+.footnote[Inspired by the work of Vaswani et al. (2017)]
 ---
+## This Presentation *Might* Be Enhanced If You're Familiar With
+- Neural Network basics (Neurons, Layers)
+- Sequence models (RNNs/LSTMs)
+- Linear Algebra (Matrix Multiplication)
 
-## The Pre-Transformer Era
-
-- **RNNs/LSTMs** dominated sequence processing
-- **Sequential processing** limited parallelization
-- **Long-range dependency** problems
-- Inefficient computation for long sequences
-
-> "The fundamental constraint of sequential computation remains."
-
+*But like a good symphony, you can still enjoy the melody without reading the sheet music.*
 ---
-
 class: middle, inverse-slide
+## You’ve built an RNN for your sequence data 🎉🎉🎉
+### ... _and it works perfectly, right?_
+---
+class: middle, inverse-slide
+## Well, .purple-text[not exactly] 😬
+---
+class: middle, inverse-slide
+## There are still some .blue-text[bottlenecks] we can't ignore
+---
+.left-column[
+## The RNN Struggle
+]
+.right-column-middle[
+- **Sequential Nature**
+    - You must process word $A$ before word $B$
+    - No parallelization = Slow training
+]
+---
+.left-column[
+## The RNN Struggle
+]
+.right-column-middle[
+- **Vanishing Memories**
+    - Distant dependencies get lost in the "fog"
+    - The model forgets the beginning of the sentence by the time it reaches the end
+]
+---
+.left-column[
+## The RNN Struggle
+]
+.right-column-middle[
+- **Fixed-length context**
+    - Trying to squeeze a whole book into a single vector
+]
+---
+class: middle, inverse-slide
+## We can solve this by <br> .green-text[eliminating recurrence]
+---
+class: middle
+## Attention is All You Need
 
-## What If We Told You...
-### .blue-text[Attention Is All You Need]? 🤔
+> [cite_start]"Attention allows modeling dependencies regardless of distance, akin to how our prefrontal cortex integrates distant memories." [cite: 1]
 
 ---
-
-## The Core Idea
-
-**Architecture based solely on attention mechanisms:**
-- No recurrence
-- No convolutions  
-- Only self-attention and feed-forward networks
-
-**Results:**
-- Better parallelization
-- Faster training
-- State-of-the-art translation quality
-
+class: middle, inverse-slide
+## How does the .transformers-text[Transformer] achieve this?
 ---
-
-## Transformer Architecture
-
-.left-column[
-### Core Components
-- Encoder Stack
-- Decoder Stack
-- Multi-Head Attention
-- Positional Encoding  
-- Feed-Forward Networks
-]
-
-.right-column[
-![Transformer Architecture](https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/text/images/transformer.png)
-*The Transformer model architecture*
-]
-
+class: middle, inverse-slide
+## It treats information as a .blue-text[Dynamic Symphony]
 ---
-
-## Self-Attention: The Heart of Transformer
-
-**Scaled Dot-Product Attention:**
-```python
-Attention(Q, K, V) = softmax(QKᵀ/√dₖ)V
-```
-
-Advantages:
-
-Connects all positions with constant operations
-Captures global dependencies immediately
-Highly parallelizable
-Multi-Head Attention
-
-Why multiple heads?
-
-```python
-MultiHead(Q, K, V) = Concat(head₁, ..., headₕ)Wᵒ
-where headᵢ = Attention(QWᵢᵒ, KWᵢᴷ, VWᵢⱽ)
-```
-
-Benefits:
-
-Attends to different representation subspaces
-Captures various syntactic/semantic relationships
-h = 8 heads in original paper
-Positional Encoding
-
-Problem: No recurrence → no order information
-
-Solution: Sinusoidal positional encodings:
-
-```python
-PE(pos, 2i) = sin(pos/10000^(2i/d_model))
-PE(pos, 2i+1) = cos(pos/10000^(2i/d_model))
-```
-Why it works:
-
-Allows extrapolation to longer sequences
-Linear representation for relative positions
-Why Self-Attention?
-
-.center[
-
-Layer Type	Complexity per Layer	Sequential Operations	Maximum Path Length
-Self-Attention	O(n²·d)	O(1)	O(1)
-Recurrent	O(n·d²)	O(n)	O(n)
-Convolutional	O(k·n·d²)	O(1)	O(logₖ(n))
-]			
-.footnote[Table from Vaswani et al. (2017)]
-
 .left-column[
-## Groundbreaking Results
-### WMT 2014 English-German:
+## The Architecture
 ]
-- 28.4 BLEU - new state-of-the-art
-- 2.0 BLEU improvement over previous best
-### WMT 2014 English-French:
-- 41.8 BLEU - best single model
-- Training: 3.5 days on 8 GPUs
-### Efficiency:
-- 12 hours for base model vs. weeks for previous models
-
-
-.left-column[
-## Generalization to Other Tasks
-### English Constituency Parsing:
-- WSJ only: 91.3 F1
-- Semi-supervised: 92.7 F1
-- Outperforms most previous parsers
-### Proof of concept:
-- General architecture for sequence transduction
-- Applicable beyond machine translation
-
-.left-column[
-## Why This Matters
-### NLP Revolution:
+.right-column-middle[
+- **Encoder Stack**: The Listener. [cite_start]It weaves the input into a rich tapestry of meaning. [cite: 1]
 ]
-
-- Foundation for BERT, GPT, T5, and other LLMs
-- Paradigm shift in deep learning architectures
-- Enables unprecedented model scaling
-
-### Practical Impact:
-- Faster, more efficient training
-- Better quality across multiple tasks
-- More interpretable architecture
-
+---
 .left-column[
-## Attention Visualizations
-.center[
-https://i.imgur.com/KndVxe1.png
-Example of attention heads capturing long-range dependencies
-  ]
+## The Architecture
 ]
-
-### Interpretability:
-- Attention heads learn specific tasks
-- Visible syntactic and semantic patterns
-- Anaphora resolution, sentence structure
-
-
+.right-column-middle[
+- **Decoder Stack**: The Speaker. [cite_start]It generates the output note-by-note, while "blindfolded" to the future. [cite: 1]
+]
+---
 .left-column[
-## Key Innovations
-### Technical Breakthroughs:
+## The Architecture
 ]
-- Scaled dot-product attention
-- Multi-head attention mechanism
-- Positional encoding without recurrence
-- Residual connections and layer normalization
-
-### Engineering Impact:
-- Highly parallelizable training
-- Efficient inference
-- Scalable to large datasets
-
+.right-column-middle[
+- **Positional Encoding**: The Metronome. [cite_start]It injects order using sine and cosine functions. [cite: 1]
+]
+---
+class: middle, inverse-slide
+## .green-text[Query] / .blue-text[Key] / .purple-text[Value]
+---
 .left-column[
-## Legacy and Evolution
-### Foundation Models:
+## The Mechanism
+### Scaled Dot-Product
 ]
-- BERT (Bidirectional Encoder)
-- GPT series (Generative Pre-training)
-- T5 (Text-to-Text Transfer)
-- Vision Transformers
-
-## Beyond NLP:
-- Computer vision
-- Audio processing
-- Multimodal learning
-- Scientific discovery
-- class: middle, inverse-slide
-
+.right-column-middle[
+- Think of a classroom:
+- **Query**: What am I looking for?
+- **Key**: How relevant is this student's answer?
+- **Value**: The actual information provided.
+<br><br>
+[cite_start]$$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$ [cite: 1]
+]
+---
 .left-column[
-## The Legacy Continues...
+## The Mechanism
+### Scaled Dot-Product
+### Multi-Head Attention
 ]
-- Transformers are not just an architecture
-- They represent a new paradigm for AI
-
+.right-column-middle[
+- Why have one listener when you can have eight?
+- [cite_start]Some heads focus on grammar (The Librarians). [cite: 1]
+- [cite_start]Some heads focus on emotion (The Poets). [cite: 1]
+<br><br>
+]
+---
+class: middle, inverse-slide
+## Multi-Head Attention is a .purple-text[parallel] process
+---
+class: middle, inverse-slide
+## It allows the model to "see" the entire sequence .green-text[at once]
+---
+class: center, middle, inverse-slide
+<img src="/assets/article_images/rnn-chain.png" width="40%"/>
+## Sequential (RNN)
+## vs
+<img src="/assets/article_images/transformer-web.png" width="40%"/>
+## Attentive Web (Transformer)
+---
+class: middle, inverse-slide
+## That's a .green-text[massive boost] in training efficiency
+---
 .left-column[
-## Next Steps
-### Explore Further:
+## Why it Works
+### Parallelization
+### Constant Path Length
 ]
-- Modern implementations (Hugging Face, TensorFlow, PyTorch)
-- Derived models (BERT, GPT, T5, Vision Transformer)
-- Applications beyond text (audio, video, multimodal)
-Resources:
-[Attention Is All You Need](https://arxiv.org/abs/1706.03762)
-[Tensor2Tensor Implementation](https://github.com/tensorflow/tensor2tensor)
-[The Annotated Transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
-
+.right-column-middle[
+- In self-attention, the distance between any two words is exactly **1**.
+- [cite_start]No more "forgetting" the start of the sentence. [cite: 1]
+]
+---
+.left-column[
+## Why it Works
+### Parallelization
+### Constant Path Length
+### Philosophical Edge
+]
+.right-column-middle[
+- [cite_start]It mirrors human focus: deciding what matters most in a crowded room. [cite: 1]
+]
+---
+class: middle, inverse-slide
+## Now let's see the .red-text[results] 👹
+---
+.left-column[
+## Performance
+]
+.right-column-middle[
+- [cite_start]SOTA BLEU scores for English-to-German and English-to-French. [cite: 1]
+- [cite_start]Faster training on 8 GPUs compared to traditional RNN ensembles. [cite: 1]
+]
+---
+.left-column[
+## Performance
+### Scaling Up
+]
+.right-column-middle[
+- [cite_start]As Ilya Sutskever noted: "Intelligence is an emergent property of scale." [cite: 1]
+- The Transformer is the engine that made GPT and Gemini possible.
+]
+---
+class: middle, blue-slide
+# What Now?
+---
+.left-column[
+## The Path Ahead
+]
+.right-column-middle[
+- [cite_start]**Read the paper**: "Attention Is All You Need" (Vaswani et al.) [cite: 1]
+- [cite_start]**Build your own**: Start with a simple Scaled Dot-Product in Python. [cite: 1]
+- [cite_start]**Explore the Philosophy**: How does silicon mimic the "soul" of attention? [cite: 1]
+]
+---
+class: middle
+## Just A Thought...
+> [cite_start]"If machines attend like humans, what philosophical boundaries blur between silicon and soul?" [cite: 1]
 ---
 class: middle
 # Questions?
-.footnote[Made with [remark](https://github.com/gnab/remark)]
+.footnote[Made with [remark](https://github.com/gnab/remark) | Based on the post "Whispers of Focus"]

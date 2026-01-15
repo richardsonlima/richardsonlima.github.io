@@ -174,9 +174,18 @@ social:
     share_title:
     share_link:
 
+include:
+  - slides
+
 defaults:
   - scope:
       path: "_posts"
     values:
       layout: "posts"
 
+  - scope:
+        path: "slides"
+    values:
+      layout: null
+      render_with_liquid: false
+      permalink: /slides/:basename:output_ext
