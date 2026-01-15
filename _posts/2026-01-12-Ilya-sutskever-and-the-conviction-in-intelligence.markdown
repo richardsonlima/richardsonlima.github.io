@@ -12,7 +12,6 @@ mathjax: true
 
 Imagine being in the year 2012. The world of computer vision believed that neural networks were an academic dead end. But one young researcher, driven by a **profound conviction** and the intuition that the human brain was the existence proof that neural circuits can solve anything, decided to bet everything. 
 
----
 
 [Ilya Sutskever: Deep Learning | Lex Fridman Podcast #94](https://www.youtube.com/embed/13CZPWmke6A?si=9ukya9nnno2f0GF4)  
 
