@@ -14,7 +14,7 @@ permalink: /misc/
 
 “Close your eyes and let the mind expand. Let no fear of death or darkness arrest its course. Allow the mind to merge with Mind. Let it flow out upon the great curve of consciousness. Let it soar on the wings of the great bird of duration, up to the very Circle of Eternity.”  
 
-“In this vast cosmos of knowledge, technology, and art, I find myself not just as an observer but as a participant—a creator of systems, a seeker of truth, and a weaver of dreams. The future is not something that happens; it is something we tune into, like a hidden frequency of the universe.”  
+“In this vast cosmos of knowledge, technology, and art, I find myself not just as an observer but as a participant a creator of systems, a seeker of truth, and a weaver of dreams. The future is not something that happens; it is something we tune into, like a hidden frequency of the universe.”  
 
 ---
 
