@@ -25,6 +25,7 @@ This page tracks my academic progress, research milestones, and systematic mappi
 The primary goal of this research is to create an **Assessment Model for Dependability Assurance** in critical systems. By utilizing **Chaos Engineering**-based experiments, we aim to evaluate system resilience and provide actionable architectural recommendations.
 
 ### Research Questions (RQs):
+
 | ID | Question | Rationale |
 |:--- |:--- |:--- |
 | **RQ1** | Are there similar models to the one proposed? | Avoid plagiarism and redundancy. |
