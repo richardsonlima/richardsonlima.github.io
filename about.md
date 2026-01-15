@@ -12,15 +12,17 @@ In an ever shifting technological landscape, where complexity grows faster than 
 
 With over 15 years of experience architecting and securing large-scale technology environments, my career has been a journey through the core of computing from the rigors of **UNIX Systems Administration** and **Offensive Security** to the modern paradigms of **Software Engineering, CloudOps, DevOps, SRE, and DataOps.**
 
-Today, my professional focus has converged at the intersection of **Artificial Intelligence and System Dependability** within the high stakes world of Banking and Financial Technology.
+Today, my professional focus has converged at the intersection of **Artificial Intelligence and some of flavours of Machine Learning technics* within the high stakes world of Banking and Financial Technology.
 
 ### Professional Evolution & Current Focus
-After a long career mastering the full stack of modern infrastructure, I am now fully dedicated to:
+After a long career mastering the full stack of modern infrastructure, I am now fully dedicated to the frontier of **Applied Artificial Intelligence**:
 
-* **AI-Driven Resilience:** Applying Machine Learning to predict, detect, and mitigate failure modes in complex financial ecosystems.
+* **Agentic AI Architecture:** Engineering sophisticated **Agent Patterns** using a hybrid of **GenAI (LLMs)** and **Non-GenAI** (deterministic/symbolic) approaches to solve complex reasoning tasks.
+* **Intelligent Orchestration:** Designing high-performance **Data Retrieval** strategies and **Multi-Agent Protocols** tailored for the strict consistency and security requirements of the banking and financial sector.
+* **Autonomous Workflows:** Building and scaling infrastructure for autonomous agents, ensuring reliable communication and state management in distributed AI ecosystems.
 
-### Academic Research
-I am currently a Master's Researcher at the **Technological Institute of Aeronautics [ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics)**. My research focuses on the **MECADE** model a framework designed to integrate Chaos Engineering into the dependability assessment of financial institutions, ensuring that the global economy’s digital backbone remains resilient under pressure.
+### Academic Research (ITA)
+Parallel to my professional work, I am a Master's Researcher at the  **Technological Institute of Aeronautics [ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics)**. My academic investigation focuses on the **MECADE** model a framework designed to integrate Chaos Engineering into the dependability assessment of financial institutions, ensuring that the global economy’s digital backbone remains resilient under pressure.
 
 ---
 
