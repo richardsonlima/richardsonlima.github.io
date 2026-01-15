@@ -25,6 +25,7 @@ mathjax: true>
   </iframe>
 </div>
 
+
 ---
 
 It ignores the only player that never exits the game: **time**.
