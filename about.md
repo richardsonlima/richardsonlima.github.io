@@ -8,11 +8,19 @@ permalink: /about/
 
 In an ever shifting technological landscape, where complexity grows faster than abstractions, I work as a Software & Data and Machine Learning Engineer focused on building resilient, cloud native, and intelligence driven platforms, currently with focus on GenAI (agent pattern, data retrieval, multi agent protocol). My work is not just about delivering systems, but about designing digital ecosystems that scale human potential and enable engineers to operate with clarity, autonomy, and purpose.
 
-My background spans UNIX internals, SRE, DevOps, DataOps, and offensive security, with deep hands-on experience in Software Engineering, Data Engineering, Machine Learning, and applied Data Science. Over the years, I have specialized in architecting platforms, toolchains, and workflows that reduce cognitive load, simplify complexity, and turn infrastructure into a strategic advantage.
+# About Me
 
-This philosophy naturally led me to Internal Developer Platforms and modern data platforms, not as collections of tools, but as socio technical systems. Well designed platforms are catalysts for innovation. They empower teams, accelerate learning loops, and allow organizations to evolve sustainably while maintaining reliability and trust.
+With over 15 years of experience architecting and securing large-scale technology environments, my career has been a journey through the core of computing—from the rigors of **UNIX Systems Administration** and **Offensive Security** to the modern paradigms of **Software Engineering, CloudOps, DevOps, SRE, and DataOps.**
 
-Alongside my professional journey, I am pursuing a Master of Science at the Aeronautics Institute of Technology [ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics). There, I deepen my understanding of complex systems, distributed computing, and software resilience, continuously bridging theory and real world engineering practice.
+Today, my professional focus has converged at the intersection of **Artificial Intelligence and System Dependability** within the high-stakes world of Banking and Financial Technology.
+
+### Professional Evolution & Current Focus
+After a long career mastering the full stack of modern infrastructure, I am now fully dedicated to:
+
+* **AI-Driven Resilience:** Applying Machine Learning to predict, detect, and mitigate failure modes in complex financial ecosystems.
+
+### Academic Research
+I am currently a Master's Researcher at the **Technological Institute of Aeronautics [ITA](https://www.timeshighereducation.com/world-university-rankings/technological-institute-aeronautics)**. My research focuses on the **MECADE** model a framework designed to integrate Chaos Engineering into the dependability assessment of financial institutions, ensuring that the global economy’s digital backbone remains resilient under pressure.
 
 ---
 
