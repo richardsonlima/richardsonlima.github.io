@@ -10,9 +10,9 @@ In an ever shifting technological landscape, where complexity grows faster than 
 
 # About Me
 
-With over 15 years of experience architecting and securing large-scale technology environments, my career has been a journey through the core of computing—from the rigors of **UNIX Systems Administration** and **Offensive Security** to the modern paradigms of **Software Engineering, CloudOps, DevOps, SRE, and DataOps.**
+With over 15 years of experience architecting and securing large-scale technology environments, my career has been a journey through the core of computing from the rigors of **UNIX Systems Administration** and **Offensive Security** to the modern paradigms of **Software Engineering, CloudOps, DevOps, SRE, and DataOps.**
 
-Today, my professional focus has converged at the intersection of **Artificial Intelligence and System Dependability** within the high-stakes world of Banking and Financial Technology.
+Today, my professional focus has converged at the intersection of **Artificial Intelligence and System Dependability** within the high stakes world of Banking and Financial Technology.
 
 ### Professional Evolution & Current Focus
 After a long career mastering the full stack of modern infrastructure, I am now fully dedicated to:
