@@ -4,7 +4,7 @@ title: "Ilya Sutskever and the Conviction in Intelligence"
 date: 2026-01-12
 categories: [ai, deep-learning, entrepreneurship, inspiration]
 tags: [ilya-sutskever, openai, career, machine-learning, featured]
-image: /assets/article_images/joshua-wordel-HfEcEJd8MWY-unsplash.jpg
+image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
 mathjax: true
 ---
 
