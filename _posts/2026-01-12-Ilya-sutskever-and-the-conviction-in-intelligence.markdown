@@ -10,17 +10,11 @@ mathjax: true
 
 > "AI is a mirror of our own minds. By building it, we are discovering what it means to be human."
 
-<div class="video-container">
-  <iframe 
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/13CZPWmke6A?si=v_8FZuXFmyjNI156" 
-    title="Ilya Sutskever: Deep Learning | Lex Fridman Podcast #94" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
+<div class="video-placeholder" style="text-align: center;">
+  <a href="https://www.youtube.com/watch?v=13CZPWmke6A" target="_blank">
+    <img src="https://img.youtube.com/vi/13CZPWmke6A/maxresdefault.jpg" alt="Ilya Sutskever: Deep Learning | Lex Fridman Podcast #94" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    <p><em>Click to watch the full interview on YouTube (External playback disabled by owner)</em></p>
+  </a>
 </div>
 
 
@@ -76,4 +70,4 @@ If you wish to leave the surface and, as Ilya says, "move the pointer of the wor
 
 **The field is open. The next great conviction that changes the world could be yours. Dive in.**
 
-**Reflect:** If intelligence is a mathematical certainty waiting for enough scale, what is the role of human intuition in guiding its creation? Share your thoughts below.
+**Reflect:** If intelligence is a mathematical certainty waiting for enough scale, what is the role of human intuition in guiding its creation?  
