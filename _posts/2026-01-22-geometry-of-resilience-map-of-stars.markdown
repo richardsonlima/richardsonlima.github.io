@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Geometry of Resilience: The Map of Stars and the Shipwreck of Crystals"
+title: "The Map of Stars and the Shipwreck of Crystals"
 date: 2026-01-22
 categories: [deep, philosophy, psychology]
 tags: [resilience, emotional-intelligence, systems-thinking, metacognition, phenomenology]

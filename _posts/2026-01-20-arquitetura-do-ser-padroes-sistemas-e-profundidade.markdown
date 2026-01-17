@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Geometria da Resiliência: O Mapa das Estrelas e o Naufrágio dos Cristais"
+title: "O Mapa das Estrelas e o Naufrágio dos Cristais"
 date: 2026-01-22
 categories: [deep, philosophy, psychology]
 tags: [resilience, emotional-intelligence, systems-thinking, metacognition, phenomenology]

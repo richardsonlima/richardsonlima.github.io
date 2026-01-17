@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Geometry of Silence: Guillaume Poncelet and the Architecture of Deep Perception"
+title: "The Geometry of Silence and the Architecture of Deep Perception"
 date: 2026-01-17
 categories: [deep, philosophy, psychology, featured]
 tags: [minimalism, guillaume-poncelet, cognitive-architecture, depth, featured]

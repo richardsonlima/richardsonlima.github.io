@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fractured Stillness: The Recursive Wound of Ólafur Arnalds' Live in the Lobby"
+title: "Fractured Stillness"
 date: 2026-01-13
 categories: [deep, music, philosophy, recursion, algorithms]
 tags: [olafur-arnalds, minimalism, silence, existence, neo-classical]

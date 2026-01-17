@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Geometry of Silence: Guillaume Poncelet and the Architecture of the Soul"
+title: "The Architecture of the Soul"
 date: 2026-01-15
 categories: [deep, philosophy, psychology, music, meditation]
 tags: [minimalism, guillaume-poncelet, classic, depth, featured]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Geometria do Silêncio: Guillaume Poncelet e a Arquitetura da Percepção Profunda"
+title: "A Geometria do Silêncio e a Arquitetura da Percepção Profunda"
 date: 2026-01-17
 categories: [deep, philosophy, psychology, featured]
 tags: [minimalism, guillaume-poncelet, cognitive-architecture, depth, featured]
