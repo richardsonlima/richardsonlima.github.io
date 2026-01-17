@@ -174,8 +174,10 @@ social:
     share_title:
     share_link:
 
-include:
-  - slides
+  - icon: desktop  # Ícone de tela/apresentação do FontAwesome
+    url: /slides/
+    desc: View my Presentations
+
 
 defaults:
   - scope:
