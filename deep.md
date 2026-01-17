@@ -17,16 +17,17 @@ In this space, we move beyond the *narrative self* to explore the *experiential 
 <main class="content" role="main">
     <div class="cf frame">
       {% for post in site.posts %}
-        {% if post.layout == "slides" %}
+        {% comment %} O loop abaixo aceita posts da categoria 'deep' OU posts com layout 'slides' {% endcomment %}
+        {% if post.categories contains "deep" or post.layout == "slides" %}
           <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
-            <div class="article-item">
+            <div class="article-item" style="border-left: 2px solid #111; padding-left: 25px; margin-bottom: 50px;">
               <header class="post-header">
                 <h2 class="post-title" itemprop="name">
                   <a href="{{ post.url | prepend: site.baseurl }}" itemprop="url">{{ post.title }}</a>
                 </h2>
               </header>
               <section class="post-excerpt" itemprop="description">
-                <p>{{ post.content | strip_html | truncatewords: 30 }}</p>
+                <p>{{ post.content | strip_html | truncatewords: 45 }}</p>
               </section>
               <div class="post-meta">
                 <time datetime="{{ post.date | date_to_long_string }}">{{ post.date | date_to_long_string }}</time>
