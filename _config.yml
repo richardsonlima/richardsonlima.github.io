@@ -160,12 +160,12 @@ social:
     share_title: ?text=
     share_link: "&amp;url="
 
-#  - icon:	facebook
-#    url:	https://facebook.com/???
-#    desc: Connect with me facebook
-#    share_url: https://www.facebook.com/sharer.php
-#    share_title: ?t=
-#    share_link: "&amp;u="
+  - icon:	instagram
+    url:	https://www.instagram.com/ricklim4a/
+    desc: Follow me on Instagram
+    share_url: https://www.instagram.com/ricklim4a/
+    share_title: 
+    share_link: 
 
   - icon:	github
     url:	https://github.com/richardsonlima

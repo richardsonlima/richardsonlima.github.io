@@ -6,7 +6,7 @@ permalink: /about/
 
 ### Hi there 👋
 
-In an ever shifting technological landscape, where complexity grows faster than abstractions, I work as a Software & Data and Machine Learning Engineer focused on building resilient, cloud native, and intelligence driven platforms, currently with focus on GenAI (agent pattern, data retrieval, multi agent protocol). My work is not just about delivering systems, but about designing digital ecosystems that scale human potential and enable engineers to operate with clarity, autonomy, and purpose.
+In an ever shifting technological landscape where complexity often outpaces abstraction, I think resilient, intelligence driven ecosystems. As a Software, Data, and Machine Learning Engineer, my current focus lies at the frontier of Applied GenAI—engineering sophisticated agent patterns and multi-agent protocols. My work transcends system delivery; it is about designing digital environments that scale human potential, allowing engineers to operate with profound clarity, autonomy, and purpose.
 
 # About Me
 
@@ -34,10 +34,42 @@ My daily discipline is shaped by a commitment to growth across intellectual, tec
 
 ---
 
-The ocean is both metaphor and compass, a reminder of scale, depth, and humility. Beyond technology, my interests include jiujitsu, wellness and body conditioning, meaningful networking, and the quiet precision of nanquim drawing, where contrast, restraint, and intention reveal essence through simplicity.
+### Systems, Patterns & The Architecture of Depth
+
+My work in high-criticality technology is guided by more than just code; it is driven by a continuous search for **structural coherence**. I believe that complex ecosystems — much like human thought — require a solid foundation where logic and clarity prevail over superficial speed.
+
+This perspective shapes my technical delivery and leadership through three core pillars:
+
+* **Pattern & Anomaly Detection:** My acute sensitivity to structures allows me to identify "logic bugs" and inconsistencies in complex architectures before they escalate into critical failures. Where others see noise, I seek the invisible geometry that sustains the system.
+* **Abyssal Focus on High-Stakes Problems:** In mission-critical environments, I prioritize long-term integrity and resilience. I replace the pursuit of quick, surface-level fixes with a deep investigation into the essence of the problem, ensuring that the resulting solution is sustainable and scalable.
+* **Leadership through Sensory Clarity:** In collaborative environments, I act as a point of gravity for the team. My communication aims to reduce relational ambiguity by focusing on clarity of intent and technical honesty. This fosters a high-trust environment where excellence is the standard and collaboration occurs without the "masks" that often hinder large-scale projects.
+
+I navigate complex challenges through non-linear thinking, transforming what might be perceived as "unconventional" into a unique ability to solve problems that cannot be reduced to simple binaries. For me, technology is the medium to scale this depth, ensuring that critical systems operate with the same precision and quiet strength as a well-executed masterpiece.
 
 ---
 
-- 📫 Reach me: [Github](https://github.com/richardsonlima), [Twitter](https://twitter.com/RichDevSecOps), [LinkedIn](https://www.linkedin.com/in/richardsonlima/)  
+### 🌊 The Ocean as Compass
 
+> "The ocean is a reminder of scale, depth, and the humility required to navigate vast systems."
 
+Beyond the digital architecture, my discipline is forged and balanced through three fundamental pillars:
+
+#### 🥋 The Strategy of Movement
+In **Jiu-Jitsu**, I find a mirror to my work in engineering. It is an exercise in the **economy of movement** and the chess-like detection of leverage. Solving a high-stakes architectural problem requires the same mindset: identifying the pivot point where minimal effort yields maximum systemic resilience.
+
+#### 🧘 Systemic Rigor
+I treat wellness and body conditioning not as a hobby, but as a maintenance protocol for the **human hardware**. I apply the same rigor to physical health that I demand from high-stakes code—optimizing for longevity, recovery, and peak performance under pressure.
+
+#### 🖋️ The Geometry of Truth
+My creative expression finds a home in the quiet precision of **Nanquim drawing**. It is a practice of:
+* **Contrast:** Distinguishing signal from noise.
+* **Restraint:** Knowing what to omit to reveal the essence.
+* **Intention:** Every stroke is a deliberate commitment.
+
+***
+
+In every domain—whether on the mat, the paper, or the codebase—I seek the **"geometry of truth"** that only emerges when the noise of the world is stripped away.
+
+---
+
+- 📫 Reach me: [Github](https://github.com/richardsonlima), [Twitter](https://twitter.com/RichDevSecOps), [LinkedIn](https://www.linkedin.com/in/richardsonlima/), [Instagram](https://www.instagram.com/ricklim4a/)
