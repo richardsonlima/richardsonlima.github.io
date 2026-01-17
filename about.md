@@ -6,7 +6,7 @@ permalink: /about/
 
 ### Hi there 👋
 
-In an ever shifting technological landscape where complexity often outpaces abstraction, I think resilient, intelligence driven ecosystems. As a Software, Data, and Machine Learning Engineer, my current focus lies at the frontier of Applied GenAI—engineering sophisticated agent patterns and multi-agent protocols. My work transcends system delivery; it is about designing digital environments that scale human potential, allowing engineers to operate with profound clarity, autonomy, and purpose.
+In an ever shifting technological landscape where complexity often outpaces abstraction, I think resilient, intelligence driven ecosystems. As a Software, Data, and Machine Learning Engineer, my current focus lies at the frontier of Applied GenAI engineering sophisticated agent patterns and multi-agent protocols. My work transcends system delivery; it is about designing digital environments that scale human potential, allowing engineers to operate with profound clarity, autonomy, and purpose.
 
 # About Me
 
@@ -36,7 +36,7 @@ My daily discipline is shaped by a commitment to growth across intellectual, tec
 
 ### Systems, Patterns & The Architecture of Depth
 
-My work in high-criticality technology is guided by more than just code; it is driven by a continuous search for **structural coherence**. I believe that complex ecosystems — much like human thought — require a solid foundation where logic and clarity prevail over superficial speed.
+My work in high-criticality technology is guided by more than just code; it is driven by a continuous search for **structural coherence**. I believe that complex ecosystems   much like human thought   require a solid foundation where logic and clarity prevail over superficial speed.
 
 This perspective shapes my technical delivery and leadership through three core pillars:
 
@@ -58,10 +58,10 @@ Beyond the digital architecture, my discipline is forged and balanced through th
 In **Jiu-Jitsu**, I find a mirror to my work in engineering. It is an exercise in the **economy of movement** and the chess-like detection of leverage. Solving a high-stakes architectural problem requires the same mindset: identifying the pivot point where minimal effort yields maximum systemic resilience.
 
 #### 🧘 Systemic Rigos
-I treat wellness and body conditioning not as a hobby, but as a maintenance protocol for the **human hardware**. I apply the same rigor to physical health that I demand from high-stakes code—optimizing for longevity, recovery, and peak performance under pressure.
+I treat wellness and body conditioning not as a hobby, but as a maintenance protocol for the **human hardware**. I apply the same rigor to physical health that I demand from high-stakes code optimizing for longevity, recovery, and peak performance under pressure.
 
 #### 🎸 Harmonic Architecture
-My relationship with **classical guitar and electric guitar** reflects the way I view system integration. Classical guitar, in particular, requires a high level of **metacognitive independence**—managing multiple voices and complex rhythms simultaneously to create a single, coherent harmony. It is the art of polyphonic synchronization, much like managing distributed agentic protocols.
+My relationship with **classical guitar and electric guitar** reflects the way I view system integration. Classical guitar, in particular, requires a high level of **metacognitive independence** managing multiple voices and complex rhythms simultaneously to create a single, coherent harmony. It is the art of polyphonic synchronization, much like managing distributed agentic protocols.
 
 #### 🖋️ The Geometry of Truth
 My creative expression finds a home in the quiet precision of **Nanquim drawing**. It is a practice of:
@@ -71,7 +71,7 @@ My creative expression finds a home in the quiet precision of **Nanquim drawing*
 
 ***
 
-In every domain—whether on the mat, the strings, the paper, or the codebase—I seek the **"geometry of truth"** that only emerges when the noise of the world is stripped away.
+In every domain whether on the mat, the strings, the paper, or the codebase I seek the **"geometry of truth"** that only emerges when the noise of the world is stripped away.
 
 ---
 
