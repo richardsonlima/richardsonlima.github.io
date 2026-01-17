@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "O Mapa das Estrelas e o Naufrágio dos Cristais"
-date: 2026-01-22
+date: 2026-01-17
 categories: [deep, philosophy, psychology]
 tags: [resilience, emotional-intelligence, systems-thinking, metacognition, phenomenology]
 image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
