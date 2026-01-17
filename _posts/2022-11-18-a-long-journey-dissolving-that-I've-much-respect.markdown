@@ -2,7 +2,7 @@
 layout: post
 title:  "A long journey dissolving that I've much respect"
 date:   2022-11-18 09:04:02
-categories: life
+categories: [deep. life]
 tags: life
 image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
 ---

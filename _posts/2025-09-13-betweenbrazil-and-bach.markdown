@@ -2,7 +2,7 @@
 layout: post
 title: "Between Brazil and Bach: The Eternal Breath of Villa-Lobos"
 date: 2025-09-13
-categories: [music, philosophy, reflection]
+categories: [deep, music, philosophy, reflection]
 tags: featured
 image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
 mathjax: true

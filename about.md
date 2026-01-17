@@ -57,8 +57,11 @@ Beyond the digital architecture, my discipline is forged and balanced through th
 #### 🥋 The Strategy of Movement
 In **Jiu-Jitsu**, I find a mirror to my work in engineering. It is an exercise in the **economy of movement** and the chess-like detection of leverage. Solving a high-stakes architectural problem requires the same mindset: identifying the pivot point where minimal effort yields maximum systemic resilience.
 
-#### 🧘 Systemic Rigor
+#### 🧘 Systemic Rigos
 I treat wellness and body conditioning not as a hobby, but as a maintenance protocol for the **human hardware**. I apply the same rigor to physical health that I demand from high-stakes code—optimizing for longevity, recovery, and peak performance under pressure.
+
+#### 🎸 Harmonic Architecture
+My relationship with **classical guitar and electric guitar** reflects the way I view system integration. Classical guitar, in particular, requires a high level of **metacognitive independence**—managing multiple voices and complex rhythms simultaneously to create a single, coherent harmony. It is the art of polyphonic synchronization, much like managing distributed agentic protocols.
 
 #### 🖋️ The Geometry of Truth
 My creative expression finds a home in the quiet precision of **Nanquim drawing**. It is a practice of:
@@ -68,7 +71,7 @@ My creative expression finds a home in the quiet precision of **Nanquim drawing*
 
 ***
 
-In every domain—whether on the mat, the paper, or the codebase—I seek the **"geometry of truth"** that only emerges when the noise of the world is stripped away.
+In every domain—whether on the mat, the strings, the paper, or the codebase—I seek the **"geometry of truth"** that only emerges when the noise of the world is stripped away.
 
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "When the Game Ends: Time, Equilibrium, and Asymptotic Dominance"
 date: 2025-12-23
-categories: [math, philosophy, reflection, featured]
+categories: [deep, math, philosophy, reflection, featured]
 image: /assets/article_images/nicolas-langellotti-R1hzOfRC-08-unsplash.jpg
 mathjax: true> 
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: "Two Currents"
 date:   2023-06-05 18:05:02
-categories: poem
+categories: [deep, poem]
 tags: poem 
 image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
 ---

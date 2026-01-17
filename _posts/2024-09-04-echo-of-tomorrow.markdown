@@ -2,7 +2,7 @@
 layout: post
 title: "Echo of Tomorrow"
 date: 2024-09-04 00:15:02
-categories: poem
+categories: [deep, poem]
 tags: poem music guitar
 image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
 mathjax: false

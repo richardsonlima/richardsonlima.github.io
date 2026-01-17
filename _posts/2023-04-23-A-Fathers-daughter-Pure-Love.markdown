@@ -2,7 +2,7 @@
 layout: post
 title: "A Father's Daughter: Pure Love"
 date: 2023-04-23 22:44:02
-categories: poem
+categories: [deep, poem]
 tags:
   - featured
   - poetry
