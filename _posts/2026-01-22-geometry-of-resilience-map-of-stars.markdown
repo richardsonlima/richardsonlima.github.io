@@ -4,7 +4,7 @@ title: "The Geometry of Resilience: The Map of Stars and the Shipwreck of Crysta
 date: 2026-01-22
 categories: [deep, philosophy, psychology]
 tags: [resilience, emotional-intelligence, systems-thinking, metacognition, phenomenology]
-image: /assets/article_images/joshua-wordel-HfEcEJd8MWY-unsplash.jpg
+image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
 mathjax: true
 ---
 
