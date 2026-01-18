@@ -7,17 +7,19 @@ permalink: /deep/
 # 🕳️ Deep Dives
 *Exploring the intersections of cognitive architecture, phenomenology, and high-stakes systems.*
 
-This section is dedicated to long-form essays and profound explorations. Here, I trade surface-level speed for **informational density**, investigating the invisible geometries that bind music, philosophy, and the human mind. 
+This section is dedicated to long-form essays and profound explorations. Here, I trade surface-level speed for **informational density**: investigating the invisible geometries that bind music, philosophy, and the human mind. 
 
-In this space, we move beyond the *narrative self* to explore the *experiential self*. We investigate:
-* **Metacognition:** The structural observation of our own thought and feeling processes.
-* **Deep Psychology:** The access to pre-symbolic and archetypal layers of the human psyche.
-* **Ontology:** The fundamental nature of being and existence, often found in the silence between notes.
+In this space, we move beyond the narrative self to explore the experiential self. We investigate the following pillars:
+
+* **Metacognition:** The structural observation of our own thought and feeling processes: treating perception as a system to be understood.
+* **Deep Psychology:** The access to pre-symbolic and archetypal layers of the human psyche: where patterns of behavior are formed.
+* **Ontology:** The fundamental nature of being and existence: often found in the silence between notes or the stability of a core structure.
+
+
 
 <main class="content" role="main">
     <div class="cf frame">
       {% for post in site.posts %}
-        {% comment %} O loop abaixo aceita EXCLUSIVAMENTE posts da categoria 'deep' {% endcomment %}
         {% if post.categories contains "deep" %}
           <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
             <div class="article-item" style="border-left: 2px solid #111; padding-left: 25px; margin-bottom: 50px;">
