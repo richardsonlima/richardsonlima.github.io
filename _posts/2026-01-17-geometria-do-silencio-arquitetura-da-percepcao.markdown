@@ -10,6 +10,19 @@ mathjax: true
 
 > Existem obras que não existem para serem ouvidas, mas para serem habitadas. No trabalho de Guillaume Poncelet, encontrei algo que não é apenas música neoclássica: é um **espelho fenomenológico**. 
 
+<div class="video-container" style="text-align: center; margin: 20px 0;">
+  <iframe 
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/aQzEBERaz9I?si=f3Hk5MUlK0tuGgiJ"
+    title="Guillaume Poncelet - Iridescence - ARTE Concert's Piano Day" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
 Para muitos, o minimalismo de um piano solo pode soar "vazio" ou "monótono". Para mentes orientadas à coerência interna e ao processamento sensorial de alta densidade, é onde a realidade finalmente faz sentido. Este ensaio explora a relação entre a música de Poncelet e uma arquitetura cognitiva que não busca o entretenimento, mas a verdade sensorial sem mediação.
 
 ---
