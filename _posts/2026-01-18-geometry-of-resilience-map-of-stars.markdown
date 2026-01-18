@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Map of Stars and the Shipwreck of Crystals"
-date: 2026-01-22
+date: 2026-01-18
 categories: [deep, philosophy, psychology]
 tags: [resilience, emotional-intelligence, systems-thinking, metacognition, phenomenology]
 image: /assets/article_images/robert-bye-J9J8bZObAKg-unsplash.jpg
