@@ -7,7 +7,7 @@ tags: poem
 image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
 ---
 
-> A poetic meditation on two inner currents: one dazzling yet fragile, like a crystal that fractures under pressure; the other steady and guiding, like a star or a rock that sustains. A reflection on learning where to anchor the soul. There are those who can tear your soul apart, devastate with words, and minutes later act as if nothing ever happened. Learn to perceive the nuances, so as not to lose yourself.
+> A poetic meditation on two internal currents: one dazzling yet fragile, like a crystal that fractures under pressure; the other steady and guiding, like a star or a rock that sustains. It is a reflection on the discernment required to perceive structural nuances in human nature and the wisdom of choosing where to anchor the soul.
 
 <div class="video-container">
   <iframe 
@@ -24,7 +24,7 @@ image: /assets/article_images/irina-iriser-AV0M5WwJGwM-unsplash.jpg
 
 # Two Currents  
 
-There are lights that dazzle,  
+There are lights that dazzle:  
 and lights that guide.  
 
 A crystal of extreme hardness,  
@@ -33,14 +33,14 @@ pure form of corundum,
 in hues beyond the blue,  
 rises as a rare jewel,  
 displaying its polished face to the sun.  
-It demands eyes to behold it,  
+It demands eyes to behold it:  
 applause to sustain its shine.  
 Yet beneath its apparent strength  
-lie hidden fractures,  
+lie hidden fractures;  
 a gem that trembles  
 at the slightest opposing view.  
 
-It dances in spirals of storm,  
+It dances in spirals of storm:  
 now exalted, now shattered,  
 building palaces of fantasy  
 that dissolve at a touch.  
@@ -69,13 +69,9 @@ a rock unmoved, sustaining all.
 The heart that learns the difference  
 knows that not every gleam is guidance,  
 not every passion a harbor.  
-Some lights are tempests,  
+Some lights are tempests:  
 others are beacons.  
 And wisdom is the choice  
 of where to anchor the soul.  
 
 ---
-
-
-
-
