@@ -1,20 +1,21 @@
 # -----------------------------------------------------------------------------
-# Build settings
+# Build Settings & Collections
 # -----------------------------------------------------------------------------
 
-# Collections: Essential for the AI Tutoring slides to be processed correctly.
+# Collections allow Jekyll to treat files in _slides/ as a managed group.
 collections:
   hidden:
     output: true
     permalink: /hidden/:name/
-
-  # The 'slides' collection will process files in the /_slides/ directory.
-  # output: true ensures Jekyll generates a static HTML page for each slide.
+  
+  # The 'slides' collection processes Markdown files in the /_slides/ directory.
+  # output: true ensures Jekyll generates a static HTML page for each entry.
   slides:
     output: true
     permalink: /slides/:name
 
-# Defaults: Assigning default layouts to collections and paths
+# Defaults: Assigning layouts to folders and collections.
+# Note: In Jekyll, all defaults should be in a single list to avoid overrides.
 defaults:
   - scope:
       path: ""
@@ -23,27 +24,32 @@ defaults:
       layout: page
       sitemap: false
       robots: noindex
+  
+  - scope:
+      path: ""
+    values:
+      layout: post
 
   - scope:
       path: "_posts"
     values:
-      layout: "posts"
+      layout: post
 
-  # Fix for the slides directory: Automatically assigns the 'slides' layout
-  # and ensures they are processed by the collections engine.
+  # Ensures any file within the _slides directory automatically uses the 'slides' layout.
   - scope:
       path: "_slides"
     values:
-      layout: "slides"
+      layout: slides
 
 # -----------------------------------------------------------------------------
-# Performance and Markdown
+# Markdown & Performance Settings
 # -----------------------------------------------------------------------------
-
-lazy_loading_images: true # enables lazy loading of images (recommended)
 
 markdown: kramdown
 highlighter: rouge
+lstrip_whitespace: true
+
+# kramdown configuration for GFM (GitHub Flavored Markdown) and syntax highlighting.
 kramdown:
   input: GFM
   syntax_highlighter_opts:
@@ -54,10 +60,61 @@ kramdown:
       line_numbers: false
       start_line: 1
 
+# Performance: Enables browser-level lazy loading for images.
+lazy_loading_images: true
+
 # -----------------------------------------------------------------------------
-# Optional Features
+# Plugins (All original plugins preserved)
 # -----------------------------------------------------------------------------
 
+plugins:
+  - jekyll-archives-v2
+  - jekyll-email-protect
+  - jekyll-feed
+  - jekyll-get-json
+  - jekyll-imagemagick
+  - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate
+  - jekyll-regex-replace
+  - jekyll/scholar
+  - jekyll-sitemap
+  - jekyll-tabs
+  - jekyll-terser
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji
+
+# -----------------------------------------------------------------------------
+# Site Metadata & Settings
+# -----------------------------------------------------------------------------
+
+title: "Richardson Lima "
+description: "A brain dump about technology and some restricted interests."
+email: rick@richardsonlima.com.br
+logo: "/assets/images/linkedin-avatar-1713727981804.jpeg"
+float_logo: true
+
+lang: en
+icon: ⚛️ 
+last_updated: false
+
+# Blog cover and author settings
+cover: "/assets/images/photo-1618171889969-0feeb769fe78.png"
+name: 'Richardson Lima'
+author: 'Richardson Lima'
+author_image: "/assets/images/linkedin-avatar-1713727981804.jpeg"
+
+# Pagination settings (set high to avoid empty pages when filtering categories)
+paginate: 500
+
+url: "https://richardsonlima.github.io"
+baseurl: ""
+twitter_handle: '@richdevsecops'
+
+# Analytics and Site Features
+google_analytics: G-6SCN0W0C28
 enable_google_analytics: true
 enable_google_verification: true
 enable_bing_verification: true
@@ -67,7 +124,7 @@ enable_navbar_social: true
 enable_project_categories: true
 
 # -----------------------------------------------------------------------------
-# Library versions (Original Settings Preserved)
+# Third Party Libraries (MathJax, Mermaid, Plotly)
 # -----------------------------------------------------------------------------
 
 third_party_libraries:
@@ -95,58 +152,12 @@ third_party_libraries:
     version: "3.0.1"
   polyfill:
     url:
-      js: "https://cdnjs.cloudflare.com/ajax/libs/polyfill/v{{version}}/polyfill.min.js?features=es6"
+      js: "https://cdnjs.cloudflare.com/polyfill/v{{version}}/polyfill.min.js?features=es6"
     version: "3"
 
-# Plug-ins (Original List Preserved)
-plugins:
-  - jekyll-archives-v2
-  - jekyll-email-protect
-  - jekyll-feed
-  - jekyll-get-json
-  - jekyll-imagemagick
-  - jekyll-jupyter-notebook
-  - jekyll-link-attributes
-  - jekyll-minifier
-  - jekyll-paginate
-  - jekyll-regex-replace
-  - jekyll/scholar
-  - jekyll-sitemap
-  - jekyll-tabs
-  - jekyll-terser
-  - jekyll-toc
-  - jekyll-twitter-plugin
-  - jemoji
-
 # -----------------------------------------------------------------------------
-# Site settings
+# Social Profiles & Icons
 # -----------------------------------------------------------------------------
-
-title: "Richardson Lima "
-description: > 
-   A brain dump about technology and some restrict interests. 
-
-email: rick@richardsonlima.com.br 
-logo: "/assets/images/linkedin-avatar-1713727981804.jpeg"
-float_logo: true
-
-lang: en
-icon: ⚛️ 
-last_updated: false
-
-cover: "/assets/images/photo-1618171889969-0feeb769fe78.png"
-
-name: 'Richardson Lima'
-author: 'Richardson Lima'
-author_image: "/assets/images/linkedin-avatar-1713727981804.jpeg"
-
-paginate: 500
-
-url: "https://richardsonlima.github.io"
-baseurl: ""
-twitter_handle: '@richdevsecops'
-
-google_analytics: G-6SCN0W0C28
 
 social:
   - icon: twitter

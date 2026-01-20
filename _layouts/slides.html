@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: default
 ---
 
 <script src="/static/remark-0.14.0.min.js"></script>
@@ -7,44 +7,33 @@ layout: base
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
 
 <script>
-  // MathJax basic configuration
+  // MathJax configuration
   MathJax.Hub.Config({
     tex2jax: {
       inlineMath: [['$','$'], ['\\(','\\)']],
       displayMath: [['$$','$$'], ['\\[','\\]']],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      processEscapes: true
     }
   });
   MathJax.Hub.Configured();
 
   /**
-   * ADJUSTED STRATEGY:
-   * We avoid XMLHttpRequest because Jekyll doesn't serve raw .md files after build.
-   * Instead, we use Liquid to find the raw content of the slide in the collection
-   * and inject it directly into the 'source' variable as a JSON-encoded string.
+   * INJECTION LOGIC:
+   * We retrieve the raw Markdown from the 'slides' collection 
+   * based on the 'slides' variable in the post's front matter.
    */
+  {% assign slide_slug = page.slides | replace: ".md", "" | replace: ".markdown", "" %}
+  {% assign slide_file = site.slides | where: "slug", slide_slug | first %}
 
-  {% comment %}
-    1. Get the slide filename from the post's Front Matter (e.g., ai-tutoring-module-01...)
-    2. We clean the extension to match Jekyll's internal slug.
-  {% endcomment %}
-  {% assign slide_identifier = page.slides | replace: ".md", "" | replace: ".markdown", "" %}
-  
-  {% comment %}
-    3. Search specifically in the 'slides' collection.
-  {% endcomment %}
-  {% assign slide_data = site.slides | where: "slug", slide_identifier | first %}
-
-  {% if slide_data %}
-    // Found in _slides collection: Injecting RAW markdown content
-    var source = {{ slide_data.content | jsonify }};
+  {% if slide_file %}
+    // Successfully found the markdown in _slides/
+    var source = {{ slide_file.content | jsonify }};
   {% else %}
-    // Fallback: If no match in collection, use the current page's raw content
+    // Fallback: Using the page content if no collection match is found
     var source = {{ page.content | jsonify }};
   {% endif %}
 
-  // Initialize Remark slideshow using the source variable
+  // Initialize the slideshow
   var slideshow = remark.create({
     source: source,
     highlightStyle: 'googlecode',
@@ -52,6 +41,12 @@ layout: base
     ratio: '16:9'
   });
 
-  // Re-trigger MathJax to process the new slides injected by Remark
+  // Re-render math formulas after Remark loads the slides
   MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 </script>
+
+<style>
+  /* Fix to ensure the slideshow covers the full screen area */
+  .remark-container { background: #272822; }
+  body { overflow: hidden; }
+</style>
