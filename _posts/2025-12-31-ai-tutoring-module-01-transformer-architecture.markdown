@@ -3,7 +3,7 @@ layout: slides
 title: "🖥️ Click here - Attention Is All You Need: Transformers Architecture"
 slides: ai-tutoring-module-01-transformer-architecture.md
 category: "ai-tutoring"
-module_number: 2
+module_number: 1
 complexity: "Foundational / Technical"
 ---
 
