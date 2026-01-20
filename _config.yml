@@ -2,20 +2,15 @@
 # Build Settings & Collections
 # -----------------------------------------------------------------------------
 
-# Collections allow Jekyll to treat files in _slides/ as a managed group.
 collections:
   hidden:
     output: true
     permalink: /hidden/:name/
-  
-  # The 'slides' collection processes Markdown files in the /_slides/ directory.
-  # output: true ensures Jekyll generates a static HTML page for each entry.
   slides:
     output: true
     permalink: /slides/:name
 
-# Defaults: Assigning layouts to folders and collections.
-# Note: In Jekyll, all defaults should be in a single list to avoid overrides.
+# Consolidated Defaults: Assigning layouts to folders and collections
 defaults:
   - scope:
       path: ""
@@ -24,32 +19,27 @@ defaults:
       layout: page
       sitemap: false
       robots: noindex
-  
   - scope:
       path: ""
     values:
       layout: post
-
   - scope:
       path: "_posts"
     values:
       layout: post
-
-  # Ensures any file within the _slides directory automatically uses the 'slides' layout.
   - scope:
       path: "_slides"
     values:
       layout: slides
 
 # -----------------------------------------------------------------------------
-# Markdown & Performance Settings
+# Markdown & Plugins
 # -----------------------------------------------------------------------------
 
 markdown: kramdown
 highlighter: rouge
 lstrip_whitespace: true
 
-# kramdown configuration for GFM (GitHub Flavored Markdown) and syntax highlighting.
 kramdown:
   input: GFM
   syntax_highlighter_opts:
@@ -59,13 +49,6 @@ kramdown:
     block:
       line_numbers: false
       start_line: 1
-
-# Performance: Enables browser-level lazy loading for images.
-lazy_loading_images: true
-
-# -----------------------------------------------------------------------------
-# Plugins (All original plugins preserved)
-# -----------------------------------------------------------------------------
 
 plugins:
   - jekyll-archives-v2
@@ -87,97 +70,23 @@ plugins:
   - jemoji
 
 # -----------------------------------------------------------------------------
-# Site Metadata & Settings
+# Site Metadata
 # -----------------------------------------------------------------------------
 
-title: "Richardson Lima "
-description: "A brain dump about technology and some restricted interests."
-email: rick@richardsonlima.com.br
-logo: "/assets/images/linkedin-avatar-1713727981804.jpeg"
-float_logo: true
-
-lang: en
-icon: ⚛️ 
-last_updated: false
-
-# Blog cover and author settings
-cover: "/assets/images/photo-1618171889969-0feeb769fe78.png"
-name: 'Richardson Lima'
-author: 'Richardson Lima'
-author_image: "/assets/images/linkedin-avatar-1713727981804.jpeg"
-
-# Pagination settings (set high to avoid empty pages when filtering categories)
-paginate: 500
-
+title: "Richardson Lima"
 url: "https://richardsonlima.github.io"
 baseurl: ""
-twitter_handle: '@richdevsecops'
-
-# Analytics and Site Features
+paginate: 500
 google_analytics: G-6SCN0W0C28
-enable_google_analytics: true
-enable_google_verification: true
-enable_bing_verification: true
-enable_math: true 
+enable_math: true
 enable_darkmode: true
-enable_navbar_social: true
-enable_project_categories: true
 
-# -----------------------------------------------------------------------------
-# Third Party Libraries (MathJax, Mermaid, Plotly)
-# -----------------------------------------------------------------------------
-
-third_party_libraries:
-  download: false
-  mathjax:
-    integrity:
-      js: "sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="
-    local:
-      fonts: "output/chtml/fonts/woff-v2/"
-    url:
-      fonts: "https://cdn.jsdelivr.net/npm/mathjax@{{version}}/es5/output/chtml/fonts/woff-v2/"
-      js: "https://cdn.jsdelivr.net/npm/mathjax@{{version}}/es5/tex-mml-chtml.js"
-    version: "3.2.2"
-  mermaid:
-    integrity:
-      js: "sha256-TtLOdUA8mstPoO6sGvHIGx2ceXrrX4KgIItO06XOn8A="
-    url:
-      js: "https://cdn.jsdelivr.net/npm/mermaid@{{version}}/dist/mermaid.min.js"
-    version: "10.7.0"
-  plotly:
-    integrity:
-      js: "sha256-oy6Be7Eh6eiQFs5M7oXuPxxm9qbJXEtTpfSI93dW16Q="
-    url:
-      js: "https://cdn.jsdelivr.net/npm/plotly.js@{{version}}/dist/plotly.min.js"
-    version: "3.0.1"
-  polyfill:
-    url:
-      js: "https://cdnjs.cloudflare.com/polyfill/v{{version}}/polyfill.min.js?features=es6"
-    version: "3"
-
-# -----------------------------------------------------------------------------
-# Social Profiles & Icons
-# -----------------------------------------------------------------------------
-
+# Social Mapping
 social:
   - icon: twitter
-    url:  https://twitter.com/richdevsecops
-    desc: Follow me on twitter
-    share_url: http://twitter.com/share
-    share_title: ?text=
-    share_link: "&amp;url="
-
-  - icon: instagram
-    url:  https://www.instagram.com/ricklim4a/
-    desc: Follow me on Instagram
-    share_url: https://www.instagram.com/ricklim4a/
-    share_title: 
-    share_link: 
-
+    url: https://twitter.com/richdevsecops
   - icon: github
-    url:  https://github.com/richardsonlima
-    desc: Fork me on github
-
+    url: https://github.com/richardsonlima
   - icon: desktop 
     url: /slides/
-    desc: View my Presentations
+    desc: Presentations
