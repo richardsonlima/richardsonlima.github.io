@@ -1,3 +1,11 @@
+---
+layout: slides
+title: "Attention Is All You Need"
+category: "ai-tutoring"
+module_number: 2
+complexity: "Foundational / Technical"
+---
+
 layout: true
 class: basic-layout
 ---
