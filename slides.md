@@ -13,11 +13,10 @@ This series represents a structured journey from the foundational mechanics of T
 
 <div class="cf frame">
   {% comment %} 
-    Unificamos posts e slides para garantir que o Jekyll encontre os arquivos
-    independente de onde você os salvou, e ordenamos pelo module_number.
+    Unificamos site.posts e site.slides para garantir que o Jekyll localize os arquivos
+    e ordenamos estritamente pelo module_number definido no Front Matter.
   {% endcomment %}
-  {% assign all_content = site.posts | concat: site.slides %}
-  {% assign tutoring_modules = all_content | where: "category", "ai-tutoring" | sort: "module_number" %}
+  {% assign tutoring_modules = site.posts | concat: site.slides | where: "category", "ai-tutoring" | sort: "module_number" %}
   
   {% for item in tutoring_modules %}
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
@@ -47,11 +46,11 @@ General presentations focused on Software Engineering, SRE, and High-Stakes Infr
 
 <div class="cf frame">
   {% comment %} 
-    Aqui listamos itens com layout 'slides' que NÃO pertencem à tutoria de IA
+    Filtramos tudo que tem layout de slides mas NÃO é da categoria da tutoria.
   {% endcomment %}
-  {% assign technical_slides = all_content | where: "layout", "slides" %}
+  {% assign all_slides = site.posts | concat: site.slides | where: "layout", "slides" %}
   
-  {% for item in technical_slides %}
+  {% for item in all_slides %}
     {% if item.category != "ai-tutoring" %}
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
         <div class="article-item">
@@ -72,9 +71,9 @@ General presentations focused on Software Engineering, SRE, and High-Stakes Infr
 ---
 
 ### 🚀 Roadmap to Mastery
-I am currently distilling these presentations into a **comprehensive E-book and a deep-dive course on Udemy**. 
-The goal is to move beyond "Prompt Engineering" into **Agentic Architecture**: designing digital environments that scale human potential.
+I am currently distilling these modules into a **comprehensive E-book and a deep-dive course for AI Founders and Engineers**. 
+The goal is to move beyond simple prompts into **Agentic Architecture**: designing digital ecosystems that scale human and machine potential.
 
-* **Phase 1:** YouTube Mini-course (English) - *Coming soon*
+* **Phase 1:** YouTube Mini-course (The English Version) - *In Progress*
 * **Phase 2:** "The Geometry of Intelligence" E-book.
-* **Phase 3:** Full comprehensive AI course.
+* **Phase 3:** Full Professional Certification on Udemy.
