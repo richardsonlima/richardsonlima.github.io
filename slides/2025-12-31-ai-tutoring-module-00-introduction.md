@@ -1,6 +1,6 @@
 ---
 layout: slides
-title: "The Big Picture: From Logic to Generative Agents"
+title: "🖥️ Click here - The Big Picture: From Logic to Generative Agents"
 slides: ai-tutoring-module-00-introduction.md
 category: "ai-tutoring"
 module_number: 0
