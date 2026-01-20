@@ -19,21 +19,28 @@ layout: base
   MathJax.Hub.Configured();
 
   /**
-   * RECOVERY STRATEGY: 
-   * Instead of fetching via XMLHttpRequest (which often fails due to incorrect paths),
-   * we use Jekyll/Liquid to find the slide content during build time.
+   * ADJUSTED STRATEGY:
+   * We avoid XMLHttpRequest because Jekyll doesn't serve raw .md files after build.
+   * Instead, we use Liquid to find the raw content of the slide in the collection
+   * and inject it directly into the 'source' variable as a JSON-encoded string.
    */
 
   {% comment %}
-    Search for the slide content in the 'slides' collection using the 'slides' variable from the post's Front Matter.
+    1. Get the slide filename from the post's Front Matter (e.g., ai-tutoring-module-01...)
+    2. We clean the extension to match Jekyll's internal slug.
   {% endcomment %}
-  {% assign slide_source = site.slides | where: "slug", page.slides | first %}
+  {% assign slide_identifier = page.slides | replace: ".md", "" | replace: ".markdown", "" %}
+  
+  {% comment %}
+    3. Search specifically in the 'slides' collection.
+  {% endcomment %}
+  {% assign slide_data = site.slides | where: "slug", slide_identifier | first %}
 
-  {% if slide_source %}
-    // Found in slides collection: Injecting content directly into a JS variable
-    var source = {{ slide_source.content | jsonify }};
+  {% if slide_data %}
+    // Found in _slides collection: Injecting RAW markdown content
+    var source = {{ slide_data.content | jsonify }};
   {% else %}
-    // Fallback: If not found in collection, try to use the current page's content
+    // Fallback: If no match in collection, use the current page's raw content
     var source = {{ page.content | jsonify }};
   {% endif %}
 
