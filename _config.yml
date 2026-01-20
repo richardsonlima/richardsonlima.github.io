@@ -1,15 +1,20 @@
+# -----------------------------------------------------------------------------
 # Build settings
+# -----------------------------------------------------------------------------
 
-# Hide "hidden" collection from the main site
+# Collections: Essential for the AI Tutoring slides to be processed correctly.
 collections:
   hidden:
     output: true
     permalink: /hidden/:name/
 
+  # The 'slides' collection will process files in the /_slides/ directory.
+  # output: true ensures Jekyll generates a static HTML page for each slide.
   slides:
     output: true
     permalink: /slides/:name
 
+# Defaults: Assigning default layouts to collections and paths
 defaults:
   - scope:
       path: ""
@@ -19,22 +24,24 @@ defaults:
       sitemap: false
       robots: noindex
 
+  - scope:
+      path: "_posts"
+    values:
+      layout: "posts"
 
-# Lazy loading images
-#   If you enable lazy loading, all images will add the loading="lazy" attribute.
-#   This will make your site load faster, but it may not be supported in all browsers.
-#   You can also set loading="" to other values for specific images to override the default behavior.
-#   Options: "auto", "eager", "lazy"
-#   See https://web.dev/browser-level-image-lazy-loading/ for more information.
+  # Fix for the slides directory: Automatically assigns the 'slides' layout
+  # and ensures they are processed by the collections engine.
+  - scope:
+      path: "_slides"
+    values:
+      layout: "slides"
+
+# -----------------------------------------------------------------------------
+# Performance and Markdown
+# -----------------------------------------------------------------------------
+
 lazy_loading_images: true # enables lazy loading of images (recommended)
 
-# kramdown:
-#   input: GFM
-#   math_engine: mathjax
-#   parse_block_html: true
-#   hard_wrap: false
-
-# Markdown and syntax highlight
 markdown: kramdown
 highlighter: rouge
 kramdown:
@@ -51,31 +58,20 @@ kramdown:
 # Optional Features
 # -----------------------------------------------------------------------------
 
-enable_google_analytics: true # enables google analytics
-# enable_cronitor_analytics: false # enables cronitor RUM analytics
-# enable_pirsch_analytics: false # enables Pirsch analytics (https://pirsch.io/)
-# enable_openpanel_analytics: false # enables Openpanel analytics (https://openpanel.dev/)
-enable_google_verification: true # enables google site verification
-enable_bing_verification: true # enables bing site verification
-# enable_masonry: true # enables automatic project cards arrangement
-enable_math: true # enables math typesetting (uses MathJax)
-# enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
-enable_darkmode: true # enables switching between light/dark modes
-enable_navbar_social: true # enables displaying social links in the navbar on the about page
-enable_project_categories: true # enables categorization of projects into multiple categories
-# enable_medium_zoom: true # enables image zoom feature (as on medium.com)
-# enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
-# enable_video_embedding: false # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
+enable_google_analytics: true
+enable_google_verification: true
+enable_bing_verification: true
+enable_math: true 
+enable_darkmode: true
+enable_navbar_social: true
+enable_project_categories: true
 
 # -----------------------------------------------------------------------------
-# Library versions
+# Library versions (Original Settings Preserved)
 # -----------------------------------------------------------------------------
 
-# Add the url, version and integrity hash of the libraries you use in your site.
-# The integrity hash is used to ensure that the library is not tampered with.
-# Integrity hashes not provided by the libraries were generated using https://www.srihash.org/
 third_party_libraries:
-  download: false # if true, download the versions of the libraries specified below and use the downloaded files
+  download: false
   mathjax:
     integrity:
       js: "sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="
@@ -99,10 +95,10 @@ third_party_libraries:
     version: "3.0.1"
   polyfill:
     url:
-      js: "https://cdnjs.cloudflare.com/polyfill/v{{version}}/polyfill.min.js?features=es6"
+      js: "https://cdnjs.cloudflare.com/ajax/libs/polyfill/v{{version}}/polyfill.min.js?features=es6"
     version: "3"
 
-# Plug-ins
+# Plug-ins (Original List Preserved)
 plugins:
   - jekyll-archives-v2
   - jekyll-email-protect
@@ -122,76 +118,55 @@ plugins:
   - jekyll-twitter-plugin
   - jemoji
 
+# -----------------------------------------------------------------------------
 # Site settings
+# -----------------------------------------------------------------------------
+
 title: "Richardson Lima "
-description: > # this means to ignore newlines until "email:"
+description: > 
    A brain dump about technology and some restrict interests. 
 
 email: rick@richardsonlima.com.br 
-#blog logo
 logo: "/assets/images/linkedin-avatar-1713727981804.jpeg"
-float_logo: true # true, false (default)
+float_logo: true
 
-lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
-last_updated: false # set to true if you want to display last updated in the footer
+lang: en
+icon: ⚛️ 
+last_updated: false
 
-# blog cover
 cover: "/assets/images/photo-1618171889969-0feeb769fe78.png"
 
 name: 'Richardson Lima'
 author: 'Richardson Lima'
 author_image: "/assets/images/linkedin-avatar-1713727981804.jpeg"
 
-paginate:	500
+paginate: 500
 
-url: "https://richardsonlima.github.io" # the base hostname & protocol for your site
+url: "https://richardsonlima.github.io"
 baseurl: ""
-#used to display twitter cards
 twitter_handle: '@richdevsecops'
-
-#fill in disqus shortname to use disqus
-#disqus: disqus-shortname
 
 google_analytics: G-6SCN0W0C28
 
-# social icons and sharing options
 social:
-  - icon:	twitter
-    url:	https://twitter.com/richdevsecops
+  - icon: twitter
+    url:  https://twitter.com/richdevsecops
     desc: Follow me on twitter
     share_url: http://twitter.com/share
     share_title: ?text=
     share_link: "&amp;url="
 
-  - icon:	instagram
-    url:	https://www.instagram.com/ricklim4a/
+  - icon: instagram
+    url:  https://www.instagram.com/ricklim4a/
     desc: Follow me on Instagram
     share_url: https://www.instagram.com/ricklim4a/
     share_title: 
     share_link: 
 
-  - icon:	github
-    url:	https://github.com/richardsonlima
-    desc:	Fork me on github
-    share_url:
-    share_title:
-    share_link:
+  - icon: github
+    url:  https://github.com/richardsonlima
+    desc: Fork me on github
 
-  - icon: desktop  # Ícone de tela/apresentação do FontAwesome
+  - icon: desktop 
     url: /slides/
     desc: View my Presentations
-
-
-defaults:
-  - scope:
-      path: "_posts"
-    values:
-      layout: "posts"
-
-  - scope:
-        path: "slides"
-    values:
-      layout: null
-      render_with_liquid: false
-      permalink: /slides/:basename:output_ext

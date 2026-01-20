@@ -18,36 +18,33 @@ layout: base
   });
   MathJax.Hub.Configured();
 
-  // Async load the markdown file for the slides
-  var url = "/slides/{{page.slides}}";
-  var jsonFile = new XMLHttpRequest();
-  jsonFile.open("GET", url, true);
-  jsonFile.send();
+  /**
+   * RECOVERY STRATEGY: 
+   * Instead of fetching via XMLHttpRequest (which often fails due to incorrect paths),
+   * we use Jekyll/Liquid to find the slide content during build time.
+   */
 
-  jsonFile.onreadystatechange = function() {
-    if (jsonFile.readyState == 4 && jsonFile.status == 200) {
-      // Initialize Remark slideshow with the fetched content
-      var slideshow = remark.create({
-        source: jsonFile.responseText,
-        highlightStyle: 'googlecode',
-        highlightLines: true,
-        ratio: '16:9'
-      });
+  {% comment %}
+    Search for the slide content in the 'slides' collection using the 'slides' variable from the post's Front Matter.
+  {% endcomment %}
+  {% assign slide_source = site.slides | where: "slug", page.slides | first %}
 
-      // Crucial: Tell MathJax to scan and typeset the new content
-      // Since Remark injects the slides after the page load, 
-      // we must manually trigger the math rendering.
-      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    }
-  }
+  {% if slide_source %}
+    // Found in slides collection: Injecting content directly into a JS variable
+    var source = {{ slide_source.content | jsonify }};
+  {% else %}
+    // Fallback: If not found in collection, try to use the current page's content
+    var source = {{ page.content | jsonify }};
+  {% endif %}
+
+  // Initialize Remark slideshow using the source variable
+  var slideshow = remark.create({
+    source: source,
+    highlightStyle: 'googlecode',
+    highlightLines: true,
+    ratio: '16:9'
+  });
+
+  // Re-trigger MathJax to process the new slides injected by Remark
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 </script>
-
-<style>
-  /* Ensure MathJax formulas scale correctly within the slide container */
-  .MathJax_Display {
-    margin: 1em 0 !important;
-  }
-  .mjx-chtml {
-    font-size: 110% !important;
-  }
-</style>
