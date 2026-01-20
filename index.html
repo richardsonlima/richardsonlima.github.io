@@ -55,6 +55,7 @@ layout: default
 
     <div class="container featured">
       {% for post in site.tags.featured %}
+        {% unless post.category == "ai-tutoring" %}
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
           <div class="article-item">
             <header class="post-header">
@@ -68,6 +69,7 @@ layout: default
             </div>
           </div>
         </article>
+        {% endunless %}
       {% endfor %}
     </div>
 
@@ -76,6 +78,7 @@ layout: default
 
     <div class="cf frame">
       {% for post in paginator.posts %}
+        {% unless post.category == "ai-tutoring" %}
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
           <div class="article-item">
             <header class="post-header">
@@ -89,6 +92,7 @@ layout: default
             </div>
           </div>
         </article>
+        {% endunless %}
       {% endfor %}
     </div>
 
@@ -106,7 +110,6 @@ layout: default
       {% endif %}
     </nav>
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6SCN0W0C28"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
