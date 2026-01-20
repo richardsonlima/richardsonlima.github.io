@@ -1,13 +1,12 @@
 ---
-layout: default
+layout: base
 ---
 
 <script src="/static/remark-0.14.0.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
 
 <script>
-  // MathJax configuration
+  // MathJax basic configuration
   MathJax.Hub.Config({
     tex2jax: {
       inlineMath: [['$','$'], ['\\(','\\)']],
@@ -18,22 +17,25 @@ layout: default
   MathJax.Hub.Configured();
 
   /**
-   * INJECTION LOGIC:
-   * We retrieve the raw Markdown from the 'slides' collection 
-   * based on the 'slides' variable in the post's front matter.
+   * DEFINITIVE INJECTION STRATEGY:
+   * We retrieve the raw Markdown from the '_slides' collection.
    */
-  {% assign slide_slug = page.slides | replace: ".md", "" | replace: ".markdown", "" %}
-  {% assign slide_file = site.slides | where: "slug", slide_slug | first %}
+  
+  {% comment %} 
+    We extract the filename from the post and find its match in the collection
+  {% endcomment %}
+  {% assign slide_identifier = page.slides | replace: ".md", "" | replace: ".markdown", "" %}
+  {% assign slide_entry = site.slides | where: "slug", slide_identifier | first %}
 
-  {% if slide_file %}
-    // Successfully found the markdown in _slides/
-    var source = {{ slide_file.content | jsonify }};
+  {% if slide_entry %}
+    // Found in _slides: Injecting raw markdown content
+    var source = {{ slide_entry.content | jsonify }};
   {% else %}
-    // Fallback: Using the page content if no collection match is found
-    var source = {{ page.content | jsonify }};
+    // Error fallback: If slide file is missing, show a warning
+    var source = "# Error\nSlide content not found in _slides collection.\nCheck if folder is named '_slides' and filename matches.";
   {% endif %}
 
-  // Initialize the slideshow
+  // Initialize Remark
   var slideshow = remark.create({
     source: source,
     highlightStyle: 'googlecode',
@@ -41,12 +43,6 @@ layout: default
     ratio: '16:9'
   });
 
-  // Re-render math formulas after Remark loads the slides
+  // Re-trigger MathJax for the new slides
   MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 </script>
-
-<style>
-  /* Fix to ensure the slideshow covers the full screen area */
-  .remark-container { background: #272822; }
-  body { overflow: hidden; }
-</style>
