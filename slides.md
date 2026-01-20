@@ -9,29 +9,33 @@ Below is a curated collection of my technical presentations, architectural deep 
 ---
 
 ### 🧠 AI Tutoring: The Agentic Path
-This series represents a structured journey from the foundational mechanics of Transformers to the frontier of Autonomous Multi-Agent Systems. Originally designed for internal engineering teams, these modules are being expanded into a comprehensive public curriculum.
+This series represents a structured journey from the foundational mechanics of Transformers to the frontier of **Autonomous Multi-Agent Systems**. Designed for startups, AI agencies, and forward-thinking engineers, these modules provide a blueprint for building resilient agentic workflows.
 
 <div class="cf frame">
-  {% for post in site.posts %}
-    {% if post.layout == "slides" and post.category == "ai-tutoring" %}
+  {% comment %} 
+    Ajuste: Filtramos as apresentações da categoria ai-tutoring 
+    e ordenamos numericamente pelo module_number 
+  {% endcomment %}
+  {% assign tutoring_modules = site.slides | where: "category", "ai-tutoring" | sort: "module_number" %}
+  
+  {% for slide in tutoring_modules %}
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
         <div class="article-item">
           <header class="post-header">
             <h2 class="post-title" itemprop="name">
-              <a href="{{ post.url | prepend: site.baseurl }}" itemprop="url">
-                <span style="color: #FFD700;">Module {{ post.module_number }}:</span> {{ post.title }}
+              <a href="{{ slide.url | prepend: site.baseurl }}" itemprop="url">
+                <span style="color: #FFD700;">Module {{ slide.module_number }}:</span> {{ slide.title }}
               </a>
             </h2>
           </header>
           <section class="post-excerpt" itemprop="description">
-            <p>{{ post.content | strip_html | truncatewords: 30 }}</p>
+            <p>{{ slide.content | strip_html | truncatewords: 30 }}</p>
           </section>
           <div class="post-meta">
-            <span class="post-tags-set">Level: {{ post.complexity }}</span>
+            <span class="post-tags-set">Level: {{ slide.complexity }}</span>
           </div>
         </div>
       </article>
-    {% endif %}
   {% endfor %}
 </div>
 
@@ -41,21 +45,24 @@ This series represents a structured journey from the foundational mechanics of T
 General presentations focused on Software Engineering, SRE, and High-Stakes Infrastructure.
 
 <div class="cf frame">
-  {% for post in site.posts %}
-    {% if post.layout == "slides" and post.category != "ai-tutoring" %}
+  {% comment %} 
+    Aqui listamos slides que NÃO pertencem à tutoria de IA
+  {% endcomment %}
+  {% assign technical_slides = site.slides | where_exp: "item", "item.category != 'ai-tutoring'" %}
+  
+  {% for slide in technical_slides %}
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
         <div class="article-item">
           <header class="post-header">
             <h2 class="post-title" itemprop="name">
-              <a href="{{ post.url | prepend: site.baseurl }}" itemprop="url">{{ post.title }}</a>
+              <a href="{{ slide.url | prepend: site.baseurl }}" itemprop="url">{{ slide.title }}</a>
             </h2>
           </header>
           <section class="post-excerpt" itemprop="description">
-            <p>{{ post.content | strip_html | truncatewords: 25 }}</p>
+            <p>{{ slide.content | strip_html | truncatewords: 25 }}</p>
           </section>
         </div>
       </article>
-    {% endif %}
   {% endfor %}
 </div>
 
@@ -67,4 +74,4 @@ The goal is to move beyond "Prompt Engineering" into **Agentic Architecture**: d
 
 * **Phase 1:** YouTube Mini-course (English) - *Coming soon*
 * **Phase 2:** "The Geometry of Intelligence" E-book.
-* **Phase 3:** Full Professional Certification on Udemy.
+* **Phase 3:** Full comprehensive AI course.

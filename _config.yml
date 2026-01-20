@@ -6,6 +6,10 @@ collections:
     output: true
     permalink: /hidden/:name/
 
+  slides:
+    output: true
+    permalink: /slides/:name
+
 defaults:
   - scope:
       path: ""
