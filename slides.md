@@ -13,26 +13,27 @@ This series represents a structured journey from the foundational mechanics of T
 
 <div class="cf frame">
   {% comment %} 
-    Ajuste: Filtramos as apresentações da categoria ai-tutoring 
-    e ordenamos numericamente pelo module_number 
+    Unificamos posts e slides para garantir que o Jekyll encontre os arquivos
+    independente de onde você os salvou, e ordenamos pelo module_number.
   {% endcomment %}
-  {% assign tutoring_modules = site.slides | where: "category", "ai-tutoring" | sort: "module_number" %}
+  {% assign all_content = site.posts | concat: site.slides %}
+  {% assign tutoring_modules = all_content | where: "category", "ai-tutoring" | sort: "module_number" %}
   
-  {% for slide in tutoring_modules %}
+  {% for item in tutoring_modules %}
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
         <div class="article-item">
           <header class="post-header">
             <h2 class="post-title" itemprop="name">
-              <a href="{{ slide.url | prepend: site.baseurl }}" itemprop="url">
-                <span style="color: #FFD700;">Module {{ slide.module_number }}:</span> {{ slide.title }}
+              <a href="{{ item.url | prepend: site.baseurl }}" itemprop="url">
+                <span style="color: #FFD700;">Module {{ item.module_number }}:</span> {{ item.title }}
               </a>
             </h2>
           </header>
           <section class="post-excerpt" itemprop="description">
-            <p>{{ slide.content | strip_html | truncatewords: 30 }}</p>
+            <p>{{ item.content | strip_html | truncatewords: 30 }}</p>
           </section>
           <div class="post-meta">
-            <span class="post-tags-set">Level: {{ slide.complexity }}</span>
+            <span class="post-tags-set">Level: {{ item.complexity }}</span>
           </div>
         </div>
       </article>
@@ -46,23 +47,25 @@ General presentations focused on Software Engineering, SRE, and High-Stakes Infr
 
 <div class="cf frame">
   {% comment %} 
-    Aqui listamos slides que NÃO pertencem à tutoria de IA
+    Aqui listamos itens com layout 'slides' que NÃO pertencem à tutoria de IA
   {% endcomment %}
-  {% assign technical_slides = site.slides | where_exp: "item", "item.category != 'ai-tutoring'" %}
+  {% assign technical_slides = all_content | where: "layout", "slides" %}
   
-  {% for slide in technical_slides %}
+  {% for item in technical_slides %}
+    {% if item.category != "ai-tutoring" %}
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
         <div class="article-item">
           <header class="post-header">
             <h2 class="post-title" itemprop="name">
-              <a href="{{ slide.url | prepend: site.baseurl }}" itemprop="url">{{ slide.title }}</a>
+              <a href="{{ item.url | prepend: site.baseurl }}" itemprop="url">{{ item.title }}</a>
             </h2>
           </header>
           <section class="post-excerpt" itemprop="description">
-            <p>{{ slide.content | strip_html | truncatewords: 25 }}</p>
+            <p>{{ item.content | strip_html | truncatewords: 25 }}</p>
           </section>
         </div>
       </article>
+    {% endif %}
   {% endfor %}
 </div>
 
