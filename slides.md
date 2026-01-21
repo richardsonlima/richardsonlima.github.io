@@ -9,16 +9,13 @@ Below is a curated collection of my technical presentations, architectural deep 
 ---
 
 ### 🧠 AI Tutoring: The Agentic Path
-This series represents a structured journey from the foundational mechanics of Transformers to the frontier of **Autonomous Multi-Agent Systems**. Designed for startups, AI agencies, and forward-thinking engineers, these modules provide a blueprint for building resilient agentic workflows.
-
 <div class="cf frame">
   {% comment %} 
-    Unificamos site.posts e site.slides para garantir que o Jekyll localize os arquivos
-    e ordenamos estritamente pelo module_number definido no Front Matter.
+    Filtramos apenas os posts da categoria ai-tutoring para evitar duplicidade na lista.
   {% endcomment %}
-  {% assign tutoring_modules = site.posts | concat: site.slides | where: "category", "ai-tutoring" | sort: "module_number" %}
+  {% assign tutoring_posts = site.posts | where: "category", "ai-tutoring" | sort: "module_number" %}
   
-  {% for item in tutoring_modules %}
+  {% for item in tutoring_posts %}
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
         <div class="article-item">
           <header class="post-header">
@@ -31,9 +28,6 @@ This series represents a structured journey from the foundational mechanics of T
           <section class="post-excerpt" itemprop="description">
             <p>{{ item.content | strip_html | truncatewords: 30 }}</p>
           </section>
-          <div class="post-meta">
-            <span class="post-tags-set">Level: {{ item.complexity }}</span>
-          </div>
         </div>
       </article>
   {% endfor %}
