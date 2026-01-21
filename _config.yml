@@ -167,12 +167,12 @@ social:
     share_title: ?text=
     share_link: "&amp;url="
 
-  - icon: instagram
-    url:  https://www.instagram.com/ricklim4a/
-    desc: Follow me on Instagram
-    share_url: https://www.instagram.com/ricklim4a/
-    share_title: 
-    share_link: 
+#  - icon: instagram
+#    url:  https://www.instagram.com/ricklim4a/
+#    desc: Follow me on Instagram
+#    share_url: https://www.instagram.com/ricklim4a/
+#    share_title: 
+#    share_link: 
 
   - icon: github
     url:  https://github.com/richardsonlima
