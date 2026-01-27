@@ -1,11 +1,10 @@
 ---
 layout: slides
-title: "A Anatomia da Inteligência Sintética: Masterclass Completa"
+title: "A Anatomia da Inteligência: Masterclass Completa"
 category: "ai-tutoring"
 module_number: 1
 complexity: "Masterclass (100 Slides) - The Agentic Path"
 use_math: true
-mathjax: true
 ---
 
 layout: true
@@ -77,15 +76,15 @@ Isso cria um **gargalo de informação**. O contexto se dilui.
 
 ---
 
-## 5. A Matemática da Recorrência (Corrigida) 📐
+## 5. A Matemática da Recorrência (Blindada) 📐
 
 Nas RNNs clássicas, a atualização da memória segue esta equação:
 
-$$h_t = \tanh(W_{hh} h_{t-1} + W_{xh} x_t)$$
+$$h\_t = \tanh(W\_{hh} h\_{t-1} + W\_{xh} x\_t)$$
 
-* $h_t$: Nova memória (estado atual).
-* $h_{t-1}$: Memória antiga (estado anterior).
-* $x_t$: Palavra atual (input).
+* $h\_t$: Nova memória (estado atual).
+* $h\_{t-1}$: Memória antiga (estado anterior).
+* $x\_t$: Palavra atual (input).
 * $W$: Matrizes de pesos aprendidos.
 
 ---
@@ -160,7 +159,7 @@ Queríamos uma arquitetura com duas propriedades:
 ## 14. O Nascimento do Transformer (2017) 📄
 
 O paper *"Attention Is All You Need"* propôs:
-* Jogar fora a recorrência ($h_{t-1}$).
+* Jogar fora a recorrência ($h\_{t-1}$).
 * Jogar fora a convolução.
 * Manter apenas a **Atenção**.
 
@@ -247,10 +246,10 @@ O modelo aprende conceitos como "gênero" ou "plural" como direções no espaço
 
 ---
 
-## 24. A Matriz de Embedding ($W_E$) 📉
+## 24. A Matriz de Embedding ($W\_E$) 📉
 
 Essa conversão é feita por uma matriz gigante aprendida durante o treino.
-$$x = t \cdot W_E$$
+$$x = t \cdot W\_E$$
 Onde $t$ é o one-hot vector do token.
 
 ---
@@ -270,10 +269,10 @@ Ele deve mover o vetor de "Banco" na direção de "Dinheiro" se a frase contiver
 
 ---
 
-## 27. Unembedding ($W_U$) 🚪
+## 27. Unembedding ($W\_U$) 🚪
 
 No final da rede, precisamos voltar para as palavras.
-Pegamos o vetor final e multiplicamos pela matriz inversa ($W_U$).
+Pegamos o vetor final e multiplicamos pela matriz inversa ($W\_U$).
 Isso gera pontuações para cada palavra do dicionário.
 
 ---
@@ -289,7 +288,7 @@ Logits altos = Palavra provável.
 ## 29. Softmax e Probabilidades 🎲
 
 Aplicamos a função Softmax para converter logits em porcentagem (0 a 1).
-$$P(x) = \frac{e^{x_i}}{\sum e^{x_j}}$$
+$$P(x) = \frac{e^{x\_i}}{\sum e^{x\_j}}$$
 A soma de todas as probabilidades deve ser 1.
 
 ---
@@ -331,7 +330,7 @@ Elas não bloqueiam a rodovia.
 
 ## 34. A Equação Fundamental: Adição ➕
 
-$$x_{i+1} = x_i + \text{Camada}(x_i)$$
+$$x\_{i+1} = x\_i + \text{Camada}(x\_i)$$
 
 A chave é o sinal de **mais**. A saída da camada é *somada* ao vetor original.
 A informação original nunca se perde.
@@ -363,7 +362,7 @@ Eles não colidem matematicamente.
 
 ## 38. Largura de Banda (Bandwidth) 🛣️
 
-O tamanho do vetor ($d_{model}$) é a "largura de banda" da inteligência.
+O tamanho do vetor ($d\_{model}$) é a "largura de banda" da inteligência.
 Se for muito estreito, o modelo não consegue manter muitos conceitos ativos simultaneamente.
 
 ---
@@ -397,9 +396,10 @@ As MLPs projetam o vetor para uma dimensão muito maior (4x) para "pensar", e de
 
 ---
 
-## 43. Decomposição de Caminhos 🌿
+## 43. Decomposição de Caminhos (Blindada) 🌿
 
-$$x_{final} = x_{emb} + \sum \text{Heads} + \sum \text{MLPs}$$
+$$x\_{final} = x\_{emb} + \sum \text{Heads} + \sum \text{MLPs}$$
+
 O resultado final é a soma de milhares de pequenas contribuições independentes.
 
 ---
@@ -446,10 +446,10 @@ Para cada token, a cabeça de atenção gera 3 vetores:
 ## 48. Calculando os Vetores 🧮
 
 Eles nascem de projeções lineares do token atual ($x$):
-$$Q = x W_Q$$
-$$K = x W_K$$
-$$V = x W_V$$
-$W_Q, W_K, W_V$ são as matrizes que o modelo aprende no treino.
+$$Q = x W\_Q$$
+$$K = x W\_K$$
+$$V = x W\_V$$
+$W\_Q, W\_K, W\_V$ são as matrizes que o modelo aprende no treino.
 
 ---
 
@@ -474,8 +474,8 @@ Se os vetores apontam para a mesma direção, o score é alto.
 
 ## 51. Scaling Factor 📏
 
-Dividimos o score por $\sqrt{d_k}$.
-$$\frac{Q \cdot K^T}{\sqrt{d_k}}$$
+Dividimos o score por $\sqrt{d\_k}$.
+$$\frac{Q \cdot K^T}{\sqrt{d\_k}}$$
 Isso evita que os valores fiquem extremos, o que "mataria" o gradiente no treinamento.
 
 ---
@@ -516,7 +516,7 @@ $$Output = P \cdot V$$
 
 A equação mais famosa da IA moderna:
 
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d\_k}}\right)V$$
 
 ---
 
@@ -537,10 +537,10 @@ Elas operam em subespaços independentes.
 
 ---
 
-## 59. Matriz de Saída ($W_O$) 🚪
+## 59. Matriz de Saída ($W\_O$) 🚪
 
 Os resultados de todas as cabeças são concatenados.
-Multiplicamos pela matriz $W_O$ para misturar tudo e projetar de volta na dimensão do Residual Stream.
+Multiplicamos pela matriz $W\_O$ para misturar tudo e projetar de volta na dimensão do Residual Stream.
 
 ---
 
@@ -555,7 +555,7 @@ Podemos decompor a cabeça em dois circuitos funcionais:
 ## 61. Circuito QK (Query-Key) 💓
 
 Determina a matriz de atenção $A$.
-$$A = \text{softmax}(x^T W_Q^T W_K x)$$
+$$A = \text{softmax}(x^T W\_Q^T W\_K x)$$
 Controla a "afinidade" entre tokens.
 
 ---
@@ -563,7 +563,7 @@ Controla a "afinidade" entre tokens.
 ## 62. Circuito OV (Output-Value) 📦
 
 Determina o efeito no output.
-$$Output = x W_V W_O$$
+$$Output = x W\_V W\_O$$
 Diz: "Se eu atender a este token, devo adicionar o vetor Y ao stream".
 
 ---
@@ -614,6 +614,8 @@ Novas arquiteturas (Mamba, RWKV) tentam eliminar o Softmax para ter custo linear
 
 Mapas de calor mostram quais palavras "acendem" quando o modelo processa um token.
 Geralmente vemos foco na palavra anterior, ou em nomes associados.
+
+
 
 ---
 
