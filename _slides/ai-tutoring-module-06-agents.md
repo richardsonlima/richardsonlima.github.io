@@ -274,3 +274,150 @@ user_proxy.initiate_chat(
 )
 ```
 ---
+
+## 18. AutoGen: Caos vs. Poder 🌪️
+
+* **Prós:**
+    * O melhor framework para **Geração de Código** complexo.
+    * Capacidade única de rodar código em Docker containers nativamente.
+* **Contras:**
+    * O fluxo de conversa pode ser imprevisível (loop infinito de "Obrigado").
+    * Difícil de integrar em uma API REST tradicional (pois ele quer dominar o loop principal).
+
+---
+
+class: middle, inverse-slide
+# Parte 4: Matriz de Decisão Estratégica
+### _O Veredito da Engenharia_
+
+---
+
+## 19. Comparativo Técnico Global 📊
+
+| Feature | LangGraph | Agno | CrewAI | AutoGen |
+| :--- | :--- | :--- | :--- | :--- |
+| **Abstração** | Baixa (Grafos) | Média (Classes) | Alta (Roles) | Alta (Chat) |
+| **Controle** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ |
+| **Curva** | Difícil | Fácil | Muito Fácil | Média |
+| **Produção** | Tier 1 | Tier 2 | Tier 2 | Tier 3 (Exp) |
+| **Custo** | Baixo | Baixo | Alto (Prompts) | Alto (Loops) |
+
+
+
+---
+
+## 20. Cenário A: O "MVP de Final de Semana" 🚀
+
+**Problema:** Preciso criar um Chatbot que consulta PDF e responde no WhatsApp. Prazo: 2 dias.
+
+**Escolha: Agno (Phidata).**
+* **Por que?** O Agno já traz o RAG e a conexão com Vector DB prontos. Você não quer desenhar grafos, quer conectar peças.
+* **Risco:** Se o app crescer muito, migrar pode ser necessário.
+
+---
+
+## 21. Cenário B: O "SaaS Core Product" 🏢
+
+**Problema:** Uma plataforma de IA para advogados revisarem contratos. Precisa de auditoria, "undo" e aprovação humana.
+
+**Escolha: LangGraph.**
+* **Por que?** A persistência de estado granular e o "Time Travel" são inegociáveis aqui. Você precisa garantir que o processo jurídico seguiu o fluxo exato.
+* **Risco:** Tempo de desenvolvimento inicial mais longo.
+
+---
+
+## 22. Cenário C: A "Fábrica de Conteúdo" 📰
+
+**Problema:** Gerar posts de blog, newsletters e tweets automaticamente a partir de notícias.
+
+**Escolha: CrewAI.**
+* **Por que?** O padrão de "Pesquisador -> Redator -> Editor" se encaixa perfeitamente na metáfora do CrewAI. A criatividade do roleplay ajuda na qualidade do texto.
+* **Risco:** Custo de tokens mais alto devido aos prompts de sistema complexos.
+
+---
+
+class: middle, inverse-slide
+# Parte 5: Riscos de Produção
+### _O que ninguém te conta sobre Frameworks_
+
+---
+
+## 23. O Risco do "Vendor Lock-in" 🔒
+
+Frameworks de alta abstração (CrewAI, AutoGen) "sequestram" o seu prompt.
+Eles injetam prompts de sistema gigantes que você não vê.
+
+* **O Perigo:** Se o GPT-5 mudar o comportamento, seu Crew pode quebrar e você não sabe onde consertar.
+* **A Vantagem do LangGraph/Agno:** Você escreve o prompt. Você controla o modelo. O Lock-in é menor.
+
+---
+
+## 24. Observabilidade e Debugging 🐛
+
+Quando um agente falha, **onde** ele falhou?
+
+* **LangGraph:** Fácil. Você sabe exatamente em qual Nó ($Node A$) e em qual Aresta a transição quebrou. Integração nativa com LangSmith.
+* **Alta Abstração:** Difícil. Você vê um log gigante de conversa e precisa adivinhar por que o "Gerente" não passou a tarefa para o "Redator".
+
+---
+
+## 25. Custo de Tokens (Overhead) 💸
+
+Frameworks opinativos gastam tokens para "gerenciar a equipe".
+* O AutoGen troca mensagens de "Aprovação" e "Contexto" constantemente.
+* O LangGraph só gasta o que você mandar ele gastar.
+
+Em escala (milhões de execuções), a diferença de custo pode ser de **30% a 50%**.
+
+---
+
+class: middle, inverse-slide
+# Conclusão e Próximos Passos
+### _Dominando a Stack_
+
+---
+
+## 26. A Abordagem Híbrida 🧬
+
+Você não precisa ser radical.
+É possível ter um Grafo mestre no **LangGraph** onde um dos nós executa uma equipe **CrewAI** para uma tarefa criativa específica.
+
+```python
+def creative_node(state):
+    # O LangGraph delega para o CrewAI apenas esta parte
+    result = my_crew.kickoff(inputs=state['topic'])
+    return {"content": result}
+```
+
+Isso é orquestração de alto nível.
+
+---
+
+## 27. Nossa Recomendação Oficial (The Agentic Path) 🏆
+
+Para este curso e sua carreira:
+
+1.  **Aprenda LangGraph:** É a "linguagem assembly" dos agentes. Vai te dar fundamentos sólidos.
+2.  **Use Agno para Ferramentas:** Quando precisar de integrações rápidas.
+3.  **Monitore tudo:** Use LangSmith ou Arize Phoenix. Agente sem monitoramento é prejuízo certo.
+
+
+
+---
+
+## 28. O Fim da Teoria 🏁
+
+Chegamos ao fim dos módulos teóricos.
+Você agora entende:
+* O Cérebro (Transformer).
+* A Memória (RAG).
+* O Controle (Prompting).
+* A Estrutura (LangGraph/Frameworks).
+
+**Próximo Passo:** Laboratórios de Código (Hands-on). Vamos construir!
+
+---
+class: center, middle
+# The Geometry is Open
+### _Perguntas Finais sobre a Landscape?_
+---
