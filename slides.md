@@ -4,7 +4,7 @@ title: Presentations
 permalink: /slides/
 ---
 
-Below is a curated collection of my technical presentations, architectural deep dives, and the core curriculum of my AI Tutoring program.
+Below is a curated collection of my technical presentations, architectural deep dives.
 
 ---
 
@@ -36,7 +36,7 @@ Below is a curated collection of my technical presentations, architectural deep 
 ---
 
 ### 🛠️ Technical Deep Dives & System Architecture
-General presentations focused on Software Engineering, SRE, and High-Stakes Infrastructure.
+General presentations focused on Software Engineering, Machine Learning, SRE, Chaos Engineering and High-Stakes Infrastructure.
 
 <div class="cf frame">
   {% comment %} 
@@ -70,4 +70,4 @@ The goal is to move beyond simple prompts into **Agentic Architecture**: designi
 
 * **Phase 1:** YouTube Mini-course (The English Version) - *In Progress*
 * **Phase 2:** "The Geometry of Intelligence" E-book.
-* **Phase 3:** Full Professional Certification on Udemy.
+* **Phase 3:** Full Course.
