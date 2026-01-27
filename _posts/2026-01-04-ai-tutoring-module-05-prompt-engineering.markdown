@@ -1,7 +1,7 @@
 ---
 layout: slides
 title: "🖥️ Click here - The Art of Constraints: Advanced Prompt Engineering"
-slides: ai-tutoring-module-05-prompt-engineering.md
+slides: ai-tutoring-module-05-prompt-eng.md
 category: "ai-tutoring"
 module_number: 5
 complexity: "Practical / Implementation"

@@ -1,7 +1,7 @@
 ---
 layout: slides
 title: "🖥️ Click here - Data Retrieval Systems: Building External Memory"
-slides: ai-tutoring-module-04-rag.md
+slides: ai-tutoring-module-04-data-retrieval.md
 category: "ai-tutoring"
 module_number: 4
 complexity: "Intermediate / Systems"
