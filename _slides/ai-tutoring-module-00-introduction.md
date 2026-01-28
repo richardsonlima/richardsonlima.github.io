@@ -1,7 +1,7 @@
 ---
 layout: slides
 title: "The Big Picture: Da Lógica aos Agentes Generativos"
-category: "tech-talks"
+category: "ai-tutoring"
 module_number: 0
 complexity: "Strategic Overview"
 use_math: true

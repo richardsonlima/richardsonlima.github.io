@@ -45,26 +45,26 @@ General presentations focused on Software Engineering, Machine Learning, SRE, Ch
 
 <div class="cf frame">
   {% comment %} 
-  Robust Logic:
-  1. Aggregates posts and slides.
-  2. Filters only what has the "slides" layout.
-  3. EXCLUDES any item whose category contains the word "ai-tutoring".
-  This acts as a Regex /ai-tutoring/ and prevents exact typos.
+    Robust Filtering Logic:
+    1. Concatenates posts and slides.
+    2. Filters only files with "slides" layout.
+    3. Normalizes category to lowercase.
+    4. Excludes any item where category is "ai-tutoring".
   {% endcomment %}
   
   {% assign all_slides = site.posts | concat: site.slides | where: "layout", "slides" %}
   
   {% for item in all_slides %}
     
-    {% comment %} Captures the category and converts it to lowercase for reliable comparison. {% endcomment %}
-    {% assign item_cat = item.category | downcase %}
+    {% comment %} Normalizes to ensure safe comparison {% endcomment %}
+    {% assign item_category = item.category | downcase %}
     
     {% comment %} 
-      The magic happens here: 'unless' is the opposite of 'if'.
-      It only executes if the category does NOT contain "ai-tutoring".
-      This covers "ai-tutoring", "ai-tutoring-module", "AI-Tutoring", etc.
+      Exclusion Rule: 
+      If category is NOT "ai-tutoring", display the slide.
+      This prevents course modules from appearing in this general section.
     {% endcomment %}
-    {% unless item_cat contains "ai-tutoring" %}
+    {% unless item_category == "ai-tutoring" %}
     
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article" style="margin-bottom: 15px;">
         <div class="article-item">
@@ -77,10 +77,9 @@ General presentations focused on Software Engineering, Machine Learning, SRE, Ch
           </header>
           <section class="post-excerpt" itemprop="description" style="color: #888; font-size: 0.9em;">
              {% comment %} 
-              If the content is raw slide markdown (with '---'),
-              strip_html may fail to clear. We further restrict truncate.
+               Limits the excerpt to keep the layout clean.
              {% endcomment %}
-            <p>{{ item.content | strip_html | truncatewords: 20 }}</p>
+            <p>{{ item.content | strip_html | truncatewords: 25 }}</p>
           </section>
         </div>
       </article>
@@ -88,6 +87,7 @@ General presentations focused on Software Engineering, Machine Learning, SRE, Ch
     {% endunless %}
   {% endfor %}
 </div>
+
 ---
 
 ### 🤝 Community & Philosophy
