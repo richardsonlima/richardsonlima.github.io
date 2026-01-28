@@ -45,28 +45,49 @@ General presentations focused on Software Engineering, Machine Learning, SRE, Ch
 
 <div class="cf frame">
   {% comment %} 
-    We filtered everything that has a slide layout but is NOT in the tutorial category.
+  Robust Logic:
+  1. Aggregates posts and slides.
+  2. Filters only what has the "slides" layout.
+  3. EXCLUDES any item whose category contains the word "ai-tutoring".
+  This acts as a Regex /ai-tutoring/ and prevents exact typos.
   {% endcomment %}
+  
   {% assign all_slides = site.posts | concat: site.slides | where: "layout", "slides" %}
   
   {% for item in all_slides %}
-    {% if item.category != "ai-tutoring" %}
-      <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+    
+    {% comment %} Captures the category and converts it to lowercase for reliable comparison. {% endcomment %}
+    {% assign item_cat = item.category | downcase %}
+    
+    {% comment %} 
+      The magic happens here: 'unless' is the opposite of 'if'.
+      It only executes if the category does NOT contain "ai-tutoring".
+      This covers "ai-tutoring", "ai-tutoring-module", "AI-Tutoring", etc.
+    {% endcomment %}
+    {% unless item_cat contains "ai-tutoring" %}
+    
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article" style="margin-bottom: 15px;">
         <div class="article-item">
           <header class="post-header">
-            <h2 class="post-title" itemprop="name">
-              <a href="{{ item.url | prepend: site.baseurl }}" itemprop="url">{{ item.title }}</a>
-            </h2>
+            <h4 class="post-title" itemprop="name" style="margin-bottom: 5px;">
+              <a href="{{ item.url | prepend: site.baseurl }}" itemprop="url" style="text-decoration: none; border-bottom: 1px dotted #666;">
+                {{ item.title }}
+              </a>
+            </h4>
           </header>
-          <section class="post-excerpt" itemprop="description">
-            <p>{{ item.content | strip_html | truncatewords: 25 }}</p>
+          <section class="post-excerpt" itemprop="description" style="color: #888; font-size: 0.9em;">
+             {% comment %} 
+              If the content is raw slide markdown (with '---'),
+              strip_html may fail to clear. We further restrict truncate.
+             {% endcomment %}
+            <p>{{ item.content | strip_html | truncatewords: 20 }}</p>
           </section>
         </div>
       </article>
-    {% endif %}
+
+    {% endunless %}
   {% endfor %}
 </div>
-
 ---
 
 ### 🤝 Community & Philosophy
