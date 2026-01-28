@@ -45,21 +45,22 @@ General presentations focused on Software Engineering, Machine Learning, SRE, Ch
 
 <div class="cf frame">
   {% comment %} 
-    Filters everything with 'slides' layout that is NOT in the 'ai-tutoring' category.
+    We filtered everything that has a slide layout but is NOT in the tutorial category.
   {% endcomment %}
   {% assign all_slides = site.posts | concat: site.slides | where: "layout", "slides" %}
   
   {% for item in all_slides %}
     {% if item.category != "ai-tutoring" %}
-      <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article" style="margin-bottom: 15px;">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
         <div class="article-item">
           <header class="post-header">
-            <h4 class="post-title" itemprop="name" style="margin-bottom: 5px;">
-              <a href="{{ item.url | prepend: site.baseurl }}" itemprop="url" style="text-decoration: none; border-bottom: 1px dotted #666;">
-                {{ item.title }}
-              </a>
-            </h4>
+            <h2 class="post-title" itemprop="name">
+              <a href="{{ item.url | prepend: site.baseurl }}" itemprop="url">{{ item.title }}</a>
+            </h2>
           </header>
+          <section class="post-excerpt" itemprop="description">
+            <p>{{ item.content | strip_html | truncatewords: 25 }}</p>
+          </section>
         </div>
       </article>
     {% endif %}
