@@ -1,19 +1,48 @@
 ---
 layout: slides
-title: "🖥️ Click here - The Art of Constraints: Advanced Prompt Engineering"
+title: "The Art of Constraints: Advanced Prompt Engineering"
 slides: ai-tutoring-module-05-prompt-eng.md
 category: "ai-tutoring"
 module_number: 5
 complexity: "Practical / Implementation"
 ---
 
-> **[ Here's the full presentation ]({{ site.baseurl }}{{ page.url }})**
+<div style="background: linear-gradient(145deg, #1e1e1e, #252525); border: 1px solid #333; border-radius: 12px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+    <span style="font-family: monospace; color: #FFD700; font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px;">
+      MODULE 0{{ page.module_number }}
+    </span>
+    <span style="background: #333; color: #aaa; padding: 4px 10px; border-radius: 4px; font-size: 0.75em; font-family: sans-serif;">
+      {{ page.complexity }}
+    </span>
+  </div>
+  
+  <h2 style="margin-top: 0; color: #fff; font-size: 1.5em; border-bottom: none;">{{ page.title }}</h2>
+  
+  <p style="color: #ccc; font-size: 1.05em; line-height: 1.6;">
+    Prompt Engineering is not magic; it is the rigorous art of constraining the model's search space. This module connects the theory of <strong>Induction Heads</strong> to practical patterns for forcing reliability and structured reasoning.
+  </p>
 
-Prompt Engineering is not magic; it is the art of constraining the model's search space. This module connects the theory of **Induction Heads** to practical techniques like **Few-Shot Learning** and **Chain of Thought (CoT)**.
+  <div style="margin-top: 25px;">
+    <a href="{{ site.baseurl }}{{ page.url }}" style="text-decoration: none;">
+      <button style="background: #fff; color: #000; border: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        LAUNCH MASTERCLASS
+      </button>
+    </a>
+    <p style="margin-top: 10px; font-size: 0.8em; color: #666;">
+      <em>Interactive Slides • Press 'F' for Fullscreen</em>
+    </p>
+  </div>
+</div>
 
-We explore how to force **System 2 thinking** by allocating more compute time (tokens) to reasoning steps. You will also learn how to enforce structured outputs (JSON mode) for system integration and defense strategies against Prompt Injection attacks.
+### 📑 Executive Summary
+
+We explore how to manipulate the model's "System 2" thinking by allocating more compute time (tokens) to reasoning steps before generation. This is the implementation layer of the stack.
+
+**Key Techniques Covered:**
+* **Cognitive Architecture:** Using **Chain of Thought (CoT)** and **Few-Shot Learning** to guide probabilistic outcomes.
+* **System Integration:** Enforcing deterministic **JSON** outputs for API compatibility.
+* **Security Protocols:** Defense strategies against Prompt Injection and jailbreaking attacks in production.
 
 ---
-### 📖 How to navigate:
-* Click the link above or the title to launch the interactive slides.
-* Use your **arrow keys** or **swipe** to navigate through the architecture breakdown.

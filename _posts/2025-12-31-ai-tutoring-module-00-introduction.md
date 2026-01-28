@@ -20,7 +20,7 @@ complexity: "Introductory / Strategic"
   <h2 style="margin-top: 0; color: #fff; font-size: 1.5em; border-bottom: none;">{{ page.title }}</h2>
   
   <p style="color: #ccc; font-size: 1.05em; line-height: 1.6;">
-    An executive and strategic overview of the AI revolution. We move from traditional rule-based systems to the era of Generative AI, exploring why this is the "iPhone moment" for startups and agencies.
+    An executive and strategic overview of the AI revolution. We move from traditional rule-based systems to the era of Generative AI.
   </p>
 
   <div style="margin-top: 25px;">
