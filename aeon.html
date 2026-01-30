@@ -36,7 +36,7 @@ robots: noindex
             min-height: 100vh;
         }
 
-        /* BACKGROUND EFFECTS (Interstellar + Cyberpunk) */
+        /* BACKGROUND EFFECTS */
         body::before {
             content: '';
             position: fixed;
@@ -66,7 +66,7 @@ robots: noindex
             -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
         }
 
-        /* NAVIGATION & LANGUAGE SWITCHER */
+        /* NAVIGATION */
         nav {
             display: flex;
             justify-content: space-between;
@@ -88,7 +88,6 @@ robots: noindex
         .nav-links a { text-decoration: none; color: var(--text-main); transition: color 0.2s; }
         .nav-links a:hover { color: var(--secondary-accent); }
 
-        /* Language Toggle Style */
         .lang-switch {
             display: flex;
             gap: 10px;
@@ -181,6 +180,9 @@ robots: noindex
         .footer-col a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 12px; transition: color 0.2s;}
         .footer-col a:hover { color: var(--secondary-accent); }
 
+        /* SAFETY DISCLAIMER */
+        .disclaimer { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center;}
+
         @media (max-width: 768px) {
             .hero, .impact-grid, .footer-grid { grid-template-columns: 1fr; }
             .hero { text-align: center; padding-top: 60px; }
@@ -197,9 +199,9 @@ robots: noindex
         <div class="logo"><span>Æon</span> AI Framework</div>
         <div class="nav-right">
             <div class="nav-links">
-                <a href="#" data-i18n="nav_product">Product</a>
+                <a href="#" data-i18n="nav_product">Core</a>
                 <a href="#" data-i18n="nav_docs">Docs</a>
-                <a href="#" data-i18n="nav_enterprise">Enterprise</a>
+                <a href="#" data-i18n="nav_research">Research</a>
             </div>
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="setLang('en')">EN</button>
@@ -212,11 +214,11 @@ robots: noindex
         <div class="hero-content">
             <h1>Æon AI Framework<br><span style="color: var(--secondary-accent);" data-i18n="hero_highlight">Engineered for Trust.</span></h1>
             <p class="hero-subtitle" data-i18n="hero_sub">
-                Thousands of Developers, Machine Learning Engineers, and Data Scientists rely on Æon AI Framework in their industry to build deterministic agents.
+                Open-source initiative for deterministic AI agents. Developed for reliability in critical environments.
             </p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary" data-i18n="btn_start">Get Started</a>
-                <a href="#" class="btn btn-secondary" data-i18n="btn_demo">Book a Demo</a>
+                <a href="#" class="btn btn-primary" data-i18n="btn_code">View Code</a>
+                <a href="#" class="btn btn-secondary" data-i18n="btn_manifesto">Read Manifesto</a>
             </div>
         </div>
         <div class="hero-visual">
@@ -233,7 +235,7 @@ robots: noindex
         <span class="kw">return</span> output.confidence > 0.99
 
 agent = Agent(
-    role=<span class="str">"Industrial_Controller"</span>,
+    role=<span class="str">"Critical_Systems_Monitor"</span>,
     axioms=[SafetyCheck()],
     tools=MCP.connect(<span class="str">"sensor_grid"</span>)
 )
@@ -244,7 +246,7 @@ agent = Agent(
 
     <section class="dev-section">
         <div class="section-head">
-            <h2 data-i18n="dev_title">Designed for developers.</h2>
+            <h2 data-i18n="dev_title">Designed for Science.</h2>
             <p data-i18n="dev_sub">Æon AI Framework Built with industry standard open source libraries.</p>
         </div>
 
@@ -252,22 +254,22 @@ agent = Agent(
             <div class="os-card">
                 <span class="repo-name">aeon / core</span>
                 <h3 data-i18n="card1_title">The Runtime</h3>
-                <p data-i18n="card1_desc">An easy-to-use, production-ready kernel for neuro-symbolic execution and logic verification.</p>
+                <p data-i18n="card1_desc">An easy-to-use kernel for neuro-symbolic execution and logic verification.</p>
             </div>
             <div class="os-card">
                 <span class="repo-name">aeon / synapse</span>
                 <h3 data-i18n="card2_title">MCP Connectors</h3>
-                <p data-i18n="card2_desc">Native integration with the Model Context Protocol to connect databases and tools in seconds.</p>
+                <p data-i18n="card2_desc">Native integration with the Model Context Protocol to connect databases and tools.</p>
             </div>
             <div class="os-card">
                 <span class="repo-name">aeon / hive</span>
                 <h3 data-i18n="card3_title">A2A Protocol</h3>
-                <p data-i18n="card3_desc">Enable your agents to negotiate, hire, and collaborate with other agents in a decentralized swarm.</p>
+                <p data-i18n="card3_desc">Enable agents to negotiate and collaborate in a decentralized swarm.</p>
             </div>
             <div class="os-card">
                 <span class="repo-name">aeon / notebooks</span>
                 <h3 data-i18n="card4_title">Scientific NB</h3>
-                <p data-i18n="card4_desc">Open source Jupyter Notebooks showing how to implement "Axioms" in complex research workflows.</p>
+                <p data-i18n="card4_desc">Open source Jupyter Notebooks showing how to implement 'Axioms' in research workflows.</p>
             </div>
         </div>
     </section>
@@ -276,8 +278,8 @@ agent = Agent(
         <div style="max-width: 800px; margin: 0 auto;">
             <h2 data-i18n="int_title">Integrate with your favorite tools.</h2>
             <p style="color: var(--text-muted); margin-top: 15px;" data-i18n="int_sub">
-                Æon AI Framework Integrate with needed MCP tools and Agents via A2A Protocol.
-                Customize, automate, and extend your pipeline.
+                Æon AI Framework integrates with MCP tools and Agents via A2A Protocol.
+                Designed for research and extensibility.
             </p>
             
             <div class="int-grid">
@@ -296,27 +298,27 @@ agent = Agent(
     <section class="impact">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
             <div>
-                <h2 data-i18n="impact_title">Æon is transforming industries.</h2>
+                <h2 data-i18n="impact_title">Advancing AI Reliability.</h2>
                 <p style="color: var(--text-muted); margin-top: 20px; font-size: 1.1rem;" data-i18n="impact_sub">
-                    Æon AI Framework is transforming industries solving complex challenges and driving meaningful impact with AI.
-                    We move beyond chatbots to agents that can be trusted with critical infrastructure.
+                    Æon AI Framework aims to solve complex challenges in AI determinism.
+                    Moving beyond chatbots to agents that can be trusted with critical logic.
                 </p>
                 <div style="margin-top: 30px;">
-                    <a href="#" style="color: var(--secondary-accent); font-weight: 600; text-decoration: none;" data-i18n="impact_link">Read Customer Stories ></a>
+                    <a href="#" style="color: var(--secondary-accent); font-weight: 600; text-decoration: none;" data-i18n="impact_link">View Case Studies ></a>
                 </div>
             </div>
             <div class="impact-grid" style="grid-template-columns: 1fr; gap: 30px; margin-top: 0;">
                 <div class="stat-card">
-                    <h4>0%</h4>
-                    <p data-i18n="stat1_desc">Hallucination rate in production environments using Axiom Logic.</p>
+                    <h4>< 1%</h4>
+                    <p data-i18n="stat1_desc">Target hallucination rate in controlled axiomatic environments.</p>
                 </div>
                 <div class="stat-card">
-                    <h4>100ms</h4>
-                    <p data-i18n="stat2_desc">Average latency for "Limbic System" (System 1) cache responses.</p>
+                    <h4>Fast</h4>
+                    <p data-i18n="stat2_desc">Optimized for low-latency 'System 1' cache responses.</p>
                 </div>
                 <div class="stat-card">
-                    <h4>SOC2</h4>
-                    <p data-i18n="stat3_desc">Compliant architecture ready for Enterprise deployment.</p>
+                    <h4>Safe</h4>
+                    <p data-i18n="stat3_desc">Architecture designed for high-compliance standards.</p>
                 </div>
             </div>
         </div>
@@ -326,18 +328,32 @@ agent = Agent(
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="logo" style="margin-bottom: 20px;"><span>Æon</span> AI</div>
-                <p data-i18n="footer_slogan">Everything you need to build and deploy deterministic agents.</p>
-                <p style="margin-top: 20px;">&copy; 2026 Æon Project.</p>
-                <div style="margin-top: 20px; font-size: 0.8rem; color: #666;">
-                    Core Framework: <a href="#" style="display:inline; color:#888;">Apache 2.0</a>
+                <p data-i18n="footer_slogan">Deterministic Agent Framework.</p>
+                
+                <div style="margin-top: 30px; border-left: 2px solid var(--border-color); padding-left: 15px;">
+                    <div style="margin-bottom: 12px;">
+                        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary-accent); display: block; margin-bottom: 4px;">Community</span>
+                        <a href="#" style="color: var(--text-muted); font-size: 0.85rem; text-decoration: none;" data-i18n="license_oss">
+                            Core Framework: Apache 2.0
+                        </a>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-accent); display: block; margin-bottom: 4px;">Experimental</span>
+                        <a href="#" style="color: var(--text-muted); font-size: 0.85rem; text-decoration: none;" data-i18n="license_comm">
+                            Verification Layer: Private Research
+                        </a>
+                    </div>
                 </div>
+
+                <p style="margin-top: 30px; font-size: 0.75rem; opacity: 0.5;">&copy; 2026 Æon Project.</p>
             </div>
+            
             <div class="footer-col">
-                <h5 data-i18n="foot_prod">Product</h5>
-                <a href="#">Framework</a>
+                <h5 data-i18n="foot_prod">Project</h5>
+                <a href="#">Core</a>
                 <a href="#">MCP Hub</a>
                 <a href="#">A2A Protocol</a>
-                <a href="#">Enterprise</a>
+                <a href="#" style="color: var(--primary-accent);">Research</a>
             </div>
             <div class="footer-col">
                 <h5 data-i18n="foot_res">Resources</h5>
@@ -346,77 +362,93 @@ agent = Agent(
                 <a href="#">Community</a>
                 <a href="#">Manifesto</a>
             </div>
+            <div class="footer-col">
+                <h5 data-i18n="foot_comp">Connect</h5>
+                <a href="#">About</a>
+                <a href="#">GitHub</a>
+                <a href="#">Contact</a>
+                <a href="#">Status</a>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <p data-i18n="disclaimer_text">Æon AI is a personal open-source research initiative. Not affiliated with any banking institution. Developed for academic and community purposes.</p>
         </div>
     </footer>
 
     <script>
         const translations = {
             en: {
-                nav_product: "Product",
+                nav_product: "Core",
                 nav_docs: "Docs",
-                nav_enterprise: "Enterprise",
+                nav_research: "Research",  
                 hero_highlight: "Engineered for Trust.",
-                hero_sub: "Thousands of Developers, Machine Learning Engineers, and Data Scientists rely on Æon AI Framework in their industry to build deterministic agents.",
-                btn_start: "Get Started",
-                btn_demo: "Book a Demo",
-                dev_title: "Designed for developers.",
+                hero_sub: "Open-source initiative for deterministic AI agents. Developed for reliability in critical environments.",
+                btn_code: "View Code",  
+                btn_manifesto: "Read Manifesto",  
+                dev_title: "Designed for Science.",  
                 dev_sub: "Æon AI Framework Built with industry standard open source libraries.",
                 card1_title: "The Runtime",
-                card1_desc: "An easy-to-use, production-ready kernel for neuro-symbolic execution and logic verification.",
+                card1_desc: "An easy-to-use kernel for neuro-symbolic execution and logic verification.",
                 card2_title: "MCP Connectors",
-                card2_desc: "Native integration with the Model Context Protocol to connect databases and tools in seconds.",
+                card2_desc: "Native integration with the Model Context Protocol to connect databases and tools.",
                 card3_title: "A2A Protocol",
-                card3_desc: "Enable your agents to negotiate, hire, and collaborate with other agents in a decentralized swarm.",
+                card3_desc: "Enable agents to negotiate and collaborate in a decentralized swarm.",
                 card4_title: "Scientific NB",
-                card4_desc: "Open source Jupyter Notebooks showing how to implement 'Axioms' in complex research workflows.",
+                card4_desc: "Open source Jupyter Notebooks showing how to implement 'Axioms' in research workflows.",
                 int_title: "Integrate with your favorite tools.",
-                int_sub: "Æon AI Framework Integrate with needed MCP tools and Agents via A2A Protocol. Customize, automate, and extend your pipeline.",
-                impact_title: "Æon is transforming industries.",
-                impact_sub: "Æon AI Framework is transforming industries solving complex challenges and driving meaningful impact with AI. We move beyond chatbots to agents that can be trusted with critical infrastructure.",
-                impact_link: "Read Customer Stories >",
-                stat1_desc: "Hallucination rate in production environments using Axiom Logic.",
-                stat2_desc: "Average latency for 'Limbic System' (System 1) cache responses.",
-                stat3_desc: "Compliant architecture ready for Enterprise deployment.",
-                footer_slogan: "Everything you need to build and deploy deterministic agents.",
-                foot_prod: "Product",
+                int_sub: "Æon AI Framework integrates with MCP tools and Agents via A2A Protocol. Designed for research and extensibility.",
+                impact_title: "Advancing AI Reliability.",
+                impact_sub: "Æon AI Framework aims to solve complex challenges in AI determinism. Moving beyond chatbots to agents that can be trusted with critical logic.",
+                impact_link: "View Case Studies >",
+                stat1_desc: "Target hallucination rate in controlled axiomatic environments.",
+                stat2_desc: "Optimized for low-latency 'System 1' cache responses.",
+                stat3_desc: "Architecture designed for high-compliance standards.",
+                footer_slogan: "Deterministic Agent Framework.",
+                license_oss: "Core Framework: Apache 2.0 License",
+                license_comm: "Verification Layer: Private Research",  
+                foot_prod: "Project",
                 foot_res: "Resources",
-                foot_comp: "Company"
+                foot_comp: "Connect",
+                disclaimer_text: "Æon AI is a personal open-source research initiative. Not affiliated with any banking institution. Developed for academic and community purposes."
             },
             pt: {
-                nav_product: "Produto",
-                nav_docs: "Documentação",
-                nav_enterprise: "Enterprise",
+                nav_product: "Core",
+                nav_docs: "Docs",
+                nav_research: "Pesquisa",
                 hero_highlight: "Engenharia de Confiança.",
-                hero_sub: "Milhares de Desenvolvedores, Engenheiros de ML e Cientistas de Dados confiam no Æon AI Framework em suas indústrias para construir agentes determinísticos.",
-                btn_start: "Começar Agora",
-                btn_demo: "Agendar Demo",
-                dev_title: "Projetado para desenvolvedores.",
+                hero_sub: "Iniciativa open-source para agentes de IA determinísticos. Desenvolvido para confiabilidade em ambientes críticos.",
+                btn_code: "Ver Código",
+                btn_manifesto: "Ler Manifesto",
+                dev_title: "Projetado para Ciência.",
                 dev_sub: "Æon AI Framework construído com bibliotecas open source padrão da indústria.",
                 card1_title: "O Runtime",
-                card1_desc: "Um kernel pronto para produção e fácil de usar para execução neuro-simbólica e verificação lógica.",
+                card1_desc: "Um kernel fácil de usar para execução neuro-simbólica e verificação lógica.",
                 card2_title: "Conectores MCP",
-                card2_desc: "Integração nativa com o Model Context Protocol para conectar bancos de dados e ferramentas em segundos.",
+                card2_desc: "Integração nativa com o Model Context Protocol para conectar bancos de dados e ferramentas.",
                 card3_title: "Protocolo A2A",
-                card3_desc: "Permita que seus agentes negociem, contratem e colaborem com outros agentes em um enxame descentralizado.",
+                card3_desc: "Permita que agentes negociem e colaborem em um enxame descentralizado.",
                 card4_title: "Notebooks Científicos",
-                card4_desc: "Jupyter Notebooks open source mostrando como implementar 'Axiomas' em fluxos de pesquisa complexos.",
+                card4_desc: "Jupyter Notebooks open source mostrando como implementar 'Axiomas' em fluxos de pesquisa.",
                 int_title: "Integre com suas ferramentas favoritas.",
-                int_sub: "O Æon AI Framework integra-se com ferramentas MCP e Agentes via Protocolo A2A. Personalize, automatize e estenda seu pipeline.",
-                impact_title: "Æon está transformando indústrias.",
-                impact_sub: "O Æon AI Framework está transformando indústrias, resolvendo desafios complexos e gerando impacto significativo com IA. Vamos além de chatbots para agentes que podem ser confiáveis em infraestrutura crítica.",
-                impact_link: "Ler Histórias de Clientes >",
-                stat1_desc: "Taxa de alucinação em ambientes de produção usando Lógica Axioma.",
-                stat2_desc: "Latência média para respostas de cache do 'Sistema Límbico' (Sistema 1).",
-                stat3_desc: "Arquitetura compatível pronta para implantação Enterprise (SOC2).",
-                footer_slogan: "Tudo o que você precisa para construir e implantar agentes determinísticos.",
-                foot_prod: "Produto",
+                int_sub: "O Æon AI Framework integra-se com ferramentas MCP e Agentes via Protocolo A2A. Projetado para pesquisa e extensibilidade.",
+                impact_title: "Avançando a Confiabilidade da IA.",
+                impact_sub: "O Æon AI Framework visa resolver desafios complexos no determinismo da IA. Indo além de chatbots para agentes que podem ser confiáveis com lógica crítica.",
+                impact_link: "Ver Estudos de Caso >",
+                stat1_desc: "Taxa de alucinação alvo em ambientes axiomáticos controlados.",
+                stat2_desc: "Otimizado para respostas de cache de baixa latência ('Sistema 1').",
+                stat3_desc: "Arquitetura projetada para padrões de alta conformidade.",
+                footer_slogan: "Framework de Agentes Determinísticos.",
+                license_oss: "Core Framework: Licença Apache 2.0",
+                license_comm: "Camada de Verificação: Pesquisa Privada",
+                foot_prod: "Projeto",
                 foot_res: "Recursos",
-                foot_comp: "Empresa"
+                foot_comp: "Conectar",
+                disclaimer_text: "Æon AI é uma iniciativa de pesquisa pessoal open-source. Sem afiliação com instituições bancárias. Desenvolvido para fins acadêmicos e comunitários."
             }
         };
 
         function setLang(lang) {
-            // Update Text
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -424,8 +456,6 @@ agent = Agent(
                     el.innerText = translations[lang][key];
                 }
             });
-
-            // Update Buttons State
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
             if (activeBtn) activeBtn.classList.add('active');
