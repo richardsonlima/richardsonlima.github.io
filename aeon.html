@@ -1,0 +1,436 @@
+---
+layout: null
+permalink: /aeon/
+sitemap: false
+robots: noindex
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Æon AI | Engineered for Trust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050507;
+            --card-bg: rgba(15, 15, 18, 0.8);
+            --primary-accent: #6600ff;
+            --secondary-accent: #00f0ff;
+            --text-main: #ffffff;
+            --text-muted: #94949e;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* BACKGROUND EFFECTS (Interstellar + Cyberpunk) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            width: 120vw; height: 120vh;
+            z-index: -2;
+            pointer-events: none;
+            background: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(5, 5, 7, 0.9) 25%, rgba(102, 0, 255, 0.15) 40%, rgba(0, 240, 255, 0.1) 60%, var(--bg-color) 85%);
+            animation: gravityPulse 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes gravityPulse {
+            0% { opacity: 0.7; transform: translate(-50%, -50%) scale(0.95) rotate(0deg); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(2deg); }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background-image: linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+        }
+
+        /* NAVIGATION & LANGUAGE SWITCHER */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(5, 5, 7, 0.7);
+            backdrop-filter: blur(15px);
+            z-index: 100;
+        }
+
+        .logo { font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--secondary-accent); text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+        
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .nav-links { display: flex; gap: 24px; font-size: 0.9rem; font-weight: 500; }
+        .nav-links a { text-decoration: none; color: var(--text-main); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--secondary-accent); }
+
+        /* Language Toggle Style */
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.05);
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        .lang-btn.active { color: var(--secondary-accent); text-shadow: 0 0 10px var(--secondary-accent); }
+        .lang-btn:hover { color: var(--text-main); }
+
+        /* HERO SECTION */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 32px; max-width: 500px; }
+
+        .cta-buttons { display: flex; gap: 16px; }
+        .btn { padding: 12px 24px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        .btn-primary { background: var(--secondary-accent); color: #000; box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
+        .btn-primary:hover { filter: brightness(1.1); box-shadow: 0 0 30px rgba(0, 240, 255, 0.4); }
+        .btn-secondary { border: 1px solid var(--border-color); color: var(--text-main); background: rgba(255,255,255,0.02); }
+        .btn-secondary:hover { border-color: var(--text-main); background: rgba(255,255,255,0.05); }
+
+        /* CODE VISUAL */
+        .hero-visual {
+            background: rgba(15, 15, 18, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+        }
+        pre { font-family: 'JetBrains Mono', monospace; color: #a9b7c6; overflow-x: auto; font-size: 0.85rem; }
+        .kw { color: #cc7832; } .str { color: #6a8759; } .fn { color: #ffc66d; }
+
+        /* SECTIONS & GRIDS */
+        .dev-section, .impact, .integrations { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-head { margin-bottom: 60px; }
+        .section-head h2 { font-size: 2.5rem; margin-bottom: 16px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .section-head p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; }
+
+        .os-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .os-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; transition: all 0.3s ease; backdrop-filter: blur(10px); }
+        .os-card:hover { transform: translateY(-7px); border-color: var(--secondary-accent); box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.2); }
+        .repo-name { font-family: 'JetBrains Mono', monospace; color: var(--secondary-accent); font-size: 0.9rem; margin-bottom: 12px; display: block; }
+        .os-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .os-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .integrations { background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 14, 0.8) 100%); text-align: center; }
+        .int-grid { display: flex; justify-content: center; gap: 15px; margin-top: 50px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+        .int-badge { background: rgba(255,255,255,0.03); padding: 12px 24px; border-radius: 50px; border: 1px solid var(--border-color); font-weight: 500; color: var(--text-main); transition: all 0.3s; backdrop-filter: blur(5px); }
+        .int-badge:hover { border-color: var(--secondary-accent); background: rgba(0, 240, 255, 0.05); transform: scale(1.05); }
+
+        .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
+        .stat-card { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 16px; border: 1px solid var(--border-color); backdrop-filter: blur(10px); text-align: center; transition: transform 0.3s; }
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--primary-accent); }
+        .stat-card h4 { font-size: 3.5rem; color: var(--secondary-accent); font-weight: 800; margin-bottom: 10px; text-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+        .stat-card p { color: var(--text-muted); font-size: 1.1rem; }
+
+        footer { border-top: 1px solid var(--border-color); padding: 80px 20px; font-size: 0.9rem; color: var(--text-muted); background: rgba(5, 5, 7, 0.8); backdrop-filter: blur(10px); position: relative; z-index: 2; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+        .footer-col h5 { color: #fff; margin-bottom: 20px; font-weight: 600; }
+        .footer-col a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 12px; transition: color 0.2s;}
+        .footer-col a:hover { color: var(--secondary-accent); }
+
+        @media (max-width: 768px) {
+            .hero, .impact-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero { text-align: center; padding-top: 60px; }
+            .hero-subtitle { margin: 0 auto 30px; }
+            .cta-buttons { justify-content: center; }
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><span>Æon</span> AI Framework</div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#" data-i18n="nav_product">Product</a>
+                <a href="#" data-i18n="nav_docs">Docs</a>
+                <a href="#" data-i18n="nav_enterprise">Enterprise</a>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('pt')">PT</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Æon AI Framework<br><span style="color: var(--secondary-accent);" data-i18n="hero_highlight">Engineered for Trust.</span></h1>
+            <p class="hero-subtitle" data-i18n="hero_sub">
+                Thousands of Developers, Machine Learning Engineers, and Data Scientists rely on Æon AI Framework in their industry to build deterministic agents.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary" data-i18n="btn_start">Get Started</a>
+                <a href="#" class="btn btn-secondary" data-i18n="btn_demo">Book a Demo</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div style="display:flex; gap:6px; margin-bottom:15px;">
+                <div style="width:10px; height:10px; background:#ff5f56; border-radius:50%;"></div>
+                <div style="width:10px; height:10px; background:#ffbd2e; border-radius:50%;"></div>
+                <div style="width:10px; height:10px; background:#27c93f; border-radius:50%;"></div>
+            </div>
+            <pre><code><span class="kw">from</span> aeon.core <span class="kw">import</span> Agent, Axiom
+<span class="kw">from</span> aeon.protocols <span class="kw">import</span> MCP
+
+<span class="kw">class</span> <span class="fn">SafetyCheck</span>(Axiom):
+    <span class="kw">def</span> <span class="fn">verify</span>(self, output):
+        <span class="kw">return</span> output.confidence > 0.99
+
+agent = Agent(
+    role=<span class="str">"Industrial_Controller"</span>,
+    axioms=[SafetyCheck()],
+    tools=MCP.connect(<span class="str">"sensor_grid"</span>)
+)
+
+<span class="kw">print</span>(<span class="str">"ÆON KERNEL: SYSTEM 2 ENGAGED"</span>)</code></pre>
+        </div>
+    </section>
+
+    <section class="dev-section">
+        <div class="section-head">
+            <h2 data-i18n="dev_title">Designed for developers.</h2>
+            <p data-i18n="dev_sub">Æon AI Framework Built with industry standard open source libraries.</p>
+        </div>
+
+        <div class="os-grid">
+            <div class="os-card">
+                <span class="repo-name">aeon / core</span>
+                <h3 data-i18n="card1_title">The Runtime</h3>
+                <p data-i18n="card1_desc">An easy-to-use, production-ready kernel for neuro-symbolic execution and logic verification.</p>
+            </div>
+            <div class="os-card">
+                <span class="repo-name">aeon / synapse</span>
+                <h3 data-i18n="card2_title">MCP Connectors</h3>
+                <p data-i18n="card2_desc">Native integration with the Model Context Protocol to connect databases and tools in seconds.</p>
+            </div>
+            <div class="os-card">
+                <span class="repo-name">aeon / hive</span>
+                <h3 data-i18n="card3_title">A2A Protocol</h3>
+                <p data-i18n="card3_desc">Enable your agents to negotiate, hire, and collaborate with other agents in a decentralized swarm.</p>
+            </div>
+            <div class="os-card">
+                <span class="repo-name">aeon / notebooks</span>
+                <h3 data-i18n="card4_title">Scientific NB</h3>
+                <p data-i18n="card4_desc">Open source Jupyter Notebooks showing how to implement "Axioms" in complex research workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="integrations">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 data-i18n="int_title">Integrate with your favorite tools.</h2>
+            <p style="color: var(--text-muted); margin-top: 15px;" data-i18n="int_sub">
+                Æon AI Framework Integrate with needed MCP tools and Agents via A2A Protocol.
+                Customize, automate, and extend your pipeline.
+            </p>
+            
+            <div class="int-grid">
+                <div class="int-badge">AWS Bedrock</div>
+                <div class="int-badge">Google Vertex</div>
+                <div class="int-badge">Azure OpenAI</div>
+                <div class="int-badge">PostgreSQL</div>
+                <div class="int-badge">Pinecone</div>
+                <div class="int-badge">Docker</div>
+                <div class="int-badge">Kubernetes</div>
+                <div class="int-badge">HuggingFace</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div>
+                <h2 data-i18n="impact_title">Æon is transforming industries.</h2>
+                <p style="color: var(--text-muted); margin-top: 20px; font-size: 1.1rem;" data-i18n="impact_sub">
+                    Æon AI Framework is transforming industries solving complex challenges and driving meaningful impact with AI.
+                    We move beyond chatbots to agents that can be trusted with critical infrastructure.
+                </p>
+                <div style="margin-top: 30px;">
+                    <a href="#" style="color: var(--secondary-accent); font-weight: 600; text-decoration: none;" data-i18n="impact_link">Read Customer Stories ></a>
+                </div>
+            </div>
+            <div class="impact-grid" style="grid-template-columns: 1fr; gap: 30px; margin-top: 0;">
+                <div class="stat-card">
+                    <h4>0%</h4>
+                    <p data-i18n="stat1_desc">Hallucination rate in production environments using Axiom Logic.</p>
+                </div>
+                <div class="stat-card">
+                    <h4>100ms</h4>
+                    <p data-i18n="stat2_desc">Average latency for "Limbic System" (System 1) cache responses.</p>
+                </div>
+                <div class="stat-card">
+                    <h4>SOC2</h4>
+                    <p data-i18n="stat3_desc">Compliant architecture ready for Enterprise deployment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;"><span>Æon</span> AI</div>
+                <p data-i18n="footer_slogan">Everything you need to build and deploy deterministic agents.</p>
+                <p style="margin-top: 20px;">&copy; 2026 Æon Project.</p>
+                <div style="margin-top: 20px; font-size: 0.8rem; color: #666;">
+                    Core Framework: <a href="#" style="display:inline; color:#888;">Apache 2.0</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5 data-i18n="foot_prod">Product</h5>
+                <a href="#">Framework</a>
+                <a href="#">MCP Hub</a>
+                <a href="#">A2A Protocol</a>
+                <a href="#">Enterprise</a>
+            </div>
+            <div class="footer-col">
+                <h5 data-i18n="foot_res">Resources</h5>
+                <a href="#">Documentation</a>
+                <a href="#">Blog</a>
+                <a href="#">Community</a>
+                <a href="#">Manifesto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                nav_product: "Product",
+                nav_docs: "Docs",
+                nav_enterprise: "Enterprise",
+                hero_highlight: "Engineered for Trust.",
+                hero_sub: "Thousands of Developers, Machine Learning Engineers, and Data Scientists rely on Æon AI Framework in their industry to build deterministic agents.",
+                btn_start: "Get Started",
+                btn_demo: "Book a Demo",
+                dev_title: "Designed for developers.",
+                dev_sub: "Æon AI Framework Built with industry standard open source libraries.",
+                card1_title: "The Runtime",
+                card1_desc: "An easy-to-use, production-ready kernel for neuro-symbolic execution and logic verification.",
+                card2_title: "MCP Connectors",
+                card2_desc: "Native integration with the Model Context Protocol to connect databases and tools in seconds.",
+                card3_title: "A2A Protocol",
+                card3_desc: "Enable your agents to negotiate, hire, and collaborate with other agents in a decentralized swarm.",
+                card4_title: "Scientific NB",
+                card4_desc: "Open source Jupyter Notebooks showing how to implement 'Axioms' in complex research workflows.",
+                int_title: "Integrate with your favorite tools.",
+                int_sub: "Æon AI Framework Integrate with needed MCP tools and Agents via A2A Protocol. Customize, automate, and extend your pipeline.",
+                impact_title: "Æon is transforming industries.",
+                impact_sub: "Æon AI Framework is transforming industries solving complex challenges and driving meaningful impact with AI. We move beyond chatbots to agents that can be trusted with critical infrastructure.",
+                impact_link: "Read Customer Stories >",
+                stat1_desc: "Hallucination rate in production environments using Axiom Logic.",
+                stat2_desc: "Average latency for 'Limbic System' (System 1) cache responses.",
+                stat3_desc: "Compliant architecture ready for Enterprise deployment.",
+                footer_slogan: "Everything you need to build and deploy deterministic agents.",
+                foot_prod: "Product",
+                foot_res: "Resources",
+                foot_comp: "Company"
+            },
+            pt: {
+                nav_product: "Produto",
+                nav_docs: "Documentação",
+                nav_enterprise: "Enterprise",
+                hero_highlight: "Engenharia de Confiança.",
+                hero_sub: "Milhares de Desenvolvedores, Engenheiros de ML e Cientistas de Dados confiam no Æon AI Framework em suas indústrias para construir agentes determinísticos.",
+                btn_start: "Começar Agora",
+                btn_demo: "Agendar Demo",
+                dev_title: "Projetado para desenvolvedores.",
+                dev_sub: "Æon AI Framework construído com bibliotecas open source padrão da indústria.",
+                card1_title: "O Runtime",
+                card1_desc: "Um kernel pronto para produção e fácil de usar para execução neuro-simbólica e verificação lógica.",
+                card2_title: "Conectores MCP",
+                card2_desc: "Integração nativa com o Model Context Protocol para conectar bancos de dados e ferramentas em segundos.",
+                card3_title: "Protocolo A2A",
+                card3_desc: "Permita que seus agentes negociem, contratem e colaborem com outros agentes em um enxame descentralizado.",
+                card4_title: "Notebooks Científicos",
+                card4_desc: "Jupyter Notebooks open source mostrando como implementar 'Axiomas' em fluxos de pesquisa complexos.",
+                int_title: "Integre com suas ferramentas favoritas.",
+                int_sub: "O Æon AI Framework integra-se com ferramentas MCP e Agentes via Protocolo A2A. Personalize, automatize e estenda seu pipeline.",
+                impact_title: "Æon está transformando indústrias.",
+                impact_sub: "O Æon AI Framework está transformando indústrias, resolvendo desafios complexos e gerando impacto significativo com IA. Vamos além de chatbots para agentes que podem ser confiáveis em infraestrutura crítica.",
+                impact_link: "Ler Histórias de Clientes >",
+                stat1_desc: "Taxa de alucinação em ambientes de produção usando Lógica Axioma.",
+                stat2_desc: "Latência média para respostas de cache do 'Sistema Límbico' (Sistema 1).",
+                stat3_desc: "Arquitetura compatível pronta para implantação Enterprise (SOC2).",
+                footer_slogan: "Tudo o que você precisa para construir e implantar agentes determinísticos.",
+                foot_prod: "Produto",
+                foot_res: "Recursos",
+                foot_comp: "Empresa"
+            }
+        };
+
+        function setLang(lang) {
+            // Update Text
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+
+            // Update Buttons State
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
