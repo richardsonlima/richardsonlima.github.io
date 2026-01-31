@@ -10,7 +10,7 @@ sitemap: false
     <title>Engineering Knowledge Base | Richardson Lima</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Reutilizando a base visual do seu index.html futurista */
+        /* Reusing the visual base from your futuristic index.html */
         :root {
             --bg-color: #050507;
             --card-bg: rgba(15, 15, 18, 0.9);
@@ -29,7 +29,7 @@ sitemap: false
             overflow-x: hidden;
         }
 
-        /* Efeito de Grade e Brilho Interestelar (Interstellar Glow) */
+        /* Interstellar Glow Grid Effect */
         body::before {
             content: '';
             position: fixed;
@@ -60,7 +60,7 @@ sitemap: false
         h1 { font-size: 3rem; margin: 20px 0; letter-spacing: -2px; }
         .description { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 40px; }
 
-        /* Estilo Udemy/Learning Path */
+        /* Udemy/Learning Path Style Layout */
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
         .section-title {
@@ -79,7 +79,7 @@ sitemap: false
             gap: 25px;
         }
 
-        /* Card de Módulo estilo Alura/Hotpage */
+        /* Module Card Styling */
         .module-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -97,6 +97,14 @@ sitemap: false
             transform: translateY(-10px);
             border-color: var(--secondary-accent);
             box-shadow: 0 20px 40px rgba(0, 240, 255, 0.1);
+        }
+
+        /* Coming Soon State Styling */
+        .module-card.coming-soon {
+            opacity: 0.7;
+            filter: grayscale(0.4);
+            pointer-events: none;
+            border-style: dashed;
         }
 
         .mod-number {
@@ -154,7 +162,84 @@ sitemap: false
     </div>
 
     <div class="section-title" style="margin-top: 80px;">
-        <span>🛠️</span> Technical Deep Dives & Systems Architecture
+        <span>🚀</span> MLOps: Machine Learning Engineering
+    </div>
+
+    <div class="modules-grid">
+        <div class="module-card coming-soon">
+            <div>
+                <span class="mod-number" style="color: #ff9900;">MLOPS-01</span>
+                <h3>Introduction to MLOps Lifecycle</h3>
+                <p>Maturity models, NYC Taxi Dataset overview, and environment setup for production ML.</p>
+            </div>
+            <div class="btn-launch" style="background: #333;">Available Soon...</div>
+        </div>
+        <div class="module-card coming-soon">
+            <div>
+                <span class="mod-number" style="color: #ff9900;">MLOPS-02</span>
+                <h3>Experiment Tracking & Model Management</h3>
+                <p>Deep dive into MLflow: tracking experiments, registering models, and versioning.</p>
+            </div>
+            <div class="btn-launch" style="background: #333;">Available Soon...</div>
+        </div>
+        <div class="module-card coming-soon">
+            <div>
+                <span class="mod-number" style="color: #ff9900;">MLOPS-03</span>
+                <h3>Orchestration & Workflow Pipelines</h3>
+                <p>Automating ML workflows with Prefect and Mage for robust data pipelines.</p>
+            </div>
+            <div class="btn-launch" style="background: #333;">Available Soon...</div>
+        </div>
+    </div>
+
+    <div class="section-title" style="margin-top: 80px;">
+        <span>🗣️</span> Applied NLP: NLU & NLG Mastery (E2E)
+    </div>
+
+    <div class="modules-grid">
+        <div class="module-card coming-soon">
+            <div>
+                <span class="mod-number" style="color: #e91e63;">NLP-01</span>
+                <h3>Deep NLU: Intent & Entity Recognition</h3>
+                <p>Building robust Natural Language Understanding engines. From Slot Filling to multi-intent classification.</p>
+            </div>
+            <div class="btn-launch" style="background: #333;">Available Soon...</div>
+        </div>
+        <div class="module-card coming-soon">
+            <div>
+                <span class="mod-number" style="color: #e91e63;">NLP-02</span>
+                <h3>Neural Text Generation (NLG) Mastery</h3>
+                <p>Decoding strategies, temperature control, and Nucleus Sampling in Autoregressive models.</p>
+            </div>
+            <div class="btn-launch" style="background: #333;">Available Soon...</div>
+        </div>
+    </div>
+
+    <div class="section-title" style="margin-top: 80px;">
+        <span>🛠️</span> Software Engineering & Data Structures
+    </div>
+
+    <div class="modules-grid">
+        <div class="module-card coming-soon">
+            <div>
+                <span class="mod-number" style="color: #4CAF50;">SWE-01</span>
+                <h3>Design Patterns in Pythonic Context</h3>
+                <p>Structural and Creational patterns adapted for modern asynchronous development.</p>
+            </div>
+            <div class="btn-launch" style="background: #333;">Available Soon...</div>
+        </div>
+        <div class="module-card coming-soon">
+            <div>
+                <span class="mod-number" style="color: #4CAF50;">SWE-02</span>
+                <h3>Competitive Python & Algorithms</h3>
+                <p>Solving complex challenges: from string validators to advanced ITA-based complexity analysis.</p>
+            </div>
+            <div class="btn-launch" style="background: #333;">Available Soon...</div>
+        </div>
+    </div>
+
+    <div class="section-title" style="margin-top: 80px;">
+        <span>🔍</span> Technical Deep Dives & Systems Architecture
     </div>
     
     <div class="modules-grid">
