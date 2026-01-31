@@ -239,6 +239,57 @@ sitemap: false
     </div>
 
     <div class="section-title" style="margin-top: 80px;">
+            <span>🏛️</span> Computer Engeneering / Science Foundations: The Deep Series
+        </div>
+
+        <div class="modules-grid">
+            <div class="module-card coming-soon">
+                <div>
+                    <span class="mod-number" style="color: #007bff;">CS-FUND-01</span>
+                    <h3>Data Structures & Complexity Analysis</h3>
+                    <p>Order of functions, recursive algorithms, balanced trees (AVL, Red-Black), and elementary structures (Linked Lists, Stacks, Queues).</p>
+                </div>
+                <div class="btn-launch" style="background: #333;">Available Soon...</div>
+            </div>
+
+            <div class="module-card coming-soon">
+                <div>
+                    <span class="mod-number" style="color: #007bff;">CS-FUND-02</span>
+                    <h3>Advanced Algorithms & Graph Theory</h3>
+                    <p>Sorting algorithms, pattern searching, graph traversals, shortest paths, and programming paradigms (Dynamic Programming, Greedy).</p>
+                </div>
+                <div class="btn-launch" style="background: #333;">Available Soon...</div>
+            </div>
+
+            <div class="module-card coming-soon">
+                <div>
+                    <span class="mod-number" style="color: #007bff;">CS-FUND-03</span>
+                    <h3>Compiler Engineering & Formal Languages</h3>
+                    <p>Lexical, syntactic, and semantic analysis. Code generation and virtual machine implementation (Tiny VM).</p>
+                </div>
+                <div class="btn-launch" style="background: #333;">Available Soon...</div>
+            </div>
+
+            <div class="module-card coming-soon">
+                <div>
+                    <span class="mod-number" style="color: #007bff;">CS-FUND-04</span>
+                    <h3>Computational Mathematics & Numerical Analysis</h3>
+                    <p>Error representation, roots of linear/non-linear systems, interpolation, curve fitting, and numerical integration.</p>
+                </div>
+                <div class="btn-launch" style="background: #333;">Available Soon...</div>
+            </div>
+
+            <div class="module-card coming-soon">
+                <div>
+                    <span class="mod-number" style="color: #007bff;">CS-FUND-05</span>
+                    <h3>Specialized Algorithms</h3>
+                    <p>Introduction to parallel computing, probabilistic algorithms, and structural complexity.</p>
+                </div>
+                <div class="btn-launch" style="background: #333;">Available Soon...</div>
+            </div>
+        </div>    
+
+    <div class="section-title" style="margin-top: 80px;">
         <span>🔍</span> Technical Deep Dives & Systems Architecture
     </div>
     
