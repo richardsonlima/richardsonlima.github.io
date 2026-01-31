@@ -41,7 +41,6 @@ sitemap: false
             -webkit-font-smoothing: antialiased; 
         }
 
-        /* Jenni Style Navbar */
         .nav {
             padding: 12px 32px;
             display: flex;
@@ -61,34 +60,30 @@ sitemap: false
 
         .container { max-width: 1000px; margin: 0 auto; padding: 100px 24px; }
 
-        /* Massive Jenni Typography */
         header { margin-bottom: 100px; }
-        header h1 { font-size: 4.2rem; font-weight: 800; letter-spacing: -4.5px; line-height: 0.95; margin-bottom: 32px; }
-        header p { font-size: 1.3rem; color: var(--text-muted); max-width: 750px; font-weight: 400; letter-spacing: -0.3px; }
+        header h1 { font-size: 4.5rem; font-weight: 800; letter-spacing: -4.5px; line-height: 0.95; margin-bottom: 32px; }
+        header p { font-size: 1.35rem; color: var(--text-muted); max-width: 800px; font-weight: 400; letter-spacing: -0.3px; }
 
         .section { margin-bottom: 120px; }
         .section-label { font-family: 'JetBrains Mono'; font-size: 0.65rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; display: block; }
         .section-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 40px; }
 
-        /* Minimalist Grid - No Colors */
         .grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 40px; }
         .card-stat { border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: 0.2s; }
-        .card-stat:hover { border-color: var(--accent); background: var(--subtle); }
+        .card-stat:hover { border-color: var(--accent); background: var(--subtle); transform: translateY(-2px); }
         .card-stat small { font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 12px; }
         .card-stat p { font-size: 1.1rem; font-weight: 600; }
 
-        /* Refined Tables */
         .table-box { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 20px; margin-bottom: 48px; }
         table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
         th { background: var(--subtle); padding: 14px 24px; font-weight: 700; color: var(--text-muted); text-align: left; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
-        td { padding: 18px 24px; border-top: 1px solid var(--border); }
-        tr:hover td { background: var(--subtle); cursor: default; }
+        td { padding: 18px 24px; border-top: 1px solid var(--border); color: var(--fg); }
+        tr:hover td { background: var(--subtle); }
 
         .badge { padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
         .badge-success { background: var(--success-bg); color: var(--success-text); }
         .badge-ongoing { background: rgba(102, 0, 255, 0.08); color: var(--accent); }
 
-        /* Timeline Step-by-Step */
         .step-container { margin-left: 10px; border-left: 1px solid var(--border); padding-left: 32px; }
         .step { position: relative; margin-bottom: 32px; }
         .step::before { content: ''; position: absolute; left: -37px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--border); border: 2px solid var(--bg); }
@@ -97,7 +92,7 @@ sitemap: false
         .step h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
         .step time { font-family: 'JetBrains Mono'; font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
 
-        footer { border-top: 1px solid var(--border); padding: 60px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+        footer { border-top: 1px solid var(--border); padding: 60px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); }
 
         @media (max-width: 768px) { header h1 { font-size: 3rem; } }
     </style>
@@ -115,19 +110,19 @@ sitemap: false
     <div class="container">
         <header>
             <h1 data-i18n="h_title">Chaos Engineering <br>& Dependability.</h1>
-            <p data-i18n="h_desc">Master’s research at <b>ITA</b> specializing in the systematic evaluation of resilience for distributed mission-critical systems.</p>
+            <p data-i18n="h_desc">Master’s research at <b>ITA</b> specializing in building resilient mission-critical systems through structured chaos experimentation.</p>
         </header>
 
         <section class="section">
             <div class="grid-stats">
                 <div class="card-stat"><small data-i18n="s_inst">Institution</small><span>ITA (PG-EEC)</span></div>
-                <div class="stat-card"><small data-i18n="s_stat">Status</small><span data-i18n="s_stat_v">Regular Student</span></div>
+                <div class="card-stat"><small data-i18n="s_stat">Status</small><span data-i18n="s_stat_v">Regular Student</span></div>
                 <div class="card-stat"><small data-i18n="s_adv">Advisor</small><span>Prof. Dr. Johnny Marques</span></div>
             </div>
         </section>
 
         <section class="section">
-            <span class="section-label">01 / Objectives</span>
+            <span class="section-label">01 / Objective</span>
             <h2 class="section-title" data-i18n="o_title">Research Core & RQs</h2>
             <div class="table-box">
                 <table>
@@ -135,7 +130,7 @@ sitemap: false
                     <tbody>
                         <tr><td><b>RQ1</b></td><td data-i18n="rq1_q">Similar models existence?</td><td data-i18n="rq1_r">Avoid plagiarism and redundancy.</td></tr>
                         <tr><td><b>RQ2</b></td><td data-i18n="rq2_q">Software types developed?</td><td data-i18n="rq2_r">Map open-source vs. commercial landscape.</td></tr>
-                        <tr><td><b>RQ3</b></td><td data-i18n="rq3_q">Findings CE + Dependability?</td><td data-i18n="rq3_r">Support tactical and strategic actions.</td></tr>
+                        <tr><td><b>RQ3</b></td><td data-i18n="rq3_q">Findings CE + Dependability?</td><td data-i18n="rq3_r">Support strategic resilience actions.</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -148,7 +143,7 @@ sitemap: false
                 <div class="step done"><time>2021.1</time><h4 data-i18n="st1">Selection Approved</h4></div>
                 <div class="step done"><time>2022-2023</time><h4 data-i18n="st2">Phase 1: Special Student (15 Credits)</h4></div>
                 <div class="step done"><time>2024.2</time><h4 data-i18n="st3">Admission as Regular Graduate Student</h4></div>
-                <div class="step done"><time>2025.2</time><h4 data-i18n="st4">CT-234: Data Structures & Complexity (Completed)</h4></div>
+                <div class="step done"><time>2025.2</time><h4 data-i18n="st4">CT-234: Data Structures (Completed)</h4></div>
                 <div class="step active"><time>2026.3</time><h4 data-i18n="st5">Final Dissertation Defense</h4></div>
             </div>
         </section>
@@ -160,13 +155,13 @@ sitemap: false
                 <table>
                     <thead><tr><th>Code</th><th data-i18n="c_name">Course Title</th><th data-i18n="c_status">Status</th><th>Credits</th></tr></thead>
                     <tbody>
-                        <tr><td><b>CE-220</b></td><td data-i18n="c1">Software Engineering Fundamentals</td><td><span class="badge badge-success" data-i18n="stat_done">Approved</span></td><td>3</td></tr>
-                        <tr><td><b>CT-601</b></td><td data-i18n="c2">Teaching Internship I</td><td><span class="badge badge-success" data-i18n="stat_done">Approved</span></td><td>3</td></tr>
-                        <tr><td><b>CE-221</b></td><td data-i18n="c3">Computing Research Methodology</td><td><span class="badge badge-success" data-i18n="stat_done">Approved</span></td><td>3</td></tr>
-                        <tr><td><b>CE-294</b></td><td data-i18n="c4">Complex Systems Requirements Engineering</td><td><span class="badge badge-success" data-i18n="stat_done">Approved</span></td><td>3</td></tr>
-                        <tr><td><b>CE-230</b></td><td data-i18n="c5">Quality, Reliability & Security</td><td><span class="badge badge-success" data-i18n="stat_done">Approved</span></td><td>3</td></tr>
-                        <tr><td><b>CT-234</b></td><td data-i18n="c6">Data Structures & Complexity</td><td><span class="badge badge-success" data-i18n="stat_done">Approved</span></td><td>3</td></tr>
-                        <tr><td><b>CT-500</b></td><td data-i18n="c7">M.Sc. Dissertation</td><td><span class="badge badge-ongoing" data-i18n="stat_prog">In Progress</span></td><td>-</td></tr>
+                        <tr><td>CE-220</td><td data-i18n="c1">Software Engineering Fundamentals</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
+                        <tr><td>CT-601</td><td data-i18n="c2">Teaching Internship I</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
+                        <tr><td>CE-221</td><td data-i18n="c3">Computing Research Methodology</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
+                        <tr><td>CE-294</td><td data-i18n="c4">Complex Systems Requirements Engineering</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
+                        <tr><td>CE-230</td><td data-i18n="c5">Quality, Reliability & Security</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
+                        <tr><td>CT-234</td><td data-i18n="c6">Data Structures & Complexity</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
+                        <tr><td>CT-500</td><td data-i18n="c7">M.Sc. Dissertation</td><td><span class="badge badge-ongoing" data-i18n="s_prog">In Progress</span></td><td>-</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -176,14 +171,15 @@ sitemap: false
             <span class="section-label">04 / Mapping</span>
             <h2 class="section-title" data-i18n="m_title">Systematic Mapping & SLM Database</h2>
             
-            <h4 style="font-size: 0.7rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 1px;">FOUNDATIONS</h4>
+            <h4 style="font-size: 0.7rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 1px;">TAXONOMY & FOUNDATIONS</h4>
             <div class="table-box">
                 <table>
-                    <thead><tr><th>ID</th><th>Year</th><th>Key Title</th><th>Authors</th></tr></thead>
+                    <thead><tr><th>ID</th><th>Year</th><th>Title</th><th>Authors</th></tr></thead>
                     <tbody>
-                        <tr><td>IM1</td><td>2004</td><td>Taxonomy of dependable and secure computing</td><td>Avizienis et al.</td></tr>
-                        <tr><td>IM4</td><td>2015</td><td>The Principles of Dependability</td><td>N. Balakrishnan</td></tr>
-                        <tr><td>IM8</td><td>2019</td><td>System Dependability — Benchmarking</td><td>Y. Crouzet</td></tr>
+                        <tr><td>IM1</td><td>2004</td><td>Basic concepts and taxonomy of dependable and secure computing</td><td>Avizienis et al. (IEEE TDSC)</td></tr>
+                        <tr><td>IM2</td><td>2007</td><td>Model-Based Analysis and Development of Dependable Systems</td><td>C. Buckl et al. (Springer)</td></tr>
+                        <tr><td>IM8</td><td>2019</td><td>System Dependability — Benchmarking</td><td>Y. Crouzet (Sem. Scholar)</td></tr>
+                        <tr><td>IM12</td><td>2015</td><td>Model for Assessing Internetware Dependability</td><td>Huiqun Zhao et al. (IEEE)</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -191,18 +187,32 @@ sitemap: false
             <h4 style="font-size: 0.7rem; color:var(--text-muted); margin: 40px 0 12px 0; letter-spacing: 1px;">CHAOS ENGINEERING & CLOUD</h4>
             <div class="table-box">
                 <table>
-                    <thead><tr><th>ID</th><th>Source</th><th>Contribution</th><th>Authors</th></tr></thead>
+                    <thead><tr><th>ID</th><th>Source</th><th>Contribution</th><th>Key Reference</th></tr></thead>
                     <tbody>
-                        <tr><td>EP1</td><td>IEEE</td><td>Security Chaos Engineering for Cloud Services</td><td>Torkura, K. A.</td></tr>
-                        <tr><td>EP26</td><td>IEEE</td><td>Resilience Testing in Microservices Architectures</td><td>Malilewa, A. B.</td></tr>
-                        <tr><td>PAT1</td><td>Patent</td><td>Validating the resiliency of networked applications</td><td>Orzell, G. S.</td></tr>
+                        <tr><td>EP1</td><td>IEEE</td><td>Security Chaos Engineering for Cloud Services</td><td>K. A. Torkura et al. (2019)</td></tr>
+                        <tr><td>EP15</td><td>Springer</td><td>Scalability resilience framework via fault injection</td><td>A. Al-Said Ahmad (2021)</td></tr>
+                        <tr><td>EP24</td><td>IST</td><td>Chaos Engineering: A Multi-Vocal Literature Review</td><td>Owotogbe, J. et al. (2024)</td></tr>
+                        <tr><td>EP26</td><td>IEEE</td><td>Resilience Testing in Microservices Architectures</td><td>Malilewa, A. B. et al. (2025)</td></tr>
+                        <tr><td>PAT1</td><td>Patent</td><td>Validating the resiliency of networked applications</td><td>Orzell, G. S. (Netflix, 2012)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 style="font-size: 0.7rem; color:var(--text-muted); margin: 40px 0 12px 0; letter-spacing: 1px;">CRITICAL DOMAINS</h4>
+            <div class="table-box">
+                <table>
+                    <thead><tr><th>ID</th><th>Domain</th><th>Context / Study</th><th>Source</th></tr></thead>
+                    <tbody>
+                        <tr><td>CD1</td><td>Finance</td><td>Chaos Case Study in Financial Systems</td><td>Lee, J. et al. (2023)</td></tr>
+                        <tr><td>CD2</td><td>Space</td><td>Benchmarking satellite simulator resilience</td><td>Azevedo, D. (INPE, 2014)</td></tr>
+                        <tr><td>CD3</td><td>CPS</td><td>Resilience of Cyber-Physical Systems</td><td>Konstantinou, C. (2021)</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
         <footer>
-            <div>Updated Jan 2026</div>
+            <div>Updated January 2026</div>
             <div style="font-style: italic;">"Standing on the shoulders of giants."</div>
         </footer>
     </div>
@@ -211,27 +221,27 @@ sitemap: false
         const translations = {
             en: {
                 h_title: "Chaos Engineering <br>& Dependability.",
-                h_desc: "Master’s research at <b>ITA</b> specializing in the systematic evaluation of resilience for distributed mission-critical systems.",
+                h_desc: "Master’s research at <b>ITA</b> specializing in building resilient mission-critical systems through structured chaos experimentation.",
                 s_inst: "Institution", s_stat: "Status", s_stat_v: "Regular Student", s_adv: "Advisor",
                 o_title: "Research Core & RQs", t_q: "Question", t_r: "Rationale",
                 rq1_q: "Similar models existence?", rq1_r: "Avoid redundancy.",
                 rq2_q: "Software types developed?", rq2_r: "Map landscape.",
-                rq3_q: "Findings CE + Dependability?", rq3_r: "Tactical support.",
+                rq3_q: "Findings CE + Dependability?", rq3_r: "Strategic support.",
                 t_title: "Academic Progress", st1: "Selection Approved", st2: "Special Student Phase", st3: "Admission as Regular Student", st4: "CT-234: Data Structures (Completed)", st5: "Final Dissertation Defense",
-                c_title: "Academic Credits & Records", c_name: "Course Title", c_status: "Status", stat_done: "Approved", stat_prog: "In Progress",
+                c_title: "Academic Credits & Records", c_name: "Course Title", c_status: "Status", s_app: "Approved", s_prog: "In Progress",
                 c1: "Software Engineering Fundamentals", c2: "Teaching Internship I", c3: "Computing Research Methodology", c4: "Complex Systems Requirements Engineering", c5: "Quality, Reliability & Security", c6: "Data Structures & Complexity", c7: "M.Sc. Dissertation",
                 m_title: "Systematic Mapping & SLM Database"
             },
             pt: {
                 h_title: "Engenharia do Caos <br>& Dependabilidade.",
-                h_desc: "Pesquisa de mestrado no <b>ITA</b> especializada na avaliação sistemática de resiliência para sistemas críticos distribuídos.",
+                h_desc: "Pesquisa de mestrado no <b>ITA</b> especializada na construção de sistemas críticos resilientes via experimentação de caos estruturada.",
                 s_inst: "Instituição", s_stat: "Status", s_stat_v: "Aluno Regular", s_adv: "Orientador",
                 o_title: "Núcleo de Pesquisa & RQs", t_q: "Pergunta", t_r: "Justificativa",
                 rq1_q: "Existência de modelos similares?", rq1_r: "Evitar redundância.",
                 rq2_q: "Tipos de software desenvolvidos?", rq2_r: "Mapear cenário.",
-                rq3_q: "Descobertas CE + Dependabilidade?", rq3_r: "Suporte tático.",
+                rq3_q: "Descobertas CE + Dependabilidade?", rq3_r: "Suporte estratégico.",
                 t_title: "Progresso Acadêmico", st1: "Seleção Aprovada", st2: "Fase Aluno Especial", st3: "Admissão como Aluno Regular", st4: "CT-234: Estruturas de Dados (Concluída)", st5: "Defesa Final da Dissertação",
-                c_title: "Créditos Acadêmicos & Registros", c_name: "Disciplina", c_status: "Status", stat_done: "Aprovado", stat_prog: "Em Progresso",
+                c_title: "Créditos Acadêmicos & Registros", c_name: "Disciplina", c_status: "Status", s_app: "Aprovado", s_prog: "Em Progresso",
                 c1: "Fundamentos de Engenharia de Software", c2: "Estágio: Docência I", c3: "Metodologia de Pesquisa em Computação", c4: "Eng. de Requisitos de Sistemas Complexos", c5: "Qualidade, Confiabilidade e Segurança", c6: "Estruturas de Dados e Complexidade", c7: "Dissertação de Mestrado",
                 m_title: "Mapeamento Sistemático & Base SLM"
             }
