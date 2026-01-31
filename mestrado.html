@@ -171,16 +171,57 @@ sitemap: false
             </table>
         </div>
 
-        <div class="section-title"><span>04/</span> <span data-i18n="sec4_title">Systematic Mapping (SLM)</span></div>
+        <div class="section-title"><span>04/</span> <span data-i18n="sec4_title">Systematic Mapping (SLM) & Bibliography</span></div>
+        
+        <p style="margin-bottom: 24px; color: var(--text-muted);" data-i18n="slm_desc">
+            A comprehensive mapping of <b>Dependability</b> and <b>Chaos Engineering</b> evolution, from fundamental taxonomy to modern cloud-native resilience.
+        </p>
+
+        <h4 style="font-size: 0.8rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase;">Foundations & Taxonomy</h4>
         <div class="table-wrapper">
             <table>
-                <thead><tr><th>ID</th><th>Source</th><th>Year</th><th data-i18n="table_t">Title</th><th>Authors</th></tr></thead>
+                <thead>
+                    <tr><th>ID</th><th>Year</th><th>Key Title</th><th>Authors / Venue</th></tr>
+                </thead>
                 <tbody>
-                    <tr><td>EP1</td><td>IEEE</td><td>2019</td><td>Security Chaos Engineering for Cloud Services</td><td>Torkura, K. A. et al.</td></tr>
-                    <tr><td>EP22</td><td>IEEE</td><td>2025</td><td>Resilience Testing in Microservices Architectures</td><td>Malilewa, A. B. et al.</td></tr>
-                    <tr><td>EP24</td><td>IST</td><td>2024</td><td>Chaos Engineering: A Multi-Vocal Literature Review</td><td>Owotogbe, J. et al.</td></tr>
-                    <tr><td>EP25</td><td>JSS</td><td>2022</td><td>Architecture-based Resilience Testing</td><td>Van Hoorn, A. et al.</td></tr>
-                    <tr><td>IM1</td><td>SD</td><td>2012</td><td>Engineering Secure Dependable Systems</td><td>M.F. Khan, R. Paul</td></tr>
+                    <tr><td><b>IM1</b></td><td>2004</td><td>Basic concepts and taxonomy of dependable and secure computing</td><td>Avizienis, A. et al. (IEEE TDSC)</td></tr>
+                    <tr><td><b>IM4</b></td><td>2015</td><td>The Principles of Dependability</td><td>N. Balakrishnan (Springer)</td></tr>
+                    <tr><td><b>IM8</b></td><td>2019</td><td>System Dependability — Benchmarking</td><td>Y. Crouzet, K. Kanoun</td></tr>
+                    <tr><td><b>IM12</b></td><td>2015</td><td>Model for Assessing Internetware Dependability</td><td>Huiqun Zhao et al. (IEEE)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4 style="font-size: 0.8rem; color: var(--accent); margin-top: 30px; margin-bottom: 15px; text-transform: uppercase;">Chaos Engineering & Cloud Resilience</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Source</th><th>Year</th><th>Research Contribution</th><th>Authors</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>EP1</b></td><td>IEEE</td><td>2019</td><td>Security Chaos Engineering for Cloud Services</td><td>Torkura, K. A. et al.</td></tr>
+                    <tr><td><b>EP2</b></td><td>IEEE</td><td>2022</td><td>Improving Resiliency of IT Services Configurations</td><td>Poltronieri, F. et al.</td></tr>
+                    <tr><td><b>EP15</b></td><td>Springer</td><td>2021</td><td>Scalability resilience framework via fault injection</td><td>Al-Said Ahmad, A.</td></tr>
+                    <tr><td><b>EP24</b></td><td>IST</td><td>2024</td><td>Chaos Engineering: A Multi-Vocal Literature Review</td><td>Owotogbe, J. et al.</td></tr>
+                    <tr><td><b>EP25</b></td><td>JSS</td><td>2022</td><td>Architecture-based Resilience Testing</td><td>Van Hoorn, A. et al.</td></tr>
+                    <tr><td><b>EP26</b></td><td>IEEE</td><td>2025</td><td>Resilience Testing in Microservices Architectures</td><td>Malilewa, A. B. et al.</td></tr>
+                    <tr><td><b>PAT1</b></td><td>Patent</td><td>2012</td><td>Validating the resiliency of networked applications</td><td>Orzell, G. S. (Netflix)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4 style="font-size: 0.8rem; color: var(--accent); margin-top: 30px; margin-bottom: 15px; text-transform: uppercase;">Critical Domains (Finance, Health, CPS)</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Domain</th><th>Year</th><th>Study Focus</th><th>Source</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>CD1</b></td><td>Finance</td><td>2023</td><td>Chaos Engineering in Financial Case Studies</td><td>Lee, J. et al. (IEEE)</td></tr>
+                    <tr><td><b>CD2</b></td><td>Health</td><td>2023</td><td>Dependability-by-Design for Distributed Health</td><td>Rossi, M. et al.</td></tr>
+                    <tr><td><b>CD3</b></td><td>CPS</td><td>2021</td><td>Chaos Engineering for Cyber-Physical Systems</td><td>Konstantinou, C.</td></tr>
+                    <tr><td><b>CD4</b></td><td>Telecom</td><td>2019</td><td>Dynamic resilience in distributed systems</td><td>Patterson, J. M.</td></tr>
+                    <tr><td><b>CD5</b></td><td>Space</td><td>2014</td><td>Resilience benchmarking for satellite simulators</td><td>Azevedo, D. (INPE)</td></tr>
                 </tbody>
             </table>
         </div>
@@ -195,6 +236,7 @@ sitemap: false
 
     <footer>
         <p><span data-i18n="footer_upd">Updated January 2026</span> · PG-EEC ITA</p>
+        <p style="margin-top: 10px; opacity: 0.5;">"Standing on the shoulders of giants."</p>
     </footer>
 
     <script>
@@ -213,7 +255,9 @@ sitemap: false
                 t1: "M.Sc. Selection Approved", t2: "Special Student Phase (15 Credits Approved)", t3: "Admission as Regular Graduate Student", t4: "CT-234: Data Structures (Completed)", t5: "Final M.Sc. Dissertation Defense",
                 sec3_title: "Curriculum & Credits", c_title: "Course", c_status: "Status", stat_app: "Approved", stat_prog: "In Progress",
                 c1: "Software Engineering Fundamentals", c2: "Computing Research Methodology", c3: "Quality, Reliability & Security", c4: "Data Structures & Complexity", c5: "M.Sc. Dissertation",
-                sec4_title: "Systematic Mapping (SLM)", sec5_title: "Institutional Links", footer_upd: "Updated January 2026"
+                sec4_title: "Systematic Mapping (SLM) & Bibliography", 
+                slm_desc: "A comprehensive mapping of <b>Dependability</b> and <b>Chaos Engineering</b> evolution, from fundamental taxonomy to modern cloud-native resilience.",
+                sec5_title: "Institutional Links", footer_upd: "Updated January 2026"
             },
             pt: {
                 header_title: "Engenharia do Caos <br>& Dependabilidade.",
@@ -229,7 +273,9 @@ sitemap: false
                 t1: "Seleção de Mestrado Aprovada", t2: "Fase Aluno Especial (15 Créditos Aprovados)", t3: "Admissão como Aluno Regular", t4: "CT-234: Estruturas de Dados (Concluída)", t5: "Defesa Final da Dissertação",
                 sec3_title: "Currículo & Créditos", c_title: "Disciplina", c_status: "Status", stat_app: "Aprovado", stat_prog: "Em Progresso",
                 c1: "Fundamentos de Engenharia de Software", c2: "Metodologia de Pesquisa em Computação", c3: "Qualidade, Confiabilidade e Segurança", c4: "Estruturas de Dados e Complexidade", c5: "Dissertação de Mestrado",
-                sec4_title: "Mapeamento Sistemático (SLM)", sec5_title: "Links Institucionais", footer_upd: "Atualizado em Janeiro de 2026"
+                sec4_title: "Mapeamento Sistemático (SLM) & Bibliografia",
+                slm_desc: "Mapeamento abrangente da evolução de <b>Dependabilidade</b> e <b>Engenharia do Caos</b>, da taxonomia fundamental à resiliência nativa em nuvem.",
+                sec5_title: "Links Institucionais", footer_upd: "Atualizado em Janeiro de 2026"
             }
         };
 
