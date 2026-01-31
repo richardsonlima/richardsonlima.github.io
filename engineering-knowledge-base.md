@@ -58,9 +58,9 @@ sitemap: false
         }
 
         h1 { font-size: 3rem; margin: 20px 0; letter-spacing: -2px; }
-        .description { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 40px; }
+        .intro-text { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto 40px auto; }
 
-        /* Udemy/Learning Path Style Layout */
+        /* Layout Style */
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
         .section-title {
@@ -77,6 +77,7 @@ sitemap: false
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
+            margin-bottom: 80px;
         }
 
         /* Module Card Styling */
@@ -99,7 +100,6 @@ sitemap: false
             box-shadow: 0 20px 40px rgba(0, 240, 255, 0.1);
         }
 
-        /* Coming Soon State Styling */
         .module-card.coming-soon {
             opacity: 0.7;
             filter: grayscale(0.4);
@@ -129,6 +129,20 @@ sitemap: false
             font-weight: 600;
         }
 
+        /* Philosophy Section */
+        .philosophy-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 100px;
+        }
+        .philosophy-section h2 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .philosophy-list { list-style: none; padding: 0; }
+        .philosophy-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--text-muted); }
+        .philosophy-list li::before { content: '→'; position: absolute; left: 0; color: var(--primary-accent); }
+        .philosophy-list b { color: var(--text-main); }
+
         footer { text-align: center; padding: 100px 20px; color: var(--text-muted); }
     </style>
 </head>
@@ -137,9 +151,12 @@ sitemap: false
 <header>
     <span class="badge">Open Knowledge Archive</span>
     <h1>Engineering Knowledge Base</h1>
-    <p class="description">
-        A structured collection of technical deep dives and AI research designed to bridge the gap between stochastic models and deterministic software engineering.
-    </p>
+    <div class="intro-text">
+        Welcome to my personal archive of technical presentations and architectural studies.
+        This repository reflects my continuous journey in Software Engineering and Artificial Intelligence.
+        The goal of this open collection is to contribute to the engineering community by synthesizing complex topics into structured, digestible modules.
+        These materials are the result of years of hands-on experience and deep research, shared freely to help peers accelerate their own technical paths.
+    </div>
 </header>
 
 <div class="container">
@@ -161,7 +178,7 @@ sitemap: false
         {% endfor %}
     </div>
 
-    <div class="section-title" style="margin-top: 80px;">
+    <div class="section-title">
         <span>🚀</span> MLOps: Machine Learning Engineering
     </div>
 
@@ -192,7 +209,7 @@ sitemap: false
         </div>
     </div>
 
-    <div class="section-title" style="margin-top: 80px;">
+    <div class="section-title">
         <span>🗣️</span> Applied NLP: NLU & NLG Mastery (E2E)
     </div>
 
@@ -215,7 +232,7 @@ sitemap: false
         </div>
     </div>
 
-    <div class="section-title" style="margin-top: 80px;">
+    <div class="section-title">
         <span>🛠️</span> Software Engineering & Data Structures
     </div>
 
@@ -238,58 +255,26 @@ sitemap: false
         </div>
     </div>
 
-    <div class="section-title" style="margin-top: 80px;">
-            <span>🏛️</span> Computer Engeneering / Science Foundations: The Deep Series
+    <div class="section-title">
+        <span>🏛️</span> Computer Engeneering / Science Foundations: The Deep Series
+    </div>
+
+    <div class="modules-grid">
+        <div class="module-card coming-soon">
+            <div><span class="mod-number" style="color: #007bff;">CS-FUND-01</span><h3>Data Structures & Complexity</h3><p>Order of functions, recursive algorithms, and elementary structures.</p></div>
+            <div class="btn-launch" style="background: #333;">Soon...</div>
         </div>
+        <div class="module-card coming-soon">
+            <div><span class="mod-number" style="color: #007bff;">CS-FUND-02</span><h3>Advanced Algorithms & Graphs</h3><p>Sorting, pattern searching, and graph traversals.</p></div>
+            <div class="btn-launch" style="background: #333;">Soon...</div>
+        </div>
+        <div class="module-card coming-soon">
+            <div><span class="mod-number" style="color: #007bff;">CS-FUND-03</span><h3>Compiler Engineering</h3><p>Lexical and syntactic analysis for virtual machines.</p></div>
+            <div class="btn-launch" style="background: #333;">Soon...</div>
+        </div>
+    </div>
 
-        <div class="modules-grid">
-            <div class="module-card coming-soon">
-                <div>
-                    <span class="mod-number" style="color: #007bff;">CS-FUND-01</span>
-                    <h3>Data Structures & Complexity Analysis</h3>
-                    <p>Order of functions, recursive algorithms, balanced trees (AVL, Red-Black), and elementary structures (Linked Lists, Stacks, Queues).</p>
-                </div>
-                <div class="btn-launch" style="background: #333;">Available Soon...</div>
-            </div>
-
-            <div class="module-card coming-soon">
-                <div>
-                    <span class="mod-number" style="color: #007bff;">CS-FUND-02</span>
-                    <h3>Advanced Algorithms & Graph Theory</h3>
-                    <p>Sorting algorithms, pattern searching, graph traversals, shortest paths, and programming paradigms (Dynamic Programming, Greedy).</p>
-                </div>
-                <div class="btn-launch" style="background: #333;">Available Soon...</div>
-            </div>
-
-            <div class="module-card coming-soon">
-                <div>
-                    <span class="mod-number" style="color: #007bff;">CS-FUND-03</span>
-                    <h3>Compiler Engineering & Formal Languages</h3>
-                    <p>Lexical, syntactic, and semantic analysis. Code generation and virtual machine implementation (Tiny VM).</p>
-                </div>
-                <div class="btn-launch" style="background: #333;">Available Soon...</div>
-            </div>
-
-            <div class="module-card coming-soon">
-                <div>
-                    <span class="mod-number" style="color: #007bff;">CS-FUND-04</span>
-                    <h3>Computational Mathematics & Numerical Analysis</h3>
-                    <p>Error representation, roots of linear/non-linear systems, interpolation, curve fitting, and numerical integration.</p>
-                </div>
-                <div class="btn-launch" style="background: #333;">Available Soon...</div>
-            </div>
-
-            <div class="module-card coming-soon">
-                <div>
-                    <span class="mod-number" style="color: #007bff;">CS-FUND-05</span>
-                    <h3>Specialized Algorithms</h3>
-                    <p>Introduction to parallel computing, probabilistic algorithms, and structural complexity.</p>
-                </div>
-                <div class="btn-launch" style="background: #333;">Available Soon...</div>
-            </div>
-        </div>    
-
-    <div class="section-title" style="margin-top: 80px;">
+    <div class="section-title">
         <span>🔍</span> Technical Deep Dives & Systems Architecture
     </div>
     
@@ -309,10 +294,22 @@ sitemap: false
             {% endunless %}
         {% endfor %}
     </div>
+
+    <div class="philosophy-section">
+        <h2><span>🤝</span> Community & Philosophy</h2>
+        <p>Knowledge grows when shared. This page serves as a “living document” of my studies.</p>
+        <ul class="philosophy-list">
+            <li><b>Continuous Learning:</b> These modules are updated as the technology landscape evolves (e.g., from Transformer architecture to Agentic Frameworks).</li>
+            <li><b>Open Access:</b> All materials here are available for study and reference.</li>
+            <li><b>Collaborative Growth:</b> Feedback and technical discussions are always welcome to refine these concepts.</li>
+        </ul>
+        <p style="font-style: italic; margin-top: 30px; border-left: 3px solid var(--secondary-accent); padding-left: 15px;">
+            “We are standing on the shoulders of giants. This is my way of adding a small step to the ladder.”
+        </p>
+    </div>
 </div>
 
 <footer>
-    <p>"Standing on the shoulders of giants."</p>
     <p>&copy; 2026 Richardson Lima</p>
     <a href="/" style="color: var(--secondary-accent); text-decoration: none;">← Back to Blog</a>
 </footer>
