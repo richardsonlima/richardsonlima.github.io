@@ -7,8 +7,9 @@ sitemap: false
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.Sc. Research Journal | Richardson Lima</title>
+    <title>ITA PG/EEC - Eng. Eletrônica e Computação (EEC-I Informática) | Richardson Lima</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -33,217 +34,346 @@ sitemap: false
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: var(--bg); 
-            color: var(--fg); 
-            line-height: 1.5; 
-            -webkit-font-smoothing: antialiased; 
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 40px 20px;
         }
 
-        .nav {
-            padding: 12px 32px;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
             display: flex;
             justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        h1 {
+            font-size: 2rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; align-items: flex-start; gap: 15px; }
+        }
+
+        .card {
+            margin-bottom: 40px;
+        }
+
+        h2, h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            border-left: 2px solid var(--accent);
+            padding-left: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--fg);
+            opacity: 0.9;
+        }
+
+        .research-question {
+            background: var(--subtle);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 15px;
+        }
+
+        .rq-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .timeline-item {
+            display: flex;
             align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: var(--border);
+        }
+
+        .status-dot.done { background: #10b981; box-shadow: 0 0 0 3px var(--success-bg); }
+        .status-dot.active { background: var(--accent); }
+
+        .credits-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .credits-table td {
+            padding: 8px 0;
             border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; background: var(--bg); z-index: 100;
         }
-        .nav-brand { font-weight: 800; font-size: 0.95rem; letter-spacing: -0.5px; }
-        .lang-toggle { display: flex; background: var(--subtle); padding: 4px; border-radius: 8px; border: 1px solid var(--border); }
-        .btn-lang { 
-            background: transparent; border: none; color: var(--text-muted); 
-            padding: 6px 14px; border-radius: 6px; font-size: 0.7rem; 
-            font-weight: 700; cursor: pointer; transition: 0.2s;
+
+        .credits-table td:last-child {
+            text-align: right;
+            color: var(--text-muted);
         }
-        .btn-lang.active { background: var(--bg); color: var(--fg); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 100px 24px; }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .tag.pass { background: var(--success-bg); color: var(--success-text); }
+        .tag.prog { background: var(--subtle); color: var(--text-muted); border: 1px solid var(--border); }
 
-        header { margin-bottom: 100px; }
-        header h1 { font-size: 4.5rem; font-weight: 800; letter-spacing: -4.5px; line-height: 0.95; margin-bottom: 32px; }
-        header p { font-size: 1.35rem; color: var(--text-muted); max-width: 800px; font-weight: 400; letter-spacing: -0.3px; }
+        .lang-switch {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .lang-switch span:hover { color: var(--accent); }
+        .lang-switch .active { color: var(--fg); font-weight: bold; text-decoration: underline; }
 
-        .section { margin-bottom: 120px; }
-        .section-label { font-family: 'JetBrains Mono'; font-size: 0.65rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; display: block; }
-        .section-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 40px; }
+        a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.2s; }
+        a:hover { border-bottom-color: var(--accent); }
+        
+        /* Estilos adicionais para a nova seção de links */
+        .meta-label { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 2px; }
+        .meta-block { margin-bottom: 12px; }
+        .link-list { list-style: none; padding: 0; font-size: 0.9rem; }
+        .link-list li { margin-bottom: 8px; }
+        .link-list a { display: inline-flex; align-items: center; gap: 6px; }
 
-        .grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 40px; }
-        .card-stat { border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: 0.2s; }
-        .card-stat:hover { border-color: var(--accent); background: var(--subtle); transform: translateY(-2px); }
-        .card-stat small { font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 12px; }
-        .card-stat p { font-size: 1.1rem; font-weight: 600; }
-
-        .table-box { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 20px; margin-bottom: 48px; }
-        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        th { background: var(--subtle); padding: 14px 24px; font-weight: 700; color: var(--text-muted); text-align: left; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
-        td { padding: 18px 24px; border-top: 1px solid var(--border); color: var(--fg); }
-        tr:hover td { background: var(--subtle); }
-
-        .badge { padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
-        .badge-success { background: var(--success-bg); color: var(--success-text); }
-        .badge-ongoing { background: rgba(102, 0, 255, 0.08); color: var(--accent); }
-
-        .step-container { margin-left: 10px; border-left: 1px solid var(--border); padding-left: 32px; }
-        .step { position: relative; margin-bottom: 32px; }
-        .step::before { content: ''; position: absolute; left: -37px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--border); border: 2px solid var(--bg); }
-        .step.done::before { background: var(--success-text); }
-        .step.active::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(102, 0, 255, 0.1); }
-        .step h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-        .step time { font-family: 'JetBrains Mono'; font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
-
-        footer { border-top: 1px solid var(--border); padding: 60px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); }
-
-        @media (max-width: 768px) { header h1 { font-size: 3rem; } }
     </style>
 </head>
 <body>
 
-    <nav class="nav">
-        <div class="nav-brand">Richardson Lima</div>
-        <div class="lang-toggle">
-            <button class="btn-lang active" onclick="setLang('en')">EN</button>
-            <button class="btn-lang" onclick="setLang('pt')">PT</button>
-        </div>
-    </nav>
-
     <div class="container">
         <header>
-            <h1 data-i18n="h_title">Chaos Engineering <br>& Dependability.</h1>
-            <p data-i18n="h_desc">Master’s research at <b>ITA</b> specializing in building resilient mission-critical systems through structured chaos experimentation.</p>
+            <div>
+                <h1>M.Sc. Research Journal</h1>
+                <div class="subtitle">Computer Engineering (CE-2) • Dependability & Safety</div>
+            </div>
+            <div class="lang-switch">
+                <span onclick="setLang('en')" id="btn-en" class="active">EN</span> / 
+                <span onclick="setLang('pt')" id="btn-pt">PT-BR</span>
+            </div>
         </header>
 
-        <section class="section">
-            <div class="grid-stats">
-                <div class="card-stat"><small data-i18n="s_inst">Institution</small><span>ITA (PG-EEC)</span></div>
-                <div class="card-stat"><small data-i18n="s_stat">Status</small><span data-i18n="s_stat_v">Regular Student</span></div>
-                <div class="card-stat"><small data-i18n="s_adv">Advisor</small><span>Prof. Dr. Johnny Marques</span></div>
-            </div>
-        </section>
+        <div class="grid">
+            <div class="col-left">
+                <div class="card">
+                    <h2 data-i18n="context_title">Research Context</h2>
+                    <p data-i18n="context_text">
+                        Investigating the intersection of Chaos Engineering and Safety-Critical Systems within the aerospace domain. The focus lies on improving dependability in autonomous drone swarms through proactive fault injection.
+                    </p>
+                </div>
 
-        <section class="section">
-            <span class="section-label">01 / Objective</span>
-            <h2 class="section-title" data-i18n="o_title">Research Core & RQs</h2>
-            <div class="table-box">
-                <table>
-                    <thead><tr><th>ID</th><th data-i18n="t_q">Question</th><th data-i18n="t_r">Rationale</th></tr></thead>
-                    <tbody>
-                        <tr><td><b>RQ1</b></td><td data-i18n="rq1_q">Similar models existence?</td><td data-i18n="rq1_r">Avoid plagiarism and redundancy.</td></tr>
-                        <tr><td><b>RQ2</b></td><td data-i18n="rq2_q">Software types developed?</td><td data-i18n="rq2_r">Map open-source vs. commercial landscape.</td></tr>
-                        <tr><td><b>RQ3</b></td><td data-i18n="rq3_q">Findings CE + Dependability?</td><td data-i18n="rq3_r">Support strategic resilience actions.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                <div class="card">
+                    <h2 data-i18n="questions_title">Research Questions</h2>
+                    
+                    <div class="research-question">
+                        <span class="rq-header">RQ1: State of the Art</span>
+                        <p data-i18n="rq1_q">Are there Chaos Engineering models specifically adapted for Safety-Critical Systems?</p>
+                        <small style="color:var(--text-muted)" data-i18n="rq1_r">Rationale: Identify gaps in current literature to avoid redundancy.</small>
+                    </div>
 
-        <section class="section">
-            <span class="section-label">02 / Timeline</span>
-            <h2 class="section-title" data-i18n="t_title">Academic Progress</h2>
-            <div class="step-container">
-                <div class="step done"><time>2021.1</time><h4 data-i18n="st1">Selection Approved</h4></div>
-                <div class="step done"><time>2022-2023</time><h4 data-i18n="st2">Phase 1: Special Student (15 Credits)</h4></div>
-                <div class="step done"><time>2024.2</time><h4 data-i18n="st3">Admission as Regular Graduate Student</h4></div>
-                <div class="step done"><time>2025.2</time><h4 data-i18n="st4">CT-234: Data Structures (Completed)</h4></div>
-                <div class="step active"><time>2026.2</time><h4 data-i18n="st5">Final Dissertation Defense</h4></div>
-            </div>
-        </section>
+                    <div class="research-question">
+                        <span class="rq-header">RQ2: Application Scope</span>
+                        <p data-i18n="rq2_q">What types of software in the aerospace industry (embedded, ground control, autonomous) are most suitable for Chaos experiments?</p>
+                        <small style="color:var(--text-muted)" data-i18n="rq2_r">Rationale: Map the scenario where the contribution is most valuable.</small>
+                    </div>
 
-        <section class="section">
-            <span class="section-label">03 / Curriculum</span>
-            <h2 class="section-title" data-i18n="c_title">Academic Credits & Records</h2>
-            <div class="table-box">
-                <table>
-                    <thead><tr><th>Code</th><th data-i18n="c_name">Course Title</th><th data-i18n="c_status">Status</th><th>Credits</th></tr></thead>
-                    <tbody>
-                        <tr><td>CE-220</td><td data-i18n="c1">Software Engineering Fundamentals</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
-                        <tr><td>CT-601</td><td data-i18n="c2">Teaching Internship I</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
-                        <tr><td>CE-221</td><td data-i18n="c3">Computing Research Methodology</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
-                        <tr><td>CE-294</td><td data-i18n="c4">Complex Systems Requirements Engineering</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
-                        <tr><td>CE-230</td><td data-i18n="c5">Quality, Reliability & Security</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
-                        <tr><td>CT-234</td><td data-i18n="c6">Data Structures & Complexity</td><td><span class="badge badge-success" data-i18n="s_app">Approved</span></td><td>3</td></tr>
-                        <tr><td>CT-500</td><td data-i18n="c7">M.Sc. Dissertation</td><td><span class="badge badge-ongoing" data-i18n="s_prog">In Progress</span></td><td>-</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                    <div class="research-question">
+                        <span class="rq-header">RQ3: Dependability Impact</span>
+                        <p data-i18n="rq3_q">How can Chaos Engineering evidence support safety arguments in assurance cases?</p>
+                        <small style="color:var(--text-muted)" data-i18n="rq3_r">Rationale: Connect technical findings with strategic certification needs.</small>
+                    </div>
+                </div>
 
-        <section class="section">
-            <span class="section-label">04 / Mapping</span>
-            <h2 class="section-title" data-i18n="m_title">Systematic Mapping & SLM Database</h2>
-            
-            <h4 style="font-size: 0.7rem; color:var(--text-muted); margin-bottom: 12px; letter-spacing: 1px;">TAXONOMY & FOUNDATIONS</h4>
-            <div class="table-box">
-                <table>
-                    <thead><tr><th>ID</th><th>Year</th><th>Title</th><th>Authors</th></tr></thead>
-                    <tbody>
-                        <tr><td>IM1</td><td>2004</td><td>Basic concepts and taxonomy of dependable and secure computing</td><td>Avizienis et al. (IEEE TDSC)</td></tr>
-                        <tr><td>IM2</td><td>2007</td><td>Model-Based Analysis and Development of Dependable Systems</td><td>C. Buckl et al. (Springer)</td></tr>
-                        <tr><td>IM8</td><td>2019</td><td>System Dependability — Benchmarking</td><td>Y. Crouzet (Sem. Scholar)</td></tr>
-                        <tr><td>IM12</td><td>2015</td><td>Model for Assessing Internetware Dependability</td><td>Huiqun Zhao et al. (IEEE)</td></tr>
-                    </tbody>
-                </table>
+                <div class="card">
+                    <h2 data-i18n="m_title">Systematic Mapping & SLM Base</h2>
+                    <p style="font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">
+                        > Searching databases: IEEE Xplore, ACM Digital Library, Scopus.<br>
+                        > Keywords: "Chaos Engineering", "Safety-Critical", "Fault Injection", "Resilience".<br>
+                        > Status: <span style="color:var(--accent)">Data Extraction Phase</span>
+                    </p>
+                </div>
             </div>
 
-            <h4 style="font-size: 0.7rem; color:var(--text-muted); margin: 40px 0 12px 0; letter-spacing: 1px;">CHAOS ENGINEERING & CLOUD</h4>
-            <div class="table-box">
-                <table>
-                    <thead><tr><th>ID</th><th>Source</th><th>Contribution</th><th>Key Reference</th></tr></thead>
-                    <tbody>
-                        <tr><td>EP1</td><td>IEEE</td><td>Security Chaos Engineering for Cloud Services</td><td>K. A. Torkura et al. (2019)</td></tr>
-                        <tr><td>EP15</td><td>Springer</td><td>Scalability resilience framework via fault injection</td><td>A. Al-Said Ahmad (2021)</td></tr>
-                        <tr><td>EP24</td><td>IST</td><td>Chaos Engineering: A Multi-Vocal Literature Review</td><td>Owotogbe, J. et al. (2024)</td></tr>
-                        <tr><td>EP26</td><td>IEEE</td><td>Resilience Testing in Microservices Architectures</td><td>Malilewa, A. B. et al. (2025)</td></tr>
-                        <tr><td>PAT1</td><td>Patent</td><td>Validating the resiliency of networked applications</td><td>Orzell, G. S. (Netflix, 2012)</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="col-right">
+                
+                <div class="card">
+                    <h3 data-i18n="inst_title">Institutional Links</h3>
+                    
+                    <div style="border-bottom: 1px solid var(--border); margin-bottom: 15px; padding-bottom: 5px;">
+                        <div class="meta-block">
+                            <span class="meta-label" data-i18n="lbl_institution">Institution</span>
+                            <a href="http://www.ita.br/" target="_blank">Technological Institute of Aeronautics (ITA)</a>
+                        </div>
+                        <div class="meta-block">
+                            <span class="meta-label" data-i18n="lbl_advisor">Advisor</span>
+                            <a href="https://www.gimps.info/equipe/coordenador" target="_blank">Prof. Dr. Johnny Marques</a> <span style="font-size:0.85em; color:var(--text-muted)">(GIMPS Group)</span>
+                        </div>
+                    </div>
 
-            <h4 style="font-size: 0.7rem; color:var(--text-muted); margin: 40px 0 12px 0; letter-spacing: 1px;">CRITICAL DOMAINS</h4>
-            <div class="table-box">
-                <table>
-                    <thead><tr><th>ID</th><th>Domain</th><th>Context / Study</th><th>Source</th></tr></thead>
-                    <tbody>
-                        <tr><td>CD1</td><td>Finance</td><td>Chaos Case Study in Financial Systems</td><td>Lee, J. et al. (2023)</td></tr>
-                        <tr><td>CD2</td><td>Space</td><td>Benchmarking satellite simulator resilience</td><td>Azevedo, D. (INPE, 2014)</td></tr>
-                        <tr><td>CD3</td><td>CPS</td><td>Resilience of Cyber-Physical Systems</td><td>Konstantinou, C. (2021)</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                    <ul class="link-list">
+                        <li>
+                            <a href="http://www.ita.br/posgrad/calendario" target="_blank">
+                                <span style="color:var(--accent)">→</span> <span data-i18n="lnk_calendar">ITA Academic Calendar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.gimps.info/home" target="_blank">
+                                <span style="color:var(--accent)">→</span> <span data-i18n="lnk_gimps">GIMPS Research Group</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.pgfis.ita.br/pt/post/mestrado" target="_blank">
+                                <span style="color:var(--accent)">→</span> <span data-i18n="lnk_masters">ITA Master's Degree</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.pgfis.ita.br/post/processo-seletivo" target="_blank">
+                                <span style="color:var(--accent)">→</span> <span data-i18n="lnk_selection">Selection Process</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.pgfis.ita.br/post/pg-eec" target="_blank">
+                                <span style="color:var(--accent)">→</span> PG-EEC
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="t_title">Academic Progress</h3>
+                    <div class="timeline-item"><div class="status-dot done"></div><span data-i18n="st1">Selection Approved</span></div>
+                    <div class="timeline-item"><div class="status-dot done"></div><span data-i18n="st2">Special Student Phase</span></div>
+                    <div class="timeline-item"><div class="status-dot active"></div><span data-i18n="st3">Regular Student Admission</span></div>
+                    <div class="timeline-item"><div class="status-dot"></div><span data-i18n="st4">CT-234: Data Structures (Done)</span></div>
+                    <div class="timeline-item"><div class="status-dot"></div><span data-i18n="st5">Final Dissertation Defense</span></div>
+                </div>
 
-        <footer>
-            <div>Updated January 2026</div>
-            <div style="font-style: italic;">"Standing on the shoulders of giants."</div>
-        </footer>
+                <div class="card">
+                    <h3 data-i18n="c_title">Credits & Records</h3>
+                    <table class="credits-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;" data-i18n="c_name">Subject</th>
+                                <th style="text-align: right;" data-i18n="c_status">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="c1">CE-240: Software Eng. Fund.</td>
+                                <td><span class="tag pass" data-i18n="s_app">Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="c2">CE-297: Teaching Internship I</td>
+                                <td><span class="tag pass" data-i18n="s_app">Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="c3">CI-202: Research Methodology</td>
+                                <td><span class="tag pass" data-i18n="s_app">Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="c4">CE-245: Requirements Eng.</td>
+                                <td><span class="tag prog" data-i18n="s_prog">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="c5">CE-230: Quality & Safety</td>
+                                <td><span class="tag prog" data-i18n="s_prog">In Progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <script>
         const translations = {
             en: {
-                h_title: "Chaos Engineering <br>& Dependability.",
-                h_desc: "Master’s research at <b>ITA</b> specializing in building resilient mission-critical systems through structured chaos experimentation.",
-                s_inst: "Institution", s_stat: "Status", s_stat_v: "Regular Student", s_adv: "Advisor",
-                o_title: "Research Core & RQs", t_q: "Question", t_r: "Rationale",
-                rq1_q: "Similar models existence?", rq1_r: "Avoid redundancy.",
-                rq2_q: "Software types developed?", rq2_r: "Map landscape.",
-                rq3_q: "Findings CE + Dependability?", rq3_r: "Strategic support.",
-                t_title: "Academic Progress", st1: "Selection Approved", st2: "Special Student Phase", st3: "Admission as Regular Student", st4: "CT-234: Data Structures (Completed)", st5: "Final Dissertation Defense",
-                c_title: "Academic Credits & Records", c_name: "Course Title", c_status: "Status", s_app: "Approved", s_prog: "In Progress",
-                c1: "Software Engineering Fundamentals", c2: "Teaching Internship I", c3: "Computing Research Methodology", c4: "Complex Systems Requirements Engineering", c5: "Quality, Reliability & Security", c6: "Data Structures & Complexity", c7: "M.Sc. Dissertation",
-                m_title: "Systematic Mapping & SLM Database"
+                context_title: "Research Context",
+                context_text: "Investigating the intersection of Chaos Engineering and Safety-Critical Systems within the aerospace domain. The focus lies on improving dependability in autonomous drone swarms through proactive fault injection.",
+                questions_title: "Research Questions",
+                rq1_q: "Are there Chaos Engineering models specifically adapted for Safety-Critical Systems?", rq1_r: "Rationale: Identify gaps in current literature to avoid redundancy.",
+                rq2_q: "What types of software in the aerospace industry (embedded, ground control, autonomous) are most suitable for Chaos experiments?", rq2_r: "Rationale: Map the scenario where the contribution is most valuable.",
+                rq3_q: "How can Chaos Engineering evidence support safety arguments in assurance cases?", rq3_r: "Rationale: Connect technical findings with strategic certification needs.",
+                t_title: "Academic Progress", st1: "Selection Approved", st2: "Special Student Phase", st3: "Regular Student Admission", st4: "CT-234: Data Structures (Done)", st5: "Final Dissertation Defense",
+                c_title: "Credits & Records", c_name: "Subject", c_status: "Status", s_app: "Passed", s_prog: "In Progress",
+                c1: "CE-240: Software Eng. Fund.", c2: "CE-297: Teaching Internship I", c3: "CI-202: Research Methodology", c4: "CE-245: Requirements Eng.", c5: "CE-230: Quality & Safety",
+                m_title: "Systematic Mapping & SLM Base",
+                
+                // Translation Keys for New Section
+                inst_title: "Institutional Links",
+                lbl_institution: "Institution",
+                lbl_advisor: "Advisor",
+                lnk_calendar: "ITA Academic Calendar",
+                lnk_gimps: "GIMPS Research Group",
+                lnk_masters: "ITA Master's Degree",
+                lnk_selection: "Selection Process"
             },
             pt: {
-                h_title: "Engenharia do Caos <br>& Dependabilidade.",
-                h_desc: "Pesquisa de mestrado no <b>ITA</b> especializada na construção de sistemas críticos resilientes via experimentação de caos estruturada.",
-                s_inst: "Instituição", s_stat: "Status", s_stat_v: "Aluno Regular", s_adv: "Orientador",
-                o_title: "Núcleo de Pesquisa & RQs", t_q: "Pergunta", t_r: "Justificativa",
-                rq1_q: "Existência de modelos similares?", rq1_r: "Evitar redundância.",
-                rq2_q: "Tipos de software desenvolvidos?", rq2_r: "Mapear cenário.",
-                rq3_q: "Descobertas CE + Dependabilidade?", rq3_r: "Suporte estratégico.",
+                context_title: "Contexto da Pesquisa",
+                context_text: "Investigando a interseção entre Engenharia do Caos e Sistemas Críticos de Segurança no domínio aeroespacial. O foco reside na melhoria da dependabilidade em enxames de drones autônomos através da injeção proativa de falhas.",
+                questions_title: "Questões de Pesquisa",
+                rq1_q: "Existem modelos de Engenharia do Caos especificamente adaptados para Sistemas Críticos?", rq1_r: "Justificativa: Identificar lacunas na literatura para evitar redundância.",
+                rq2_q: "Quais tipos de software na indústria aeroespacial são mais adequados para experimentos de Caos?", rq2_r: "Justificativa: Mapear o cenário onde a contribuição é mais valiosa.",
+                rq3_q: "Como evidências de Engenharia do Caos podem apoiar argumentos de segurança?", rq3_r: "Justificativa: Conectar descobertas técnicas com necessidades estratégicas de certificação.",
                 t_title: "Progresso Acadêmico", st1: "Seleção Aprovada", st2: "Fase Aluno Especial", st3: "Admissão como Aluno Regular", st4: "CT-234: Estruturas de Dados (Concluída)", st5: "Defesa Final da Dissertação",
-                c_title: "Créditos Acadêmicos & Registros", c_name: "Disciplina", c_status: "Status", s_app: "Aprovado", s_prog: "Em Progresso",
-                c1: "Fundamentos de Engenharia de Software", c2: "Estágio: Docência I", c3: "Metodologia de Pesquisa em Computação", c4: "Eng. de Requisitos de Sistemas Complexos", c5: "Qualidade, Confiabilidade e Segurança", c6: "Estruturas de Dados e Complexidade", c7: "Dissertação de Mestrado",
-                m_title: "Mapeamento Sistemático & Base SLM"
+                c_title: "Créditos & Histórico", c_name: "Disciplina", c_status: "Status", s_app: "Aprovado", s_prog: "Em Progresso",
+                c1: "CE-240: Fund. Eng. de Software", c2: "CE-297: Estágio Docência I", c3: "CI-202: Metodologia de Pesquisa", c4: "CE-245: Eng. de Requisitos", c5: "CE-230: Qualidade e Segurança",
+                m_title: "Mapeamento Sistemático & Base SLM",
+
+                // Chaves de Tradução da Nova Seção
+                inst_title: "Links Institucionais",
+                lbl_institution: "Instituição",
+                lbl_advisor: "Orientador",
+                lnk_calendar: "Calendário Acadêmico ITA",
+                lnk_gimps: "Grupo de Pesquisa GIMPS",
+                lnk_masters: "Mestrado ITA",
+                lnk_selection: "Processo Seletivo"
             }
         };
 
@@ -252,8 +382,9 @@ sitemap: false
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) el.innerHTML = translations[lang][key];
             });
-            document.querySelectorAll('.btn-lang').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`.btn-lang[onclick="setLang('${lang}')"]`).classList.add('active');
+
+            document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
+            document.getElementById('btn-pt').className = lang === 'pt' ? 'active' : '';
         }
     </script>
 </body>
