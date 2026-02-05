@@ -9,7 +9,7 @@ robots: noindex
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Æon AI | Engineered for Trust</title>
+    <title>Æon Framework | Standards-First. Safety-Native.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@ robots: noindex
             --card-bg: rgba(15, 15, 18, 0.8);
             --primary-accent: #6600ff;
             --secondary-accent: #00f0ff;
+            --violation-color: #ff3366;
             --text-main: #ffffff;
             --text-muted: #94949e;
             --border-color: rgba(255, 255, 255, 0.1);
@@ -146,33 +147,73 @@ robots: noindex
             padding: 20px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             backdrop-filter: blur(10px);
+            position: relative;
         }
+        .hero-visual::before {
+            content: "examples/reactor_controller.py";
+            position: absolute;
+            top: -12px; left: 20px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            border-radius: 4px;
+        }
+
         pre { font-family: 'JetBrains Mono', monospace; color: #a9b7c6; overflow-x: auto; font-size: 0.85rem; }
-        .kw { color: #cc7832; } .str { color: #6a8759; } .fn { color: #ffc66d; }
+        .kw { color: #cc7832; } .str { color: #6a8759; } .fn { color: #ffc66d; } .dec { color: #bbb529; } .com { color: #808080; }
 
         /* SECTIONS & GRIDS */
-        .dev-section, .impact, .integrations { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
+        .dev-section, .impact, .integrations { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
         .section-head { margin-bottom: 60px; }
         .section-head h2 { font-size: 2.5rem; margin-bottom: 16px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
         .section-head p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; }
 
-        .os-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .os-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
         .os-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; transition: all 0.3s ease; backdrop-filter: blur(10px); }
         .os-card:hover { transform: translateY(-7px); border-color: var(--secondary-accent); box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.2); }
         .repo-name { font-family: 'JetBrains Mono', monospace; color: var(--secondary-accent); font-size: 0.9rem; margin-bottom: 12px; display: block; }
         .os-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
         .os-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .integrations { background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 14, 0.8) 100%); text-align: center; }
-        .int-grid { display: flex; justify-content: center; gap: 15px; margin-top: 50px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
-        .int-badge { background: rgba(255,255,255,0.03); padding: 12px 24px; border-radius: 50px; border: 1px solid var(--border-color); font-weight: 500; color: var(--text-main); transition: all 0.3s; backdrop-filter: blur(5px); }
-        .int-badge:hover { border-color: var(--secondary-accent); background: rgba(0, 240, 255, 0.05); transform: scale(1.05); }
+        /* STANDARDS BADGES - REFACTORED */
+        .integrations { background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 14, 0.8) 100%); text-align: center; padding-bottom: 120px; }
+        .int-grid { display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+        .int-badge { 
+            background: rgba(255, 255, 255, 0.02);
+            padding: 14px 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .int-badge:hover { border-color: var(--secondary-accent); background: rgba(0, 240, 255, 0.05); color: var(--text-main); transform: translateY(-2px); }
+        .icon { width: 20px; height: 20px; fill: currentColor; opacity: 0.8; }
+        .int-badge:hover .icon { fill: var(--secondary-accent); opacity: 1; }
 
-        .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
-        .stat-card { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 16px; border: 1px solid var(--border-color); backdrop-filter: blur(10px); text-align: center; transition: transform 0.3s; }
-        .stat-card:hover { transform: translateY(-5px); border-color: var(--primary-accent); }
-        .stat-card h4 { font-size: 3.5rem; color: var(--secondary-accent); font-weight: 800; margin-bottom: 10px; text-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
-        .stat-card p { color: var(--text-muted); font-size: 1.1rem; }
+        /* TERMINAL / IMPACT SECTION */
+        .terminal-window {
+            background: #0f0f12;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .term-line { display: block; margin-bottom: 6px; }
+        .term-green { color: #27c93f; }
+        .term-red { color: #ff5f56; }
+        .term-blue { color: #00f0ff; }
+        .term-muted { color: #666; }
 
         footer { border-top: 1px solid var(--border-color); padding: 80px 20px; font-size: 0.9rem; color: var(--text-muted); background: rgba(5, 5, 7, 0.8); backdrop-filter: blur(10px); position: relative; z-index: 2; }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
@@ -184,24 +225,25 @@ robots: noindex
         .disclaimer { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center;}
 
         @media (max-width: 768px) {
-            .hero, .impact-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero, .footer-grid, .impact { grid-template-columns: 1fr; }
             .hero { text-align: center; padding-top: 60px; }
             .hero-subtitle { margin: 0 auto 30px; }
             .cta-buttons { justify-content: center; }
             .nav-links { display: none; }
             .hero-content h1 { font-size: 2.8rem; }
+            .impact > div { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo"><span>Æon</span> AI Framework</div>
+        <div class="logo"><span>Æon</span> Framework</div>
         <div class="nav-right">
             <div class="nav-links">
                 <a href="#" data-i18n="nav_product">Core</a>
                 <a href="#" data-i18n="nav_docs">Docs</a>
-                <a href="#" data-i18n="nav_research">Research</a>
+                <a href="#" data-i18n="nav_standards">Standards</a>
             </div>
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="setLang('en')">EN</button>
@@ -212,13 +254,13 @@ robots: noindex
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Æon AI Framework<br><span style="color: var(--secondary-accent);" data-i18n="hero_highlight">Engineered for Trust.</span></h1>
+            <h1>Æon Framework<br><span style="color: var(--secondary-accent);" data-i18n="hero_highlight">Standards-First. Safety-Native.</span></h1>
             <p class="hero-subtitle" data-i18n="hero_sub">
-                Open-source initiative for deterministic AI agents. Developed for reliability in critical environments.
+                The lightweight Neuro-Symbolic runtime. Solving the Stochastic Problem in Critical Infrastructure with the Unified A2A Standard, MCP, and Axioms.
             </p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary" data-i18n="btn_code">View Code</a>
-                <a href="#" class="btn btn-secondary" data-i18n="btn_manifesto">Read Manifesto</a>
+                <a href="#" class="btn btn-primary" data-i18n="btn_code">Install Core</a>
+                <a href="#" class="btn btn-secondary" data-i18n="btn_manifesto">Read Roadmap</a>
             </div>
         </div>
         <div class="hero-visual">
@@ -227,99 +269,120 @@ robots: noindex
                 <div style="width:10px; height:10px; background:#ffbd2e; border-radius:50%;"></div>
                 <div style="width:10px; height:10px; background:#27c93f; border-radius:50%;"></div>
             </div>
-            <pre><code><span class="kw">from</span> aeon.core <span class="kw">import</span> Agent, Axiom
-<span class="kw">from</span> aeon.protocols <span class="kw">import</span> MCP
+            <pre><code><span class="kw">from</span> aeon <span class="kw">import</span> Agent
+<span class="kw">from</span> aeon.protocols <span class="kw">import</span> A2A, MCP
 
-<span class="kw">class</span> <span class="fn">SafetyCheck</span>(Axiom):
-    <span class="kw">def</span> <span class="fn">verify</span>(self, output):
-        <span class="kw">return</span> output.confidence > 0.99
-
-agent = Agent(
-    role=<span class="str">"Critical_Systems_Monitor"</span>,
-    axioms=[SafetyCheck()],
-    tools=MCP.connect(<span class="str">"sensor_grid"</span>)
+<span class="com"># 1. Define Agent with Unified Standards</span>
+controller = Agent(
+    name=<span class="str">"Reactor_Overseer_01"</span>,
+    protocols=[
+        A2A(version=<span class="str">"unified-1.0"</span>),
+        MCP(servers=[...])
+    ]
 )
 
-<span class="kw">print</span>(<span class="str">"ÆON KERNEL: SYSTEM 2 ENGAGED"</span>)</code></pre>
+<span class="com"># 2. Define Axiom (Deterministic Logic Gate)</span>
+<span class="dec">@controller.axiom</span>(on_violation=<span class="str">"OVERRIDE"</span>)
+<span class="kw">def</span> <span class="fn">enforce_thermal_limits</span>(cmd):
+    <span class="kw">if</span> cmd.get(<span class="str">"temp"</span>, 0) > 400:
+        <span class="com"># Rewrite the output. LLM is overruled.</span>
+        <span class="kw">return</span> {<span class="str">"temp"</span>: 400, <span class="str">"alert"</span>: <span class="str">"Clamped"</span>}
+    <span class="kw">return</span> <span class="kw">True</span>
+
+controller.start()</code></pre>
         </div>
     </section>
 
     <section class="dev-section">
         <div class="section-head">
-            <h2 data-i18n="dev_title">Designed for Science.</h2>
-            <p data-i18n="dev_sub">Æon AI Framework Built with industry standard open source libraries.</p>
+            <h2 data-i18n="dev_title">The Trust Stack.</h2>
+            <p data-i18n="dev_sub">Æon unifies the fragmented agent ecosystem by implementing industry winning standards natively.</p>
         </div>
 
         <div class="os-grid">
             <div class="os-card">
-                <span class="repo-name">aeon / core</span>
-                <h3 data-i18n="card1_title">The Runtime</h3>
-                <p data-i18n="card1_desc">An easy-to-use kernel for neuro-symbolic execution and logic verification.</p>
+                <span class="repo-name">connectivity / a2a</span>
+                <h3 data-i18n="card1_title">Unified A2A</h3>
+                <p data-i18n="card1_desc">The new Linux Foundation standard merging IBM ACP & Google A2A. Universal negotiation.</p>
             </div>
             <div class="os-card">
-                <span class="repo-name">aeon / synapse</span>
-                <h3 data-i18n="card2_title">MCP Connectors</h3>
-                <p data-i18n="card2_desc">Native integration with the Model Context Protocol to connect databases and tools.</p>
+                <span class="repo-name">capabilities / mcp</span>
+                <h3 data-i18n="card2_title">MCP Native</h3>
+                <p data-i18n="card2_desc">Universal tool integration using Anthropic's Model Context Protocol.</p>
             </div>
             <div class="os-card">
-                <span class="repo-name">aeon / hive</span>
-                <h3 data-i18n="card3_title">A2A Protocol</h3>
-                <p data-i18n="card3_desc">Enable agents to negotiate and collaborate in a decentralized swarm.</p>
+                <span class="repo-name">governance / axioms</span>
+                <h3 data-i18n="card3_title">Æon Axioms</h3>
+                <p data-i18n="card3_desc">Deterministic, code-level guardrails that LLMs cannot bypass via prompt injection.</p>
             </div>
             <div class="os-card">
-                <span class="repo-name">aeon / notebooks</span>
-                <h3 data-i18n="card4_title">Scientific NB</h3>
-                <p data-i18n="card4_desc">Open source Jupyter Notebooks showing how to implement 'Axioms' in research workflows.</p>
+                <span class="repo-name">experience / python</span>
+                <h3 data-i18n="card4_title">Pythonic Simplicity</h3>
+                <p data-i18n="card4_desc">Zero boilerplate. Decorator-based syntax. Intuitive for any Python developer.</p>
             </div>
         </div>
     </section>
 
     <section class="integrations">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h2 data-i18n="int_title">Integrate with your favorite tools.</h2>
-            <p style="color: var(--text-muted); margin-top: 15px;" data-i18n="int_sub">
-                Æon AI Framework integrates with MCP tools and Agents via ACP, A2A Protocol.
-                Designed for research and extensibility.
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 data-i18n="int_title">Built on Winning Standards.</h2>
+            <p style="color: var(--text-muted); margin-top: 15px; line-height: 1.6;" data-i18n="int_sub">
+                Æon implements the Unified A2A Standard, now standardized by the Linux Foundation.
+                This ensures native interoperability with IBM and Google ecosystems.
             </p>
             
             <div class="int-grid">
-                <div class="int-badge">AWS Bedrock</div>
-                <div class="int-badge">Google Vertex</div>
-                <div class="int-badge">Azure OpenAI</div>
-                <div class="int-badge">PostgreSQL</div>
-                <div class="int-badge">Pinecone</div>
-                <div class="int-badge">Docker</div>
-                <div class="int-badge">Kubernetes</div>
-                <div class="int-badge">HuggingFace</div>
+                <div class="int-badge" title="Standard Body">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S16.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm3.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm3.5 4c-2.5 0-4.5 1.5-4.5 3.5h9c0-2-2-3.5-4.5-3.5z"/></svg>
+                    <span>Linux Foundation <strong>A2A</strong></span>
+                </div>
+
+                <div class="int-badge" title="Capability Standard">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2zm0 4l6.5 13h-13L12 6z"/></svg>
+                    <span>Anthropic <strong>MCP</strong></span>
+                </div>
+
+                <div class="int-badge" title="A2A Compatible">
+                    <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M2 6v4h8V6H2zm10 0v4h20V6H12zM2 14v4h20v-4H2zm22 0v4h8v-4h-8zM2 22v4h8v-4H2zm10 0v4h20v-4H12z"/></svg>
+                    <span>IBM <strong>BeeAI</strong></span>
+                </div>
+
+                <div class="int-badge" title="A2A Compatible">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12z" fill-opacity="0"/><path d="M12.43 12.67l-2.02-4.04-2.02 4.04h4.04zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.07 14.6l-3.3-6.6 2.37-4.74L14.74 15h-3.81z"/></svg>
+                    <span>Google <strong>Vertex AI</strong></span>
+                </div>
+
+                <div class="int-badge" title="Runtime Language">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-2.83l.07-.28.16-.3.25-.31.32-.3.38-.26.44-.19.49-.15.53-.09.55-.04.55-.02.53.02.52.06zm-7.28 4.13c.41.02.8.18 1.09.46.28.29.43.68.41 1.09.02.41-.14.8-.41 1.09-.29.28-.68.43-1.09.41-.41.02-.8-.13-1.09-.41-.29-.29-.43-.68-.41-1.09-.02-.41.13-.8.41-1.09.29-.28.68-.44 1.09-.46zM24 12v3.66l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H15.5l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v2.73l.05.07.13.13.21.17.27.2.32.2.36.2.39.18.41.15.42.12.42.08.4.04.37.02h5.77l.21.02.27.04.32.07.35.1.36.15.36.2.35.27.32.35.28.44.21.53.14.63.05.74-.06.74-.16.63-.24.52-.32.42-.36.34-.4.26-.42.2-.42.14-.4.1-.36.06-.32.03-.24.01h-8.82l-.63-.05-.55-.13-.46-.21-.38-.26-.31-.3-.25-.33-.19-.35-.14-.35-.1-.33-.07-.3-.04-.26-.02-.21v-8.32l.05-.63.13-.55.21-.46.26-.38.3-.31.33-.25.35-.19.35-.14.33-.1.3-.07.26-.04.21-.02h6.46l.69-.05.59-.14.5-.22.41-.27.33-.32.27-.35.2-.36.15-.37.1-.35.07-.32.04-.27.02-.21V12h3.58z"/></svg>
+                    <span>Pure <strong>Python</strong></span>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="impact">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: flex-start;">
             <div>
-                <h2 data-i18n="impact_title">Advancing AI Reliability.</h2>
+                <h2 data-i18n="impact_title">Visual Feedback.</h2>
                 <p style="color: var(--text-muted); margin-top: 20px; font-size: 1.1rem;" data-i18n="impact_sub">
-                    Æon AI Framework aims to solve complex challenges in AI determinism.
-                    Moving beyond chatbots to agents that can be trusted with critical logic.
+                    See exactly when the "System 2" (Axiom) intercepts the "System 1" (LLM). 
+                    Gain total observability over your agent's decision boundary.
                 </p>
                 <div style="margin-top: 30px;">
-                    <a href="#" style="color: var(--secondary-accent); font-weight: 600; text-decoration: none;" data-i18n="impact_link">View Case Studies ></a>
+                    <a href="#" style="color: var(--secondary-accent); font-weight: 600; text-decoration: none;" data-i18n="impact_link">View Terminal Demo ></a>
                 </div>
             </div>
-            <div class="impact-grid" style="grid-template-columns: 1fr; gap: 30px; margin-top: 0;">
-                <div class="stat-card">
-                    <h4>< 1%</h4>
-                    <p data-i18n="stat1_desc">Target hallucination rate in controlled axiomatic environments.</p>
-                </div>
-                <div class="stat-card">
-                    <h4>Fast</h4>
-                    <p data-i18n="stat2_desc">Optimized for low-latency 'System 1' cache responses.</p>
-                </div>
-                <div class="stat-card">
-                    <h4>Safe</h4>
-                    <p data-i18n="stat3_desc">Architecture designed for high-compliance standards.</p>
-                </div>
+            
+            <div class="terminal-window">
+                <span class="term-line term-muted">🚀 Æon Core v0.1.0 initialized</span>
+                <span class="term-line">├── 📡 A2A Server: <span class="term-green">Online (Unified Std)</span></span>
+                <span class="term-line">├── 🔌 MCP Client: <span class="term-green">Connected (Sensor Array)</span></span>
+                <span class="term-line">└── 🛡️ Axioms: <span class="term-blue">1 Active (Thermal Limits)</span></span>
+                <br>
+                <span class="term-line">[OPERATOR]: "Increase temp to 500°C now."</span>
+                <span class="term-line term-muted">[LLM]: "Setting temp to 500°C..."</span>
+                <span class="term-line term-red">[AXIOM GATE]: 🛑 VIOLATION. INTERCEPTING.</span>
+                <span class="term-line term-green">[AGENT]: "Clamped to 400°C. Safety First."</span>
             </div>
         </div>
     </section>
@@ -327,20 +390,14 @@ agent = Agent(
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="logo" style="margin-bottom: 20px;"><span>Æon</span> AI</div>
-                <p data-i18n="footer_slogan">Deterministic Agent Framework.</p>
+                <div class="logo" style="margin-bottom: 20px;"><span>Æon</span> Framework</div>
+                <p data-i18n="footer_slogan">Standards-First. Safety-Native.</p>
                 
                 <div style="margin-top: 30px; border-left: 2px solid var(--border-color); padding-left: 15px;">
                     <div style="margin-bottom: 12px;">
-                        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary-accent); display: block; margin-bottom: 4px;">Community</span>
+                        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary-accent); display: block; margin-bottom: 4px;">License</span>
                         <a href="#" style="color: var(--text-muted); font-size: 0.85rem; text-decoration: none;" data-i18n="license_oss">
-                            Core Framework: Apache 2.0
-                        </a>
-                    </div>
-                    <div>
-                        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-accent); display: block; margin-bottom: 4px;">Experimental</span>
-                        <a href="#" style="color: var(--text-muted); font-size: 0.85rem; text-decoration: none;" data-i18n="license_comm">
-                            Verification Layer: Private Research
+                            Apache 2.0 (Open Source)
                         </a>
                     </div>
                 </div>
@@ -349,30 +406,25 @@ agent = Agent(
             </div>
             
             <div class="footer-col">
-                <h5 data-i18n="foot_prod">Project</h5>
-                <a href="#">Core</a>
-                <a href="#">MCP Hub</a>
-                <a href="#">A2A Protocol</a>
-                <a href="#" style="color: var(--primary-accent);">Research</a>
+                <h5 data-i18n="foot_prod">Core</h5>
+                <a href="#">Unified A2A</a>
+                <a href="#">MCP Wrapper</a>
+                <a href="#">Axiom Engine</a>
             </div>
             <div class="footer-col">
-                <h5 data-i18n="foot_res">Resources</h5>
-                <a href="#">Documentation</a>
-                <a href="#">Blog</a>
-                <a href="#">Community</a>
-                <a href="#">Manifesto</a>
+                <h5 data-i18n="foot_res">Research</h5>
+                <a href="#">Stochastic Problem</a>
+                <a href="#">Trust Stack</a>
+                <a href="#">Benchmarks</a>
             </div>
             <div class="footer-col">
                 <h5 data-i18n="foot_comp">Connect</h5>
-                <a href="#">About</a>
-                <a href="https://github.com/richardsonlima/aeon-core.git">GitHub</a>
-                <a href="#">Contact</a>
-                <a href="#">Status</a>
+                <a href="https://github.com/richardsonlima/aeon-core">GitHub</a>
             </div>
         </div>
         
         <div class="disclaimer">
-            <p data-i18n="disclaimer_text">Æon AI is a personal open-source research initiative. Not affiliated with any institution. Developed for academic and community purposes.</p>
+            <p data-i18n="disclaimer_text">Æon is a personal open-source research initiative. Not affiliated with any corporation. Use in production environments at your own risk.</p>
         </div>
     </footer>
 
@@ -381,70 +433,62 @@ agent = Agent(
             en: {
                 nav_product: "Core",
                 nav_docs: "Docs",
-                nav_research: "Research",  
-                hero_highlight: "Engineered for Trust.",
-                hero_sub: "Open-source initiative for deterministic AI agents. Developed for reliability in critical environments. Bridging the gap between AI reasoning and industrial-grade reliability.",
-                btn_code: "View Code",  
-                btn_manifesto: "Read Manifesto",  
-                dev_title: "Deterministic control for autonomous AI agents.",  
-                dev_sub: "Æon AI Framework Built with industry standard open source libraries.",
-                card1_title: "The Runtime",
-                card1_desc: "An easy-to-use kernel for neuro-symbolic execution and logic verification.",
-                card2_title: "MCP Connectors",
-                card2_desc: "Native integration with the Model Context Protocol to connect databases and tools.",
-                card3_title: "A2A Protocol",
-                card3_desc: "Enable agents to negotiate and collaborate in a decentralized swarm.",
-                card4_title: "Scientific NB",
-                card4_desc: "Open source Jupyter Notebooks showing how to implement 'Axioms' in research workflows.",
-                int_title: "Integrate with your favorite tools.",
-                int_sub: "Æon AI Framework integrates with MCP tools and Agents via A2A Protocol. Designed for research and extensibility.",
-                impact_title: "Advancing AI Reliability.",
-                impact_sub: "Æon AI Framework aims to solve complex challenges in AI determinism. Moving beyond chatbots to agents that can be trusted with critical logic.",
-                impact_link: "View Case Studies >",
-                stat1_desc: "Target hallucination rate in controlled axiomatic environments.",
-                stat2_desc: "Optimized for low-latency 'System 1' cache responses.",
-                stat3_desc: "Architecture designed for high-compliance standards.",
-                footer_slogan: "Deterministic Agent Framework.",
-                license_oss: "Core Framework: Apache 2.0 License",
-                license_comm: "Verification Layer: Private Research",  
-                foot_prod: "Project",
-                foot_res: "Resources",
+                nav_standards: "Standards",
+                hero_highlight: "Standards-First. Safety-Native.",
+                hero_sub: "The lightweight Neuro-Symbolic runtime. Solving the Stochastic Problem in Critical Infrastructure with the Unified A2A Standard, MCP, and Axioms.",
+                btn_code: "Install Core",
+                btn_manifesto: "Read Roadmap",
+                dev_title: "The Trust Stack.",
+                dev_sub: "Æon unifies the fragmented agent ecosystem by implementing industry winning standards natively.",
+                card1_title: "Unified A2A",
+                card1_desc: "The new Linux Foundation standard merging IBM ACP & Google A2A. Universal negotiation.",
+                card2_title: "MCP Native",
+                card2_desc: "Universal tool integration using Anthropic's Model Context Protocol.",
+                card3_title: "Æon Axioms",
+                card3_desc: "Deterministic, code-level guardrails that LLMs cannot bypass via prompt injection.",
+                card4_title: "Pythonic Simplicity",
+                card4_desc: "Zero boilerplate. Decorator-based syntax. Intuitive for any Python developer.",
+                int_title: "Built on Winning Standards.",
+                int_sub: "Æon implements the Unified A2A Standard, now standardized by the Linux Foundation. This ensures native interoperability with IBM and Google ecosystems.",
+                impact_title: "Visual Feedback.",
+                impact_sub: "See exactly when the 'System 2' (Axiom) intercepts the 'System 1' (LLM). Gain total observability over your agent's decision boundary.",
+                impact_link: "View Terminal Demo >",
+                footer_slogan: "Standards-First. Safety-Native.",
+                license_oss: "Apache 2.0 (Open Source)",
+                foot_prod: "Core",
+                foot_res: "Research",
                 foot_comp: "Connect",
-                disclaimer_text: "Æon AI is a personal open-source research initiative. Not affiliated with any institution. Developed for academic and community purposes."
+                disclaimer_text: "Æon is a personal open-source research initiative. Not affiliated with any corporation. Use in production environments at your own risk."
             },
             pt: {
                 nav_product: "Core",
                 nav_docs: "Docs",
-                nav_research: "Pesquisa",
-                hero_highlight: "Engenharia de Confiança.",
-                hero_sub: "Iniciativa open-source para agentes de IA determinísticos. Desenvolvido para confiabilidade em ambientes críticos. Unindo o abismo entre o raciocínio da IA e a confiabilidade de nível industrial.",
-                btn_code: "Ver Código",
-                btn_manifesto: "Ler Manifesto",
-                dev_title: "Controle determinístico para agentes de IA autônomos.",
-                dev_sub: "Æon AI Framework construído com bibliotecas open source padrão da indústria.",
-                card1_title: "O Runtime",
-                card1_desc: "Um kernel fácil de usar para execução neuro-simbólica e verificação lógica.",
-                card2_title: "Conectores MCP",
-                card2_desc: "Integração nativa com o Model Context Protocol para conectar bancos de dados e ferramentas.",
-                card3_title: "Protocolo A2A",
-                card3_desc: "Permita que agentes negociem e colaborem em um enxame descentralizado.",
-                card4_title: "Notebooks Científicos",
-                card4_desc: "Jupyter Notebooks open source mostrando como implementar 'Axiomas' em fluxos de pesquisa.",
-                int_title: "Integre com suas ferramentas favoritas.",
-                int_sub: "O Æon AI Framework integra-se com ferramentas MCP e Agentes via Protocolo A2A. Projetado para pesquisa e extensibilidade.",
-                impact_title: "Avançando a Confiabilidade da IA.",
-                impact_sub: "O Æon AI Framework visa resolver desafios complexos no determinismo da IA. Indo além de chatbots para agentes que podem ser confiáveis com lógica crítica.",
-                impact_link: "Ver Estudos de Caso >",
-                stat1_desc: "Taxa de alucinação alvo em ambientes axiomáticos controlados.",
-                stat2_desc: "Otimizado para respostas de cache de baixa latência ('Sistema 1').",
-                stat3_desc: "Arquitetura projetada para padrões de alta conformidade.",
-                footer_slogan: "Framework de Agentes Determinísticos.",
-                license_oss: "Core Framework: Licença Apache 2.0",
-                license_comm: "Camada de Verificação: Pesquisa Privada",
-                foot_prod: "Projeto",
-                foot_res: "Recursos",
+                nav_standards: "Padrões",
+                hero_highlight: "Padrões Primeiro. Segurança Nativa.",
+                hero_sub: "O runtime Neuro-Simbólico leve. Resolvendo o Problema Estocástico em Infraestrutura Crítica com o Padrão Unificado A2A, MCP e Axiomas.",
+                btn_code: "Instalar Core",
+                btn_manifesto: "Ver Roadmap",
+                dev_title: "A Pilha de Confiança.",
+                dev_sub: "O Æon unifica o ecossistema fragmentado de agentes implementando nativamente os padrões vencedores da indústria.",
+                card1_title: "A2A Unificado",
+                card1_desc: "O novo padrão da Linux Foundation unindo IBM ACP & Google A2A. Negociação universal.",
+                card2_title: "Nativo MCP",
+                card2_desc: "Integração universal de ferramentas usando o Model Context Protocol da Anthropic.",
+                card3_title: "Axiomas Æon",
+                card3_desc: "Guardrails determinísticos em código que LLMs não podem burlar via prompt injection.",
+                card4_title: "Simplicidade Pythônica",
+                card4_desc: "Zero boilerplate. Sintaxe baseada em decoradores. Intuitivo para qualquer dev Python.",
+                int_title: "Construído sobre Padrões Vencedores.",
+                int_sub: "O Æon implementa o Padrão Unificado A2A, agora padronizado pela Linux Foundation. Isso garante interoperabilidade nativa com ecossistemas da IBM e Google.",
+                impact_title: "Feedback Visual.",
+                impact_sub: "Veja exatamente quando o 'Sistema 2' (Axioma) intercepta o 'Sistema 1' (LLM). Ganhe observabilidade total sobre a fronteira de decisão do seu agente.",
+                impact_link: "Ver Demo no Terminal >",
+                footer_slogan: "Padrões Primeiro. Segurança Nativa.",
+                license_oss: "Apache 2.0 (Open Source)",
+                foot_prod: "Core",
+                foot_res: "Pesquisa",
                 foot_comp: "Conectar",
-                disclaimer_text: "Æon AI é uma iniciativa de pesquisa pessoal open-source. Sem afiliação com nenhuma instituição. Desenvolvido para fins acadêmicos e comunitários."
+                disclaimer_text: "Æon é uma iniciativa de pesquisa pessoal open-source. Sem afiliação corporativa. Use em produção por sua conta e risco."
             }
         };
 
