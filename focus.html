@@ -8,17 +8,18 @@ robots: noindex
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Focus Timer | Deep Work</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #050507;
             --card-bg: #1a1a1a;
             --primary-accent: #145a32;
             --primary-hover: #1e8449;
+            --secondary-accent: #00f0ff;
             --text-main: #ffffff;
             --text-muted: #b3b3b3;
             --border-color: rgba(255, 255, 255, 0.1);
@@ -30,61 +31,88 @@ robots: noindex
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
+            /* CENTRALIZAÇÃO ABSOLUTA */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 100dvh; /* Dynamic Viewport Height para mobile */
             overflow-x: hidden;
+            padding: 20px;
         }
 
-        /* Efeito de fundo sutil similar ao Aeon */
+        /* Efeito de fundo sutil */
         body::before {
             content: '';
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 100vw; height: 100vh;
+            width: 150vw; height: 150vh;
             z-index: -1;
-            background: radial-gradient(circle at center, rgba(20, 90, 50, 0.15) 0%, var(--bg-color) 70%);
+            background: radial-gradient(circle at center, rgba(20, 90, 50, 0.12) 0%, var(--bg-color) 70%);
+            pointer-events: none;
         }
 
         .container {
             text-align: center;
             width: 100%;
-            max-width: 500px;
-            padding: 20px;
+            max-width: 1200px; /* Aumentado para permitir timer gigante */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header {
+            width: 100%;
+            max-width: 600px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 2rem;
         }
 
         .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -1px; }
         .logo span { color: var(--primary-hover); }
 
-        /* TIMER DISPLAY */
+        /* TIMER DISPLAY - NÚMEROS GIGANTES */
         .timer-display {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             justify-content: center;
             perspective: 1000px;
-            margin-bottom: 40px;
+            margin-bottom: 3rem;
+            width: 100%;
         }
 
         .flip-card {
             position: relative;
-            width: 160px;
-            height: 200px;
+            /* Tamanhos responsivos baseados na largura da tela */
+            width: 42vw; 
+            max-width: 320px;
+            height: 55vw;
+            max-height: 420px;
             background-color: var(--card-bg);
             border-radius: 12px;
-            font-size: 8rem;
             font-family: 'JetBrains Mono', monospace;
             font-weight: bold;
-            color: var(--text-muted);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            color: var(--text-main);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            /* Fonte Gigante */
+            font-size: 30vw; 
+        }
+
+        @media (min-width: 768px) {
+            .timer-display { gap: 25px; }
+            .flip-card { 
+                width: 25vw; height: 32vw; 
+                font-size: 20vw; 
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .flip-card { 
+                width: 300px; height: 400px; 
+                font-size: 14rem; 
+            }
         }
 
         .flip-card::after {
@@ -92,7 +120,7 @@ robots: noindex
             position: absolute;
             top: 50%; left: 0;
             width: 100%; height: 2px;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.7);
             z-index: 5;
         }
 
@@ -101,6 +129,7 @@ robots: noindex
             overflow: hidden;
             display: flex;
             justify-content: center;
+            width: 100%;
         }
 
         .top {
@@ -122,35 +151,48 @@ robots: noindex
         }
 
         /* CONTROLS */
+        .controls-wrapper {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 4rem;
+        }
+
         #start-btn {
             background-color: var(--primary-accent);
             color: white;
             border: 1px solid var(--primary-hover);
-            padding: 15px 50px;
-            font-size: 1.1rem;
+            padding: 18px 0;
+            font-size: 1.2rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             width: 100%;
-            margin-bottom: 50px;
         }
 
-        #start-btn:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
+        #start-btn:hover { background-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(20, 90, 50, 0.4); }
         #start-btn:active { transform: translateY(0); }
 
         /* TODO SECTION */
-        .todo-section { text-align: left; border-top: 1px solid var(--border-color); padding-top: 30px; }
-        .todo-input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+        .todo-section { 
+            width: 100%;
+            max-width: 500px;
+            text-align: left; 
+            border-top: 1px solid var(--border-color); 
+            padding-top: 30px; 
+        }
+        
+        .todo-input-group { display: flex; gap: 10px; margin-bottom: 25px; }
         
         #todo-input {
             flex: 1;
             background: rgba(255,255,255,0.05);
             border: 1px solid var(--border-color);
             color: white;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 14px;
+            border-radius: 8px;
             outline: none;
+            font-size: 1rem;
         }
 
         #add-todo-btn {
@@ -158,33 +200,30 @@ robots: noindex
             color: white;
             border: 1px solid var(--border-color);
             padding: 0 20px;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 1.5rem;
         }
 
         .todo-item {
             background: var(--card-bg);
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-left: 4px solid var(--primary-accent);
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
-        .todo-item.completed { opacity: 0.4; text-decoration: line-through; }
-        .delete-task { background: none; border: none; color: #ff5f56; cursor: pointer; font-size: 1rem; }
+        .todo-item.completed { opacity: 0.3; text-decoration: line-through; border-left-color: #444; }
+        .delete-task { background: none; border: none; color: #ff5f56; cursor: pointer; font-size: 1.2rem; padding: 5px; }
 
         @keyframes alarmFlash {
             0% { background-color: var(--bg-color); }
             50% { background-color: #3e0e0e; }
             100% { background-color: var(--bg-color); }
-        }
-
-        @media (max-width: 480px) {
-            .flip-card { width: 120px; height: 160px; font-size: 5rem; }
         }
     </style>
 </head>
@@ -193,7 +232,7 @@ robots: noindex
     <div class="container">
         <header>
             <div class="logo">Focus<span>Timer</span></div>
-            <button style="background:none; border:none; color:var(--text-muted); cursor:pointer;">⚙️</button>
+            <button style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size: 1.2rem;">⚙️</button>
         </header>
 
         <div class="timer-display">
@@ -207,11 +246,13 @@ robots: noindex
             </div>
         </div>
 
-        <button id="start-btn">Start Focus</button>
+        <div class="controls-wrapper">
+            <button id="start-btn">Start Focus</button>
+        </div>
 
         <div class="todo-section">
             <div class="todo-input-group">
-                <input type="text" id="todo-input" placeholder="O que vamos focar agora?">
+                <input type="text" id="todo-input" placeholder="No que vamos focar agora?">
                 <button id="add-todo-btn">+</button>
             </div>
             <ul id="todo-list" style="list-style: none;"></ul>
@@ -223,7 +264,6 @@ robots: noindex
         let timerId = null;
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-        // Som de click mecânico
         function playTickSound() {
             if (audioCtx.state === 'suspended') audioCtx.resume();
             const osc = audioCtx.createOscillator();
@@ -260,25 +300,32 @@ robots: noindex
                 clearInterval(timerId);
                 timerId = null;
                 startBtn.innerText = "Start Focus";
+                startBtn.style.backgroundColor = "var(--primary-accent)";
             } else {
                 startBtn.innerText = "Pause";
+                startBtn.style.backgroundColor = "#cc7832"; // Cor de pausa
                 timerId = setInterval(() => {
                     if (timeLeft <= 0) {
                         clearInterval(timerId);
+                        timerId = null;
                         document.body.style.animation = "alarmFlash 0.5s infinite";
-                        alert("Pomodoro finalizado!");
+                        alert("Foco concluído! Hora de uma pausa.");
                         document.body.style.animation = "none";
                         timeLeft = 25 * 60;
+                        updateCard('min-card', 25);
+                        updateCard('sec-card', 0);
+                        startBtn.innerText = "Start Focus";
                         return;
                     }
                     timeLeft--;
                     updateCard('min-card', Math.floor(timeLeft / 60));
                     updateCard('sec-card', timeLeft % 60);
+                    document.title = `${Math.floor(timeLeft/60)}:${String(timeLeft%60).padStart(2,'0')} | Focus`;
                 }, 1000);
             }
         });
 
-        // Lógica da Lista de Tarefas
+        // Todo List Logic
         const todoInput = document.getElementById('todo-input');
         const addTodoBtn = document.getElementById('add-todo-btn');
         const todoList = document.getElementById('todo-list');
@@ -288,12 +335,17 @@ robots: noindex
             if (!text) return;
             const li = document.createElement('li');
             li.className = 'todo-item';
-            li.innerHTML = `<span style="cursor:pointer">${text}</span><button class="delete-task">✕</button>`;
+            li.innerHTML = `<span>${text}</span><button class="delete-task">✕</button>`;
             
             li.querySelector('span').onclick = () => li.classList.toggle('completed');
-            li.querySelector('.delete-task').onclick = () => li.remove();
+            li.querySelector('.delete-task').onclick = (e) => {
+                e.stopPropagation();
+                li.style.transform = "translateX(20px)";
+                li.style.opacity = "0";
+                setTimeout(() => li.remove(), 300);
+            };
             
-            todoList.appendChild(li);
+            todoList.prepend(li); // Adiciona no topo
             todoInput.value = "";
         }
 
