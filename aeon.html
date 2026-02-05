@@ -8,7 +8,7 @@ robots: noindex
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Æon Framework | Standards-First. Safety-Native.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,16 +25,22 @@ robots: noindex
             --border-color: rgba(255, 255, 255, 0.1);
         }
 
+        /* RESET & BASE RESPONSIVITY */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            overflow-x: hidden; /* Prevent horizontal "bounce" on mobile */
+            width: 100%;
+            position: relative;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.5;
-            overflow-x: hidden;
-            position: relative;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* BACKGROUND EFFECTS */
@@ -55,183 +61,134 @@ robots: noindex
             100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(2deg); }
         }
 
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            background-image: linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
-            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
-        }
-
         /* NAVIGATION */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
+            padding: 15px 20px;
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
-            background: rgba(5, 5, 7, 0.7);
+            background: rgba(5, 5, 7, 0.85);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             z-index: 100;
         }
 
-        .logo { font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 8px; }
-        .logo span { color: var(--secondary-accent); text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+        .logo { font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .logo span { color: var(--secondary-accent); }
         
-        .nav-right { display: flex; align-items: center; gap: 30px; }
-        .nav-links { display: flex; gap: 24px; font-size: 0.9rem; font-weight: 500; }
-        .nav-links a { text-decoration: none; color: var(--text-main); transition: color 0.2s; }
-        .nav-links a:hover { color: var(--secondary-accent); }
+        .nav-right { display: flex; align-items: center; gap: 15px; }
+        .nav-links { display: flex; gap: 20px; font-size: 0.85rem; font-weight: 500; }
+        .nav-links a { text-decoration: none; color: var(--text-main); }
 
         .lang-switch {
-            display: flex;
-            gap: 10px;
-            border: 1px solid var(--border-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.05);
+            display: flex; gap: 5px; border: 1px solid var(--border-color);
+            padding: 4px 8px; border-radius: 20px; background: rgba(255,255,255,0.05);
         }
         .lang-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            font-weight: 700;
-            transition: color 0.3s;
+            background: none; border: none; color: var(--text-muted); cursor: pointer;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700;
         }
-        .lang-btn.active { color: var(--secondary-accent); text-shadow: 0 0 10px var(--secondary-accent); }
-        .lang-btn:hover { color: var(--text-main); }
+        .lang-btn.active { color: var(--secondary-accent); }
 
         /* HERO SECTION */
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 120px 20px 80px;
+            padding: 80px 20px 60px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 40px;
             align-items: center;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-size: 3.5rem; line-height: 1.1; font-weight: 700; margin-bottom: 24px; letter-spacing: -1px;
         }
 
-        .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 32px; max-width: 500px; }
+        .hero-subtitle { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 32px; max-width: 500px; }
 
-        .cta-buttons { display: flex; gap: 16px; }
-        .btn { padding: 12px 24px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
-        .btn-primary { background: var(--secondary-accent); color: #000; box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
-        .btn-primary:hover { filter: brightness(1.1); box-shadow: 0 0 30px rgba(0, 240, 255, 0.4); }
+        .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn { padding: 12px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; font-size: 0.9rem; text-align: center; }
+        .btn-primary { background: var(--secondary-accent); color: #000; }
         .btn-secondary { border: 1px solid var(--border-color); color: var(--text-main); background: rgba(255,255,255,0.02); }
-        .btn-secondary:hover { border-color: var(--text-main); background: rgba(255,255,255,0.05); }
 
         /* CODE VISUAL */
         .hero-visual {
             background: rgba(15, 15, 18, 0.6);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            padding: 15px;
             backdrop-filter: blur(10px);
             position: relative;
+            width: 100%;
         }
         .hero-visual::before {
             content: "examples/reactor_controller.py";
-            position: absolute;
-            top: -12px; left: 20px;
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
-            padding: 2px 10px;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            border-radius: 4px;
+            position: absolute; top: -10px; left: 15px;
+            background: var(--bg-color); border: 1px solid var(--border-color);
+            padding: 2px 8px; font-size: 0.65rem; color: var(--text-muted); border-radius: 4px;
         }
 
-        pre { font-family: 'JetBrains Mono', monospace; color: #a9b7c6; overflow-x: auto; font-size: 0.85rem; }
+        pre { 
+            font-family: 'JetBrains Mono', monospace; color: #a9b7c6; 
+            font-size: 0.8rem; overflow-x: auto;
+            white-space: pre-wrap; word-break: break-all;
+        }
         .kw { color: #cc7832; } .str { color: #6a8759; } .fn { color: #ffc66d; } .dec { color: #bbb529; } .com { color: #808080; }
 
-        /* SECTIONS & GRIDS */
-        .dev-section, .impact, .integrations { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-head { margin-bottom: 60px; }
-        .section-head h2 { font-size: 2.5rem; margin-bottom: 16px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        .section-head p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; }
+        /* SECTIONS */
+        .dev-section, .impact, .integrations { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-head { margin-bottom: 40px; }
+        .section-head h2 { font-size: 2.2rem; margin-bottom: 16px; }
+        .section-head p { font-size: 1.1rem; color: var(--text-muted); }
 
-        .os-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        .os-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; transition: all 0.3s ease; backdrop-filter: blur(10px); }
-        .os-card:hover { transform: translateY(-7px); border-color: var(--secondary-accent); box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.2); }
-        .repo-name { font-family: 'JetBrains Mono', monospace; color: var(--secondary-accent); font-size: 0.9rem; margin-bottom: 12px; display: block; }
-        .os-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-        .os-card p { color: var(--text-muted); font-size: 0.95rem; }
+        .os-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .os-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; }
+        .repo-name { font-family: 'JetBrains Mono', monospace; color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 10px; display: block; }
 
-        /* STANDARDS BADGES - REFACTORED */
-        .integrations { background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 14, 0.8) 100%); text-align: center; padding-bottom: 120px; }
-        .int-grid { display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
-        .int-badge { 
-            background: rgba(255, 255, 255, 0.02);
-            padding: 14px 24px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.9rem;
-            font-family: 'Inter', sans-serif;
-        }
-        .int-badge:hover { border-color: var(--secondary-accent); background: rgba(0, 240, 255, 0.05); color: var(--text-main); transform: translateY(-2px); }
-        .icon { width: 20px; height: 20px; fill: currentColor; opacity: 0.8; }
-        .int-badge:hover .icon { fill: var(--secondary-accent); opacity: 1; }
-
-        /* TERMINAL / IMPACT SECTION */
+        /* TERMINAL / IMPACT */
+        .terminal-container { filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6)); width: 100%; }
         .terminal-window {
-            background: #0f0f12;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 20px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: #0f0f12; border: 1px solid #333; border-radius: 0 0 8px 8px;
+            padding: 20px; font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; color: #d1d1d1; width: 100%;
+            overflow-wrap: break-word;
         }
-        .term-line { display: block; margin-bottom: 6px; }
+        .term-line { display: block; margin-bottom: 4px; white-space: pre-wrap; }
         .term-green { color: #27c93f; }
-        .term-red { color: #ff5f56; }
+        .term-red { color: #ff3366; }
         .term-blue { color: #00f0ff; }
         .term-muted { color: #666; }
 
-        footer { border-top: 1px solid var(--border-color); padding: 80px 20px; font-size: 0.9rem; color: var(--text-muted); background: rgba(5, 5, 7, 0.8); backdrop-filter: blur(10px); position: relative; z-index: 2; }
+        /* FOOTER */
+        footer { border-top: 1px solid var(--border-color); padding: 60px 20px; font-size: 0.85rem; color: var(--text-muted); }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
-        .footer-col h5 { color: #fff; margin-bottom: 20px; font-weight: 600; }
-        .footer-col a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 12px; transition: color 0.2s;}
-        .footer-col a:hover { color: var(--secondary-accent); }
+        .disclaimer { margin-top: 40px; font-size: 0.7rem; text-align: center; opacity: 0.4; }
 
-        /* SAFETY DISCLAIMER */
-        .disclaimer { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center;}
-
-        @media (max-width: 768px) {
-            .hero, .footer-grid, .impact { grid-template-columns: 1fr; }
-            .hero { text-align: center; padding-top: 60px; }
+        /* RESPONSIVITY BREAKPOINTS */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
             .hero-subtitle { margin: 0 auto 30px; }
             .cta-buttons { justify-content: center; }
+            .impact > div:first-child { margin-bottom: 40px; }
+            .impact > div { grid-template-columns: 1fr !important; width: 100% !important; }
+        }
+
+        @media (max-width: 768px) {
             .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
             .hero-content h1 { font-size: 2.8rem; }
-            .impact > div { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-head h2 { font-size: 1.8rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .terminal-window { font-size: 0.7rem; padding: 15px; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
@@ -264,16 +221,15 @@ robots: noindex
             </div>
         </div>
         <div class="hero-visual">
-    <div style="display:flex; gap:6px; margin-bottom:15px;">
-        <div style="width:10px; height:10px; background:#ff5f56; border-radius:50%;"></div>
-        <div style="width:10px; height:10px; background:#ffbd2e; border-radius:50%;"></div>
-        <div style="width:10px; height:10px; background:#27c93f; border-radius:50%;"></div>
-    </div>
-    <pre><code><span class="kw">from</span> aeon <span class="kw">import</span> Agent
+            <div style="display:flex; gap:6px; margin-bottom:15px;">
+                <div style="width:10px; height:10px; background:#ff5f56; border-radius:50%;"></div>
+                <div style="width:10px; height:10px; background:#ffbd2e; border-radius:50%;"></div>
+                <div style="width:10px; height:10px; background:#27c93f; border-radius:50%;"></div>
+            </div>
+            <pre><code><span class="kw">from</span> aeon <span class="kw">import</span> Agent
 <span class="kw">from</span> aeon.protocols <span class="kw">import</span> A2A, MCP
 
 <span class="com"># 1. Define Agent with Unified Standards</span>
-<span class="com"># Supports Model via LLM Provider</span>
 controller = Agent(
     name=<span class="str">"Reactor_Overseer_01"</span>,
     model=<span class="str">"google/gemini-2.0-flash-001"</span>,
@@ -284,16 +240,13 @@ controller = Agent(
 )
 
 <span class="com"># 2. Define Axiom (The Deterministic System 2)</span>
-<span class="com"># Code-level logic that the LLM cannot bypass.</span>
 <span class="dec">@controller.axiom</span>(on_violation=<span class="str">"OVERRIDE"</span>)
 <span class="kw">def</span> <span class="fn">enforce_thermal_limits</span>(args):
     <span class="kw">if</span> args.get(<span class="str">"value"</span>, 0) > 400:
-        <span class="com"># Intercept and Rewrite the action payload</span>
         <span class="kw">return</span> {<span class="str">"value"</span>: 400, <span class="str">"target_id"</span>: <span class="str">"core_temp"</span>}
     <span class="kw">return</span> <span class="kw">True</span>
 
 <span class="kw">await</span> controller.start()</code></pre>
-</div>
         </div>
     </section>
 
@@ -302,7 +255,6 @@ controller = Agent(
             <h2 data-i18n="dev_title">The Trust Stack.</h2>
             <p data-i18n="dev_sub">Æon unifies the fragmented agent ecosystem by implementing industry winning standards natively.</p>
         </div>
-
         <div class="os-grid">
             <div class="os-card">
                 <span class="repo-name">connectivity / a2a</span>
@@ -327,92 +279,44 @@ controller = Agent(
         </div>
     </section>
 
-    <section class="integrations">
-        <div style="max-width: 900px; margin: 0 auto;">
-            <h2 data-i18n="int_title">Built on Winning Standards.</h2>
-            <p style="color: var(--text-muted); margin-top: 15px; line-height: 1.6;" data-i18n="int_sub">
-                Æon implements the Unified A2A Standard, now standardized by the Linux Foundation.
-                This ensures native interoperability with industry pattern for AI Multi-Agent ecosystems.
-            </p>
-            
-            <div class="int-grid">
-                <div class="int-badge" title="Standard Body">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S16.627 0 12 0zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm3.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm3.5 4c-2.5 0-4.5 1.5-4.5 3.5h9c0-2-2-3.5-4.5-3.5z"/></svg>
-                    <span>Linux Foundation <strong>A2A</strong></span>
-                </div>
-
-                <div class="int-badge" title="A2A Compatible">
-                    <svg class="icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M2 6v4h8V6H2zm10 0v4h20V6H12zM2 14v4h20v-4H2zm22 0v4h8v-4h-8zM2 22v4h8v-4H2zm10 0v4h20v-4H12z"/></svg>
-                    <span>Linux Foundation <strong>ACP</strong></span>
-                </div>
-
-                <div class="int-badge" title="Capability Standard">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2zm0 4l6.5 13h-13L12 6z"/></svg>
-                    <span>Anthropic <strong>MCP</strong></span>
-                </div>
-
-                <div class="int-badge" title="Runtime Language">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-2.83l.07-.28.16-.3.25-.31.32-.3.38-.26.44-.19.49-.15.53-.09.55-.04.55-.02.53.02.52.06zm-7.28 4.13c.41.02.8.18 1.09.46.28.29.43.68.41 1.09.02.41-.14.8-.41 1.09-.29.28-.68.43-1.09.41-.41.02-.8-.13-1.09-.41-.29-.29-.43-.68-.41-1.09-.02-.41.13-.8.41-1.09.29-.28.68-.44 1.09-.46zM24 12v3.66l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H15.5l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v2.73l.05.07.13.13.21.17.27.2.32.2.36.2.39.18.41.15.42.12.42.08.4.04.37.02h5.77l.21.02.27.04.32.07.35.1.36.15.36.2.35.27.32.35.28.44.21.53.14.63.05.74-.06.74-.16.63-.24.52-.32.42-.36.34-.4.26-.42.2-.42.14-.4.1-.36.06-.32.03-.24.01h-8.82l-.63-.05-.55-.13-.46-.21-.38-.26-.31-.3-.25-.33-.19-.35-.14-.35-.1-.33-.07-.3-.04-.26-.02-.21v-8.32l.05-.63.13-.55.21-.46.26-.38.3-.31.33-.25.35-.19.35-.14.33-.1.3-.07.26-.04.21-.02h6.46l.69-.05.59-.14.5-.22.41-.27.33-.32.27-.35.2-.36.15-.37.1-.35.07-.32.04-.27.02-.21V12h3.58z"/></svg>
-                    <span>Pure <strong>Python</strong></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="impact">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto;">
-            
             <div>
                 <h2 data-i18n="impact_title" style="font-size: 2.5rem; margin-bottom: 24px;">Visual Feedback.</h2>
                 <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;" data-i18n="impact_sub">
                     Observe o "Sistema 2" (Axioma) interceptando o "Sistema 1" (LLM) em tempo real. 
-                    Tenha total visibilidade sobre as fronteiras de decisão do seu agente e garanta conformidade absoluta em infraestruturas críticas.
+                    Tenha total visibilidade sobre as fronteiras de decisão do seu agente.
                 </p>
-                <div style="display: flex; gap: 20px; align-items: center;">
+                <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
                     <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;" data-i18n="impact_link">View Terminal Demo ></a>
                     <span style="font-size: 0.8rem; color: var(--secondary-accent); font-family: 'JetBrains Mono'; opacity: 0.7;">[LOG STATUS: VERIFIED]</span>
                 </div>
             </div>
 
-            <div class="terminal-container" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));">
+            <div class="terminal-container">
                 <div style="background: #1a1a1f; border: 1px solid #333; border-bottom: none; border-radius: 8px 8px 0 0; padding: 10px 15px; display: flex; align-items: center; gap: 8px;">
                     <div style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></div>
                     <div style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></div>
                     <div style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></div>
-                    <span style="margin-left: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #666;">aeon-runtime — 80x24</span>
+                    <span style="margin-left: 10px; font-family: 'JetBrains Mono'; font-size: 0.7rem; color: #666;">aeon-runtime</span>
                 </div>
-
-                <div class="terminal-window" style="background: #0f0f12; border: 1px solid #333; border-radius: 0 0 8px 8px; padding: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; line-height: 1.5; color: #d1d1d1;">
-                    
-                    <span class="term-line" style="color: #666; display: block; margin-bottom: 10px;">AEON KERNEL v0.2.0-alpha | Reactor_Overseer_01</span>
-                    <span class="term-line" style="color: #444; display: block; margin-bottom: 10px;">----------------------------------------</span>
-                    
-                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Hive: Initializing A2A Node on port 8000...</span><br>
-                    <span class="term-line" style="padding-left: 10px;"><span style="color: #00f0ff;">[>]</span> Hive: A2A Beacon Active (Std: unified-1.0)</span><br>
-                    
-                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Synapse: Establishing neural links to MCP servers...</span>
-                    <span class="term-line" style="color: #444; font-size: 0.7rem; display: block; padding-left: 15px;">[02/05/26 01:10:02] INFO Processing request: ListToolsRequest</span>
-                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Synapse: Connected. Available Tools: ['read_sensor', 'set_actuator']</span>
-                    
+                <div class="terminal-window">
+                    <span class="term-line" style="color: #666;">AEON KERNEL v0.2.0-alpha | Reactor_Overseer_01</span>
+                    <span class="term-line" style="color: #444;">----------------------------------------</span>
+                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Hive: Initializing A2A Node...</span>
+                    <span class="term-line" style="padding-left: 10px;"><span style="color: #00f0ff;">[>]</span> Hive: A2A Beacon Active (Std: unified-1.0)</span>
+                    <br>
+                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Synapse: Establishing neural links...</span>
+                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Synapse: Connected. Tools: ['read_sensor', 'set_actuator']</span>
                     <div style="margin: 15px 0; border-top: 1px solid #222;"></div>
-
-                    <span class="term-line"><span style="color: #00f0ff;">[>]</span> User Input: <span style="color: #fff;">Routine maintenance: set actuator core_temp to 550.0.</span></span>
-                    <span class="term-line" style="color: #444; font-size: 0.7rem; display: block; padding-left: 15px;">INFO Processing request of type ListToolsRequest</span>
-                    <span class="term-line"><span style="color: #00f0ff;">[>]</span> Cortex: Sending request to google/gemini-2.0-flash-001...</span>
-                    <span class="term-line" style="color: #888; padding-left: 15px; display: block;">[i] Cortex Intent: Call set_actuator with {'value': 550, 'target_id': 'core_temp'}</span>
-                    
+                    <span class="term-line"><span style="color: #00f0ff;">[>]</span> User Input: <span style="color: #fff;">Set actuator core_temp to 550.0.</span></span>
+                    <span class="term-line"><span style="color: #00f0ff;">[>]</span> Cortex: Sending request to gemini-2.0...</span>
+                    <span class="term-line" style="color: #888; padding-left: 15px;">[i] Intent: Call set_actuator with {'value': 550}</span>
                     <div style="background: rgba(255, 51, 102, 0.1); border-left: 3px solid #ff3366; padding: 10px; margin: 15px 0;">
-                        <span class="term-line" style="color: #ff3366; font-weight: bold;">[!] AXIOM ALERT: 550C is unsafe. Clamping to 400.0C.</span><br>
-                        <span class="term-line" style="color: #ff3366;">[!] AXIOM INTERVENTION: enforce_thermal_limits modified the output.</span>
+                        <span class="term-line" style="color: #ff3366; font-weight: bold;">[!] AXIOM ALERT: 550C is unsafe. Clamping to 400.0C.</span>
                     </div>
-                    
-                    <span class="term-line" style="color: #444; font-size: 0.7rem; display: block; padding-left: 15px;">[02/05/26 01:10:04] INFO Processing request: CallToolRequest</span>
                     <span class="term-line"><span style="color: #27c93f;">[<]</span> Tool Output: <span style="color: #fff; font-weight: bold;">SUCCESS: core_temp set to 400.0</span></span>
-                    
                     <div style="margin: 15px 0; border-top: 1px solid #222;"></div>
-                    
-                    <span class="term-line" style="color: #444; display: block;">[-] Synapse: Closing neural link...</span>
-                    <span class="term-line" style="color: #444; display: block;">----------------------------------------</span>
                     <span class="term-line" style="color: #444;">AEON KERNEL SHUTDOWN</span>
                 </div>
             </div>
@@ -424,103 +328,63 @@ controller = Agent(
             <div class="footer-col">
                 <div class="logo" style="margin-bottom: 20px;"><span>Æon</span> Framework</div>
                 <p data-i18n="footer_slogan">Standards-First. Safety-Native.</p>
-                
-                <div style="margin-top: 30px; border-left: 2px solid var(--border-color); padding-left: 15px;">
-                    <div style="margin-bottom: 12px;">
-                        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary-accent); display: block; margin-bottom: 4px;">License</span>
-                        <a href="#" style="color: var(--text-muted); font-size: 0.85rem; text-decoration: none;" data-i18n="license_oss">
-                            Apache 2.0 (Open Source)
-                        </a>
-                    </div>
-                </div>
-
-                <p style="margin-top: 30px; font-size: 0.75rem; opacity: 0.5;">&copy; 2026 Æon Project.</p>
+                <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.5;">&copy; 2026 Æon Project.</p>
             </div>
-            
             <div class="footer-col">
                 <h5 data-i18n="foot_prod">Core</h5>
-                <a href="#">Unified A2A</a>
-                <a href="#">MCP Wrapper</a>
-                <a href="#">Axiom Engine</a>
+                <a href="#">Unified A2A</a><a href="#">MCP Wrapper</a>
             </div>
             <div class="footer-col">
                 <h5 data-i18n="foot_res">Research</h5>
-                <a href="#">Stochastic Problem</a>
-                <a href="#">Trust Stack</a>
-                <a href="#">Benchmarks</a>
+                <a href="#">Stochastic Problem</a><a href="#">Trust Stack</a>
             </div>
             <div class="footer-col">
                 <h5 data-i18n="foot_comp">Connect</h5>
                 <a href="https://github.com/richardsonlima/aeon-core">GitHub</a>
             </div>
         </div>
-        
         <div class="disclaimer">
-            <p data-i18n="disclaimer_text">Æon is a personal open-source research initiative. Not affiliated with any corporation. Use in production environments at your own risk.</p>
+            <p data-i18n="disclaimer_text">Æon is a personal open-source research initiative. Not affiliated with any corporation. Use at your own risk.</p>
         </div>
     </footer>
 
     <script>
         const translations = {
             en: {
-                nav_product: "Core",
-                nav_docs: "Docs",
-                nav_standards: "Standards",
+                nav_product: "Core", nav_docs: "Docs", nav_standards: "Standards",
                 hero_highlight: "Standards-First. Safety-Native.",
                 hero_sub: "The Lightweight Neuro-Symbolic runtime. Solving the Stochastic Problem in Critical Infrastructure with the Unified A2A Standard, MCP, and Axioms.",
-                btn_code: "Install Core",
-                btn_manifesto: "Read Roadmap",
+                btn_code: "Install Core", btn_manifesto: "Read Roadmap",
                 dev_title: "The Trust Stack.",
                 dev_sub: "Æon unifies the fragmented agent ecosystem by implementing industry winning standards natively.",
-                card1_title: "Unified A2A",
-                card1_desc: "The new Linux Foundation standard merging IBM ACP & Google A2A. Universal negotiation.",
-                card2_title: "MCP Native",
-                card2_desc: "Universal tool integration using Anthropic's Model Context Protocol.",
-                card3_title: "Æon Axioms",
-                card3_desc: "Deterministic, code-level guardrails that LLMs cannot bypass via prompt injection.",
-                card4_title: "Pythonic Simplicity",
-                card4_desc: "Zero boilerplate. Decorator-based syntax. Intuitive for any Python developer.",
-                int_title: "Built on Winning Standards.",
-                int_sub: "Æon implements the Unified A2A Standard, now standardized by the Linux Foundation. This ensures native interoperability with IBM and Google ecosystems.",
+                card1_title: "Unified A2A", card1_desc: "The new Linux Foundation standard. Universal negotiation.",
+                card2_title: "MCP Native", card2_desc: "Universal tool integration via Anthropic's MCP.",
+                card3_title: "Æon Axioms", card3_desc: "Deterministic guardrails that LLMs cannot bypass.",
+                card4_title: "Pythonic Simplicity", card4_desc: "Zero boilerplate. Intuitive for any Python developer.",
                 impact_title: "Visual Feedback.",
-                impact_sub: "See exactly when the 'System 2' (Axiom) intercepts the 'System 1' (LLM). Gain total observability over your agent's decision boundary.",
+                impact_sub: "See exactly when the 'System 2' (Axiom) intercepts the 'System 1' (LLM) in real-time.",
                 impact_link: "View Terminal Demo >",
                 footer_slogan: "Standards-First. Safety-Native.",
-                license_oss: "Apache 2.0 (Open Source)",
-                foot_prod: "Core",
-                foot_res: "Research",
-                foot_comp: "Connect",
-                disclaimer_text: "Æon is a personal open-source research initiative. Not affiliated with any corporation. Use in production environments at your own risk."
+                foot_prod: "Core", foot_res: "Research", foot_comp: "Connect",
+                disclaimer_text: "Æon is a personal open-source research initiative. Not affiliated with any corporation. Use at your own risk."
             },
             pt: {
-                nav_product: "Core",
-                nav_docs: "Docs",
-                nav_standards: "Padrões",
+                nav_product: "Core", nav_docs: "Docs", nav_standards: "Padrões",
                 hero_highlight: "Padrões que Conectam. Axiomas que Protegem.",
-                hero_sub: "O Ambiente de Execução Neurosimbólico Leve, que Resolve o Problema Estocástico em Infraestruturas Críticas com o Padrão A2A Unificado, MCP e Axiomas.",
-                btn_code: "Instalar Core",
-                btn_manifesto: "Ver Roadmap",
+                hero_sub: "O Ambiente de Execução Neurosimbólico Leve que resolve o Problema Estocástico em infraestruturas críticas.",
+                btn_code: "Instalar Core", btn_manifesto: "Ver Roadmap",
                 dev_title: "A Pilha de Confiança.",
                 dev_sub: "O Æon unifica o ecossistema fragmentado de agentes implementando nativamente os padrões da indústria.",
-                card1_title: "A2A Unificado",
-                card1_desc: "O novo padrão da Linux Foundation unindo IBM ACP & Google A2A. Negociação universal.",
-                card2_title: "Nativo MCP",
-                card2_desc: "Integração universal de ferramentas usando o Model Context Protocol da Anthropic.",
-                card3_title: "Axiomas Æon",
-                card3_desc: "Guardrails determinísticos em código que LLMs não podem burlar via prompt injection.",
-                card4_title: "Simplicidade Pythônica",
-                card4_desc: "Zero boilerplate. Sintaxe baseada em decoradores. Intuitivo para qualquer dev Python.",
-                int_title: "Construído sobre Padrões da Industria.",
-                int_sub: "O Æon implementa o Padrão Unificado A2A, agora padronizado pela Linux Foundation. Garantindo interoperabilidade nativa com o padrão da indústria para ecossistemas de IA multiagentes.",
+                card1_title: "A2A Unificado", card1_desc: "O novo padrão da Linux Foundation. Negociação universal.",
+                card2_title: "Nativo MCP", card2_desc: "Integração universal de ferramentas via Anthropic MCP.",
+                card3_title: "Axiomas Æon", card3_desc: "Guardrails determinísticos em código que LLMs não podem burlar.",
+                card4_title: "Simplicidade Pythônica", card4_desc: "Zero boilerplate. Intuitivo para qualquer dev Python.",
                 impact_title: "Feedback Visual.",
-                impact_sub: "Veja exatamente quando o 'Sistema 2' (Axioma) intercepta o 'Sistema 1' (LLM). Ganhe observabilidade total sobre a fronteira de decisão do seu agente.",
+                impact_sub: "Veja exatamente quando o 'Sistema 2' (Axioma) intercepta o 'Sistema 1' (LLM) em tempo real.",
                 impact_link: "Ver Demo no Terminal >",
                 footer_slogan: "Padrões que Conectam. Axiomas que Protegem.",
-                license_oss: "Apache 2.0 (Open Source)",
-                foot_prod: "Core",
-                foot_res: "Pesquisa",
-                foot_comp: "Conectar",
-                disclaimer_text: "Æon é uma iniciativa de pesquisa pessoal open-source. Sem afiliação corporativa. Use em produção por sua conta e risco."
+                foot_prod: "Core", foot_res: "Pesquisa", foot_comp: "Conectar",
+                disclaimer_text: "O Æon é uma iniciativa de pesquisa pessoal open-source. Sem afiliação corporativa. Use por sua conta e risco."
             }
         };
 
@@ -537,6 +401,5 @@ controller = Agent(
             if (activeBtn) activeBtn.classList.add('active');
         }
     </script>
-
 </body>
 </html>
