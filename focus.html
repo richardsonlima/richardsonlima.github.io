@@ -19,9 +19,7 @@ robots: noindex
             --card-bg: #1a1a1a;
             --primary-accent: #145a32;
             --primary-hover: #1e8449;
-            --secondary-accent: #00f0ff;
             --text-main: #ffffff;
-            --text-muted: #b3b3b3;
             --border-color: rgba(255, 255, 255, 0.1);
         }
 
@@ -31,97 +29,55 @@ robots: noindex
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            /* CENTRALIZAÇÃO ABSOLUTA */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100dvh; /* Dynamic Viewport Height para mobile */
+            min-height: 100dvh; /* Centralização vertical dinâmica */
             overflow-x: hidden;
             padding: 20px;
-        }
-
-        /* Efeito de fundo sutil */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150vw; height: 150vh;
-            z-index: -1;
-            background: radial-gradient(circle at center, rgba(20, 90, 50, 0.12) 0%, var(--bg-color) 70%);
-            pointer-events: none;
         }
 
         .container {
             text-align: center;
             width: 100%;
-            max-width: 1200px; /* Aumentado para permitir timer gigante */
+            max-width: 800px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        header {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -1px; }
-        .logo span { color: var(--primary-hover); }
-
-        /* TIMER DISPLAY - NÚMEROS GIGANTES */
+        /* TIMER DISPLAY - NÚMEROS GIGANTES E SEM DUPLICAÇÃO */
         .timer-display {
             display: flex;
-            gap: 10px;
+            gap: 8px;
+            align-items: center;
             justify-content: center;
-            perspective: 1000px;
             margin-bottom: 3rem;
             width: 100%;
         }
 
         .flip-card {
             position: relative;
-            /* Tamanhos responsivos baseados na largura da tela */
-            width: 42vw; 
-            max-width: 320px;
-            height: 55vw;
-            max-height: 420px;
+            width: 40vw; 
+            max-width: 260px;
+            height: 50vw;
+            max-height: 340px;
             background-color: var(--card-bg);
             border-radius: 12px;
             font-family: 'JetBrains Mono', monospace;
             font-weight: bold;
-            color: var(--text-main);
+            font-size: 35vw; /* Tamanho massivo */
+            line-height: 1;
             box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            /* Fonte Gigante */
-            font-size: 30vw; 
         }
 
+        /* AJUSTE PARA TABLETS E DESKTOPS */
         @media (min-width: 768px) {
-            .timer-display { gap: 25px; }
-            .flip-card { 
-                width: 25vw; height: 32vw; 
-                font-size: 20vw; 
-            }
+            .flip-card { width: 22vw; height: 30vw; font-size: 22vw; }
+            .timer-display { gap: 20px; }
         }
-
         @media (min-width: 1200px) {
-            .flip-card { 
-                width: 300px; height: 400px; 
-                font-size: 14rem; 
-            }
-        }
-
-        .flip-card::after {
-            content: "";
-            position: absolute;
-            top: 50%; left: 0;
-            width: 100%; height: 2px;
-            background: rgba(0,0,0,0.7);
-            z-index: 5;
+            .flip-card { width: 280px; height: 380px; font-size: 16rem; }
         }
 
         .top, .bottom {
@@ -130,116 +86,68 @@ robots: noindex
             display: flex;
             justify-content: center;
             width: 100%;
+            position: relative;
         }
 
         .top {
-            align-items: flex-end;
+            align-items: flex-end; /* Alinha o texto para baixo na metade superior */
             background-color: #161616;
             border-radius: 12px 12px 0 0;
+            border-bottom: 1px solid rgba(0,0,0,0.5);
         }
 
         .bottom {
-            align-items: flex-start;
+            align-items: flex-start; /* Alinha o texto para cima na metade inferior */
             border-radius: 0 0 12px 12px;
         }
 
-        /* Animação de Flip */
-        .flip { animation: flipAnim 0.6s ease-in-out; }
-        @keyframes flipAnim {
-            0% { transform: rotateX(0deg); }
-            100% { transform: rotateX(-360deg); }
+        /* Separador ":" centralizado */
+        .separator {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10vw;
+            color: var(--primary-hover);
+            font-weight: bold;
+            padding-bottom: 2vw;
         }
+
+        @media (min-width: 768px) { .separator { font-size: 5vw; } }
 
         /* CONTROLS */
-        .controls-wrapper {
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 4rem;
-        }
-
+        .controls-wrapper { width: 100%; max-width: 400px; margin-bottom: 3rem; }
+        
         #start-btn {
             background-color: var(--primary-accent);
             color: white;
             border: 1px solid var(--primary-hover);
-            padding: 18px 0;
-            font-size: 1.2rem;
+            padding: 16px 0;
+            font-size: 1.1rem;
             font-weight: 600;
             border-radius: 12px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             width: 100%;
+            transition: 0.2s ease;
         }
 
-        #start-btn:hover { background-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(20, 90, 50, 0.4); }
-        #start-btn:active { transform: translateY(0); }
+        #start-btn:active { transform: scale(0.98); }
 
         /* TODO SECTION */
-        .todo-section { 
-            width: 100%;
-            max-width: 500px;
-            text-align: left; 
-            border-top: 1px solid var(--border-color); 
-            padding-top: 30px; 
-        }
-        
-        .todo-input-group { display: flex; gap: 10px; margin-bottom: 25px; }
-        
-        #todo-input {
-            flex: 1;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-color);
-            color: white;
-            padding: 14px;
-            border-radius: 8px;
-            outline: none;
-            font-size: 1rem;
-        }
+        .todo-section { width: 100%; max-width: 400px; text-align: left; border-top: 1px solid var(--border-color); padding-top: 25px; }
+        .todo-input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+        #todo-input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: white; padding: 12px; border-radius: 8px; outline: none; }
+        #add-todo-btn { background: var(--card-bg); color: white; border: 1px solid var(--border-color); padding: 0 15px; border-radius: 8px; cursor: pointer; }
 
-        #add-todo-btn {
-            background: var(--card-bg);
-            color: white;
-            border: 1px solid var(--border-color);
-            padding: 0 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        .todo-item {
-            background: var(--card-bg);
-            padding: 14px 18px;
-            border-radius: 10px;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-left: 4px solid var(--primary-accent);
-            transition: 0.3s ease;
-        }
-
-        .todo-item.completed { opacity: 0.3; text-decoration: line-through; border-left-color: #444; }
-        .delete-task { background: none; border: none; color: #ff5f56; cursor: pointer; font-size: 1.2rem; padding: 5px; }
-
-        @keyframes alarmFlash {
-            0% { background-color: var(--bg-color); }
-            50% { background-color: #3e0e0e; }
-            100% { background-color: var(--bg-color); }
-        }
+        .todo-item { background: var(--card-bg); padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; border-left: 4px solid var(--primary-accent); }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <div class="logo">Focus<span>Timer</span></div>
-            <button style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size: 1.2rem;">⚙️</button>
-        </header>
-
         <div class="timer-display">
             <div class="flip-card" id="min-card">
                 <div class="top">25</div>
                 <div class="bottom">25</div>
             </div>
+            <div class="separator">:</div>
             <div class="flip-card" id="sec-card">
                 <div class="top">00</div>
                 <div class="bottom">00</div>
@@ -252,7 +160,7 @@ robots: noindex
 
         <div class="todo-section">
             <div class="todo-input-group">
-                <input type="text" id="todo-input" placeholder="No que vamos focar agora?">
+                <input type="text" id="todo-input" placeholder="O que vamos focar agora?">
                 <button id="add-todo-btn">+</button>
             </div>
             <ul id="todo-list" style="list-style: none;"></ul>
@@ -262,21 +170,6 @@ robots: noindex
     <script>
         let timeLeft = 25 * 60;
         let timerId = null;
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-        function playTickSound() {
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(120, audioCtx.currentTime);
-            gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.start();
-            osc.stop(audioCtx.currentTime + 0.1);
-        }
 
         function updateCard(id, value) {
             const card = document.getElementById(id);
@@ -285,12 +178,8 @@ robots: noindex
             const formatted = String(value).padStart(2, '0');
 
             if (top.innerText !== formatted) {
-                card.classList.remove('flip');
-                void card.offsetWidth;
-                card.classList.add('flip');
                 top.innerText = formatted;
                 bottom.innerText = formatted;
-                playTickSound();
             }
         }
 
@@ -300,57 +189,37 @@ robots: noindex
                 clearInterval(timerId);
                 timerId = null;
                 startBtn.innerText = "Start Focus";
-                startBtn.style.backgroundColor = "var(--primary-accent)";
             } else {
                 startBtn.innerText = "Pause";
-                startBtn.style.backgroundColor = "#cc7832"; // Cor de pausa
                 timerId = setInterval(() => {
                     if (timeLeft <= 0) {
                         clearInterval(timerId);
-                        timerId = null;
-                        document.body.style.animation = "alarmFlash 0.5s infinite";
-                        alert("Foco concluído! Hora de uma pausa.");
-                        document.body.style.animation = "none";
+                        alert("Pomodoro finalizado!");
                         timeLeft = 25 * 60;
                         updateCard('min-card', 25);
                         updateCard('sec-card', 0);
-                        startBtn.innerText = "Start Focus";
                         return;
                     }
                     timeLeft--;
                     updateCard('min-card', Math.floor(timeLeft / 60));
                     updateCard('sec-card', timeLeft % 60);
-                    document.title = `${Math.floor(timeLeft/60)}:${String(timeLeft%60).padStart(2,'0')} | Focus`;
                 }, 1000);
             }
         });
 
-        // Todo List Logic
         const todoInput = document.getElementById('todo-input');
         const addTodoBtn = document.getElementById('add-todo-btn');
         const todoList = document.getElementById('todo-list');
 
-        function addTask() {
+        addTodoBtn.onclick = () => {
             const text = todoInput.value.trim();
             if (!text) return;
             const li = document.createElement('li');
             li.className = 'todo-item';
-            li.innerHTML = `<span>${text}</span><button class="delete-task">✕</button>`;
-            
-            li.querySelector('span').onclick = () => li.classList.toggle('completed');
-            li.querySelector('.delete-task').onclick = (e) => {
-                e.stopPropagation();
-                li.style.transform = "translateX(20px)";
-                li.style.opacity = "0";
-                setTimeout(() => li.remove(), 300);
-            };
-            
-            todoList.prepend(li); // Adiciona no topo
+            li.innerHTML = `<span>${text}</span>`;
+            todoList.prepend(li);
             todoInput.value = "";
-        }
-
-        addTodoBtn.onclick = addTask;
-        todoInput.onkeypress = (e) => { if(e.key === 'Enter') addTask(); };
+        };
     </script>
 </body>
 </html>
