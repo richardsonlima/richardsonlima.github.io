@@ -9,7 +9,7 @@ robots: noindex
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Focus Timer | Deep Work</title>
+    <title>Focus Timer | Æon Deep Work</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
@@ -20,7 +20,6 @@ robots: noindex
             --primary-accent: #145a32;
             --primary-hover: #1e8449;
             --text-main: #ffffff;
-            --text-muted: #b3b3b3;
             --border-color: rgba(255, 255, 255, 0.1);
         }
 
@@ -33,7 +32,7 @@ robots: noindex
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100dvh; /* Centralização absoluta vertical */
+            min-height: 100dvh; /* Centralização real no iPhone/Android */
             padding: 20px;
             overflow: hidden;
         }
@@ -51,51 +50,51 @@ robots: noindex
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-            perspective: 1000px;
+            gap: 12px;
+            margin-bottom: 50px;
+            perspective: 1500px; /* Profundidade para o efeito Flip */
         }
 
-        /* CARTÃO FLIP */
+        /* COMPONENTE FLIP CARD */
         .flip-card {
             position: relative;
-            display: flex;
-            flex-direction: column;
             width: 42vw;
-            max-width: 280px;
+            max-width: 260px;
             height: 55vw;
-            max-height: 380px;
+            max-height: 340px;
+            background-color: var(--card-bg);
             border-radius: 12px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 32vw; /* Tamanho massivo */
+            font-size: 38vw; /* Tamanho massivo */
             font-weight: 700;
-            line-height: 0;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
         }
 
+        /* METADES DO CARTÃO */
         .top, .bottom {
             height: 50%;
             width: 100%;
             overflow: hidden;
+            position: relative;
             display: flex;
             justify-content: center;
             background-color: var(--card-bg);
-            position: relative;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
-        /* CORREÇÃO DA DUPLICAÇÃO: Cortando o número ao meio */
         .top {
             align-items: flex-end;
             border-radius: 12px 12px 0 0;
             background-color: #161616;
-            border-bottom: 1px solid rgba(0,0,0,0.6);
-            padding-bottom: 0.5vw;
+            border-bottom: 1px solid rgba(0,0,0,0.5);
+            line-height: 0; /* Alinhamento preciso */
         }
 
         .bottom {
             align-items: flex-start;
             border-radius: 0 0 12px 12px;
-            padding-top: 0.5vw;
+            line-height: 0; /* Alinhamento preciso */
         }
 
         /* SEPARADOR ":" */
@@ -104,89 +103,60 @@ robots: noindex
             font-family: 'JetBrains Mono', monospace;
             color: var(--primary-hover);
             font-weight: 700;
-            margin-top: -5vw;
+            padding-bottom: 5vw;
         }
 
-        /* ANIMAÇÃO GIRATÓRIA (FLIP) */
-        .flip-anim {
-            animation: flipRotate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        /* ANIMAÇÃO DE FLIP REAL (3D FOLD) */
+        .flip-animate {
+            animation: flipFold 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @keyframes flipRotate {
-            0% { transform: rotateX(0); }
-            50% { transform: rotateX(-90deg); }
-            100% { transform: rotateX(0); }
+        @keyframes flipFold {
+            0% { transform: rotateX(0deg); }
+            50% { transform: rotateX(-90deg); filter: brightness(1.2); }
+            100% { transform: rotateX(0deg); }
         }
 
-        /* AJUSTES PARA DESKTOP/IPAD */
+        /* AJUSTES PARA DISPOSITIVOS MAIORES (IPAD/NOTEBOOK) */
         @media (min-width: 768px) {
-            .flip-card { width: 220px; height: 300px; font-size: 200px; }
-            .separator { font-size: 100px; margin-top: -20px; }
+            .flip-card { width: 200px; height: 280px; font-size: 180px; }
+            .separator { font-size: 80px; padding-bottom: 20px; }
             .timer-display { gap: 20px; }
         }
 
+        @media (min-width: 1200px) {
+            .flip-card { width: 280px; height: 380px; font-size: 240px; }
+        }
+
         /* CONTROLS */
-        .controls {
-            width: 100%;
-            max-width: 400px;
-            margin-bottom: 40px;
-        }
-
+        .controls { width: 100%; max-width: 400px; margin-bottom: 40px; }
         #start-btn {
-            width: 100%;
-            padding: 20px;
-            border-radius: 15px;
-            border: none;
-            background: var(--primary-accent);
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
+            width: 100%; padding: 22px; border-radius: 16px; border: none;
+            background: var(--primary-accent); color: white;
+            font-size: 1.2rem; font-weight: 700; cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(20, 90, 50, 0.3);
         }
-
-        #start-btn:active { transform: scale(0.95); }
+        #start-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
 
         /* LISTA DE TAREFAS */
         .todo-container {
-            width: 100%;
-            max-width: 400px;
+            width: 100%; max-width: 400px;
             border-top: 1px solid var(--border-color);
             padding-top: 30px;
         }
-
-        .todo-input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
+        .input-group { display: flex; gap: 10px; margin-bottom: 20px; }
         input {
-            flex: 1;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-color);
-            padding: 15px;
-            border-radius: 10px;
-            color: white;
-            outline: none;
+            flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color);
+            padding: 16px; border-radius: 12px; color: white; outline: none;
         }
-
         #add-btn {
-            padding: 0 20px;
-            border-radius: 10px;
-            border: none;
-            background: var(--card-bg);
-            color: white;
-            cursor: pointer;
+            padding: 0 20px; border-radius: 12px; border: none;
+            background: var(--card-bg); color: white; cursor: pointer;
         }
-
         .task {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
+            background: var(--card-bg); padding: 15px; border-radius: 10px;
+            margin-bottom: 10px; display: flex; justify-content: space-between;
             border-left: 4px solid var(--primary-accent);
         }
     </style>
@@ -211,8 +181,8 @@ robots: noindex
         </div>
 
         <div class="todo-container">
-            <div class="todo-input-group">
-                <input type="text" id="todo-in" placeholder="Próxima tarefa...">
+            <div class="input-group">
+                <input type="text" id="todo-in" placeholder="Qual o próximo passo?">
                 <button id="add-btn">+</button>
             </div>
             <div id="task-list"></div>
@@ -227,16 +197,16 @@ robots: noindex
             const card = document.getElementById(id);
             const top = card.querySelector('.top');
             const bottom = card.querySelector('.bottom');
-            const val = String(value).padStart(2, '0');
+            const newVal = String(value).padStart(2, '0');
 
-            if (top.innerText !== val) {
-                // Trigger animação giratória
-                card.classList.remove('flip-anim');
-                void card.offsetWidth; // Force reflow
-                card.classList.add('flip-anim');
+            if (top.innerText !== newVal) {
+                // Efeito de Flip 3D
+                card.classList.remove('flip-animate');
+                void card.offsetWidth; // Força re-renderização do CSS
+                card.classList.add('flip-animate');
                 
-                top.innerText = val;
-                bottom.innerText = val;
+                top.innerText = newVal;
+                bottom.innerText = newVal;
             }
         }
 
@@ -246,12 +216,14 @@ robots: noindex
                 clearInterval(timerId);
                 timerId = null;
                 btn.innerText = "Continuar";
+                btn.style.background = "var(--primary-accent)";
             } else {
                 btn.innerText = "Pausar";
+                btn.style.background = "#cc7832"; // Cor de aviso/pausa
                 timerId = setInterval(() => {
                     if (timeLeft <= 0) {
                         clearInterval(timerId);
-                        alert("Sessão finalizada!");
+                        alert("Pomodoro Concluído!");
                         return;
                     }
                     timeLeft--;
@@ -261,13 +233,13 @@ robots: noindex
             }
         };
 
-        // Tasks
+        // Tasks Simple Logic
         const input = document.getElementById('todo-in');
         const add = document.getElementById('add-btn');
         const list = document.getElementById('task-list');
 
         add.onclick = () => {
-            if (!input.value) return;
+            if (!input.value.trim()) return;
             const div = document.createElement('div');
             div.className = 'task';
             div.innerHTML = `<span>${input.value}</span>`;
