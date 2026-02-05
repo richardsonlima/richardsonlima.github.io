@@ -12,7 +12,7 @@ robots: noindex
     <title>Focus Timer | Deep Work</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #050507;
@@ -20,6 +20,7 @@ robots: noindex
             --primary-accent: #145a32;
             --primary-hover: #1e8449;
             --text-main: #ffffff;
+            --text-muted: #b3b3b3;
             --border-color: rgba(255, 255, 255, 0.1);
         }
 
@@ -32,111 +33,162 @@ robots: noindex
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100dvh; /* Centralização vertical dinâmica */
-            overflow-x: hidden;
+            min-height: 100dvh; /* Centralização absoluta vertical */
             padding: 20px;
+            overflow: hidden;
         }
 
         .container {
-            text-align: center;
             width: 100%;
-            max-width: 800px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
 
-        /* TIMER DISPLAY - NÚMEROS GIGANTES E SEM DUPLICAÇÃO */
+        /* TIMER DISPLAY */
         .timer-display {
             display: flex;
-            gap: 8px;
             align-items: center;
             justify-content: center;
-            margin-bottom: 3rem;
-            width: 100%;
+            gap: 10px;
+            margin-bottom: 40px;
+            perspective: 1000px;
         }
 
+        /* CARTÃO FLIP */
         .flip-card {
             position: relative;
-            width: 40vw; 
-            max-width: 260px;
-            height: 50vw;
-            max-height: 340px;
-            background-color: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            width: 42vw;
+            max-width: 280px;
+            height: 55vw;
+            max-height: 380px;
             border-radius: 12px;
             font-family: 'JetBrains Mono', monospace;
-            font-weight: bold;
-            font-size: 35vw; /* Tamanho massivo */
-            line-height: 1;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-        }
-
-        /* AJUSTE PARA TABLETS E DESKTOPS */
-        @media (min-width: 768px) {
-            .flip-card { width: 22vw; height: 30vw; font-size: 22vw; }
-            .timer-display { gap: 20px; }
-        }
-        @media (min-width: 1200px) {
-            .flip-card { width: 280px; height: 380px; font-size: 16rem; }
+            font-size: 32vw; /* Tamanho massivo */
+            font-weight: 700;
+            line-height: 0;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .top, .bottom {
             height: 50%;
+            width: 100%;
             overflow: hidden;
             display: flex;
             justify-content: center;
-            width: 100%;
+            background-color: var(--card-bg);
             position: relative;
         }
 
+        /* CORREÇÃO DA DUPLICAÇÃO: Cortando o número ao meio */
         .top {
-            align-items: flex-end; /* Alinha o texto para baixo na metade superior */
-            background-color: #161616;
+            align-items: flex-end;
             border-radius: 12px 12px 0 0;
-            border-bottom: 1px solid rgba(0,0,0,0.5);
+            background-color: #161616;
+            border-bottom: 1px solid rgba(0,0,0,0.6);
+            padding-bottom: 0.5vw;
         }
 
         .bottom {
-            align-items: flex-start; /* Alinha o texto para cima na metade inferior */
+            align-items: flex-start;
             border-radius: 0 0 12px 12px;
+            padding-top: 0.5vw;
         }
 
-        /* Separador ":" centralizado */
+        /* SEPARADOR ":" */
         .separator {
+            font-size: 15vw;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 10vw;
             color: var(--primary-hover);
-            font-weight: bold;
-            padding-bottom: 2vw;
+            font-weight: 700;
+            margin-top: -5vw;
         }
 
-        @media (min-width: 768px) { .separator { font-size: 5vw; } }
+        /* ANIMAÇÃO GIRATÓRIA (FLIP) */
+        .flip-anim {
+            animation: flipRotate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes flipRotate {
+            0% { transform: rotateX(0); }
+            50% { transform: rotateX(-90deg); }
+            100% { transform: rotateX(0); }
+        }
+
+        /* AJUSTES PARA DESKTOP/IPAD */
+        @media (min-width: 768px) {
+            .flip-card { width: 220px; height: 300px; font-size: 200px; }
+            .separator { font-size: 100px; margin-top: -20px; }
+            .timer-display { gap: 20px; }
+        }
 
         /* CONTROLS */
-        .controls-wrapper { width: 100%; max-width: 400px; margin-bottom: 3rem; }
-        
-        #start-btn {
-            background-color: var(--primary-accent);
-            color: white;
-            border: 1px solid var(--primary-hover);
-            padding: 16px 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 12px;
-            cursor: pointer;
+        .controls {
             width: 100%;
-            transition: 0.2s ease;
+            max-width: 400px;
+            margin-bottom: 40px;
         }
 
-        #start-btn:active { transform: scale(0.98); }
+        #start-btn {
+            width: 100%;
+            padding: 20px;
+            border-radius: 15px;
+            border: none;
+            background: var(--primary-accent);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-        /* TODO SECTION */
-        .todo-section { width: 100%; max-width: 400px; text-align: left; border-top: 1px solid var(--border-color); padding-top: 25px; }
-        .todo-input-group { display: flex; gap: 10px; margin-bottom: 20px; }
-        #todo-input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: white; padding: 12px; border-radius: 8px; outline: none; }
-        #add-todo-btn { background: var(--card-bg); color: white; border: 1px solid var(--border-color); padding: 0 15px; border-radius: 8px; cursor: pointer; }
+        #start-btn:active { transform: scale(0.95); }
 
-        .todo-item { background: var(--card-bg); padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; border-left: 4px solid var(--primary-accent); }
+        /* LISTA DE TAREFAS */
+        .todo-container {
+            width: 100%;
+            max-width: 400px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        .todo-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            outline: none;
+        }
+
+        #add-btn {
+            padding: 0 20px;
+            border-radius: 10px;
+            border: none;
+            background: var(--card-bg);
+            color: white;
+            cursor: pointer;
+        }
+
+        .task {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-left: 4px solid var(--primary-accent);
+        }
     </style>
 </head>
 <body>
@@ -154,16 +206,16 @@ robots: noindex
             </div>
         </div>
 
-        <div class="controls-wrapper">
-            <button id="start-btn">Start Focus</button>
+        <div class="controls">
+            <button id="start-btn">Começar Foco</button>
         </div>
 
-        <div class="todo-section">
+        <div class="todo-container">
             <div class="todo-input-group">
-                <input type="text" id="todo-input" placeholder="O que vamos focar agora?">
-                <button id="add-todo-btn">+</button>
+                <input type="text" id="todo-in" placeholder="Próxima tarefa...">
+                <button id="add-btn">+</button>
             </div>
-            <ul id="todo-list" style="list-style: none;"></ul>
+            <div id="task-list"></div>
         </div>
     </div>
 
@@ -175,29 +227,31 @@ robots: noindex
             const card = document.getElementById(id);
             const top = card.querySelector('.top');
             const bottom = card.querySelector('.bottom');
-            const formatted = String(value).padStart(2, '0');
+            const val = String(value).padStart(2, '0');
 
-            if (top.innerText !== formatted) {
-                top.innerText = formatted;
-                bottom.innerText = formatted;
+            if (top.innerText !== val) {
+                // Trigger animação giratória
+                card.classList.remove('flip-anim');
+                void card.offsetWidth; // Force reflow
+                card.classList.add('flip-anim');
+                
+                top.innerText = val;
+                bottom.innerText = val;
             }
         }
 
-        const startBtn = document.getElementById('start-btn');
-        startBtn.addEventListener('click', () => {
+        const btn = document.getElementById('start-btn');
+        btn.onclick = () => {
             if (timerId) {
                 clearInterval(timerId);
                 timerId = null;
-                startBtn.innerText = "Start Focus";
+                btn.innerText = "Continuar";
             } else {
-                startBtn.innerText = "Pause";
+                btn.innerText = "Pausar";
                 timerId = setInterval(() => {
                     if (timeLeft <= 0) {
                         clearInterval(timerId);
-                        alert("Pomodoro finalizado!");
-                        timeLeft = 25 * 60;
-                        updateCard('min-card', 25);
-                        updateCard('sec-card', 0);
+                        alert("Sessão finalizada!");
                         return;
                     }
                     timeLeft--;
@@ -205,20 +259,20 @@ robots: noindex
                     updateCard('sec-card', timeLeft % 60);
                 }, 1000);
             }
-        });
+        };
 
-        const todoInput = document.getElementById('todo-input');
-        const addTodoBtn = document.getElementById('add-todo-btn');
-        const todoList = document.getElementById('todo-list');
+        // Tasks
+        const input = document.getElementById('todo-in');
+        const add = document.getElementById('add-btn');
+        const list = document.getElementById('task-list');
 
-        addTodoBtn.onclick = () => {
-            const text = todoInput.value.trim();
-            if (!text) return;
-            const li = document.createElement('li');
-            li.className = 'todo-item';
-            li.innerHTML = `<span>${text}</span>`;
-            todoList.prepend(li);
-            todoInput.value = "";
+        add.onclick = () => {
+            if (!input.value) return;
+            const div = document.createElement('div');
+            div.className = 'task';
+            div.innerHTML = `<span>${input.value}</span>`;
+            list.prepend(div);
+            input.value = "";
         };
     </script>
 </body>
