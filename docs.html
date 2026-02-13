@@ -9,7 +9,7 @@ robots: noindex
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Æon Docs | Quick Start & Guides</title>
+    <title>Æon Docs | Quick Reference Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -35,62 +35,33 @@ robots: noindex
             display: flex;
         }
 
-        /* SIDEBAR NAVIGATION */
+        /* SIDEBAR */
         .sidebar {
             width: 280px;
             height: 100vh;
             border-right: 1px solid var(--border-color);
             padding: 40px 20px;
             position: fixed;
-            background: rgba(5, 5, 7, 0.8);
+            background: rgba(5, 5, 7, 0.95);
             backdrop-filter: blur(10px);
             overflow-y: auto;
+            z-index: 1000;
         }
 
-        .sidebar-logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: var(--text-main);
-            text-decoration: none;
-            display: block;
-        }
-
+        .sidebar-logo { font-weight: 700; font-size: 1.2rem; margin-bottom: 40px; color: var(--text-main); text-decoration: none; display: block; }
         .sidebar-logo span { color: var(--secondary-accent); }
 
         .nav-group { margin-bottom: 30px; }
-        .nav-group h4 { 
-            font-size: 0.7rem; 
-            text-transform: uppercase; 
-            color: var(--text-muted); 
-            letter-spacing: 1px; 
-            margin-bottom: 15px;
-        }
-
-        .nav-link {
-            display: block;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-            transition: color 0.3s;
-        }
-
+        .nav-group h4 { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 15px; }
+        .nav-link { display: block; color: var(--text-muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 10px; transition: color 0.3s; }
         .nav-link:hover { color: var(--secondary-accent); }
 
-        /* MAIN CONTENT */
-        .main-content {
-            margin-left: 280px;
-            padding: 80px 60px;
-            max-width: 900px;
-            width: 100%;
-        }
-
-        h1 { font-size: 3rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; }
-        h2 { font-size: 1.8rem; margin-top: 60px; margin-bottom: 20px; color: var(--secondary-accent); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
-        h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; }
-
-        p { color: var(--text-muted); margin-bottom: 20px; }
+        /* CONTENT */
+        .main-content { margin-left: 280px; padding: 80px 60px; max-width: 1100px; width: 100%; }
+        h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 10px; }
+        h2 { font-size: 1.6rem; margin-top: 60px; margin-bottom: 20px; color: var(--secondary-accent); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h3 { font-size: 1.2rem; margin-top: 30px; margin-bottom: 15px; color: #fff; }
+        p { color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem; }
 
         /* CODE BLOCKS */
         .code-block {
@@ -99,46 +70,19 @@ robots: noindex
             padding: 20px;
             border-radius: 8px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #d1d1d1;
             margin: 20px 0;
             overflow-x: auto;
-            position: relative;
+            white-space: pre;
         }
+        .keyword { color: #ff79c6; }
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; }
+        .function { color: #50fa7b; }
 
-        .code-block span.keyword { color: #ff79c6; }
-        .code-block span.string { color: #f1fa8c; }
-        .code-block span.comment { color: #6272a4; }
-
-        /* TABLES */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: rgba(255,255,255,0.02);
-        }
-
-        th, td {
-            text-align: left;
-            padding: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th { color: var(--secondary-accent); font-size: 0.8rem; text-transform: uppercase; }
-        td { font-size: 0.9rem; color: var(--text-muted); }
-
-        /* LANGUAGE SWITCHER */
-        .lang-container { position: absolute; top: 40px; right: 40px; }
-        .lang-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            padding: 5px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            margin-left: 8px;
-        }
+        .lang-container { position: fixed; top: 40px; right: 40px; z-index: 1100; }
+        .lang-btn { background: rgba(15,15,18,0.8); border: 1px solid var(--border-color); color: var(--text-muted); padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; margin-left: 8px; transition: 0.3s; }
         .lang-btn.active { border-color: var(--secondary-accent); color: var(--secondary-accent); }
 
         @media (max-width: 768px) {
@@ -150,26 +94,27 @@ robots: noindex
 <body>
 
     <aside class="sidebar">
-        <a href="aeon.html" class="sidebar-logo">Æon <span>Docs</span></a>
+        <a href="/aeon/" class="sidebar-logo">Æon <span>Docs</span></a>
         
         <div class="nav-group">
-            <h4 data-i18n="nav_start">Getting Started</h4>
-            <a href="#quick-start" class="nav-link">Quick Start</a>
+            <h4 data-i18n="nav_getting_started">Getting Started</h4>
             <a href="#installation" class="nav-link">Installation</a>
+            <a href="#core-concepts" class="nav-link">Core Concepts</a>
         </div>
 
         <div class="nav-group">
-            <h4 data-i18n="nav_concepts">Core Concepts</h4>
-            <a href="#axioms" class="nav-link">Safety Axioms</a>
-            <a href="#mcp" class="nav-link">MCP Tools</a>
-            <a href="#a2a" class="nav-link">A2A Networking</a>
+            <h4 data-i18n="nav_layers">Architecture Layers</h4>
+            <a href="#layer1" class="nav-link">L1: Integrations</a>
+            <a href="#layer2" class="nav-link">L2: Extensions</a>
+            <a href="#layer3" class="nav-link">L3: Dialogue</a>
+            <a href="#layer4" class="nav-link">L4: Dispatcher</a>
+            <a href="#layer5" class="nav-link">L5: Automation</a>
         </div>
 
         <div class="nav-group">
-            <h4 data-i18n="nav_links">Links</h4>
-            <a href="core.html" class="nav-link">Core Engine</a>
-            <a href="standards.html" class="nav-link">Standards</a>
-            <a href="aeon.html" class="nav-link">← Home</a>
+            <h4 data-i18n="nav_examples">Real World</h4>
+            <a href="#complete-workflow" class="nav-link">Full Workflow</a>
+            <a href="#common-patterns" class="nav-link">Common Patterns</a>
         </div>
     </aside>
 
@@ -180,90 +125,127 @@ robots: noindex
         </div>
 
         <header>
-            <h1 data-i18n="page_title">Documentation</h1>
-            <p data-i18n="page_subtitle">Comprehensive guides to building deterministic agentic systems.</p>
+            <h1 data-i18n="page_title">Quick Reference Guide</h1>
+            <p data-i18n="page_subtitle">Implementation reference for Æon Framework v0.3.0-ULTRA.</p>
         </header>
 
-        <section id="quick-start">
-            <h2 data-i18n="qs_title">Quick Start</h2>
-            <p data-i18n="qs_desc">Initialize a safe agent in less than 10 lines of code.</p>
-            <div class="code-block">
-                <span class="keyword">from</span> aeon.kernel <span class="keyword">import</span> AeonAgent<br>
-                <br>
-                agent = AeonAgent(name=<span class="string">"Nexus-01"</span>)<br>
-                <span class="comment"># Define a System 2 Axiom</span><br>
-                @agent.axiom(<span class="string">"max_temp"</span>)<br>
-                <span class="keyword">def</span> check_thermal(val):<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> min(val, <span class="string">400</span>)
-            </div>
+        <section id="installation">
+            <h2 data-i18n="sec_install">Installation</h2>
+            <div class="code-block">git clone https://github.com/richardsonlima/aeon-core.git
+cd aeon-core
+pip install -e .</div>
         </section>
 
-        <section id="axioms">
-            <h2 data-i18n="axioms_title">Safety Axioms</h2>
-            <p data-i18n="axioms_desc">Axioms are deterministic code gates that run before any LLM action is executed. They represent the "System 2" of your agent.</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th data-i18n="col_mode">Violation Mode</th>
-                        <th data-i18n="col_behavior">Behavior</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>OVERRIDE</strong></td>
-                        <td data-i18n="mode_override">Silently correct the value to a safe limit.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>BLOCK</strong></td>
-                        <td data-i18n="mode_warn">Stop execution and raise a SafetyViolation.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>ESCALATE</strong></td>
-                        <td data-i18n="mode_escalate">Request human-in-the-loop authorization.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="core-concepts">
+            <h2 data-i18n="sec_core">Core Concepts</h2>
+            <h3>1. Agent Initialization</h3>
+            <div class="code-block"><span class="keyword">from</span> aeon <span class="keyword">import</span> Agent
+<span class="keyword">from</span> aeon.protocols <span class="keyword">import</span> A2A, MCP
+
+agent = Agent(
+    name=<span class="string">"MyBot"</span>,
+    model=<span class="string">"google/gemini-2.0-flash-001"</span>,
+    protocols=[A2A(port=8000), MCP(servers=[<span class="string">"tools.py"</span>])]
+)</div>
+        </section>
+
+        <section id="layer1">
+            <h2 data-i18n="sec_l1">Layer 1: Integrations</h2>
+            <p data-i18n="l1_desc">Multi-platform support via custom providers.</p>
+            <div class="code-block"><span class="keyword">class</span> <span class="function">MyProvider</span>(IntegrationProvider):
+    <span class="keyword">async def</span> <span class="function">dispatch</span>(self, packet: Packet):
+        print(<span class="string">f"Sending: {packet.payload} → {packet.destination}"</span>)
+        <span class="keyword">return</span> <span class="keyword">True</span>
+
+<span class="comment"># Register & Activate</span>
+agent.integrations.register(<span class="string">"myplatform"</span>, provider)
+<span class="keyword">await</span> agent.integrations.activate_provider(<span class="string">"myplatform"</span>)</div>
+        </section>
+
+        <section id="layer2">
+            <h2 data-i18n="sec_l2">Layer 2: Extensions</h2>
+            <p data-i18n="l2_desc">Pluggable capabilities and reusable tools.</p>
+            <div class="code-block"><span class="keyword">class</span> <span class="function">MyCapability</span>(Capability):
+    metadata = CapabilityMetadata(name=<span class="string">"my_feature"</span>, version=<span class="string">"1.0.0"</span>)
+    <span class="keyword">async def</span> <span class="function">invoke</span>(self, **kwargs):
+        <span class="keyword">return</span> <span class="string">f"Result: {kwargs.get('input')}"</span>
+
+agent.extensions.register(MyCapability())
+<span class="keyword">await</span> agent.extensions.activate(<span class="string">"my_feature"</span>)</div>
+        </section>
+
+        <section id="layer3">
+            <h2 data-i18n="sec_l3">Layer 3: Dialogue</h2>
+            <p data-i18n="l3_desc">Managing conversation state and history.</p>
+            <div class="code-block">context = DialogueContext(context_id=<span class="string">"conv_001"</span>, participant_id=<span class="string">"user_42"</span>)
+context.add_turn(ActorRole.USER, <span class="string">"Hello"</span>)
+agent.dialogue.store(context)</div>
+        </section>
+
+        <section id="layer4">
+            <h2 data-i18n="sec_l4">Layer 4: Dispatcher</h2>
+            <p data-i18n="l4_desc">High-performance event routing.</p>
+            <div class="code-block"><span class="keyword">async def</span> <span class="function">on_message</span>(event: Event):
+    print(<span class="string">f"Event source: {event.source}"</span>)
+
+agent.dispatcher.subscribe(EventType.COMMUNICATION_RECEIVED, on_message)</div>
+        </section>
+
+        <section id="layer5">
+            <h2 data-i18n="sec_l5">Layer 5: Automation</h2>
+            <p data-i18n="l5_desc">Temporal patterns and task scheduling.</p>
+            <div class="code-block">pattern = TemporalPattern(hour=<span class="string">"8"</span>, minute=<span class="string">"0"</span>) <span class="comment"># 8 AM Daily</span>
+task = ScheduledTask(task_id=<span class="string">"report"</span>, temporal_pattern=pattern, handler_id=<span class="string">"daily_report"</span>)
+agent.automation.schedule(task)</div>
+        </section>
+
+        <section id="complete-workflow">
+            <h2 data-i18n="sec_workflow">Complete Example Workflow</h2>
+            <div class="code-block"><span class="keyword">async def</span> <span class="function">main</span>():
+    agent = Agent(<span class="string">"ChatBot"</span>, <span class="string">"gpt-4"</span>)
+    
+    <span class="comment"># 1. Setup Provider & Capability</span>
+    agent.integrations.register(<span class="string">"tg"</span>, TelegramProvider())
+    agent.extensions.register(WeatherCap())
+    
+    <span class="comment"># 2. Process Dialogue</span>
+    ctx = DialogueContext(<span class="string">"c1"</span>, <span class="string">"tg"</span>, <span class="string">"u1"</span>)
+    weather = <span class="keyword">await</span> agent.extensions.invoke(<span class="string">"weather"</span>, city=<span class="string">"SP"</span>)
+    agent.dialogue.store(ctx)
+    
+    <span class="comment"># 3. Dispatch Result</span>
+    packet = Packet(<span class="string">"agent"</span>, <span class="string">"u1"</span>, <span class="string">f"Temp: {weather['temp']}"</span>)
+    <span class="keyword">await</span> agent.integrations.dispatch_packet(<span class="string">"tg"</span>, packet)</div>
         </section>
 
         <footer style="margin-top: 100px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.8rem;">
-            Æon Framework v0.3.0-ULTRA | Open Source Research Initiative
+            Æon Framework v0.3.0-ULTRA | Open Source Research
         </footer>
     </main>
 
     <script>
         const translations = {
             en: {
-                nav_start: "Getting Started",
-                nav_concepts: "Core Concepts",
-                nav_links: "Links",
-                page_title: "Documentation",
-                page_subtitle: "Comprehensive guides to building deterministic agentic systems.",
-                qs_title: "Quick Start",
-                qs_desc: "Initialize a safe agent in less than 10 lines of code.",
-                axioms_title: "Safety Axioms",
-                axioms_desc: "Axioms are deterministic code gates that represent the 'System 2' of your agent.",
-                col_mode: "Violation Mode",
-                col_behavior: "Behavior",
-                mode_override: "Silently correct the value to a safe limit.",
-                mode_warn: "Stop execution and raise a SafetyViolation.",
-                mode_escalate: "Request human-in-the-loop authorization."
+                page_title: "Quick Reference Guide", page_subtitle: "Implementation reference for Æon Framework v0.3.0-ULTRA.",
+                nav_getting_started: "Getting Started", nav_layers: "Architecture Layers", nav_examples: "Real World",
+                sec_install: "Installation", sec_core: "Core Concepts",
+                sec_l1: "Layer 1: Integrations", l1_desc: "Multi-platform support via custom providers.",
+                sec_l2: "Layer 2: Extensions", l2_desc: "Pluggable capabilities and reusable tools.",
+                sec_l3: "Layer 3: Dialogue", l3_desc: "Managing conversation state and history.",
+                sec_l4: "Layer 4: Dispatcher", l4_desc: "High-performance event routing.",
+                sec_l5: "Layer 5: Automation", l5_desc: "Temporal patterns and task scheduling.",
+                sec_workflow: "Complete Example Workflow"
             },
             pt: {
-                nav_start: "Primeiros Passos",
-                nav_concepts: "Conceitos Core",
-                nav_links: "Links",
-                page_title: "Documentação",
-                page_subtitle: "Guias abrangentes para construir sistemas agênticos determinísticos.",
-                qs_title: "Início Rápido",
-                qs_desc: "Inicialize um agente seguro em menos de 10 linhas de código.",
-                axioms_title: "Axiomas de Segurança",
-                axioms_desc: "Axiomas são portões de código determinísticos que representam o 'Sistema 2' do seu agente.",
-                col_mode: "Modo de Violação",
-                col_behavior: "Comportamento",
-                mode_override: "Corrige silenciosamente o valor para um limite seguro.",
-                mode_warn: "Interrompe a execução e lança uma SafetyViolation.",
-                mode_escalate: "Solicita autorização humana (human-in-the-loop)."
+                page_title: "Guia de Referência Rápida", page_subtitle: "Referência de implementação para o Æon Framework v0.3.0-ULTRA.",
+                nav_getting_started: "Primeiros Passos", nav_layers: "Camadas da Arquitetura", nav_examples: "Uso Real",
+                sec_install: "Instalação", sec_core: "Conceitos Core",
+                sec_l1: "Camada 1: Integrações", l1_desc: "Suporte multiplataforma via provedores customizados.",
+                sec_l2: "Camada 2: Extensões", l2_desc: "Capacidades plugáveis e ferramentas reutilizáveis.",
+                sec_l3: "Camada 3: Diálogo", l3_desc: "Gestão de estado e histórico de conversas.",
+                sec_l4: "Camada 4: Dispatcher", l4_desc: "Roteamento de eventos de alta performance.",
+                sec_l5: "Camada 5: Automação", l5_desc: "Padrões temporais e agendamento de tarefas.",
+                sec_workflow: "Fluxo de Exemplo Completo"
             }
         };
 
@@ -271,9 +253,7 @@ robots: noindex
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerText = translations[lang][key];
-                }
+                if (translations[lang][key]) el.innerText = translations[lang][key];
             });
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
