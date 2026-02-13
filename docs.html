@@ -1,0 +1,284 @@
+---
+layout: null
+permalink: /aeon/docs/
+sitemap: false
+robots: noindex
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Æon Docs | Quick Start & Guides</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050507;
+            --card-bg: rgba(15, 15, 18, 0.8);
+            --primary-accent: #6600ff;
+            --secondary-accent: #00f0ff;
+            --text-main: #ffffff;
+            --text-muted: #94949e;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --code-bg: #0f0f12;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            display: flex;
+        }
+
+        /* SIDEBAR NAVIGATION */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            border-right: 1px solid var(--border-color);
+            padding: 40px 20px;
+            position: fixed;
+            background: rgba(5, 5, 7, 0.8);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+
+        .sidebar-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--text-main);
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar-logo span { color: var(--secondary-accent); }
+
+        .nav-group { margin-bottom: 30px; }
+        .nav-group h4 { 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            color: var(--text-muted); 
+            letter-spacing: 1px; 
+            margin-bottom: 15px;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--secondary-accent); }
+
+        /* MAIN CONTENT */
+        .main-content {
+            margin-left: 280px;
+            padding: 80px 60px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 { font-size: 3rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; }
+        h2 { font-size: 1.8rem; margin-top: 60px; margin-bottom: 20px; color: var(--secondary-accent); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; }
+
+        p { color: var(--text-muted); margin-bottom: 20px; }
+
+        /* CODE BLOCKS */
+        .code-block {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #d1d1d1;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block span.keyword { color: #ff79c6; }
+        .code-block span.string { color: #f1fa8c; }
+        .code-block span.comment { color: #6272a4; }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.02);
+        }
+
+        th, td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th { color: var(--secondary-accent); font-size: 0.8rem; text-transform: uppercase; }
+        td { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* LANGUAGE SWITCHER */
+        .lang-container { position: absolute; top: 40px; right: 40px; }
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 8px;
+        }
+        .lang-btn.active { border-color: var(--secondary-accent); color: var(--secondary-accent); }
+
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="aeon.html" class="sidebar-logo">Æon <span>Docs</span></a>
+        
+        <div class="nav-group">
+            <h4 data-i18n="nav_start">Getting Started</h4>
+            <a href="#quick-start" class="nav-link">Quick Start</a>
+            <a href="#installation" class="nav-link">Installation</a>
+        </div>
+
+        <div class="nav-group">
+            <h4 data-i18n="nav_concepts">Core Concepts</h4>
+            <a href="#axioms" class="nav-link">Safety Axioms</a>
+            <a href="#mcp" class="nav-link">MCP Tools</a>
+            <a href="#a2a" class="nav-link">A2A Networking</a>
+        </div>
+
+        <div class="nav-group">
+            <h4 data-i18n="nav_links">Links</h4>
+            <a href="core.html" class="nav-link">Core Engine</a>
+            <a href="standards.html" class="nav-link">Standards</a>
+            <a href="aeon.html" class="nav-link">← Home</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="lang-container">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('pt')">PT</button>
+        </div>
+
+        <header>
+            <h1 data-i18n="page_title">Documentation</h1>
+            <p data-i18n="page_subtitle">Comprehensive guides to building deterministic agentic systems.</p>
+        </header>
+
+        <section id="quick-start">
+            <h2 data-i18n="qs_title">Quick Start</h2>
+            <p data-i18n="qs_desc">Initialize a safe agent in less than 10 lines of code.</p>
+            <div class="code-block">
+                <span class="keyword">from</span> aeon.kernel <span class="keyword">import</span> AeonAgent<br>
+                <br>
+                agent = AeonAgent(name=<span class="string">"Nexus-01"</span>)<br>
+                <span class="comment"># Define a System 2 Axiom</span><br>
+                @agent.axiom(<span class="string">"max_temp"</span>)<br>
+                <span class="keyword">def</span> check_thermal(val):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> min(val, <span class="string">400</span>)
+            </div>
+        </section>
+
+        <section id="axioms">
+            <h2 data-i18n="axioms_title">Safety Axioms</h2>
+            <p data-i18n="axioms_desc">Axioms are deterministic code gates that run before any LLM action is executed. They represent the "System 2" of your agent.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th data-i18n="col_mode">Violation Mode</th>
+                        <th data-i18n="col_behavior">Behavior</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>OVERRIDE</strong></td>
+                        <td data-i18n="mode_override">Silently correct the value to a safe limit.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BLOCK</strong></td>
+                        <td data-i18n="mode_warn">Stop execution and raise a SafetyViolation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ESCALATE</strong></td>
+                        <td data-i18n="mode_escalate">Request human-in-the-loop authorization.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer style="margin-top: 100px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.8rem;">
+            Æon Framework v0.3.0-ULTRA | Open Source Research Initiative
+        </footer>
+    </main>
+
+    <script>
+        const translations = {
+            en: {
+                nav_start: "Getting Started",
+                nav_concepts: "Core Concepts",
+                nav_links: "Links",
+                page_title: "Documentation",
+                page_subtitle: "Comprehensive guides to building deterministic agentic systems.",
+                qs_title: "Quick Start",
+                qs_desc: "Initialize a safe agent in less than 10 lines of code.",
+                axioms_title: "Safety Axioms",
+                axioms_desc: "Axioms are deterministic code gates that represent the 'System 2' of your agent.",
+                col_mode: "Violation Mode",
+                col_behavior: "Behavior",
+                mode_override: "Silently correct the value to a safe limit.",
+                mode_warn: "Stop execution and raise a SafetyViolation.",
+                mode_escalate: "Request human-in-the-loop authorization."
+            },
+            pt: {
+                nav_start: "Primeiros Passos",
+                nav_concepts: "Conceitos Core",
+                nav_links: "Links",
+                page_title: "Documentação",
+                page_subtitle: "Guias abrangentes para construir sistemas agênticos determinísticos.",
+                qs_title: "Início Rápido",
+                qs_desc: "Inicialize um agente seguro em menos de 10 linhas de código.",
+                axioms_title: "Axiomas de Segurança",
+                axioms_desc: "Axiomas são portões de código determinísticos que representam o 'Sistema 2' do seu agente.",
+                col_mode: "Modo de Violação",
+                col_behavior: "Comportamento",
+                mode_override: "Corrige silenciosamente o valor para um limite seguro.",
+                mode_warn: "Interrompe a execução e lança uma SafetyViolation.",
+                mode_escalate: "Solicita autorização humana (human-in-the-loop)."
+            }
+        };
+
+        function setLang(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+    </script>
+</body>
+</html>

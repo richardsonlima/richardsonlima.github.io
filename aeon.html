@@ -198,9 +198,9 @@ robots: noindex
         <div class="logo"><span>Æon</span> Framework</div>
         <div class="nav-right">
             <div class="nav-links">
-                <a href="#" data-i18n="nav_product">Core</a>
-                <a href="#" data-i18n="nav_docs">Docs</a>
-                <a href="#" data-i18n="nav_standards">Standards</a>
+                <a href="core.html" data-i18n="nav_product">Core</a>
+                <a href="docs.html" data-i18n="nav_docs">Docs</a>
+                <a href="standards.html" data-i18n="nav_standards">Standards</a>
             </div>
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="setLang('en')">EN</button>
@@ -276,6 +276,31 @@ controller = Agent(
                 <h3 data-i18n="card4_title">Pythonic Simplicity</h3>
                 <p data-i18n="card4_desc">Zero boilerplate. Decorator-based syntax. Intuitive for any Python developer.</p>
             </div>
+            <div class="os-card">
+                <span class="repo-name">ultra / routing</span>
+                <h3 data-i18n="card5_title">Intelligent Routing</h3>
+                <p data-i18n="card5_desc">Pattern-based message routing with 5 strategies and 6 filter types for optimal message dispatch.</p>
+            </div>
+            <div class="os-card">
+                <span class="repo-name">ultra / gateway</span>
+                <h3 data-i18n="card6_title">Central Gateway</h3>
+                <p data-i18n="card6_desc">Unified communication hub managing sessions, connections, and multi-protocol integration.</p>
+            </div>
+            <div class="os-card">
+                <span class="repo-name">ultra / security</span>
+                <h3 data-i18n="card7_title">Enterprise Security</h3>
+                <p data-i18n="card7_desc">Policy-based authorization, token lifecycle management, and encryption support.</p>
+            </div>
+            <div class="os-card">
+                <span class="repo-name">ultra / health</span>
+                <h3 data-i18n="card8_title">System Monitoring</h3>
+                <p data-i18n="card8_desc">Real-time health checks, metrics collection, and comprehensive diagnostics.</p>
+            </div>
+            <div class="os-card">
+                <span class="repo-name">ultra / cache</span>
+                <h3 data-i18n="card9_title">Performance Cache</h3>
+                <p data-i18n="card9_desc">LRU caching, distributed replication, and TTL-based expiration for optimization.</p>
+            </div>
         </div>
     </section>
 
@@ -301,21 +326,29 @@ controller = Agent(
                     <span style="margin-left: 10px; font-family: 'JetBrains Mono'; font-size: 0.7rem; color: #666;">aeon-runtime</span>
                 </div>
                 <div class="terminal-window">
-                    <span class="term-line" style="color: #666;">AEON KERNEL v0.2.0-alpha | Reactor_Overseer_01</span>
+                    <span class="term-line" style="color: #666;">AEON KERNEL v0.3.0-ULTRA | Reactor_Overseer_01</span>
                     <span class="term-line" style="color: #444;">----------------------------------------</span>
                     <span class="term-line"><span style="color: #27c93f;">[+]</span> Hive: Initializing A2A Node...</span>
                     <span class="term-line" style="padding-left: 10px;"><span style="color: #00f0ff;">[>]</span> Hive: A2A Beacon Active (Std: unified-1.0)</span>
-                    <br>
                     <span class="term-line"><span style="color: #27c93f;">[+]</span> Synapse: Establishing neural links...</span>
                     <span class="term-line"><span style="color: #27c93f;">[+]</span> Synapse: Connected. Tools: ['read_sensor', 'set_actuator']</span>
+                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Gateway: Central hub initialized (Session Manager active)</span>
+                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Router: Pattern matching engine ready (5 strategies)</span>
+                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Security: TokenManager active with policy-based auth</span>
+                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Health: System monitoring active (Real-time metrics)</span>
+                    <span class="term-line"><span style="color: #27c93f;">[+]</span> Cache: LRU cache initialized (10000 max items)</span>
                     <div style="margin: 15px 0; border-top: 1px solid #222;"></div>
                     <span class="term-line"><span style="color: #00f0ff;">[>]</span> User Input: <span style="color: #fff;">Set actuator core_temp to 550.0.</span></span>
+                    <span class="term-line"><span style="color: #00f0ff;">[>]</span> Router: Message matched to priority handler</span>
+                    <span class="term-line"><span style="color: #00f0ff;">[>]</span> Security: Token validated. Scopes: [read:data, write:results]</span>
                     <span class="term-line"><span style="color: #00f0ff;">[>]</span> Cortex: Sending request to gemini-2.0...</span>
                     <span class="term-line" style="color: #888; padding-left: 15px;">[i] Intent: Call set_actuator with {'value': 550}</span>
                     <div style="background: rgba(255, 51, 102, 0.1); border-left: 3px solid #ff3366; padding: 10px; margin: 15px 0;">
                         <span class="term-line" style="color: #ff3366; font-weight: bold;">[!] AXIOM ALERT: 550C is unsafe. Clamping to 400.0C.</span>
                     </div>
                     <span class="term-line"><span style="color: #27c93f;">[<]</span> Tool Output: <span style="color: #fff; font-weight: bold;">SUCCESS: core_temp set to 400.0</span></span>
+                    <span class="term-line"><span style="color: #27c93f;">[✓]</span> Health: All systems operational (16 subsystems active)</span>
+                    <span class="term-line"><span style="color: #27c93f;">[✓]</span> Cache: Result stored (TTL: 1 hour)</span>
                     <div style="margin: 15px 0; border-top: 1px solid #222;"></div>
                     <span class="term-line" style="color: #444;">AEON KERNEL SHUTDOWN</span>
                 </div>
@@ -361,6 +394,11 @@ controller = Agent(
                 card2_title: "MCP Native", card2_desc: "Universal tool integration via Anthropic's MCP.",
                 card3_title: "Æon Axioms", card3_desc: "Deterministic guardrails that LLMs cannot bypass.",
                 card4_title: "Pythonic Simplicity", card4_desc: "Zero boilerplate. Intuitive for any Python developer.",
+                card5_title: "Intelligent Routing", card5_desc: "Pattern-based routing with 5 strategies and 6 filter types.",
+                card6_title: "Central Gateway", card6_desc: "Unified hub managing sessions, connections, and protocols.",
+                card7_title: "Enterprise Security", card7_desc: "Policy-based authorization and token lifecycle management.",
+                card8_title: "System Monitoring", card8_desc: "Real-time health checks and comprehensive diagnostics.",
+                card9_title: "Performance Cache", card9_desc: "LRU caching with distributed replication and TTL.",
                 impact_title: "Visual Feedback.",
                 impact_sub: "See exactly when the 'System 2' (Axiom) intercepts the 'System 1' (LLM) in real-time.",
                 impact_link: "View Terminal Demo >",
@@ -379,6 +417,11 @@ controller = Agent(
                 card2_title: "Nativo MCP", card2_desc: "Integração universal de ferramentas via Anthropic MCP.",
                 card3_title: "Axiomas Æon", card3_desc: "Guardrails determinísticos em código que LLMs não podem burlar.",
                 card4_title: "Simplicidade Pythônica", card4_desc: "Zero boilerplate. Intuitivo para qualquer dev Python.",
+                card5_title: "Roteamento Inteligente", card5_desc: "Estratégias flexíveis de roteamento com round-robin, prioridade, hash e failover automático.",
+                card6_title: "Gateway Central", card6_desc: "Gerencia integrações, sessões e protocolos de comunicação com confiabilidade corporativa.",
+                card7_title: "Segurança Corporativa", card7_desc: "Autorização baseada em políticas com gestão de ciclo de vida de tokens e criptografia.",
+                card8_title: "Monitoramento de Sistema", card8_desc: "Monitoramento em tempo real com métricas diagnósticas e saúde multi-componente.",
+                card9_title: "Cache de Desempenho", card9_desc: "Estratégias de cache inteligentes com TTL, distribuição e replicação de dados.",
                 impact_title: "Feedback Visual.",
                 impact_sub: "Veja exatamente quando o 'Sistema 2' (Axioma) intercepta o 'Sistema 1' (LLM) em tempo real.",
                 impact_link: "Ver Demo no Terminal >",

@@ -1,0 +1,307 @@
+---
+layout: null
+permalink: /aeon/standards/
+sitemap: false
+robots: noindex
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Æon Framework | Standards & Specifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050507;
+            --card-bg: rgba(15, 15, 18, 0.8);
+            --primary-accent: #6600ff;
+            --secondary-accent: #00f0ff;
+            --text-main: #ffffff;
+            --text-muted: #94949e;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+        .logo span { color: var(--secondary-accent); }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--secondary-accent); }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 100px 20px 60px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(102, 0, 255, 0.15), transparent 70%);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* CONTENT SECTION */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section { margin-bottom: 80px; }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-accent);
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { border-color: var(--secondary-accent); }
+
+        .card h3 { margin-bottom: 15px; font-size: 1.1rem; color: #fff; }
+
+        ul { list-style: none; }
+        ul li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-accent);
+        }
+
+        .code {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--secondary-accent);
+            background: rgba(0, 240, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* LANG SWITCH */
+        .lang-switch { display: flex; gap: 10px; margin-left: 20px; }
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: all 0.3s;
+        }
+        .lang-btn.active { border-color: var(--secondary-accent); color: var(--secondary-accent); }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .spec-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Æon <span>Standards</span></div>
+        <div style="display: flex; align-items: center;">
+            <div class="nav-links">
+                <a href="aeon.html">Home</a>
+                <a href="core.html">Core</a>
+                <a href="docs.html">Docs</a>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('pt')">PT</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 data-i18n="title">Architectural Standards</h1>
+        <p class="subtitle" data-i18n="subtitle">The blueprints of a safety-first neuro-symbolic ecosystem. Consistent. Interoperable. Deterministic.</p>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2 data-i18n="agent_interop">Agent Interoperability</h2>
+            <div class="spec-grid">
+                <div class="card">
+                    <h3 data-i18n="comm_protocol">Communication Protocols</h3>
+                    <ul>
+                        <li data-i18n="proto_json">Primary: <span class="code">JSON-RPC 2.0</span></li>
+                        <li data-i18n="proto_async">Async pattern: <span class="code">Pub/Sub</span> via Redis/NATS</li>
+                        <li data-i18n="proto_schema">Schema validation: <span class="code">Pydantic v2</span></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="discovery">Service Discovery</h3>
+                    <ul>
+                        <li data-i18n="disc_mcp">Native <span class="code">MCP</span> host integration</li>
+                        <li data-i18n="disc_registry">Dynamic capability registration</li>
+                        <li data-i18n="disc_health">Heartbeat-based health monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 data-i18n="api_conventions">API & Code Conventions</h2>
+            <div class="spec-grid">
+                <div class="card">
+                    <h3 data-i18n="development_flow">Development Flow</h3>
+                    <ul>
+                        <li data-i18n="convention_async">Async-first architecture</li>
+                        <li data-i18n="convention_types">Strict Python Type Hints</li>
+                        <li data-i18n="convention_docs">Google-style Docstrings</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="version_scheme">Versioning Scheme</h3>
+                    <ul>
+                        <li data-i18n="version_semantic">Semantic Versioning (SemVer)</li>
+                        <li data-i18n="version_major">Major: Breaking API changes</li>
+                        <li data-i18n="version_minor">Minor: New features</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer data-i18n="footer_text">
+        Framework ÆON v0.3.0-ULTRA | Open Source | Research Initiative
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Architectural Standards",
+                subtitle: "The blueprints of a safety-first neuro-symbolic ecosystem. Consistent. Interoperable. Deterministic.",
+                agent_interop: "Agent Interoperability",
+                comm_protocol: "Communication Protocols",
+                proto_json: "Primary: JSON-RPC 2.0",
+                proto_async: "Async pattern: Pub/Sub via Redis/NATS",
+                proto_schema: "Schema validation: Pydantic v2",
+                discovery: "Service Discovery",
+                disc_mcp: "Native MCP host integration",
+                disc_registry: "Dynamic capability registration",
+                disc_health: "Heartbeat-based health monitoring",
+                api_conventions: "API & Code Conventions",
+                development_flow: "Development Flow",
+                convention_async: "Async-first architecture",
+                convention_types: "Strict Python Type Hints",
+                convention_docs: "Google-style Docstrings",
+                version_scheme: "Versioning Scheme",
+                version_semantic: "Semantic Versioning (SemVer)",
+                version_major: "Major: Breaking API changes",
+                version_minor: "Minor: New features",
+                footer_text: "Framework ÆON v0.3.0-ULTRA | Open Source | Research Initiative"
+            },
+            pt: {
+                title: "Padrões Arquiteturais",
+                subtitle: "Os projetos de um ecossistema neuro-simbólico focado em segurança. Consistente. Interoperável. Determinístico.",
+                agent_interop: "Interoperabilidade de Agentes",
+                comm_protocol: "Protocolos de Comunicação",
+                proto_json: "Primário: JSON-RPC 2.0",
+                proto_async: "Padrão Async: Pub/Sub via Redis/NATS",
+                proto_schema: "Validação de Schema: Pydantic v2",
+                discovery: "Descoberta de Serviços",
+                disc_mcp: "Integração nativa MCP host",
+                disc_registry: "Registro dinâmico de capacidades",
+                disc_health: "Monitoramento de saúde via Heartbeat",
+                api_conventions: "Convenções de API e Código",
+                development_flow: "Fluxo de Desenvolvimento",
+                convention_async: "Arquitetura Async-first",
+                convention_types: "Type Hints rigorosos em Python",
+                convention_docs: "Docstrings estilo Google",
+                version_scheme: "Esquema de Versionamento",
+                version_semantic: "Versionamento Semântico (SemVer)",
+                version_major: "Major: Mudanças de API de rutura",
+                version_minor: "Minor: Novos recursos",
+                footer_text: "Framework ÆON v0.3.0-ULTRA | Código Aberto | Iniciativa de Pesquisa"
+            }
+        };
+
+        function setLang(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+    </script>
+</body>
+</html>
