@@ -183,12 +183,58 @@ robots: noindex
             .hero-content h1 { font-size: 2.8rem; }
         }
 
+        @media (max-width: 768px) {
+            .documentation-paths > div > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            .documentation-paths > div > div > div {
+                padding: 30px 20px !important;
+            }
+        }
+
         @media (max-width: 480px) {
             .hero-content h1 { font-size: 2.2rem; }
             .section-head h2 { font-size: 1.8rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .terminal-window { font-size: 0.7rem; padding: 15px; }
             .btn { width: 100%; }
+            
+            /* iPhone specific fixes for Choose Your Path cards */
+            .documentation-paths { padding: 40px 10px !important; }
+            .documentation-paths > div > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                margin-top: 30px !important;
+            }
+            .documentation-paths > div > div > div {
+                padding: 25px 15px !important;
+                border-radius: 8px !important;
+            }
+            .documentation-paths > div > div > div h3 {
+                font-size: 1.2rem !important;
+                margin-bottom: 10px !important;
+            }
+            .documentation-paths > div > div > div ul {
+                margin-bottom: 20px !important;
+            }
+            .documentation-paths > div > div > div li {
+                font-size: 0.85rem !important;
+                margin-bottom: 6px !important;
+                line-height: 1.4 !important;
+            }
+            .documentation-paths > div > div > div a {
+                width: 100% !important;
+                text-align: center !important;
+                padding: 10px 16px !important;
+                font-size: 0.9rem !important;
+            }
+            .documentation-paths > div > div > div > div:first-child {
+                font-size: 1.5rem !important;
+            }
+            .documentation-paths > div > div > div > div:last-child {
+                font-size: 0.7rem !important;
+            }
         }
     </style>
 </head>
