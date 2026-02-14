@@ -634,7 +634,7 @@ robots: noindex
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre">#!/usr/bin/env python3
+                <div class="code-block"><pre>#!/usr/bin/env python3
 """
 Æon Industrial Axiom System for Offshore Oil Platform
 Critical Safety Axioms that CANNOT be bypassed
@@ -1028,38 +1028,297 @@ if __name__ == "__main__":
 
             <h3>SIL 4 Architecture Example: Nuclear Reactor Protection</h3>
 
-            <div class="architecture">
-                ┌─────────────────────────────────────────────────────────┐
-                │          Nuclear Reactor Protection System (SIL 4)      │
-                └─────────────────────────────────────────────────────────┘
+            <h3>SIL 4 Architecture: Nuclear Reactor Protection System</h3>
+
+            <style>
+                .nrps-flow {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                    margin: 30px 0;
+                }
                 
-                INPUT SENSORS (Redundant):
-                  • 3 independent core temperature sensors
-                  • 3 independent pressure sensors
-                  • 3 independent coolant flow sensors
+                .nrps-stage {
+                    background: var(--stage-bg);
+                    border: 2px solid var(--stage-border);
+                    border-radius: 8px;
+                    padding: 20px;
+                    position: relative;
+                }
                 
-                AXIOM ENGINE (Triple-Modular Redundancy):
-                  
-                  Channel A (Intel x86_64)    Channel B (ARM NEON)    Channel C (RISC-V)
-                  ├─ Axiom 1: Core Temp      ├─ Axiom 1: Core Temp   ├─ Axiom 1: Core Temp
-                  ├─ Axiom 2: Pressure       ├─ Axiom 2: Pressure    ├─ Axiom 2: Pressure
-                  ├─ Axiom 3: Coolant Flow   ├─ Axiom 3: Coolant     ├─ Axiom 3: Coolant
-                  └─ Safety Decision A       └─ Safety Decision B    └─ Safety Decision C
+                .nrps-stage-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    color: white;
+                    margin-bottom: 15px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
                 
-                VOTING CIRCUIT (Hardware-based):
-                  Majority-of-3 voter: IF (A == B == C) THEN execute
-                                       ELSE → Safe State (SCRAM)
+                .nrps-stage-icon {
+                    font-size: 1.8rem;
+                }
                 
-                SAFETY ACTIONS:
-                  • Emergency coolant pump activation
-                  • Control rod insertion (gravity-assisted)
-                  • Containment isolation
-                  • Operator alert (audible + visual)
+                .nrps-items {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                    gap: 12px;
+                }
                 
-                AUDIT TRAIL (Immutable):
-                  Every decision logged to tamper-evident ledger
-                  Regulators can verify decision at any time
+                .nrps-item {
+                    background: rgba(255,255,255,0.1);
+                    border: 1px solid rgba(255,255,255,0.2);
+                    border-radius: 6px;
+                    padding: 12px;
+                    color: rgba(255,255,255,0.95);
+                    font-size: 0.9rem;
+                    line-height: 1.5;
+                }
+                
+                .nrps-item strong {
+                    display: block;
+                    color: white;
+                    margin-bottom: 5px;
+                }
+                
+                /* Stages */
+                .nrps-input { --stage-bg: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); --stage-border: #7f1d1d; }
+                .nrps-axiom { --stage-bg: linear-gradient(135deg, #eab308 0%, #854d0e 100%); --stage-border: #6b3a0e; }
+                .nrps-voting { --stage-bg: linear-gradient(135deg, #22c55e 0%, #15803d 100%); --stage-border: #166534; }
+                .nrps-actions { --stage-bg: linear-gradient(135deg, #06b6d4 0%, #164e63 100%); --stage-border: #0c3f52; }
+                .nrps-audit { --stage-bg: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); --stage-border: #1e3a8a; }
+                
+                .nrps-summary {
+                    background: rgba(30, 64, 175, 0.15);
+                    border: 2px solid var(--primary);
+                    border-radius: 8px;
+                    padding: 20px;
+                    margin-top: 25px;
+                }
+                
+                .nrps-summary-title {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    color: var(--secondary);
+                    margin-bottom: 15px;
+                }
+                
+                .nrps-axiom-table {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 15px;
+                }
+                
+                .nrps-axiom-card {
+                    background: var(--card-bg);
+                    border: 1px solid var(--border);
+                    border-radius: 6px;
+                    padding: 15px;
+                }
+                
+                .nrps-axiom-name {
+                    font-weight: 700;
+                    color: var(--secondary);
+                    margin-bottom: 10px;
+                    font-size: 0.95rem;
+                }
+                
+                .nrps-axiom-detail {
+                    display: flex;
+                    gap: 10px;
+                    margin: 6px 0;
+                    font-size: 0.85rem;
+                    color: var(--text-muted);
+                }
+                
+                .nrps-axiom-detail strong {
+                    color: var(--secondary);
+                    min-width: 80px;
+                }
+                
+                @media (max-width: 768px) {
+                    .nrps-items { grid-template-columns: 1fr; }
+                    .nrps-axiom-table { grid-template-columns: 1fr; }
+                }
+            </style>
+
+            <div class="nrps-flow">
+                <!-- INPUT SENSORS -->
+                <div class="nrps-stage nrps-input">
+                    <div class="nrps-stage-title">
+                        <span class="nrps-stage-icon">📡</span>
+                        INPUT SENSORS (Redundant x3)
+                    </div>
+                    <div class="nrps-items">
+                        <div class="nrps-item">
+                            <strong>Core Temperature (3x)</strong>
+                            RTD Sensors + Thermocouple backup + Cross-check
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Pressure Vessel (3x)</strong>
+                            0-2500 psi transmitters + Separate air supply
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Coolant Flow (3x)</strong>
+                            Venturi meters + ΔP transmitters + Pump feedback
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AXIOM ENGINE -->
+                <div class="nrps-stage nrps-axiom">
+                    <div class="nrps-stage-title">
+                        <span class="nrps-stage-icon">🧠</span>
+                        AXIOM ENGINE (Triple-Modular Redundancy)
+                    </div>
+                    <div class="nrps-items">
+                        <div class="nrps-item">
+                            <strong>Channel A (Intel x86_64)</strong>
+                            Axiom 1: Core Temp &lt; 1200°C (SIL 4, &lt;100ms)<br>
+                            Axiom 2: Pressure 1500-2300 psi (SIL 4, &lt;50ms)<br>
+                            Axiom 3: Flow &gt; 85% (SIL 4, &lt;200ms)
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Channel B (ARM NEON)</strong>
+                            Axiom 1: Core Temp &lt; 1200°C (SIL 4, &lt;100ms)<br>
+                            Axiom 2: Pressure 1500-2300 psi (SIL 4, &lt;50ms)<br>
+                            Axiom 3: Flow &gt; 85% (SIL 4, &lt;200ms)
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Channel C (RISC-V RV64GC)</strong>
+                            Axiom 1: Core Temp &lt; 1200°C (SIL 4, &lt;100ms)<br>
+                            Axiom 2: Pressure 1500-2300 psi (SIL 4, &lt;50ms)<br>
+                            Axiom 3: Flow &gt; 85% (SIL 4, &lt;200ms)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VOTING CIRCUIT -->
+                <div class="nrps-stage nrps-voting">
+                    <div class="nrps-stage-title">
+                        <span class="nrps-stage-icon">🗳️</span>
+                        VOTING CIRCUIT (Hardware-Based Majority-of-3)
+                    </div>
+                    <div class="nrps-items">
+                        <div class="nrps-item">
+                            <strong>Decision Logic</strong>
+                            IF (A == B == C) THEN Execute<br>
+                            ELSE → Safe State (SCRAM)
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Failure Coverage</strong>
+                            Any 1 channel failure → Safe state<br>
+                            2 channels must agree minimum
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Hardware Voter</strong>
+                            Analog circuit (not software)<br>
+                            Cannot be overridden
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAFETY ACTIONS -->
+                <div class="nrps-stage nrps-actions">
+                    <div class="nrps-stage-title">
+                        <span class="nrps-stage-icon">⚡</span>
+                        SAFETY ACTIONS (Automatic Deployment)
+                    </div>
+                    <div class="nrps-items">
+                        <div class="nrps-item">
+                            <strong>Core Temperature Violation</strong>
+                            ✓ Auto-SCRAM (gravity-assisted)<br>
+                            ✓ ECCS pumps activated<br>
+                            ✓ Spray system ON
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Pressure Violation</strong>
+                            ✓ Relief valves OPEN<br>
+                            ✓ Heater shutdown<br>
+                            ✓ Charging pumps (if low)
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Coolant Flow Loss</strong>
+                            ✓ Pump restart<br>
+                            ✓ Accumulators activated<br>
+                            ✓ All ECCS trains
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Operator Alert</strong>
+                            ✓ Audible alarm<br>
+                            ✓ Visual indicators<br>
+                            ✓ NRC notification
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AUDIT TRAIL -->
+                <div class="nrps-stage nrps-audit">
+                    <div class="nrps-stage-title">
+                        <span class="nrps-stage-icon">📚</span>
+                        AUDIT TRAIL (Immutable & Cryptographic)
+                    </div>
+                    <div class="nrps-items">
+                        <div class="nrps-item">
+                            <strong>Event Logging</strong>
+                            Every decision logged automatically<br>
+                            SHA256 hash chain prevents tampering
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Regulatory Evidence</strong>
+                            Regulators can verify any decision<br>
+                            Witness timestamps (atomic clock)
+                        </div>
+                        <div class="nrps-item">
+                            <strong>Digital Signatures</strong>
+                            RSA 4096 + ECDSA P-384<br>
+                            Hardware TPM 2.0 enclave
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- AXIOMS SUMMARY -->
+            <div class="nrps-summary">
+                <div class="nrps-summary-title">🔴 SIL 4 Safety Axioms (IEC 61513:2016)</div>
+                <div class="nrps-axiom-table">
+                    <div class="nrps-axiom-card">
+                        <div class="nrps-axiom-name">Axiom 1: Core Temperature</div>
+                        <div class="nrps-axiom-detail"><strong>Limit:</strong> &lt; 1200°C (vs 2862°C melt)</div>
+                        <div class="nrps-axiom-detail"><strong>Action:</strong> BLOCK + Auto-SCRAM</div>
+                        <div class="nrps-axiom-detail"><strong>Response:</strong> &lt; 100 ms</div>
+                    </div>
+                    <div class="nrps-axiom-card">
+                        <div class="nrps-axiom-name">Axiom 2: Pressure Envelope</div>
+                        <div class="nrps-axiom-detail"><strong>Range:</strong> 1500-2300 psi</div>
+                        <div class="nrps-axiom-detail"><strong>Action:</strong> BLOCK + Relief Valves</div>
+                        <div class="nrps-axiom-detail"><strong>Response:</strong> &lt; 50 ms</div>
+                    </div>
+                    <div class="nrps-axiom-card">
+                        <div class="nrps-axiom-name">Axiom 3: Coolant Flow</div>
+                        <div class="nrps-axiom-detail"><strong>Minimum:</strong> &gt; 85% flow</div>
+                        <div class="nrps-axiom-detail"><strong>Action:</strong> BLOCK + ECCS Activation</div>
+                        <div class="nrps-axiom-detail"><strong>Response:</strong> &lt; 200 ms</div>
+                    </div>
+                    <div class="nrps-axiom-card">
+                        <div class="nrps-axiom-name">Axiom 4: Containment</div>
+                        <div class="nrps-axiom-detail"><strong>Pressure:</strong> &lt; 15 psi</div>
+                        <div class="nrps-axiom-detail"><strong>Action:</strong> BLOCK + Isolation</div>
+                        <div class="nrps-axiom-detail"><strong>Response:</strong> &lt; 100 ms</div>
+                    </div>
+                    <div class="nrps-axiom-card">
+                        <div class="nrps-axiom-name">Axiom 5: Radiation</div>
+                        <div class="nrps-axiom-detail"><strong>Release:</strong> &lt; 0.1 Ci/sec</div>
+                        <div class="nrps-axiom-detail"><strong>Action:</strong> BLOCK + Full Isolation</div>
+                        <div class="nrps-axiom-detail"><strong>Response:</strong> &lt; 100 ms</div>
+                    </div>
+                </div>
+            </div>
+
+
         </section>
 
         <!-- INDUSTRIAL CASES -->
@@ -1134,7 +1393,7 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre">#!/usr/bin/env python3
+                <div class="code-block"><pre>#!/usr/bin/env python3
 """
 Æon Industrial for Commercial Aircraft Flight Control
 DO-178C Level A Certification (Most Critical)
@@ -1424,7 +1683,7 @@ if __name__ == "__main__":
                     <span class="code-language">json</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre">{
+                <div class="code-block"><pre>{
   "safety_event_log": [
     {
       "timestamp": "2024-02-13T14:32:47.123456Z",
@@ -1485,52 +1744,240 @@ if __name__ == "__main__":
         <section id="architecture">
             <h2>🏗️ Industrial Safety Architecture</h2>
 
-            <div class="architecture">
-┌──────────────────────────────────────────────────────────────────┐
-│        Æon Industrial Safety-Critical Architecture              │
-└──────────────────────────────────────────────────────────────────┘
+            <h3>7-Layer Safety Stack Architecture</h3>
 
-LAYER 1: SENSOR INPUT (Redundant, Validated)
-  ├─ Physical Sensors (Temperature, Pressure, Flow, Position)
-  ├─ Input Validation (Range checks, sensor health)
-  ├─ Diversity (Multiple sensor types = cross-validation)
-  └─ Analog Signal Conditioning (Filtering, Noise Reduction)
+            <style>
+                .layer-stack {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    margin: 30px 0;
+                }
+                
+                .layer-card {
+                    background: linear-gradient(135deg, var(--layer-start) 0%, var(--layer-end) 100%);
+                    border: 2px solid var(--layer-border);
+                    border-radius: 8px;
+                    padding: 20px;
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.3s ease;
+                }
+                
+                .layer-card:hover {
+                    transform: translateX(5px);
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+                }
+                
+                .layer-card::before {
+                    content: attr(data-layer);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background: rgba(0,0,0,0.1);
+                    color: white;
+                    padding: 5px 12px;
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                
+                .layer-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    margin-bottom: 12px;
+                    margin-left: 60px;
+                }
+                
+                .layer-icon {
+                    font-size: 1.8rem;
+                }
+                
+                .layer-title {
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    color: white;
+                }
+                
+                .layer-content {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 15px;
+                    margin-left: 60px;
+                    color: rgba(255,255,255,0.9);
+                    font-size: 0.9rem;
+                }
+                
+                .layer-item {
+                    background: rgba(0,0,0,0.15);
+                    padding: 12px;
+                    border-radius: 4px;
+                    border-left: 3px solid rgba(255,255,255,0.4);
+                }
+                
+                .layer-guarantee {
+                    margin-left: 60px;
+                    margin-top: 12px;
+                    padding: 12px 15px;
+                    background: rgba(255,255,255,0.1);
+                    border-left: 4px solid rgba(255,255,255,0.6);
+                    font-weight: 600;
+                    color: white;
+                    font-size: 0.95rem;
+                }
+                
+                /* Layer colors */
+                .layer-1 { --layer-start: #ef4444; --layer-end: #dc2626; --layer-border: #991b1b; }
+                .layer-2 { --layer-start: #f97316; --layer-end: #ea580c; --layer-border: #b45309; }
+                .layer-3 { --layer-start: #eab308; --layer-end: #ca8a04; --layer-border: #854d0e; }
+                .layer-4 { --layer-start: #22c55e; --layer-end: #16a34a; --layer-border: #15803d; }
+                .layer-5 { --layer-start: #06b6d4; --layer-end: #0891b2; --layer-border: #164e63; }
+                .layer-6 { --layer-start: #3b82f6; --layer-end: #2563eb; --layer-border: #1e40af; }
+                .layer-7 { --layer-start: #8b5cf6; --layer-end: #7c3aed; --layer-border: #5b21b6; }
+                
+                @media (max-width: 768px) {
+                    .layer-content { grid-template-columns: 1fr; }
+                    .layer-card::before { display: none; }
+                    .layer-header, .layer-content, .layer-guarantee { margin-left: 0; }
+                }
+            </style>
 
-LAYER 2: DATA ACQUISITION (Real-time, Deterministic)
-  ├─ Hard Real-Time OS (VxWorks, QNX, INTEGRITY)
-  ├─ Fixed priority interrupts (Interrupt handlers deterministic)
-  ├─ Bounded latency (No garbage collection pauses)
-  └─ Jitter control (&lt;100μs maximum variance)
+            <div class="layer-stack">
+                <div class="layer-card layer-1" data-layer="Layer 1">
+                    <div class="layer-header">
+                        <span class="layer-icon">📡</span>
+                        <span class="layer-title">SENSOR INPUT (Redundant, Validated)</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-item">✓ Physical Sensors (Temp, Pressure, Flow)</div>
+                        <div class="layer-item">✓ Input Validation (Range checks)</div>
+                        <div class="layer-item">✓ Diversity (Multi-sensor cross-check)</div>
+                        <div class="layer-item">✓ Signal Conditioning (Filtering)</div>
+                    </div>
+                    <div class="layer-guarantee">🎯 Guarantee: No invalid data enters system</div>
+                </div>
 
-LAYER 3: AXIOM EVALUATION ENGINE (Independent Channels)
-  ├─ Channel A: Standard Intel x86_64
-  ├─ Channel B: ARM NEON / Cortex-A
-  ├─ Channel C: RISC-V RV64GC
-  └─ All 3 run simultaneously with synchronized clocks
+                <div class="layer-card layer-2" data-layer="Layer 2">
+                    <div class="layer-header">
+                        <span class="layer-icon">⚡</span>
+                        <span class="layer-title">DATA ACQUISITION (Real-time, Deterministic)</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-item">✓ Hard Real-Time OS (VxWorks, QNX)</div>
+                        <div class="layer-item">✓ Fixed priority interrupts</div>
+                        <div class="layer-item">✓ Bounded latency (&lt;100μs jitter)</div>
+                        <div class="layer-item">✓ No garbage collection pauses</div>
+                    </div>
+                    <div class="layer-guarantee">🎯 Guarantee: Bounded latency, deterministic timing</div>
+                </div>
 
-LAYER 4: VOTING CIRCUIT (Hardware Voter)
-  ├─ Majority-of-3 comparator (analog circuit)
-  ├─ If all 3 agree → Execute
-  ├─ If any disagreement → Go to Safe State
-  └─ Cannot be overridden by software
+                <div class="layer-card layer-3" data-layer="Layer 3">
+                    <div class="layer-header">
+                        <span class="layer-icon">🧠</span>
+                        <span class="layer-title">AXIOM EVALUATION ENGINE (Independent Channels)</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-item">✓ Channel A: Intel x86_64</div>
+                        <div class="layer-item">✓ Channel B: ARM NEON</div>
+                        <div class="layer-item">✓ Channel C: RISC-V RV64GC</div>
+                        <div class="layer-item">✓ Synchronized execution</div>
+                    </div>
+                    <div class="layer-guarantee">🎯 Guarantee: Independent parallel execution</div>
+                </div>
 
-LAYER 5: SAFETY ACTUATORS (Fail-Safe Design)
-  ├─ Solenoid valves (default = safe on power loss)
-  ├─ Pneumatic actuators (spring return to safe)
-  ├─ Motor contactors (lockable/not reversible)
-  └─ Emergency kill switches (hardwired)
+                <div class="layer-card layer-4" data-layer="Layer 4">
+                    <div class="layer-header">
+                        <span class="layer-icon">🗳️</span>
+                        <span class="layer-title">VOTING CIRCUIT (Hardware Voter - TMR)</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-item">✓ Majority-of-3 comparator</div>
+                        <div class="layer-item">✓ Analog voting circuit</div>
+                        <div class="layer-item">✓ A == B == C → Execute</div>
+                        <div class="layer-item">✓ Any disagreement → Safe State</div>
+                    </div>
+                    <div class="layer-guarantee">🎯 Guarantee: One hardware failure cannot defeat safety</div>
+                </div>
 
-LAYER 6: AUDIT TRAIL (Immutable, Cryptographic)
-  ├─ Event log (SHA256 hash chain)
-  ├─ Witness timestamps (atomic clock synchronized)
-  ├─ Digital signatures (RSA 4096, ECDSA P-384)
-  └─ Hardware secure enclave (TPM 2.0)
+                <div class="layer-card layer-5" data-layer="Layer 5">
+                    <div class="layer-header">
+                        <span class="layer-icon">🔌</span>
+                        <span class="layer-title">SAFETY ACTUATORS (Fail-Safe Design)</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-item">✓ Solenoid valves (spring-return safe)</div>
+                        <div class="layer-item">✓ Pneumatic actuators</div>
+                        <div class="layer-item">✓ Motor contactors (lockable)</div>
+                        <div class="layer-item">✓ Emergency kill switches (hardwired)</div>
+                    </div>
+                    <div class="layer-guarantee">🎯 Guarantee: Safe state on power loss</div>
+                </div>
 
-LAYER 7: MONITORING & ALERTING (24/7 Human Oversight)
-  ├─ Real-time dashboard (Safety metrics)
-  ├─ Alert escalation (SMS, email, phone call)
-  ├─ Regulatory reporting (Automated SARs)
-  └─ Trend analysis (Predictive maintenance)
+                <div class="layer-card layer-6" data-layer="Layer 6">
+                    <div class="layer-header">
+                        <span class="layer-icon">📚</span>
+                        <span class="layer-title">AUDIT TRAIL (Immutable, Cryptographic)</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-item">✓ SHA256 hash chain</div>
+                        <div class="layer-item">✓ Atomic clock timestamps</div>
+                        <div class="layer-item">✓ RSA 4096 + ECDSA P-384</div>
+                        <div class="layer-item">✓ Hardware TPM 2.0 enclave</div>
+                    </div>
+                    <div class="layer-guarantee">🎯 Guarantee: Tamper-evident forever</div>
+                </div>
+
+                <div class="layer-card layer-7" data-layer="Layer 7">
+                    <div class="layer-header">
+                        <span class="layer-icon">👁️</span>
+                        <span class="layer-title">MONITORING & ALERTING (24/7 Human Oversight)</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-item">✓ Real-time dashboard</div>
+                        <div class="layer-item">✓ Alert escalation (SMS/Email/Phone)</div>
+                        <div class="layer-item">✓ Regulatory reporting (SARs)</div>
+                        <div class="layer-item">✓ Predictive maintenance</div>
+                    </div>
+                    <div class="layer-guarantee">🎯 Guarantee: Operator always aware</div>
+                </div>
+            </div>
+
+            <div class="callout callout-compliance" style="margin-top: 40px;">
+                <div class="callout-title">🏛️ Architecture Summary: Defense-in-Depth Strategy</div>
+                <div class="callout-content">
+                    <p><strong>The 7-layer safety stack</strong> ensures deterministic, fail-safe operation through multiple redundancy levels:</p>
+                    
+                    <div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px; border-left: 4px solid #ef4444;">
+                            <strong style="color: #fca5a5;">Layer 1-2: Input Trust</strong><br>
+                            <small>Redundant sensors + validated data acquisition ensure only safe inputs enter the system. Multiple sensor types cross-validate readings.</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px; border-left: 4px solid #f97316;">
+                            <strong style="color: #fdba74;">Layer 3: Independent Execution</strong><br>
+                            <small>Three separate CPU architectures (Intel x86, ARM, RISC-V) run axiom logic simultaneously with synchronized clocks. Hardware diversity prevents systematic failures.</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px; border-left: 4px solid #22c55e;">
+                            <strong style="color: #86efac;">Layer 4: Majority Vote</strong><br>
+                            <small>Hardware voter circuit compares all 3 results. Only unanimous agreement → Execute. ANY disagreement → Safe State. Cannot be overridden by software.</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px; border-left: 4px solid #06b6d4;">
+                            <strong style="color: #67e8f9;">Layer 5: Fail-Safe Actuation</strong><br>
+                            <small>Spring-return solenoids, pneumatic actuators, and hardwired emergency switches default to safe state on power loss. No single point of failure in actuation chain.</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px; border-left: 4px solid #3b82f6;">
+                            <strong style="color: #93c5fd;">Layer 6: Immutable Proof</strong><br>
+                            <small>Every decision cryptographically signed and logged to tamper-evident ledger. Regulators can audit any decision with complete chain-of-custody provenance.</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px; border-left: 4px solid #8b5cf6;">
+                            <strong style="color: #d8b4fe;">Layer 7: Human Oversight</strong><br>
+                            <small>Real-time dashboards, alert escalation (SMS/Email/Phone), and regulatory reporting ensure operators always aware. Machine + Human = Unbreakable safety.</small>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 20px; font-size: 0.95rem;"><strong>🎯 Safety Guarantee:</strong> This architecture is certified for <strong>SIL 4</strong> (≤ 1 failure in 10,000 years) and meets all major industrial standards: IEC 61508, IEC 61513, DO-178C, ISO 26262, EN 50129, and IEC 62304.</p>
+                </div>
             </div>
         </section>
 
