@@ -208,7 +208,7 @@ robots: noindex
             </div>
         </div>
     </nav>
-    
+
     <section class="hero">
         <div class="hero-content">
             <h1>Æon Framework<br><span style="color: var(--secondary-accent);" data-i18n="hero_highlight">Standards-First. Safety-Native.</span></h1>
@@ -356,6 +356,93 @@ controller = Agent(
         </div>
     </section>
 
+    <section class="documentation-paths" style="padding: 80px 20px; background: rgba(102, 0, 255, 0.03); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-head" style="text-align: center;">
+                <h2 data-i18n="doc_paths_title" style="font-size: 2.5rem; margin-bottom: 16px;">Choose Your Path.</h2>
+                <p data-i18n="doc_paths_sub" style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                    The Æon Framework adapts to your use case. From personal AI assistants to mission-critical industrial infrastructure.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px;">
+                
+                <!-- PERSONAL PATH -->
+                <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 40px; position: relative; overflow: hidden; transition: all 0.3s ease;" 
+                     onmouseover="this.style.borderColor='var(--secondary-accent)'; this.style.boxShadow='0 0 30px rgba(0, 240, 255, 0.2)';"
+                     onmouseout="this.style.borderColor='var(--border-color)'; this.style.boxShadow='none';">
+                    
+                    <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 70%);"></div>
+                    
+                    <div style="margin-bottom: 20px; font-size: 2rem;">💡</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--secondary-accent);">Personal AI Assistant</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;">
+                        Your own personal assistant powered by Æon. Simple, intuitive, and designed for individual creators, developers, and thinkers.
+                    </p>
+                    
+                    <ul style="list-style: none; margin-bottom: 30px; font-size: 0.9rem; color: var(--text-muted); line-height: 2;">
+                        <li style="margin-bottom: 8px;">✓ Local Ollama + Cloud providers (OpenAI, OpenRouter)</li>
+                        <li style="margin-bottom: 8px;">✓ Multi-platform integrations (Telegram, Discord, Slack)</li>
+                        <li style="margin-bottom: 8px;">✓ MCP tools ecosystem (YouTube, Google Maps, etc)</li>
+                        <li style="margin-bottom: 8px;">✓ Personal axioms for your own rules</li>
+                        <li style="margin-bottom: 8px;">✓ Journaling, research, and knowledge management</li>
+                    </ul>
+
+                    <a href="aeon-docs.html" style="display: inline-block; padding: 12px 24px; background: var(--secondary-accent); color: #000; border-radius: 6px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;"
+                       onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0, 240, 255, 0.3)';"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        Explore Documentation →
+                    </a>
+
+                    <div style="margin-top: 20px; font-size: 0.75rem; color: var(--text-muted);">
+                        <span style="display: inline-block; background: rgba(0, 240, 255, 0.1); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(0, 240, 255, 0.2);">14 Working Examples</span>
+                    </div>
+                </div>
+
+                <!-- INDUSTRIAL PATH -->
+                <div style="background: var(--card-bg); border: 2px solid var(--violation-color); border-radius: 12px; padding: 40px; position: relative; overflow: hidden; transition: all 0.3s ease;" 
+                     onmouseover="this.style.boxShadow='0 0 40px rgba(255, 51, 102, 0.3)';"
+                     onmouseout="this.style.boxShadow='none';">
+                    
+                    <div style="position: absolute; top: 0; right: 0; background: var(--violation-color); color: white; padding: 6px 12px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;">CRITICAL</div>
+                    <div style="position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(255, 51, 102, 0.2) 0%, transparent 70%);"></div>
+                    
+                    <div style="margin-bottom: 20px; font-size: 2rem;">🏭</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--violation-color);">Industrial Safety-Critical</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;">
+                        Mission-critical systems for petroleum, aerospace, nuclear. Axioms as the deterministic foundation for safety and compliance.
+                    </p>
+                    
+                    <ul style="list-style: none; margin-bottom: 30px; font-size: 0.9rem; color: var(--text-muted); line-height: 2;">
+                        <li style="margin-bottom: 8px;">✓ SIL 1-4 Certification paths (IEC 61508, DO-178C)</li>
+                        <li style="margin-bottom: 8px;">✓ Deterministic axioms <strong style="color: var(--violation-color);">as core</strong>, not auxiliary</li>
+                        <li style="margin-bottom: 8px;">✓ Triple-Modular Redundancy (TMR) architecture</li>
+                        <li style="margin-bottom: 8px;">✓ Immutable audit trails with cryptographic signing</li>
+                        <li style="margin-bottom: 8px;">✓ Real case studies: Oil/Gas, Aerospace, Nuclear</li>
+                    </ul>
+
+                    <a href="aeon-industrial-critical.html" style="display: inline-block; padding: 12px 24px; background: var(--violation-color); color: white; border-radius: 6px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;"
+                       onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(255, 51, 102, 0.4)';"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                        Critical Systems Guide →
+                    </a>
+
+                    <div style="margin-top: 20px; font-size: 0.75rem; color: var(--text-muted);">
+                        <span style="display: inline-block; background: rgba(255, 51, 102, 0.1); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255, 51, 102, 0.2);">Safety-Verified Architecture</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border-color);">
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.8;">
+                    <strong>Why Axioms Matter:</strong> Traditional LLMs are probabilistic. In critical systems where human lives depend on decisions, you need deterministic code-level safety rules that LLMs cannot bypass through prompt injection. Æon's Axioms solve this fundamental gap.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -402,6 +489,8 @@ controller = Agent(
                 impact_title: "Visual Feedback.",
                 impact_sub: "See exactly when the 'System 2' (Axiom) intercepts the 'System 1' (LLM) in real-time.",
                 impact_link: "View Terminal Demo >",
+                doc_paths_title: "Choose Your Path.",
+                doc_paths_sub: "The Æon Framework adapts to your use case. From personal AI assistants to mission-critical industrial infrastructure.",
                 footer_slogan: "Standards-First. Safety-Native.",
                 foot_prod: "Core", foot_res: "Research", foot_comp: "Connect",
                 disclaimer_text: "Æon is a personal open-source research initiative. Not affiliated with any corporation. Use at your own risk."
@@ -425,6 +514,8 @@ controller = Agent(
                 impact_title: "Feedback Visual.",
                 impact_sub: "Veja exatamente quando o 'Sistema 2' (Axioma) intercepta o 'Sistema 1' (LLM) em tempo real.",
                 impact_link: "Ver Demo no Terminal >",
+                doc_paths_title: "Escolha Seu Caminho.",
+                doc_paths_sub: "O Æon Framework se adapta ao seu caso de uso. De assistentes pessoais a infraestruturas industriais críticas.",
                 footer_slogan: "Padrões que Conectam. Axiomas que Protegem.",
                 foot_prod: "Core", foot_res: "Pesquisa", foot_comp: "Conectar",
                 disclaimer_text: "O Æon é uma iniciativa de pesquisa pessoal open-source. Sem afiliação corporativa. Use por sua conta e risco."
