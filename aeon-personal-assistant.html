@@ -6,14 +6,18 @@ robots: noindex
 ---
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Æon Framework - Build Your Personal AI Assistant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <style>
         :root {
@@ -31,7 +35,11 @@ robots: noindex
             --info: #8be9fd;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: var(--bg-color);
@@ -71,16 +79,19 @@ robots: noindex
             background: var(--secondary-accent);
         }
 
-        .sidebar-logo { 
-            font-weight: 700; 
-            font-size: 1.3rem; 
-            margin-bottom: 40px; 
-            color: var(--text-main); 
-            text-decoration: none; 
-            display: block; 
+        .sidebar-logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: var(--text-main);
+            text-decoration: none;
+            display: block;
             letter-spacing: -1px;
         }
-        .sidebar-logo span { color: var(--secondary-accent); }
+
+        .sidebar-logo span {
+            color: var(--secondary-accent);
+        }
 
         .search-box {
             display: flex;
@@ -102,31 +113,37 @@ robots: noindex
             outline: none;
         }
 
-        .nav-group { margin-bottom: 25px; }
-        .nav-group h4 { 
-            font-size: 0.7rem; 
-            text-transform: uppercase; 
-            color: var(--primary-accent); 
-            letter-spacing: 1.5px; 
-            margin-bottom: 12px; 
+        .nav-group {
+            margin-bottom: 25px;
+        }
+
+        .nav-group h4 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--primary-accent);
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
             font-weight: 600;
         }
-        .nav-link { 
-            display: block; 
-            color: var(--text-muted); 
-            text-decoration: none; 
-            font-size: 0.85rem; 
-            margin-bottom: 8px; 
+
+        .nav-link {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
             padding: 6px 8px;
             border-radius: 4px;
             transition: all 0.2s;
             border-left: 2px solid transparent;
         }
-        .nav-link:hover { 
-            color: var(--secondary-accent); 
+
+        .nav-link:hover {
+            color: var(--secondary-accent);
             background: rgba(0, 240, 255, 0.05);
             border-left-color: var(--secondary-accent);
         }
+
         .nav-link.active {
             color: var(--secondary-accent);
             background: rgba(0, 240, 255, 0.1);
@@ -134,10 +151,10 @@ robots: noindex
         }
 
         /* CONTENT */
-        .main-content { 
-            margin-left: 320px; 
-            padding: 60px 80px; 
-            max-width: 1400px; 
+        .main-content {
+            margin-left: 320px;
+            padding: 60px 80px;
+            max-width: 1400px;
             width: 100%;
         }
 
@@ -160,10 +177,10 @@ robots: noindex
             text-decoration: underline;
         }
 
-        h1 { 
-            font-size: 3rem; 
-            font-weight: 700; 
-            letter-spacing: -2px; 
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -2px;
             margin-bottom: 15px;
             background: linear-gradient(135deg, var(--secondary-accent), var(--primary-accent));
             -webkit-background-clip: text;
@@ -178,19 +195,19 @@ robots: noindex
             max-width: 600px;
         }
 
-        h2 { 
-            font-size: 2rem; 
-            margin-top: 60px; 
-            margin-bottom: 20px; 
-            color: var(--secondary-accent); 
-            border-bottom: 2px solid var(--border-color); 
+        h2 {
+            font-size: 2rem;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            color: var(--secondary-accent);
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
         }
 
-        h3 { 
-            font-size: 1.3rem; 
-            margin-top: 35px; 
-            margin-bottom: 15px; 
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
             color: var(--text-main);
             font-weight: 600;
         }
@@ -203,9 +220,9 @@ robots: noindex
             font-weight: 500;
         }
 
-        p { 
-            color: var(--text-muted); 
-            margin-bottom: 15px; 
+        p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
             font-size: 0.95rem;
             line-height: 1.8;
         }
@@ -432,7 +449,8 @@ robots: noindex
         }
 
         /* LISTS */
-        ul, ol {
+        ul,
+        ol {
             margin: 15px 0 15px 25px;
             color: var(--text-muted);
             font-size: 0.95rem;
@@ -490,38 +508,61 @@ robots: noindex
             color: #d1d1d1;
         }
 
-        .hljs-string { color: #f1fa8c; }
-        .hljs-number { color: #bd93f9; }
-        .hljs-literal { color: #bd93f9; }
-        .hljs-attr { color: #8be9fd; }
-        .hljs-keyword { color: #ff79c6; }
-        .hljs-function { color: #50fa7b; }
-        .hljs-title { color: #8be9fd; }
-        .hljs-comment { color: #6272a4; }
+        .hljs-string {
+            color: #f1fa8c;
+        }
+
+        .hljs-number {
+            color: #bd93f9;
+        }
+
+        .hljs-literal {
+            color: #bd93f9;
+        }
+
+        .hljs-attr {
+            color: #8be9fd;
+        }
+
+        .hljs-keyword {
+            color: #ff79c6;
+        }
+
+        .hljs-function {
+            color: #50fa7b;
+        }
+
+        .hljs-title {
+            color: #8be9fd;
+        }
+
+        .hljs-comment {
+            color: #6272a4;
+        }
 
         /* LANGUAGE SELECTOR */
-        .lang-container { 
-            position: fixed; 
-            top: 40px; 
-            right: 40px; 
+        .lang-container {
+            position: fixed;
+            top: 40px;
+            right: 40px;
             z-index: 1100;
             display: flex;
             gap: 8px;
         }
 
-        .lang-btn { 
-            background: rgba(15,15,18,0.8); 
-            border: 1px solid var(--border-color); 
-            color: var(--text-muted); 
-            padding: 6px 14px; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            font-size: 0.75rem; 
+        .lang-btn {
+            background: rgba(15, 15, 18, 0.8);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
             transition: 0.3s;
         }
 
-        .lang-btn.active { 
-            border-color: var(--secondary-accent); 
+        .lang-btn.active {
+            border-color: var(--secondary-accent);
             color: var(--secondary-accent);
             background: rgba(0, 240, 255, 0.1);
         }
@@ -565,12 +606,18 @@ robots: noindex
 
         /* RESPONSIVE */
         @media (max-width: 1200px) {
-            .main-content { margin-left: 280px; padding: 50px 40px; }
-            .grid-3 { grid-template-columns: 1fr 1fr; }
+            .main-content {
+                margin-left: 280px;
+                padding: 50px 40px;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .sidebar { 
+            .sidebar {
                 width: 100%;
                 height: auto;
                 position: relative;
@@ -578,19 +625,31 @@ robots: noindex
                 border-bottom: 1px solid var(--border-color);
                 padding: 20px;
             }
-            .main-content { 
-                margin-left: 0; 
+
+            .main-content {
+                margin-left: 0;
                 padding: 30px 20px;
             }
+
             .lang-container {
                 position: relative;
                 top: auto;
                 right: auto;
                 margin-bottom: 20px;
             }
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
-            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* FOOTER */
@@ -707,12 +766,13 @@ robots: noindex
         }
     </style>
 </head>
+
 <body>
 
     <!-- SIDEBAR NAVIGATION -->
     <aside class="sidebar">
         <a href="#top" class="sidebar-logo">Æon <span>Framework</span></a>
-        
+
         <div class="search-box">
             <input type="text" placeholder="Search docs..." id="searchInput">
             <span style="color: var(--text-muted);">🔍</span>
@@ -722,6 +782,7 @@ robots: noindex
             <h4>🚀 Getting Started</h4>
             <a href="#intro" class="nav-link">Introduction</a>
             <a href="#what-is-aeon" class="nav-link">What is Æon?</a>
+            <a href="#war-room" class="nav-link" style="color: var(--error);">🔥 Competitive War Room</a>
             <a href="#architecture" class="nav-link">Architecture</a>
             <a href="#quick-start" class="nav-link">5-Min Quick Start</a>
         </div>
@@ -751,6 +812,8 @@ robots: noindex
             <a href="#applications" class="nav-link">Applications</a>
             <a href="#mcp-servers" class="nav-link">MCP Servers</a>
             <a href="#safety-axioms" class="nav-link">Safety Axioms</a>
+            <a href="#autonomous-capabilities" class="nav-link" style="color: var(--secondary-accent);">✨ Autonomous
+                (New)</a>
         </div>
 
         <div class="nav-group">
@@ -785,7 +848,8 @@ robots: noindex
 
             <div class="section-example">
                 <div class="example-title">✨ What You'll Build</div>
-                <p>A production-ready AI assistant that runs on your platform of choice (Telegram, Discord, Slack, HTTP, or custom), with safety controls, multi-provider LLM support, and extensible capabilities.</p>
+                <p>A production-ready AI assistant that runs on your platform of choice (Telegram, Discord, Slack, HTTP,
+                    or custom), with safety controls, multi-provider LLM support, and extensible capabilities.</p>
             </div>
 
             <div class="grid-3">
@@ -813,8 +877,10 @@ robots: noindex
         <!-- WHAT IS AEON -->
         <section id="what-is-aeon">
             <h2>What is Æon Framework?</h2>
-            
-            <p><strong>Æon v0.3.0-ULTRA</strong> is a comprehensive framework that solves the <strong>Extensibility Problem</strong> in agent systems. It separates cognitive reasoning from practical integration, enabling you to build sophisticated AI agents with minimal code.</p>
+
+            <p><strong>Æon v0.3.0-ULTRA</strong> is a comprehensive framework that solves the <strong>Extensibility
+                    Problem</strong> in agent systems. It separates cognitive reasoning from practical integration,
+                enabling you to build sophisticated AI agents with minimal code.</p>
 
             <h3>Core Philosophy</h3>
             <p>Æon separates four independent stacks that work together:</p>
@@ -839,13 +905,62 @@ robots: noindex
             </div>
         </section>
 
+        <!-- COMPETITIVE WAR ROOM -->
+        <section id="war-room">
+            <h2>Competitive War Room: Superior by Design</h2>
+            <p>Æon doesn't just copy features; it solves the structural flaws of previous generation frameworks.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>The Competition (LangChain/CrewAI)</th>
+                        <th>Æon Framework Advantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Determinism (RAG)</strong></td>
+                        <td>Probabilistic retrieval (high hallucination risk)</td>
+                        <td><span class="badge badge-success">CitationAxiom (L3)</span> Deterministic validation against
+                            Vault</td>
+                    </tr>
+                    <tr>
+                        <td><strong>State Management</strong></td>
+                        <td>Rigid DAGs/Graphs (complex and brittle)</td>
+                        <td><span class="badge badge-info">Event-Driven Recovery</span> Fluid reaction via
+                            RECOVERY_REQUIRED events</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Multi-Agent Protocol</strong></td>
+                        <td>Informal raw-text chat between agents</td>
+                        <td><span class="badge badge-primary">Structured L1 Packets</span> Formal A2A protocol for
+                            secure collaboration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Action Security</strong></td>
+                        <td>Prompt-based guardrails (easily bypassed)</td>
+                        <td><span class="badge badge-warning">Axiomatic Control</span> Python-level deterministic
+                            gatekeepers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manual Oversight</strong></td>
+                        <td>None or limited (black box execution)</td>
+                        <td><span class="badge badge-success">HITL Guardianship</span> Checkpoint & Review for critical
+                            actions</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
         <!-- ARCHITECTURE SECTION -->
         <section id="architecture">
             <h2>Architecture: 16 Integrated Subsystems</h2>
-            
+
             <div class="callout callout-info">
                 <div class="callout-title">📊 System Overview</div>
-                <div class="callout-content">Æon organizes 16 subsystems across 4 layers, each handling a specific responsibility in your AI assistant.</div>
+                <div class="callout-content">Æon organizes 16 subsystems across 4 layers, each handling a specific
+                    responsibility in your AI assistant.</div>
             </div>
 
             <h3>Core Layer (4 Subsystems)</h3>
@@ -865,17 +980,18 @@ robots: noindex
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-title">🐝 Hive</div>
+                    <div class="card-title">🐝 Hive (Swarm)</div>
                     <div class="card-description">
-                        <strong>Agent-to-Agent Communication</strong><br>
-                        A2A protocol enables agents to coordinate and delegate tasks.
+                        <strong>Role-Based A2A Persistence</strong><br>
+                        Hierarchical hiring based on SOUL.md roles. Structured L1 packets with <strong>Swarm
+                            Checkpoints</strong> for infinite state recovery.
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-title">🔌 Synapse</div>
                     <div class="card-description">
-                        <strong>Tool Integration & MCP Support</strong><br>
-                        Integrates external tools, APIs, and Model Context Protocol (MCP) servers.
+                        <strong>Tool Integration & Hub</strong><br>
+                        Integrates external tools, APIs, and MCP servers with deterministic safety via Axioms.
                     </div>
                 </div>
             </div>
@@ -926,7 +1042,8 @@ robots: noindex
                 <div class="card">
                     <div class="card-title">🎯 Routing</div>
                     <div class="card-description">
-                        Intelligent message routing with 5 strategies (Priority, LoadBalanced, WeightedRandom, RoundRobin, ContextAware) and 6 filter types.
+                        Intelligent message routing with 5 strategies (Priority, LoadBalanced, WeightedRandom,
+                        RoundRobin, ContextAware) and 6 filter types.
                     </div>
                 </div>
                 <div class="card">
@@ -952,7 +1069,8 @@ robots: noindex
             <div class="card">
                 <div class="card-title">💾 Cache</div>
                 <div class="card-description">
-                    Multiple strategies (Simple, LRU, Distributed), TTL support, function caching, distributed replication.
+                    Multiple strategies (Simple, LRU, Distributed), TTL support, function caching, distributed
+                    replication.
                 </div>
             </div>
         </section>
@@ -976,7 +1094,9 @@ robots: noindex
                                 <span class="code-language">bash</span>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                            <div class="code-block"><pre>pip install aeon-core</pre></div>
+                            <div class="code-block">
+                                <pre>pip install aeon-core</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -990,9 +1110,11 @@ robots: noindex
                                 <span class="code-language">bash</span>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                            <div class="code-block"><pre>brew install ollama
+                            <div class="code-block">
+                                <pre>brew install ollama
 ollama serve &
-ollama pull mistral</pre></div>
+ollama pull mistral</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1006,7 +1128,8 @@ ollama pull mistral</pre></div>
                                 <span class="code-language">python</span>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                            <div class="code-block"><pre>from aeon import Agent
+                            <div class="code-block">
+                                <pre>from aeon import Agent
 
 agent = Agent(
     name="MyAssistant",
@@ -1017,7 +1140,8 @@ agent = Agent(
 
 if __name__ == "__main__":
     agent.start()
-    print("✅ Agent running on http://localhost:8000")</pre></div>
+    print("✅ Agent running on http://localhost:8000")</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1031,12 +1155,14 @@ if __name__ == "__main__":
                                 <span class="code-language">bash</span>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                            <div class="code-block"><pre>python main.py
+                            <div class="code-block">
+                                <pre>python main.py
 
 # In another terminal, test it:
 curl -X POST http://localhost:8000/message \
   -H "Content-Type: application/json" \
-  -d '{"text": "Hello, what is AI?"}'</pre></div>
+  -d '{"text": "Hello, what is AI?"}'</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1050,13 +1176,15 @@ curl -X POST http://localhost:8000/message \
                                 <span class="code-language">python</span>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                            <div class="code-block"><pre>from aeon.integrations.telegram import TelegramProvider
+                            <div class="code-block">
+                                <pre>from aeon.integrations.telegram import TelegramProvider
 
 # Add to your agent:
 telegram = TelegramProvider(token="YOUR_BOT_TOKEN")
 agent.integrations.register("telegram", telegram)
 
-# Now your agent responds on Telegram! 🎉</pre></div>
+# Now your agent responds on Telegram! 🎉</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1079,13 +1207,15 @@ agent.integrations.register("telegram", telegram)
                     <span class="code-language">bash</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre># Install from PyPI
+                <div class="code-block">
+                    <pre># Install from PyPI
 pip install aeon-core
 
 # Or install from source for development
 git clone https://github.com/richardsonlima/aeon-core.git
 cd aeon-core
-pip install -e .</pre></div>
+pip install -e .</pre>
+                </div>
             </div>
         </section>
 
@@ -1145,7 +1275,8 @@ pip install -e .</pre></div>
             <div class="callout callout-warning">
                 <div class="callout-title">💡 Recommendation for Beginners</div>
                 <div class="callout-content">
-                    Start with <strong>Ollama (free, local)</strong> for development and testing. Switch to OpenAI or OpenRouter for production. This saves money and keeps your data private.
+                    Start with <strong>Ollama (free, local)</strong> for development and testing. Switch to OpenAI or
+                    OpenRouter for production. This saves money and keeps your data private.
                 </div>
             </div>
         </section>
@@ -1154,7 +1285,8 @@ pip install -e .</pre></div>
         <section id="ollama-setup">
             <h2>🟢 Option A: Ollama (Free, Local)</h2>
 
-            <p>Run LLMs locally on your Mac/Linux without any cloud service. Perfect for development, testing, and privacy-focused deployments.</p>
+            <p>Run LLMs locally on your Mac/Linux without any cloud service. Perfect for development, testing, and
+                privacy-focused deployments.</p>
 
             <h3>Step 1: Install Ollama</h3>
             <div class="code-container">
@@ -1162,14 +1294,16 @@ pip install -e .</pre></div>
                     <span class="code-language">bash</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre># On Mac
+                <div class="code-block">
+                    <pre># On Mac
 brew install ollama
 
 # On Linux
 curl https://ollama.ai/install.sh | sh
 
 # Then start the service
-ollama serve</pre></div>
+ollama serve</pre>
+                </div>
             </div>
 
             <h3>Step 2: Download a Model</h3>
@@ -1222,11 +1356,13 @@ ollama serve</pre></div>
                     <span class="code-language">bash</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre># Download mistral (recommended)
+                <div class="code-block">
+                    <pre># Download mistral (recommended)
 ollama pull mistral
 
 # Check available models
-ollama list</pre></div>
+ollama list</pre>
+                </div>
             </div>
 
             <h3>Step 3: Use in Python</h3>
@@ -1235,7 +1371,8 @@ ollama list</pre></div>
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>from aeon import Agent
+                <div class="code-block">
+                    <pre>from aeon import Agent
 
 agent = Agent(
     name="MyAssistant",
@@ -1244,7 +1381,8 @@ agent = Agent(
     base_url="http://localhost:11434"
 )
 
-agent.start()  # Listen on http://localhost:8000</pre></div>
+agent.start()  # Listen on http://localhost:8000</pre>
+                </div>
             </div>
 
             <div class="callout callout-success">
@@ -1276,7 +1414,9 @@ agent.start()  # Listen on http://localhost:8000</pre></div>
                     <span class="code-language">bash</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>export OPENAI_API_KEY="sk-..."</pre></div>
+                <div class="code-block">
+                    <pre>export OPENAI_API_KEY="sk-..."</pre>
+                </div>
             </div>
 
             <h3>Step 2: Use in Python</h3>
@@ -1285,7 +1425,8 @@ agent.start()  # Listen on http://localhost:8000</pre></div>
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>from aeon import Agent
+                <div class="code-block">
+                    <pre>from aeon import Agent
 
 agent = Agent(
     name="MyAssistant",
@@ -1294,7 +1435,8 @@ agent = Agent(
     api_key="sk-..."  # or use $OPENAI_API_KEY env var
 )
 
-agent.start()</pre></div>
+agent.start()</pre>
+                </div>
             </div>
 
             <div class="callout callout-info">
@@ -1310,7 +1452,8 @@ agent.start()</pre></div>
         <section id="openrouter-setup">
             <h2>🟠 Option C: OpenRouter (Multi-Model)</h2>
 
-            <p>Unified API with access to Claude, GPT, Gemini, Mistral, and 50+ other models through a single endpoint.</p>
+            <p>Unified API with access to Claude, GPT, Gemini, Mistral, and 50+ other models through a single endpoint.
+            </p>
 
             <h3>Step 1: Get API Key</h3>
             <ol>
@@ -1324,7 +1467,9 @@ agent.start()</pre></div>
                     <span class="code-language">bash</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>export OPENROUTER_API_KEY="sk-or-..."</pre></div>
+                <div class="code-block">
+                    <pre>export OPENROUTER_API_KEY="sk-or-..."</pre>
+                </div>
             </div>
 
             <h3>Step 2: Use in Python</h3>
@@ -1333,7 +1478,8 @@ agent.start()</pre></div>
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>from aeon import Agent
+                <div class="code-block">
+                    <pre>from aeon import Agent
 
 # Example 1: Use Claude
 agent = Agent(
@@ -1354,7 +1500,8 @@ import os
 model = os.getenv("AI_MODEL", "anthropic/claude-opus-4-6")
 agent = Agent(name="MyAssistant", model_provider="openrouter", model_name=model)
 
-agent.start()</pre></div>
+agent.start()</pre>
+                </div>
             </div>
 
             <div class="callout callout-success">
@@ -1380,13 +1527,15 @@ agent.start()</pre></div>
                     <span class="code-language">bash</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre># Set AWS credentials
+                <div class="code-block">
+                    <pre># Set AWS credentials
 export AWS_ACCESS_KEY_ID="AKIA..."
 export AWS_SECRET_ACCESS_KEY="..."
 export AWS_REGION="us-east-1"
 
 # Verify Bedrock models are enabled
-aws bedrock list-foundation-models --region us-east-1</pre></div>
+aws bedrock list-foundation-models --region us-east-1</pre>
+                </div>
             </div>
 
             <h3>Step 2: Use in Python</h3>
@@ -1395,7 +1544,8 @@ aws bedrock list-foundation-models --region us-east-1</pre></div>
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>from aeon import Agent
+                <div class="code-block">
+                    <pre>from aeon import Agent
 
 agent = Agent(
     name="MyAssistant",
@@ -1404,7 +1554,8 @@ agent = Agent(
     # AWS credentials loaded automatically from environment
 )
 
-agent.start()</pre></div>
+agent.start()</pre>
+                </div>
             </div>
 
             <div class="callout callout-info">
@@ -1430,7 +1581,8 @@ agent.start()</pre></div>
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """Simple chat with local Ollama"""
 
 from aeon import Agent
@@ -1466,7 +1618,8 @@ async def main():
             print(f"❌ Error: {e}")
 
 if __name__ == "__main__":
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</pre>
+                </div>
             </div>
 
             <h3>Example 2: Chat with OpenAI</h3>
@@ -1475,7 +1628,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """Simple chat with OpenAI GPT-4o"""
 
 from aeon import Agent
@@ -1511,7 +1665,8 @@ async def main():
             print(f"❌ Error: {e}")
 
 if __name__ == "__main__":
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</pre>
+                </div>
             </div>
 
             <h3>Example 3: Multi-Provider Chat (Switch Anytime)</h3>
@@ -1520,7 +1675,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """Chat with any provider - switch at runtime"""
 
 from aeon import Agent
@@ -1586,7 +1742,8 @@ async def main():
             print(f"❌ Error with {current_provider}: {e}")
 
 if __name__ == "__main__":
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</pre>
+                </div>
             </div>
         </section>
 
@@ -1602,7 +1759,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """AI Assistant on Telegram"""
 
 from aeon import Agent
@@ -1629,7 +1787,8 @@ def main():
     agent.start()
 
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
+                </div>
             </div>
 
             <h3>Multi-Platform Bot (Telegram + Discord + Slack)</h3>
@@ -1638,7 +1797,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """Bot that works on all platforms simultaneously"""
 
 from aeon import Agent
@@ -1676,7 +1836,8 @@ def main():
     agent.start()
 
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
+                </div>
             </div>
 
             <div class="callout callout-success">
@@ -1700,7 +1861,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """Personal AI Journal - Reflect on your day with AI"""
 
 from aeon import Agent
@@ -1799,7 +1961,8 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</pre>
+                </div>
             </div>
         </section>
 
@@ -1829,7 +1992,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """AI with web search capability"""
 
 from aeon import Agent
@@ -1857,7 +2021,8 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</pre>
+                </div>
             </div>
 
             <h3>Example: YouTube Transcript Extraction</h3>
@@ -1866,7 +2031,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """Extract and summarize YouTube videos"""
 
 from aeon import Agent
@@ -1906,7 +2072,8 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</pre>
+                </div>
             </div>
         </section>
 
@@ -1914,7 +2081,8 @@ if __name__ == "__main__":
         <section id="safety-axioms">
             <h2>Examples: Safety Axioms</h2>
 
-            <p>Add safety rules to your agent using axioms - deterministic safety rules that block or limit certain actions.</p>
+            <p>Add safety rules to your agent using axioms - deterministic safety rules that block or limit certain
+                actions.</p>
 
             <h3>Basic Safety Example</h3>
             <div class="code-container">
@@ -1922,7 +2090,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """AI Agent with Safety Rules"""
 
 from aeon import Agent
@@ -1984,7 +2153,8 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</pre>
+                </div>
             </div>
 
             <h3>Custom Axioms</h3>
@@ -1993,7 +2163,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre">#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre><code>#!/usr/bin/env python3
 """Custom safety axioms for specific use cases"""
 
 from aeon import Agent
@@ -2008,10 +2179,10 @@ class CustomSafeAssistant:
             model_name="gpt-4o"
         )
         self.setup_custom_axioms()
-    
+
     def setup_custom_axioms(self):
         """Define domain-specific safety rules"""
-        
+
         # Medical advice blocker for healthcare app
         @Axiom(name="no_medical_advice", on_violation="BLOCK")
         def no_medical_advice(text: str) -> bool:
@@ -2019,27 +2190,28 @@ class CustomSafeAssistant:
             if any(kw in text.lower() for kw in medical_keywords):
                 return False  # Block
             return True
-        
+
         # Financial advice blocker
         @Axiom(name="no_financial_advice", on_violation="BLOCK")
         def no_financial_advice(text: str) -> bool:
             if "invest" in text.lower() or "buy" in text.lower():
                 return False  # Block
             return True
-        
+
         # Business hours check
         @Axiom(name="business_hours_only", on_violation="LIMIT")
         def business_hours_only(request_timestamp: float) -> bool:
             hour = datetime.fromtimestamp(request_timestamp).hour
             return 9 <= hour <= 17  # Only 9 AM - 5 PM
-        
+
         self.agent.executive.add_axiom(no_medical_advice)
         self.agent.executive.add_axiom(no_financial_advice)
         self.agent.executive.add_axiom(business_hours_only)
 
 if __name__ == "__main__":
     assistant = CustomSafeAssistant()
-    print("✅ Custom axioms configured")</pre></div>
+    print("✅ Custom axioms configured")</code></pre>
+                </div>
             </div>
         </section>
 
@@ -2055,7 +2227,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """Production-ready agent"""
 
 from aeon import Agent
@@ -2083,7 +2256,8 @@ def main():
     agent.start(host="0.0.0.0", port=8000)
 
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
+                </div>
             </div>
 
             <h3>Docker Deployment</h3>
@@ -2092,22 +2266,24 @@ if __name__ == "__main__":
                     <span class="code-language">dockerfile</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre">FROM python:3.11-slim
+                <div class="code-block">
+                    <pre">FROM python:3.11-slim
 
-WORKDIR /app
+                        WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+                        # Install dependencies
+                        COPY requirements.txt .
+                        RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy app
-COPY . .
+                        # Copy app
+                        COPY . .
 
-# Expose port
-EXPOSE 8000
+                        # Expose port
+                        EXPOSE 8000
 
-# Run agent
-CMD ["python", "main.py"]</pre></div>
+                        # Run agent
+                        CMD ["python", "main.py"]</pre>
+                </div>
             </div>
 
             <div class="code-container">
@@ -2115,23 +2291,218 @@ CMD ["python", "main.py"]</pre></div>
                     <span class="code-language">bash</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre"># Build image
-docker build -t my-agent .
+                <div class="code-block">
+                    <pre"># Build image
+                        docker build -t my-agent .
 
-# Run container
-docker run \
-  -e OPENAI_API_KEY="sk-..." \
-  -e TELEGRAM_BOT_TOKEN="..." \
-  -p 8000:8000 \
-  my-agent
+                        # Run container
+                        docker run \
+                        -e OPENAI_API_KEY="sk-..." \
+                        -e TELEGRAM_BOT_TOKEN="..." \
+                        -p 8000:8000 \
+                        my-agent
 
-# Now accessible at http://localhost:8000</pre></div>
+                        # Now accessible at http://localhost:8000</pre>
+                </div>
             </div>
         </section>
 
-        <!-- TROUBLESHOOTING -->
+        <!-- NATIVE MACOS INTEGRATION -->
+        <section id="macos-integration">
+            <h2> Native macOS Integration</h2>
+            <p>Æon now talks natively to your Mac. Unlike generic assistants, Æon uses <strong>AppleScript</strong> to
+                interact directly with system applications, ensuring your data stays local and your workflow remains
+                seamless.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-title">📝 Apple Notes</div>
+                    <div class="card-description">
+                        Create, search, and update notes in your local Notes.app. Perfect for daily briefings and
+                        research logs.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">⏰ Apple Reminders</div>
+                    <div class="card-description">
+                        Add tasks to specific lists with due dates. Let Æon manage your "Personal" or "Work" reminders
+                        natively.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">🧭 Safari Control</div>
+                    <div class="card-description">
+                        Open URLs and extract content from active tabs. Browse the web using your existing session and
+                        cookies.
+                    </div>
+                </div>
+            </div>
+
+            <h3>Example: macOS Companion</h3>
+            <div class="code-container">
+                <div class="code-header">
+                    <span class="code-language">python</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <div class="code-block">
+                    <pre>from aeon.tools.macos import MacOSTool
+
+# Add Mac capabilities to your agent
+agent.tools.register(MacOSTool())
+
+# Ask your agent to act
+await agent.run("Create a note titled 'Meeting Notes' and set a reminder to follow up tomorrow at 10am.")</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTONOMOUS CAPABILITIES SECTION -->
+        <section id="autonomous-capabilities"
+            style="margin-top: 80px; border-top: 1px solid var(--border-color); padding-top: 40px;">
+            <h2 data-i18n="auto_title">✨ Autonomous Capabilities (v0.3.0)</h2>
+            <p data-i18n="auto_desc">
+                The new <strong>Autonomous Engine</strong> allows your agent to work independently, browse the web,
+                remember its actions, and run on a schedule.
+            </p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">New in v0.3.0</div>
+                <div class="callout-content">
+                    These features transform Æon from a reactive chatbot into a proactive agentic system.
+                </div>
+            </div>
+
+            <!-- TABBED INTERFACE FOR GUIDES -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'auto-browser')">Web Browser</button>
+                <button class="tab-btn" onclick="openTab(event, 'auto-memory')">Persistent Memory</button>
+                <button class="tab-btn" onclick="openTab(event, 'auto-schedule')">Scheduling</button>
+                <button class="tab-btn" onclick="openTab(event, 'auto-trust')">Trust & Security</button>
+            </div>
+
+            <!-- BROWSER TAB -->
+            <div id="auto-browser" class="tab-content active">
+                <h3>🌐 The Web Browser Tool</h3>
+                <p>Give your agent eyes on the web. It can navigate, extract text, and interact with pages using a
+                    headless browser (Playwright).</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span class="code-language">PYTHON</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-block">
+                        <pre><code>from aeon import Agent
+from aeon.tools.browser import BrowserTool
+
+# 1. Create Agent with Browser
+agent = Agent(
+    name="Researcher",
+    model="ollama/qwen2.5-coder:3b",
+    protocols=[]
+)
+
+# 2. Register Browser Tool (Headless is default)
+agent.tools.register(BrowserTool(headless=True))
+
+# 3. Give it a mission
+await agent.run("Go to news.ycombinator.com and summarize the top story")</code></pre>
+                    </div>
+                </div>
+                <p><strong>Capabilities:</strong> Navigation, Text Extraction, Screenshot, Click, Type, Scroll.</p>
+            </div>
+
+            <!-- MEMORY TAB -->
+            <div id="auto-memory" class="tab-content">
+                <h3>🧠 Deep Persistence (Event Sourcing)</h3>
+                <p>Memory is now event-sourced and stored in SQLite. Your agent remembers everything it did, even after
+                    you restart the script.</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span class="code-language">PYTHON</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-block">
+                        <pre><code>from aeon import Agent
+
+agent = Agent(name="MemoryBot", model="ollama/qwen2.5-coder:3b", protocols=[])
+
+# Access memory history
+history = agent.memory.get_history(limit=5)
+for event in history:
+    print(f"[{event.timestamp}] {event.type}: {event.payload}")
+
+# The database file 'aeon_memory.db' is automatically created/updated</code></pre>
+                    </div>
+                </div>
+                <p><strong>Event Types:</strong> <code>AGENT_START</code>, <code>USER_MESSAGE</code>,
+                    <code>REASONING_STEP</code>, <code>TOOL_EXECUTION</code>, <code>TOOL_RESULT</code>.
+                </p>
+            </div>
+
+            <!-- SCHEDULE TAB -->
+            <div id="auto-schedule" class="tab-content">
+                <h3>⏰ Temporal Automation</h3>
+                <p>Make your agent proactive. Schedule tasks to run at specific times (Cron) or intervals.</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span class="code-language">PYTHON</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-block">
+                        <pre><code># Define a task handler
+def morning_briefing():
+    print("🌅 Good morning! Checking your agenda...")
+
+# Schedule it (Cron format: min hour day month day_of_week)
+agent.automation.define_handler("morning_job", morning_briefing)
+agent.automation.schedule(
+    task_id="daily_brief",
+    handler_id="morning_job",
+    cron="0 8 * * *"  # Every day at 8:00 AM
+)
+
+await agent.start() # Starts the scheduler loop</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRUST TAB -->
+            <div id="auto-trust" class="tab-content">
+                <h3>🔒 Trust Levels</h3>
+                <p>Run untrusted code/prompts safely. The <code>ISOLATED</code> level blocks dangerous tools like Shell
+                    and FileSystem.</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span class="code-language">PYTHON</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-block">
+                        <pre><code>from aeon import Agent
+from aeon.security.trust import TrustLevel
+
+# create a restricted agent
+safe_agent = Agent(
+    name="SafeRunner",
+    model="ollama/qwen2.5-coder:3b",
+    protocols=[],
+    trust_level=TrustLevel.ISOLATED # <--- BLOCKS SHELL/FILES
+)
+
+# This will be BLOCKED automatically
+await safe_agent.run("Delete all files in the current directory")</code></pre>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TROUBLESHOOTING SECTION -->
         <section id="troubleshooting">
-            <h2>Troubleshooting</h2>
+            <h2 data-i18n="trouble_title">Troubleshooting</h2>
 
             <h3>Common Issues & Solutions</h3>
 
@@ -2144,12 +2515,14 @@ docker run \
                             <span class="code-language">bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <div class="code-block"><pre># For Ollama
+                        <div class="code-block">
+                            <pre># For Ollama
 ollama list
 
 # For OpenAI
 curl https://api.openai.com/v1/models \
-  -H "Authorization: Bearer $OPENAI_API_KEY" | grep "gpt-4o"</pre></div>
+  -H "Authorization: Bearer $OPENAI_API_KEY" | grep "gpt-4o"</pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2163,7 +2536,8 @@ curl https://api.openai.com/v1/models \
                             <span class="code-language">bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <div class="code-block"><pre># Verify environment variable is set
+                        <div class="code-block">
+                            <pre># Verify environment variable is set
 echo $OPENAI_API_KEY  # Should start with sk-
 
 # Or pass directly in code
@@ -2171,7 +2545,8 @@ agent = Agent(
     name="Test",
     model_provider="openai",
     api_key="sk-your-actual-key"  # Don't commit this!
-)</pre></div>
+)</pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2185,11 +2560,13 @@ agent = Agent(
                             <span class="code-language">bash</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <div class="code-block"><pre># For Ollama
+                        <div class="code-block">
+                            <pre># For Ollama
 ollama serve
 
 # Test connectivity
-curl http://localhost:11434/api/tags</pre></div>
+curl http://localhost:11434/api/tags</pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2203,12 +2580,14 @@ curl http://localhost:11434/api/tags</pre></div>
                             <span class="code-language">python</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <div class="code-block"><pre"># Enable debug logging
-import logging
-logging.basicConfig(level=logging.DEBUG)
+                        <div class="code-block">
+                            <pre"># Enable debug logging
+                                import logging
+                                logging.basicConfig(level=logging.DEBUG)
 
-# Verify integration is active
-print(agent.integrations.status())  # Should show active providers</pre></div>
+                                # Verify integration is active
+                                print(agent.integrations.status()) # Should show active providers</pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2224,7 +2603,8 @@ print(agent.integrations.status())  # Should show active providers</pre></div>
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre>#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre>#!/usr/bin/env python3
 """Agent with detailed logging"""
 
 from aeon import Agent
@@ -2248,7 +2628,8 @@ agent = Agent(
 )
 
 print("💾 Logs saved to agent.log")
-agent.start()</pre></div>
+agent.start()</pre>
+                </div>
             </div>
 
             <h3>Monitor Agent Metrics</h3>
@@ -2257,12 +2638,14 @@ agent.start()</pre></div>
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre">#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre><code>#!/usr/bin/env python3
 """Track agent metrics and performance"""
 
 from aeon import Agent
 from aeon.observability import LifecycleHook
 import time
+import asyncio
 
 class MetricsTracker:
     def __init__(self, agent):
@@ -2270,20 +2653,20 @@ class MetricsTracker:
         self.request_count = 0
         self.total_time = 0
         self.setup_hooks()
-    
+
     def setup_hooks(self):
         @self.agent.observe(LifecycleHook.MESSAGE_RECEIVED)
         async def on_message(context):
             self.request_count += 1
             print(f"📨 Message #{self.request_count}: {context.message[:50]}")
-        
+
         @self.agent.observe(LifecycleHook.RESPONSE_GENERATED)
         async def on_response(context):
             elapsed = context.execution_time
             self.total_time += elapsed
             avg_time = self.total_time / self.request_count
-            print(f"⏱️  Response time: {elapsed:.2f}s (avg: {avg_time:.2f}s)")
-    
+            print(f"⏱️ Response time: {elapsed:.2f}s (avg: {avg_time:.2f}s)")
+
     def get_stats(self):
         return {
             "requests": self.request_count,
@@ -2297,21 +2680,21 @@ async def main():
         model_provider="ollama",
         model_name="mistral"
     )
-    
+
     tracker = MetricsTracker(agent)
-    
+
     # Process some requests
     await agent.ask("Hello")
     await agent.ask("How are you?")
     await agent.ask("What is AI?")
-    
+
     # Show stats
     stats = tracker.get_stats()
     print(f"\n📊 Stats: {stats}")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</code></pre>
+                </div>
             </div>
         </section>
 
@@ -2325,7 +2708,8 @@ if __name__ == "__main__":
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre">#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre><code>#!/usr/bin/env python3
 """Agent with response caching"""
 
 from aeon import Agent
@@ -2346,7 +2730,8 @@ agent.cache.configure(
 
 # Now frequently asked questions are cached!
 response1 = await agent.ask("What is Æon?")  # Calls LLM
-response2 = await agent.ask("What is Æon?")  # Returns from cache ⚡</pre></div>
+response2 = await agent.ask("What is Æon?")  # Returns from cache ⚡</code></pre>
+                </div>
             </div>
 
             <h3>2. Model Selection</h3>
@@ -2392,7 +2777,8 @@ response2 = await agent.ask("What is Æon?")  # Returns from cache ⚡</pre></di
                     <span class="code-language">python</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 </div>
-                <div class="code-block"><pre">#!/usr/bin/env python3
+                <div class="code-block">
+                    <pre><code>#!/usr/bin/env python3
 """Batch process multiple requests efficiently"""
 
 from aeon import Agent
@@ -2404,7 +2790,7 @@ async def main():
         model_provider="openai",
         model_name="gpt-4o"
     )
-    
+
     # Batch requests
     requests = [
         "What is AI?",
@@ -2412,18 +2798,19 @@ async def main():
         "Describe neural networks",
         "What is deep learning?"
     ]
-    
+
     # Process in parallel
     tasks = [agent.ask(req) for req in requests]
     responses = await asyncio.gather(*tasks)
-    
+
     # Much faster than sequential!
     for req, resp in zip(requests, responses):
         print(f"Q: {req}")
         print(f"A: {resp[:100]}...\n")
 
 if __name__ == "__main__":
-    asyncio.run(main())</pre></div>
+    asyncio.run(main())</code></pre>
+                </div>
             </div>
         </section>
 
@@ -2440,12 +2827,14 @@ if __name__ == "__main__":
                             <span class="code-language">python</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <div class="code-block"><pre"># Switch from Ollama to OpenAI
+                        <div class="code-block">
+                            <pre><code># Switch from Ollama to OpenAI
 agent = Agent(
     name="MyBot",
     model_provider="openai",  # Changed
-    model_name="gpt-4o"        # Changed
-)</pre></div>
+    model_name="gpt-4o"       # Changed
+)</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2468,11 +2857,13 @@ agent = Agent(
                             <span class="code-language">python</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <div class="code-block"><pre"># All at once
+                        <div class="code-block">
+                            <pre><code># All at once
 agent.integrations.register("telegram", telegram_provider)
 agent.integrations.register("discord", discord_provider)
 agent.integrations.register("slack", slack_provider)
-# Now active on all three!</pre></div>
+# Now active on all three!</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2497,7 +2888,8 @@ agent.integrations.register("slack", slack_provider)
                             <span class="code-language">python</span>
                             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <div class="code-block"><pre"># Create dialogue context
+                        <div class="code-block">
+                            <pre><code># Create dialogue context
 context = DialogueContext(
     context_id="conv_123",
     participant_id="user_456"
@@ -2509,8 +2901,10 @@ context.add_turn(ActorRole.ASSISTANT, "Hello!")
 
 # Save
 agent.dialogue.store(context)
+
 # Later: retrieve
-context = agent.dialogue.retrieve("conv_123")</pre></div>
+context = agent.dialogue.retrieve("conv_123")</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2534,7 +2928,8 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
             <div class="grid-2">
                 <div class="card">
                     <div class="card-title">Agent</div>
-                    <div class="card-description">An autonomous system that perceives, reasons, and acts. Your AI assistant.</div>
+                    <div class="card-description">An autonomous system that perceives, reasons, and acts. Your AI
+                        assistant.</div>
                 </div>
                 <div class="card">
                     <div class="card-title">Cortex</div>
@@ -2542,7 +2937,8 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
                 </div>
                 <div class="card">
                     <div class="card-title">Executive</div>
-                    <div class="card-description">System 2 - Deterministic safety. Validates outputs against axioms.</div>
+                    <div class="card-description">System 2 - Deterministic safety. Validates outputs against axioms.
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-title">Axiom</div>
@@ -2550,7 +2946,8 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
                 </div>
                 <div class="card">
                     <div class="card-title">Integration</div>
-                    <div class="card-description">A provider that enables communication on a specific platform (Telegram, Discord, etc.).</div>
+                    <div class="card-description">A provider that enables communication on a specific platform
+                        (Telegram, Discord, etc.).</div>
                 </div>
                 <div class="card">
                     <div class="card-title">Extension</div>
@@ -2562,7 +2959,8 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
                 </div>
                 <div class="card">
                     <div class="card-title">Dialogue Context</div>
-                    <div class="card-description">The conversation state between user and agent, stored for continuity.</div>
+                    <div class="card-description">The conversation state between user and agent, stored for continuity.
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-title">Dispatcher</div>
@@ -2590,8 +2988,10 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
 
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="https://github.com/richardsonlima/aeon-core/blob/main/examples_ai_assistant/README.md">Examples Directory</a></li>
-                <li><a href="https://github.com/richardsonlima/aeon-core/blob/main/AI_ASSISTANT.md">Complete Guide (Markdown)</a></li>
+                <li><a href="https://github.com/richardsonlima/aeon-core/blob/main/examples_ai_assistant/README.md">Examples
+                        Directory</a></li>
+                <li><a href="https://github.com/richardsonlima/aeon-core/blob/main/AI_ASSISTANT.md">Complete Guide
+                        (Markdown)</a></li>
                 <li><a href="https://github.com/richardsonlima/aeon-core/issues">Report Issues</a></li>
                 <li><a href="https://github.com/richardsonlima/aeon-core/discussions">Discuss Ideas</a></li>
             </ul>
@@ -2621,14 +3021,14 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
 
     <script>
         // Highlight code blocks
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.code-block code, .code-block pre').forEach(block => {
                 hljs.highlightElement(block);
             });
-            
+
             // Add scroll-to-section functionality
             document.querySelectorAll('a[href^="#"]').forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
                     if (href !== '#' && document.querySelector(href)) {
                         e.preventDefault();
@@ -2637,7 +3037,7 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
                     }
                 });
             });
-            
+
             // Scroll spy
             updateActiveNav();
             window.addEventListener('scroll', updateActiveNav);
@@ -2646,7 +3046,7 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
         function updateActiveNav(target) {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
-            
+
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -2655,7 +3055,7 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
@@ -2667,7 +3067,7 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
         function copyCode(button) {
             const codeBlock = button.closest('.code-container').querySelector('.code-block');
             const code = codeBlock.innerText;
-            
+
             navigator.clipboard.writeText(code).then(() => {
                 const originalText = button.innerText;
                 button.innerText = '✅ Copied!';
@@ -2679,10 +3079,16 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
 
         const translations = {
             en: {
-                subtitle: "Build Your Own Personal AI Assistant - The Neuro-Symbolic Runtime for Distributed Agents"
+                subtitle: "Build Your Own Personal AI Assistant - The Neuro-Symbolic Runtime for Distributed Agents",
+                auto_title: "✨ Autonomous Capabilities (v0.3.0)",
+                auto_desc: "The new **Autonomous Engine** allows your agent to work independently, browse the web, remember its actions, and run on a schedule.",
+                trouble_title: "Troubleshooting"
             },
             pt: {
-                subtitle: "Construa Seu Próprio Assistente de IA Pessoal - O Runtime Neuro-Simbólico para Agentes Distribuídos"
+                subtitle: "Construa Seu Próprio Assistente de IA Pessoal - O Runtime Neuro-Simbólico para Agentes Distribuídos",
+                auto_title: "✨ Capacidades Autônomas (v0.3.0)",
+                auto_desc: "O novo **Motor Autônomo** permite que seu agente trabalhe de forma independente, navegue na web, lembre de suas ações e execute tarefas agendadas.",
+                trouble_title: "Solução de Problemas"
             }
         };
 
@@ -2693,21 +3099,36 @@ context = agent.dialogue.retrieve("conv_123")</pre></div>
                     el.innerText = translations[lang][key];
                 }
             });
-            
+
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
         }
 
         // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
+        document.getElementById('searchInput').addEventListener('input', function (e) {
             const query = e.target.value.toLowerCase();
             const navLinks = document.querySelectorAll('.nav-link');
-            
+
             navLinks.forEach(link => {
                 const text = link.innerText.toLowerCase();
                 link.style.display = text.includes(query) ? 'block' : 'none';
             });
         });
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
     </script>
 </body>
+
 </html>

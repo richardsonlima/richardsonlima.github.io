@@ -6,259 +6,923 @@ robots: noindex
 ---
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Æon Docs | Quick Reference Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Æon Framework | Technical Documentation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --bg-color: #050507;
-            --card-bg: rgba(15, 15, 18, 0.8);
-            --primary-accent: #6600ff;
-            --secondary-accent: #00f0ff;
-            --text-main: #ffffff;
-            --text-muted: #94949e;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --code-bg: #0f0f12;
+            --bg-body: #050507;
+            --bg-sidebar: #0a0a0c;
+            --bg-card: #111115;
+            --bg-code: #0d0d10;
+
+            --border: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(255, 255, 255, 0.15);
+
+            --text-main: #ededed;
+            --text-muted: #888890;
+            --text-accent: #6600ff;
+            --text-cyan: #00f0ff;
+            --text-crit: #ff3366;
+
+            --font-main: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* BASE */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            background: var(--bg-body);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-main);
+            font-size: 15px;
             line-height: 1.6;
             display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            color: #fff;
         }
 
         /* SIDEBAR */
         .sidebar {
             width: 280px;
-            height: 100vh;
-            border-right: 1px solid var(--border-color);
-            padding: 40px 20px;
-            position: fixed;
-            background: rgba(5, 5, 7, 0.95);
-            backdrop-filter: blur(10px);
+            flex-shrink: 0;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
             overflow-y: auto;
-            z-index: 1000;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .sidebar-logo { font-weight: 700; font-size: 1.2rem; margin-bottom: 40px; color: var(--text-main); text-decoration: none; display: block; }
-        .sidebar-logo span { color: var(--secondary-accent); }
+        .brand {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.02em;
+        }
 
-        .nav-group { margin-bottom: 30px; }
-        .nav-group h4 { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 15px; }
-        .nav-link { display: block; color: var(--text-muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 10px; transition: color 0.3s; }
-        .nav-link:hover { color: var(--secondary-accent); }
+        .nav-section {
+            margin-bottom: 24px;
+        }
 
-        /* CONTENT */
-        .main-content { margin-left: 280px; padding: 80px 60px; max-width: 1100px; width: 100%; }
-        h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: -2px; margin-bottom: 10px; }
-        h2 { font-size: 1.6rem; margin-top: 60px; margin-bottom: 20px; color: var(--secondary-accent); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
-        h3 { font-size: 1.2rem; margin-top: 30px; margin-bottom: 15px; color: #fff; }
-        p { color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem; }
+        .nav-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            padding-left: 8px;
+        }
 
-        /* CODE BLOCKS */
-        .code-block {
-            background: var(--code-bg);
-            border: 1px solid var(--border-color);
-            padding: 20px;
+        .nav-item {
+            display: block;
+            padding: 6px 12px;
+            margin-bottom: 2px;
+            border-radius: 6px;
+            color: #bbb;
+            font-size: 0.9rem;
+            border-left: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(102, 0, 255, 0.1);
+            color: var(--text-cyan);
+            border-left-color: var(--text-cyan);
+        }
+
+        .nav-item code {
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+
+        /* MAIN */
+        .content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px 100px;
+        }
+
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 64px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 24px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #ccc;
+            max-width: 800px;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            color: #ccc;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* COMPONENT: CODE BLOCK */
+        .code-window {
+            background: var(--bg-code);
+            border: 1px solid var(--border);
             border-radius: 8px;
-            font-family: 'JetBrains Mono', monospace;
+            margin: 24px 0;
+            overflow: hidden;
+            font-family: var(--font-mono);
             font-size: 0.85rem;
-            color: #d1d1d1;
-            margin: 20px 0;
-            overflow-x: auto;
-            white-space: pre;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
-        .keyword { color: #ff79c6; }
-        .string { color: #f1fa8c; }
-        .comment { color: #6272a4; }
-        .function { color: #50fa7b; }
 
-        .lang-container { position: fixed; top: 40px; right: 40px; z-index: 1100; }
-        .lang-btn { background: rgba(15,15,18,0.8); border: 1px solid var(--border-color); color: var(--text-muted); padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; margin-left: 8px; transition: 0.3s; }
-        .lang-btn.active { border-color: var(--secondary-accent); color: var(--secondary-accent); }
+        .code-header {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        @media (max-width: 768px) {
-            .sidebar { display: none; }
-            .main-content { margin-left: 0; padding: 40px 20px; }
+        .code-lang {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .code-content {
+            padding: 20px;
+            overflow-x: auto;
+            color: #d4d4d4;
+        }
+
+        pre {
+            margin: 0;
+        }
+
+        .k {
+            color: #ff79c6;
+        }
+
+        /* Keyword */
+        .s {
+            color: #f1fa8c;
+        }
+
+        /* String */
+        .c {
+            color: #6272a4;
+            font-style: italic;
+        }
+
+        /* Comment */
+        .f {
+            color: #50fa7b;
+        }
+
+        /* Function */
+        .v {
+            color: #8be9fd;
+        }
+
+        /* Variable */
+        .n {
+            color: #bd93f9;
+        }
+
+        /* Number */
+        .o {
+            color: #ff79c6;
+        }
+
+        /* Operator */
+
+        /* COMPONENT: ALERTS */
+        .callout {
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+            border: 1px solid;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .callout-info {
+            border-color: rgba(102, 0, 255, 0.3);
+            background: rgba(102, 0, 255, 0.05);
+        }
+
+        .callout-warn {
+            border-color: rgba(255, 153, 51, 0.3);
+            background: rgba(255, 153, 51, 0.05);
+        }
+
+        .callout-crit {
+            border-color: rgba(255, 51, 102, 0.3);
+            background: rgba(255, 51, 102, 0.05);
+        }
+
+        .callout-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* COMPONENT: TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid var(--border);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: #ccc;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        code.inline {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            color: #fff;
+        }
+
+        /* API BADGES */
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-right: 8px;
+            text-transform: uppercase;
+        }
+
+        .badge-get {
+            background: rgba(97, 218, 251, 0.2);
+            color: #61dafb;
+        }
+
+        .badge-post {
+            background: rgba(80, 250, 123, 0.2);
+            color: #50fa7b;
+        }
+
+        .badge-class {
+            background: rgba(189, 147, 249, 0.2);
+            color: #bd93f9;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                overflow: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 0;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <aside class="sidebar">
-        <a href="/aeon/" class="sidebar-logo">Æon <span>Docs</span></a>
+    <nav class="sidebar">
+        <div class="brand">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--text-cyan)">
+                <path
+                    d="M12 2L2 7l10 5 10-5-10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z" />
+            </svg>
+            ÆON DOCS <span style="font-size:0.6em; opacity:0.5; margin-left: auto;">v0.3.0</span>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-label">Getting Started</div>
+            <a href="#introduction" class="nav-item">Introduction</a>
+            <a href="#installation" class="nav-item">Installation</a>
+            <a href="#quickstart" class="nav-item">Quickstart</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-label">Core Concepts</div>
+            <a href="#architecture" class="nav-item">Architecture Overview</a>
+            <a href="#cortex" class="nav-item">Cortex (Reasoning)</a>
+            <a href="#memory" class="nav-item">Memory (Event Sourcing)</a>
+            <a href="#automation" class="nav-item">Automation (Scheduler)</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-label">Examples & Use Cases</div>
+            <a href="#example-ultra" class="nav-item">Ultra System Demo</a>
+            <a href="#example-assistant" class="nav-item">Personal (Journal)</a>
+            <a href="#example-industrial" class="nav-item">Industrial (Aero)</a>
+            <a href="#example-axioms" class="nav-item">Safety Axioms Demo</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-label">Subsystems</div>
+            <a href="#gateway" class="nav-item">Gateway (API)</a>
+            <a href="#security" class="nav-item">Security (Auth)</a>
+            <a href="#routes" class="nav-item">Routing Bus</a>
+            <a href="#hooks" class="nav-item">Observability Hooks</a>
+            <a href="#economics" class="nav-item">Economics & Pricing</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-label" style="color: var(--text-crit);">Safety Critical</div>
+            <a href="#axioms" class="nav-item">Axioms (Guardrails)</a>
+            <a href="#tmr" class="nav-item">TMR Architecture</a>
+            <a href="#compliance" class="nav-item">Compliance (DO-178C)</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-label">Reference</div>
+            <a href="#cli" class="nav-item">CLI Command Reference</a>
+            <a href="#config-ref" class="nav-item">Configuration (YAML)</a>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="content">
+            <header>
+                <h1>Aeon Framework Documentation</h1>
+                <div class="subtitle">The definitive technical manual for the Aeon Neuro-Symbolic Agent Framework.
+                    Covers Kernel v0.3.0.</div>
+            </header>
+
+            <!-- INTRODUCTION -->
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p><strong>Aeon</strong> is not just another LLM wrapper. It is a <strong>Neuro-Symbolic Operating
+                        System</strong> designed for high-consequence environments. Unlike purely probabilistic agents
+                    (like LangGraph or AutoGPT), Aeon introduces a deterministic <strong>Executive Layer</strong> that
+                    enforces safety invariants ("Axioms") over the LLM's stochastic outputs.</p>
+                <div class="callout callout-info">
+                    <div class="callout-title"><span style="color: var(--text-cyan);">Why Aeon?</span></div>
+                    Most frameworks are "Think -> Act". Aeon is "Think -> <strong>Verify</strong> -> Act". This makes it
+                    suitable for industrial, aerospace, and medical applications where hallucination is unacceptable.
+                </div>
+            </section>
+
+            <!-- INSTALLATION -->
+            <section id="installation">
+                <h2>Installation</h2>
+                <p>Aeon requires Python 3.10+ and a supported OS (Linux, macOS, Windows WSL).</p>
+
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">BASH</span></div>
+                    <div class="code-content">
+                        <pre><span class="c"># 1. Create a virtual environment</span>
+python -m venv venv
+source venv/bin/activate
+
+<span class="c"># 2. Install Aeon Core from PyPI</span>
+pip install aeon-core
+
+<span class="c"># 3. Install browser dependencies (for BrowserTool)</span>
+playwright install
+
+<span class="c"># 4. Verify installation</span>
+aeon doctor</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXAMPLES SECTION -->
+            <section id="example-ultra">
+                <h2>Example: Ultra System Demo</h2>
+                <p>The <code>aeon_ultra_complete_demo.py</code> demonstrates all 16 subsystems working in a coordinated
+                    neuro-symbolic loop. This includes Gateway authentication, intelligent routing, cache lookups, and
+                    cost calculation.</p>
+
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">PYTHON</span> <span style="margin-left:auto">SYSTEM
+                            INTEGRATION</span></div>
+                    <div class="code-content">
+                        <pre><span class="c"># Demonstrating the 16-subsystem coordination loop</span>
+<span class="k">async def</span> <span class="f">demo_complete_system</span>():
+    <span class="c"># 1. Security & Gateway Layer</span>
+    <span class="v">security_context</span>[<span class="s">"tokens"</span>][<span class="s">"session-123"</span>] = {
+        <span class="s">"created"</span>: <span class="v">datetime</span>.<span class="f">now</span>(),
+        <span class="s">"scopes"</span>: [<span class="s">"read:data"</span>, <span class="s">"write:results"</span>],
+        <span class="s">"valid"</span>: <span class="k">True</span>
+    }
+    
+    <span class="c"># 2. Routing & Message Distribution</span>
+    <span class="v">router_config</span>[<span class="s">"routes"</span>] = [
+        {<span class="s">"pattern"</span>: <span class="s">"analyze.*"</span>, <span class="s">"strategy"</span>: <span class="s">"priority"</span>, <span class="s">"handler"</span>: <span class="s">"cortex"</span>},
+        {<span class="s">"pattern"</span>: <span class="s">"fetch.*"</span>, <span class="s">"strategy"</span>: <span class="s">"load_balanced"</span>, <span class="s">"handler"</span>: <span class="s">"synapse"</span>}
+    ]
+    
+    <span class="c"># 3. Cortex - LLM Reasoning Plan</span>
+    <span class="v">cortex_plan</span> = {
+        <span class="s">"reasoning"</span>: <span class="s">"User wants trend analysis"</span>,
+        <span class="s">"tools"</span>: [<span class="s">"fetch_data"</span>, <span class="s">"compute"</span>],
+        <span class="s">"confidence"</span>: <span class="n">0.95</span>
+    }
+    
+    <span class="c"># 4. Economics - Cost Calculation</span>
+    <span class="v">total_cost</span> = <span class="v">token_count</span> * <span class="n">0.001</span> + <span class="v">tool_calls</span> * <span class="n">0.01</span>
+    <span class="f">print</span>(<span class="s">f"Operation Cost: ${total_cost:.4f}"</span>)</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-assistant">
+                <h2>Example: Personal (Journal Assistant)</h2>
+                <p>Using the <code>Capability</code> system to extend the agent. The <code>JournalCapability</code>
+                    manages local filesystem persistence while the <code>Cortex</code> provides emotional reflection.
+                </p>
+
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">PYTHON</span> <span style="margin-left:auto">AGENT
+                            EXTENSION</span></div>
+                    <div class="code-content">
+                        <pre><span class="k">class</span> <span class="f">JournalCapability</span>(<span class="v">Capability</span>):
+    <span class="k">async def</span> <span class="f">save_entry</span>(<span class="v">self</span>, <span class="v">text</span>: <span class="n">str</span>) -> <span class="n">str</span>:
+        <span class="v">date</span> = <span class="v">datetime</span>.<span class="v">date</span>.<span class="f">today</span>().<span class="f">isoformat</span>()
+        <span class="v">entry</span> = <span class="s">f"\n[{date}]\n{text}\n"</span>
+        <span class="k">with</span> <span class="f">open</span>(<span class="v">self</span>.<span class="v">journal_file</span>, <span class="s">"a"</span>) <span class="k">as</span> <span class="v">f</span>:
+            <span class="v">f</span>.<span class="f">write</span>(<span class="v">entry</span>)
+        <span class="k">return</span> <span class="s">f"✅ Entry saved for {date}"</span>
+
+<span class="c"># Agent setup with extension</span>
+<span class="v">agent</span> = <span class="f">Agent</span>(<span class="v">name</span>=<span class="s">"JournalAssistant"</span>)
+<span class="v">journal</span> = <span class="f">JournalCapability</span>()
+<span class="v">agent</span>.<span class="v">extensions</span>.<span class="f">register</span>(<span class="v">journal</span>)</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-industrial">
+                <h2>Example: Industrial (Flight Control)</h2>
+                <p>High-integrity code utilizing <code>CriticalAxiom</code> for DO-178C Level A compliance. Demonstrates
+                    blocking dangerous flight conditions in < 1ms.</p>
+
+                        <div class="code-window">
+                            <div class="code-header"><span class="code-lang">PYTHON</span> <span
+                                    style="margin-left:auto">CRITICAL AXIOMS</span></div>
+                            <div class="code-content">
+                                <pre><span class="o">@</span><span class="f">CriticalAxiom</span>(
+    <span class="v">name</span>=<span class="s">"stall_prevention"</span>,
+    <span class="v">safety_level</span>=<span class="v">SafetyLevel</span>.<span class="v">SIL4</span>,
+    <span class="v">on_violation</span>=<span class="s">"BLOCK"</span>,
+    <span class="v">response_time_ms</span>=<span class="n">0.1</span>
+)
+<span class="k">def</span> <span class="f">axiom_stall_prevention</span>(<span class="v">self</span>, <span class="v">aoa_deg</span>, <span class="v">airspeed</span>):
+    <span class="v">safe_aoa</span> = <span class="n">14.0</span>  <span class="c"># Safety threshold</span>
+    <span class="k">if</span> <span class="v">aoa_deg</span> > <span class="v">safe_aoa</span>:
+        <span class="f">reduce_pitch_automatically</span>()
+        <span class="k">return</span> <span class="k">False</span> <span class="c"># INVARIANT VIOLATED</span>
+    <span class="k">return</span> <span class="k">True</span> <span class="c"># GO</span></pre>
+                            </div>
+                        </div>
+            </section>
+
+            <section id="example-axioms">
+                <h2>Example: General Safety Axioms</h2>
+                <p>Demonstrating content filtering, rate limiting, and PII protection in a general-purpose agent
+                    (<code>with_safety_axioms.py</code>).</p>
+
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">PYTHON</span></div>
+                    <div class="code-content">
+                        <pre><span class="o">@</span><span class="v">agent</span>.<span class="f">axiom</span>(<span class="v">on_violation</span>=<span class="s">"BLOCK"</span>)
+<span class="k">def</span> <span class="f">no_personal_data</span>(<span class="v">response</span>: <span class="n">str</span>):
+    <span class="v">ssn_pattern</span> = <span class="s">r"\d{3}-\d{2}-\d{4}"</span>
+    <span class="k">if</span> <span class="v">re</span>.<span class="f">search</span>(<span class="v">ssn_pattern</span>, <span class="v">response</span>):
+        <span class="k">return</span> <span class="k">False</span> <span class="c"># Block SSN leak</span>
+    <span class="k">return</span> <span class="k">True</span>
+
+<span class="o">@</span><span class="v">agent</span>.<span class="f">axiom</span>(<span class="v">on_violation</span>=<span class="s">"LIMIT"</span>)
+<span class="k">def</span> <span class="f">enforce_length</span>(<span class="v">response</span>: <span class="n">str</span>):
+    <span class="k">return</span> <span class="f">len</span>(<span class="v">response</span>) <= <span class="n">500</span></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ARCHITECTURE -->
+            <section id="architecture">
+                <h2>Architecture Overview</h2>
+                <p>The Aeon Kernel orchestrates 16 integrated subsystems. This "Battery-Included" approach ensures you
+                    don't need to glue together 10 different libraries to get a production-ready agent.</p>
+
+                <h3>The 16 Kernel Subsystems</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subsystem</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>Cortex</code></td>
+                            <td><strong>Reasoning Engine</strong>. Interfaces with LLMs (Ollama, OpenAI) to generate
+                                Plans.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Executive</code></td>
+                            <td><strong>Safety Layer</strong>. Enforces deterministic Axioms to specific actions.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Synapse</code></td>
+                            <td><strong>Tool Interface</strong>. Handles MCP (Model Context Protocol) and Native Tools.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>Memory</code></td>
+                            <td>Event-Sourced storage (`EventMemory`) for full audit trails.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Dispatcher</code></td>
+                            <td>Internal pub/sub event bus for decoupled communication.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Automation</code></td>
+                            <td>Background task scheduler with Cron/Interval support.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Gateway</code></td>
+                            <td>FastAPI-based HTTP/WebSocket server for external access.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Security</code></td>
+                            <td>Authentication (API Keys, JWT) and TrustLevel enforcement.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Routing</code></td>
+                            <td>Pattern-matching message router.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Economics</code></td>
+                            <td>Token usage tracking and cost estimation (`pricing.py`).</td>
+                        </tr>
+                        <tr>
+                            <td><code>Observability</code></td>
+                            <td>Lifecycle hooks (`hook.py`) for monitoring.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Health</code></td>
+                            <td>System diagnostics and heartbeat.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Hive</code></td>
+                            <td>Agent-to-Agent (A2A) protocol.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Integrations</code></td>
+                            <td>Platform adapters (Slack, Discord).</td>
+                        </tr>
+                        <tr>
+                            <td><code>Extensions</code></td>
+                            <td>Pluggable "Skills".</td>
+                        </tr>
+                        <tr>
+                            <td><code>CLI</code></td>
+                            <td>Command-line entry points.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- CORTEX -->
+            <section id="cortex">
+                <h2>Cortex (Reasoning)</h2>
+                <p>The <code>Cortex</code> (`src/aeon/cortex/reasoning.py`) is the brain. It abstracts the LLM provider
+                    (System 1) and normalizes outputs into structured Plans.</p>
+
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">PYTHON</span></div>
+                    <div class="code-content">
+                        <pre><span class="k">from</span> aeon.cortex.reasoning <span class="k">import</span> Cortex, CortexConfig
+
+<span class="c"># Initialize with local Ollama or Cloud Model</span>
+config = <span class="f">CortexConfig</span>(
+    model=<span class="s">"ollama/llama3"</span>,  <span class="c"># or "google/gemini-2.0-flash"</span>
+    temperature=<span class="n">0.0</span>       <span class="c"># Deterministic sampling</span>
+)
+cortex = <span class="f">Cortex</span>(config)
+
+<span class="c"># Plan an action</span>
+plan = cortex.plan_action(
+    system_prompt=<span class="s">"You relate strict facts."</span>,
+    user_input=<span class="s">"Check the reactor temperature."</span>,
+    tools=[...]
+)</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MEMORY -->
+            <section id="memory">
+                <h2>Memory (Event Sourcing)</h2>
+                <p>Aeon uses <strong>Event Sourcing</strong> (`src/aeon/memory/events.py`). State is derived from an
+                    append-only log of events. This is crucial for Safety Critical debugging.</p>
+
+                <h4>Event Types</h4>
+                <ul>
+                    <li><code>AgentStartEvent</code>: Boot sequence.</li>
+                    <li><code>ReasoningStepEvent</code>: Chain-of-thought log.</li>
+                    <li><code>ToolExecutionEvent</code>: <strong>Critical</strong>. Arguments passed to tools.</li>
+                    <li><code>ToolResultEvent</code>: Output or Error from tools.</li>
+                    <li><code>AxiomViolationEvent</code>: Recorded when Safety Layer blocks an action.</li>
+                </ul>
+            </section>
+
+            <!-- AUTOMATION -->
+            <section id="automation">
+                <h2>Automation (Scheduler)</h2>
+                <p>The <code>TaskScheduler</code> (`src/aeon/automation/scheduler.py`) allows agents to be proactive,
+                    not just reactive. Tasks run in the background (asyncio).</p>
+
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">PYTHON</span></div>
+                    <div class="code-content">
+                        <pre><span class="c"># Schedule a daily check</span>
+<span class="k">await</span> agent.automation.schedule(
+    task_id=<span class="s">"monitoring_sweep"</span>,
+    handler_id=<span class="s">"run_diagnostics"</span>,
+    cron=<span class="s">"0 9 * * *"</span>  <span class="c"># 9:00 AM Daily</span>
+)
+
+<span class="c"># Schedule a heartbeat every 30s</span>
+<span class="k">await</span> agent.automation.schedule(
+    task_id=<span class="s">"heartbeat"</span>,
+    handler_id=<span class="s">"ping_home"</span>,
+    interval_seconds=<span class="n">30</span>
+)</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GATEWAY & SECURITY -->
+            <section id="gateway">
+                <h2>Gateway & Security</h2>
+                <p>The <code>Gateway</code> (`src/aeon/gateway/gateway.py`) exposes the agent via HTTP.
+                    <code>Security</code> (`src/aeon/security/auth.py`) handles bearer tokens and API keys.</p>
+
+                <div class="callout callout-warn">
+                    <div class="callout-title">Production Note</div>
+                    Always enable <code>enable_encryption=True</code> in production to enforce TLS/SSL termination at
+                    the Gateway level.
+                </div>
+
+                <h3>Authentication Providers</h3>
+                <p>Aeon supports pluggable Auth Providers extending <code>AuthProvider</code>.</p>
+                <ul>
+                    <li><strong>APIKeyAuthProvider</strong>: For machine-to-machine (M2M) communication.</li>
+                    <li><strong>BearerTokenProvider</strong>: For user sessions (JWT-like).</li>
+                </ul>
+            </section>
+
+            <!-- SAFETY CRITICAL -->
+            <section id="axioms">
+                <h2><span style="color:var(--text-crit)">Safety: Axioms</span></h2>
+                <p>Axioms (`src/aeon/executive/safety.py`) are deterministic Python functions that intercept LLM Actions
+                    <em>before</em> execution. They act as "Guardrails with Teeth".</p>
+
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">PYTHON</span> <span
+                            style="margin-left:auto">DEFINING AN AXIOM</span></div>
+                    <div class="code-content">
+                        <pre><span class="k">from</span> aeon.executive.safety <span class="k">import</span> AxiomViolationError
+
+<span class="k">def</span> <span class="f">no_delete_axiom</span>(<span class="v">payload</span>: <span class="n">dict</span>):
+    <span class="s">"""Prevents the agent from deleting files."""</span>
+    tool_name = <span class="v">payload</span>.get(<span class="s">"tool_name"</span>)
+    
+    <span class="k">if</span> tool_name == <span class="s">"fs_delete"</span>:
+        <span class="c"># BLOCK the action immediately</span>
+        <span class="k">raise</span> <span class="f">AxiomViolationError</span>(<span class="s">"Deletion is prohibited by Safety Policy A-12."</span>)
+    
+    <span class="k">if</span> tool_name == <span class="s">"fs_write"</span>:
+        <span class="c"># SANITIZE the input (Modify on the fly)</span>
+        <span class="k">if</span> <span class="s">"password"</span> <span class="k">in</span> <span class="v">payload</span>[<span class="s">"args"</span>][<span class="s">"content"</span>]:
+             <span class="v">payload</span>[<span class="s">"args"</span>][<span class="s">"content"</span>] = <span class="s">"[REDACTED]"</span>
+             <span class="k">return</span> <span class="v">payload</span>  <span class="c"># Return modified dict</span>
+             
+    <span class="k">return</span> <span class="k">True</span> <span class="c"># ALLOW</span></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tmr">
+                <h2><span style="color:var(--text-crit)">Safety: TMR (Triple Modular Redundancy)</span></h2>
+                <p>For aerospace compliance (DO-178C), single-model decisions are insufficient. TMR involves running 3
+                    distinct agents (Models A, B, C) and voting on the outcome.</p>
+
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">PYTHON</span> <span style="margin-left:auto">TMR
+                            VOTER PATTERN</span></div>
+                    <div class="code-content">
+                        <pre><span class="k">async def</span> <span class="f">execute_with_tmr</span>(<span class="v">prompt</span>):
+    <span class="c"># 1. Parallel Execution</span>
+    <span class="v">results</span> = <span class="k">await</span> asyncio.gather(
+        agent_gpt4.cortex.plan(<span class="v">prompt</span>),
+        agent_claude3.cortex.plan(<span class="v">prompt</span>),
+        agent_gemini2.cortex.plan(<span class="v">prompt</span>)
+    )
+    
+    <span class="c"># 2. Consensus</span>
+    <span class="v">consensus</span> = <span class="f">vote</span>(<span class="v">results</span>)
+    
+    <span class="k">if not</span> <span class="v">consensus</span>:
+        <span class="k">raise</span> <span class="f">SafetyShutdown</span>(<span class="s">"TMR Dissensus: Models disagree on critical action."</span>)
         
-        <div class="nav-group">
-            <h4 data-i18n="nav_getting_started">Getting Started</h4>
-            <a href="#installation" class="nav-link">Installation</a>
-            <a href="#core-concepts" class="nav-link">Core Concepts</a>
+    <span class="k">return</span> <span class="v">consensus</span></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API REFERENCE -->
+            <section id="cli">
+                <h2>CLI Reference</h2>
+                <p>The `aeon` command line tool manages the lifecycle.</p>
+
+                <h3>`aeon init`</h3>
+                <p>Creates a new project structure.</p>
+                <div class="code-window">
+                    <div class="code-content">
+                        <pre>aeon init my_agent --template default</pre>
+                    </div>
+                </div>
+
+                <h3>`aeon serve`</h3>
+                <p>Starts the Gateway server.</p>
+                <div class="code-window">
+                    <div class="code-content">
+                        <pre>aeon serve --config ./aeon.yaml --port 8000 --reload</pre>
+                    </div>
+                </div>
+
+                <h3>`aeon run`</h3>
+                <p>Executes a one-off instruction.</p>
+                <div class="code-window">
+                    <div class="code-content">
+                        <pre>aeon run "Analyze the logs in /var/log/syslog" --trust-level=RESTRICTED</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="config-ref">
+                <h2>Configuration (YAML)</h2>
+                <p>Complete reference for `aeon.yaml`.</p>
+                <div class="code-window">
+                    <div class="code-header"><span class="code-lang">YAML</span></div>
+                    <div class="code-content">
+                        <pre><span class="k">agent</span>:
+  <span class="k">name</span>: <span class="s">"Sentinel-01"</span>
+  <span class="k">trust_level</span>: <span class="s">"full"</span> <span class="c"># full, restricted, isolated</span>
+  <span class="k">model</span>:
+    <span class="k">provider</span>: <span class="s">"ollama"</span>
+    <span class="k">name</span>: <span class="s">"llama3"</span>
+
+<span class="k">gateway</span>:
+  <span class="k">host</span>: <span class="s">"0.0.0.0"</span>
+  <span class="k">port</span>: <span class="n">8000</span>
+  <span class="k">max_connections</span>: <span class="n">1000</span>
+  <span class="k">enable_encryption</span>: <span class="k">true</span>
+
+<span class="k">automation</span>:
+  <span class="k">enabled</span>: <span class="k">true</span>
+  <span class="k">tasks</span>:
+    - <span class="k">id</span>: <span class="s">"cleanup"</span>
+      <span class="k">cron</span>: <span class="s">"0 0 * * *"</span>
+      <span class="k">handler</span>: <span class="s">"cleanup_logs"</span></pre>
+                    </div>
+                </div>
+            </section>
+
         </div>
+    </div>
 
-        <div class="nav-group">
-            <h4 data-i18n="nav_layers">Architecture Layers</h4>
-            <a href="#layer1" class="nav-link">L1: Integrations</a>
-            <a href="#layer2" class="nav-link">L2: Extensions</a>
-            <a href="#layer3" class="nav-link">L3: Dialogue</a>
-            <a href="#layer4" class="nav-link">L4: Dispatcher</a>
-            <a href="#layer5" class="nav-link">L5: Automation</a>
-        </div>
-
-        <div class="nav-group">
-            <h4 data-i18n="nav_examples">Real World</h4>
-            <a href="#complete-workflow" class="nav-link">Full Workflow</a>
-            <a href="#common-patterns" class="nav-link">Common Patterns</a>
-        </div>
-    </aside>
-
-    <main class="main-content">
-        <div class="lang-container">
-            <button class="lang-btn active" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" onclick="setLang('pt')">PT</button>
-        </div>
-
-        <header>
-            <h1 data-i18n="page_title">Quick Reference Guide</h1>
-            <p data-i18n="page_subtitle">Implementation reference for Æon Framework v0.3.0-ULTRA.</p>
-        </header>
-
-        <section id="installation">
-            <h2 data-i18n="sec_install">Installation</h2>
-            <div class="code-block">git clone https://github.com/richardsonlima/aeon-core.git
-cd aeon-core
-pip install -e .</div>
-        </section>
-
-        <section id="core-concepts">
-            <h2 data-i18n="sec_core">Core Concepts</h2>
-            <h3>1. Agent Initialization</h3>
-            <div class="code-block"><span class="keyword">from</span> aeon <span class="keyword">import</span> Agent
-<span class="keyword">from</span> aeon.protocols <span class="keyword">import</span> A2A, MCP
-
-agent = Agent(
-    name=<span class="string">"MyBot"</span>,
-    model=<span class="string">"google/gemini-2.0-flash-001"</span>,
-    protocols=[A2A(port=8000), MCP(servers=[<span class="string">"tools.py"</span>])]
-)</div>
-        </section>
-
-        <section id="layer1">
-            <h2 data-i18n="sec_l1">Layer 1: Integrations</h2>
-            <p data-i18n="l1_desc">Multi-platform support via custom providers.</p>
-            <div class="code-block"><span class="keyword">class</span> <span class="function">MyProvider</span>(IntegrationProvider):
-    <span class="keyword">async def</span> <span class="function">dispatch</span>(self, packet: Packet):
-        print(<span class="string">f"Sending: {packet.payload} → {packet.destination}"</span>)
-        <span class="keyword">return</span> <span class="keyword">True</span>
-
-<span class="comment"># Register & Activate</span>
-agent.integrations.register(<span class="string">"myplatform"</span>, provider)
-<span class="keyword">await</span> agent.integrations.activate_provider(<span class="string">"myplatform"</span>)</div>
-        </section>
-
-        <section id="layer2">
-            <h2 data-i18n="sec_l2">Layer 2: Extensions</h2>
-            <p data-i18n="l2_desc">Pluggable capabilities and reusable tools.</p>
-            <div class="code-block"><span class="keyword">class</span> <span class="function">MyCapability</span>(Capability):
-    metadata = CapabilityMetadata(name=<span class="string">"my_feature"</span>, version=<span class="string">"1.0.0"</span>)
-    <span class="keyword">async def</span> <span class="function">invoke</span>(self, **kwargs):
-        <span class="keyword">return</span> <span class="string">f"Result: {kwargs.get('input')}"</span>
-
-agent.extensions.register(MyCapability())
-<span class="keyword">await</span> agent.extensions.activate(<span class="string">"my_feature"</span>)</div>
-        </section>
-
-        <section id="layer3">
-            <h2 data-i18n="sec_l3">Layer 3: Dialogue</h2>
-            <p data-i18n="l3_desc">Managing conversation state and history.</p>
-            <div class="code-block">context = DialogueContext(context_id=<span class="string">"conv_001"</span>, participant_id=<span class="string">"user_42"</span>)
-context.add_turn(ActorRole.USER, <span class="string">"Hello"</span>)
-agent.dialogue.store(context)</div>
-        </section>
-
-        <section id="layer4">
-            <h2 data-i18n="sec_l4">Layer 4: Dispatcher</h2>
-            <p data-i18n="l4_desc">High-performance event routing.</p>
-            <div class="code-block"><span class="keyword">async def</span> <span class="function">on_message</span>(event: Event):
-    print(<span class="string">f"Event source: {event.source}"</span>)
-
-agent.dispatcher.subscribe(EventType.COMMUNICATION_RECEIVED, on_message)</div>
-        </section>
-
-        <section id="layer5">
-            <h2 data-i18n="sec_l5">Layer 5: Automation</h2>
-            <p data-i18n="l5_desc">Temporal patterns and task scheduling.</p>
-            <div class="code-block">pattern = TemporalPattern(hour=<span class="string">"8"</span>, minute=<span class="string">"0"</span>) <span class="comment"># 8 AM Daily</span>
-task = ScheduledTask(task_id=<span class="string">"report"</span>, temporal_pattern=pattern, handler_id=<span class="string">"daily_report"</span>)
-agent.automation.schedule(task)</div>
-        </section>
-
-        <section id="complete-workflow">
-            <h2 data-i18n="sec_workflow">Complete Example Workflow</h2>
-            <div class="code-block"><span class="keyword">async def</span> <span class="function">main</span>():
-    agent = Agent(<span class="string">"ChatBot"</span>, <span class="string">"gpt-4"</span>)
-    
-    <span class="comment"># 1. Setup Provider & Capability</span>
-    agent.integrations.register(<span class="string">"tg"</span>, TelegramProvider())
-    agent.extensions.register(WeatherCap())
-    
-    <span class="comment"># 2. Process Dialogue</span>
-    ctx = DialogueContext(<span class="string">"c1"</span>, <span class="string">"tg"</span>, <span class="string">"u1"</span>)
-    weather = <span class="keyword">await</span> agent.extensions.invoke(<span class="string">"weather"</span>, city=<span class="string">"SP"</span>)
-    agent.dialogue.store(ctx)
-    
-    <span class="comment"># 3. Dispatch Result</span>
-    packet = Packet(<span class="string">"agent"</span>, <span class="string">"u1"</span>, <span class="string">f"Temp: {weather['temp']}"</span>)
-    <span class="keyword">await</span> agent.integrations.dispatch_packet(<span class="string">"tg"</span>, packet)</div>
-        </section>
-
-        <footer style="margin-top: 100px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.8rem;">
-            Æon Framework v0.3.0-ULTRA | Open Source Research
-        </footer>
-    </main>
-
-    <script>
-        const translations = {
-            en: {
-                page_title: "Quick Reference Guide", page_subtitle: "Implementation reference for Æon Framework v0.3.0-ULTRA.",
-                nav_getting_started: "Getting Started", nav_layers: "Architecture Layers", nav_examples: "Real World",
-                sec_install: "Installation", sec_core: "Core Concepts",
-                sec_l1: "Layer 1: Integrations", l1_desc: "Multi-platform support via custom providers.",
-                sec_l2: "Layer 2: Extensions", l2_desc: "Pluggable capabilities and reusable tools.",
-                sec_l3: "Layer 3: Dialogue", l3_desc: "Managing conversation state and history.",
-                sec_l4: "Layer 4: Dispatcher", l4_desc: "High-performance event routing.",
-                sec_l5: "Layer 5: Automation", l5_desc: "Temporal patterns and task scheduling.",
-                sec_workflow: "Complete Example Workflow"
-            },
-            pt: {
-                page_title: "Guia de Referência Rápida", page_subtitle: "Referência de implementação para o Æon Framework v0.3.0-ULTRA.",
-                nav_getting_started: "Primeiros Passos", nav_layers: "Camadas da Arquitetura", nav_examples: "Uso Real",
-                sec_install: "Instalação", sec_core: "Conceitos Core",
-                sec_l1: "Camada 1: Integrações", l1_desc: "Suporte multiplataforma via provedores customizados.",
-                sec_l2: "Camada 2: Extensões", l2_desc: "Capacidades plugáveis e ferramentas reutilizáveis.",
-                sec_l3: "Camada 3: Diálogo", l3_desc: "Gestão de estado e histórico de conversas.",
-                sec_l4: "Camada 4: Dispatcher", l4_desc: "Roteamento de eventos de alta performance.",
-                sec_l5: "Camada 5: Automação", l5_desc: "Padrões temporais e agendamento de tarefas.",
-                sec_workflow: "Fluxo de Exemplo Completo"
-            }
-        };
-
-        function setLang(lang) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) el.innerText = translations[lang][key];
-            });
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
-            if (activeBtn) activeBtn.classList.add('active');
-        }
-    </script>
 </body>
+
 </html>
