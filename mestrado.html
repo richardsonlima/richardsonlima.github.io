@@ -248,13 +248,16 @@ sitemap: false
             .table-box {
                 border: 1px solid var(--border);
                 border-radius: 12px;
-                overflow: hidden;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
                 margin-top: 20px;
                 margin-bottom: 48px;
             }
 
             table {
                 width: 100%;
+                min-width: 680px;
                 border-collapse: collapse;
                 font-size: 0.85rem;
             }
@@ -368,6 +371,25 @@ sitemap: false
 
                 .nav-brand {
                     font-size: 0.8rem;
+                }
+
+                .container {
+                    padding: 72px 16px;
+                }
+
+                .table-box {
+                    margin-top: 16px;
+                    margin-bottom: 32px;
+                }
+
+                table {
+                    min-width: 620px;
+                    font-size: 0.8rem;
+                }
+
+                th,
+                td {
+                    padding: 12px 14px;
                 }
 
                 header h1 {
