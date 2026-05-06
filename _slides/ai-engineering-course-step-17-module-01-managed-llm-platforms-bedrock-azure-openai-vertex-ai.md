@@ -1,0 +1,29 @@
+---
+layout: slides
+title: "Managed LLM Platforms - Bedrock, Azure OpenAI, Vertex AI"
+category: "ai-engineering-course-step-17"
+module_number: 1
+complexity: "Learn"
+lesson_type: "Learn"
+lang_stack: "🐍"
+use_math: true
+---
+
+layout: true
+class: basic-layout
+---
+
+class: center, middle, inverse-slide
+# Step 17 - Infrastructure & Production
+## Module 01: Managed LLM Platforms - Bedrock, Azure OpenAI, Vertex AI
+### _Type: {{ page.lesson_type }} · Lang: {{ page.lang_stack }}_
+
+**Richardson Lima**
+
+---
+
+## Summary
+
+This module is part of Step 17 - Infrastructure & Production.
+
+---
