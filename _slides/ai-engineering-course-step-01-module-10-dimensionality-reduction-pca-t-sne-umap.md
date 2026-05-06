@@ -23,18 +23,18 @@ class: center, middle, inverse-slide
 
 ---
 
-## O Mapa da Jornada 🗺️
+## Journey Map 🗺️
 
-1. Fundamentos e contexto do problema.
-2. Intuição operacional do conceito.
-3. Tradução matemática para engenharia.
-4. Padrões de uso em sistemas de IA.
-5. Construção prática com código.
-6. Checkpoints para domínio técnico.
+1. Foundations and problem context.
+2. Operational intuition of the concept.
+3. Mathematical translation for engineering.
+4. Usage patterns in AI systems.
+5. Practical build with code.
+6. Checkpoints for technical mastery.
 
 ---
 
-## Por que isso importa? 🎯
+## Why does this matter? 🎯
 
 You have a dataset with 784 features per sample. Maybe it is pixel values of handwritten digits. Maybe it is gene expression levels. Maybe it is user behavior signals. You cannot visualize 784 dimensions. You cannot plot them. You cannot even think about them.
 
@@ -42,7 +42,7 @@ But most of those 784 features are redundant. The actual information lives on a 
 
 ---
 
-## Objetivos de Aprendizagem ✅
+## Learning Objectives ✅
 
 - Implement PCA from scratch: center data, compute the covariance matrix, eigendecompose, and project
 - Use explained variance ratio and the elbow method to choose the number of principal components
@@ -115,19 +115,19 @@ Prerequisites: Phase 1, Lessons 01 (Linear Algebra Intuition), 02 (Vectors, Matr
 
 ---
 
-## Checklist de Domínio 📌
+## Mastery Checklist 📌
 
-- Eu consigo explicar o conceito sem decorar fórmulas.
-- Eu consigo implementar a versão mínima no código.
-- Eu consigo conectar o tema com treino/inferência de modelos.
-- Eu consigo depurar erros comuns desse tópico.
+- I can explain the concept without memorizing formulas.
+- I can implement the minimal version in code.
+- I can connect the topic to model training/inference.
+- I can debug common errors in this topic.
 
 ---
 
-## Fechamento
+## Wrap-up
 
-Este módulo conecta intuição matemática com execução prática.
+This module connects mathematical intuition with practical execution.
 
-Próximo passo: avançar para o próximo módulo da trilha e consolidar com exercícios do quiz.
+Next step: move to the next module in the track and reinforce it with quiz exercises.
 
 ---

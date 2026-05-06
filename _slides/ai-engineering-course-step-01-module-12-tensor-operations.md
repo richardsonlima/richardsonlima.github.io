@@ -23,18 +23,18 @@ class: center, middle, inverse-slide
 
 ---
 
-## O Mapa da Jornada 🗺️
+## Journey Map 🗺️
 
-1. Fundamentos e contexto do problema.
-2. Intuição operacional do conceito.
-3. Tradução matemática para engenharia.
-4. Padrões de uso em sistemas de IA.
-5. Construção prática com código.
-6. Checkpoints para domínio técnico.
+1. Foundations and problem context.
+2. Operational intuition of the concept.
+3. Mathematical translation for engineering.
+4. Usage patterns in AI systems.
+5. Practical build with code.
+6. Checkpoints for technical mastery.
 
 ---
 
-## Por que isso importa? 🎯
+## Why does this matter? 🎯
 
 You build a transformer. The forward pass looks clean. You run it and get: `RuntimeError: mat1 and mat2 shapes cannot be multiplied (32x768 and 512x768)`. You stare at the shapes. You try a transpose. Now it says `Expected 4D input (got 3D input)`. You add an unsqueeze. Something else breaks.
 
@@ -42,7 +42,7 @@ Shape errors are the most common bug in deep learning code. They are not hard co
 
 ---
 
-## Objetivos de Aprendizagem ✅
+## Learning Objectives ✅
 
 - Implement a tensor class with shape, strides, reshape, transpose, and element-wise operations from scratch
 - Apply broadcasting rules to operate on tensors of different shapes without copying data
@@ -94,19 +94,19 @@ Prerequisites: Phase 1, Lessons 01 (Linear Algebra Intuition), 02 (Vectors, Matr
 
 ---
 
-## Checklist de Domínio 📌
+## Mastery Checklist 📌
 
-- Eu consigo explicar o conceito sem decorar fórmulas.
-- Eu consigo implementar a versão mínima no código.
-- Eu consigo conectar o tema com treino/inferência de modelos.
-- Eu consigo depurar erros comuns desse tópico.
+- I can explain the concept without memorizing formulas.
+- I can implement the minimal version in code.
+- I can connect the topic to model training/inference.
+- I can debug common errors in this topic.
 
 ---
 
-## Fechamento
+## Wrap-up
 
-Este módulo conecta intuição matemática com execução prática.
+This module connects mathematical intuition with practical execution.
 
-Próximo passo: avançar para o próximo módulo da trilha e consolidar com exercícios do quiz.
+Next step: move to the next module in the track and reinforce it with quiz exercises.
 
 ---
