@@ -229,6 +229,27 @@ Beyond my individual analysis, the reception of Guillaume Poncelet's work at *Pa
 
 ---
 
+## VIII. Plus: Mari Samuelsen - Moonlight
+
+Mari has always enjoyed the challenge of rethinking familiar works - as can be heard in the new interpretations of music by Bach, Johannsson and Max Richter on *Mari*, her debut DG album. The ever popular "Moonlight" Sonata, however, holds a particularly special place in her heart.
+
+"When listening to the 'Moonlight Sonata'," she explains, "I feel my soul getting detoxified. It's like an internal cleansing of my emotional and mental system, a dream or a fantasy where you're invited into a different world for some five minutes. I think it's impossible to define if it's dark or light. It gives me a feeling of hope and enlightenment, and of reflection and consciousness."
+
+<div class="video-container" style="text-align: center; margin: 20px 0;">
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/Elswt0QLO5M?si=0fpxcd7gBtKL-_50"
+    title="Mari Samuelsen - Moonlight"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
+---
+
 ## Conclusion: A Self Oriented Toward Coherence
 
 What emerges from this musical journey is not a fragmented self, but a **profoundly coherent** one.
