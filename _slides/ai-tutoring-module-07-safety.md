@@ -32,7 +32,7 @@ Before 2017, machines "read" sequences much like humans read a physical book: **
 ---
 
 class: middle, inverse-slide
-## Part 1: The RNN Bottleneck 🧱
+## Part 1: The RNN Bottleneck
 ### _Why the old paradigms had to fall_
 
 ---
@@ -54,7 +54,7 @@ In RNNs, information must travel $n$ steps. In a Transformer, every word is exac
 ---
 
 class: middle, inverse-slide
-## Part 2: The Engine of Attention ⚙️
+## Part 2: The Engine of Attention
 ### _Queries, Keys, and the Mathematical Match_
 
 ---
@@ -88,7 +88,7 @@ Instead of a single attention stream, the model projects $Q, K, V$ into **8 diff
 ---
 
 class: middle, inverse-slide
-## Part 3: The Architecture 🏗️
+## Part 3: The Architecture
 ### _Encoder, Decoder, and Stability_
 
 ---
@@ -117,7 +117,7 @@ class: middle, inverse-slide
 
 ---
 
-## Positional Encoding 🌊
+## Positional Encoding
 ### _Ordering the Chaos_
 
 Since Transformers process everything at once, they are "blind" to word order. How does it know "Dog bites man" isn't "Man bites dog"?
@@ -130,7 +130,7 @@ It is the **GPS of the sentence**: the model uses these waves to reconstruct log
 ---
 
 class: middle, inverse-slide
-## Part 4: The Ontological Impact 🚀
+## Part 4: The Ontological Impact
 ### _From Translation to Generative Intelligence_
 
 ---

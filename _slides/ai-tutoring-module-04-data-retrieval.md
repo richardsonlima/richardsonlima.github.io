@@ -12,200 +12,200 @@ class: basic-layout
 ---
 
 class: center, middle, inverse-slide
-# The Agentic Path: Módulo 04
+# The Agentic Path: Module 04
 ## Data Retrieval Systems
-### _Construindo Memória Externa para IA (RAG & Vector DBs)_
+### _Building External Memory for AI (RAG & Vector DBs)_
 
 <img src="/assets/article_images/transformer-symphony.jpg" width="150px" style="border-radius: 50%; border: 2px solid #FFD700;"/>
 
 **Richardson Lima**
-.footnote[A arquitetura de sistemas por trás do RAG e da Busca Semântica]
+.footnote[The systems architecture behind RAG and Semantic Search]
 
 ---
 
-## O Roadmap do Módulo 🗺️
+## The Module Roadmap
 
-O Transformer é um gênio, mas ele tem amnésia (não lembra da conversa passada) e está congelado no tempo (Knowledge Cutoff).
-Precisamos dar a ele acesso a dados frescos.
+The Transformer is a genius, but he has amnesia (he doesn't remember the past conversation) and is frozen in time (Knowledge Cutoff).
+We need to give him access to fresh data.
 
-1.  **O Problema do Contexto:** Memória Paramétrica vs. Não-Paramétrica.
-2.  **RAG (Retrieval-Augmented Generation):** O padrão arquitetural.
-3.  **Engenharia de Ingestão:** Chunking e Overlap.
-4.  **Vector Databases:** O motor de busca semântica.
-5.  **Algoritmos de Indexação:** KNN vs. ANN (HNSW).
-6.  **Advanced Retrieval:** Hybrid Search e Re-ranking.
-
----
-
-class: middle, inverse-slide
-# Parte 1: O Paradoxo da Memória
-### _Por que o GPT não sabe quem você é?_
-
----
-
-## 1. Memória Paramétrica (O Peso) 🏋️
-
-O conhecimento do LLM está "assado" nos pesos ($W$).
-* **Vantagem:** Acesso imediato, raciocínio integrado.
-* **Desvantagem:** Imutável. Para ensinar algo novo, é preciso treinar (caro) ou fazer *Fine-Tuning* (lento).
-* **Analogia:** Um livro impresso. Não muda depois de publicado.
-
----
-
-## 2. Memória Não-Paramétrica (O Contexto) 📄
-
-Podemos injetar conhecimento no momento da inferência, via **Prompt**.
-* **Vantagem:** Atualizável em tempo real.
-* **Desvantagem:** Limitada pela Janela de Contexto (Context Window).
-
-O desafio da engenharia moderna é: **Como selecionar os 10kb de texto mais relevantes de uma base de 1TB para colocar no prompt?**
+1. **The Context Problem:** Parametric vs. Parametric Memory Non-Parametric.
+2. **RAG (Retrieval-Augmented Generation):** The architectural pattern.
+3. **Intake Engineering:** Chunking and Overlap.
+4. **Vector Databases:** The semantic search engine.
+5. **Indexing Algorithms:** KNN vs. ANN (HNSW).
+6. **Advanced Retrieval:** Hybrid Search and Re-ranking.
 
 ---
 
 class: middle, inverse-slide
-# Parte 2: Arquitetura RAG
+# Part 1: The Paradox of Memory
+### _Why doesn't GPT know who you are?_
+
+---
+
+## 1. Parametric Memory (The Weight)
+
+LLM knowledge is "baked" in pesos ($W$).
+* **Advantage:** Immediate access, integrated reasoning.
+* **Disadvantage:** Immutable. To teach something new, you need to train (expensive) or do *Fine-Tuning* (slow).
+* **Analogy:** A printed book. It does not change after it is published.
+
+---
+
+## 2. Non-Parametric Memory (The Context)
+
+We can inject knowledge at the time of inference, via **Prompt**.
+* **Advantage:** Updateable in real time.
+* **Disadvantage:** Limited by the Context Window.
+
+The challenge of modern engineering is: **How ​​to select the most relevant 10kb of text from a 1TB database to put in the prompt?**
+
+---
+
+class: middle, inverse-slide
+# Part 2: RAG Architecture
 ### _Retrieval-Augmented Generation_
 
 ---
 
-## 3. O Fluxo do RAG 🌊
+## 3. The RAG Flow
 
-Lewis et al. (2020) definiram este padrão. Em vez de perguntar direto ao modelo:
+Lewis et al. (2020) defined this standard. Instead of asking the model directly:
 
-1.  **Query:** Usuário faz uma pergunta.
-2.  **Retrieve:** O sistema busca documentos relevantes no DB.
-3.  **Augment:** O sistema cola esses documentos no prompt.
-4.  **Generate:** O LLM responde baseando-se *apenas* no contexto fornecido.
+1. **Query:** User asks a question.
+2. **Retrieve:** The system searches for relevant documents in the DB.
+3. **Augment:** The system pastes these documents into the prompt.
+4. **Generate:** LLM responds based *only* on the context provided.
 
 
-
----
-
-## 4. O Pipeline de Ingestão (ETL) 🏭
-
-Antes de buscar, precisamos indexar.
-Dados não estruturados (PDFs, HTML, Markdown) precisam ser limpos e quebrados.
-
-**Garbage In, Garbage Out:** Se você indexar rodapés, menus de site ou caracteres estranhos, a busca falhará.
 
 ---
 
-## 5. A Arte do Chunking 🧩
+## 4. The Ingestion Pipeline (ETL)
 
-Como dividimos o texto?
-* **Fixed Size:** A cada 512 tokens. (Bruto, corta frases no meio).
-* **Recursive:** Respeita parágrafos e pontuação. (Melhor).
-* **Semantic Chunking:** Quebra quando o assunto muda (usando embeddings para detectar transição de tópico).
+Before searching, we need to index.
+Unstructured data (PDFs, HTML, Markdown) needs to be cleaned and broken down.
 
-**Overlap:** Sempre mantemos uma sobreposição (ex: 50 tokens) entre chunks para não perder o contexto nas bordas.
+**Garbage In, Garbage Out:** If you index footers, site menus, or strange characters, the search will fail.
 
 ---
 
-class: middle, inverse-slide
-# Parte 3: O Motor de Busca
-### _Vector Databases e Algoritmos_
+## 5. The Art of Chunking
 
----
+How do we divide the text?
+* **Fixed Size:** Every 512 tokens. (Gross, cuts sentences in the middle).
+* **Recursive:** Respects paragraphs and punctuation. (Better).
+* **Semantic Chunking:** Breaks when the topic changes (using embeddings to detect topic transition).
 
-## 6. O Banco Vetorial (Vector DB) 🗄️
-
-Diferente do SQL (linhas/colunas) ou NoSQL (JSON), o Vector DB armazena **Arrays de Float**.
-* Pinecone, Weaviate, Milvus, Qdrant, pgvector.
-
-A operação principal não é `WHERE id = 1`, mas sim `ORDER BY similarity LIMIT k`.
-
----
-
-## 7. O Problema da Escala: KNN 🐢
-
-Para achar o vizinho mais próximo (**K-Nearest Neighbors**), precisamos comparar a Query com **todos** os vetores do banco.
-Complexidade: $O(N \cdot d\_{model})$.
-
-Se $N = 1.000.000$ e $d = 1536$, isso é lento demais para tempo real (milissegundos).
-
----
-
-## 8. A Solução: ANN (HNSW) 🐰
-
-Usamos **Approximate Nearest Neighbors**. Aceitamos 99% de precisão por 100x mais velocidade.
-
-O algoritmo padrão é o **HNSW (Hierarchical Navigable Small World)**.
-* Cria um grafo de várias camadas (como rodovias expressas e ruas locais).
-* Complexidade de busca: $O(\log N)$.
-* Permite buscar em bilhões de vetores em milissegundos.
-
-
+**Overlap:** We always maintain an overlap (e.g. 50 tokens) between chunks so as not to lose context at the edges.
 
 ---
 
 class: middle, inverse-slide
-# Parte 4: Advanced Retrieval Strategies
-### _Além da busca por similaridade_
+# Part 3: The Search Engine
+### _Vector Databases and Algorithms_
 
 ---
 
-## 9. O Limite da Busca Semântica 🚧
+## 6. The Vector Bank (Vector DB)
 
-Embeddings capturam *conceitos*, mas falham em *palavras-chave exatas*.
-* Query: "Erro no módulo SKU-992".
-* Semantic Search: Retorna documentos sobre "Erros em módulos de inventário" (Conceito), mas pode perder o ID específico "SKU-992".
+Unlike SQL (rows/columns) or NoSQL (JSON), Vector DB stores **Float Arrays**.
+* Pinecone, Weaviate, Kite, Qdrant, pgvector.
 
----
-
-## 10. Hybrid Search (A Melhor de Dois Mundos) 🧬
-
-Combinamos dois algoritmos:
-1.  **Dense Retrieval:** Embeddings (Cosseno) $\to$ Entende a intenção.
-2.  **Sparse Retrieval:** BM25 (TF-IDF moderno) $\to$ Entende palavras-chave exatas.
-
-Combinamos os resultados usando um algoritmo de fusão (Reciprocal Rank Fusion - RRF).
+The main operation is not `WHERE id = 1`, but rather `ORDER BY similarity LIMIT k`.
 
 ---
 
-## 11. O Processo de Re-Ranking 🥇
+## 7. The Scale Problem: KNN
 
-A busca vetorial é rápida (Bi-Encoder), mas pouco precisa para nuances finas.
-O **Re-Ranking** adiciona uma etapa de refinamento:
+To find the nearest neighbor (**K-Nearest Neighbors**), we need to compare the Query with **all** of the vectors in the bank.
+Complexity: $O(N \cdot d\_{model})$.
 
-1.  **Retrieve:** Vector DB busca 100 documentos candidatos (Rápido).
-2.  **Re-Rank:** Um modelo Cross-Encoder lê a Query + Documento e dá um score de relevância (Lento, mas preciso).
-3.  **Select:** Pegamos os Top 5 para o LLM.
+If $N = 1,000,000$ and $d = 1536$, this is too slow for real time (milliseconds).
 
 ---
 
-## 12. Lost in the Middle Phenomenon 🥪
+## 8. The Solution: ANN (HNSW)
 
-Pesquisas mostram que LLMs prestam mais atenção no início e no fim do contexto.
-Informação no meio é frequentemente esquecida.
+We use **Approximate Nearest Neighbors**. We accept 99% accuracy for 100x speed.
 
-**Estratégia:** Ordenar os chunks recuperados de forma que os mais relevantes fiquem nas pontas do prompt, não no meio.
+The default algorithm is **HNSW (Hierarchical Navigable Small World)**.
+* Creates a multi-layer graph (such as express highways and local streets).
+* Search complexity: $O(\log N)$.
+* Allows you to search billions of vectors in milliseconds.
 
----
 
-## 13. Agentes e Ferramentas 🛠️
-
-Em uma arquitetura agêntica, o "Retrieval" é apenas mais uma **Ferramenta**.
-O Agente decide:
-* "Preciso buscar no manual técnico?" (Retrieval Tool).
-* "Ou já sei a resposta?" (Memória Paramétrica).
-
-Isso desacopla o conhecimento da lógica.
 
 ---
 
-## 14. Conclusão: Engenharia de Contexto 🏗️
+class: middle, inverse-slide
+# Part 4: Advanced Retrieval Strategies
+### _Beyond the search for similarity_
 
-Construir um chat com o seu PDF é fácil (Hello World).
-Construir um sistema de busca corporativo requer:
-* Chunking inteligente.
-* Busca Híbrida.
+---
+
+## 9. The Limit of Semantic Search
+
+Embeddings capture *concepts* but fail on *exact keywords*.
+* Query: "Error in module SKU-992".
+* Semantic Search: Returns documents about "Errors in inventory modules" (Concept), but may miss the specific ID "SKU-992".
+
+---
+
+## 10. Hybrid Search (The Best of Both Worlds)
+
+We combine two algorithms:
+1. **Dense Retrieval:** Embeddings (Cosine) $\to$ Understands the intent.
+2. **Sparse Retrieval:** BM25 (modern TF-IDF) $\to$ Understands exact keywords.
+
+We combine the results using a fusion algorithm (Reciprocal Rank Fusion - RRF).
+
+---
+
+## 11. The Re-Ranking Process
+
+The vector search is fast (Bi-Encoder), but not very accurate for fine nuances.
+**Re-Ranking** adds a refinement step:
+
+1. **Retrieve:** Vector DB fetches 100 candidate documents (Fast).
+2. **Re-Rank:** A Cross-Encoder model reads the Query + Document and gives a relevance score (Slow but accurate).
+3. **Select:** We take the Top 5 for the LLM.
+
+---
+
+## 12. Lost in the Middle Phenomenon
+
+Research shows that LLMs pay more attention to the beginning and end of context.
+Information in between is often forgotten.
+
+**Strategy:** Order the retrieved chunks so that the most relevant ones are at the ends of the prompt, not in the middle.
+
+---
+
+## 13. Agents and Tools
+
+In an agentic architecture, "Retrieval" is just another **Tool**.
+The Agent decides:
+* "Do I need to look in the technical manual?" (Retrieval Tool).
+* "Or do I already know the answer?" (Parametric Memory).
+
+This decouples knowledge from logic.
+
+---
+
+## 14. Conclusion: Context Engineering
+
+Building a chat with your PDF is easy (Hello World).
+Building an enterprise search system requires:
+* Smart chunking.
+* Hybrid Search.
 * Re-ranking.
-* Avaliação (RAGAS framework).
+* Assessment (RAGAS framework).
 
-**Próximo Módulo:** Dando braços ao cérebro - **Function Calling & Tool Use**.
+**Next Module:** Linking arms with the brain - **Function Calling & Tool Use**.
 
 ---
 class: center, middle
 # The Geometry is Open
-### _Perguntas sobre RAG e Vector DBs?_
+### _Questions about RAG and Vector DBs?_
 ---

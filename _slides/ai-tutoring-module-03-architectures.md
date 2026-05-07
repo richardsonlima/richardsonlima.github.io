@@ -12,155 +12,155 @@ class: basic-layout
 ---
 
 class: center, middle, inverse-slide
-# The Agentic Path: Módulo 03
+# The Agentic Path: Module 03
 ## Encoder vs. Decoder
-### _Escolhendo o Motor Correto: A Geometria da Visibilidade_
+### _Choosing the Right Motor: The Geometry of Visibility_
 
 <img src="/assets/article_images/transformer-symphony.jpg" width="150px" style="border-radius: 50%; border: 2px solid #FFD700;"/>
 
 **Richardson Lima**
-.footnote[Uma análise comparativa de BERT, GPT e T5]
+.footnote[A comparative analysis of BERT, GPT and T5]
 
 ---
 
-## O Roadmap do Módulo 🗺️
+## The Module Roadmap
 
-O paper original propôs o Encoder-Decoder. Mas a evolução dividiu a família.
+The original paper proposed the Encoder-Decoder. But evolution divided the family.
 
-1.  **A Cisma:** Por que os modelos se separaram?
-2.  **O Mecanismo Central:** A Máscara de Atenção (Attention Mask).
-3.  **Encoders (BERT):** Compreensão Bidirecional.
-4.  **Decoders (GPT):** Geração Auto-regressiva.
-5.  **Híbridos (T5/BART):** O melhor dos dois mundos?
-6.  **Guia de Engenharia:** Qual arquitetura usar para o seu Agente?
-
----
-
-class: middle, inverse-slide
-# Parte 1: A Cisma Arquitetural
-### _Tudo se resume a "Quem pode ver Quem"_
-
----
-
-## 1. O Transformer Original (2017) 🏛️
-
-O modelo de Vaswani et al. foi feito para **Tradução** (Inglês $\to$ Alemão).
-Ele tinha duas metades:
-1.  **Encoder:** Lia a frase em Inglês (Entendia o contexto).
-2.  **Decoder:** Gerava a frase em Alemão (Produzia o futuro).
-
-
-
----
-
-## 2. A Evolução Divergente 🌳
-
-Logo após 2017, pesquisadores perceberam que poderiam usar apenas metades do modelo para tarefas diferentes.
-
-* **2018 (Google):** Criou o **BERT** usando apenas o Encoder. "Vamos focar em *entender* texto."
-* **2018 (OpenAI):** Criou o **GPT** usando apenas o Decoder. "Vamos focar em *gerar* texto."
-
----
-
-## 3. O Segredo Técnico: Visibilidade 👀
-
-A única diferença real entre Encoder e Decoder (além da Cross-Attention) é a **Máscara de Atenção**.
-
-Ela define quais tokens um determinado token pode "olhar" durante o cálculo do Self-Attention.
+1. **The Schism:** Why did the models split up?
+2. **The Central Mechanism:** The Attention Mask.
+3. **Encoders (BERT):** Bidirectional Understanding.
+4. **Decoders (GPT):** Auto-regressive Generation.
+5. **Hybrids (T5/BART):** The best of both worlds?
+6. **Engineering Guide:** Which architecture to use for your Agent?
 
 ---
 
 class: middle, inverse-slide
-# Parte 2: Encoder-Only (A Família BERT)
-### _Os Especialistas em Compreensão_
+# Part 1: The Architectural Schism
+### _It all comes down to "Who can see Who"_
 
 ---
 
-## 4. Arquitetura Bidirecional ↔️
+## 1. O Transformer Original (2017)
 
-Encoders têm **Visibilidade Total**.
-O token no início da frase pode ver o token do final e vice-versa.
+The model by Vaswani et al. was made for **Translation** (English $\to$ German).
+It had two halves:
+1. **Encoder:** Read the sentence in English (Understood the context).
+2. **Decoder:** Generated the sentence in German (Produced the future).
+
+
+
+---
+
+## 2. Divergent Evolution
+
+Shortly after 2017, researchers realized they could only use half of the model for different tasks.
+
+* **2018 (Google):** Created **BERT** using only the Encoder. "Let's focus on *understanding* text."
+* **2018 (OpenAI):** Created **GPT** using only Decoder. "Let's focus on *generating* text."
+
+---
+
+## 3. The Technical Secret: Visibility
+
+The only real difference between Encoder and Decoder (apart from Cross-Attention) is the **Attention Mask**.
+
+It defines which tokens a given token can "look at" during the Self-Attention calculation.
+
+---
+
+class: middle, inverse-slide
+# Part 2: Encoder-Only (The BERT Family)
+### _The Comprehension Experts_
+
+---
+
+## 4. Bidirectional Architecture
+
+Encoders have **Full Visibility**.
+The token at the beginning of the sentence can see the token at the end and vice versa.
 $$A\_{ij} \neq -\infty \quad \forall i,j$$
 
-* **Analogia:** Caça-palavras ou Palavras Cruzadas. Você olha a grade inteira para descobrir o significado.
+* **Analogy:** Word search or crossword puzzles. You look at the entire grid to discover the meaning.
 
 ---
 
-## 5. Masked Language Modeling (MLM) 🎭
+## 5. Masked Language Modeling (MLM)
 
-Como treinamos um Encoder se ele vê tudo? Não podemos pedir para ele "prever a próxima palavra" (ele já estaria vendo).
+How do we train an Encoder if it sees everything? We can't ask him to "predict the next word" (he would already be seeing it).
 
-Usamos **MLM**:
-1.  Frase: "O gato subiu no telhado."
-2.  Input: "O [MASK] subiu no telhado."
-3.  Objetivo: Descobrir quem é [MASK] usando o contexto da esquerda ("O") e da direita ("subiu").
+We use **MLM**:
+1. Sentence: "The cat climbed onto the roof."
+2. Input: "The [MASK] went up to the roof."
+3. Objective: Find out who [MASK] is using the context of the left ("O") and the right ("went up").
 
 ---
 
-## 6. A Matriz de Atenção do Encoder 🟩
+## 6. The Encoder Attention Matrix
 
-A matriz de máscara é cheia de zeros (ou seja, sem bloqueios).
+The mask array is full of zeros (i.e. no locks).
 
 $$
-\text{Mask} = 
-\begin{bmatrix} 
-0 & 0 & 0 \\ 
-0 & 0 & 0 \\ 
-0 & 0 & 0 
+\text{Mask} =
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
 \end{bmatrix}
 $$
 
-Todo mundo atende a todo mundo. $N^2$ conexões ativas.
+Everyone serves everyone. $N^2$ active connections.
 
 ---
 
-## 7. Para que servem? (Use Cases) 🛠️
+## 7. What are they for? (Use Cases)
 
-Encoders não geram texto (não falam). Eles geram **Embeddings Ricos**.
-São ideais para tarefas discriminativas:
+Encoders do not generate text (they do not speak). They generate **Rich Embeddings**.
+They are ideal for discriminative tasks:
 
-* **Classificação:** "Este email é Spam?"
-* **NER:** "Onde estão os nomes de empresas neste contrato?"
-* **Search/RAG:** "Este documento fala sobre o mesmo assunto da pergunta?"
-* **Sentiment Analysis:** "O cliente está bravo?"
+* **Classification:** "Is this email spam?"
+* **NER:** "Where are the company names on this contract?"
+* **Search/RAG:** "Does this document talk about the same subject as the question?"
+* **Sentiment Analysis:** "Is the customer angry?"
 
 ---
 
 class: middle, inverse-slide
-# Parte 3: Decoder-Only (A Família GPT)
-### _Os Especialistas em Geração_
+# Part 3: Decoder-Only (The GPT Family)
+### _The Generation Specialists_
 
 ---
 
-## 8. Arquitetura Auto-Regressiva ➡️
+## 8. Auto-Regressive Architecture
 
-Decoders têm **Visibilidade Causal**.
-O token 5 só pode ver os tokens 1, 2, 3 e 4. Ele é "cego" para o futuro (6, 7...).
+Decoders have **Causal Visibility**.
+Token 5 can only see tokens 1, 2, 3 and 4. It is "blind" to the future (6, 7...).
 
-* **Analogia:** Escrever um discurso ao vivo. Você só lembra do que já falou, não do que ainda vai falar.
-
----
-
-## 9. Causal Language Modeling (CLM) 🔮
-
-O treino é simples: **Next Token Prediction**.
-Dado `[A, B, C]`, preveja `D`.
-
-Isso força o modelo a aprender probabilidade estatística e raciocínio de causa e efeito.
+* **Analogy:** Writing a live speech. You only remember what you've already said, not what you're going to say.
 
 ---
 
-## 10. A Matriz de Atenção do Decoder 📐
+## 9. Causal Language Modeling (CLM)
 
-Usamos uma **Máscara Triangular Superior** (Causal Mask).
-As posições futuras são preenchidas com $-\infty$ (que vira 0 no Softmax).
+The training is simple: **Next Token Prediction**.
+Given `[A, B, C]`, predict `D`.
+
+This forces the model to learn statistical probability and cause-and-effect reasoning.
+
+---
+
+## 10. The Decoder Attention Matrix
+
+We use a **Superior Triangular Mask** (Causal Mask).
+Future positions are filled with $-\infty$ (which becomes 0 in Softmax).
 
 $$
-\text{Mask} = 
-\begin{bmatrix} 
-0 & -\infty & -\infty \\ 
-0 & 0 & -\infty \\ 
-0 & 0 & 0 
+\text{Mask} =
+\begin{bmatrix}
+0 & -\infty & -\infty \\
+0 & 0 & -\infty \\
+0 & 0 & 0
 \end{bmatrix}
 $$
 
@@ -168,109 +168,109 @@ $$
 
 ---
 
-## 11. Para que servem? (Use Cases) 💬
+## 11. What are they for? (Use Cases)
 
-Decoders são criadores.
-* **Text Generation:** Escrever e-mails, histórias.
-* **Chatbots:** Conversação fluida.
+Decoders are creators.
+* **Text Generation:** Write emails, stories.
+* **Chatbots:** Fluid conversation.
 * **Code Completion:** GitHub Copilot.
-* **Reasoning:** Cadeia de pensamento (Chain of Thought).
+* **Reasoning:** Chain of Thought.
 
-*Nota: Hoje, LLMs gigantes (GPT-4) são tão bons que fazem o trabalho de Encoders também, mas são mais caros.*
-
----
-
-class: middle, inverse-slide
-# Parte 4: Encoder-Decoder (Híbridos)
-### _T5, BART e o Legado Original_
-
----
-
-## 12. O Melhor dos Dois Mundos? 🤝
-
-Modelos como **T5 (Text-to-Text Transfer Transformer)** e **BART** mantêm as duas partes.
-
-1.  **Encoder:** Processa o input (Bidirecional) $\to$ Gera uma memória.
-2.  **Decoder:** Gera o output (Auto-regressivo) $\to$ Olhando para a memória do Encoder.
-
----
-
-## 13. Cross-Attention ❌
-
-Aqui brilha a **Cross-Attention**.
-O Decoder tem cabeças de atenção que:
-* $Q$ (Query): Vem do Decoder ("O que eu preciso escrever agora?").
-* $K, V$ (Key, Value): Vêm do Encoder ("O que dizia no texto original?").
-
----
-
-## 14. Use Cases Ideais ✨
-
-São perfeitos para transformação de sequência para sequência (Seq2Seq):
-* **Tradução:** Inglês $\to$ Francês.
-* **Resumo:** Texto Longo $\to$ Texto Curto.
-
-Eles "leem" o texto inteiro primeiro (Encoder) para depois "escrever" o resumo (Decoder). O GPT, por ser puramente Decoder, às vezes começa a resumir antes de entender o fim do texto.
+*Note: Today, giant LLMs (GPT-4) are so good that they do the job of Encoders too, but they are more expensive.*
 
 ---
 
 class: middle, inverse-slide
-# Parte 5: Guia de Engenharia
-### _Qual motor escolher para seu Agente?_
+# Part 4: Encoder-Decoder (Hybrids)
+### _T5, BART and the Original Legacy_
 
 ---
 
-## 15. A Grande Convergência 🌀
+## 12. The Best of Both Worlds?
 
-Atualmente, a indústria está convergindo para **Decoder-Only** (Llama 3, GPT-4).
-Por que?
+Models like **T5 (Text-to-Text Transfer Transformer)** and **BART** maintain both parts.
+
+1. **Encoder:** Processes the input (Bidirectional) $\to$ Generates a memory.
+2. **Decoder:** Generates the output (Auto-regressive) $\to$ Looking at the Encoder memory.
+
+---
+
+## 13. Cross-Attention
+
+Here **Cross-Attention** shines.
+The Decoder has attention heads that:
+* $Q$ (Query): Comes from Decoder ("What do I need to write now?").
+* $K, V$ (Key, Value): Come from the Encoder ("What did it say in the original text?").
+
+---
+
+## 14. Use Ideal Cases
+
+They are perfect for sequence-to-sequence transformation (Seq2Seq):
+* **Translation:** English $\to$ French.
+* **Summary:** Long Text $\to$ Short Text.
+
+They "read" the entire text first (Encoder) and then "write" the summary (Decoder). GPT, being purely Decoder, sometimes starts summarizing before understanding the end of the text.
+
+---
+
+class: middle, inverse-slide
+# Part 5: Engineering Guide
+### _Which engine to choose for your Agent?_
+
+---
+
+## 15. The Great Convergence
+
+Currently, the industry is converging on **Decoder-Only** (Llama 3, GPT-4).
+Because?
 * Scaling Laws favorecem Decoders.
-* É mais simples treinar uma arquitetura só em dados massivos.
-* Com *Instruction Tuning*, Decoders aprenderam a fazer tarefas de classificação.
+* It is simpler to train an architecture only on massive data.
+* With *Instruction Tuning*, Decoders learned to do classification tasks.
 
 ---
 
-## 16. Quando usar Encoder (BERT/RoBERTa) hoje? 📉
+## 16. When to use Encoder (BERT/RoBERTa) today?
 
-Não descarte o BERT. Ele ainda é rei em:
-1.  **Embeddings para Vector DB:** Modelos de embedding modernos (OpenAI text-embedding-3) internamente funcionam como Encoders.
-2.  **Classificação Rápida:** Se você precisa classificar 1 milhão de tweets por minuto, um DistilBERT é 100x mais barato e rápido que chamar o GPT-4.
-3.  **Entidades (NER):** Extrair nomes de contratos jurídicos.
-
----
-
-## 17. Quando usar Decoder (GPT/Llama)? 📈
-
-Para o núcleo cognitivo do Agente:
-1.  **Orquestração:** Decidir qual ferramenta usar.
-2.  **Geração de Resposta:** Falar com o usuário.
-3.  **Raciocínio Complexo:** Resolver problemas de lógica.
+Don't dismiss BERT. He is still king in:
+1. **Embeddings for Vector DB:** Modern embedding models (OpenAI text-embedding-3) internally work as Encoders.
+2. **Fast Classification:** If you need to classify 1 million tweets per minute, a DistilBERT is 100x cheaper and faster than calling GPT-4.
+3. **Entities (NER):** Extract names from legal contracts.
 
 ---
 
-## 18. Resumo Técnico 📝
+## 17. When to use Decoder (GPT/Llama)?
 
-| Característica | Encoder (BERT) | Decoder (GPT) | Enc-Dec (T5) |
+For the Agent’s cognitive core:
+1. **Orchestration:** Decide which tool to use.
+2. **Response Generation:** Talk to the user.
+3. **Complex Reasoning:** Solve logic problems.
+
+---
+
+## 18. Technical Summary
+
+| Feature | Encoder (BERT) | Decoder (GPT) | Enc-Dec (T5) |
 | :--- | :--- | :--- | :--- |
-| **Visibilidade** | Bidirecional ($N^2$) | Causal (Triangular) | Híbrida |
-| **Treino** | Adivinhar lacuna | Prever próximo | Seq2Seq |
-| **Forte em** | Entender, Classificar | Criar, Raciocinar | Traduzir, Resumir |
-| **Custo Inf.** | Baixo (Paralelo) | Alto (Serial) | Médio |
+| **Visibility** | Bidirectional ($N^2$) | Causal (Triangular) | Hybrid |
+| **Training** | Guess the Gap | Predict next | Seq2Seq |
+| **Strong in** | Understand, Classify | Create, Reason | Translate, Summarize |
+| **Inf. Cost** | Low (Parallel) | High (Serial) | Medium |
 
 ---
 
-## 19. The Agentic Path: Decisão 🏁
+## 19. The Agentic Path: Decision
 
-Para nossos Agentes, usaremos:
-* **Decoder (LLM):** Para o cérebro (Raciocínio).
-* **Encoder (Embedding Model):** Para a memória (RAG).
+For our Agents, we will use:
+* **Decoder (LLM):** For the brain (Reasoning).
+* **Encoder (Embedding Model):** For memory (RAG).
 
-Essa combinação é a arquitetura padrão de 2024/2025.
+This combination is the standard 2024/2025 architecture.
 
-**Próximo Módulo:** Como o modelo "age"? **Function Calling & Tool Use**.
+**Next Module:** How does the model "act"? **Function Calling & Tool Use**.
 
 ---
 class: center, middle
 # The Geometry is Open
-### _Perguntas sobre Arquiteturas?_
+### _Questions about Architecture?_
 ---

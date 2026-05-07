@@ -1,6 +1,6 @@
 ---
 layout: slides
-title: "A Anatomia da Inteligência: Masterclass Completa"
+title: "The Anatomy of Intelligence: Complete Masterclass"
 category: "ai-tutoring"
 module_number: 1
 complexity: "Masterclass (100 Slides) - The Agentic Path"
@@ -12,9 +12,9 @@ class: basic-layout
 ---
 
 class: center, middle, inverse-slide
-# A Anatomia da Inteligência
-## Engenharia Reversa de LLMs: De RNNs a Induction Heads
-### _Uma Imersão Profunda em 100 Slides_
+# The Anatomy of Intelligence
+## Reverse Engineering of LLMs: From RNNs to Induction Heads
+### _A Deep Immersion in 100 Slides_
 
 <img src="/assets/article_images/transformer-symphony.jpg" width="150px" style="border-radius: 50%; border: 2px solid #FFD700;"/>
 
@@ -23,849 +23,849 @@ class: center, middle, inverse-slide
 
 ---
 
-## O Mapa da Jornada 🗺️
+## The Journey Map
 
-Vamos dissecar a inteligência artificial moderna em 6 atos:
+Let's dissect modern artificial intelligence into 6 acts:
 
-1.  **O Legado (Slides 1-15):** A morte das RNNs e o problema sequencial.
-2.  **A Física dos Dados (Slides 16-30):** Tokens e Geometria Vetorial.
-3.  **O Barramento (Slides 31-45):** O Residual Stream como memória.
-4.  **A Mecânica (Slides 46-70):** A matemática da Atenção (Q, K, V).
-5.  **O Raciocínio (Slides 71-85):** Induction Heads e Algoritmos.
-6.  **A Escala (Slides 86-100):** MLPs, Posição e o Futuro.
+1. **The Legacy (Slides 1-15):** The death of RNNs and the sequential problem.
+2. **The Physics of Data (Slides 16-30):** Tokens and Vector Geometry.
+3. **The Bus (Slides 31-45):** The Residual Stream as memory.
+4. **The Mechanics (Slides 46-70):** The mathematics of Attention (Q, K, V).
+5. **Reasoning (Slides 71-85):** Induction Heads and Algorithms.
+6. **The Scale (Slides 86-100):** MLPs, Position and the Future.
 
 ---
 
 class: middle, inverse-slide
-# Módulo 1: O Legado e a Ruptura
-### _Por que o processamento sequencial falhou?_
+# Module 1: Legacy and Rupture
+### _Why did sequential processing fail?_
 
 ---
 
-## 1. Como líamos antes de 2017? 📜
+## 1. How did we read before 2017?
 
-Antes do Transformer, a IA processava texto como nós humanos lemos fisicamente: **uma palavra de cada vez**.
+Before Transformer, AI processed text as we humans physically read it: **one word at a time**.
 
-Isso era feito com **RNNs (Recurrent Neural Networks)**. A máquina lia a palavra $t$, atualizava sua memória, e passava para $t+1$.
+This was done with **RNNs (Recurrent Neural Networks)**. The machine read the word $t$, updated its memory, and went to $t+1$.
 
 
-
----
-
-## 2. A Intuição da Recorrência 🔄
-
-Imagine ler uma fita magnética infinita sem poder voltar atrás facilmente.
-
-Você precisa guardar toda a informação da frase na sua "memória de curto prazo". Se a frase for longa, você começa a esquecer o início.
 
 ---
 
-## 3. O "Estado Oculto" (Hidden State) 🧠
+## 2. The Intuition of Recurrence
 
-Nas RNNs, a "memória" é chamada de vetor de estado oculto, denotado por $h$.
+Imagine reading an infinite magnetic tape without being able to rewind easily.
 
-A cada nova palavra, esse vetor é sobrescrito e atualizado. É uma compressão contínua de dados.
-
----
-
-## 4. O Gargalo da Compressão 🗜️
-
-Se a frase tem 100 palavras, a informação da 1ª palavra precisa sobreviver a 99 atualizações de memória para influenciar a 100ª palavra.
-
-Isso cria um **gargalo de informação**. O contexto se dilui.
+You need to store all the information in the sentence in your "short-term memory". If the sentence is long, you start to forget the beginning.
 
 ---
 
-## 5. A Matemática da Recorrência (Blindada) 📐
+## 3. The “Hidden State”
 
-Nas RNNs clássicas, a atualização da memória segue esta equação:
+In RNNs, the "memory" is called the hidden state vector, denoted by $h$.
+
+With each new word, this vector is overwritten and updated. It is a continuous compression of data.
+
+---
+
+## 4. The Compression Bottleneck
+
+If the sentence has 100 words, the information from the 1st word needs to survive 99 memory updates to influence the 100th word.
+
+This creates an **information bottleneck**. The context is diluted.
+
+---
+
+## 5. The Mathematics of Recurrence (Shielded)
+
+In classical RNNs, memory updating follows this equation:
 
 $$h\_t = \tanh(W\_{hh} h\_{t-1} + W\_{xh} x\_t)$$
 
-* $h\_t$: Nova memória (estado atual).
-* $h\_{t-1}$: Memória antiga (estado anterior).
-* $x\_t$: Palavra atual (input).
-* $W$: Matrizes de pesos aprendidos.
+* $h\_t$: New memory (current state).
+* $h\_{t-1}$: Old memory (previous state).
+* $x\_t$: Current word (input).
+* $W$: Learned weight matrices.
 
 ---
 
-## 6. O Problema do "Telefone Sem Fio" 📞
+## 6. The “Cordless Phone” Problem
 
-Em uma frase longa:
-*"O **gato**, que estava no telhado... [100 palavras] ... **caiu**."*
+In one long sentence:
+*"The **cat**, which was on the roof... [100 words] ... **fell**."*
 
-Para a RNN conectar "caiu" com "gato", o sinal precisa viajar por 100 multiplicações de matrizes sucessivas.
-
----
-
-## 7. Vanishing Gradient (O Gradiente que Desaparece) 📉
-
-Durante o treinamento (Backpropagation), precisamos calcular o erro e voltar no tempo.
-
-Se multiplicamos muitos números pequenos (ex: $0.9 \times 0.9 \times \dots$), o resultado tende a zero. O computador "esquece" o sujeito da frase.
+For the RNN to connect "fell" with "cat", the signal needs to travel through 100 successive matrix multiplications.
 
 ---
 
-## 8. LSTMs: Uma Tentativa de Salvação 🛡️
+## 7. Vanishing Gradient
 
-**Long Short-Term Memory (LSTM)** foi a evolução das RNNs.
-Ela introduziu "portões" (gates) para controlar o fluxo de memória.
+During training (Backpropagation), we need to calculate the error and go back in time.
+
+If we multiply many small numbers (ex: $0.9 \times 0.9 \times \dots$), the result tends to zero. The computer "forgets" the subject of the sentence.
+
+---
+
+## 8. LSTMs: An Attempt at Salvation
+
+**Long Short-Term Memory (LSTM)** was the evolution of RNNs.
+It introduced "gates" to control memory flow.
 
 
 
 ---
 
-## 9. Os Portões da LSTM 🚪
+## 9. The Gates of LSTM
 
-* **Forget Gate:** "Devo apagar essa memória antiga?"
-* **Input Gate:** "Essa nova informação importa?"
-* **Output Gate:** "O que devo passar adiante?"
+* **Forget Gate:** "Should I erase this old memory?"
+* **Input Gate:** "Does this new information matter?"
+* **Output Gate:** "What should I pass on?"
 
-Isso melhorou o problema do esquecimento, mas manteve o problema da sequência.
-
----
-
-## 10. O Problema Computacional: Sequencialidade ⏳
-
-GPUs (placas de vídeo) são feitas para **paralelismo**. Elas amam fazer 1 milhão de contas ao mesmo tempo.
-
-RNNs/LSTMs obrigam a GPU a esperar: "Calcule o passo 1, depois o 2...". Isso é ineficiente.
+This improved the forgetting problem, but maintained the sequence problem.
 
 ---
 
-## 11. CNNs para Texto? 🖼️
+## 10. The Computational Problem: Sequentiality
 
-Tentaram usar Redes Convolucionais (CNNs), famosas em visão computacional.
-* **Ideia:** Janela deslizante que olha 3 palavras por vez.
-* **Vantagem:** Paralelizável!
+GPUs (video cards) are made for **parallelism**. They love doing 1 million accounts at the same time.
 
----
-
-## 12. A Miopia das CNNs 🔍
-
-O problema da CNN é a **localidade**.
-Ela vê bem as palavras vizinhas, mas para conectar a primeira e a última palavra de um livro, você precisa empilhar muitas camadas ("lupas sobre lupas").
+RNNs/LSTMs force the GPU to wait: "Calculate step 1, then 2...". This is inefficient.
 
 ---
 
-## 13. O Desejo dos Pesquisadores ✨
+## 11. CNNs for Text?
 
-Queríamos uma arquitetura com duas propriedades:
-1.  **Paralelismo Total:** Processar a frase inteira de uma vez.
-2.  **Conexão Global:** A distância entre qualquer par de palavras deveria ser 1.
-
----
-
-## 14. O Nascimento do Transformer (2017) 📄
-
-O paper *"Attention Is All You Need"* propôs:
-* Jogar fora a recorrência ($h\_{t-1}$).
-* Jogar fora a convolução.
-* Manter apenas a **Atenção**.
+They tried to use Convolutional Networks (CNNs), famous in computer vision.
+* **Idea:** Sliding window that looks at 3 words at a time.
+* **Advantage:** Parallelizable!
 
 ---
 
-## 15. A Vitória da Força Bruta Inteligente 🚀
+## 12. The Myopia of CNNs
 
-O Transformer calcula a relação de "todas as palavras contra todas as palavras".
-Isso é custoso ($N^2$), mas permite entender o contexto global instantaneamente.
+CNN's problem is **locality**.
+She sees neighboring words well, but to connect the first and last words in a book, you need to stack many layers ("magnifying glasses on magnifying glasses").
+
+---
+
+## 13. The Researchers’ Desire
+
+We wanted an architecture with two properties:
+1. **Total Parallelism:** Process the entire sentence at once.
+2. **Global Connection:** The distance between any pair of words should be 1.
+
+---
+
+## 14. The Birth of the Transformer (2017)
+
+The paper *"Attention Is All You Need"* proposed:
+* Throw away the recurrence ($h\_{t-1}$).
+* Throw away the convolution.
+* Just keep **Attention**.
+
+---
+
+## 15. The Victory of Intelligent Brute Force
+
+Transformer calculates the "all words versus all words" ratio.
+This is expensive ($N^2$), but it allows you to understand the global context instantly.
 
 
 
 ---
 
 class: middle, inverse-slide
-# Módulo 2: A Física dos Dados
+# Module 2: The Physics of Data
 ### _Tokens, Embeddings e Geometria_
 
 ---
 
-## 16. O Computador não lê "Maçã" 🍎
+## 16. The Computer does not read "Apple"
 
-Redes neurais são circuitos matemáticos. Elas só aceitam números.
-O primeiro passo é a **Tokenização**.
+Neural networks are mathematical circuits. They only accept numbers.
+The first step is **Tokenization**.
 
 ---
 
-## 17. O que é um Token? 🧱
+## 17. What is a Token?
 
-Texto $\to$ Números Inteiros (IDs).
-Um token pode ser uma palavra, parte de uma palavra ou um caractere.
+Text $\to$ Integers (IDs).
+A token can be a word, part of a word, or a character.
 
-* "Inteligência" $\to$ `[4521]`
+* "Intelligence" $\to$ `[4521]`
 * "Artificial" $\to$ `[982]`
 
 ---
 
-## 18. Byte Pair Encoding (BPE) 🔡
+## 18. Byte Pair Encoding (BPE)
 
-Algoritmo usado pelo GPT. Ele encontra as sílabas/pedaços mais comuns estatisticamente.
-* Vantagem: Vocabulário fixo (~50.000 tokens) consegue representar qualquer texto.
-
----
-
-## 19. A Nuance dos Espaços 🐛
-
-O token para `" The"` (com espaço) é diferente de `"The"` (sem espaço).
-O modelo precisa aprender que eles são semanticamente quase idênticos, gastando parâmetros para isso.
+Algorithm used by GPT. It finds the most statistically common syllables/chunks.
+* Advantage: Fixed vocabulary (~50,000 tokens) can represent any text.
 
 ---
 
-## 20. Embeddings: Dando Corpo aos Números 👻
+## 19. The Nuance of Spaces
 
-Um ID como `4521` não tem significado matemático. Não podemos somar `4521 + 1`.
-
-Transformamos esse ID em um **Vetor de Embedding** denso.
+The token for `"The"` (with space) is different from `"The"` (without space).
+The model needs to learn that they are semantically almost identical, spending parameters to do so.
 
 ---
 
-## 21. O Vetor de Alta Dimensão 🌌
+## 20. Incorporations: Giving Body to Numbers
 
-No GPT-3, cada token é convertido em um vetor de **12.288 dimensões**.
+An ID like `4521` has no mathematical meaning. We cannot add `4521 + 1`.
+
+We transform this ID into a dense **Embedding Vector**.
+
+---
+
+## 21. The High-Dimensional Vector
+
+In GPT-3, each token is converted to a **12,288-dimensional** vector.
 $$x \in \mathbb{R}^{12288}$$
-É uma lista de 12.288 números que descreve o "significado" daquela palavra.
+It's a list of 12,288 numbers that describes the "meaning" of that word.
 
 
 
 ---
 
-## 22. Geometria Semântica 📐
+## 22. Semantic Geometry
 
-Nesse espaço, palavras com significados similares ficam fisicamente próximas.
-A distância (cosseno) entre "Gato" e "Cachorro" é pequena.
-A distância entre "Gato" e "Liquidificador" é grande.
+In this space, words with similar meanings are physically close.
+The distance (cosine) between "Cat" and "Dog" is small.
+The distance between "Cat" and "Blender" is large.
 
 ---
 
-## 23. Aritmética Vetorial ➕
+## 23. Vector Arithmetic
 
-A propriedade famosa dos embeddings:
+The famous property of embeddings:
 $$V(\text{Rei}) - V(\text{Homem}) + V(\text{Mulher}) \approx V(\text{Rainha})$$
 
-O modelo aprende conceitos como "gênero" ou "plural" como direções no espaço.
+The model learns concepts like "gender" or "plural" as directions in space.
 
 ---
 
-## 24. A Matriz de Embedding ($W\_E$) 📉
+## 24. The Embedding Matrix ($W\_E$)
 
-Essa conversão é feita por uma matriz gigante aprendida durante o treino.
+This conversion is done by a giant matrix learned during training.
 $$x = t \cdot W\_E$$
-Onde $t$ é o one-hot vector do token.
+Where $t$ is the one-hot vector of the token.
 
 ---
 
-## 25. O Problema da Polissemia 🗿
+## 25. The Problem of Polysemy
 
-No embedding inicial, a palavra "Banco" tem apenas um vetor.
-Ele é uma média entre "Banco (assento)" e "Banco (dinheiro)".
-É estático.
-
----
-
-## 26. O Objetivo do Transformer 🎯
-
-Todo o trabalho do Transformer é **desambiguar** esse vetor.
-Ele deve mover o vetor de "Banco" na direção de "Dinheiro" se a frase contiver "saque" ou "investimento".
+In the initial embedding, the word "Bank" has only one vector.
+It is an average between "Bank (seat)" and "Bank (money)".
+It's static.
 
 ---
 
-## 27. Unembedding ($W\_U$) 🚪
+## 26. The Transformer Goal
 
-No final da rede, precisamos voltar para as palavras.
-Pegamos o vetor final e multiplicamos pela matriz inversa ($W\_U$).
-Isso gera pontuações para cada palavra do dicionário.
-
----
-
-## 28. Logits: O Output Bruto 📊
-
-O resultado dessa multiplicação são os **Logits**.
-Números que representam a "energia" de cada palavra possível.
-Logits altos = Palavra provável.
+The Transformer's entire job is to **disambiguate** this vector.
+It must move the vector from "Bank" in the direction of "Money" if the phrase contains "withdrawal" or "investment".
 
 ---
 
-## 29. Softmax e Probabilidades 🎲
+## 27. Unembedding ($W\_U$)
 
-Aplicamos a função Softmax para converter logits em porcentagem (0 a 1).
+At the end of the network, we need to return to words.
+We take the final vector and multiply it by the inverse matrix ($W\_U$).
+This generates scores for each word in the dictionary.
+
+---
+
+## 28. Logits: O Output Bruto
+
+The result of this multiplication are the **Logits**.
+Numbers that represent the "energy" of each possible word.
+High logits = Likely word.
+
+---
+
+## 29. Softmax and Odds
+
+We apply the Softmax function to convert logits to percentage (0 to 1).
 $$P(x) = \frac{e^{x\_i}}{\sum e^{x\_j}}$$
-A soma de todas as probabilidades deve ser 1.
+The sum of all probabilities must be 1.
 
 ---
 
-## 30. Sampling (A Escolha) 🌡️
+## 30. Sampling (The Choice)
 
-O modelo não escolhe apenas a maior probabilidade (Greedy).
-Ele sorteia com base nas probabilidades.
-A **Temperatura** controla o quão arriscado é esse sorteio.
+The model does not just choose the highest probability (Greedy).
+He draws based on probabilities.
+**Temperature** controls how risky this draw is.
 
 ---
 
 class: middle, inverse-slide
-# Módulo 3: O Barramento da Consciência
+# Module 3: The Consciousness Bus
 ### _O Residual Stream_
 
 ---
 
-## 31. Revisitando a Arquitetura 🏗️
+## 31. Revisiting Architecture
 
-A maioria dos diagramas mostra camadas empilhadas. Isso confunde.
-A melhor visualização (Anthropic) é o **Residual Stream**.
-
----
-
-## 32. O Conceito de Barramento 🚌
-
-Imagine uma rodovia de dados que vai do início ao fim do modelo.
-As camadas (Atenção e MLP) são estações ao lado dessa rodovia.
+Most diagrams show stacked layers. This is confusing.
+The best visualization (Anthropic) is the **Residual Stream**.
 
 ---
 
-## 33. Leitura e Escrita ✍️
+## 32. The Bus Concept
 
-As camadas **leem** informações da rodovia, processam, e **escrevem** o resultado de volta.
-Elas não bloqueiam a rodovia.
-
----
-
-## 34. A Equação Fundamental: Adição ➕
-
-$$x\_{i+1} = x\_i + \text{Camada}(x\_i)$$
-
-A chave é o sinal de **mais**. A saída da camada é *somada* ao vetor original.
-A informação original nunca se perde.
+Imagine a data highway that runs from the beginning to the end of the model.
+The layers (Attention and MLP) are stations next to this highway.
 
 ---
 
-## 35. Memória de Trabalho 🧠
+## 33. Reading and Writing
 
-O Residual Stream age como a memória de curto prazo.
-Se a Camada 1 descobre que "Rio" é uma cidade, ela escreve essa "nota" no stream.
-A Camada 20 pode ler essa nota lá na frente.
-
----
-
-## 36. Subespaços Vetoriais 📦
-
-O Stream tem muitas dimensões (ex: 4096).
-As cabeças de atenção trabalham em subespaços menores (ex: 64).
-Várias informações diferentes viajam juntas sem se misturar.
+The layers **read** information from the road, process it, and **write** the result back.
+They don't block the highway.
 
 ---
 
-## 37. Ortogonalidade 📐
+## 34. The Fundamental Equation: Addition
 
-Conceitos diferentes (Sintaxe vs. Sentimento) podem viajar em direções **ortogonais** (perpendiculares) no mesmo vetor.
-Eles não colidem matematicamente.
+$$x\_{i+1} = x\_i + \text{Layer}(x\_i)$$
 
----
-
-## 38. Largura de Banda (Bandwidth) 🛣️
-
-O tamanho do vetor ($d\_{model}$) é a "largura de banda" da inteligência.
-Se for muito estreito, o modelo não consegue manter muitos conceitos ativos simultaneamente.
+The key is the **plus** sign. The output of the layer is *added* to the original vector.
+Original information is never lost.
 
 ---
 
-## 39. Pesos Virtuais 🔗
+## 35. Working Memory
 
-Como o sistema é linear (somas), podemos calcular matematicamente a conexão direta entre a Camada 1 e a Camada 12, ignorando o meio.
-Isso ajuda na engenharia reversa.
-
----
-
-## 40. O Papel da Normalização (LayerNorm) ⚖️
-
-Com tantas somas, os números poderiam explodir para o infinito.
-A **LayerNorm** (ou RMSNorm) reescala o vetor a cada passo para manter média e variância estáveis.
+The Residual Stream acts like short-term memory.
+If Layer 1 discovers that "Rio" is a city, it writes that "note" to the stream.
+Layer 20 can read this note up front.
 
 ---
 
-## 41. MLP: O Processador ⚙️
+## 36. Vector Subspaces
 
-O Transformer tem dois tipos de blocos: Atenção e MLP.
-* **Atenção:** Move informação (Comunicação).
-* **MLP:** Processa informação (Cálculo).
-
----
-
-## 42. Bottleneck Activations 🍾
-
-As MLPs projetam o vetor para uma dimensão muito maior (4x) para "pensar", e depois comprimem de volta para o stream.
-É onde o conhecimento factual é acessado.
+The Stream has many dimensions (ex: 4096).
+Attention heads work in smaller subspaces (e.g. 64).
+Several different pieces of information travel together without mixing.
 
 ---
 
-## 43. Decomposição de Caminhos (Blindada) 🌿
+## 37. Orthogonality
+
+Different concepts (Syntax vs. Feeling) can travel in **orthogonal** (perpendicular) directions on the same vector.
+They do not collide mathematically.
+
+---
+
+## 38. Bandwidth
+
+The size of the vector ($d\_{model}$) is the "bandwidth" of the intelligence.
+If it is too narrow, the model cannot keep many concepts active simultaneously.
+
+---
+
+## 39. Virtual Weights
+
+Since the system is linear (sums), we can mathematically calculate the direct connection between Layer 1 and Layer 12, ignoring the middle.
+This helps with reverse engineering.
+
+---
+
+## 40. The Role of Normalization (LayerNorm)
+
+With so many sums, the numbers could explode to infinity.
+**LayerNorm** (or RMSNorm) rescales the vector at each step to keep mean and variance stable.
+
+---
+
+## 41. MLP: The Processor
+
+Transformer has two types of blocks: Attention and MLP.
+* **Attention:** Moves information (Communication).
+* **MLP:** Processes information (Calculation).
+
+---
+
+## 42. Bottleneck Activations
+
+MLPs project the vector to a much larger dimension (4x) to "think", and then compress it back into the stream.
+This is where factual knowledge is accessed.
+
+---
+
+## 43. Path Decomposition (Shielded)
 
 $$x\_{final} = x\_{emb} + \sum \text{Heads} + \sum \text{MLPs}$$
 
-O resultado final é a soma de milhares de pequenas contribuições independentes.
+The end result is the sum of thousands of small, independent contributions.
 
 ---
 
-## 44. Programação Diferenciável 💻
+## 44. Differentiable Programming
 
-Podemos ver o Transformer como um programa de computador compilado em matrizes.
-Ele executa algoritmos de busca e recuperação de dados em tempo real.
+We can see the Transformer as a computer program compiled into matrices.
+It runs real-time data search and retrieval algorithms.
 
 ---
 
-## 45. Resumo do Barramento
+## 45. Bus Summary
 
-* Estrutura: Rodovia Linear.
-* Operação: Adição ($+$).
-* Função: Memória compartilhada persistente.
+* Structure: Linear Highway.
+* Operation: Addition ($+$).
+* Function: Persistent shared memory.
 
 ---
 
 class: middle, inverse-slide
-# Módulo 4: A Mecânica da Atenção
-### _Q, K, V e os Circuitos da Mente_
+# Module 4: The Mechanics of Attention
+### _Q, K, V and the Circuits of the Mind_
 
 ---
 
-## 46. O Mecanismo de Atenção 🔦
+## 46. The Attention Mechanism
 
-Se o Residual Stream é a memória, a Atenção é a capacidade de **buscar** nessa memória.
-É um mecanismo de "Content-Addressable Memory".
+If the Residual Stream is memory, Attention is the ability to **search** that memory.
+It is a "Content-Addressable Memory" mechanism.
 
 
-
----
-
-## 47. A Tríade Q, K, V 🔑
-
-Para cada token, a cabeça de atenção gera 3 vetores:
-1.  **Query ($Q$):** O que eu estou procurando?
-2.  **Key ($K$):** Quem sou eu (como etiqueta)?
-3.  **Value ($V$):** Qual conteúdo eu carrego?
 
 ---
 
-## 48. Calculando os Vetores 🧮
+## 47. The Q, K, V Triad
 
-Eles nascem de projeções lineares do token atual ($x$):
+For each token, the attention head generates 3 vectors:
+1. **Query ($Q$):** What am I looking for?
+2. **Key ($K$):** Who am I (as a tag)?
+3. **Value ($V$):** What content do I upload?
+
+---
+
+## 48. Calculating Vectors
+
+They are born from linear projections of the current token ($x$):
 $$Q = x W\_Q$$
 $$K = x W\_K$$
 $$V = x W\_V$$
-$W\_Q, W\_K, W\_V$ são as matrizes que o modelo aprende no treino.
+$W\_Q, W\_K, W\_V$ are the matrices that the model learns during training.
 
 ---
 
-## 49. Analogia do Hash Map 🗄️
+## 49. Hash Map Analogy
 
-* **Query:** A chave de busca.
-* **Key:** O índice do banco de dados.
-* **Value:** O dado armazenado.
-Diferença: A busca é "fuzzy" (aproximada), não exata.
+* **Query:** The search key.
+* **Key:** The database index.
+* **Value:** The stored data.
+Difference: The search is "fuzzy" (approximate), not exact.
 
 ---
 
-## 50. O Produto Escalar (Dot Product) 🤝
+## 50. The Dot Product
 
-Como sabemos se a Query combina com a Key?
-Multiplicamos os vetores!
+How do we know if the Query matches the Key?
+We multiply the vectors!
 $$\text{Score} = Q \cdot K^T$$
 
-Se os vetores apontam para a mesma direção, o score é alto.
+If the vectors point in the same direction, the score is high.
 
 ---
 
-## 51. Scaling Factor 📏
+## 51. Scaling Factor
 
-Dividimos o score por $\sqrt{d\_k}$.
+We divide the score by $\sqrt{d\_k}$.
 $$\frac{Q \cdot K^T}{\sqrt{d\_k}}$$
-Isso evita que os valores fiquem extremos, o que "mataria" o gradiente no treinamento.
+This prevents the values ​​from becoming extreme, which would "kill" the gradient during training.
 
 ---
 
-## 52. Matriz de Atenção 📉
+## 52. Attention Matrix
 
-Fazemos isso para todos os pares de palavras.
-Isso gera uma matriz quadrada $N \times N$ que mostra o quanto cada palavra se importa com as outras.
-
----
-
-## 53. Mascaramento (Masking) 🎭
-
-No GPT (Decoder-only), não podemos ver o futuro.
-Aplicamos uma máscara triangular com $-\infty$ nas posições futuras.
-Isso impede a "cola".
+We do this for all word pairs.
+This generates a $N \times N$ square matrix that shows how much each word cares about the others.
 
 ---
 
-## 54. Softmax: O Foco 🎯
+## 53. Masking
 
-Aplicamos a função Softmax nos scores.
+In GPT (Decoder-only), we cannot see the future.
+We apply a triangular mask with $-\infty$ to future positions.
+This prevents "gluing".
+
+---
+
+## 54. Softmax: The Focus
+
+We apply the Softmax function to the scores.
 $$P = \text{softmax}(\text{Score})$$
-Transforma scores brutos em probabilidades que somam 1.
-Scores baixos viram quase 0 (ignorados).
+Transforms raw scores into probabilities that add up to 1.
+Low scores become almost 0 (ignored).
 
 ---
 
-## 55. Agregação de Valores 🍹
+## 55. Adding Values
 
-O passo final é multiplicar essa probabilidade pelos vetores **Value** ($V$).
+The final step is to multiply this probability by the **Value** vectors ($V$).
 $$Output = P \cdot V$$
-É uma média ponderada. Pegamos 90% do conteúdo da palavra A e 10% da palavra B.
+It is a weighted average. We take 90% of the content from word A and 10% from word B.
 
 ---
 
-## 56. A Fórmula Completa ⭐
+## 56. The Complete Formula
 
-A equação mais famosa da IA moderna:
+The most famous equation in modern AI:
 
 $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d\_k}}\right)V$$
 
 ---
 
-## 57. Multi-Head Attention 🐙
+## 57. Multi-Head Attention
 
-Uma única atenção não basta. Precisamos de múltiplas perspectivas.
-* Cabeça 1: Foca em gramática.
-* Cabeça 2: Foca em rimas.
-* Cabeça 3: Foca em tradução.
-
----
-
-## 58. Paralelismo das Cabeças ⚡
-
-Todas as cabeças rodam ao mesmo tempo.
-O GPT-3 tem 96 cabeças por camada.
-Elas operam em subespaços independentes.
+A single attention is not enough. We need multiple perspectives.
+* Head 1: Focuses on grammar.
+* Head 2: Focuses on rhymes.
+* Head 3: Focuses on translation.
 
 ---
 
-## 59. Matriz de Saída ($W\_O$) 🚪
+## 58. Parallelism of Heads
 
-Os resultados de todas as cabeças são concatenados.
-Multiplicamos pela matriz $W\_O$ para misturar tudo e projetar de volta na dimensão do Residual Stream.
-
----
-
-## 60. Circuitos QK e OV (Anthropic) 🔬
-
-Podemos decompor a cabeça em dois circuitos funcionais:
-* **QK Circuit:** Onde olhar? (Attention Pattern).
-* **OV Circuit:** O que mover? (Information Transfer).
+All heads rotate at the same time.
+GPT-3 has 96 heads per layer.
+They operate in independent subspaces.
 
 ---
 
-## 61. Circuito QK (Query-Key) 💓
+## 59. Output Matrix ($W\_O$)
 
-Determina a matriz de atenção $A$.
+The results from all heads are concatenated.
+We multiply by the $W\_O$ matrix to mix everything and project back into the Residual Stream dimension.
+
+---
+
+## 60. QK and OV Circuits (Anthropic)
+
+We can decompose the head into two functional circuits:
+* **QK Circuit:** Where to look? (Attention Pattern).
+* **OV Circuit:** What to move? (Information Transfer).
+
+---
+
+## 61. QK Circuit (Query-Key)
+
+Determines the attention matrix $A$.
 $$A = \text{softmax}(x^T W\_Q^T W\_K x)$$
-Controla a "afinidade" entre tokens.
+Controls the "affinity" between tokens.
 
 ---
 
-## 62. Circuito OV (Output-Value) 📦
+## 62. Circuito OV (Output-Value)
 
-Determina o efeito no output.
+Determines the effect on the output.
 $$Output = x W\_V W\_O$$
-Diz: "Se eu atender a este token, devo adicionar o vetor Y ao stream".
+It says: "If I serve this token, I must add vector Y to the stream."
 
 ---
 
-## 63. Cross-Attention ❌
+## 63. Cross-Attention
 
-Usada em modelos Encoder-Decoder (Tradução).
-* **Queries:** Vêm do Decoder (texto sendo gerado).
-* **Keys/Values:** Vêm do Encoder (texto original).
+Used in Encoder-Decoder (Translation) models.
+* **Queries:** Come from the Decoder (text being generated).
+* **Keys/Values:** Come from the Encoder (original text).
 
 ---
 
-## 64. Self-Attention 🤳
+## 64. Self-Attention
 
 Usada no GPT.
-Tudo vem da mesma sequência. O texto olha para si mesmo para se entender.
+Everything comes from the same sequence. The text looks at itself to understand itself.
 
 ---
 
-## 65. KV Cache 💾
+## 65. KV Cache
 
-Na inferência (chat), para não recalcular tudo a cada palavra nova, guardamos as Keys e Values passadas na memória RAM.
-Isso é o **KV Cache**.
-
----
-
-## 66. Grouped Query Attention (GQA) 📉
-
-Técnica moderna (Llama 2/3).
-Várias cabeças compartilham as mesmas Keys e Values para economizar memória e velocidade.
+In inference (chat), so as not to recalculate everything with each new word, we store the Keys and Values ​​passed in RAM memory.
+This is **KV Cache**.
 
 ---
 
-## 67. Sparse Attention 🕸️
+## 66. Grouped Query Attention (GQA)
 
-Tenta reduzir o custo quadrático ($N^2$) olhando apenas para alguns tokens, não todos.
-Útil para contextos muito longos.
-
----
-
-## 68. Linear Attention ⚡
-
-Novas arquiteturas (Mamba, RWKV) tentam eliminar o Softmax para ter custo linear $O(N)$.
+Modern technique (Flame 2/3).
+Multiple heads share the same Keys and Values ​​to save memory and speed.
 
 ---
 
-## 69. Visualização de Atenção 🔥
+## 67. Sparse Attention
 
-Mapas de calor mostram quais palavras "acendem" quando o modelo processa um token.
-Geralmente vemos foco na palavra anterior, ou em nomes associados.
+It tries to reduce the quadratic cost ($N^2$) by only looking at some tokens, not all.
+Useful for very long contexts.
+
+---
+
+## 68. Linear Attention
+
+New architectures (Mamba, RWKV) try to eliminate Softmax to have linear cost $O(N)$.
+
+---
+
+## 69. Attention Visualization
+
+Heatmaps show which words "light up" when the model processes a token.
+We usually see a focus on the previous word, or on associated nouns.
 
 
 
 ---
 
-## 70. Resumo da Atenção
+## 70. Attention Summary
 
-* Busca vetorial fuzzy.
-* Q busca K para recuperar V.
-* Múltiplas cabeças = Múltiplas interpretações.
+* Fuzzy vector search.
+* Q searches for K to recover V.
+* Multiple heads = Multiple interpretations.
 
 ---
 
 class: middle, inverse-slide
-# Módulo 5: O Surgimento do Raciocínio
-### _Engenharia Reversa e Induction Heads_
+# Module 5: The Emergence of Reasoning
+### _Reverse Engineering and Induction Heads_
 
 ---
 
-## 71. Interpretabilidade Mecanicista 🕵️
+## 71. Mechanistic Interpretability
 
-A ciência de abrir a caixa preta.
-Tentamos ler os pesos do modelo como se fosse código fonte.
-
----
-
-## 72. Modelos de Zero Camadas 0️⃣
-
-Transformer sem atenção.
-Só tem Embedding e Unembedding.
-Comporta-se como um modelo de **Bigrama** (estatística pura de próxima palavra).
+The science of opening the black box.
+We try to read the model weights as if they were source code.
 
 ---
 
-## 73. Modelos de Uma Camada 1️⃣
+## 72. Zero Layer Templates 0⃣
 
-Com 1 camada de atenção, o modelo aprende **Skip-Trigrams**.
-Padrões do tipo: `[A] ... [B] -> [C]`.
+Transformer without attention.
+Only has Embedding and Unembedding.
+It behaves like a **Bigram** model (pure next word statistics).
+
+---
+
+## 73. One Layer Templates 1⃣
+
+With 1 attention layer, the model learns **Skip-Trigrams**.
+Patterns of type: `[A] ... [B] -> [C]`.
 Ex: "Keep ... at -> bay".
 
 ---
 
-## 74. Limitação da Camada Única 🚧
+## 74. Single Layer Limitation
 
-Uma camada só consegue fazer cópia simples e associações diretas.
-Não consegue fazer raciocínio complexo ou algoritmos de várias etapas.
-
----
-
-## 75. A Mágica da Segunda Camada ✨
-
-Com 2 camadas, surge a **Composição**.
-A Cabeça da Camada 2 pode ler o resultado da Cabeça da Camada 1.
+A layer can only do simple copying and direct associations.
+Cannot do complex reasoning or multi-step algorithms.
 
 ---
 
-## 76. Induction Heads 🧬
+## 75. The Magic of the Second Layer
 
-O circuito mais importante descoberto até hoje.
-Ele implementa a lógica: **"Se aconteceu antes, vai acontecer de novo"**.
-É a base do aprendizado em contexto.
+With 2 layers, the **Composition** appears.
+The Layer 2 Head can read the result from the Layer 1 Head.
+
+---
+
+## 76. Induction Heads
+
+The most important circuit discovered to date.
+It implements the logic: **"If it happened before, it will happen again"**.
+It is the basis of learning in context.
 
 
 
 ---
 
-## 77. O Algoritmo da Indução 👣
+## 77. The Induction Algorithm
 
-Para prever `[B]` após `[A]`:
-1.  **Head 1 (Camada 1):** Marca a ocorrência atual de `[A]`.
-2.  **Head 2 (Camada 2):** Busca no passado onde `[A]` apareceu.
-3.  **Ação:** Olha o token seguinte àquele `[A]` antigo (que era `[B]`) e o copia.
-
----
-
-## 78. In-Context Learning 💉
-
-É por isso que o Few-Shot Prompting funciona.
-Quando damos exemplos, as Induction Heads reconhecem o padrão de repetição e completam a tarefa.
-O modelo "aprende" sem atualizar seus pesos.
+To predict `[B]` after `[A]`:
+1. **Head 1 (Layer 1):** Marks the current occurrence of `[A]`.
+2. **Head 2 (Layer 2):** Searches in the past where `[A]` appeared.
+3. **Action:** Look at the token next to the old `[A]` (which was `[B]`) and copy it.
 
 ---
 
-## 79. Few-Shot Learning 🎓
+## 78. In-Context Learning
 
-* **Zero-shot:** Sem exemplos.
-* **Few-shot:** Com exemplos.
-As Induction Heads são o motor mecânico por trás da melhoria no Few-shot.
-
----
-
-## 80. Phase Change no Treinamento 👶
-
-Durante o treino, o modelo passa por uma transição abrupta.
-De repente, ele aprende a formar Induction Heads.
-Nesse momento, a "Loss" cai drasticamente.
+This is why Few-Shot Prompting works.
+When we give examples, the Induction Heads recognize the repeating pattern and complete the task.
+The model "learns" without updating its weights.
 
 ---
 
-## 81. Raciocínio vs Cópia 🧠
+## 79. Few-Shot Learning
 
-Induction Heads explicam a cópia inteligente.
-Para raciocínio complexo (matemática, lógica), acredita-se que existam composições muito mais profundas de cabeças e MLPs.
-
----
-
-## 82. Depuração de Modelos 🐛
-
-Podemos identificar quando o modelo alucina porque uma Induction Head "colou" a informação errada de um contexto anterior.
+* **Zero-shot:** No examples.
+* **Few-shot:** With examples.
+Induction Heads are the mechanical engine behind the improvement in Few-shot.
 
 ---
 
-## 83. Engenharia de Prompt Científica 🧪
+## 80. Phase Change in Training
 
-Entender Induction Heads nos ajuda a escrever prompts melhores.
-Sabemos que exemplos claros ativam esses circuitos específicos.
-
----
-
-## 84. Circuitos Universais 🌐
-
-Induction Heads aparecem em todos os LLMs grandes, independente da arquitetura.
-Parece ser uma estrutura fundamental da inteligência de sequência.
+During training, the model goes through an abrupt transition.
+Suddenly, he learns to form Induction Heads.
+At that moment, the "Loss" drops drastically.
 
 ---
 
-## 85. Resumo do Raciocínio
+## 81. Reasoning vs Copying
 
-* 1 Camada = Estatística.
-* 2+ Camadas = Algoritmos.
-* Induction Heads = Motor do aprendizado em contexto.
+Induction Heads explain smart copy.
+For complex reasoning (math, logic), it is believed that there are much deeper compositions of heads and MLPs.
+
+---
+
+## 82. Model Debugging
+
+We can identify when the model hallucinates because an Induction Head "pasted" the wrong information from a previous context.
+
+---
+
+## 83. Scientific Prompt Engineering
+
+Understanding Induction Heads helps us write better prompts.
+We know that clear examples activate these specific circuits.
+
+---
+
+## 84. Universal Circuits
+
+Induction Heads appear on all large LLMs, regardless of architecture.
+It appears to be a fundamental structure of sequence intelligence.
+
+---
+
+## 85. Summary of Reasoning
+
+* 1 Layer = Statistics.
+* 2+ Layers = Algorithms.
+* Induction Heads = Engine of learning in context.
 
 ---
 
 class: middle, inverse-slide
-# Módulo 6: Componentes Vitais & O Futuro
-### _MLPs, Posição e Escala_
+# Module 6: Vital Components & The Future
+### _MLPs, Position and Scale_
 
 ---
 
-## 86. O Papel das MLPs (Feed Forward) 🏗️
+## 86. O Papel das MLPs (Feed Forward)
 
-As MLPs contêm 2/3 dos parâmetros do modelo.
-Elas funcionam como **Memórias Chave-Valor Associativas**.
-
----
-
-## 87. Memória Factual 📚
-
-Pesquisas sugerem que as MLPs armazenam fatos.
-* Neurônios da primeira camada detectam padrões ("Padrão Harry Potter").
-* Neurônios da segunda camada escrevem fatos ("Sugerir: Hogwarts").
+MLPs contain 2/3 of the model parameters.
+They function as **Associative Key-Value Memories**.
 
 ---
 
-## 88. Positional Encoding 📍
+## 87. Factual Memory
 
-Como o Transformer é paralelo, ele não sabe a ordem das palavras.
-"O cão mordeu o homem" = "O homem mordeu o cão" para ele, sem encoding.
-Precisamos injetar posição.
-
----
-
-## 89. Senoidal (Original) 〰️
-
-Vaswani usou frequências de ondas (Seno/Cosseno) somadas ao embedding.
-Cada posição tem uma assinatura única.
+Research suggests that MLPs store facts.
+* First layer neurons detect patterns ("Harry Potter Pattern").
+* Second layer neurons write facts ("Suggest: Hogwarts").
 
 ---
 
-## 90. Rotary Embeddings (RoPE) 🌀
+## 88. Positional Encoding
 
-A técnica moderna (Llama).
-Em vez de somar, **rotacionamos** o vetor no plano complexo.
-A rotação codifica a distância relativa entre tokens de forma muito eficiente.
-
----
-
-## 91. Scaling Laws (Leis de Escala) 📈
-
-Existe uma relação matemática precisa (Power Law) entre:
-1.  Quantidade de Dados.
-2.  Quantidade de Parâmetros.
-3.  Poder de Computação.
-4.  Performance (Loss).
+Since the Transformer is parallel, it doesn't know the word order.
+"The dog bit the man" = "The man bit the dog" for him, without encoding.
+We need to inject position.
 
 ---
 
-## 92. Compute-Optimal (Chinchilla) 🐭
+## 89. Senoidal (Original)
 
-Para um dado orçamento de computação, existe um tamanho ideal de modelo.
-Muitos modelos antigos eram grandes demais e pouco treinados.
-Hoje treinamos modelos menores por muito mais tempo (Llama 3).
-
----
-
-## 93. Contexto Infinito? ♾️
-
-Técnicas como Ring Attention tentam aumentar a janela de contexto para milhões de tokens.
-O desafio é o custo quadrático da atenção.
+Vaswani used wave frequencies (Sine/Cosine) added to the embedding.
+Each position has a unique signature.
 
 ---
 
-## 94. RAG (Retrieval-Augmented Generation) 📚
+## 90. Rotary Embeddings (RoPE)
 
-Uma forma de dar "memória infinita" sem aumentar a janela.
-Buscamos documentos relevantes em um banco vetorial e inserimos no prompt.
-
----
-
-## 95. Chain of Thought (CoT) ⛓️
-
-Forçar o modelo a "pensar passo a passo".
-Isso dá mais tempo de computação (mais tokens) para o modelo resolver problemas difíceis antes de dar a resposta final.
+A modern technique (Flame).
+Instead of adding, we **rotate** the vector in the complex plane.
+Rotation encodes the relative distance between tokens very efficiently.
 
 ---
 
-## 96. Alucinação 🍄
+## 91. Scaling Laws
 
-O modelo prevê o *provável*, não a verdade.
-Se a internet diz muitas mentiras sobre um assunto, o modelo reproduzirá.
-É uma característica estatística, não um bug simples.
-
----
-
-## 97. O Futuro: Multimodalidade 👁️
-
-Transformers agora processam imagens, áudio e vídeo (Sora, Gemini).
-Tudo é tokenizado e processado pela mesma arquitetura de Atenção.
+There is a precise mathematical relationship (Power Law) between:
+1. Quantity of Data.
+2. Number of Parameters.
+3. Computing Power.
+4. Performance (Loss).
 
 ---
 
-## 98. System 1 vs System 2 🧠
+## 92. Compute-Optimal (Chinchilla)
 
-LLMs atuais são "Sistema 1" (Pensamento rápido, intuitivo).
-O futuro busca o "Sistema 2" (Pensamento lento, deliberativo, com busca em árvore e verificação).
-
----
-
-## 99. A Convergência 🌌
-
-O Transformer se tornou a arquitetura universal.
-De biologia (AlphaFold) a código, a mesma equação de atenção resolve problemas distintos.
+For a given computing budget, there is an optimal model size.
+Many older models were too big and undertrained.
+Today we train smaller models for much longer (Llama 3).
 
 ---
 
-## 100. The Agentic Path 🏁
+## 93. Infinite Context?
 
-Você agora entende a máquina por dentro.
-Não é mágica. É álgebra linear, estatística e escala.
-O próximo passo é construir agentes que usem essa inteligência.
+Techniques like Ring Attention attempt to increase the context window to millions of tokens.
+The challenge is the quadratic cost of attention.
 
-**Fim da Masterclass.**
+---
+
+## 94. RAG (Retrieval-Augmented Generation)
+
+A way to give "infinite memory" without increasing the window.
+We search for relevant documents in a vector database and insert them into the prompt.
+
+---
+
+## 95. Chain of Thought (CoT)
+
+Force the model to "think step by step".
+This gives more computing time (more tokens) for the model to solve difficult problems before giving the final answer.
+
+---
+
+## 96. Hallucination
+
+The model predicts the *probable*, not the truth.
+If the internet tells a lot of lies about a subject, the model will reproduce it.
+It's a statistical feature, not a simple bug.
+
+---
+
+## 97. The Future: Multimodality
+
+Transformers now process images, audio and video (Sora, Gemini).
+Everything is tokenized and processed by the same Attention architecture.
+
+---
+
+## 98. System 1 vs System 2
+
+Current LLMs are "System 1" (Quick Thinking, Intuitive).
+The future seeks "System 2" (Slow, deliberative thinking, with tree search and verification).
+
+---
+
+## 99. The Convergence
+
+The Transformer became the universal architecture.
+From biology (AlphaFold) to code, the same attention equation solves different problems.
+
+---
+
+## 100. The Agentic Path
+
+You now understand the machine from the inside.
+It's not magic. It's linear algebra, statistics and scaling.
+The next step is to build agents that use this intelligence.
+
+**End of Masterclass.**
 
 ---
