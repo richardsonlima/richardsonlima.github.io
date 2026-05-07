@@ -8,15 +8,15 @@ image: /assets/article_images/liana-s-CbCifdZDr0U-unsplash.jpg
 mathjax: true
 ---
 
-> Existem obras que não existem para serem ouvidas, mas para serem habitadas. No trabalho de Guillaume Poncelet, encontrei algo que não é apenas música neoclássica: é um **espelho fenomenológico**. 
+> Existem obras que não existem para serem ouvidas, mas para serem habitadas. No trabalho de Guillaume Poncelet, encontrei algo que não é apenas música neoclássica: é um **espelho fenomenológico**.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/aQzEBERaz9I?si=f3Hk5MUlK0tuGgiJ"
-    title="Guillaume Poncelet - Iridescence - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/b7Is0jsSOI4?si=FY0aALx-Tp1jqKQq"
+    title="Guillaume Poncelet - Patricia (Durango Studio Session)"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -27,7 +27,7 @@ Para muitos, o minimalismo de um piano solo pode soar "vazio" ou "monótono". Pa
 
 ---
 
-## I. [Iridescence](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=208s): A Densidade que Pede Presença
+## I. [Iridescence](https://www.youtube.com/embed/iWhoPViaT78?si=N6leaZnmQ7mmImd-): A Densidade que Pede Presença
 
 Ao ouvir *Iridescence*, a sensação é de **gravidade**. Essa música trabalha com camadas lentas, harmonia suspensa e progressões que não se resolvem rapidamente: o que costuma acessar conteúdos internos profundos, especialmente estados de contemplação e memória emocional implícita.
 
@@ -38,12 +38,12 @@ Também não percebo relação com fragilidade emocional. Pelo contrário: costu
 *Uma metáfora útil:* essa música funciona como um lago profundo e escuro. Quem olha de longe vê apenas a superfície calma. Quem entra sente o frio, a pressão e a vastidão. Não é perigoso, mas exige fôlego e maturidade emocional.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=208"
-    title="Guillaume Poncelet - Iridescence - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/iWhoPViaT78?si=N6leaZnmQ7mmImd-"
+    title="Guillaume Poncelet - Iridescence - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -52,7 +52,7 @@ Também não percebo relação com fragilidade emocional. Pelo contrário: costu
 
 ---
 
-## II. [L’autre soi](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=472s): A Convocação da Auto-observação
+## II. [L’autre soi](https://www.youtube.com/embed/9fBaAj4cOP0?si=Eenr-F9mbNfe72gJ): A Convocação da Auto-observação
 
 *L’autre soi* entrega uma experiência ainda mais profunda que *Iridescence*. O próprio título já entrega a chave: “o outro eu”. Essa obra não apenas evoca emoção; ela convoca identidade.
 
@@ -68,12 +68,12 @@ Em pessoas com alto grau de complexidade interna, essa música toca camadas simu
 A profundidade pode ser exigente porque *L’autre soi* não oferece catarse. Ela não leva a um clímax; ela permanece. Permanecer consigo mesmo, sem distração, é uma das experiências mais refinadas que existem.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=472"
-    title="Guillaume Poncelet - L'autre soi - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/9fBaAj4cOP0?si=Eenr-F9mbNfe72gJ"
+    title="Guillaume Poncelet - L'autre soi - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -82,7 +82,7 @@ A profundidade pode ser exigente porque *L’autre soi* não oferece catarse. El
 
 ---
 
-## III. [Yaki Imo](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=785s): A Afinidade Estrutural de Mente
+## III. [Yaki Imo](https://www.youtube.com/embed/_AOZVFiI-Jg?si=4C9zeCuwtjSUG93M): A Afinidade Estrutural de Mente
 
 Aqui não se trata de puro gosto musical: é afinidade estrutural cognitiva. Se você pertence ao grupo que busca estímulo para explorar estados internos, obras como *Yaki Imo* não o puxam para baixo; elas abrem espaço. Onde muitos sentem vazio, alguns percebem campo sensorial e textura psíquica.
 
@@ -97,21 +97,21 @@ Enquanto muitos usam a música como luz artificial para afastar a noite, alguns 
 Na música, a ambiguidade é honesta. Ela permite que o cérebro mantenha dois mapas ativos ao mesmo tempo sem precisar escolher um binarismo. É a liberdade de não precisar de tradução social.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=785" 
-    title="Guillaume Poncelet - Yaki Imo - ARTE Concert's Piano Day" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/_AOZVFiI-Jg?si=4C9zeCuwtjSUG93M"
+    title="Guillaume Poncelet - Yaki Imo - ARTE Concert's Piano Day"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
   </iframe>
 </div>
 
 ---
 
-## IV. [Peyo](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=1039s): A Verdade na Ambiguidade Sensorial
+## IV. [Peyo](https://www.youtube.com/embed/S9oDEhfLj8w?si=8DnSpM8wxTLlQrZV): A Verdade na Ambiguidade Sensorial
 
 O que *Peyo* escancara é uma diferenciação funcional entre dois tipos de ambiguidade:
 
@@ -123,12 +123,12 @@ No campo humano, a ambiguidade exige leitura de subtexto e inferência de inten�
 Na interação humana ambígua, o sistema entra em modo de vigilância; na *ambiguidade sensorial musical*, ele entra em modo exploratório. A ambiguidade sensorial é honesta. A ambiguidade relacional frequentemente não é.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=1039"
-    title="Guillaume Poncelet - Peyo - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/S9oDEhfLj8w?si=8DnSpM8wxTLlQrZV"
+    title="Guillaume Poncelet - Peyo - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -137,7 +137,7 @@ Na interação humana ambígua, o sistema entra em modo de vigilância; na *ambi
 
 ---
 
-## V. [Alba](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=1359s): O Estado Ontológico
+## V. [Alba](https://www.youtube.com/embed/BLGtls3BKUs?si=b1UJTjdHgodtVL7v): O Estado Ontológico
 
 *Alba* toca em uma memória que não é autobiográfica, mas **ontológica**. É a sensação de presença antes da formação de uma identidade social.
 
@@ -145,15 +145,15 @@ Muitos confundem a dissolução temporária do ego provocada por *Alba* com aniq
 
 *Alba* alcança esse efeito porque suspende marcadores de tempo e intenção. O cérebro deixa de operar no modo narrativo e entra em um modo mais antigo, ligado à sensação contínua de presença. É por isso que a sonoridade remete ao antes de tudo.
 
-Conseguir existir sem a necessidade imediata do ego é algo raro. Esses estados aparecem em pessoas que mantêm uma relação íntima com o silêncio interno e o pensamento não linear. 
+Conseguir existir sem a necessidade imediata do ego é algo raro. Esses estados aparecem em pessoas que mantêm uma relação íntima com o silêncio interno e o pensamento não linear.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=1359"
-    title="Guillaume Poncelet - Alba - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/BLGtls3BKUs?si=b1UJTjdHgodtVL7v"
+    title="Guillaume Poncelet - Alba - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -162,7 +162,7 @@ Conseguir existir sem a necessidade imediata do ego é algo raro. Esses estados 
 
 ---
 
-## VI. [Souls](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=1726s): O Núcleo Impessoal da Existência
+## VI. [Souls](https://www.youtube.com/embed/T-VU1FhsUFY?si=b2bBu09OrLd0uu9w): O Núcleo Impessoal da Existência
 
 *Souls* provoca um impacto significativo porque toca o núcleo impessoal do ser. A obra declara que a existência bruta é a única validação necessária. Este funcionamento pode ser compreendido através de pilares fundamentais:
 
@@ -174,12 +174,12 @@ Conseguir existir sem a necessidade imediata do ego é algo raro. Esses estados 
 Esta faixa oferece a **afirmação do ser**. É o encontro com um *self* reconhecido em sua verdade sensorial. O desafio muitas vezes não reside na profundidade em si, mas em manter a densidade em ambientes que operam majoritariamente na superfície.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=1726"
-    title="Guillaume Poncelet - Souls - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/T-VU1FhsUFY?si=b2bBu09OrLd0uu9w"
+    title="Guillaume Poncelet - Souls - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -198,7 +198,7 @@ Para além da minha análise individual, a recepção da obra de Guillaume Ponce
 1. **"Ça me transporte... merci pour ce moment de grâce !"** *(Isso me transporta... obrigado por este momento de graça!)* **Nível de Prova:** Máximo. Confirma a suspensão do ego em favor da experiência pura.
 2. **"Un moment hors du temps."** *(Um momento fora do tempo.)* **Nível de Prova:** Elevado. Valida a tese da temporalidade suspensa.
 3. **"Quelle merveille ! Un pur moment de felicidade !"** *(Que maravilha! Um puro momento de felicidade!)* 4. **"Une claque visuelle et sonore."** *(Um choque visual e sonoro.)* **Nível de Prova:** Crítico. Demonstra o impacto sensorial sem mediação racional.
-5. **"Merci pour ce magnifique partage."** *(Obrigado por esta partilha magnífica.)* 6. **"Sublime prestation."** *(Prestação sublime.)* 7. **"Tout simplement divin."** *(Simplesmente divino.)* 8. **"He is amazing"** *(Ele é incrível.)* 
+5. **"Merci pour ce magnifique partage."** *(Obrigado por esta partilha magnífica.)* 6. **"Sublime prestation."** *(Prestação sublime.)* 7. **"Tout simplement divin."** *(Simplesmente divino.)* 8. **"He is amazing"** *(Ele é incrível.)*
 
 ### Frequência B: Densidade e Gravidade (O Eco de *Iridescence*)
 *Registros que captam o peso do silêncio e a seriedade da introspecção.*
@@ -206,7 +206,7 @@ Para além da minha análise individual, a recepção da obra de Guillaume Ponce
 9. **"Il y a une profondeur incroyable dans son jogo."** *(Há uma profundidade incrível no seu tocar.)* **Nível de Prova:** Estrutural. Valida a percepção de "Foco Abissal".
 10. **"C'est d'une beleza infinita."** *(É de uma beleza infinita.)* 11. **"Époustouflant de sincérité."** *(Espantoso de tão sincero.)* **Nível de Prova:** Ético. Ressona com a "Honestidade Sensorial" descrita neste ensaio.
 12. **"Quelle élégance et quelle émotion."** *(Que elegância e que emoção.)* 13. **"C'est magnifique ! Quel talent !"** *(É magnífico! Que talento!)* 14. **"Merci de nous faire vibrer de la sorte."** *(Obrigado por nos fazer vibrar desta maneira.)* **Nível de Prova:** Físico. Confirma a ressonância estrutural do corpo com a nota.
-15. **"Une sensibilité à fleur de peau."** *(Uma sensibilidade à flor da pele.)* 16. **"Splendide... merci Guillaume pour ce voyage."** *(Esplêndido... obrigado Guillaume por esta viagem.)* 17. **"Merci pour ce beau moment."** *(Obrigado por este belo momento.)* 
+15. **"Une sensibilité à fleur de peau."** *(Uma sensibilidade à flor da pele.)* 16. **"Splendide... merci Guillaume pour ce voyage."** *(Esplêndido... obrigado Guillaume por esta viagem.)* 17. **"Merci pour ce beau moment."** *(Obrigado por este belo momento.)*
 
 ### Frequência C: Reconhecimento e Memória Ontológica (O Eco de *Souls*)
 *Onde o ouvinte reconhece na música algo que já existia silenciosamente dentro de si.*
@@ -224,7 +224,7 @@ Para além da minha análise individual, a recepção da obra de Guillaume Ponce
 
 ## Conclusão: O Self orientado à Coerência
 
-O que emerge dessa jornada musical não é um self fragmentado, mas um self **profundamente coerente**. 
+O que emerge dessa jornada musical não é um self fragmentado, mas um self **profundamente coerente**.
 
 Minha inclinação para essas obras é uma **afinidade estrutural**. Habitar camadas da experiência que o cotidiano costuma evitar não é um escape; é um retorno ao alicerce. Se pararmos de tentar ser traduzíveis para todos, o que resta é essa vastidão que a música já reconhece.
 

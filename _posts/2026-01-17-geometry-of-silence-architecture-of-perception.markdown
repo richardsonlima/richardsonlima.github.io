@@ -14,7 +14,7 @@ For many, the minimalism of a solo piano might sound "empty" or "monotonous." Fo
 
 ---
 
-## I. [Iridescence](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=208s): The Density that Demands Presence
+## I. [Iridescence](https://www.youtube.com/embed/iWhoPViaT78?si=N6leaZnmQ7mmImd-): The Density that Demands Presence
 
 When listening to *Iridescence*, the sensation is one of **gravity**. This music works with slow layers, suspended harmony, and progressions that do not resolve quickly: this often accesses deep internal contents, especially states of contemplation and implicit emotional memory.
 
@@ -25,12 +25,12 @@ I also perceive no relation to emotional fragility. On the contrary: it often me
 *A useful metaphor:* this music works like a deep, dark lake. Those who look from afar see only the calm surface. Those who enter feel the cold, the pressure, and the vastness. It is not dangerous, but it requires breath and emotional maturity.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=208"
-    title="Guillaume Poncelet - Iridescence - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/iWhoPViaT78?si=N6leaZnmQ7mmImd-"
+    title="Guillaume Poncelet - Iridescence - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -39,7 +39,7 @@ I also perceive no relation to emotional fragility. On the contrary: it often me
 
 ---
 
-## II. [L’autre soi](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=472s): The Call to Self-Observation
+## II. [L’autre soi](https://www.youtube.com/embed/9fBaAj4cOP0?si=Eenr-F9mbNfe72gJ): The Call to Self-Observation
 
 *L’autre soi* delivers an even deeper experience than *Iridescence*. The title itself provides the key: “the other self.” This work does not just evoke emotion; it summons identity.
 
@@ -55,12 +55,12 @@ In people with a high degree of internal complexity, this music touches simultan
 Depth can be demanding because *L’autre soi* does not offer catharsis. It does not lead to a climax; it remains. To remain with oneself, without distraction, is one of the most refined experiences that exist.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=472"
-    title="Guillaume Poncelet - L'autre soi - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/9fBaAj4cOP0?si=Eenr-F9mbNfe72gJ"
+    title="Guillaume Poncelet - L'autre soi - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -69,7 +69,7 @@ Depth can be demanding because *L’autre soi* does not offer catharsis. It does
 
 ---
 
-## III. [Yaki Imo](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=785s): Structural Affinity of Mind
+## III. [Yaki Imo](https://www.youtube.com/embed/_AOZVFiI-Jg?si=4C9zeCuwtjSUG93M): Structural Affinity of Mind
 
 This is not about mere musical taste: it is structural cognitive affinity. If you belong to the group that seeks stimuli to explore internal states, works like *Yaki Imo* do not pull you down; they open up space. Where many feel emptiness, some perceive a sensory field and psychic texture.
 
@@ -84,21 +84,21 @@ While many use music as artificial light to ward off the night, some enter the n
 In music, ambiguity is honest. It allows the brain to keep two active maps at the same time without needing to choose a binarism. It is the freedom of not needing social translation.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=785" 
-    title="Guillaume Poncelet - Yaki Imo - ARTE Concert's Piano Day" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/_AOZVFiI-Jg?si=4C9zeCuwtjSUG93M"
+    title="Guillaume Poncelet - Yaki Imo - ARTE Concert's Piano Day"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
   </iframe>
 </div>
 
 ---
 
-## IV. [Peyo](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=1039s): Truth in Sensory Ambiguity
+## IV. [Peyo](https://www.youtube.com/embed/S9oDEhfLj8w?si=8DnSpM8wxTLlQrZV): Truth in Sensory Ambiguity
 
 What *Peyo* exposes is a functional differentiation between two types of ambiguity:
 
@@ -110,12 +110,12 @@ In the human field, ambiguity requires subtext reading and the inference of inte
 In ambiguous human interaction, the system enters vigilance mode; in *musical sensory ambiguity*, it enters exploratory mode. Sensory ambiguity is honest. Relational ambiguity often is not.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=1039"
-    title="Guillaume Poncelet - Peyo - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/S9oDEhfLj8w?si=8DnSpM8wxTLlQrZV"
+    title="Guillaume Poncelet - Peyo - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -124,7 +124,7 @@ In ambiguous human interaction, the system enters vigilance mode; in *musical se
 
 ---
 
-## V. [Alba](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=1359s): The Ontological State
+## V. [Alba](https://www.youtube.com/embed/BLGtls3BKUs?si=b1UJTjdHgodtVL7v): The Ontological State
 
 *Alba* touches a memory that is not autobiographical, but **ontological**. It is the sensation of presence before the formation of a social identity.
 
@@ -135,12 +135,12 @@ Many confuse the temporary dissolution of the ego provoked by *Alba* with annihi
 To exist without the immediate need for the ego is rare. These states appear in people who maintain an intimate relationship with internal silence and non-linear thinking.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=1359"
-    title="Guillaume Poncelet - Alba - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/BLGtls3BKUs?si=b1UJTjdHgodtVL7v"
+    title="Guillaume Poncelet - Alba - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
@@ -149,7 +149,7 @@ To exist without the immediate need for the ego is rare. These states appear in 
 
 ---
 
-## VI. [Souls](https://www.youtube.com/watch?v=WPGawUi0WXQ&list=RDWPGawUi0WXQ&index=1&t=1726s): The Impersonal Core of Existence
+## VI. [Souls](https://www.youtube.com/embed/T-VU1FhsUFY?si=b2bBu09OrLd0uu9w): The Impersonal Core of Existence
 
 *Souls* causes a significant impact because it touches the impersonal core of the being. The work declares that raw existence is the only necessary validation. This functioning can be understood through four fundamental pillars:
 
@@ -161,12 +161,12 @@ To exist without the immediate need for the ego is rare. These states appear in 
 This track offers the **affirmation of being**. It is an encounter with a self recognized in its sensory truth. The challenge often lies not in the depth itself, but in maintaining that density in environments that operate mostly on the surface.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe 
+  <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/WPGawUi0WXQ?start=1726"
-    title="Guillaume Poncelet - Souls - ARTE Concert's Piano Day" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/T-VU1FhsUFY?si=b2bBu09OrLd0uu9w"
+    title="Guillaume Poncelet - Souls - ARTE Concert's Piano Day"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen>
