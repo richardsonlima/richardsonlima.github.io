@@ -85,14 +85,6 @@ robots: noindex
         align-items: start;
       }
 
-      .bottom-row {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 18px;
-        align-items: start;
-      }
-
       .focus-main {
         width: 100%;
       }
@@ -301,8 +293,7 @@ robots: noindex
 
       @media (max-width: 980px) {
 
-        .top-row,
-        .bottom-row {
+        .top-row {
           grid-template-columns: 1fr;
         }
 
@@ -558,35 +549,6 @@ robots: noindex
           </div>
         </div>
 
-        <div class="focus-suggestion panel">
-          <h3>Focus suggestion</h3>
-          <div class="video-grid">
-            <div class="video-container">
-              <iframe width="360" height="203" src="https://www.youtube.com/embed/lkkGlVWvkLk" title="Focus Music 1"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-              </iframe>
-            </div>
-            <div class="video-container">
-              <iframe width="360" height="203" src="https://www.youtube.com/embed/pQI64hD2sJw" title="Focus Music 2"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-              </iframe>
-            </div>
-            <div class="video-container">
-              <iframe width="360" height="203" src="https://www.youtube.com/embed/OomO3hAMCv4" title="Focus Music 3"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottom-row">
         <div class="focus-note panel">
           <h4>Scientific note</h4>
           <p>There is consistent evidence that stable ambient sound can improve sustained focus by reducing external
@@ -598,43 +560,70 @@ robots: noindex
           <p>Practical outcome: fewer mental interruptions, more time in flow state, and more consistent performance
             throughout the session.</p>
         </div>
+      </div>
 
-        <div class="focus-refs panel">
-          <h4>References used in this page</h4>
-          <ul>
-            <li>
-              <strong>More attentional focusing through binaural beats: evidence from the global-local task
-                (2017)</strong>
-              <p>Gamma-frequency binaural beats were associated with a narrower attentional spotlight in a global-local
-                task, suggesting a potential focusing effect in specific conditions.</p>
-              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5233742/" target="_blank" rel="noopener noreferrer">Read
-                paper</a>
-            </li>
-            <li>
-              <strong>Can Binaural Beats Increase Your Focus? Exploring the Effects of Music in Participants' Conscious
-                and Brain Activity Responses (CHI EA, 2021)</strong>
-              <p>An exploratory HCI study investigating different music stimuli and their effects on subjective
-                responses and EEG-related activity during task performance.</p>
-              <a href="https://dl.acm.org/doi/fullHtml/10.1145/3411763.3451813" target="_blank"
-                rel="noopener noreferrer">Read paper</a>
-            </li>
-            <li>
-              <strong>Effects of gamma frequency binaural beats on attention and anxiety (2023)</strong>
-              <p>In this study, 40 Hz gamma binaural beats did not show significant improvements in attention-network
-                performance or self-rated anxiety versus control.</p>
-              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10157589/" target="_blank"
-                rel="noopener noreferrer">Read paper</a>
-            </li>
-            <li>
-              <strong>Effects of binaural beats and isochronic tones on brain wave modulation: Literature
-                review</strong>
-              <p>A literature review reporting promising but mixed evidence overall, with methodological variability and
-                a clear recommendation for stronger experimental designs.</p>
-              <a href="https://www.academia.edu/63364592/Effects_of_binaural_beats_and_isochronic_tones_on_brain_wave_modulation_Literature_review"
-                target="_blank" rel="noopener noreferrer">Read paper</a>
-            </li>
-          </ul>
+      <div class="focus-suggestion panel">
+        <h3>Focus suggestion</h3>
+        <div class="video-grid">
+          <div class="video-container">
+            <iframe width="360" height="203" src="https://www.youtube.com/embed/lkkGlVWvkLk" title="Focus Music 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-container">
+            <iframe width="360" height="203" src="https://www.youtube.com/embed/pQI64hD2sJw" title="Focus Music 2"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-container">
+            <iframe width="360" height="203" src="https://www.youtube.com/embed/OomO3hAMCv4" title="Focus Music 3"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+          </div>
         </div>
+      </div>
+
+      <div class="focus-refs panel">
+        <h4>References used in this page</h4>
+        <ul>
+          <li>
+            <strong>More attentional focusing through binaural beats: evidence from the global-local task
+              (2017)</strong>
+            <p>Gamma-frequency binaural beats were associated with a narrower attentional spotlight in a global-local
+              task, suggesting a potential focusing effect in specific conditions.</p>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5233742/" target="_blank" rel="noopener noreferrer">Read
+              paper</a>
+          </li>
+          <li>
+            <strong>Can Binaural Beats Increase Your Focus? Exploring the Effects of Music in Participants' Conscious
+              and Brain Activity Responses (CHI EA, 2021)</strong>
+            <p>An exploratory HCI study investigating different music stimuli and their effects on subjective
+              responses and EEG-related activity during task performance.</p>
+            <a href="https://dl.acm.org/doi/fullHtml/10.1145/3411763.3451813" target="_blank"
+              rel="noopener noreferrer">Read paper</a>
+          </li>
+          <li>
+            <strong>Effects of gamma frequency binaural beats on attention and anxiety (2023)</strong>
+            <p>In this study, 40 Hz gamma binaural beats did not show significant improvements in attention-network
+              performance or self-rated anxiety versus control.</p>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10157589/" target="_blank"
+              rel="noopener noreferrer">Read paper</a>
+          </li>
+          <li>
+            <strong>Effects of binaural beats and isochronic tones on brain wave modulation: Literature
+              review</strong>
+            <p>A literature review reporting promising but mixed evidence overall, with methodological variability and
+              a clear recommendation for stronger experimental designs.</p>
+            <a href="https://www.academia.edu/63364592/Effects_of_binaural_beats_and_isochronic_tones_on_brain_wave_modulation_Literature_review"
+              target="_blank" rel="noopener noreferrer">Read paper</a>
+          </li>
+        </ul>
       </div>
     </div>
 
