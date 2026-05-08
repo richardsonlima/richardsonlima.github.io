@@ -65,6 +65,12 @@ Principal Component Analysis (PCA) finds the axes along which your data varies t
 
 The algorithm:
 
+1. Center data: $X_c = X - \mu$
+2. Covariance: $C = \frac{1}{n-1}X_c^T X_c$
+3. Eigendecomposition: $C = V\Lambda V^T$
+4. Keep top-$k$ eigenvectors $V_k$
+5. Project: $Z = X_c V_k$
+
 ---
 
 ## 🔬 Explained variance ratio

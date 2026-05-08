@@ -73,6 +73,10 @@ The cumulative distribution function (CDF) maps values to probabilities:
 
 The inverse CDF maps probabilities back to values. If U ~ Uniform(0, 1), then X = F_inverse(U) follows the target distribution.
 
+$$
+X = F^{-1}(U), \quad U \sim \mathrm{Uniform}(0,1)
+$$
+
 ---
 
 ## ⚙️ Rejection Sampling
@@ -80,6 +84,12 @@ The inverse CDF maps probabilities back to values. If U ~ Uniform(0, 1), then X 
 When you cannot invert the CDF but can evaluate the target PDF up to a constant, rejection sampling works.
 
 The tighter the bound M, the higher the acceptance rate. In low dimensions (1-3), rejection sampling works well. In high dimensions, the acceptance rate drops exponentially because most of the proposal volume gets rejected. This is the curse of dimensionality for rejection sampling.
+
+Accept candidate $x \sim q(x)$ with probability:
+
+$$
+\alpha(x)=\frac{p(x)}{M q(x)}
+$$
 
 ---
 
@@ -89,6 +99,10 @@ Sometimes you do not need samples from the target distribution p(x). You need to
 
 This is critical in reinforcement learning. In PPO (Proximal Policy Optimization), you collect trajectories under an old policy pi_old but want to optimize a new policy pi_new. The importance weight is pi_new(a|s) / pi_old(a|s). PPO clips these weights to prevent the new policy from diverging too far from the old one.
 
+$$
+\mathbb{E}_{x\sim p}[f(x)] = \mathbb{E}_{x\sim q}\left[f(x)\frac{p(x)}{q(x)}\right]
+$$
+
 ---
 
 ## 🚀 Monte Carlo Estimation
@@ -96,6 +110,10 @@ This is critical in reinforcement learning. In PPO (Proximal Policy Optimization
 Monte Carlo estimation approximates integrals by averaging random samples. The law of large numbers guarantees convergence.
 
 The error rate is dimension-independent. This is why Monte Carlo methods dominate in high dimensions where grid-based integration is impossible.
+
+$$
+\hat{\mu}_N = \frac{1}{N}\sum_{i=1}^{N} f(x_i),\quad x_i\sim p(x)
+$$
 
 ---
 

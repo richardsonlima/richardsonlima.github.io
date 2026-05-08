@@ -55,6 +55,10 @@ But many patterns are invisible in the time domain. Is this audio signal a pure 
 
 Given N samples x[0], x[1], ..., x[N-1], the Discrete Fourier Transform produces N frequency coefficients X[0], X[1], ..., X[N-1]:
 
+$$
+X[k]=\sum_{n=0}^{N-1}x[n]e^{-i2\pi kn/N}
+$$
+
 Each X[k] is a complex number. Its magnitude |X[k]| tells you the amplitude of frequency k. Its phase angle(X[k]) tells you the phase offset of that frequency.
 
 ---
@@ -70,6 +74,10 @@ Each X[k] is a complex number. Its magnitude |X[k]| tells you the amplitude of f
 ## 🔬 Inverse DFT
 
 The inverse DFT reconstructs the original signal from its frequency coefficients:
+
+$$
+x[n]=\frac{1}{N}\sum_{k=0}^{N-1}X[k]e^{i2\pi kn/N}
+$$
 
 The only differences from the forward DFT: the sign in the exponent is positive (not negative), and there is a 1/N normalization factor.
 

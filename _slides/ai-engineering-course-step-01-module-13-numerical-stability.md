@@ -81,6 +81,10 @@ Overflow happens when a result is too large to represent. Underflow happens when
 
 The `exp()` function is the primary source of overflow in ML:
 
+$$
+\exp(1000) \to \infty, \quad \exp(-1000) \to 0
+$$
+
 ---
 
 ## 🧩 The Log-Sum-Exp Trick
@@ -89,6 +93,10 @@ Computing `log(sum(exp(x_i)))` directly is numerically dangerous. If any `x_i` i
 
 The trick: subtract the maximum value before exponentiating.
 
+$$
+\log\sum_i e^{x_i} = m + \log\sum_i e^{x_i-m},\quad m=\max_i x_i
+$$
+
 ---
 
 ## 🚀 Why Softmax Needs the Max-Subtraction Trick
@@ -96,6 +104,10 @@ The trick: subtract the maximum value before exponentiating.
 Softmax converts logits to probabilities:
 
 Without the trick, logits of [100, 101, 102] cause overflow:
+
+$$
+	ext{softmax}(x_i)=\frac{e^{x_i-m}}{\sum_j e^{x_j-m}},\quad m=\max_j x_j
+$$
 
 ---
 

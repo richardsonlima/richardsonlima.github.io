@@ -61,6 +61,10 @@ Optimization is finding the input values that minimize (or maximize) a function.
 
 The simplest optimizer. Compute the gradient of the loss with respect to every weight. Move each weight in the opposite direction of its gradient. Scale the step by the learning rate.
 
+$$
+	heta_{t+1}=\theta_t-\eta\nabla_\theta L(\theta_t)
+$$
+
 That is the entire algorithm. One line.
 
 ---

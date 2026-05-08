@@ -63,6 +63,13 @@ A graph G = (V, E) consists of vertices (nodes) V and edges E. Each edge connect
 
 The adjacency matrix A is the core representation. For a graph with n nodes:
 
+$$
+A_{ij} = \begin{cases}
+1, & (i,j) \in E \\
+0, & \text{otherwise}
+\end{cases}
+$$
+
 For undirected graphs, A is symmetric: A[i][j] = A[j][i]. For weighted graphs, A[i][j] = weight of edge (i, j).
 
 ---
@@ -72,6 +79,10 @@ For undirected graphs, A is symmetric: A[i][j] = A[j][i]. For weighted graphs, A
 The degree of a node is the number of edges connected to it. For directed graphs, you have in-degree (edges coming in) and out-degree (edges going out).
 
 The degree matrix D is diagonal:
+
+$$
+D_{ii}=\sum_j A_{ij}
+$$
 
 ---
 

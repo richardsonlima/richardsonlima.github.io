@@ -57,6 +57,16 @@ A system of linear equations has a geometric interpretation. Each equation defin
 
 Three things can happen:
 
+1. Unique solution: full-rank square system
+2. Infinite solutions: underdetermined or rank-deficient system
+3. No solution: inconsistent equations
+
+Rank conditions:
+
+$$
+\mathrm{rank}(A)=\mathrm{rank}([A|b])=n \Rightarrow \text{unique solution}
+$$
+
 ---
 
 ## 📐 Column picture vs row picture

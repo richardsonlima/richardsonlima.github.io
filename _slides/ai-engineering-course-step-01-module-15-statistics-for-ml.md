@@ -65,11 +65,19 @@ Correlation measures the strength and direction of a linear relationship between
 
 **Pearson correlation coefficient** measures linear association:
 
+$$
+r = \frac{\sum_i (x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_i (x_i-\bar{x})^2}\sqrt{\sum_i (y_i-\bar{y})^2}}
+$$
+
 ---
 
 ## 🔬 Covariance Matrix
 
 The covariance between two variables measures how they vary together:
+
+$$
+\mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mu_X)(Y-\mu_Y)]
+$$
 
 For d features, the covariance matrix C is a d x d matrix where C[i][j] = Cov(feature_i, feature_j). The diagonal entries C[i][i] are the variances of each feature.
 
@@ -81,6 +89,11 @@ Hypothesis testing is a framework for making decisions under uncertainty. You st
 
 **The setup:**
 
+- Null hypothesis: $H_0$
+- Alternative hypothesis: $H_1$
+- Significance level: $\alpha$
+- Test statistic and p-value for decision
+
 ---
 
 ## 🧩 The t-test
@@ -89,11 +102,19 @@ The t-test compares means. There are several flavors.
 
 **One-sample t-test:** is the population mean different from a hypothesized value?
 
+$$
+t = \frac{\bar{x}-\mu_0}{s/\sqrt{n}}
+$$
+
 ---
 
 ## 🚀 Chi-squared Test
 
 The chi-squared test checks if observed frequencies match expected frequencies. Useful for categorical data.
+
+$$
+\chi^2 = \sum_i \frac{(O_i-E_i)^2}{E_i}
+$$
 
 ---
 

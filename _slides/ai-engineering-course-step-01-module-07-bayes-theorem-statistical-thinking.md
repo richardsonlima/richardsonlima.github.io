@@ -55,20 +55,38 @@ Most people say 99%. The real answer depends on how rare the disease is. If 1 in
 
 You already know from Lesson 06 that conditional probability is:
 
+$$
+P(A|B)=\frac{P(A \cap B)}{P(B)}
+$$
+
 And symmetrically:
+
+$$
+P(B|A)=\frac{P(A \cap B)}{P(A)}
+$$
+
+Combining both gives Bayes theorem:
+
+$$
+P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+$$
 
 ---
 
 ## 📐 The four parts
 
 | Part | Name | What it means |
-------
+|---|---|---|
 | P(A\|B) | Posterior | Your updated belief about A after seeing evidence B |
 | P(B\|A) | Likelihood | How probable the evidence B is if A is true |
 | P(A) | Prior | Your belief about A before seeing any evidence |
 | P(B) | Evidence | Total probability of seeing B under all possibilities |
 
 The evidence term P(B) acts as a normalizer. You can expand it using the law of total probability:
+
+$$
+P(B)=\sum_i P(B|A_i)P(A_i)
+$$
 
 ---
 
@@ -92,6 +110,10 @@ One word shifts the probability from 30% to 95.5%. A real spam filter applies Ba
 
 Naive Bayes extends this to multiple features by assuming all features are conditionally independent given the class:
 
+$$
+P(C|x_1,\dots,x_n) \propto P(C)\prod_{i=1}^{n}P(x_i|C)
+$$
+
 The "naive" part is the independence assumption. In text, word occurrences are not independent ("New" and "York" are correlated). But the assumption works surprisingly well in practice because the classifier only needs to rank classes, not produce calibrated probabilities.
 
 ---
@@ -99,6 +121,10 @@ The "naive" part is the independence assumption. In text, word occurrences are n
 ## 🚀 Maximum likelihood estimation (MLE)
 
 How do you get P(feature|class) from training data? Count.
+
+$$
+\hat{P}(x|C)=\frac{\text{count}(x,C)}{\text{count}(C)}
+$$
 
 This is MLE: choose the parameter values that make the observed data most likely. You are maximizing the likelihood function, which for discrete counts reduces to relative frequency.
 

@@ -81,6 +81,9 @@ layout: default
    * based on the 'slides' variable in the post's front matter.
    */
   {% assign slide_slug = page.slides | replace: ".md", "" | replace: ".markdown", "" %}
+  {% if slide_slug == "" %}
+  {% assign slide_slug = page.slug %}
+  {% endif %}
   {% assign slide_file = site.slides | where: "slug", slide_slug | first %}
 
   {% if slide_file %}

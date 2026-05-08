@@ -57,6 +57,10 @@ A complex number has two parts: a real part and an imaginary part.
 
 That is it. You extend the number line into a plane. The real numbers sit on one axis. The imaginary numbers sit on the other. Every complex number is a point in this plane.
 
+$$
+z = a + bi, \quad i^2 = -1
+$$
+
 ---
 
 ## 📐 Complex arithmetic
@@ -64,6 +68,10 @@ That is it. You extend the number line into a plane. The real numbers sit on one
 **Addition.** Add the real parts together, add the imaginary parts together.
 
 **Multiplication.** Use the distributive law and remember that i^2 = -1.
+
+$$
+(a+bi)(c+di)=(ac-bd) + (ad+bc)i
+$$
 
 ---
 
@@ -81,13 +89,25 @@ Any point in the plane can be described by its distance from the origin and its 
 
 Rectangular form (a + bi) is good for addition. Polar form (r, theta) is good for multiplication.
 
+$$
+z = r(\cos\theta + i\sin\theta)
+$$
+
 ---
 
 ## 🧩 Euler's formula
 
 The bridge between complex exponentials and trigonometry:
 
+$$
+e^{i\theta}=\cos\theta+i\sin\theta
+$$
+
 This is the most important formula in this lesson. When theta = pi:
+
+$$
+e^{i\pi}+1=0
+$$
 
 ---
 

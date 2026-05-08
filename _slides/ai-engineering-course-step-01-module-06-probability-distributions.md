@@ -66,7 +66,15 @@ Three axioms define all of probability:
 
 P(A|B) is the probability of A given that B happened.
 
+$$
+P(A|B) = \frac{P(A \cap B)}{P(B)}
+$$
+
 Two events are independent when knowing one tells you nothing about the other:
+
+$$
+P(A \cap B) = P(A)P(B)
+$$
 
 ---
 
@@ -90,7 +98,15 @@ Continuous random variables have a probability density function (PDF). The densi
 
 Expected value is the weighted average outcome.
 
+$$
+\mathbb{E}[X] = \sum_x xP(X=x) \quad \text{(discrete)}
+$$
+
 Variance measures spread around the mean.
+
+$$
+\mathrm{Var}(X)=\mathbb{E}[(X-\mu)^2]
+$$
 
 ---
 

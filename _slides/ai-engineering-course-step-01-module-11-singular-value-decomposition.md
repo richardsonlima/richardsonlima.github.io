@@ -66,6 +66,10 @@ Given any matrix A, SVD factors it into:
 
 For a matrix A with shape m x n:
 
+$$
+A = U\Sigma V^T
+$$
+
 The columns of U are called left singular vectors. The columns of V are called right singular vectors. The diagonal entries of Sigma are called singular values. They are always non-negative and conventionally sorted in decreasing order.
 
 ---
@@ -81,6 +85,10 @@ Each component of the SVD has a distinct geometric meaning.
 ## ⚙️ Outer product form
 
 The SVD can be written as a sum of rank-1 matrices:
+
+$$
+A=\sum_{i=1}^{r}\sigma_i u_i v_i^T
+$$
 
 This form is the foundation of low-rank approximation. Each term adds one layer of structure. The first term captures the single most important pattern. The second captures the next most important. And so on. Truncating this sum gives you the best possible approximation at any given rank.
 
@@ -100,6 +108,10 @@ This connection tells you three things:
 ## 🚀 Truncated SVD: low-rank approximation
 
 The Eckart-Young-Mirsky theorem states that the best rank-k approximation to A (in both Frobenius and spectral norm) is obtained by keeping only the top k singular values and their corresponding vectors:
+
+$$
+A_k=\sum_{i=1}^{k}\sigma_i u_i v_i^T
+$$
 
 This is not just "a good" approximation. It is provably the best possible approximation of rank k. No other rank-k matrix is closer to A.
 

@@ -55,6 +55,10 @@ To train the network, you need the gradient of the loss with respect to every si
 
 If `y = f(g(x))`, the derivative of `y` with respect to `x` is:
 
+$$
+\frac{dy}{dx} = f'(g(x)) \cdot g'(x)
+$$
+
 Multiply the derivatives along the chain. Each link contributes its local derivative.
 
 ---

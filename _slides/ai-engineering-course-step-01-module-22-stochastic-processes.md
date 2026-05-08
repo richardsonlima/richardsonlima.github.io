@@ -65,6 +65,10 @@ A Markov chain is a system that transitions between states according to fixed pr
 
 This is the Markov property. It means you can describe the entire dynamics with a transition matrix P:
 
+$$
+P_{ij}=P(X_{t+1}=j \mid X_t=i)
+$$
+
 ---
 
 ## 🔬 Connection to Language Models
@@ -104,6 +108,10 @@ Two forces act on the particle:
 Sometimes you need to sample from a distribution p(x) that you can evaluate (up to a constant) but cannot sample from directly. Bayesian posteriors are the classic example -- you know the likelihood times the prior, but the normalizing constant is intractable.
 
 **Metropolis-Hastings** constructs a Markov chain whose stationary distribution is p(x):
+
+$$
+\alpha(x\to x') = \min\left(1,\frac{p(x')q(x\mid x')}{p(x)q(x'\mid x)}\right)
+$$
 
 ---
 

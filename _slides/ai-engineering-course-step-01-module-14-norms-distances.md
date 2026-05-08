@@ -63,6 +63,10 @@ The L1 norm sums the absolute values of all components.
 
 It is called Manhattan distance because it measures how far you walk on a city grid where you can only move along axes. No diagonals.
 
+$$
+\|x\|_1 = \sum_i |x_i|
+$$
+
 ---
 
 ## 🔬 L2 Norm (Euclidean distance)
@@ -71,11 +75,19 @@ The L2 norm is the straight-line distance. Square root of the sum of squared com
 
 This is the distance you learned in geometry class. Pythagoras in n dimensions.
 
+$$
+\|x\|_2 = \sqrt{\sum_i x_i^2}
+$$
+
 ---
 
 ## ⚙️ Lp Norms: the general family
 
 L1 and L2 are special cases of the Lp norm:
+
+$$
+\|x\|_p = \left(\sum_i |x_i|^p\right)^{1/p}
+$$
 
 Different values of p produce different shaped "unit balls" (the set of all points at distance 1 from the origin):
 
@@ -86,6 +98,10 @@ Different values of p produce different shaped "unit balls" (the set of all poin
 As p approaches infinity, the Lp norm converges to the maximum absolute component.
 
 The distance between two points is determined by the single dimension where they differ the most. All other dimensions are ignored.
+
+$$
+\|x\|_\infty = \max_i |x_i|
+$$
 
 ---
 

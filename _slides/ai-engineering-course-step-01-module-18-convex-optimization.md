@@ -56,7 +56,7 @@ But many problems in machine learning are convex. Linear regression, logistic re
 A set S is convex if for any two points in S, the line segment between them also lies entirely in S.
 
 | Convex sets | Not convex |
----|
+|---|---|
 | **Rectangle**: any two points inside can be connected by a line segment that stays inside | **Star/crescent shape**: a line between two interior points can pass outside the set |
 | **Triangle**: same property holds for all interior points | **Donut/annulus**: the hole means some line segments leave the set |
 | The line segment between any two points stays within the set | The line segment between some pairs of points exits the set |
@@ -67,6 +67,10 @@ A set S is convex if for any two points in S, the line segment between them also
 
 A function f is convex if its domain is a convex set and for any two points x, y in its domain and any t in [0, 1]:
 
+$$
+f(tx + (1-t)y) \le t f(x) + (1-t) f(y)
+$$
+
 Geometrically: the line segment between any two points on the graph lies above or on the graph.
 
 ---
@@ -76,6 +80,12 @@ Geometrically: the line segment between any two points on the graph lies above o
 Three practical tests, from easiest to most rigorous.
 
 **Test 1: Second derivative test (1D).** If f''(x) >= 0 for all x, then f is convex.
+
+For multivariate functions, check Hessian PSD:
+
+$$
+\nabla^2 f(x) \succeq 0
+$$
 
 ---
 

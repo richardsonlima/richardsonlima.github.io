@@ -71,6 +71,10 @@ Each partial derivative answers: if I nudge just this one weight, how does the l
 
 The gradient collects every partial derivative into one vector. For a function f(x, y, z), the gradient is:
 
+$$
+\nabla f(x,y,z) = \left[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right]
+$$
+
 The gradient points in the direction of steepest ascent. To minimize a function, go in the opposite direction.
 
 ---
@@ -78,6 +82,12 @@ The gradient points in the direction of steepest ascent. To minimize a function,
 ## ⚙️ The connection to optimization
 
 Training a neural network is optimization. You have a loss function L(w1, w2, ..., wn) that measures how wrong the model is. You want to minimize it.
+
+Update rule:
+
+$$
+w_{t+1} = w_t - \eta \nabla L(w_t)
+$$
 
 The learning rate controls step size. Too big and you overshoot. Too small and you crawl.
 

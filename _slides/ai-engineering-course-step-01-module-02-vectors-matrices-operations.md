@@ -78,7 +78,7 @@ If you get a shape mismatch error in PyTorch, this is why.
 ## ⚙️ The operations map
 
 | Operation | What it does | Neural network use |
--------------
+|---|---|---|
 | Addition | Element-wise combine | Adding bias to output |
 | Scalar multiply | Scale every element | Learning rate * gradients |
 | Matrix multiply | Transform vectors | Layer forward pass |

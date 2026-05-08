@@ -57,11 +57,19 @@ When something unlikely happens, it carries more information. A coin landing hea
 
 The information content of an event with probability p is:
 
+$$
+I(x)=-\log p(x)
+$$
+
 ---
 
 ## 📐 Entropy (Average Surprise)
 
 Entropy is the expected surprise across all possible outcomes of a distribution.
+
+$$
+H(P)=-\sum_x p(x)\log p(x)
+$$
 
 A fair coin has maximum entropy for a binary variable: 1 bit. A biased coin (99% heads) has low entropy: 0.08 bits. You already know what will happen, so each flip tells you almost nothing.
 
@@ -71,6 +79,10 @@ A fair coin has maximum entropy for a binary variable: 1 bit. A biased coin (99%
 
 Cross-entropy measures the average surprise when you use distribution Q to encode events that actually come from distribution P.
 
+$$
+H(P,Q)=-\sum_x p(x)\log q(x)
+$$
+
 P is the true distribution (the labels). Q is your model's predictions. If Q matches P perfectly, cross-entropy equals entropy. Any mismatch makes it larger.
 
 ---
@@ -78,6 +90,10 @@ P is the true distribution (the labels). Q is your model's predictions. If Q mat
 ## ⚙️ KL Divergence (Distance Between Distributions)
 
 KL divergence measures how much extra surprise you get from using Q instead of P.
+
+$$
+D_{KL}(P\|Q)=\sum_x p(x)\log\frac{p(x)}{q(x)}
+$$
 
 Cross-entropy is entropy plus KL divergence. Since entropy of the true distribution is constant during training, minimizing cross-entropy is the same as minimizing KL divergence. You are pushing your model's distribution toward the true distribution.
 
