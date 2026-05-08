@@ -168,12 +168,27 @@ layout: default
 </script>
 
 <style>
+  /* Slide pages should render only the deck canvas, without blog chrome. */
+  .site-header,
+  .site-footer {
+    display: none !important;
+  }
+
+  .page-content,
+  .page-content .wrapper {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   /* Fix to ensure the slideshow area is properly handled */
   .remark-container {
     background: #272822;
   }
 
   body {
+    margin: 0;
     overflow-x: hidden;
   }
 </style>
