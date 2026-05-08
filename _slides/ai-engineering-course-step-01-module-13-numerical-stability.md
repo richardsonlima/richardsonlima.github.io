@@ -23,14 +23,14 @@ class: center, middle, inverse-slide
 
 ---
 
-## Journey Map 🗺️
+## The Journey Map
 
-1. Foundations and problem context.
-2. Operational intuition of the concept.
-3. Mathematical translation for engineering.
-4. Usage patterns in AI systems.
-5. Practical build with code.
-6. Checkpoints for technical mastery.
+1. The problem framing and motivation.
+2. Core mathematical intuition and geometry.
+3. Formal equations and engineering interpretation.
+4. AI system connections and production relevance.
+5. Build path with practical implementation.
+6. Mastery checkpoints and transfer to the next module.
 
 ---
 
