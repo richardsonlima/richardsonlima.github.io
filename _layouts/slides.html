@@ -87,23 +87,52 @@ layout: default
   {% assign slide_file = site.slides | where: "slug", slide_slug | first %}
 
   {% if slide_file %}
-  // Found the markdown content in _slides/
-  var source = {{ slide_file.content | jsonify }};
+  var liquidSource = {{ slide_file.content | jsonify }};
   {% else %}
-  // Fallback: Using the page content if no collection match is found
-  var source = {{ page.content | jsonify }};
+  var liquidSource = {{ page.content | jsonify }};
   {% endif %}
 
-  // Initialize the slideshow
-  var slideshow = remark.create({
-    source: source,
-    highlightStyle: 'googlecode',
-    highlightLines: true,
-    ratio: '16:9'
-  });
+  var slideSlug = {{ slide_slug | jsonify }};
 
-  // Re-render math formulas after Remark loads the slides
-  MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+  function createSlideshow(markdownSource) {
+    var slideshow = remark.create({
+      source: markdownSource,
+      highlightStyle: 'googlecode',
+      highlightLines: true,
+      ratio: '16:9'
+    });
+
+    // Re-render math formulas after Remark loads the slides
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    return slideshow;
+  }
+
+  async function resolveSlideSource() {
+    if (slideSlug) {
+      var candidateUrls = [
+        "https://raw.githubusercontent.com/richardsonlima/richardsonlima.github.io/main/_slides/" + slideSlug + ".md",
+        "https://raw.githubusercontent.com/richardsonlima/richardsonlima.github.io/master/_slides/" + slideSlug + ".md"
+      ];
+
+      for (var i = 0; i < candidateUrls.length; i++) {
+        try {
+          var response = await fetch(candidateUrls[i], { cache: "no-store" });
+          if (response.ok) {
+            var rawMarkdown = await response.text();
+            if (rawMarkdown && rawMarkdown.indexOf("\n---\n") !== -1) {
+              return rawMarkdown;
+            }
+          }
+        } catch (e) {
+          // Continue trying other candidates.
+        }
+      }
+    }
+
+    return liquidSource;
+  }
+
+  resolveSlideSource().then(createSlideshow);
 </script>
 
 <style>
