@@ -86,53 +86,26 @@ layout: default
   {% endif %}
   {% assign slide_file = site.slides | where: "slug", slide_slug | first %}
 
-  {% if slide_file %}
-  var liquidSource = {{ slide_file.content | jsonify }};
+  {% if page.collection == "slides" %}
+  // Direct _slides route: page.content preserves slide markdown separators.
+  var source = {{ page.content | jsonify }};
+  {% elsif slide_file %}
+  // Post wrapper route: resolve markdown from the _slides collection by slug.
+  var source = {{ slide_file.content | jsonify }};
   {% else %}
-  var liquidSource = {{ page.content | jsonify }};
+  // Fallback for standalone pages that already carry slide markdown content.
+  var source = {{ page.content | jsonify }};
   {% endif %}
 
-  var slideSlug = {{ slide_slug | jsonify }};
+  var slideshow = remark.create({
+    source: source,
+    highlightStyle: 'googlecode',
+    highlightLines: true,
+    ratio: '16:9'
+  });
 
-  function createSlideshow(markdownSource) {
-    var slideshow = remark.create({
-      source: markdownSource,
-      highlightStyle: 'googlecode',
-      highlightLines: true,
-      ratio: '16:9'
-    });
-
-    // Re-render math formulas after Remark loads the slides
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    return slideshow;
-  }
-
-  async function resolveSlideSource() {
-    if (slideSlug) {
-      var candidateUrls = [
-        "https://raw.githubusercontent.com/richardsonlima/richardsonlima.github.io/main/_slides/" + slideSlug + ".md",
-        "https://raw.githubusercontent.com/richardsonlima/richardsonlima.github.io/master/_slides/" + slideSlug + ".md"
-      ];
-
-      for (var i = 0; i < candidateUrls.length; i++) {
-        try {
-          var response = await fetch(candidateUrls[i], { cache: "no-store" });
-          if (response.ok) {
-            var rawMarkdown = await response.text();
-            if (rawMarkdown && rawMarkdown.indexOf("\n---\n") !== -1) {
-              return rawMarkdown;
-            }
-          }
-        } catch (e) {
-          // Continue trying other candidates.
-        }
-      }
-    }
-
-    return liquidSource;
-  }
-
-  resolveSlideSource().then(createSlideshow);
+  // Re-render math formulas after Remark loads the slides
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 </script>
 
 <style>
