@@ -63,7 +63,7 @@ layout: default
 
   <div class="container featured">
     {% for post in site.tags.featured %}
-    {% unless post.category == "ai-tutoring" %}
+    {% unless post.category == "ai-tutoring" or post.slug contains "ai-engineering-course-step-" %}
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
       <div class="article-item">
         <header class="post-header">
@@ -87,7 +87,7 @@ layout: default
 
   <div class="cf frame">
     {% for post in paginator.posts %}
-    {% unless post.category == "ai-tutoring" %}
+    {% unless post.category == "ai-tutoring" or post.slug contains "ai-engineering-course-step-" %}
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
       <div class="article-item">
         <header class="post-header">

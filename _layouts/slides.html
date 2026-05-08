@@ -2,16 +2,74 @@
 layout: default
 ---
 
+{% assign allowed_entry_path = "" %}
+{% if page.slug contains "ai-engineering-course-step-" %}
+{% assign allowed_entry_path = "/ai-engineering-knowledge-base/" %}
+{% elsif page.slug contains "ai-tutoring-module-" %}
+{% assign allowed_entry_path = "/engineering-knowledge-base/" %}
+{% endif %}
+
+{% if allowed_entry_path != "" %}
+<script>
+  (function () {
+    var allowedPath = "{{ allowed_entry_path }}";
+    var allowedHosts = {
+      "www.richardsonlima.com.br": true,
+      "richardsonlima.com.br": true,
+      "richardsonlima.github.io": true,
+      "localhost": true,
+      "127.0.0.1": true
+    };
+
+    var currentPath = window.location.pathname;
+    var sessionKey = "kb-access:" + currentPath;
+    var hasSessionAccess = false;
+
+    try {
+      hasSessionAccess = sessionStorage.getItem(sessionKey) === "1";
+    } catch (e) {
+      hasSessionAccess = false;
+    }
+
+    var cameFromAllowedEntry = false;
+
+    if (document.referrer) {
+      try {
+        var ref = new URL(document.referrer);
+        var refPath = ref.pathname.endsWith("/") ? ref.pathname : ref.pathname + "/";
+        cameFromAllowedEntry = !!allowedHosts[ref.hostname] && refPath === allowedPath;
+      } catch (e) {
+        cameFromAllowedEntry = false;
+      }
+    }
+
+    if (cameFromAllowedEntry) {
+      try {
+        sessionStorage.setItem(sessionKey, "1");
+      } catch (e) {
+        // No-op: private mode/storage restrictions
+      }
+      return;
+    }
+
+    if (!hasSessionAccess) {
+      window.location.replace(allowedPath);
+    }
+  })();
+</script>
+{% endif %}
+
 <script src="{{ '/static/remark-0.14.0.min.js' | prepend: site.baseurl }}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
 
 <script>
   // MathJax configuration
   MathJax.Hub.Config({
     tex2jax: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
-      displayMath: [['$$','$$'], ['\\[','\\]']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true
     }
   });
@@ -19,18 +77,18 @@ layout: default
 
   /**
    * INJECTION LOGIC:
-   * We retrieve the raw Markdown from the '_slides' collection 
+   * We retrieve the raw Markdown from the '_slides' collection
    * based on the 'slides' variable in the post's front matter.
    */
   {% assign slide_slug = page.slides | replace: ".md", "" | replace: ".markdown", "" %}
   {% assign slide_file = site.slides | where: "slug", slide_slug | first %}
 
   {% if slide_file %}
-    // Found the markdown content in _slides/
-    var source = {{ slide_file.content | jsonify }};
+  // Found the markdown content in _slides/
+  var source = {{ slide_file.content | jsonify }};
   {% else %}
-    // Fallback: Using the page content if no collection match is found
-    var source = {{ page.content | jsonify }};
+  // Fallback: Using the page content if no collection match is found
+  var source = {{ page.content | jsonify }};
   {% endif %}
 
   // Initialize the slideshow
@@ -47,6 +105,11 @@ layout: default
 
 <style>
   /* Fix to ensure the slideshow area is properly handled */
-  .remark-container { background: #272822; }
-  body { overflow-x: hidden; }
+  .remark-container {
+    background: #272822;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
 </style>
