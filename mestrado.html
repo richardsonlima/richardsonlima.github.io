@@ -786,6 +786,84 @@ sitemap: false
         color: var(--muted);
       }
 
+      /* ---------- PROGRAM PERIODS ---------- */
+      .periods {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .period {
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        padding: 18px 20px;
+        background: var(--surface);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .period.active {
+        border-color: var(--navy);
+        box-shadow: 0 8px 24px rgba(27, 58, 107, .08);
+      }
+
+      .period-ph {
+        font-size: .6rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--gold);
+      }
+
+      .period-range {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--navy-ink);
+        letter-spacing: -.3px;
+      }
+
+      .period-d {
+        font-size: .82rem;
+        color: var(--muted);
+      }
+
+      .tl-now {
+        display: inline-block;
+        margin-left: 8px;
+        font-family: var(--mono);
+        font-size: .56rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--gold);
+        background: var(--gold-bg);
+        padding: 2px 8px;
+        border-radius: 999px;
+        vertical-align: middle;
+      }
+
+      .cnote {
+        font-size: .72rem;
+        color: var(--muted);
+        margin-top: 7px;
+        line-height: 1.4;
+      }
+
+      .cnote a {
+        color: var(--navy-ink);
+        font-weight: 600;
+        border-bottom: 1px solid transparent;
+      }
+
+      .cnote a:hover {
+        border-bottom-color: var(--navy-ink);
+      }
+
+      .total-row td {
+        border-top: 2px solid var(--border);
+        background: var(--surface-2);
+      }
+
       /* ---------- FOOTER ---------- */
       footer {
         border-top: 1px solid var(--border);
@@ -907,6 +985,10 @@ sitemap: false
 
         .hero-top img {
           height: 48px;
+        }
+
+        .periods {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -1052,6 +1134,8 @@ sitemap: false
         <span class="eyebrow" data-i18n="s2_label">02 / Timeline</span>
         <h2 class="sec-title" data-i18n="s2_title">Academic progress</h2>
         <div class="timeline" id="timeline"></div>
+        <div class="subhead" data-i18n="per_label" style="margin-top:48px">Program periods</div>
+        <div class="periods" id="periods"></div>
       </section>
 
       <section class="section">
@@ -1156,17 +1240,25 @@ sitemap: false
 
           s2_label: "02 / Timeline",
           s2_title: "Academic progress",
-          tl1: "Started as Special Student", tl1_d: "Balancing the master&rsquo;s with professional life.",
-          tl2: "Special Student (15 credits)", tl2_d: "Three years of foundational coursework.",
-          tl3: "Admitted as Regular Graduate Student", tl3_d: "Start of the regular-student period.",
-          tl4: "CT-234 Data Structures completed", tl4_d: "Last remaining coursework credit.",
-          tl5: "Dissertation &amp; paper submissions", tl5_d: "MECADE validation, writing and LADC 2026.",
-          tl6: "Regulation deadline · defense", tl6_d: "Final dissertation defense target.",
+          tl1: "Admitted to the Program", tl1_d: "Admission to PG-EEC · ITA. Start of the journey balancing the master&rsquo;s with professional life.",
+          tl2: "Special Student · 15 credits", tl2_d: "3 years · 5 courses completed. One course per semester.",
+          tl3: "Admitted as Regular Student", tl3_d: "Automatic transition after the special period. Full dedication to the program.",
+          tl4: "CT-234 · Audited as Listener", tl4_t: "2025.1 · audited", tl4_d: "Preventive strategy given the course complexity, with no risk of failing.",
+          tl5: "CT-234 · Approved (+3 cr.)", tl5_d: "Last coursework credit. 18-credit goal 100% fulfilled.",
+          tl6: "Dissertation &amp; Submissions", tl6_d: "Dissertation writing and MECADE validation. Paper submitted to LADC 2026 (under blind review).",
+          tl7: "Defense · Regulation Deadline", tl7_d: "Goal: defend before June 2027.",
+          tl_now: "now",
+          per_label: "Program periods",
+          per_p1: "Approval", per_p2: "Special", per_p3: "Regular",
+          per_d1: "PG-EEC admission", per_d2: "3 years · 6 semesters", per_d3: "2.5 years · 5 semesters",
 
           s3_label: "03 / Curriculum",
           s3_title: "Credits &amp; records",
           c_code: "Code", c_name: "Course", c_status: "Status", c_credits: "Cr.",
           st_app: "Approved", st_prog: "In progress",
+          c6_note: "↳ audited 2025.1 · official 2025.2",
+          c6_mat: "Course material",
+          c_total: "Total coursework credits",
           c1: "Software Engineering Fundamentals",
           c2: "Teaching Internship I",
           c3: "Computing Research Methodology",
@@ -1240,17 +1332,25 @@ sitemap: false
 
           s2_label: "02 / Linha do tempo",
           s2_title: "Progresso acadêmico",
-          tl1: "Início como Aluno Especial", tl1_d: "Conciliando o mestrado com a vida profissional.",
-          tl2: "Aluno Especial (15 créditos)", tl2_d: "Três anos de disciplinas de base.",
-          tl3: "Admissão como Aluno Regular", tl3_d: "Início do período como aluno regular.",
-          tl4: "CT-234 Estruturas de Dados concluída", tl4_d: "Último crédito de disciplina restante.",
-          tl5: "Dissertação &amp; submissões", tl5_d: "Validação do MECADE, escrita e LADC 2026.",
-          tl6: "Prazo regulamentar · defesa", tl6_d: "Meta de defesa final da dissertação.",
+          tl1: "Aprovação no Programa", tl1_d: "Admissão ao PG-EEC · ITA. Início da jornada conciliando mestrado e vida profissional.",
+          tl2: "Aluno Especial · 15 créditos", tl2_d: "3 anos · 5 disciplinas concluídas. Uma disciplina por semestre.",
+          tl3: "Admissão como Aluno Regular", tl3_d: "Transição automática após o período especial. Dedicação exclusiva ao programa.",
+          tl4: "CT-234 · Cursada como Ouvinte", tl4_t: "2025.1 · ouvinte", tl4_d: "Estratégia preventiva dada a complexidade da disciplina, sem risco de reprovação.",
+          tl5: "CT-234 · Aprovado (+3 cr.)", tl5_d: "Último crédito de disciplina. Meta de 18 créditos 100% cumprida.",
+          tl6: "Dissertação &amp; Submissões", tl6_d: "Escrita da dissertação e validação do MECADE. Artigo submetido à LADC 2026 (em blind review).",
+          tl7: "Defesa · Prazo Regulamentar", tl7_d: "Meta: defesa antes de junho de 2027.",
+          tl_now: "agora",
+          per_label: "Períodos do Programa",
+          per_p1: "Aprovação", per_p2: "Especial", per_p3: "Regular",
+          per_d1: "Admissão PG-EEC", per_d2: "3 anos · 6 semestres", per_d3: "2,5 anos · 5 semestres",
 
           s3_label: "03 / Currículo",
           s3_title: "Créditos &amp; registros",
           c_code: "Código", c_name: "Disciplina", c_status: "Status", c_credits: "Cr.",
           st_app: "Aprovado", st_prog: "Em curso",
+          c6_note: "↳ ouvinte 2025.1 · oficial 2025.2",
+          c6_mat: "Material da disciplina",
+          c_total: "Total de créditos de disciplinas",
           c1: "Fundamentos de Engenharia de Software",
           c2: "Estágio em Docência I",
           c3: "Metodologia de Pesquisa em Computação",
@@ -1293,6 +1393,7 @@ sitemap: false
         master: "https://www.pgfis.ita.br/pt/post/mestrado",
         selection: "https://www.pgfis.ita.br/post/processo-seletivo",
         pgeec: "https://www.pgfis.ita.br/post/pg-eec",
+        ct234: "https://www.comp.ita.br/~alonso/ensino.html",
         researchgate: "https://www.researchgate.net/profile/Richardson-Edson-De-Lima",
         article1: "https://sol.sbc.org.br/index.php/sbsi_estendido/article/view/21575",
         ladc: "https://ladc.sbc.org.br/2026/",
@@ -1313,11 +1414,18 @@ sitemap: false
 
       const TIMELINE = [
         { time: "2021.1", key: "tl1", state: "done" },
-        { time: "2021–2024", key: "tl2", state: "done" },
+        { time: "2021.2 → 2024.2", key: "tl2", state: "done" },
         { time: "2025.1", key: "tl3", state: "done" },
-        { time: "2025.2", key: "tl4", state: "done" },
-        { time: "2026", key: "tl5", state: "active" },
-        { time: "2027.1", key: "tl6", state: "future" }
+        { time: "2025.1", timeKey: "tl4_t", key: "tl4", state: "done" },
+        { time: "2025.2", key: "tl5", state: "done" },
+        { time: "2026", key: "tl6", state: "active" },
+        { time: "2027.1", key: "tl7", state: "future" }
+      ];
+
+      const PERIODS = [
+        { ph: "per_p1", range: "2021.1", d: "per_d1", state: "done" },
+        { ph: "per_p2", range: "2021.2 → 2024.2", d: "per_d2", state: "done" },
+        { ph: "per_p3", range: "2025.1 → 2027.1", d: "per_d3", state: "active" }
       ];
 
       const COURSES = [
@@ -1494,15 +1602,30 @@ sitemap: false
         if (rqs) renderTable(rqs, [L('t_id'), L('t_q'), L('t_r')], RQS,
           (c, ci) => ci === 0 ? '<b>' + c + '</b>' : L(c));
 
-        // Curriculum
+        // Curriculum (custom: CT-234 note + material link + totals row)
         const cur = document.getElementById('curriculum');
-        if (cur) renderTable(cur, [L('c_code'), L('c_name'), L('c_status'), L('c_credits')], COURSES,
-          (c, ci) => {
-            if (ci === 0) return '<span class="mono">' + c + '</span>';
-            if (ci === 1) return L(c);
-            if (ci === 2) return badge(c);
-            return '<span class="mono">' + c + '</span>';
-          });
+        if (cur) {
+          renderTable(cur, [L('c_code'), L('c_name'), L('c_status'), L('c_credits')], COURSES,
+            (c, ci, ri) => {
+              if (ci === 0) return '<span class="mono">' + c + '</span>';
+              if (ci === 1) {
+                let html = L(c);
+                if (COURSES[ri][0] === 'CT-234') {
+                  html += '<div class="cnote mono">' + L('c6_note') +
+                    ' · <a href="' + LINKS.ct234 + '" target="_blank" rel="noopener">' + L('c6_mat') + ' ↗</a></div>';
+                }
+                return html;
+              }
+              if (ci === 2) return badge(c);
+              return '<span class="mono">' + c + '</span>';
+            });
+          const tb = cur.querySelector('tbody');
+          if (tb) {
+            const tr = el('tr', 'total-row');
+            tr.innerHTML = '<td></td><td><b>' + L('c_total') + '</b></td><td></td><td class="mono"><b>18</b></td>';
+            tb.appendChild(tr);
+          }
+        }
 
         // Mapping groups
         const m1 = document.getElementById('map1');
@@ -1534,11 +1657,27 @@ sitemap: false
           tl.innerHTML = '';
           TIMELINE.forEach(item => {
             const step = el('div', 'step ' + item.state);
+            const time = item.timeKey ? L(item.timeKey) : item.time;
+            const now = item.state === 'active' ? ' <span class="tl-now">' + L('tl_now') + '</span>' : '';
             step.innerHTML =
-              '<time class="mono">' + item.time + '</time>' +
+              '<time class="mono">' + time + now + '</time>' +
               '<h4>' + L(item.key) + '</h4>' +
               '<p>' + L(item.key + '_d') + '</p>';
             tl.appendChild(step);
+          });
+        }
+
+        // Program periods
+        const pr = document.getElementById('periods');
+        if (pr) {
+          pr.innerHTML = '';
+          PERIODS.forEach(p => {
+            const card = el('div', 'period ' + p.state);
+            card.innerHTML =
+              '<span class="period-ph mono">' + L(p.ph) + '</span>' +
+              '<span class="period-range mono">' + p.range + '</span>' +
+              '<span class="period-d">' + L(p.d) + '</span>';
+            pr.appendChild(card);
           });
         }
 
