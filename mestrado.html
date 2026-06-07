@@ -864,6 +864,37 @@ sitemap: false
         background: var(--surface-2);
       }
 
+      .pub-access {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+      }
+
+      .pub-access a.mono {
+        font-size: .72rem;
+        color: var(--navy-ink);
+        font-weight: 600;
+        border-bottom: 1px solid transparent;
+      }
+
+      .pub-access a.mono:hover {
+        border-bottom-color: var(--navy-ink);
+      }
+
+      .pub-access .muted {
+        font-size: .76rem;
+        margin-top: 2px;
+      }
+
+      .pub-note {
+        font-size: .82rem;
+        color: var(--muted);
+        margin-top: 16px;
+        line-height: 1.55;
+        max-width: 820px;
+      }
+
       /* ---------- FOOTER ---------- */
       footer {
         border-top: 1px solid var(--border);
@@ -1169,6 +1200,7 @@ sitemap: false
         <div class="tablebox">
           <div id="pubs"></div>
         </div>
+        <p class="pub-note" data-i18n="p_a2_note">* Restricted access for blind review.</p>
       </section>
 
       <footer>
@@ -1284,6 +1316,8 @@ sitemap: false
           p_a2_t: "Article 2", p_a2_i: "MECADE validation paper for LADC 2026", p_review: "Under review", p_confidential: "Confidential (blind review)",
           p_a3_t: "Article 3", p_a3_i: "Third paper in pipeline", p_backlog: "Backlog", p_pending: "Pending definition",
           p_diss_t: "M.Sc. Dissertation", p_diss_i: "Dissertation writing project", p_wip: "Writing", p_private: "Private",
+          p_a2_pt: "Overleaf v7 · PT", p_a2_en: "Overleaf v7 · EN", p_diss_link: "Overleaf · Dissertation",
+          p_a2_note: "* Article 2 (version 7) is under review and cannot be publicly released until the final review is complete. The final version will be submitted to LADC 2026 (Latin American Symposium on Dependable and Secure Computing). The dissertation is a work in progress and its content remains private until the defense, in accordance with program guidelines.",
 
           foot_updated: "Updated June 2026",
           foot_quote: "&ldquo;Standing on the shoulders of giants.&rdquo;",
@@ -1376,6 +1410,8 @@ sitemap: false
           p_a2_t: "Artigo 2", p_a2_i: "Artigo de validação do MECADE para a LADC 2026", p_review: "Em avaliação", p_confidential: "Confidencial (blind review)",
           p_a3_t: "Artigo 3", p_a3_i: "Terceiro artigo em pipeline", p_backlog: "Backlog", p_pending: "Definição pendente",
           p_diss_t: "Dissertação de Mestrado", p_diss_i: "Projeto de escrita da dissertação", p_wip: "Em escrita", p_private: "Privado",
+          p_a2_pt: "Overleaf v7 · PT", p_a2_en: "Overleaf v7 · EN", p_diss_link: "Overleaf · Dissertação",
+          p_a2_note: "* O Artigo 2 (versão 7) está em processo de avaliação e não pode ser divulgado publicamente até a conclusão da revisão final. A versão final será submetida à LADC 2026 (Latin-American Symposium on Dependable and Secure Computing). A dissertação é um projeto em andamento e seu conteúdo permanece privado até a defesa, conforme as diretrizes do programa.",
 
           foot_updated: "Atualizado em junho de 2026",
           foot_quote: "&ldquo;Apoiado sobre os ombros de gigantes.&rdquo;",
@@ -1394,6 +1430,9 @@ sitemap: false
         selection: "https://www.pgfis.ita.br/post/processo-seletivo",
         pgeec: "https://www.pgfis.ita.br/post/pg-eec",
         ct234: "https://www.comp.ita.br/~alonso/ensino.html",
+        overleafPT: "https://www.overleaf.com/project/69e57f6eea66d6ed3daf42ea",
+        overleafEN: "https://www.overleaf.com/project/69f951628033f4186defd04c",
+        overleafDiss: "https://www.overleaf.com/project/6972be9edec304cecfe4d318",
         researchgate: "https://www.researchgate.net/profile/Richardson-Edson-De-Lima",
         article1: "https://sol.sbc.org.br/index.php/sbsi_estendido/article/view/21575",
         ladc: "https://ladc.sbc.org.br/2026/",
@@ -1644,9 +1683,9 @@ sitemap: false
           const rows = [
             [L('p_profile_t'), L('p_profile_i'), badge('active'), '<a href="' + LINKS.researchgate + '" target="_blank" rel="noopener">' + L('p_open_profile') + ' ↗</a>'],
             [L('p_a1_t'), L('p_a1_i'), badge('published'), '<a href="' + LINKS.article1 + '" target="_blank" rel="noopener">' + L('p_open_pub') + ' ↗</a>'],
-            [L('p_a2_t'), L('p_a2_i') + ' · <a href="' + LINKS.ladc + '" target="_blank" rel="noopener" class="mono ladc">LADC 2026 ↗</a>', badge('review'), '<span class="muted">' + L('p_confidential') + '</span>'],
+            [L('p_a2_t'), L('p_a2_i') + ' · <a href="' + LINKS.ladc + '" target="_blank" rel="noopener" class="mono ladc">LADC 2026 ↗</a>', badge('review'), '<div class="pub-access"><a href="' + LINKS.overleafPT + '" target="_blank" rel="noopener" class="mono">' + L('p_a2_pt') + ' ↗</a><a href="' + LINKS.overleafEN + '" target="_blank" rel="noopener" class="mono">' + L('p_a2_en') + ' ↗</a><span class="muted">' + L('p_confidential') + ' *</span></div>'],
             [L('p_a3_t'), L('p_a3_i'), badge('backlog'), '<span class="muted">' + L('p_pending') + '</span>'],
-            [L('p_diss_t'), L('p_diss_i'), badge('wip'), '<span class="muted">' + L('p_private') + '</span>']
+            [L('p_diss_t'), L('p_diss_i'), badge('wip'), '<div class="pub-access"><a href="' + LINKS.overleafDiss + '" target="_blank" rel="noopener" class="mono">' + L('p_diss_link') + ' ↗</a><span class="muted">' + L('p_private') + '</span></div>']
           ];
           renderTable(pubs, [L('p_type'), L('p_item'), L('p_status'), L('p_access')], rows, (c) => c);
         }
