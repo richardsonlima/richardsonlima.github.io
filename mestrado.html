@@ -839,6 +839,208 @@ sitemap: false
         }
       }
 
+      /* ---------- MECADE practical + cycle ---------- */
+      .mecade-practical {
+        font-size: 1rem;
+        color: var(--fg);
+        max-width: 760px;
+        margin-top: 14px;
+        padding: 16px 20px;
+        border-left: 3px solid var(--gold);
+        background: var(--surface);
+        border-radius: 0 10px 10px 0;
+      }
+
+      .cycle-cap {
+        font-size: .64rem;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: var(--gold);
+        margin: 40px 0 14px;
+      }
+
+      .cycle {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 24px 22px;
+      }
+
+      .cy-track {
+        display: flex;
+        align-items: stretch;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .cy-node {
+        flex: 1 1 0;
+        min-width: 92px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 14px 12px;
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        background: var(--surface-2);
+        transition: .18s;
+      }
+
+      .cy-node:hover {
+        border-color: var(--navy);
+        transform: translateY(-2px);
+      }
+
+      .cy-n {
+        font-size: .82rem;
+        font-weight: 700;
+        color: var(--navy-ink);
+        background: var(--navy-soft);
+        width: 30px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+        border-radius: 7px;
+      }
+
+      .cy-name {
+        font-size: .82rem;
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -.2px;
+      }
+
+      .cy-arrow {
+        align-self: center;
+        color: var(--gold);
+        font-family: var(--mono);
+        font-weight: 700;
+      }
+
+      .cy-loops {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .cy-loop {
+        font-family: var(--mono);
+        font-size: .66rem;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .cy-loop::before {
+        content: '';
+        width: 9px;
+        height: 9px;
+        border-radius: 2px;
+      }
+
+      .cy-loop.feedback {
+        background: var(--ok-bg);
+        color: var(--ok);
+      }
+
+      .cy-loop.feedback::before {
+        background: var(--ok);
+      }
+
+      .cy-loop.protect {
+        background: var(--amber-bg);
+        color: var(--amber);
+      }
+
+      .cy-loop.protect::before {
+        background: var(--amber);
+      }
+
+      /* ---------- Findings charts ---------- */
+      .findings {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 22px;
+        margin-bottom: 12px;
+      }
+
+      .chart {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 20px 22px;
+      }
+
+      .chart small.mono {
+        display: block;
+        font-size: .58rem;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: var(--gold);
+        margin-bottom: 16px;
+      }
+
+      .bars {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .bar-row {
+        display: grid;
+        grid-template-columns: 92px 1fr 26px;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .bar-lbl {
+        font-size: .72rem;
+        color: var(--muted);
+        text-align: right;
+      }
+
+      .bar-track {
+        height: 13px;
+        background: var(--surface-2);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        display: block;
+        height: 100%;
+        background: var(--navy);
+        border-radius: 4px;
+        transition: width .6s ease;
+      }
+
+      .bar-val {
+        font-size: .74rem;
+        font-weight: 600;
+        color: var(--navy-ink);
+      }
+
+      .fd-caption {
+        font-size: .82rem;
+        color: var(--muted);
+        margin-bottom: 8px;
+        max-width: 760px;
+      }
+
+      @media (max-width: 680px) {
+        .findings {
+          grid-template-columns: 1fr;
+        }
+
+        .cy-node {
+          flex-basis: 40%;
+        }
+      }
+
       .badge {
         display: inline-block;
         padding: 4px 11px;
@@ -1386,6 +1588,10 @@ sitemap: false
           <span class="full" data-i18n="mc_full">Chaos Engineering Model for Dependability Assurance Assessment</span>
         </div>
         <p class="mecade-desc" data-i18n="mc_desc">MECADE structures a Chaos Engineering cycle.</p>
+        <p class="mecade-practical" data-i18n="mc_practical">In practice, resilience becomes measurable.</p>
+
+        <div class="cycle-cap mono" data-i18n="mc_cycle">The closed-loop cycle</div>
+        <div id="mecadeCycle" class="cycle"></div>
 
         <div class="layers">
           <span class="ll" data-i18n="mc_layers_label">Seven layers</span>
@@ -1441,6 +1647,16 @@ sitemap: false
         <span class="eyebrow" data-i18n="s4_label">04 / Mapping</span>
         <h2 class="sec-title" data-i18n="s4_title">Systematic mapping</h2>
         <div id="protocol" class="protocol"></div>
+        <div class="mapblock" data-i18n="fd_label">Findings</div>
+        <div class="findings">
+          <div class="chart"><small class="mono" data-i18n="fd_year">Studies per year</small>
+            <div id="chartYear" class="bars"></div>
+          </div>
+          <div class="chart"><small class="mono" data-i18n="fd_source">Studies per source</small>
+            <div id="chartSource" class="bars"></div>
+          </div>
+        </div>
+        <p class="fd-caption" data-i18n="fd_caption">Distribution of primary studies.</p>
         <div class="mapblock" data-i18n="m_block_protocol">Protocol</div>
         <div class="subhead" data-i18n="m_g1">Primary studies</div>
         <div class="tablebox">
@@ -1532,7 +1748,7 @@ sitemap: false
           nav_unit: "ITA · PG-EEC",
           hero_eyebrow: "ITA · PG-EEC · Electronic & Computer Engineering (EEC-I · Informatics)",
           hero_title: "Chaos Engineering<br>&amp; Dependability",
-          hero_desc: "Master&rsquo;s research at <b>ITA</b> developing <b>MECADE</b>, a Chaos Engineering model for assessing dependability assurance in mission-critical distributed systems.",
+          hero_desc: "Master&rsquo;s research at <b>ITA</b> developing <b>MECADE</b>: a seven-layer Chaos Engineering model that cuts <b>MTTR</b> and <b>RTO</b> by surfacing <b>gray failures</b> through controlled experiments under deterministic safety axioms and immutable audit.",
 
           cd_label: "Time left as regular student",
           cd_sub: "Admitted 2025.1 · maximum limit 2027.1",
@@ -1554,6 +1770,14 @@ sitemap: false
           mc_full: "Chaos Engineering Model for Dependability Assurance Assessment",
           mc_desc: "MECADE structures a Chaos Engineering cycle integrated with intelligent observability to surface non-trivial <b>gray failures</b> and evolve systems toward <b>active tolerance</b>, reducing <b>MTTR</b> and <b>RTO</b> in critical distributed environments.",
           mc_layers_label: "Seven layers",
+          mc_practical: "In practice: run failure experiments safely in production-like environments, catch silent degradations before they cascade, and keep an immutable audit trail, so resilience becomes measurable, repeatable and certifiable instead of hopeful.",
+          mc_cycle: "The closed-loop cycle",
+          cy_feedback: "Feedback loop · negative entropy (07 → 01)",
+          cy_protect: "Protection loop · BLOCK kill-switch (03 → 04)",
+          fd_label: "Findings · corpus distribution",
+          fd_year: "Primary studies per year",
+          fd_source: "Primary studies per source",
+          fd_caption: "Distribution of the 23 primary studies returned by the systematic search across the three databases (1960–2022).",
           mc_cta_title: "Help validate MECADE",
           mc_cta_desc: "A ~10-minute expert survey for SRE, Distributed Systems and Chaos Engineering practitioners on the framework&rsquo;s applicability and consistency.",
           mc_cta_btn: "Open the survey",
@@ -1647,7 +1871,7 @@ sitemap: false
           nav_unit: "ITA · PG-EEC",
           hero_eyebrow: "ITA · PG-EEC · Eng. Eletrônica e Computação (EEC-I · Informática)",
           hero_title: "Engenharia do Caos<br>&amp; Dependabilidade",
-          hero_desc: "Pesquisa de mestrado no <b>ITA</b> desenvolvendo o <b>MECADE</b>, um Modelo de Engenharia do Caos para Avaliação da Garantia de Dependabilidade em sistemas distribuídos críticos.",
+          hero_desc: "Pesquisa de mestrado no <b>ITA</b> desenvolvendo o <b>MECADE</b>: um modelo de Engenharia do Caos em sete camadas que reduz <b>MTTR</b> e <b>RTO</b> revelando <b>gray failures</b> por meio de experimentos controlados sob axiomas determinísticos de segurança e auditoria imutável.",
 
           cd_label: "Tempo restante como aluno regular",
           cd_sub: "Admissão 2025.1 · limite máximo 2027.1",
@@ -1669,6 +1893,14 @@ sitemap: false
           mc_full: "Modelo de Engenharia do Caos para Avaliação da Garantia de Dependabilidade",
           mc_desc: "O MECADE estrutura um ciclo de Engenharia do Caos integrado à observabilidade inteligente para revelar falhas não triviais (<b>gray failures</b>) e evoluir o sistema para uma postura de <b>tolerância ativa</b>, reduzindo <b>MTTR</b> e <b>RTO</b> em ambientes distribuídos críticos.",
           mc_layers_label: "Sete camadas",
+          mc_practical: "Na prática: executa experimentos de falha com segurança em ambientes próximos da produção, detecta degradações silenciosas antes que se espalhem e mantém uma trilha de auditoria imutável, tornando a resiliência mensurável, repetível e certificável.",
+          mc_cycle: "O ciclo em malha fechada",
+          cy_feedback: "Laço de feedback · entropia negativa (07 → 01)",
+          cy_protect: "Laço de proteção · kill-switch BLOCK (03 → 04)",
+          fd_label: "Achados · distribuição do corpus",
+          fd_year: "Estudos primários por ano",
+          fd_source: "Estudos primários por fonte",
+          fd_caption: "Distribuição dos 23 estudos primários retornados pela busca sistemática nas três bases (1960–2022).",
           mc_cta_title: "Ajude a validar o MECADE",
           mc_cta_desc: "Um formulário de ~10 minutos para profissionais de SRE, Sistemas Distribuídos e Engenharia do Caos sobre a aplicabilidade e consistência do framework.",
           mc_cta_btn: "Abrir formulário",
@@ -1771,7 +2003,7 @@ sitemap: false
         ct234: "https://www.comp.ita.br/~alonso/ensino.html",
         overleafPT: "https://www.overleaf.com/project/69e57f6eea66d6ed3daf42ea",
         overleafEN: "https://www.overleaf.com/project/69f951628033f4186defd04c",
-        overleafDiss: "https://www.overleaf.com/project/6a260605fb4d51b7962738f7",
+        overleafDiss: "https://www.overleaf.com/project/6972be9edec304cecfe4d318",
         tplRepo: "https://github.com/gabriellnuness/Template_Thesis_ITA",
         tplOverleaf: "https://www.overleaf.com/latex/templates/template-instituto-tecnologico-de-aeronautica-ita/fwnrwrszsrdq",
         researchgate: "https://www.researchgate.net/profile/Richardson-Edson-De-Lima",
@@ -1790,6 +2022,15 @@ sitemap: false
         { n: "05", en: ["Integration", "Resilience as Code &amp; CI/CD"], pt: ["Integração", "Resilience as Code e CI/CD"] },
         { n: "06", en: ["Audit", "Blockchain &amp; immutability"], pt: ["Auditoria", "Blockchain e imutabilidade"] },
         { n: "07", en: ["Continuous Improvement", "Negative entropy"], pt: ["Melhoria Contínua", "Entropia negativa"] }
+      ];
+
+      // Findings: distribution of the 23 primary studies (EP) from the systematic search
+      const STUDIES_YEAR = [
+        ["1999", 1], ["2002", 2], ["2004", 2], ["2006", 1], ["2007", 1], ["2009", 1],
+        ["2014", 2], ["2015", 2], ["2018", 3], ["2019", 1], ["2020", 2], ["2021", 2], ["2022", 3]
+      ];
+      const STUDIES_SOURCE = [
+        ["IEEE Xplore", 13], ["Springer Link", 8], ["ACM Digital Library", 2]
       ];
 
       const TIMELINE = [
@@ -2179,6 +2420,35 @@ sitemap: false
             ml.appendChild(card);
           });
         }
+
+        // MECADE closed-loop cycle diagram
+        const cy = document.getElementById('mecadeCycle');
+        if (cy) {
+          const nodes = MECADE_LAYERS.map(layer => {
+            const t = pick(layer);
+            return '<div class="cy-node"><span class="cy-n mono">' + layer.n + '</span><span class="cy-name">' + t[0] + '</span></div>';
+          }).join('<span class="cy-arrow">→</span>');
+          cy.innerHTML =
+            '<div class="cy-track">' + nodes + '</div>' +
+            '<div class="cy-loops">' +
+            '<span class="cy-loop protect">' + L('cy_protect') + '</span>' +
+            '<span class="cy-loop feedback">' + L('cy_feedback') + '</span>' +
+            '</div>';
+        }
+
+        // Findings bar charts
+        const bar = (data) => {
+          const max = Math.max(...data.map(d => d[1]));
+          return data.map(d =>
+            '<div class="bar-row"><span class="bar-lbl mono">' + d[0] + '</span>' +
+            '<span class="bar-track"><span class="bar-fill" style="width:' + (d[1] / max * 100) + '%"></span></span>' +
+            '<span class="bar-val mono">' + d[1] + '</span></div>'
+          ).join('');
+        };
+        const cYear = document.getElementById('chartYear');
+        if (cYear) cYear.innerHTML = bar(STUDIES_YEAR);
+        const cSource = document.getElementById('chartSource');
+        if (cSource) cSource.innerHTML = bar(STUDIES_SOURCE);
       }
 
       /* ===================== BOOT ===================== */
