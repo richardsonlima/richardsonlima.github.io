@@ -680,6 +680,165 @@ sitemap: false
         font-size: .72rem;
       }
 
+      .maplink {
+        font-size: .72rem;
+        white-space: nowrap;
+        color: var(--navy-ink) !important;
+        border-bottom: 1px solid transparent;
+      }
+
+      .maplink:hover {
+        border-bottom-color: var(--navy-ink);
+      }
+
+      .maplink.s2 {
+        color: var(--gold) !important;
+      }
+
+      .maplink.s2:hover {
+        border-bottom-color: var(--gold);
+      }
+
+      .mapblock {
+        font-family: var(--mono);
+        font-size: .66rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: var(--navy-ink);
+        padding: 11px 0 11px 16px;
+        border-left: 3px solid var(--gold);
+        background: var(--navy-soft);
+        border-radius: 0 8px 8px 0;
+        margin: 44px 0 8px;
+      }
+
+      .section .mapblock:first-of-type {
+        margin-top: 8px;
+      }
+
+      .objective {
+        font-size: 1.1rem;
+        color: var(--muted);
+        max-width: 800px;
+        margin: -16px 0 32px;
+      }
+
+      .objective b {
+        color: var(--fg);
+      }
+
+      .protocol {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 24px 26px;
+        margin-bottom: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .protocol small.mono {
+        display: block;
+        font-size: .58rem;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: var(--gold);
+        margin-bottom: 9px;
+      }
+
+      .pr-row {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 22px;
+      }
+
+      .pr-val {
+        font-family: var(--mono);
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--navy-ink);
+      }
+
+      .pr-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .src-chip {
+        font-size: .72rem;
+        padding: 6px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--fg);
+      }
+
+      .pr-search {
+        display: block;
+        font-family: var(--mono);
+        font-size: .78rem;
+        line-height: 1.6;
+        color: var(--fg);
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        padding: 14px 16px;
+        word-break: break-word;
+      }
+
+      .pr-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .pr-crit ul,
+      .pr-ac {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .pr-crit li,
+      .pr-ac li {
+        display: flex;
+        gap: 11px;
+        align-items: baseline;
+        font-size: .9rem;
+        line-height: 1.4;
+      }
+
+      .crit-id {
+        flex: none;
+        font-size: .62rem;
+        font-weight: 600;
+        color: var(--navy-ink);
+        background: var(--navy-soft);
+        padding: 3px 8px;
+        border-radius: 5px;
+      }
+
+      .pr-ac a {
+        color: var(--navy-ink);
+        font-weight: 500;
+        border-bottom: 1px solid transparent;
+      }
+
+      .pr-ac a:hover {
+        border-bottom-color: var(--navy-ink);
+      }
+
+      @media (max-width: 680px) {
+
+        .pr-row,
+        .pr-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
       .badge {
         display: inline-block;
         padding: 4px 11px;
@@ -895,6 +1054,96 @@ sitemap: false
         max-width: 820px;
       }
 
+      /* ---------- EXTRAS ---------- */
+      .ex-desc {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 760px;
+        margin: -16px 0 32px;
+      }
+
+      .extras {
+        display: grid;
+        gap: 14px;
+      }
+
+      .extra-card {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--surface);
+        padding: 30px 34px;
+        transition: .18s;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px 40px;
+        align-items: center;
+      }
+
+      .extra-card .extra-body {
+        max-width: 560px;
+      }
+
+      .extra-card:hover {
+        border-color: var(--navy);
+        box-shadow: 0 8px 24px rgba(27, 58, 107, .08);
+        transform: translateY(-2px);
+      }
+
+      .extra-kicker {
+        font-size: .6rem;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: var(--gold);
+      }
+
+      .extra-name {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 1.5rem;
+        letter-spacing: -.4px;
+        line-height: 1.1;
+        margin: 10px 0 8px;
+      }
+
+      .extra-text {
+        font-size: .92rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .extra-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .extra-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-size: .86rem;
+        font-weight: 600;
+        padding: 10px 16px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--navy-ink);
+        transition: .18s;
+      }
+
+      .extra-links a:hover {
+        border-color: var(--navy-ink);
+        background: var(--navy-soft);
+      }
+
+      .extra-src {
+        font-size: .58rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--muted);
+        border-right: 1px solid var(--border);
+        padding-right: 9px;
+      }
+
       /* ---------- FOOTER ---------- */
       footer {
         border-top: 1px solid var(--border);
@@ -1020,6 +1269,16 @@ sitemap: false
 
         .periods {
           grid-template-columns: 1fr;
+        }
+
+        .extras {
+          grid-template-columns: 1fr;
+        }
+
+        .extra-card {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          align-items: stretch;
         }
       }
     </style>
@@ -1156,6 +1415,7 @@ sitemap: false
       <section class="section">
         <span class="eyebrow" data-i18n="s1_label">01 / Objective</span>
         <h2 class="sec-title" data-i18n="s1_title">Research core &amp; questions</h2>
+        <p class="objective" data-i18n="s1_objective">Build a model to assess dependability assurance.</p>
         <div class="tablebox">
           <div id="rqsTable"></div>
         </div>
@@ -1180,17 +1440,28 @@ sitemap: false
       <section class="section">
         <span class="eyebrow" data-i18n="s4_label">04 / Mapping</span>
         <h2 class="sec-title" data-i18n="s4_title">Systematic mapping</h2>
-        <div class="subhead" data-i18n="m_g1">Taxonomy &amp; foundations</div>
+        <div id="protocol" class="protocol"></div>
+        <div class="mapblock" data-i18n="m_block_protocol">Protocol</div>
+        <div class="subhead" data-i18n="m_g1">Primary studies</div>
         <div class="tablebox">
           <div id="map1"></div>
         </div>
-        <div class="subhead" data-i18n="m_g2">Chaos Engineering &amp; cloud</div>
+        <div class="subhead" data-i18n="m_g2">Manual inclusion</div>
         <div class="tablebox">
           <div id="map2"></div>
         </div>
-        <div class="subhead" data-i18n="m_g3">Critical domains</div>
+        <div class="mapblock" data-i18n="m_block_synth">Thematic synthesis</div>
+        <div class="subhead" data-i18n="m_tx">Taxonomy &amp; foundations</div>
         <div class="tablebox">
           <div id="map3"></div>
+        </div>
+        <div class="subhead" data-i18n="m_cl">Chaos Engineering &amp; cloud</div>
+        <div class="tablebox">
+          <div id="map4"></div>
+        </div>
+        <div class="subhead" data-i18n="m_cd">Critical domains</div>
+        <div class="tablebox">
+          <div id="map5"></div>
         </div>
       </section>
 
@@ -1201,6 +1472,32 @@ sitemap: false
           <div id="pubs"></div>
         </div>
         <p class="pub-note" data-i18n="p_a2_note">* Restricted access for blind review.</p>
+      </section>
+
+      <section class="section">
+        <span class="eyebrow" data-i18n="ex_label">06 / Extras</span>
+        <h2 class="sec-title" data-i18n="ex_title">Resources for ITA students</h2>
+        <p class="ex-desc" data-i18n="ex_desc">Useful resources for the ITA graduate community.</p>
+        <div class="extras">
+          <div class="extra-card">
+            <div class="extra-body">
+              <span class="extra-kicker mono" data-i18n="ex_tpl_kicker">LaTeX template</span>
+              <h3 class="extra-name" data-i18n="ex_tpl_name">ITA Dissertation &amp; Thesis Template</h3>
+              <p class="extra-text" data-i18n="ex_tpl_desc">Document class compliant with ITA standards.</p>
+            </div>
+            <div class="extra-links">
+              <a href="https://github.com/gabriellnuness/Template_Thesis_ITA" target="_blank" rel="noopener">
+                <span class="mono extra-src">GitHub</span><span class="extra-lk" data-i18n="ex_repo">GitHub
+                  repository</span> ↗
+              </a>
+              <a href="https://www.overleaf.com/latex/templates/template-instituto-tecnologico-de-aeronautica-ita/fwnrwrszsrdq"
+                target="_blank" rel="noopener">
+                <span class="mono extra-src">Overleaf</span><span class="extra-lk" data-i18n="ex_overleaf">Open on
+                  Overleaf</span> ↗
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <footer>
@@ -1265,10 +1562,15 @@ sitemap: false
 
           s1_label: "01 / Objective",
           s1_title: "Research core &amp; questions",
+          s1_objective: "Build a model to assess the dependability assurance of critical systems, evaluating their resilience and identifying recommended changes. The model is validated through isolated experiments grounded in Chaos Engineering.",
           t_id: "ID", t_q: "Research question", t_r: "Rationale",
-          rq1_q: "Do similar models already exist?", rq1_r: "Avoid redundancy and position the contribution.",
-          rq2_q: "What software types are developed?", rq2_r: "Map the open-source vs. commercial landscape.",
-          rq3_q: "What links Chaos Eng. &amp; Dependability?", rq3_r: "Support strategic resilience actions.",
+          qp1_q: "Does any model similar to the proposed one already exist?", qp1_r: "Ensures there is no possibility of plagiarism or rework.",
+          qp2_q: "From a software standpoint, which types have been developed for dependability validation?", qp2_r: "Reveals which software to use for results aligned with the proposed model, and whether they are mostly commercial or open source.",
+          qp3_q: "What are the main conclusions from associating Chaos Engineering as a dependability validator in computing systems?", qp3_r: "Clarifies how Chaos Engineering can validate dependability, informing tactical and strategic actions.",
+          qp4_q: "In which regions are most related papers concentrated?", qp4_r: "As an incipient topic, it matters to map which geographic regions produce studies on it.",
+          pr_label: "Review protocol",
+          pr_search: "Search string", pr_period: "Time span", pr_sources: "Sources",
+          pr_ci: "Inclusion criteria", pr_ce: "Exclusion criteria", pr_ac: "Control articles",
 
           s2_label: "02 / Timeline",
           s2_title: "Academic progress",
@@ -1301,12 +1603,20 @@ sitemap: false
 
           s4_label: "04 / Mapping",
           s4_title: "Systematic mapping &amp; SLM base",
-          m_g1: "Taxonomy &amp; foundations",
-          m_g2: "Chaos Engineering &amp; cloud",
+          m_g1: "Primary studies · database search",
+          m_g2: "Manual inclusion",
           m_g3: "Critical domains",
+          m_base: "Database",
+          m_block_protocol: "Protocol · search &amp; manual inclusion",
+          m_block_synth: "Thematic synthesis · key references",
+          m_tx: "Taxonomy &amp; foundations",
+          m_cl: "Chaos Engineering &amp; cloud",
+          m_cd: "Critical domains",
+          m_editor: "Publisher", m_s2: "S2",
           m_year: "Year", m_title: "Title", m_authors: "Authors",
-          m_source: "Source", m_contrib: "Contribution", m_ref: "Key reference",
+          m_source: "Venue", m_contrib: "Contribution", m_ref: "Key reference",
           m_domain: "Domain", m_context: "Context / study",
+          m_link: "Link", m_open: "Open",
 
           s5_label: "05 / Output",
           s5_title: "Publications &amp; dissertation",
@@ -1320,6 +1630,14 @@ sitemap: false
           p_a2_note: "* Article 2 (version 7) is under review and cannot be publicly released until the final review is complete. The final version will be submitted to LADC 2026 (Latin American Symposium on Dependable and Secure Computing). The dissertation is a work in progress and its content remains private until the defense, in accordance with program guidelines.",
 
           foot_updated: "Updated June 2026",
+          ex_label: "06 / Extras",
+          ex_title: "Resources for ITA students",
+          ex_desc: "Useful resources for the ITA graduate community. The LaTeX template below standardizes the formatting of dissertations (master&rsquo;s) and theses (doctorate) according to ITA norms.",
+          ex_tpl_kicker: "LaTeX template",
+          ex_tpl_name: "ITA Dissertation &amp; Thesis Template",
+          ex_tpl_desc: "Document class and structure for M.Sc. dissertations and Ph.D. theses, compliant with ITA formatting standards.",
+          ex_repo: "GitHub repository",
+          ex_overleaf: "Open on Overleaf",
           foot_quote: "&ldquo;Standing on the shoulders of giants.&rdquo;",
           theme_light: "Light", theme_dark: "Dark"
         },
@@ -1359,10 +1677,15 @@ sitemap: false
 
           s1_label: "01 / Objetivo",
           s1_title: "Núcleo da pesquisa &amp; questões",
+          s1_objective: "Criar um modelo de avaliação da garantia de dependabilidade de sistemas críticos, avaliando a resiliência desses sistemas e identificando recomendações de modificações necessárias. A avaliação do modelo se dá por meio de experimentos isolados baseados em Engenharia do Caos.",
           t_id: "ID", t_q: "Questão de pesquisa", t_r: "Justificativa",
-          rq1_q: "Já existem modelos similares?", rq1_r: "Evitar redundância e posicionar a contribuição.",
-          rq2_q: "Que tipos de software são desenvolvidos?", rq2_r: "Mapear o cenário open-source vs. comercial.",
-          rq3_q: "O que liga Eng. do Caos &amp; Dependabilidade?", rq3_r: "Apoiar ações estratégicas de resiliência.",
+          qp1_q: "Existe algum modelo similar ao proposto?", qp1_r: "Garante que não exista possibilidade de plágio ou retrabalho.",
+          qp2_q: "Do ponto de vista de software, quais tipos têm sido desenvolvidos para validação de dependabilidade?", qp2_r: "Permite ver quais softwares usar para resultados direcionados ao modelo proposto, e se são comerciais ou open source.",
+          qp3_q: "Quais as principais conclusões da associação da Engenharia do Caos como validador de dependabilidade em sistemas computacionais?", qp3_r: "Permite entender como a Engenharia do Caos valida a dependabilidade, apoiando ações táticas e estratégicas.",
+          qp4_q: "Em quais regiões há mais artigos relacionados?", qp4_r: "Por ser tema incipiente, é importante mapear quais regiões geográficas geram estudos sobre o tema.",
+          pr_label: "Protocolo da revisão",
+          pr_search: "String de busca", pr_period: "Período", pr_sources: "Fontes",
+          pr_ci: "Critérios de inclusão", pr_ce: "Critérios de exclusão", pr_ac: "Artigos de controle",
 
           s2_label: "02 / Linha do tempo",
           s2_title: "Progresso acadêmico",
@@ -1395,12 +1718,20 @@ sitemap: false
 
           s4_label: "04 / Mapeamento",
           s4_title: "Mapeamento sistemático &amp; base SLM",
-          m_g1: "Taxonomia &amp; fundamentos",
-          m_g2: "Engenharia do Caos &amp; nuvem",
+          m_g1: "Estudos primários · busca nas bases",
+          m_g2: "Inclusão manual",
           m_g3: "Domínios críticos",
+          m_base: "Base",
+          m_block_protocol: "Protocolo · busca e inclusão manual",
+          m_block_synth: "Síntese temática · referências-chave",
+          m_tx: "Taxonomia &amp; fundamentos",
+          m_cl: "Engenharia do Caos &amp; nuvem",
+          m_cd: "Domínios críticos",
+          m_editor: "Editor", m_s2: "S2",
           m_year: "Ano", m_title: "Título", m_authors: "Autores",
-          m_source: "Fonte", m_contrib: "Contribuição", m_ref: "Referência",
+          m_source: "Veículo", m_contrib: "Contribuição", m_ref: "Referência",
           m_domain: "Domínio", m_context: "Contexto / estudo",
+          m_link: "Link", m_open: "Abrir",
 
           s5_label: "05 / Produção",
           s5_title: "Publicações &amp; dissertação",
@@ -1414,6 +1745,14 @@ sitemap: false
           p_a2_note: "* O Artigo 2 (versão 7) está em processo de avaliação e não pode ser divulgado publicamente até a conclusão da revisão final. A versão final será submetida à LADC 2026 (Latin-American Symposium on Dependable and Secure Computing). A dissertação é um projeto em andamento e seu conteúdo permanece privado até a defesa, conforme as diretrizes do programa.",
 
           foot_updated: "Atualizado em junho de 2026",
+          ex_label: "06 / Extras",
+          ex_title: "Recursos para alunos do ITA",
+          ex_desc: "Recursos úteis para a comunidade de pós-graduação do ITA. O template LaTeX abaixo padroniza a formatação de dissertações (mestrado) e teses (doutorado) conforme as normas do ITA.",
+          ex_tpl_kicker: "Template LaTeX",
+          ex_tpl_name: "Template de Dissertação &amp; Tese do ITA",
+          ex_tpl_desc: "Classe e estrutura de documento para dissertações de mestrado e teses de doutorado, em conformidade com as normas de formatação do ITA.",
+          ex_repo: "Repositório no GitHub",
+          ex_overleaf: "Abrir no Overleaf",
           foot_quote: "&ldquo;Apoiado sobre os ombros de gigantes.&rdquo;",
           theme_light: "Claro", theme_dark: "Escuro"
         }
@@ -1432,7 +1771,9 @@ sitemap: false
         ct234: "https://www.comp.ita.br/~alonso/ensino.html",
         overleafPT: "https://www.overleaf.com/project/69e57f6eea66d6ed3daf42ea",
         overleafEN: "https://www.overleaf.com/project/69f951628033f4186defd04c",
-        overleafDiss: "https://www.overleaf.com/project/6972be9edec304cecfe4d318",
+        overleafDiss: "https://www.overleaf.com/project/6a260605fb4d51b7962738f7",
+        tplRepo: "https://github.com/gabriellnuness/Template_Thesis_ITA",
+        tplOverleaf: "https://www.overleaf.com/latex/templates/template-instituto-tecnologico-de-aeronautica-ita/fwnrwrszsrdq",
         researchgate: "https://www.researchgate.net/profile/Richardson-Edson-De-Lima",
         article1: "https://sol.sbc.org.br/index.php/sbsi_estendido/article/view/21575",
         ladc: "https://ladc.sbc.org.br/2026/",
@@ -1478,28 +1819,95 @@ sitemap: false
       ];
 
       const RQS = [
-        ["RQ1", "rq1_q", "rq1_r"],
-        ["RQ2", "rq2_q", "rq2_r"],
-        ["RQ3", "rq3_q", "rq3_r"]
+        ["QP1", "qp1_q", "qp1_r"],
+        ["QP2", "qp2_q", "qp2_r"],
+        ["QP3", "qp3_q", "qp3_r"],
+        ["QP4", "qp4_q", "qp4_r"]
+      ];
+      const SEARCH_STRING = '("Document Title":dependability) AND ("Document Title":computing) AND ("Document Title":chaos engineering) AND [All: dependability] AND [All: computing] AND [All: chaos engineering] AND [Publication Date: 01/01/1960 TO 10/31/2022]';
+      const SOURCES = ["IEEE Xplore", "ACM Digital Library", "Springer Link"];
+      const CRITERIA_IN = [
+        { en: "Study addresses dependability in computing systems", pt: "Estudo aborda a dependabilidade em sistemas computacionais" },
+        { en: "Addresses an attribute of the dependability taxonomy (Laprie et al. tree)", pt: "Aborda um atributo da taxonomia da dependabilidade (árvore de Laprie et al.)" },
+        { en: "Addresses a threat of the dependability taxonomy (Laprie et al. tree)", pt: "Aborda uma ameaça da taxonomia da dependabilidade (árvore de Laprie et al.)" },
+        { en: "Addresses a means of the dependability taxonomy (Laprie et al. tree)", pt: "Aborda um dos meios da taxonomia da dependabilidade (árvore de Laprie et al.)" },
+        { en: "Study addresses resilience in computing systems", pt: "Estudo aborda a resiliência em sistemas computacionais" },
+        { en: "Study addresses the Chaos Engineering discipline", pt: "Estudo aborda a disciplina de Engenharia do Caos" },
+        { en: "Works written in English", pt: "Trabalhos no idioma inglês" }
+      ];
+      const CRITERIA_EX = [
+        { en: "No abstract available", pt: "Não possuir resumo" },
+        { en: "Not written in English", pt: "Não está escrito em inglês" },
+        { en: "Full version of the paper unavailable", pt: "Impossibilidade de obter a versão completa do artigo" }
+      ];
+      const CONTROL = [
+        ["AC1", "A Chaos Engineering Approach for Improving the Resiliency of IT Services Configurations", "https://ieeexplore.ieee.org/document/9789887"],
+        ["AC2", "Basic concepts and taxonomy of dependable and secure computing", "https://ieeexplore.ieee.org/document/1335465"],
+        ["AC3", "Identifying and Prioritizing Chaos Experiments by Using Established Risk Analysis Techniques", "https://ieeexplore.ieee.org/document/9251052"]
       ];
 
-      const MAP_G1 = [
-        ["IM1", "2004", "Basic concepts and taxonomy of dependable and secure computing", "Avizienis et al. (IEEE TDSC)"],
-        ["IM2", "2007", "Model-Based Analysis and Development of Dependable Systems", "C. Buckl et al. (Springer)"],
-        ["IM8", "2019", "System Dependability: Benchmarking", "Y. Crouzet (Sem. Scholar)"],
-        ["IM12", "2015", "Model for Assessing Internetware Dependability", "Huiqun Zhao et al. (IEEE)"]
+      const MAP_EP = [
+        ["EP1", "IEEE Xplore", "2019", "Security Chaos Engineering for Cloud Services: Work In Progress", "Torkura et al.", "https://ieeexplore.ieee.org/document/8935046/"],
+        ["EP2", "IEEE Xplore", "2022", "A Chaos Engineering Approach for Improving the Resiliency of IT Services Configurations", "Poltronieri et al.", "https://ieeexplore.ieee.org/document/9789887/"],
+        ["EP3", "IEEE Xplore", "2021", "ChaosTwin: A Chaos Engineering and Digital Twin Approach for the Design of Resilient IT Services", "Poltronieri et al.", "https://ieeexplore.ieee.org/abstract/document/9615519"],
+        ["EP4", "IEEE Xplore", "2020", "Identifying and Prioritizing Chaos Experiments by Using Established Risk Analysis Techniques", "Kesim et al.", "https://ieeexplore.ieee.org/document/9251052"],
+        ["EP5", "IEEE Xplore", "2020", "CloudStrike: Chaos Engineering for Security and Resiliency in Cloud Infrastructure", "Torkura et al.", "https://ieeexplore.ieee.org/document/9133399"],
+        ["EP6", "IEEE Xplore", "2021", "Maximizing Error Injection Realism for Chaos Engineering With System Calls", "Zhang et al.", "https://ieeexplore.ieee.org/document/9390316"],
+        ["EP7", "IEEE Xplore", "2018", "Use of Self-Healing Techniques to Improve the Reliability of a Geo-Distributed Ad Delivery Service", "Brousse &amp; Mykhailov", "https://ieeexplore.ieee.org/document/8539154"],
+        ["EP8", "IEEE Xplore", "2014", "A survivability-centered research agenda for cloud computing supported emergency response systems", "Ma et al.", "https://ieeexplore.ieee.org/document/6836515"],
+        ["EP9", "IEEE Xplore", "2002", "Software dependability considered as the main problem of contemporary real time computing", "Halang", "https://ieeexplore.ieee.org/document/811186"],
+        ["EP10", "IEEE Xplore", "2015", "Phantom of the cloud: Towards improved cloud availability and dependability", "Hadley et al.", "https://ieeexplore.ieee.org/document/7335273/"],
+        ["EP11", "IEEE Xplore", "2014", "Dependability Modeling Framework: A Test Procedure for High Availability in Cloud Operating Systems", "Benz &amp; Bohnert", "https://ieeexplore.ieee.org/document/6692157"],
+        ["EP12", "IEEE Xplore", "2007", "Design for Resilience of Networked Critical Infrastructures", "Ulieru", "https://ieeexplore.ieee.org/document/4233769"],
+        ["EP13", "IEEE Xplore", "2018", "Exploiting DevOps Practices for Dependable and Secure Continuous Delivery Pipelines", "Düllmann et al.", "https://ieeexplore.ieee.org/document/8452104/"],
+        ["EP14", "Springer Link", "2002", "Automated Performance and Dependability Evaluation Using Model Checking", "Baier et al.", "https://link.springer.com/chapter/10.1007/3-540-45798-4_12"],
+        ["EP15", "Springer Link", "2022", "Scalability resilience framework using application-level fault injection for cloud-based services", "Al-Said Ahmad &amp; Andras", "https://link.springer.com/article/10.1186/s13677-021-00277-z"],
+        ["EP16", "Springer Link", "2015", "Experimental Assessment of Cloud Software Dependability Using Fault Injection", "Herscheid et al.", "https://link.springer.com/chapter/10.1007/978-3-319-16766-4_13"],
+        ["EP17", "Springer Link", "2006", "An Immune System Paradigm for the Assurance of Dependability of Collaborative Self-organizing Systems", "Avižienis", "https://link.springer.com/chapter/10.1007/978-0-387-34733-2_1"],
+        ["EP18", "Springer Link", "2004", "Airbus Fly-By-Wire: A Total Approach To Dependability", "Traverse et al.", "https://link.springer.com/chapter/10.1007/978-1-4020-8157-6_18"],
+        ["EP19", "Springer Link", "2004", "Dependable Computing", "de Lemos &amp; Martins", "https://link.springer.com/article/10.1007/BF03192361"],
+        ["EP20", "Springer Link", "1999", "Developing Dependable Systems Using Software Architecture", "Saridakis &amp; Issarny", "https://link.springer.com/chapter/10.1007/978-0-387-35563-4_6"],
+        ["EP21", "Springer Link", "2018", "Reliability and high availability in cloud computing environments: a reference roadmap", "Mesbahi et al.", "https://link.springer.com/article/10.1186/s13673-018-0143-8"],
+        ["EP22", "ACM DL", "2009", "Dependability Engineering of Silent Self-stabilizing Systems", "Dhama et al.", "https://dl.acm.org/doi/10.1007/978-3-642-05118-0_17"],
+        ["EP23", "ACM DL", "2022", "The influence of dependability in cloud computing adoption", "Song &amp; Sohn", "https://dl.acm.org/doi/10.1007/s11227-022-04346-1"]
       ];
-      const MAP_G2 = [
-        ["EP1", "IEEE", "Security Chaos Engineering for Cloud Services", "K. A. Torkura et al. (2019)"],
-        ["EP15", "Springer", "Scalability resilience via fault injection", "A. Al-Said Ahmad (2021)"],
-        ["EP24", "IST", "Chaos Engineering: a Multi-Vocal Literature Review", "Owotogbe, J. et al. (2024)"],
-        ["EP26", "IEEE", "Resilience Testing in Microservices Architectures", "Malilewa, A. B. et al. (2025)"],
-        ["PAT1", "Patent", "Validating the resiliency of networked applications", "Orzell, G. S. (Netflix, 2012)"]
+      const MAP_IM = [
+        ["IM1", "ScienceDirect", "2012", "Pragmatic Directions in Engineering Secure Dependable Systems", "Khan &amp; Paul", "https://www.sciencedirect.com/science/article/abs/pii/B9780123965257000058?via%3Dihub"],
+        ["IM2", "Springer Link", "2007", "Model-Based Analysis and Development of Dependable Systems", "Buckl et al.", "https://link.springer.com/chapter/10.1007/978-3-642-16277-0_10"],
+        ["IM3", "Springer Link", "2003", "Architecting Dependable Systems", "Veríssimo et al.", "https://link.springer.com/book/10.1007/3-540-45177-3"],
+        ["IM4", "Springer Link", "2015", "The Principles of Dependability", "Balakrishnan", "https://link.springer.com/chapter/10.1007/978-3-319-14968-4_1"],
+        ["IM5", "IEEE Xplore", "2009", "A comparative analysis of network dependability, fault-tolerance, reliability, security and survivability", "Al-Kuwaiti et al.", "https://ieeexplore.ieee.org/document/5039586"],
+        ["IM6", "IEEE Xplore", "2007", "A Comparative Explication of the Dependability Theory and the Functional Safety Standards", "Buja &amp; Menis", "https://ieeexplore.ieee.org/document/4393080"],
+        ["IM7", "IGI Global", "2011", "Dependability Assessment of Service-Oriented Architectures Using Fault Injection", "Looker &amp; Munro", "https://www.igi-global.com/gateway/chapter/52203"],
+        ["IM8", "Semantic Scholar", "2019", "System Dependability: Characterization and Benchmarking", "Crouzet &amp; Kanoun", "https://hal.archives-ouvertes.fr/hal-00761042/document"],
+        ["IM9", "Semantic Scholar", "2011", "Simulation approach to Web system dependability analysis", "Walkowiak", "http://jpsra.am.gdynia.pl/upload/SSARS2011PDF/VOL1/SSARS2011-Walkowiak.pdf"],
+        ["IM10", "ResearchGate", "2009", "A Policy-based Dependability Management Framework for Critical Services", "Pérez et al.", "https://www.researchgate.net/publication/262786169_A_Policy-Based_Dependability_Management_Framework_for_Critical_Services"],
+        ["IM11", "Springer Link", "2013", "A New Approach to Develop a Dependable Security Case by Combining Real Life Security Experiences with D-Case", "Patu &amp; Yamamoto", "https://link.springer.com/content/pdf/10.1007/978-3-642-40588-4_32.pdf"],
+        ["IM12", "IEEE Xplore", "2015", "A Model for Assessing the Dependability of Internetware Software Systems", "Zhao et al.", "https://ieeexplore.ieee.org/document/7273427/"]
       ];
-      const MAP_G3 = [
-        ["CD1", "Finance", "Chaos case study in financial systems", "Lee, J. et al. (2023)"],
-        ["CD2", "Space", "Benchmarking satellite simulator resilience", "Azevedo, D. (INPE, 2014)"],
-        ["CD3", "CPS", "Resilience of Cyber-Physical Systems", "Konstantinou, C. (2021)"]
+      // Thematic synthesis (curated key references): [id, col2, title, authors, publisherLink, semanticScholarLink]
+      const MAP_TX = [
+        ["TX1", "2004", "Basic concepts and taxonomy of dependable and secure computing", "Avizienis et al. (IEEE TDSC)", "https://ieeexplore.ieee.org/document/1335465", ""],
+        ["TX2", "2009", "A comparative analysis of network dependability, fault-tolerance, reliability &amp; security", "Al-Kuwaiti et al. (IEEE)", "https://ieeexplore.ieee.org/document/5039586", ""],
+        ["TX3", "2007", "Model-Based Analysis and Development of Dependable Systems", "Buckl et al. (Springer)", "https://link.springer.com/chapter/10.1007/978-3-540-74774-1_8", ""],
+        ["TX4", "2022", "Resilient and dependability management in distributed environments (SLR)", "Amiri et al. (Cluster Computing)", "https://link.springer.com/article/10.1007/s10586-022-03738-5", ""]
+      ];
+      const MAP_CL = [
+        ["CL1", "IEEE Software", "Chaos Engineering (foundational, Netflix)", "Basiri et al. (2017)", "https://doi.org/10.1109/MS.2016.60", "https://www.semanticscholar.org/paper/e62070da1b348a7ea439a12b54e3f8b3223ee8a5"],
+        ["CL2", "IEEE SOCA", "Security Chaos Engineering for Cloud Services", "Torkura et al. (2019)", "https://ieeexplore.ieee.org/document/8935046", ""],
+        ["CL3", "Springer", "Scalability resilience via application-level fault injection", "Al-Said Ahmad &amp; Andras (2021)", "https://link.springer.com/article/10.1186/s13677-021-00277-z", ""],
+        ["CL4", "Computing", "Impact of chaos engineering with user loads on cloud-native apps", "Al-Said Ahmad et al. (2024)", "https://link.springer.com/article/10.1007/s00607-024-01292-z", ""],
+        ["CL5", "ACM CSUR", "Chaos Engineering: a Multi-Vocal Literature Review", "Owotogbe et al. (2024)", "https://dl.acm.org/doi/10.1145/3777375", "https://www.semanticscholar.org/paper/05d1aeecd781455ab48698206ba64fd98aed2abf"],
+        ["CL6", "IEEE CCWC", "Resilience Testing in Microservices Architectures", "Mailewa et al. (2025)", "https://ieeexplore.ieee.org/document/10903891", "https://www.semanticscholar.org/paper/6959b5ab8bc3082cac15503d87ea3ccdafcc4569"],
+        ["PAT1", "Patent", "Validating the resiliency of networked applications", "Orzell &amp; Izrailevsky (Netflix, 2012)", "https://patents.google.com/patent/US20120072571A1/en", ""]
+      ];
+      const MAP_CD = [
+        ["CD1", "Aerospace", "Airbus Fly-By-Wire: a total approach to dependability", "Traverse et al. (2004)", "https://link.springer.com/chapter/10.1007/978-1-4020-8157-6_18", ""],
+        ["CD2", "Critical infra.", "Enhancing operational resilience of critical infrastructure", "Dedousis et al. (IEEE Access, 2023)", "https://doi.org/10.1109/ACCESS.2023.3316028", "https://www.semanticscholar.org/paper/5afc52f13d5ef84a7a1ccfe32d9b699614fea77f"],
+        ["CD3", "Defense", "Securing cloud-based military systems with Security CE &amp; AI", "Bedoya et al. (ARES, 2023)", "https://dl.acm.org/doi/10.1145/3600160.3605076", "https://www.semanticscholar.org/paper/0896d64c6494236bedcd0bc077ca795009d8a6e0"],
+        ["CD4", "Healthcare", "DependData: dependability in BSNs for health monitoring", "Hai et al. (Inf. Fusion, 2020)", "https://doi.org/10.1016/j.inffus.2020.03.004", "https://www.semanticscholar.org/paper/8fd207699d3749ec9b115ed7a0aecec75a260928"],
+        ["CD5", "Blockchain", "Chaos Engineering for consensus in permissioned blockchains", "Sondhi et al. (IEEE DASC, 2021)", "https://doi.org/10.1109/DASC-PICom-CBDCom-CyberSciTech52372.2021.00023", "https://www.semanticscholar.org/paper/abe99ec6ffb485eb6e75ad1090b948bbfbe6fdbe"],
+        ["CD6", "Space", "Benchmarking de resiliência para simuladores de satélites baseados em HLA", "Azevedo, D. N. R. (INPE, 2014)", "https://scholar.google.com/scholar?q=Benchmarking+de+resili%C3%AAncia+para+infraestruturas+de+simuladores+de+sat%C3%A9lites+baseadas+em+HLA+Azevedo", ""]
       ];
 
       /* ===================== STATE & HELPERS ===================== */
@@ -1641,6 +2049,26 @@ sitemap: false
         if (rqs) renderTable(rqs, [L('t_id'), L('t_q'), L('t_r')], RQS,
           (c, ci) => ci === 0 ? '<b>' + c + '</b>' : L(c));
 
+        // Review protocol panel
+        const proto = document.getElementById('protocol');
+        if (proto) {
+          const ciList = CRITERIA_IN.map((c, i) => '<li><span class="crit-id mono">CI' + (i + 1) + '</span>' + pick(c) + '</li>').join('');
+          const ceList = CRITERIA_EX.map((c, i) => '<li><span class="crit-id mono">CE' + (i + 1) + '</span>' + pick(c) + '</li>').join('');
+          const acList = CONTROL.map(a => '<li><span class="crit-id mono">' + a[0] + '</span><a href="' + a[2] + '" target="_blank" rel="noopener">' + a[1] + ' ↗</a></li>').join('');
+          const srcList = SOURCES.map(s => '<span class="src-chip mono">' + s + '</span>').join('');
+          proto.innerHTML =
+            '<div class="pr-row">' +
+            '<div class="pr-cell"><small class="mono">' + L('pr_period') + '</small><div class="pr-val">1960 – 2022</div></div>' +
+            '<div class="pr-cell"><small class="mono">' + L('pr_sources') + '</small><div class="pr-chips">' + srcList + '</div></div>' +
+            '</div>' +
+            '<div class="pr-cell full"><small class="mono">' + L('pr_search') + '</small><code class="pr-search">' + SEARCH_STRING + '</code></div>' +
+            '<div class="pr-grid">' +
+            '<div class="pr-crit"><small class="mono">' + L('pr_ci') + '</small><ul>' + ciList + '</ul></div>' +
+            '<div class="pr-crit"><small class="mono">' + L('pr_ce') + '</small><ul>' + ceList + '</ul></div>' +
+            '</div>' +
+            '<div class="pr-cell full"><small class="mono">' + L('pr_ac') + '</small><ul class="pr-ac">' + acList + '</ul></div>';
+        }
+
         // Curriculum (custom: CT-234 note + material link + totals row)
         const cur = document.getElementById('curriculum');
         if (cur) {
@@ -1666,16 +2094,34 @@ sitemap: false
           }
         }
 
-        // Mapping groups
+        // Mapping groups (real SLR protocol: primary studies + manual inclusion)
+        const mapCell = (c, ci, ri, ncols) => {
+          if (ci === ncols - 1) return c ? '<a href="' + c + '" target="_blank" rel="noopener" class="mono maplink">' + L('m_open') + ' ↗</a>' : '<span class="muted">·</span>';
+          if (ci <= 2) return '<span class="mono">' + c + '</span>';
+          return c;
+        };
+        const mapHeaders = [L('t_id'), L('m_base'), L('m_year'), L('m_title'), L('m_authors'), L('m_link')];
         const m1 = document.getElementById('map1');
-        if (m1) renderTable(m1, [L('t_id'), L('m_year'), L('m_title'), L('m_authors')], MAP_G1,
-          (c, ci) => ci === 0 ? '<span class="mono">' + c + '</span>' : (ci === 1 ? '<span class="mono">' + c + '</span>' : c));
+        if (m1) renderTable(m1, mapHeaders, MAP_EP, (c, ci, ri) => mapCell(c, ci, ri, 6));
         const m2 = document.getElementById('map2');
-        if (m2) renderTable(m2, [L('t_id'), L('m_source'), L('m_contrib'), L('m_ref')], MAP_G2,
-          (c, ci) => ci === 0 ? '<span class="mono">' + c + '</span>' : c);
-        const m3 = document.getElementById('map3');
-        if (m3) renderTable(m3, [L('t_id'), L('m_domain'), L('m_context'), L('m_source')], MAP_G3,
-          (c, ci) => ci === 0 ? '<span class="mono">' + c + '</span>' : c);
+        if (m2) renderTable(m2, mapHeaders, MAP_IM, (c, ci, ri) => mapCell(c, ci, ri, 6));
+
+        // Thematic synthesis: two link columns (publisher + Semantic Scholar)
+        const synthCell = (c, ci) => {
+          if (ci === 4) return c ? '<a href="' + c + '" target="_blank" rel="noopener" class="mono maplink">' + L('m_open') + ' ↗</a>' : '<span class="muted">·</span>';
+          if (ci === 5) return c ? '<a href="' + c + '" target="_blank" rel="noopener" class="mono maplink s2">S2 ↗</a>' : '<span class="muted">·</span>';
+          if (ci <= 1) return '<span class="mono">' + c + '</span>';
+          return c;
+        };
+        const synth = [
+          ['map3', MAP_TX, L('m_year')],
+          ['map4', MAP_CL, L('m_source')],
+          ['map5', MAP_CD, L('m_domain')]
+        ];
+        synth.forEach(([id, data, col2]) => {
+          const node = document.getElementById(id);
+          if (node) renderTable(node, [L('t_id'), col2, L('m_title'), L('m_authors'), L('m_editor'), L('m_s2')], data, synthCell);
+        });
 
         // Publications (custom rows with links)
         const pubs = document.getElementById('pubs');
