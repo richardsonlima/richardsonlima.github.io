@@ -963,10 +963,12 @@ sitemap: false
       /* ---------- Findings charts ---------- */
       .findings {
         display: grid;
-        grid-template-columns: 1.3fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 22px;
         margin-bottom: 12px;
       }
+      .chart.wide { grid-column: 1 / -1; }
+      .chart.wide .bars { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 28px; }
 
       .chart {
         border: 1px solid var(--border);
@@ -1033,6 +1035,10 @@ sitemap: false
 
       @media (max-width: 680px) {
         .findings {
+          grid-template-columns: 1fr;
+        }
+
+        .chart.wide .bars {
           grid-template-columns: 1fr;
         }
 
@@ -1649,11 +1655,14 @@ sitemap: false
         <div id="protocol" class="protocol"></div>
         <div class="mapblock" data-i18n="fd_label">Findings</div>
         <div class="findings">
-          <div class="chart"><small class="mono" data-i18n="fd_year">Studies per year</small>
+          <div class="chart wide"><small class="mono" data-i18n="fd_year">Studies per year</small>
             <div id="chartYear" class="bars"></div>
           </div>
           <div class="chart"><small class="mono" data-i18n="fd_source">Studies per source</small>
             <div id="chartSource" class="bars"></div>
+          </div>
+          <div class="chart"><small class="mono" data-i18n="fd_region">Studies per region</small>
+            <div id="chartRegion" class="bars"></div>
           </div>
         </div>
         <p class="fd-caption" data-i18n="fd_caption">Distribution of primary studies.</p>
@@ -1777,7 +1786,8 @@ sitemap: false
           fd_label: "Findings · corpus distribution",
           fd_year: "Primary studies per year",
           fd_source: "Primary studies per source",
-          fd_caption: "Distribution of the 23 primary studies returned by the systematic search across the three databases (1960–2022).",
+          fd_region: "Primary studies per region",
+          fd_caption: "Distribution of the 23 primary studies returned by the systematic search across the three databases (1960–2022). Region is derived from the first author&rsquo;s institutional affiliation (continent) and answers QP4.",
           mc_cta_title: "Help validate MECADE",
           mc_cta_desc: "A ~10-minute expert survey for SRE, Distributed Systems and Chaos Engineering practitioners on the framework&rsquo;s applicability and consistency.",
           mc_cta_btn: "Open the survey",
@@ -1900,7 +1910,8 @@ sitemap: false
           fd_label: "Achados · distribuição do corpus",
           fd_year: "Estudos primários por ano",
           fd_source: "Estudos primários por fonte",
-          fd_caption: "Distribuição dos 23 estudos primários retornados pela busca sistemática nas três bases (1960–2022).",
+          fd_region: "Estudos primários por região",
+          fd_caption: "Distribuição dos 23 estudos primários retornados pela busca sistemática nas três bases (1960–2022). A região é derivada da afiliação institucional do primeiro autor (continente) e responde à QP4.",
           mc_cta_title: "Ajude a validar o MECADE",
           mc_cta_desc: "Um formulário de ~10 minutos para profissionais de SRE, Sistemas Distribuídos e Engenharia do Caos sobre a aplicabilidade e consistência do framework.",
           mc_cta_btn: "Abrir formulário",
@@ -2031,6 +2042,12 @@ sitemap: false
       ];
       const STUDIES_SOURCE = [
         ["IEEE Xplore", 13], ["Springer Link", 8], ["ACM Digital Library", 2]
+      ];
+      const STUDIES_REGION = [
+        { en: "Europe", pt: "Europa", n: 15 },
+        { en: "North America", pt: "América do Norte", n: 5 },
+        { en: "Asia", pt: "Ásia", n: 2 },
+        { en: "Latin America", pt: "América Latina", n: 1 }
       ];
 
       const TIMELINE = [
@@ -2449,6 +2466,8 @@ sitemap: false
         if (cYear) cYear.innerHTML = bar(STUDIES_YEAR);
         const cSource = document.getElementById('chartSource');
         if (cSource) cSource.innerHTML = bar(STUDIES_SOURCE);
+        const cRegion = document.getElementById('chartRegion');
+        if (cRegion) cRegion.innerHTML = bar(STUDIES_REGION.map(r => [pick({ en: r.en, pt: r.pt }), r.n]));
       }
 
       /* ===================== BOOT ===================== */
