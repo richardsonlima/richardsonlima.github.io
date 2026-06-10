@@ -619,7 +619,9 @@ sitemap: false
         line-height: 1;
       }
 
-      html[data-theme='dark'] .vstep-n { color: #2c4d80; }
+      html[data-theme='dark'] .vstep-n {
+        color: #2c4d80;
+      }
 
       .vstep-src {
         font-size: .6rem;
@@ -652,7 +654,9 @@ sitemap: false
         filter: brightness(.97);
       }
 
-      .vstep.primary .vstep-n { color: var(--navy); }
+      .vstep.primary .vstep-n {
+        color: var(--navy);
+      }
 
       /* ---------- TABLES ---------- */
       .tablebox {
@@ -1008,8 +1012,16 @@ sitemap: false
         gap: 22px;
         margin-bottom: 12px;
       }
-      .chart.wide { grid-column: 1 / -1; }
-      .chart.wide .bars { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 28px; }
+
+      .chart.wide {
+        grid-column: 1 / -1;
+      }
+
+      .chart.wide .bars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px 28px;
+      }
 
       .chart {
         border: 1px solid var(--border);
@@ -1278,6 +1290,7 @@ sitemap: false
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
+
       .rec {
         display: flex;
         gap: 14px;
@@ -1287,27 +1300,60 @@ sitemap: false
         border-radius: 13px;
         background: var(--surface);
       }
+
       .rec-icon {
         flex: none;
-        width: 26px; height: 26px;
-        display: grid; place-items: center;
+        width: 26px;
+        height: 26px;
+        display: grid;
+        place-items: center;
         border-radius: 7px;
         font-size: .82rem;
         font-weight: 700;
       }
-      .rec-done .rec-icon { background: var(--ok-bg); color: var(--ok); }
-      .rec-wip .rec-icon { background: var(--amber-bg); color: var(--amber); }
-      .rec-pending .rec-icon { background: var(--surface-2); color: var(--muted); }
-      .rec-title { font-size: .98rem; font-weight: 600; margin-bottom: 4px; letter-spacing: -.2px; }
-      .rec-sub { font-size: .82rem; color: var(--muted); line-height: 1.45; }
+
+      .rec-done .rec-icon {
+        background: var(--ok-bg);
+        color: var(--ok);
+      }
+
+      .rec-wip .rec-icon {
+        background: var(--amber-bg);
+        color: var(--amber);
+      }
+
+      .rec-pending .rec-icon {
+        background: var(--surface-2);
+        color: var(--muted);
+      }
+
+      .rec-title {
+        font-size: .98rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+        letter-spacing: -.2px;
+      }
+
+      .rec-sub {
+        font-size: .82rem;
+        color: var(--muted);
+        line-height: 1.45;
+      }
 
       /* ---------- NOREG compliance ---------- */
-      .no-intro { font-size: .95rem; color: var(--muted); max-width: 720px; margin: -8px 0 18px; }
+      .no-intro {
+        font-size: .95rem;
+        color: var(--muted);
+        max-width: 720px;
+        margin: -8px 0 18px;
+      }
+
       .noreg {
         border: 1px solid var(--border);
         border-radius: 13px;
         overflow: hidden;
       }
+
       .nr-row {
         display: grid;
         grid-template-columns: 1.1fr 1.1fr 1.4fr;
@@ -1316,7 +1362,11 @@ sitemap: false
         border-bottom: 1px solid var(--border);
         align-items: baseline;
       }
-      .nr-row:last-child { border-bottom: none; }
+
+      .nr-row:last-child {
+        border-bottom: none;
+      }
+
       .nr-head {
         background: var(--surface-2);
         font-family: var(--mono);
@@ -1325,17 +1375,57 @@ sitemap: false
         letter-spacing: 1.4px;
         color: var(--gold);
       }
-      .nr-item { font-size: .92rem; font-weight: 600; display: flex; gap: 9px; align-items: baseline; }
-      .nr-ok { color: var(--ok); font-weight: 700; flex: none; }
-      .nr-mine { font-size: .9rem; color: var(--fg); }
-      .nr-norm { font-size: .78rem; color: var(--muted); line-height: 1.4; }
-      .no-note { font-size: .82rem; color: var(--muted); line-height: 1.55; max-width: 760px; margin-top: 14px; }
+
+      .nr-item {
+        font-size: .92rem;
+        font-weight: 600;
+        display: flex;
+        gap: 9px;
+        align-items: baseline;
+      }
+
+      .nr-ok {
+        color: var(--ok);
+        font-weight: 700;
+        flex: none;
+      }
+
+      .nr-mine {
+        font-size: .9rem;
+        color: var(--fg);
+      }
+
+      .nr-norm {
+        font-size: .78rem;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .no-note {
+        font-size: .82rem;
+        color: var(--muted);
+        line-height: 1.55;
+        max-width: 760px;
+        margin-top: 14px;
+      }
 
       @media (max-width: 680px) {
-        .records { grid-template-columns: 1fr; }
-        .nr-row { grid-template-columns: 1fr; gap: 6px; }
-        .nr-head { display: none; }
-        .nr-norm::before { content: '· '; }
+        .records {
+          grid-template-columns: 1fr;
+        }
+
+        .nr-row {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+
+        .nr-head {
+          display: none;
+        }
+
+        .nr-norm::before {
+          content: '· ';
+        }
       }
 
       .pub-access {
@@ -1760,16 +1850,19 @@ sitemap: false
             <span class="validate-kicker mono" data-i18n="mc_v_kicker">Open validation</span>
             <h3 data-i18n="mc_v_title">Help validate MECADE</h3>
             <p data-i18n="mc_v_desc">Validation intro.</p>
-            <p class="validate-meta mono"><span data-i18n="mc_v_audience">For SRE, Distributed Systems &amp; Chaos Engineering professionals</span> · <span data-i18n="mc_v_time">8–12 min</span></p>
+            <p class="validate-meta mono"><span data-i18n="mc_v_audience">For SRE, Distributed Systems &amp; Chaos
+                Engineering professionals</span> · <span data-i18n="mc_v_time">8–12 min</span></p>
           </div>
           <div class="validate-steps">
-            <a class="vstep" href="https://www.youtube.com/watch?v=N6bE7Qh9pWc&list=PLkxSfloUbcmAlTUslIEu1mr4Nv1cviRAo" target="_blank" rel="noopener">
+            <a class="vstep" href="https://www.youtube.com/watch?v=N6bE7Qh9pWc&list=PLkxSfloUbcmAlTUslIEu1mr4Nv1cviRAo"
+              target="_blank" rel="noopener">
               <span class="vstep-n mono"><span style="color: #93a6c5b8">01</span></span>
               <span class="vstep-src mono" style="font-size: 15px">YouTube</span>
               <span class="vstep-name" data-i18n="mc_v_s1">Watch the video series (7 layers)</span>
               <span class="vstep-go mono" data-i18n="mc_v_step1">First step ↗</span>
             </a>
-            <a class="vstep" href="https://github.com/richardsonlima/mecade/blob/main/README.md" target="_blank" rel="noopener">
+            <a class="vstep" href="https://github.com/richardsonlima/mecade/blob/main/README.md" target="_blank"
+              rel="noopener">
               <span class="vstep-n mono" style="color: rgba(147, 166, 197, 0.898)">02</span>
               <span class="vstep-src mono" style="font-size: 15px">GitHub</span>
               <span class="vstep-name" data-i18n="mc_v_s2">Read the repository &amp; E2E docs</span>
@@ -1806,7 +1899,10 @@ sitemap: false
         <div class="subhead" data-i18n="no_label" style="margin-top:48px">NOREG 2021 compliance</div>
         <p class="no-intro" data-i18n="no_intro">Cross-check against ITA official norms.</p>
         <div class="noreg" id="noreg"></div>
-        <p class="no-note" data-i18n="no_note">A norma define mínimo de 2 e máximo de 5 períodos letivos. Como aluno regular desde 2025.1, o quinto período encerra em 31 ago 2027, portanto a meta pessoal de junho de 2027 é conservadoramente segura. O CPG pode conceder extensão de mais um período letivo, para situação crítica/elegível (se necessário).</p>
+        <p class="no-note" data-i18n="no_note">A norma define mínimo de 2 e máximo de 5 períodos letivos. Como aluno
+          regular desde 2025.1, o quinto período encerra em 31 ago 2027, portanto a meta pessoal de junho de 2027 é
+          conservadoramente segura. O CPG pode conceder extensão de mais um período letivo, para situação
+          crítica/elegível (se necessário).</p>
       </section>
 
       <section class="section">
@@ -2294,41 +2390,63 @@ sitemap: false
 
       // Records & milestones (status: done / wip / pending)
       const RECORDS = [
-        { st: "done", en: "Approved credits — 18/18", pt: "Créditos aprovados - 18/18",
+        {
+          st: "done", en: "Approved credits — 18/18", pt: "Créditos aprovados - 18/18",
           en2: "CT-234 audited in 2025.1 (preventive) and taken officially in 2025.2, passed. Last coursework credit of the program.",
-          pt2: "CT-234 cursada como ouvinte em 2025.1 (estratégia preventiva) e oficialmente em 2025.2, concluída com aprovação. Último crédito de disciplina do programa." },
-        { st: "done", en: "English exam — Approved", pt: "Exame de Inglês - Aprovado",
+          pt2: "CT-234 cursada como ouvinte em 2025.1 (estratégia preventiva) e oficialmente em 2025.2, concluída com aprovação. Último crédito de disciplina do programa."
+        },
+        {
+          st: "done", en: "English exam — Approved", pt: "Exame de Inglês - Aprovado",
           en2: "ITA English exam (TDIE) applied by the Graduate Office — the exam accepted by the norm for military and civil servants, also applied institutionally to all master's students.",
-          pt2: "Prova de inglês do ITA (TDIE) aplicada pela Secretaria da Pós-Graduação,  exame aceito pela norma para militares e servidores civis, também aplicado institucionalmente a todos os alunos de mestrado." },
-        { st: "done", en: "Co-authored article — LADC 2026", pt: "Artigo em coautoria - LADC 2026",
+          pt2: "Prova de inglês do ITA (TDIE) aplicada pela Secretaria da Pós-Graduação,  exame aceito pela norma para militares e servidores civis, também aplicado institucionalmente a todos os alunos de mestrado."
+        },
+        {
+          st: "done", en: "Co-authored article — LADC 2026", pt: "Artigo em coautoria - LADC 2026",
           en2: "In review with the advisor (Prof. Dr. Johnny Marques) before submission.",
-          pt2: "Em revisão com o orientador (Prof. Dr. Johnny Marques) antes da submissão." },
-        { st: "wip", en: "Dissertation — CT500 in writing", pt: "Dissertação - CT500 em escrita",
+          pt2: "Em revisão com o orientador (Prof. Dr. Johnny Marques) antes da submissão."
+        },
+        {
+          st: "wip", en: "Dissertation — CT500 in writing", pt: "Dissertação - CT500 em escrita",
           en2: "Dissertation writing project in progress.",
-          pt2: "Escrita da dissertação em andamento. (acompanhamento semanal)" },
-        { st: "pending", en: "Committee nomination", pt: "Nomeação da Banca",
-          en2: "Pending.", pt2: "Pendente." },
-        { st: "pending", en: "Formal request", pt: "Requerimento formal",
-          en2: "Pending.", pt2: "Pendente." }
+          pt2: "Escrita da dissertação em andamento. (acompanhamento semanal)"
+        },
+        {
+          st: "pending", en: "Committee nomination", pt: "Nomeação da Banca",
+          en2: "Pending.", pt2: "Pendente."
+        },
+        {
+          st: "pending", en: "Formal request", pt: "Requerimento formal",
+          en2: "Pending.", pt2: "Pendente."
+        }
       ];
 
       // NOREG 2021 cross-check
       const NOREG = [
-        { ok: true, item_en: "Minimum credits", item_pt: "Mínimo de créditos",
+        {
+          ok: true, item_en: "Minimum credits", item_pt: "Mínimo de créditos",
           mine_en: "18 cr. completed", mine_pt: "18 cr. concluídos",
-          norm_en: "Minimum 18 credits", norm_pt: "Mínimo 18 créditos" },
-        { ok: true, item_en: "English exam", item_pt: "Exame de inglês",
+          norm_en: "Minimum 18 credits", norm_pt: "Mínimo 18 créditos"
+        },
+        {
+          ok: true, item_en: "English exam", item_pt: "Exame de inglês",
           mine_en: "Approved (TDIE)", mine_pt: "Aprovado (TDIE)",
-          norm_en: "Within 2 periods after first enrollment", norm_pt: "Em até 2 períodos após a primeira matrícula" },
-        { ok: true, item_en: "Co-authored article w/ advisor", item_pt: "Artigo em coautoria com orientador",
+          norm_en: "Within 2 periods after first enrollment", norm_pt: "Em até 2 períodos após a primeira matrícula"
+        },
+        {
+          ok: true, item_en: "Co-authored article w/ advisor", item_pt: "Artigo em coautoria com orientador",
           mine_en: "In review (target LADC 2026)", mine_pt: "Em revisão (alvo LADC 2026)",
-          norm_en: "Required to request the exam", norm_pt: "Exigido para requerer o exame" },
-        { ok: true, item_en: "Accredited advisor", item_pt: "Orientador credenciado",
+          norm_en: "Required to request the exam", norm_pt: "Exigido para requerer o exame"
+        },
+        {
+          ok: true, item_en: "Accredited advisor", item_pt: "Orientador credenciado",
           mine_en: "Prof. Dr. Johnny Marques", mine_pt: "Prof. Dr. Johnny Marques",
-          norm_en: "Permanent or collaborating faculty", norm_pt: "Docente permanente ou colaborador" },
-        { ok: true, item_en: "Maximum deadline", item_pt: "Prazo máximo",
+          norm_en: "Permanent or collaborating faculty", norm_pt: "Docente permanente ou colaborador"
+        },
+        {
+          ok: true, item_en: "Maximum deadline", item_pt: "Prazo máximo",
           mine_en: "Target 2027.1 (Jun 2027)", mine_pt: "Meta 2027.1 (jun 2027)",
-          norm_en: "Min. 2, max. 5 academic periods → up to Aug 31, 2027", norm_pt: "Mín. 2, máx. 5 períodos letivos → até 31 ago 2027" }
+          norm_en: "Min. 2, max. 5 academic periods → up to Aug 31, 2027", norm_pt: "Mín. 2, máx. 5 períodos letivos → até 31 ago 2027"
+        }
       ];
       const CONTROL = [
         ["AC1", "A Chaos Engineering Approach for Improving the Resiliency of IT Services Configurations", "https://ieeexplore.ieee.org/document/9789887"],
@@ -2397,7 +2515,7 @@ sitemap: false
         ["CD3", "Defense", "Securing cloud-based military systems with Security CE &amp; AI", "Bedoya et al. (ARES, 2023)", "https://dl.acm.org/doi/10.1145/3600160.3605076", "https://www.semanticscholar.org/paper/0896d64c6494236bedcd0bc077ca795009d8a6e0"],
         ["CD4", "Healthcare", "DependData: dependability in BSNs for health monitoring", "Hai et al. (Inf. Fusion, 2020)", "https://doi.org/10.1016/j.inffus.2020.03.004", "https://www.semanticscholar.org/paper/8fd207699d3749ec9b115ed7a0aecec75a260928"],
         ["CD5", "Blockchain", "Chaos Engineering for consensus in permissioned blockchains", "Sondhi et al. (IEEE DASC, 2021)", "https://doi.org/10.1109/DASC-PICom-CBDCom-CyberSciTech52372.2021.00023", "https://www.semanticscholar.org/paper/abe99ec6ffb485eb6e75ad1090b948bbfbe6fdbe"],
-        ["CD6", "Space", "Benchmarking de resiliência para simuladores de satélites baseados em HLA", "Azevedo, D. N. R. (INPE, 2014)", "https://scholar.google.com/scholar?q=Benchmarking+de+resili%C3%AAncia+para+infraestruturas+de+simuladores+de+sat%C3%A9lites+baseadas+em+HLA+Azevedo", ""]
+        ["CD6", "Space", "Benchmarking de resiliência para simuladores de satélites baseados em HLA", "Azevedo, D. N. R. (INPE, 2014)", "http://mtc-m21b.sid.inpe.br/col/sid.inpe.br/mtc-m21b/2014/10.28.22.44/doc/publicacao.pdf?languagebutton=pt-BR", ""]
       ];
 
       /* ===================== STATE & HELPERS ===================== */
@@ -2758,6 +2876,11 @@ sitemap: false
 </html>
 
 <style id="__om-edit-overrides">
-#validate .vstep-n >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { color: rgba(147, 166, 197, 0.945) !important }
-#validate .vstep-n >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { color: rgba(147, 166, 197, 0.898) !important }
+  #validate .vstep-n>:is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, blockquote, figcaption, label, span, a, em, strong, small, td, th, caption) {
+    color: rgba(147, 166, 197, 0.945) !important
+  }
+
+  #validate .vstep-n>:is(h1, h2, h3, h4, h5, h6, p, li, dt, dd, blockquote, figcaption, label, span, a, em, strong, small, td, th, caption) {
+    color: rgba(147, 166, 197, 0.898) !important
+  }
 </style>
