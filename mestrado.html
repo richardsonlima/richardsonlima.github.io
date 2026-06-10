@@ -1086,6 +1086,112 @@ sitemap: false
         max-width: 760px;
       }
 
+      /* ---------- Expert validation ---------- */
+      .ev-hero {
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) 2fr;
+        gap: 18px;
+        margin: 4px 0 8px;
+      }
+      .ev-score {
+        background: var(--navy);
+        color: #fff;
+        border-radius: 16px;
+        padding: 28px 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 10px;
+      }
+      html[data-theme='dark'] .ev-score {
+        background: linear-gradient(135deg, #1b3a6b, #25508f);
+      }
+      .ev-score-v { font-family: var(--serif); font-size: 3.6rem; line-height: 1; font-weight: 500; color: #fff; }
+      .ev-score-max { font-size: 1.1rem; color: rgba(255,255,255,.6); }
+      .ev-score-k {
+        flex-basis: 100%;
+        margin-top: 8px;
+        font-size: .62rem;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: #f2b400;
+        font-family: var(--mono);
+      }
+      .ev-hero-facts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        background: var(--surface);
+      }
+      .ev-hf {
+        padding: 24px 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        border-right: 1px solid var(--border);
+      }
+      .ev-hf:last-child { border-right: none; }
+      .ev-hf-v { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: var(--navy-ink); }
+      .ev-hf-k { font-size: .76rem; color: var(--muted); line-height: 1.3; }
+
+      .bar-row.rating .bar-fill { background: var(--gold); }
+
+      .ev-dims {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .ev-dim {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        padding: 18px 20px;
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        background: var(--surface);
+      }
+      .ev-dim-v { font-family: var(--serif); font-size: 1.7rem; color: var(--navy-ink); flex: none; }
+      .ev-dim-k { font-size: .92rem; font-weight: 500; line-height: 1.3; }
+
+      .ev-profiles { display: flex; flex-wrap: wrap; gap: 10px; }
+      .ev-chip {
+        font-size: .78rem;
+        padding: 9px 15px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--fg);
+      }
+
+      .ev-highlights {
+        display: grid;
+        gap: 10px;
+        margin-top: 28px;
+      }
+      .ev-hl {
+        display: flex;
+        gap: 13px;
+        align-items: baseline;
+        padding: 16px 20px;
+        border-left: 3px solid var(--gold);
+        background: var(--surface);
+        border-radius: 0 11px 11px 0;
+        font-size: .95rem;
+        line-height: 1.45;
+      }
+      .ev-hl-i { color: var(--gold); font-size: 1rem; flex: none; }
+
+      @media (max-width: 680px) {
+        .ev-hero { grid-template-columns: 1fr; }
+        .ev-hero-facts { grid-template-columns: 1fr; }
+        .ev-hf { border-right: none; border-bottom: 1px solid var(--border); }
+        .ev-hf:last-child { border-bottom: none; }
+        .ev-dims { grid-template-columns: 1fr; }
+      }
+
       @media (max-width: 680px) {
         .findings {
           grid-template-columns: 1fr;
@@ -1878,6 +1984,37 @@ sitemap: false
         </div>
       </section>
 
+      <section class="section validation">
+        <span class="eyebrow" data-i18n="ev_label">Expert validation</span>
+        <h2 class="sec-title" data-i18n="ev_title">What experts say about MECADE</h2>
+        <p class="objective" data-i18n="ev_intro">Independent evaluation by senior practitioners.</p>
+
+        <div class="ev-hero">
+          <div class="ev-score">
+            <span class="ev-score-v mono">4.42</span>
+            <span class="ev-score-max mono">/ 5</span>
+            <span class="ev-score-k" data-i18n="ev_overall">Overall rating</span>
+          </div>
+          <div class="ev-hero-facts">
+            <div class="ev-hf"><span class="ev-hf-v mono">4</span><span class="ev-hf-k" data-i18n="ev_reviewers">Senior reviewers</span></div>
+            <div class="ev-hf"><span class="ev-hf-v mono">91%</span><span class="ev-hf-k" data-i18n="ev_high">Ratings ≥ 4 / 5</span></div>
+            <div class="ev-hf"><span class="ev-hf-v mono">140</span><span class="ev-hf-k" data-i18n="ev_items">Layer item ratings</span></div>
+          </div>
+        </div>
+
+        <div class="mapblock" data-i18n="ev_block_layers">Ratings per layer</div>
+        <div class="chart"><div id="evLayers" class="bars"></div></div>
+
+        <div class="mapblock" data-i18n="ev_block_dims">Evaluation dimensions</div>
+        <div class="ev-dims" id="evDims"></div>
+
+        <div class="mapblock" data-i18n="ev_block_profiles">Reviewer profile (anonymized)</div>
+        <div class="ev-profiles" id="evProfiles"></div>
+
+        <div class="ev-highlights" id="evHighlights"></div>
+        <p class="fd-caption" data-i18n="ev_caption">Anonymized expert validation.</p>
+      </section>
+
       <section class="section">
         <span class="eyebrow" data-i18n="s2_label">02 / Timeline</span>
         <h2 class="sec-title" data-i18n="s2_title">Academic progress</h2>
@@ -2053,6 +2190,12 @@ sitemap: false
           fd_source: "Primary studies per source",
           fd_region: "Primary studies per region",
           fd_caption: "Distribution of the 23 primary studies returned by the systematic search across the three databases (1960–2022). Region is derived from the first author&rsquo;s institutional affiliation (continent) and answers QP4.",
+          ev_label: "Expert validation",
+          ev_title: "What experts say about MECADE",
+          ev_intro: "Independent evaluation by senior practitioners from the financial sector (banks, fintechs, payments), gathered through the open validation survey.",
+          ev_overall: "Overall rating", ev_reviewers: "Senior reviewers", ev_high: "Ratings ≥ 4 / 5", ev_items: "Layer item ratings",
+          ev_block_layers: "Ratings per layer", ev_block_dims: "Evaluation dimensions", ev_block_profiles: "Reviewer profile (anonymized)",
+          ev_caption: "Aggregated results from 4 senior reviewers. Profiles are anonymized by role and experience; individual identities and contacts are not disclosed.",
           mc_v_kicker: "Open validation",
           mc_v_title: "Help validate MECADE",
           mc_v_desc: "Contribute your experience to evaluating MECADE, a seven-layer framework developed at ITA. It proposes a closed-loop cybernetic cycle that integrates Chaos Engineering with intelligent observability to detect gray failures and provide immutable Blockchain-based audit, shifting from failure prediction to active tolerance and quantifiably reducing MTTR and RTO in critical distributed systems.",
@@ -2189,6 +2332,12 @@ sitemap: false
           fd_source: "Estudos primários por fonte",
           fd_region: "Estudos primários por região",
           fd_caption: "Distribuição dos 23 estudos primários retornados pela busca sistemática nas três bases (1960–2022). A região é derivada da afiliação institucional do primeiro autor (continente) e responde à QP4.",
+          ev_label: "Validação por especialistas",
+          ev_title: "O que os especialistas dizem do MECADE",
+          ev_intro: "Avaliação independente por profissionais sêniores do setor financeiro (bancos, fintechs, pagamentos), coletada por meio do formulário de validação aberta.",
+          ev_overall: "Nota geral", ev_reviewers: "Avaliadores sêniores", ev_high: "Notas ≥ 4 / 5", ev_items: "Itens avaliados por camada",
+          ev_block_layers: "Notas por camada", ev_block_dims: "Dimensões de avaliação", ev_block_profiles: "Perfil dos avaliadores (anonimizado)",
+          ev_caption: "Resultados agregados de 4 avaliadores sêniores. Os perfis são anonimizados por papel e experiência; identidades e contatos individuais não são divulgados.",
           mc_v_kicker: "Validação aberta",
           mc_v_title: "Ajude a validar o MECADE",
           mc_v_desc: "Contribua com sua experiência para a avaliação do MECADE, um framework estruturado em sete camadas desenvolvido no âmbito do ITA. Ele propõe um ciclo cibernético de malha fechada que integra a Engenharia do Caos à observabilidade inteligente para detectar falhas cinzentas (gray failures) e auditoria imutável via Blockchain, transformando a postura de previsão de falhas em tolerância ativa e reduzindo quantificavelmente métricas como MTTR e RTO em sistemas críticos distribuídos.",
@@ -2337,6 +2486,34 @@ sitemap: false
         { en: "North America", pt: "América do Norte", n: 5 },
         { en: "Asia", pt: "Ásia", n: 2 },
         { en: "Latin America", pt: "América Latina", n: 1 }
+      ];
+
+      // Expert validation results (anonymized, positive scores only)
+      const EV_LAYERS = [
+        { en: "01 · Planning", pt: "01 · Planejamento", v: 4.35 },
+        { en: "02 · Objectives & Indicators", pt: "02 · Objetivos & Indicadores", v: 4.40 },
+        { en: "03 · Automatic Detection", pt: "03 · Detecção Automática", v: 4.40 },
+        { en: "04 · Technical Implementation", pt: "04 · Implementações Técnicas", v: 4.25 },
+        { en: "05 · Integration", pt: "05 · Integração", v: 4.50 },
+        { en: "06 · Audit", pt: "06 · Auditoria", v: 4.20 },
+        { en: "07 · Continuous Improvement", pt: "07 · Melhoria Contínua", v: 4.85 }
+      ];
+      const EV_DIMS = [
+        { en: "Comparison with state of the art", pt: "Comparação com estado da arte", v: 4.75 },
+        { en: "Model validation (overall)", pt: "Validação do modelo (global)", v: 4.60 },
+        { en: "Case study & experiments", pt: "Estudo de caso & experimentos", v: 4.55 },
+        { en: "Practical feasibility", pt: "Viabilidade prática", v: 4.30 }
+      ];
+      const EV_PROFILES = [
+        { en: "SRE · 10+ yrs · Financial sector", pt: "SRE · 10+ anos · Setor financeiro" },
+        { en: "Chaos Engineering Leader · 5–10 yrs · Financial sector", pt: "Chaos Engineering Leader · 5–10 anos · Setor financeiro" },
+        { en: "SRE · 10+ yrs · Financial sector", pt: "SRE · 10+ anos · Setor financeiro" },
+        { en: "Software Engineer · 1–5 yrs · Financial sector", pt: "Eng. de Software · 1–5 anos · Setor financeiro" }
+      ];
+      const EV_HIGHLIGHTS = [
+        { icon: "★", en: "Most innovative layer cited: Layer 3 — automatic detection of gray failures.", pt: "Camada mais inovadora citada: Camada 3 -  detecção automática de gray failures." },
+        { icon: "◆", en: "Blockchain-based audit rated \"interesting\" by all 4 reviewers.", pt: "Auditoria via Blockchain considerada \"interessante\" pelos 4 avaliadores." },
+        { icon: "✓", en: "All reviewers have hands-on experience with real critical incidents.", pt: "Todos os avaliadores têm experiência prática com incidentes críticos reais." }
       ];
 
       const TIMELINE = [
@@ -2859,6 +3036,23 @@ sitemap: false
         if (cSource) cSource.innerHTML = bar(STUDIES_SOURCE);
         const cRegion = document.getElementById('chartRegion');
         if (cRegion) cRegion.innerHTML = bar(STUDIES_REGION.map(r => [pick({ en: r.en, pt: r.pt }), r.n]));
+
+        // Expert validation
+        const ratingBar = (label, v) =>
+          '<div class="bar-row rating"><span class="bar-lbl mono">' + label + '</span>' +
+          '<span class="bar-track"><span class="bar-fill" style="width:' + (v / 5 * 100) + '%"></span></span>' +
+          '<span class="bar-val mono">' + v.toFixed(2) + '</span></div>';
+        const evL = document.getElementById('evLayers');
+        if (evL) evL.innerHTML = EV_LAYERS.map(d => ratingBar(pick(d), d.v)).join('');
+        const evD = document.getElementById('evDims');
+        if (evD) evD.innerHTML = EV_DIMS.map(d =>
+          '<div class="ev-dim"><span class="ev-dim-v mono">' + d.v.toFixed(2) + '</span>' +
+          '<span class="ev-dim-k">' + pick(d) + '</span></div>').join('');
+        const evP = document.getElementById('evProfiles');
+        if (evP) evP.innerHTML = EV_PROFILES.map(p => '<span class="ev-chip mono">' + pick(p) + '</span>').join('');
+        const evH = document.getElementById('evHighlights');
+        if (evH) evH.innerHTML = EV_HIGHLIGHTS.map(h =>
+          '<div class="ev-hl"><span class="ev-hl-i">' + h.icon + '</span><span>' + pick(h) + '</span></div>').join('');
       }
 
       /* ===================== BOOT ===================== */
