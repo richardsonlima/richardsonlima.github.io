@@ -1,0 +1,1092 @@
+---
+layout: null
+permalink: /portal-ml/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Machine Learning — Início</title>
+    <script src="assets/theme-init.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="assets/portal.css">
+    <style>
+      /* ---------- HOME-ONLY ---------- */
+      .hero {
+        position: relative;
+        padding: 56px 0 24px;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: '';
+        position: absolute;
+        top: -120px;
+        right: -120px;
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(circle, rgba(124, 58, 237, 0.10) 0%, transparent 65%);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 24px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+
+      .meta-stat {
+        border-left: 2px solid var(--accent1);
+        padding-left: 14px;
+      }
+
+      .meta-stat .n {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 1.6rem;
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+
+      .meta-stat .l {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-top: 6px;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 12px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+
+      /* progress panel */
+      .progress-panel {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 24px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .pp-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 18px;
+      }
+
+      .pp-head .l {
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .pp-head .n {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 2rem;
+        letter-spacing: -1px;
+      }
+
+      .pp-head .n .of {
+        font-size: 1rem;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .pp-phases {
+        display: grid;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .pp-phase {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 11px;
+        color: var(--text-dim);
+      }
+
+      .pp-phase .pp-bar {
+        flex: 1;
+        height: 5px;
+        background: var(--bg3);
+        border-radius: 3px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      .pp-phase .pp-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        border-radius: 3px;
+        transition: width 0.4s ease;
+      }
+
+      .pp-phase .pp-name {
+        min-width: 124px;
+        font-weight: 600;
+        color: var(--text);
+        font-size: 11px;
+      }
+
+      .pp-phase .pp-count {
+        min-width: 36px;
+        text-align: right;
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+
+      /* roadmap track */
+      .roadmap {
+        margin-top: 16px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .roadmap-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        position: relative;
+      }
+
+      @media (max-width: 1000px) {
+        .roadmap-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .roadmap-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .rm-step {
+        position: relative;
+        padding: 18px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        border-radius: 6px;
+        cursor: default;
+        transition: all 0.18s;
+      }
+
+      .rm-step:hover {
+        border-color: var(--accent1);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .rm-num {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 1.6rem;
+        letter-spacing: -1px;
+        color: var(--accent1);
+        line-height: 1;
+      }
+
+      .rm-step.s2 .rm-num {
+        color: var(--accent2);
+      }
+
+      .rm-step.s3 .rm-num {
+        color: var(--accent3);
+      }
+
+      .rm-step.s4 .rm-num {
+        color: var(--accent4);
+      }
+
+      .rm-step.s5 .rm-num {
+        color: var(--accent5);
+      }
+
+      .rm-step.s6 .rm-num {
+        color: var(--text);
+      }
+
+      .rm-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin: 10px 0 6px;
+      }
+
+      .rm-title {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--text);
+        line-height: 1.2;
+      }
+
+      .rm-count {
+        font-size: 10px;
+        color: var(--text-muted);
+        margin-top: 8px;
+        letter-spacing: 0.5px;
+      }
+
+      /* paradigms strip */
+      .paradigms {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+
+      @media (max-width: 980px) {
+        .paradigms {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 540px) {
+        .paradigms {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .p-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 18px;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.2s;
+      }
+
+      .p-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .p-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+      }
+
+      .p-card.cyan::before {
+        background: var(--accent1);
+      }
+
+      .p-card.violet::before {
+        background: var(--accent2);
+      }
+
+      .p-card.green::before {
+        background: var(--accent3);
+      }
+
+      .p-card.amber::before {
+        background: var(--accent4);
+      }
+
+      .p-card.red::before {
+        background: var(--accent5);
+      }
+
+      .p-card .pc-tag {
+        font-size: 9.5px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .p-card.cyan .pc-tag {
+        color: var(--accent1);
+      }
+
+      .p-card.violet .pc-tag {
+        color: var(--accent2);
+      }
+
+      .p-card.green .pc-tag {
+        color: var(--accent3);
+      }
+
+      .p-card.amber .pc-tag {
+        color: var(--accent4);
+      }
+
+      .p-card.red .pc-tag {
+        color: var(--accent5);
+      }
+
+      .p-card .pc-name {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 1rem;
+        margin: 10px 0 6px;
+      }
+
+      .p-card .pc-desc {
+        font-size: 11px;
+        color: var(--text-dim);
+        line-height: 1.6;
+      }
+
+      .p-card .pc-algs {
+        font-size: 10px;
+        color: var(--text-muted);
+        margin-top: 12px;
+        letter-spacing: 0.5px;
+      }
+
+      /* feature row */
+      .feat-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      @media (max-width: 1000px) {
+        .feat-row {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .feat-row {
+          grid-template-columns: 1fr !important;
+        }
+      }
+
+      .feat {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 24px;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        transition: all 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feat:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--accent1);
+      }
+
+      .feat-icon {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 16px;
+        background: var(--bg3);
+        font-family: var(--font-sans);
+        font-weight: 800;
+        color: var(--accent1);
+        font-size: 14px;
+      }
+
+      .feat-title {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+
+      .feat-desc {
+        font-size: 12px;
+        color: var(--text-dim);
+        line-height: 1.7;
+      }
+
+      .feat-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 14px;
+        font-size: 11px;
+        color: var(--accent1);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      /* DATA & BACKUP PANEL ------------------------- */
+      .data-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      @media (max-width: 1000px) {
+        .data-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .data-block {
+        background: var(--bg-elev);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        transition: all 0.18s;
+      }
+
+      .data-block:hover {
+        border-color: var(--border-strong);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .data-block-head {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .data-block-title {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 1.05rem;
+        letter-spacing: -0.02em;
+        color: var(--text-strong);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .data-block-sub {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        letter-spacing: -0.005em;
+      }
+
+      .data-block-sub code {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        background: var(--bg-soft);
+        border: 1px solid var(--border-faint);
+        border-radius: 4px;
+        padding: 1px 6px;
+        color: var(--text);
+      }
+
+      .data-block-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+
+      .data-block-meta {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-faint);
+        padding-top: 10px;
+        border-top: 1px solid var(--border-faint);
+      }
+
+      .data-block.unsupported {
+        opacity: 0.6;
+      }
+
+      .data-block.unsupported .btn {
+        pointer-events: none;
+        opacity: 0.6;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: var(--bg-inv);
+        color: var(--text-inv);
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        box-shadow: var(--shadow-lg);
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.2s, transform 0.2s;
+        pointer-events: none;
+        max-width: 480px;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .toast.error {
+        background: var(--accent5);
+        color: white;
+      }
+
+      .toast.success {
+        background: var(--accent3);
+        color: white;
+      }
+
+      .quote {
+        background: var(--bg-inv);
+        color: var(--text-inv);
+        border-radius: var(--radius-lg);
+        padding: 64px 48px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+
+      .quote::before {
+        content: '"';
+        position: absolute;
+        top: -60px;
+        left: 24px;
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 280px;
+        font-weight: 400;
+        color: color-mix(in srgb, var(--text-inv) 8%, transparent);
+        line-height: 1;
+      }
+
+      .quote-text {
+        font-family: var(--font-sans);
+        font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+        font-weight: 400;
+        line-height: 1.35;
+        letter-spacing: -0.025em;
+        max-width: 880px;
+        position: relative;
+      }
+
+      .quote-text em,
+      .quote-text .accent {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-weight: 400;
+        color: var(--accent1);
+      }
+
+      .quote-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .quote-tag {
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--text-inv) 10%, transparent);
+        color: color-mix(in srgb, var(--text-inv) 75%, transparent);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        border: 1px solid color-mix(in srgb, var(--text-inv) 12%, transparent);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="mlp-topbar"></div>
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="fade-up">
+            <div class="eyebrow">Especialista ML & MLOps · Desafio Sênior</div>
+            <h1 class="page-title">Machine Learning <em>operacional</em>,<br>não decorado.</h1>
+            <p class="page-sub">
+              Uma arquitetura mental navegável sob pressão — em entrevista, prova, design de solução e discussão
+              técnica.
+              Paradigma → objetivo matemático → algoritmo → trade-offs → métricas → quando NÃO usar.
+            </p>
+
+            <div class="hero-meta">
+              <div class="meta-stat">
+                <div class="n">5</div>
+                <div class="l">Paradigmas</div>
+              </div>
+              <div class="meta-stat">
+                <div class="n">50</div>
+                <div class="l">Lições estruturadas</div>
+              </div>
+              <div class="meta-stat">
+                <div class="n">10</div>
+                <div class="l">Etapas de estudo</div>
+              </div>
+              <div class="meta-stat">
+                <div class="n">10</div>
+                <div class="l">Dimensões por algoritmo</div>
+              </div>
+            </div>
+
+            <div class="hero-cta">
+              <a class="btn primary" href="curriculum.html">Começar pela trilha <span class="btn-arrow">→</span></a>
+              <a class="btn" href="lessons.html">Explorar algoritmos</a>
+              <a class="btn ghost" href="interview.html">Modo entrevista</a>
+            </div>
+          </div>
+
+          <div class="progress-panel fade-up d2">
+            <div class="pp-head">
+              <div>
+                <div class="l">Seu progresso</div>
+                <div class="n" id="pp-total">0<span class="of">/50</span></div>
+              </div>
+              <div style="text-align:right">
+                <div class="l">Conclusão</div>
+                <div class="n" id="pp-pct">0%</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="pp-fill" style="width:0%"></div>
+            </div>
+            <div class="pp-phases" id="pp-phases">
+              <!-- filled by JS -->
+            </div>
+            <div style="display:flex;gap:8px;margin-top:18px">
+              <a class="btn ghost" href="curriculum.html" style="flex:1;justify-content:center">Continuar</a>
+              <button class="btn ghost" id="pp-reset" title="Limpar progresso">↻</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARADIGMAS -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2 class="section-title">Paradigmas Fundamentais</h2>
+          <div class="section-line"></div>
+          <span class="section-aside">5 famílias · 1 objetivo cada</span>
+        </div>
+
+        <div class="paradigms">
+          <a href="lessons.html#supervisionado" class="p-card cyan fade-up">
+            <div class="pc-tag">01 · Tem rótulo</div>
+            <div class="pc-name">Supervisionado</div>
+            <div class="pc-desc">Aprende f(X)→y a partir de pares entrada/rótulo. Regressão e classificação.</div>
+            <div class="pc-algs">Linear · Ridge · Lasso · RF · XGBoost · SVM · KNN</div>
+          </a>
+          <a href="lessons.html#nao-supervisionado" class="p-card violet fade-up d1">
+            <div class="pc-tag">02 · Sem rótulo</div>
+            <div class="pc-name">Não-Supervisionado</div>
+            <div class="pc-desc">Descobre estrutura oculta. Clustering, redução de dimensão, anomalia.</div>
+            <div class="pc-algs">K-Means · DBSCAN · PCA · t-SNE · UMAP · iForest</div>
+          </a>
+          <a href="lessons.html#semi" class="p-card green fade-up d2">
+            <div class="pc-tag">03 · Label escasso</div>
+            <div class="pc-name">Semi-Supervisionado</div>
+            <div class="pc-desc">Poucos rótulos + muitos dados. Pseudo-labeling, consistency, label propagation.</div>
+            <div class="pc-algs">Pseudo-label · Consistency · HITL · Active</div>
+          </a>
+          <a href="lessons.html#auto" class="p-card amber fade-up d3">
+            <div class="pc-tag">04 · Modelo gera target</div>
+            <div class="pc-name">Auto-Supervisionado</div>
+            <div class="pc-desc">Modelo cria o próprio rótulo. Fundação dos LLMs e foundation models.</div>
+            <div class="pc-algs">MLM · NTP · Contrastive · Embeddings</div>
+          </a>
+          <a href="lessons.html#rl" class="p-card red fade-up d4">
+            <div class="pc-tag">05 · Por interação</div>
+            <div class="pc-name">Reinforcement Learning</div>
+            <div class="pc-desc">Agente maximiza recompensa acumulada num ambiente. Decisão sob incerteza.</div>
+            <div class="pc-algs">Q-Learning · DQN · PPO · RLHF</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ROADMAP -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Roadmap em 10 etapas</h2>
+          <div class="section-line"></div>
+          <span class="section-aside"><a href="curriculum.html" style="color:var(--accent1);text-decoration:none">ver
+              detalhe →</a></span>
+        </div>
+
+        <div class="roadmap">
+          <div class="roadmap-grid" id="roadmap-grid"></div>
+        </div>
+      </section>
+
+      <!-- FEATURES / SECTIONS -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Como usar este portal</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="feat-row" style="grid-template-columns:repeat(4,1fr)">
+          <a class="feat fade-up" href="curriculum.html">
+            <div class="feat-icon">→</div>
+            <div class="feat-title">Trilha sequencial</div>
+            <div class="feat-desc">10 etapas, 50 lições — da regressão linear ao MLOps em produção. Marque o que
+              dominou.</div>
+            <div class="feat-link">Abrir trilha <span>→</span></div>
+          </a>
+          <a class="feat fade-up d1" href="lessons.html">
+            <div class="feat-icon">⌗</div>
+            <div class="feat-title">Catálogo de algoritmos</div>
+            <div class="feat-desc">33 algoritmos canônicos. Filtre por paradigma, abra a ficha técnica: hipótese,
+              trade-off, métrica, quando NÃO usar.</div>
+            <div class="feat-link">Explorar <span>→</span></div>
+          </a>
+          <a class="feat fade-up d2" href="interview.html">
+            <div class="feat-icon">?</div>
+            <div class="feat-title">Modo entrevista</div>
+            <div class="feat-desc">Framework de 10 dimensões por algoritmo + flashcards de active recall com sorteio
+              aleatório.</div>
+            <div class="feat-link">Praticar <span>→</span></div>
+          </a>
+          <a class="feat fade-up d3" href="resources.html">
+            <div class="feat-icon">▣</div>
+            <div class="feat-title">Recursos & plano</div>
+            <div class="feat-desc">Cronograma de 4 semanas, livros, whitepapers canônicos, plataformas de prática e
+              matriz de competências.</div>
+            <div class="feat-link">Abrir <span>→</span></div>
+          </a>
+        </div>
+      </section>
+
+      <!-- QUOTE / NORTH STAR -->
+      <section class="section">
+        <div class="quote fade-up">
+          <div class="quote-text">
+            Pare de enxergar ML como <span class="accent">"biblioteca sklearn"</span><br>
+            e comece a enxergar como geometria, otimização, probabilidade, sistemas distribuídos e tomada de decisão sob
+            incerteza.
+          </div>
+          <div class="quote-tags">
+            <span class="quote-tag">geometria</span>
+            <span class="quote-tag">otimização</span>
+            <span class="quote-tag">probabilidade</span>
+            <span class="quote-tag">sistemas distribuídos</span>
+            <span class="quote-tag">teoria da informação</span>
+            <span class="quote-tag">decisão sob incerteza</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 FASES DE DOMÍNIO -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <h2 class="section-title">Três fases de domínio</h2>
+          <div class="section-line"></div>
+          <span class="section-aside">do "decorou ML" ao "pensa como ML eng"</span>
+        </div>
+
+        <div class="cards-grid cols-3">
+          <div class="card cyan fade-up">
+            <div class="card-label">Fase 1 · Estrutura mental</div>
+            <div class="card-title">Taxonomia sem matemática</div>
+            <div class="card-desc">Memorize paradigmas, objetivos, exemplos e algoritmos principais. Sem matemática
+              profunda. O que é, quando usar, quando NÃO usar.</div>
+          </div>
+          <div class="card violet fade-up d1">
+            <div class="card-label">Fase 2 · Fundamentos</div>
+            <div class="card-title">Matemática por algoritmo</div>
+            <div class="card-desc">Função custo · Otimização · Bias vs Variance · Regularização · Geometria ·
+              Complexidade computacional.</div>
+          </div>
+          <div class="card green fade-up d2">
+            <div class="card-label">Fase 3 · Engenharia</div>
+            <div class="card-title">O gap que destrói teóricos</div>
+            <div class="card-desc">Feature engineering · Pipelines · Data leakage · Validação · Drift · Métricas ·
+              Inferência · Serving · MLOps.</div>
+            <!-- DADOS & BACKUP -->
+            <section class="section" id="dados">
+              <div class="section-header">
+                <span class="section-num">05</span>
+                <h2 class="section-title">Dados & Backup</h2>
+                <div class="section-line"></div>
+                <span class="section-aside" id="data-status">salvo localmente</span>
+              </div>
+
+              <div class="data-grid">
+                <div class="data-block">
+                  <div class="data-block-head">
+                    <div class="data-block-title">Exportar progresso</div>
+                    <div class="data-block-sub">Baixe um snapshot legível em Markdown ou JSON. Versione no git,
+                      sincronize via Dropbox, ou guarde como backup.</div>
+                  </div>
+                  <div class="data-block-actions">
+                    <button class="btn primary" id="btn-export-md">↓ Markdown <span class="btn-arrow">→</span></button>
+                    <button class="btn" id="btn-export-json">↓ JSON</button>
+                  </div>
+                  <div class="data-block-meta" id="data-meta">— vistas, — acertos</div>
+                </div>
+
+                <div class="data-block">
+                  <div class="data-block-head">
+                    <div class="data-block-title">Importar progresso</div>
+                    <div class="data-block-sub">Selecione um <code>.md</code> ou <code>.json</code> exportado. O estado
+                      é mesclado — timestamps mais recentes vencem.</div>
+                  </div>
+                  <div class="data-block-actions">
+                    <button class="btn primary" id="btn-import">↑ Selecionar arquivo</button>
+                    <button class="btn ghost" id="btn-reset-all" title="Apagar todo o progresso local">Apagar
+                      tudo</button>
+                  </div>
+                  <div class="data-block-meta" id="import-status">aguardando arquivo…</div>
+                </div>
+
+                <div class="data-block" id="sync-block">
+                  <div class="data-block-head">
+                    <div class="data-block-title">
+                      Sincronizar com arquivo
+                      <span class="badge badge-ghost" id="sync-badge">não conectado</span>
+                    </div>
+                    <div class="data-block-sub" id="sync-help">Conecte um arquivo <code>.md</code> local — toda
+                      atualização (concluir lição, flashcard) grava automaticamente. Funciona como um vault do Obsidian.
+                    </div>
+                  </div>
+                  <div class="data-block-actions" id="sync-actions">
+                    <button class="btn primary" id="btn-sync-connect">⊕ Conectar arquivo</button>
+                    <button class="btn" id="btn-sync-load">⤓ Carregar de arquivo</button>
+                  </div>
+                  <div class="data-block-meta" id="sync-meta">disponível em Chrome / Edge</div>
+                </div>
+              </div>
+            </section>
+
+            <div id="mlp-footer"></div>
+
+            <script src="assets/lessons.js"></script>
+            <script src="assets/portal.js"></script>
+            <script>
+              MLPortal.mount('home');
+
+              // Roadmap — render all etapas from the catalog
+              (function renderRoadmap() {
+                const host = document.getElementById('roadmap-grid');
+                if (!host || !window.LESSON_CATALOG) return;
+                host.innerHTML = window.LESSON_CATALOG.map(e => {
+                  const sClass = 's' + (((e.n - 1) % 5) + 1);
+                  return `
+        <a href="curriculum.html#${e.slug}" class="rm-step ${sClass}" style="text-decoration:none">
+          <div class="rm-num">${String(e.n).padStart(2, '0')}</div>
+          <div class="rm-label">Etapa</div>
+          <div class="rm-title">${e.title}</div>
+          <div class="rm-count">${e.lessons.length} lições</div>
+        </a>`;
+                }).join('');
+              })();
+
+              // Phase progress visualization — derived from the catalog (always in sync)
+              const PHASES = (window.LESSON_CATALOG || []).map(e => ({
+                name: e.title,
+                lessons: e.lessons.map(l => l.id)
+              }));
+
+              function renderPhases() {
+                const ppHost = document.getElementById('pp-phases');
+                const colors = ['var(--accent1)', 'var(--accent2)', 'var(--accent3)', 'var(--accent4)', 'var(--accent5)', 'var(--accent1)', 'var(--accent2)', 'var(--accent3)', 'var(--accent4)', 'var(--accent5)'];
+                let totalDone = 0, totalAll = 0;
+                ppHost.innerHTML = PHASES.map((p, i) => {
+                  const done = p.lessons.filter(id => MLPortal.isDone(id)).length;
+                  const pct = Math.round(100 * done / p.lessons.length);
+                  totalDone += done; totalAll += p.lessons.length;
+                  return `
+        <div class="pp-phase">
+          <span class="pp-name">${String(i + 1).padStart(2, '0')} · ${p.name}</span>
+          <div class="pp-bar"><div class="pp-bar-fill" style="width:${pct}%;background:${colors[i % colors.length]}"></div></div>
+          <span class="pp-count">${done}/${p.lessons.length}</span>
+        </div>`;
+                }).join('');
+                document.getElementById('pp-total').innerHTML = `${totalDone}<span class="of">/${totalAll}</span>`;
+                document.getElementById('pp-pct').textContent = (totalAll ? Math.round(100 * totalDone / totalAll) : 0) + '%';
+                document.getElementById('pp-fill').style.width = (totalAll ? (100 * totalDone / totalAll) : 0) + '%';
+              }
+              renderPhases();
+              window.addEventListener('mlp:progress', renderPhases);
+
+              document.getElementById('pp-reset').addEventListener('click', () => {
+                if (confirm('Limpar todo o progresso?')) MLPortal.reset();
+              });
+
+              // ---------- DADOS & BACKUP ----------
+              function toast(msg, kind = '') {
+                let el = document.querySelector('.toast');
+                if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); }
+                el.textContent = msg;
+                el.className = 'toast show' + (kind ? ' ' + kind : '');
+                clearTimeout(toast._t);
+                toast._t = setTimeout(() => { el.className = 'toast'; }, 3000);
+              }
+
+              function updateDataMeta() {
+                let stats = { seen: 0, hit: 0, miss: 0 };
+                try { stats = JSON.parse(localStorage.getItem('ml_portal_fc_stats_v1')) || stats; } catch (_) { }
+                const total = stats.hit + stats.miss;
+                const rate = total ? Math.round(100 * stats.hit / total) + '% acerto' : '';
+                document.getElementById('data-meta').textContent =
+                  `${MLPortal.completedCount()} lições · ${stats.seen} cartas vistas · ${stats.hit} acertos${rate ? ' · ' + rate : ''}`;
+              }
+              updateDataMeta();
+              window.addEventListener('mlp:progress', updateDataMeta);
+              window.addEventListener('mlp:fcstats', updateDataMeta);
+
+              // export
+              document.getElementById('btn-export-md').addEventListener('click', () => {
+                MLPortal.downloadMarkdown();
+                toast('Arquivo .md baixado', 'success');
+              });
+              document.getElementById('btn-export-json').addEventListener('click', () => {
+                MLPortal.downloadJSON();
+                toast('Arquivo .json baixado', 'success');
+              });
+
+              // import
+              document.getElementById('btn-import').addEventListener('click', async () => {
+                try {
+                  const snap = await MLPortal.pickAndImport('merge');
+                  const n = Object.keys(snap.progress || {}).length;
+                  document.getElementById('import-status').textContent = `Último import: ${n} lição(ões) reconhecida(s) · ${new Date().toLocaleTimeString()}`;
+                  toast(`Importado: ${n} lições`, 'success');
+                  renderPhases();
+                  updateDataMeta();
+                } catch (err) {
+                  if (err.message !== 'Cancelado') {
+                    document.getElementById('import-status').textContent = 'Erro: ' + err.message;
+                    toast('Falha no import: ' + err.message, 'error');
+                  }
+                }
+              });
+
+              // reset all
+              document.getElementById('btn-reset-all').addEventListener('click', () => {
+                if (confirm('Apagar TODO o progresso local? Esta ação não pode ser desfeita.\n\nDica: exporte um .md antes para não perder.')) {
+                  MLPortal.reset();
+                  try { localStorage.removeItem('ml_portal_fc_stats_v1'); } catch (_) { }
+                  renderPhases();
+                  updateDataMeta();
+                  toast('Progresso limpo');
+                }
+              });
+
+              // ---------- SYNC (File System Access API) ----------
+              const syncBlock = document.getElementById('sync-block');
+              const syncBadge = document.getElementById('sync-badge');
+              const syncMeta = document.getElementById('sync-meta');
+              const syncActions = document.getElementById('sync-actions');
+              const syncHelp = document.getElementById('sync-help');
+
+              async function refreshSyncUI() {
+                if (!MLPortal.fsaSupported) {
+                  syncBlock.classList.add('unsupported');
+                  syncBadge.textContent = 'não suportado';
+                  syncMeta.textContent = 'use Chrome ou Edge para auto-sync';
+                  return;
+                }
+                const handle = await MLPortal.getSyncHandle();
+                if (handle) {
+                  syncBadge.textContent = 'conectado';
+                  syncBadge.className = 'badge badge-green';
+                  syncMeta.textContent = `arquivo: ${handle.name} · grava automaticamente`;
+                  syncActions.innerHTML = `
+        <button class="btn" id="btn-sync-write">↻ Salvar agora</button>
+        <button class="btn ghost" id="btn-sync-disc">✕ Desconectar</button>
+      `;
+                  document.getElementById('btn-sync-write').onclick = async () => {
+                    const ok = await MLPortal.writeSyncFile();
+                    toast(ok ? 'Arquivo atualizado' : 'Sem permissão de gravação', ok ? 'success' : 'error');
+                  };
+                  document.getElementById('btn-sync-disc').onclick = async () => {
+                    await MLPortal.disconnectSyncFile();
+                    refreshSyncUI();
+                    toast('Desconectado');
+                  };
+                } else {
+                  syncBadge.textContent = 'não conectado';
+                  syncBadge.className = 'badge badge-ghost';
+                  syncMeta.textContent = 'disponível · Chrome / Edge';
+                  syncActions.innerHTML = `
+        <button class="btn primary" id="btn-sync-connect">⊕ Conectar arquivo</button>
+        <button class="btn" id="btn-sync-load">⤓ Carregar de arquivo</button>
+      `;
+                  document.getElementById('btn-sync-connect').onclick = async () => {
+                    try {
+                      await MLPortal.connectSyncFile();
+                      toast('Arquivo conectado · auto-sync ativo', 'success');
+                      refreshSyncUI();
+                    } catch (err) {
+                      if (err.name !== 'AbortError') toast('Erro: ' + err.message, 'error');
+                    }
+                  };
+                  document.getElementById('btn-sync-load').onclick = async () => {
+                    try {
+                      const snap = await MLPortal.loadFromSyncFile();
+                      const n = Object.keys(snap.progress || {}).length;
+                      toast(`Carregado: ${n} lições · auto-sync ativo`, 'success');
+                      refreshSyncUI();
+                      renderPhases();
+                      updateDataMeta();
+                    } catch (err) {
+                      if (err.name !== 'AbortError') toast('Erro: ' + err.message, 'error');
+                    }
+                  };
+                }
+              }
+              refreshSyncUI();
+            </script>
+  </body>
+
+</html>

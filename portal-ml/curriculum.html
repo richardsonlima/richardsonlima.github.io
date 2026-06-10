@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trilha de Estudo — Portal de ML</title>
+<script src="assets/theme-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portal.css">
+<style>
+  /* TRILHA — vertical com timeline */
+  .trail-head {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 900px) { .trail-head { grid-template-columns: 1fr; } }
+
+  .legend {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 20px;
+    font-size: 11.5px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .legend strong { color: var(--text); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .legend-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+  .legend-row .dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .legend-row .dot.todo { background: var(--bg3); border: 1px solid var(--border); }
+  .legend-row .dot.done { background: var(--accent3); }
+
+  .etapa {
+    position: relative;
+    margin-top: 56px;
+    padding-left: 0;
+  }
+  .etapa-bar {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .etapa-num {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 4rem;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--accent1);
+  }
+  .etapa.s2 .etapa-num { color: var(--accent2); }
+  .etapa.s3 .etapa-num { color: var(--accent3); }
+  .etapa.s4 .etapa-num { color: var(--accent4); }
+  .etapa.s5 .etapa-num { color: var(--accent5); }
+  .etapa.s6 .etapa-num { color: var(--text); }
+
+  .etapa-meta .lbl {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .etapa-meta .ttl {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .etapa-meta .sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    max-width: 540px;
+  }
+
+  .etapa-progress {
+    text-align: right;
+    min-width: 160px;
+  }
+  .etapa-progress .pct {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .etapa-progress .of {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .lessons-list {
+    display: grid;
+    gap: 10px;
+  }
+  .lesson-row {
+    display: grid;
+    grid-template-columns: 30px 56px 1fr auto auto auto;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 18px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .lesson-row:hover { border-color: rgba(0,112,243,0.4); background: rgba(0,112,243,0.02); transform: translateX(2px); }
+  .lesson-row.done { background: rgba(5,150,105,0.04); border-color: rgba(5,150,105,0.25); }
+  .lesson-row.done .ll-title { color: var(--text-muted); }
+  .lesson-row.done .ll-checkbox { background: var(--accent3); border-color: var(--accent3); color: white; }
+  .lesson-row.done .ll-checkbox::after { content: '✓'; }
+  .lesson-row.done .ll-checkbox .num { display: none; }
+
+  .ll-checkbox {
+    width: 28px; height: 28px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 5px;
+    background: var(--bg);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent3);
+    cursor: pointer;
+  }
+  .ll-checkbox:hover { border-color: var(--accent3); }
+  .ll-checkbox .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent1);
+  }
+  .ll-subprog {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--bg);
+    min-width: 56px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .ll-subprog.partial { color: var(--accent1); border-color: color-mix(in srgb, var(--accent1) 30%, var(--border)); background: var(--accent1-soft); }
+  .ll-subprog.complete { color: var(--accent3); border-color: color-mix(in srgb, var(--accent3) 30%, var(--border)); background: var(--accent3-soft); }
+  .ll-arrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-faint);
+    transition: color 0.15s, transform 0.15s;
+  }
+  .lesson-row:hover .ll-arrow { color: var(--accent1); transform: translateX(3px); }
+
+  .ll-idx {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+
+  .ll-body .ll-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    letter-spacing: -0.2px;
+  }
+  .ll-body .ll-desc {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  .ll-meta {
+    display: flex; gap: 6px; align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .ll-time {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--bg);
+  }
+
+  /* Top summary */
+  .summary-card {
+    background: linear-gradient(135deg, var(--bg2), var(--bg3));
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 32px;
+  }
+  @media (max-width: 700px) { .summary-card { grid-template-columns: repeat(2, 1fr); } }
+
+  .summary-cell {
+    padding: 0 18px;
+    border-right: 1px solid var(--border);
+  }
+  .summary-cell:last-child { border-right: none; }
+  .summary-cell:first-child { padding-left: 0; }
+  @media (max-width: 700px) { .summary-cell { border-right: none; padding: 12px 0; } }
+
+  .summary-cell .lbl {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .summary-cell .val {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .summary-cell .sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="mlp-topbar"></div>
+
+<main>
+
+  <!-- HEAD -->
+  <div class="trail-head fade-up">
+    <div>
+      <div class="eyebrow">Ordem ideal de estudo</div>
+      <h1 class="page-title">Trilha em <em>10 etapas</em></h1>
+      <p class="page-sub">
+        50 lições sequenciadas — da regressão linear ao MLOps em produção.
+        Clique em qualquer lição para marcar como dominada. Seu progresso é salvo localmente.
+      </p>
+    </div>
+    <div class="legend">
+      <strong>// Como ler</strong><br>
+      Cada etapa é um nível conceitual. A ordem importa: cada bloco assume o anterior.<br>
+      <div class="legend-row"><div class="dot todo"></div> Pendente — clique para concluir</div>
+      <div class="legend-row"><div class="dot done"></div> Concluído — clique para reverter</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-card fade-up d1">
+    <div class="summary-cell">
+      <div class="lbl">Concluído</div>
+      <div class="val" id="tot-done">0<span style="font-size:1rem;color:var(--text-muted)">/50</span></div>
+      <div class="sub">Lições marcadas</div>
+    </div>
+    <div class="summary-cell">
+      <div class="lbl">Progresso</div>
+      <div class="val" id="tot-pct">0%</div>
+      <div class="sub" style="margin-top:8px"><div class="progress-bar"><div class="progress-fill" id="tot-fill"></div></div></div>
+    </div>
+    <div class="summary-cell">
+      <div class="lbl">Etapa atual</div>
+      <div class="val" id="tot-stage" style="font-size:1.4rem">Etapa 01</div>
+      <div class="sub" id="tot-stage-name">Base matemática</div>
+    </div>
+    <div class="summary-cell">
+      <div class="lbl">Próximo passo</div>
+      <div class="val" id="tot-next" style="font-size:1.1rem;color:var(--accent1)">Linear Regression</div>
+      <div class="sub">A primeira pedra</div>
+    </div>
+  </div>
+
+  <!-- ETAPAS -->
+  <div id="trail-host"></div>
+
+  <!-- WHY ORDER MATTERS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Por que esta ordem?</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="cards-grid cols-3">
+      <div class="card cyan">
+        <div class="card-label">Princípio 01</div>
+        <div class="card-title">Linear antes de não-linear</div>
+        <div class="card-desc">Regressão linear/logística estabelecem a gramática: função custo, gradient descent, regularização, overfitting. Tudo o que vem depois é variação sobre esse tema.</div>
+      </div>
+      <div class="card violet">
+        <div class="card-label">Princípio 02</div>
+        <div class="card-title">Árvores antes de geometria</div>
+        <div class="card-desc">Random Forest e XGBoost dominam o mercado tabular. Aprenda primeiro o que paga as contas, depois entre no kernel trick e PCA.</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">Princípio 03</div>
+        <div class="card-title">Supervisionado antes do resto</div>
+        <div class="card-desc">Sem entender bias-variance e validação, clustering e RL viram chute. A intuição supervisionada é pré-requisito de tudo.</div>
+      </div>
+      <div class="card amber">
+        <div class="card-label">Princípio 04</div>
+        <div class="card-title">Deep depois de clássico</div>
+        <div class="card-desc">MLP é regressão logística empilhada. CNN é convolução + MLP. Transformers são atenção + MLP. Sem o clássico, é magia.</div>
+      </div>
+      <div class="card red">
+        <div class="card-label">Princípio 05</div>
+        <div class="card-title">IA moderna por último</div>
+        <div class="card-desc">SSL, RLHF, RAG, agents — todos pressupõem o stack inteiro. Pular para LLMs sem base produz prompt engineers, não engenheiros de ML.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Princípio 06</div>
+        <div class="card-title">Engenharia em paralelo</div>
+        <div class="card-desc">Feature engineering, leakage, validação, drift, serving — não esperam. Pratique em paralelo desde a etapa 1, com dados reais.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="mlp-footer"></div>
+
+<script src="assets/lessons.js"></script>
+<script src="assets/content.js"></script>
+<script src="assets/content-2.js"></script>
+<script src="assets/content-3.js"></script>
+<script src="assets/content-4.js"></script>
+<script src="assets/content-5.js"></script>
+<script src="assets/portal.js"></script>
+<script>
+  MLPortal.mount('curriculum');
+
+  const ETAPAS = window.LESSON_CATALOG || [
+    {
+      n: 1, slug: 'etapa-1', title: 'Base matemática',
+      sub: 'A gramática do ML: função custo, gradient descent, overfitting, regularização. Tudo o que vem depois é variação.',
+      lessons: [
+        { id: 'linear-reg',     idx: '01', title: 'Linear Regression',     desc: 'Relação linear, MSE, equação normal, gradient descent', time: '90 min' },
+        { id: 'logistic-reg',   idx: '02', title: 'Logistic Regression',   desc: 'Sigmoide, log-loss, fronteira de decisão linear',       time: '75 min' },
+        { id: 'metrics',        idx: '03', title: 'Métricas',              desc: 'MSE · RMSE · MAE · Accuracy · Precision · Recall · F1 · ROC-AUC', time: '60 min' },
+        { id: 'overfitting',    idx: '04', title: 'Overfitting & Bias-Variance', desc: 'Curva de aprendizado, validação cruzada, train/val/test', time: '60 min' },
+        { id: 'regularization', idx: '05', title: 'Regularização L1/L2',   desc: 'Ridge, Lasso, ElasticNet — geometria e seleção de features', time: '60 min' },
+      ]
+    },
+    {
+      n: 2, slug: 'etapa-2', title: 'Árvores & ensembles',
+      sub: 'O motor que ganha 70% dos problemas tabulares no mundo real. Bagging, boosting, regularização em árvores.',
+      lessons: [
+        { id: 'decision-tree',     idx: '06', title: 'Decision Trees',       desc: 'Gini, entropia, split, profundidade, pruning',          time: '60 min' },
+        { id: 'random-forest',     idx: '07', title: 'Random Forest',        desc: 'Bagging, feature subsampling, OOB, importância',         time: '60 min' },
+        { id: 'gradient-boosting', idx: '08', title: 'Gradient Boosting',    desc: 'Residuos, learning rate, árvores fracas em sequência',  time: '75 min' },
+        { id: 'xgboost',           idx: '09', title: 'XGBoost / LightGBM',   desc: 'Histogram, leaf-wise, regularização, GPU, por que domina Kaggle', time: '90 min' },
+      ]
+    },
+    {
+      n: 3, slug: 'etapa-3', title: 'Geometria & distância',
+      sub: 'Pense em ML como espaço vetorial: distâncias, fronteiras, projeções. A base para deep learning e embeddings.',
+      lessons: [
+        { id: 'knn', idx: '10', title: 'K-Nearest Neighbors', desc: 'Distância euclidiana, K, custo O(n) na inferência, KD-tree',  time: '45 min' },
+        { id: 'svm', idx: '11', title: 'SVM + Kernel Trick',  desc: 'Margem máxima, vetores de suporte, kernels RBF/poly',          time: '90 min' },
+        { id: 'pca', idx: '12', title: 'PCA',                 desc: 'Variância máxima, autovetores, projeção, scree plot',         time: '60 min' },
+      ]
+    },
+    {
+      n: 4, slug: 'etapa-4', title: 'Não-supervisionado',
+      sub: 'Quando não há rótulo: descobrir estrutura, agrupar, projetar, isolar o estranho.',
+      lessons: [
+        { id: 'clustering', idx: '13', title: 'Clustering',           desc: 'K-Means, DBSCAN, Hierarchical, escolha de K, silhouette', time: '75 min' },
+        { id: 'anomaly',    idx: '14', title: 'Anomaly Detection',    desc: 'Isolation Forest, One-Class SVM, Autoencoder',           time: '60 min' },
+        { id: 'tsne-umap',  idx: '15', title: 't-SNE / UMAP',         desc: 'Visualização de embeddings, local vs global, produção',  time: '60 min' },
+      ]
+    },
+    {
+      n: 5, slug: 'etapa-5', title: 'Deep learning',
+      sub: 'MLP é regressão logística empilhada. CNN é convolução + MLP. Transformer é atenção + MLP. Não é mágica.',
+      lessons: [
+        { id: 'mlp',          idx: '16', title: 'MLP',          desc: 'Backprop, ativações, inicialização, batch norm',          time: '120 min' },
+        { id: 'cnn',          idx: '17', title: 'CNN',          desc: 'Convolução, pooling, receptive field, transfer learning',  time: '90 min' },
+        { id: 'rnn',          idx: '18', title: 'RNN / LSTM',   desc: 'Memória, vanishing gradient, GRU vs LSTM',                 time: '75 min' },
+        { id: 'transformers', idx: '19', title: 'Transformers', desc: 'Self-attention, positional encoding, encoder/decoder',     time: '120 min' },
+      ]
+    },
+    {
+      n: 6, slug: 'etapa-6', title: 'AI moderna',
+      sub: 'O stack atual: foundation models, alinhamento, retrieval, ferramentas, multimodalidade.',
+      lessons: [
+        { id: 'ssl',        idx: '20', title: 'Self-Supervised Learning', desc: 'MLM, NTP, contrastive, embeddings',                time: '60 min' },
+        { id: 'rlhf',       idx: '21', title: 'RLHF',                     desc: 'Reward model, PPO, alinhamento, DPO',              time: '75 min' },
+        { id: 'rag',        idx: '22', title: 'RAG',                      desc: 'Embeddings, retrieval, chunking, re-ranking',      time: '60 min' },
+        { id: 'agents',     idx: '23', title: 'Agents',                   desc: 'Tool use, planning, ReAct, multi-step reasoning',  time: '60 min' },
+        { id: 'multimodal', idx: '24', title: 'Multimodal',               desc: 'CLIP, vision-language, audio, fusion strategies',  time: '75 min' },
+      ]
+    },
+  ];
+
+  const colorByStage = ['cyan','violet','green','amber','red','dark'];
+
+  function getSubProgress(lessonId) {
+    const content = (window.LESSON_CONTENT || {})[lessonId];
+    if (!content || !content.sections) return null;
+    const ids = content.sections.map(s => s.id);
+    return MLPortal.lessonProgress(lessonId, ids);
+  }
+
+  function renderTrail() {
+    const host = document.getElementById('trail-host');
+    host.innerHTML = ETAPAS.map((etapa, i) => {
+      const done = etapa.lessons.filter(l => MLPortal.isDone(l.id)).length;
+      const pct = Math.round(100 * done / etapa.lessons.length);
+      const rows = etapa.lessons.map(l => {
+        const lessonDone = MLPortal.isDone(l.id);
+        const sub = getSubProgress(l.id);
+        let subBadge = '';
+        if (sub && sub.total > 0) {
+          if (sub.pct === 100) subBadge = `<span class="ll-subprog complete">✓ ${sub.total} seções</span>`;
+          else if (sub.done > 0) subBadge = `<span class="ll-subprog partial">${sub.done}/${sub.total} seções</span>`;
+          else subBadge = `<span class="ll-subprog">${sub.total} seções</span>`;
+        } else if ((window.LESSON_CONTENT || {})[l.id]) {
+          subBadge = `<span class="ll-subprog">Estudar →</span>`;
+        } else {
+          subBadge = `<span class="ll-subprog" style="opacity:0.6">em breve</span>`;
+        }
+        const hasContent = !!(window.LESSON_CONTENT || {})[l.id];
+        return `
+          <a class="lesson-row ${lessonDone ? 'done' : ''}" data-lesson-id="${l.id}" href="${hasContent ? 'lesson.html?id=' + l.id : '#'}">
+            <button class="ll-checkbox" data-toggle-lesson="${l.id}" aria-label="Marcar lição"><span class="num">${l.idx}</span></button>
+            <div class="ll-idx">${l.idx}</div>
+            <div class="ll-body">
+              <div class="ll-title">${l.title}</div>
+              <div class="ll-desc">${l.desc}</div>
+            </div>
+            ${subBadge}
+            <div class="ll-meta">
+              <span class="ll-time">${l.time}</span>
+            </div>
+            <div class="ll-arrow">→</div>
+          </a>
+        `;
+      }).join('');
+      return `
+        <section class="etapa s${etapa.n}" id="${etapa.slug}">
+          <div class="etapa-bar">
+            <div class="etapa-num">${String(etapa.n).padStart(2,'0')}</div>
+            <div class="etapa-meta">
+              <div class="lbl">Etapa ${String(etapa.n).padStart(2,'0')}</div>
+              <div class="ttl">${etapa.title}</div>
+              <div class="sub">${etapa.sub}</div>
+            </div>
+            <div class="etapa-progress">
+              <div class="pct" data-pct-for="${etapa.slug}">${pct}%</div>
+              <div class="of">${done} / ${etapa.lessons.length} lições</div>
+              <div class="progress-bar" style="margin-top:10px"><div class="progress-fill" data-bar-for="${etapa.slug}" style="width:${pct}%"></div></div>
+            </div>
+          </div>
+          <div class="lessons-list">${rows}</div>
+        </section>
+      `;
+    }).join('');
+
+    // bind checkbox clicks (toggle lesson done, stop nav)
+    host.querySelectorAll('[data-toggle-lesson]').forEach(btn => {
+      btn.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        const id = btn.dataset.toggleLesson;
+        MLPortal.toggle(id);
+        // refresh just that row + stats
+        const row = btn.closest('.lesson-row');
+        if (row) row.classList.toggle('done', MLPortal.isDone(id));
+        refreshStats();
+      });
+    });
+  }
+
+  function refreshStats() {
+    let done = 0, total = 0, currentStage = 1, currentStageName = '', nextLesson = null;
+    ETAPAS.forEach((e, i) => {
+      const ld = e.lessons.filter(l => MLPortal.isDone(l.id)).length;
+      const pct = Math.round(100 * ld / e.lessons.length);
+      done += ld; total += e.lessons.length;
+      const pctEl = document.querySelector(`[data-pct-for="${e.slug}"]`);
+      const barEl = document.querySelector(`[data-bar-for="${e.slug}"]`);
+      if (pctEl) pctEl.textContent = pct + '%';
+      if (barEl) barEl.style.width = pct + '%';
+      if (pct < 100 && !nextLesson) {
+        currentStage = e.n;
+        currentStageName = e.title;
+        nextLesson = e.lessons.find(l => !MLPortal.isDone(l.id));
+      }
+    });
+    if (!nextLesson) { nextLesson = { title: 'Tudo concluído 🎯' }; currentStageName = 'Maestria'; currentStage = 6; }
+    document.getElementById('tot-done').innerHTML = `${done}<span style="font-size:1rem;color:var(--text-muted)">/${total}</span>`;
+    const pct = total ? Math.round(100*done/total) : 0;
+    document.getElementById('tot-pct').textContent = pct + '%';
+    document.getElementById('tot-fill').style.width = pct + '%';
+    document.getElementById('tot-stage').textContent = 'Etapa ' + String(currentStage).padStart(2,'0');
+    document.getElementById('tot-stage-name').textContent = currentStageName;
+    document.getElementById('tot-next').textContent = nextLesson.title;
+  }
+
+  renderTrail();
+  refreshStats();
+  window.addEventListener('mlp:progress', () => { renderTrail(); refreshStats(); });
+  window.addEventListener('mlp:subprogress', () => { renderTrail(); refreshStats(); });
+</script>
+</body>
+</html>

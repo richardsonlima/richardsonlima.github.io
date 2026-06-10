@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lição — Portal de ML</title>
+<script src="assets/theme-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portal.css">
+<style>
+  /* breadcrumb */
+  .breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+  .breadcrumb a { color: var(--text-muted); transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--text); }
+  .breadcrumb .sep { opacity: 0.4; }
+  .breadcrumb .current { color: var(--text); }
+
+  /* hero */
+  .lesson-hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 56px;
+  }
+  @media (max-width: 900px) { .lesson-hero { grid-template-columns: 1fr; gap: 24px; } }
+
+  .lesson-meta {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .lesson-title {
+    font-family: var(--font-sans);
+    font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    color: var(--text-strong);
+    margin-bottom: 16px;
+  }
+  .lesson-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+  }
+  .lesson-tagline {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    max-width: 680px;
+    letter-spacing: -0.005em;
+  }
+  .lesson-tagline em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text);
+  }
+
+  .lesson-progress-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    min-width: 220px;
+    box-shadow: var(--shadow-sm);
+  }
+  .lpc-l { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+  .lpc-pct {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    color: var(--text-strong);
+    margin: 6px 0 10px;
+  }
+  .lpc-bar { margin-bottom: 12px; }
+  .lpc-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+
+  /* layout — 2 col */
+  .lesson-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 1020px) { .lesson-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* sections (main column) */
+  .intro {
+    font-size: 16px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1px dashed var(--border);
+    letter-spacing: -0.005em;
+  }
+  .intro em { font-family: var(--font-serif); font-style: italic; color: var(--text); }
+
+  .section-block { margin-bottom: 56px; scroll-margin-top: 80px; }
+  .sb-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .sb-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    padding-top: 9px;
+  }
+  .sb-checkbox {
+    width: 26px; height: 26px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 6px;
+    background: var(--bg);
+    flex-shrink: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: all 0.15s;
+    margin-top: 6px;
+  }
+  .sb-checkbox:hover { border-color: var(--accent3); }
+  .sb-checkbox.done { background: var(--accent3); border-color: var(--accent3); color: white; }
+  .sb-checkbox.done::after { content: '✓'; font-size: 14px; font-weight: 700; }
+  .sb-title {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    color: var(--text-strong);
+    flex: 1;
+  }
+  .sb-title em { font-family: var(--font-serif); font-style: italic; }
+  .section-block.done .sb-title { color: var(--text-muted); }
+
+  .sb-body {
+    padding-left: 62px;
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
+  }
+  @media (max-width: 700px) { .sb-body { padding-left: 0; } }
+  .sb-body p { margin-bottom: 14px; }
+  .sb-body p:last-child { margin-bottom: 0; }
+  .sb-body strong { color: var(--text); font-weight: 600; }
+  .sb-body em { font-family: var(--font-serif); font-style: italic; color: var(--text); }
+  .sb-body ul, .sb-body ol { margin: 14px 0; padding-left: 20px; }
+  .sb-body li { margin-bottom: 8px; }
+  .sb-body li::marker { color: var(--text-faint); }
+  .sb-body code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border-faint);
+    border-radius: 4px;
+    padding: 1px 6px;
+    color: var(--text);
+  }
+  .sb-body .math {
+    display: block;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent1);
+    border-radius: var(--radius);
+    padding: 14px 20px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--accent1);
+    margin: 18px 0;
+    overflow-x: auto;
+    letter-spacing: 0.01em;
+  }
+  .sb-body pre {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+  .sb-body pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--text-dim);
+  }
+  .sb-body .callout {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent4);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin: 18px 0;
+    font-size: 14px;
+  }
+  .sb-body .callout strong { color: var(--accent4); display: block; margin-bottom: 4px; font-size: 11px; font-family: var(--font-mono); letter-spacing: 0.5px; }
+  .sb-body .callout.warn { border-left-color: var(--accent5); }
+  .sb-body .callout.warn strong { color: var(--accent5); }
+  .sb-body .callout.tip { border-left-color: var(--accent3); }
+  .sb-body .callout.tip strong { color: var(--accent3); }
+
+  /* meta sections (when/when not, metrics, related) */
+  .meta-section {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 700px) { .meta-grid { grid-template-columns: 1fr; } }
+  .meta-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .meta-card .ttl {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .meta-card.use .ttl { color: var(--accent3); }
+  .meta-card.skip .ttl { color: var(--accent5); }
+  .meta-card ul { list-style: none; padding: 0; }
+  .meta-card li {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    padding: 5px 0 5px 18px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .meta-card.use li::before { content: '+'; position: absolute; left: 0; color: var(--accent3); font-weight: 700; }
+  .meta-card.skip li::before { content: '−'; position: absolute; left: 0; color: var(--accent5); font-weight: 700; }
+
+  /* nav footer */
+  .lesson-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 72px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 700px) { .lesson-nav { grid-template-columns: 1fr; } }
+  .nav-card {
+    display: block;
+    padding: 18px 22px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.18s;
+  }
+  .nav-card:hover { border-color: var(--border-strong); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+  .nav-card.disabled { opacity: 0.35; pointer-events: none; }
+  .nav-card .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+  .nav-card.next { text-align: right; }
+  .nav-card .title {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    color: var(--text-strong);
+  }
+
+  /* sidebar — TOC */
+  .lesson-sidebar {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+  }
+  @media (max-width: 1020px) {
+    .lesson-sidebar { position: static; }
+  }
+  .toc {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .toc-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-faint);
+  }
+  .toc-head .l { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+  .toc-head .n { font-family: var(--font-mono); font-size: 11px; color: var(--text); font-weight: 500; }
+  .toc-list { list-style: none; padding: 0; margin: 0; }
+  .toc-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 7px 0;
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s;
+    letter-spacing: -0.005em;
+  }
+  .toc-item:hover { color: var(--text); }
+  .toc-item.done { color: var(--text-muted); }
+  .toc-item.done .toc-dot { background: var(--accent3); border-color: var(--accent3); }
+  .toc-item.done .toc-num { color: var(--accent3); }
+  .toc-dot {
+    width: 11px; height: 11px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 3px;
+    background: var(--bg);
+    flex-shrink: 0;
+  }
+  .toc-num { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); min-width: 18px; }
+  .toc-text { flex: 1; }
+
+  /* lesson not found */
+  .not-found {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+  }
+  .not-found h2 { font-family: var(--font-sans); font-weight: 500; font-size: 1.6rem; margin-bottom: 12px; color: var(--text); }
+
+  /* construction note */
+  .construction {
+    background: var(--accent4-soft);
+    border: 1px solid color-mix(in srgb, var(--accent4) 25%, var(--border));
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .construction strong { color: var(--accent4); font-family: var(--font-mono); font-size: 11px; }
+</style>
+</head>
+<body>
+
+<div id="mlp-topbar"></div>
+
+<main id="lesson-main">
+  <div class="not-found" id="loading">
+    <h2>Carregando lição…</h2>
+  </div>
+</main>
+
+<div id="mlp-footer"></div>
+
+<script src="assets/lessons.js"></script>
+<script src="assets/content.js"></script>
+<script src="assets/content-2.js"></script>
+<script src="assets/content-3.js"></script>
+<script src="assets/content-4.js"></script>
+<script src="assets/content-5.js"></script>
+<script src="assets/portal.js"></script>
+<script>
+  MLPortal.mount('curriculum');
+
+  const params = new URLSearchParams(location.search);
+  const lessonId = params.get('id');
+  const content  = (window.LESSON_CONTENT || {})[lessonId];
+  const main = document.getElementById('lesson-main');
+
+  // find prev/next IDs from the catalog (so we don't hardcode them in content)
+  function neighbors(id) {
+    const cat = window.LESSON_CATALOG || [];
+    const flat = cat.flatMap(e => e.lessons.map(l => ({ id: l.id, title: l.title, etapa: e.n, etapaName: e.title })));
+    const idx = flat.findIndex(l => l.id === id);
+    return {
+      prev: idx > 0 ? flat[idx - 1] : null,
+      next: idx >= 0 && idx < flat.length - 1 ? flat[idx + 1] : null,
+      self: idx >= 0 ? flat[idx] : null,
+    };
+  }
+
+  if (!content) {
+    main.innerHTML = `
+      <div class="not-found">
+        <div class="breadcrumb" style="justify-content:center"><a href="curriculum.html">← Voltar para a trilha</a></div>
+        <h2>Lição não encontrada</h2>
+        <p>Nenhum conteúdo registrado para <code>${lessonId || '(sem id)'}</code>.</p>
+      </div>
+    `;
+  } else {
+    renderLesson(content);
+  }
+
+  function renderLesson(c) {
+    document.title = `${c.title} — Portal de ML`;
+    const nbs = neighbors(c.id);
+    const etapaName = c.etapaName || (nbs.self ? nbs.self.etapaName : '');
+    const etapaN = c.etapa || (nbs.self ? nbs.self.etapa : '?');
+    const sectionIds = (c.sections || []).map(s => s.id);
+
+    const p = MLPortal.lessonProgress(c.id, sectionIds);
+
+    main.innerHTML = `
+      <div class="breadcrumb">
+        <a href="index.html">Início</a>
+        <span class="sep">/</span>
+        <a href="curriculum.html">Trilha</a>
+        <span class="sep">/</span>
+        <a href="curriculum.html#etapa-${etapaN}">Etapa ${String(etapaN).padStart(2,'0')} — ${etapaName}</a>
+        <span class="sep">/</span>
+        <span class="current">${c.title}</span>
+      </div>
+
+      <div class="lesson-hero fade-up">
+        <div>
+          <div class="lesson-meta">
+            <span class="badge badge-ghost">Etapa ${String(etapaN).padStart(2,'0')} · ${etapaName}</span>
+            ${c.time ? `<span class="badge badge-ghost">⏱ ${c.time}</span>` : ''}
+            ${c.tags ? c.tags.map(t => `<span class="badge badge-ghost">${t}</span>`).join('') : ''}
+          </div>
+          <h1 class="lesson-title">${c.title}</h1>
+          ${c.tagline ? `<p class="lesson-tagline">${c.tagline}</p>` : ''}
+        </div>
+        <div class="lesson-progress-card">
+          <div class="lpc-l">SEU PROGRESSO</div>
+          <div class="lpc-pct" id="lpc-pct">${p.pct}%</div>
+          <div class="progress-bar lpc-bar"><div class="progress-fill" id="lpc-fill" style="width:${p.pct}%"></div></div>
+          <div class="lpc-meta"><span id="lpc-done">${p.done}</span> / ${p.total} seções</div>
+        </div>
+      </div>
+
+      ${c.construction ? `<div class="construction"><strong>EM CONSTRUÇÃO</strong> · ${c.construction}</div>` : ''}
+
+      <div class="lesson-grid">
+        <div>
+          ${c.intro ? `<div class="intro">${c.intro}</div>` : ''}
+
+          ${(c.sections || []).map((s, i) => {
+            const done = MLPortal.subIsDone(c.id, s.id);
+            return `
+              <section class="section-block ${done ? 'done' : ''}" id="s-${s.id}" data-section-id="${s.id}">
+                <div class="sb-head">
+                  <span class="sb-num">${String(i+1).padStart(2,'0')}</span>
+                  <button class="sb-checkbox ${done ? 'done' : ''}" data-toggle-section="${s.id}" aria-label="Marcar seção concluída"></button>
+                  <h2 class="sb-title">${s.title}</h2>
+                </div>
+                <div class="sb-body">${s.body || ''}</div>
+              </section>
+            `;
+          }).join('')}
+
+          ${(c.whenToUse || c.whenNot) ? `
+          <div class="meta-section">
+            <div class="meta-grid">
+              ${c.whenToUse ? `<div class="meta-card use">
+                <div class="ttl">USE QUANDO</div>
+                <ul>${c.whenToUse.map(x => `<li>${x}</li>`).join('')}</ul>
+              </div>` : ''}
+              ${c.whenNot ? `<div class="meta-card skip">
+                <div class="ttl">NÃO USE QUANDO</div>
+                <ul>${c.whenNot.map(x => `<li>${x}</li>`).join('')}</ul>
+              </div>` : ''}
+            </div>
+          </div>` : ''}
+
+          ${c.metrics ? `
+          <div class="meta-section">
+            <div class="highlight-box">
+              <div class="hl-title">Métricas recomendadas</div>
+              <p>${c.metrics.join(' · ')}</p>
+            </div>
+          </div>` : ''}
+
+          <div class="lesson-nav">
+            ${nbs.prev ? `
+              <a class="nav-card prev" href="lesson.html?id=${nbs.prev.id}">
+                <div class="lbl">← Anterior</div>
+                <div class="title">${nbs.prev.title}</div>
+              </a>` : `<div class="nav-card disabled"><div class="lbl">← Anterior</div><div class="title">—</div></div>`}
+            ${nbs.next ? `
+              <a class="nav-card next" href="lesson.html?id=${nbs.next.id}">
+                <div class="lbl">Próxima →</div>
+                <div class="title">${nbs.next.title}</div>
+              </a>` : `<a class="nav-card next" href="curriculum.html"><div class="lbl">↑ Voltar para a trilha</div><div class="title">Trilha completa</div></a>`}
+          </div>
+        </div>
+
+        <aside class="lesson-sidebar">
+          <div class="toc">
+            <div class="toc-head">
+              <span class="l">Conteúdo</span>
+              <span class="n"><span id="toc-done">${p.done}</span>/${p.total}</span>
+            </div>
+            <ul class="toc-list">
+              ${(c.sections || []).map((s, i) => {
+                const done = MLPortal.subIsDone(c.id, s.id);
+                return `
+                  <li>
+                    <a class="toc-item ${done ? 'done' : ''}" data-toc-for="${s.id}" href="#s-${s.id}">
+                      <span class="toc-num">${String(i+1).padStart(2,'0')}</span>
+                      <span class="toc-dot"></span>
+                      <span class="toc-text">${s.title.replace(/<[^>]+>/g,'')}</span>
+                    </a>
+                  </li>
+                `;
+              }).join('')}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    `;
+
+    bindToggles(c, sectionIds);
+  }
+
+  function bindToggles(c, sectionIds) {
+    document.querySelectorAll('[data-toggle-section]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sid = btn.dataset.toggleSection;
+        MLPortal.subToggle(c.id, sid);
+        refresh(c, sectionIds);
+        MLPortal.syncLessonDoneFromSubs(c.id, sectionIds);
+      });
+    });
+  }
+
+  function refresh(c, sectionIds) {
+    const p = MLPortal.lessonProgress(c.id, sectionIds);
+    document.getElementById('lpc-pct').textContent = p.pct + '%';
+    document.getElementById('lpc-fill').style.width = p.pct + '%';
+    document.getElementById('lpc-done').textContent = p.done;
+    document.getElementById('toc-done').textContent = p.done;
+    sectionIds.forEach(sid => {
+      const done = MLPortal.subIsDone(c.id, sid);
+      const sec = document.getElementById('s-' + sid);
+      if (sec) {
+        sec.classList.toggle('done', done);
+        const cb = sec.querySelector('.sb-checkbox');
+        if (cb) cb.classList.toggle('done', done);
+      }
+      const toc = document.querySelector(`[data-toc-for="${sid}"]`);
+      if (toc) toc.classList.toggle('done', done);
+    });
+  }
+</script>
+</body>
+</html>

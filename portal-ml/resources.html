@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos — Portal de ML</title>
+<script src="assets/theme-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portal.css">
+<style>
+  .res-head { margin-bottom: 16px; }
+
+  /* tab switcher */
+  .res-tabs {
+    display: flex;
+    gap: 4px;
+    margin: 32px 0 40px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .res-tabs::-webkit-scrollbar { display: none; }
+  .res-tab {
+    padding: 12px 18px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.15s;
+    letter-spacing: -0.01em;
+  }
+  .res-tab:hover { color: var(--text); }
+  .res-tab.active { color: var(--text); border-bottom-color: var(--accent1); }
+
+  .res-panel { display: none; animation: fadeUp 0.4s ease both; }
+  .res-panel.active { display: block; }
+
+  /* cronograma — 4 semanas */
+  .weeks { display: grid; gap: 16px; }
+  .week {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+  }
+  .week::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 3px;
+  }
+  .week.w1::before { background: var(--accent1); }
+  .week.w2::before { background: var(--accent2); }
+  .week.w3::before { background: var(--accent3); }
+  .week.w4::before { background: var(--accent4); }
+  .week-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 22px 26px 14px;
+    flex-wrap: wrap;
+  }
+  .week-n {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 2.4rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--text-strong);
+  }
+  .week-meta .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+  .week-meta .ttl { font-family: var(--font-sans); font-weight: 600; font-size: 1.15rem; letter-spacing: -0.02em; color: var(--text-strong); margin-top: 2px; }
+  .week-focus {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-muted);
+    align-self: center;
+  }
+  .week-body { padding: 0 26px 24px; }
+  .topic-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+    border-top: 1px solid var(--border-faint);
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+  .prio {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .prio.high { color: var(--accent5); background: var(--accent5-soft); }
+  .prio.med  { color: var(--accent4); background: var(--accent4-soft); }
+  .prio.low  { color: var(--accent3); background: var(--accent3-soft); }
+  .week-dyn {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .week-dyn strong { color: var(--text); font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.5px; }
+
+  /* resource cards (books, papers, platforms) */
+  .res-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 820px) { .res-grid { grid-template-columns: 1fr; } }
+
+  .res-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .res-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .res-card .rc-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .res-card .rc-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: var(--text-strong);
+    line-height: 1.25;
+  }
+  .res-card .rc-author { font-size: 12.5px; color: var(--text-muted); }
+  .res-card .rc-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; flex: 1; }
+  .res-card .rc-note {
+    font-size: 12px;
+    color: var(--accent4);
+    background: var(--accent4-soft);
+    border-radius: 6px;
+    padding: 8px 12px;
+    line-height: 1.5;
+  }
+  .res-card .rc-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  .rc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent1);
+    padding: 5px 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: all 0.15s;
+  }
+  .rc-link:hover { border-color: var(--accent1); background: var(--accent1-soft); }
+
+  .badge-when {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border-faint);
+    color: var(--text-dim);
+  }
+
+  .group-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 32px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .group-label::after { content: ''; flex: 1; height: 1px; background: var(--border-faint); }
+  .group-label:first-child { margin-top: 0; }
+
+  .intro-note {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent1);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+  .intro-note strong { color: var(--text); }
+
+  /* matriz table */
+  .matrix-note { font-size: 12.5px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div id="mlp-topbar"></div>
+
+<main>
+
+  <div class="res-head fade-up">
+    <div class="eyebrow">Plano de Especialista · 4 semanas</div>
+    <h1 class="page-title"><em>Recursos</em> & plano de estudo</h1>
+    <p class="page-sub">
+      A biblioteca curada por trás da trilha: cronograma de 4 semanas até o exame, livros, whitepapers canônicos,
+      plataformas de prática e a matriz de competências. Foco em nível Sênior/Especialista de ML & MLOps.
+    </p>
+  </div>
+
+  <div class="res-tabs" id="res-tabs">
+    <button class="res-tab active" data-panel="cronograma">Cronograma</button>
+    <button class="res-tab" data-panel="livros">Livros</button>
+    <button class="res-tab" data-panel="whitepapers">Whitepapers</button>
+    <button class="res-tab" data-panel="plataformas">Plataformas</button>
+    <button class="res-tab" data-panel="matriz">Matriz</button>
+  </div>
+
+  <!-- CRONOGRAMA -->
+  <div class="res-panel active" id="panel-cronograma">
+    <div class="intro-note">
+      <strong>4 semanas, 4 focos.</strong> Cada semana tem um tema central e uma dinâmica de estudo.
+      <span style="white-space:nowrap"><span class="prio high" style="padding:1px 7px">🔴 High</span></span> é prioridade máxima;
+      <span class="prio med" style="padding:1px 7px">🟡 Medium</span> complementa;
+      <span class="prio low" style="padding:1px 7px">🟢 Low</span> é desejável.
+    </div>
+
+    <div class="weeks">
+      <div class="week w1">
+        <div class="week-head">
+          <div class="week-n">1</div>
+          <div class="week-meta">
+            <div class="lbl">Dias 1–7 · Core Knowledge</div>
+            <div class="ttl">Fundamentos ML + DSA + AWS</div>
+          </div>
+          <div class="week-focus">Testar conceitos fundamentais</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Aprendizagem de Máquina (teoria)</div>
+          <div class="topic-row"><span class="prio high">High</span> Regressão vs Classificação</div>
+          <div class="topic-row"><span class="prio high">High</span> Redes Neurais (fundamentos)</div>
+          <div class="topic-row"><span class="prio high">High</span> Python — Estruturas de Dados puras</div>
+          <div class="topic-row"><span class="prio high">High</span> Algoritmos estilo LeetCode</div>
+          <div class="topic-row"><span class="prio high">High</span> AWS Practitioner (serviços core)</div>
+          <div class="topic-row"><span class="prio high">High</span> Arquitetura de Nuvem básica</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Treveil — Introducing MLOps (leitura rápida)</div>
+          <div class="week-dyn"><strong>DINÂMICA</strong><br>Testar conceitos fundamentais, propor desafios de código em Python puro (pilhas, matrizes, bitwise/XOR) e design de infraestrutura AWS básica.</div>
+        </div>
+      </div>
+
+      <div class="week w2">
+        <div class="week-head">
+          <div class="week-n">2</div>
+          <div class="week-meta">
+            <div class="lbl">Dias 8–14 · Data & Dev</div>
+            <div class="ttl">Engenharia + Dados + Ambiente</div>
+          </div>
+          <div class="week-focus">Cenários práticos de engenharia</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Feature Engineering</div>
+          <div class="topic-row"><span class="prio high">High</span> SQL (consultas, otimização)</div>
+          <div class="topic-row"><span class="prio high">High</span> Modelagem de Dados Transacional</div>
+          <div class="topic-row"><span class="prio high">High</span> Manipulação de Dados Não Estruturados</div>
+          <div class="topic-row"><span class="prio high">High</span> Docker (containerização de modelos)</div>
+          <div class="topic-row"><span class="prio high">High</span> Linux (comandos críticos para deploy)</div>
+          <div class="topic-row"><span class="prio high">High</span> Git (versionamento)</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Testes de Software (dados)</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Metodologia Ágil em times de dados</div>
+          <div class="week-dyn"><strong>DINÂMICA</strong><br>Cenários práticos de isolamento de ambientes com Docker, comandos críticos de Linux para deploy, testes unitários para funções de transformação de dados.</div>
+        </div>
+      </div>
+
+      <div class="week w3">
+        <div class="week-head">
+          <div class="week-n">3</div>
+          <div class="week-meta">
+            <div class="lbl">Dias 15–21 · System Design</div>
+            <div class="ttl">Arquitetura MLOps End-to-End</div>
+          </div>
+          <div class="week-focus">Desafios de arquitetura reais</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Desenho de Solução MLOps</div>
+          <div class="topic-row"><span class="prio high">High</span> CI/CD para ML (CD4ML — Martin Fowler)</div>
+          <div class="topic-row"><span class="prio high">High</span> Feature Store (arquitetura)</div>
+          <div class="topic-row"><span class="prio high">High</span> Model Registry (versioning + stages)</div>
+          <div class="topic-row"><span class="prio high">High</span> AWS Well-Architected ML Lens</div>
+          <div class="topic-row"><span class="prio high">High</span> Google Cloud MLOps — Levels 0/1/2</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Infra as Code (IaC)</div>
+          <div class="topic-row"><span class="prio med">Medium</span> ML Design Patterns (Lakshmanan)</div>
+          <div class="week-dyn"><strong>DINÂMICA</strong><br>Desafios de arquitetura com problemas reais de negócio. Avaliação de system design usando AWS, Google Cloud e Martin Fowler como referência.</div>
+        </div>
+      </div>
+
+      <div class="week w4">
+        <div class="week-head">
+          <div class="week-n">4</div>
+          <div class="week-meta">
+            <div class="lbl">Dias 22–28 · Validação</div>
+            <div class="ttl">Simulado + Gap Filling</div>
+          </div>
+          <div class="week-focus">Modo exame</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Simulado geral (modo exame)</div>
+          <div class="topic-row"><span class="prio high">High</span> 360DigitMG — MLOps Interview Q&A</div>
+          <div class="topic-row"><span class="prio high">High</span> Awesome MLOps — gap vocabulary</div>
+          <div class="topic-row"><span class="prio high">High</span> Revisão ativa (active recall)</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Engenharia reversa de questões</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Identificação de gaps de última hora</div>
+          <div class="week-dyn"><strong>DINÂMICA</strong><br>Modo Simulado. Questões de múltipla escolha e código, avaliação de respostas com base na literatura recomendada. <em>360DigitMG e Awesome MLOps somente nesta semana.</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVROS -->
+  <div class="res-panel" id="panel-livros">
+    <div class="group-label">Leitura Principal</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S1–S4</span> Especialista · PT-BR</div>
+        <div class="rc-title">Projetando Sistemas de Machine Learning</div>
+        <div class="rc-author">Chip Huyen (Ed. Brasileira)</div>
+        <div class="rc-desc">O recurso mais alinhado com nível Especialista. Cobre produção, trade-offs reais e decisões de sistema. S1: caps. 1-2 (framing, métricas de negócio); S2: caps. 5-6 (feature engineering, dados); S3: caps. 7-9 (deployment, monitoramento, drift); S4: caps. 10-11 (MLOps platform, edge cases).</div>
+        <div class="rc-links"><a class="rc-link" href="https://www.amazon.com.br/Projetando-Sistemas-Machine-Learning-Interativo/dp/8550819670" target="_blank" rel="noopener">Amazon BR →</a></div>
+      </div>
+    </div>
+
+    <div class="group-label">Fundamentos & ML com Código</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S1</span> leitura rápida</div>
+        <div class="rc-title">The Hundred-Page Machine Learning Book</div>
+        <div class="rc-author">Andriy Burkov (2019)</div>
+        <div class="rc-desc">Vocabulário e conceitos core. Denso e direto — ideal para revisão de fundamentos em tempo limitado.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.amazon.com.br/Hundred-Page-Machine-Learning-Book/dp/199957950X" target="_blank" rel="noopener">Amazon BR →</a>
+          <a class="rc-link" href="https://drive.google.com/file/d/15fnfjxiOymmyYvlNpE0w1d2Vl4rcZ5Rc/view?usp=sharing" target="_blank" rel="noopener">PDF →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S1–S2</span> consulta</div>
+        <div class="rc-title">Mãos à Obra: ML com Scikit-Learn, Keras & TensorFlow</div>
+        <div class="rc-author">Aurélien Géron (3ª Ed.)</div>
+        <div class="rc-desc">Referência prática para implementação. Consulte capítulos de classificação, pipelines e validação cruzada.</div>
+        <div class="rc-links"><a class="rc-link" href="https://www.amazon.com.br/Maos-Obra-Aprendizado-Scikit-Learn-Inteligentes/dp/8550826456" target="_blank" rel="noopener">Amazon BR →</a></div>
+      </div>
+    </div>
+
+    <div class="group-label">MLOps</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S1</span> leitura rápida</div>
+        <div class="rc-title">Introducing MLOps</div>
+        <div class="rc-author">Treveil, Omont, Dataiku Team (O'Reilly 2020)</div>
+        <div class="rc-desc">O mais acessível. Cobre vocabulário fundamental que aparece em questões de múltipla escolha.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.oreilly.com/library/view/introducing-mlops/9781492083283/" target="_blank" rel="noopener">O'Reilly →</a>
+          <a class="rc-link" href="https://www.oreilly.com/library/view/practical-mlops/9781098103002/ch01.html" target="_blank" rel="noopener">Practical MLOps Cap.1 →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S3</span> consulta pontual</div>
+        <div class="rc-title">Building Machine Learning Pipelines</div>
+        <div class="rc-author">Hapke & Nelson (O'Reilly 2020)</div>
+        <div class="rc-desc">Referência técnica de TFX e Beam. Não leia linear — consulte capítulos de orquestração e validação de dados.</div>
+        <div class="rc-links"><a class="rc-link" href="https://www.amazon.com.br/Building-Machine-Learning-Pipelines-Hannes/dp/1492053198" target="_blank" rel="noopener">Amazon BR →</a></div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S3</span> GitHub prioritário</div>
+        <div class="rc-title">Engineering MLOps</div>
+        <div class="rc-author">Emmanuel Raj (Packt 2021)</div>
+        <div class="rc-note">⚠️ O repositório GitHub é mais útil que o livro. Use os exemplos de código como referência de implementação CI/CD.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://github.com/PacktPublishing/EngineeringMLOps" target="_blank" rel="noopener">GitHub →</a>
+          <a class="rc-link" href="https://www.amazon.com/Engineering-MLOps-Rapidly-production-ready-learning/dp/1800562888" target="_blank" rel="noopener">Amazon →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S3</span> system design</div>
+        <div class="rc-title">Machine Learning Design Patterns</div>
+        <div class="rc-author">Lakshmanan, Robinson, Munn (O'Reilly 2020)</div>
+        <div class="rc-note">⚠️ Repositório GitHub obrigatório. 30 patterns — candidatos diretos a questões de system design. Prioritários: Reframing, Cascade, Two-Phase Predictions, Windowed Inference.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://github.com/GoogleCloudPlatform/ml-design-patterns" target="_blank" rel="noopener">GitHub →</a>
+          <a class="rc-link" href="https://www.amazon.com.br/Machine-Learning-Design-Patterns-Preparation/dp/1098115783" target="_blank" rel="noopener">Amazon BR →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="group-label">Algoritmos & Entrevistas</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S1–S2</span> já no projeto</div>
+        <div class="rc-title">Cracking the Coding Interview</div>
+        <div class="rc-author">Gayle Laakmann McDowell</div>
+        <div class="rc-desc">Capítulos prioritários: Arrays & Strings, Stacks & Queues, Bit Manipulation, Trees & Graphs, Sorting & Searching.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHITEPAPERS -->
+  <div class="res-panel" id="panel-whitepapers">
+    <div class="intro-note">Os documentos canônicos que definem o vocabulário do exame. <strong>Leitura obrigatória antes de qualquer sessão de system design.</strong></div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S3</span> Martin Fowler</div>
+        <div class="rc-title">CD4ML — Continuous Delivery for ML</div>
+        <div class="rc-desc">Base conceitual de todo CI/CD para ML. Os <strong>9 componentes do CD4ML</strong> são referência obrigatória para qualquer questão de arquitetura de pipeline.</div>
+        <div class="rc-links"><a class="rc-link" href="https://martinfowler.com/articles/cd4ml.html" target="_blank" rel="noopener">martinfowler.com →</a></div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S1+S3</span> AWS</div>
+        <div class="rc-title">MLOps — Continuous Delivery for ML on AWS</div>
+        <div class="rc-desc">Cobre SageMaker Pipelines, MLflow na AWS, Step Functions para orquestração. Terminologia canônica AWS que aparece no exame.</div>
+        <div class="rc-links"><a class="rc-link" href="https://d1.awsstatic.com/whitepapers/mlops-continuous-delivery-machine-learning-on-aws.pdf" target="_blank" rel="noopener">PDF AWS →</a></div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S3</span> AWS</div>
+        <div class="rc-title">Machine Learning Lens — Well-Architected</div>
+        <div class="rc-desc">Os 6 pilares e seus trade-offs. Examinadores cobram os <strong>trade-offs entre pilares</strong> em cenários: Operational Excellence, Security, Reliability, Performance, Cost, Sustainability.</div>
+        <div class="rc-links"><a class="rc-link" href="https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/wellarchitected-machine-learning-lens.pdf" target="_blank" rel="noopener">PDF AWS →</a></div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S3</span> Google Cloud</div>
+        <div class="rc-title">MLOps — Pipelines de Entrega e Automação</div>
+        <div class="rc-desc">Os <strong>3 níveis de maturidade MLOps</strong> (0/1/2) são a régua do mercado para medir sofisticação de pipeline. Memorize as diferenças — aparecem em todas as provas de Especialista.</div>
+        <div class="rc-links"><a class="rc-link" href="https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning?hl=pt-br" target="_blank" rel="noopener">Acessar (pt-BR) →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATAFORMAS -->
+  <div class="res-panel" id="panel-plataformas">
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S2–S3</span> hands-on</div>
+        <div class="rc-title">MLOps Zoomcamp — DataTalksClub</div>
+        <div class="rc-desc">Módulos prioritários: experiment tracking (MLflow) → direto para Model Registry; deployment → cobre CI/CD ML e serving.</div>
+        <div class="rc-links"><a class="rc-link" href="https://github.com/DataTalksClub/mlops-zoomcamp" target="_blank" rel="noopener">GitHub →</a></div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S1–S2</span> código</div>
+        <div class="rc-title">LeetCode</div>
+        <div class="rc-desc">Foco: Arrays, Hash Maps, Stacks, Two Pointers, Sliding Window.</div>
+        <div class="rc-note">⚠️ Nada de grafos complexos ou DP avançada — não é o foco do seu exame.</div>
+        <div class="rc-links"><a class="rc-link" href="https://leetcode.com" target="_blank" rel="noopener">leetcode.com →</a></div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S4</span> exclusivo</div>
+        <div class="rc-title">360DigitMG — MLOps Interview Q&A</div>
+        <div class="rc-desc">Engenharia reversa pura de questões de entrevista.</div>
+        <div class="rc-note">⚠️ Não abra antes da Semana 4. Vai viciar memorização no lugar de compreensão.</div>
+        <div class="rc-links"><a class="rc-link" href="https://360digitmg.com/mlops-interview-questions-answers" target="_blank" rel="noopener">360digitmg.com →</a></div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">S4</span> gap filling</div>
+        <div class="rc-title">Awesome MLOps — visenger</div>
+        <div class="rc-desc">Gap filling + terminologia que o exame pode cobrar lateralmente.</div>
+        <div class="rc-links"><a class="rc-link" href="https://github.com/visenger/awesome-mlops" target="_blank" rel="noopener">GitHub →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATRIZ -->
+  <div class="res-panel" id="panel-matriz">
+    <div class="matrix-note">Matriz de competências do plano: prioridade, semana, nível-alvo e recurso principal por tópico.</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Tópico</th><th>Prioridade</th><th>Semana</th><th>Nível</th><th>Recurso Principal</th></tr>
+        </thead>
+        <tbody id="matrix-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<div id="mlp-footer"></div>
+
+<script src="assets/lessons.js"></script>
+<script src="assets/portal.js"></script>
+<script>
+  MLPortal.mount('resources');
+
+  // tabs
+  const tabs = document.getElementById('res-tabs');
+  tabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.res-tab');
+    if (!btn) return;
+    tabs.querySelectorAll('.res-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.res-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+  });
+
+  // matriz
+  const MATRIX = [
+    ['Aprendizagem de Máquina', 'high', 'S1', 'Especialista', 'Huyen Cap.1-2 + Burkov'],
+    ['Python DSA', 'high', 'S1', 'Sênior', 'CTCI + LeetCode'],
+    ['AWS / Nuvem', 'high', 'S1–S3', 'Especialista', 'AWS ML Lens + Whitepaper'],
+    ['Feature Engineering', 'med', 'S2', 'Especialista', 'Huyen Cap.5-6'],
+    ['SQL', 'high', 'S2', 'Sênior', 'Prática direta'],
+    ['Modelagem Transacional', 'high', 'S2', 'Sênior', 'Prática direta'],
+    ['Dados Não Estruturados', 'high', 'S2', 'Sênior', 'Huyen Cap.5 + Géron'],
+    ['Docker', 'high', 'S2', 'Sênior', 'MLOps Zoomcamp'],
+    ['Linux', 'high', 'S2', 'Sênior', 'Prática direta'],
+    ['Git', 'high', 'S2', 'Sênior', 'Prática direta'],
+    ['CI/CD para ML', 'high', 'S3', 'Especialista', 'CD4ML + Raj (GitHub)'],
+    ['Feature Store', 'med', 'S3', 'Especialista', 'Huyen Cap.7 + Zoomcamp'],
+    ['Model Registry', 'med', 'S3', 'Especialista', 'MLflow + AWS Registry'],
+    ['Desenho de Solução MLOps', 'high', 'S3', 'Especialista', 'Google Cloud Levels 0/1/2'],
+    ['Infra as Code', 'med', 'S3', 'Sênior', 'Terraform + CloudFormation'],
+    ['Testes de Software', 'med', 'S2', 'Sênior', 'Huyen + Great Expectations'],
+    ['Metodologia Ágil', 'med', 'S2', 'Pleno', 'Prática contextual'],
+    ['Geração de Gráficos', 'low', 'S2', 'Pleno', 'Matplotlib / Seaborn'],
+  ];
+  const prioLabel = { high: '🔴 High', med: '🟡 Medium', low: '🟢 Low' };
+  document.getElementById('matrix-body').innerHTML = MATRIX.map(r => `
+    <tr>
+      <td>${r[0]}</td>
+      <td><span class="prio ${r[1]}">${prioLabel[r[1]]}</span></td>
+      <td>${r[2]}</td>
+      <td>${r[3]}</td>
+      <td>${r[4]}</td>
+    </tr>
+  `).join('');
+</script>
+</body>
+</html>

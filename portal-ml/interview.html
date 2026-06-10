@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modo Entrevista — Portal de ML</title>
+<script src="assets/theme-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portal.css">
+<style>
+  .iv-head {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 900px) { .iv-head { grid-template-columns: 1fr; } }
+
+  /* Framework grid -- 10 dimensões */
+  .fw-grid-big {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .fw-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+  .fw-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(0,112,243,0.3); }
+  .fw-item .fw-n {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 2.2rem;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--accent1);
+    position: absolute;
+    top: 16px; right: 18px;
+    opacity: 0.15;
+  }
+  .fw-item .fw-q {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+  .fw-item .fw-a {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  .fw-item .fw-tag {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  /* FLASHCARD ------------------------------------------------ */
+  .flashcard-stage {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    margin-top: 24px;
+  }
+  .fc-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .fc-counter {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  .fc-counter strong { color: var(--text); font-family: var(--font-sans); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.5px; }
+  .fc-controls {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+
+  .flashcard {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    min-height: 360px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .flashcard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent1);
+  }
+  .flashcard.cyan::before   { background: var(--accent1); }
+  .flashcard.violet::before { background: var(--accent2); }
+  .flashcard.green::before  { background: var(--accent3); }
+  .flashcard.amber::before  { background: var(--accent4); }
+  .flashcard.red::before    { background: var(--accent5); }
+  .flashcard:hover { box-shadow: var(--shadow-md); }
+
+  .fc-algo {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .fc-q-num {
+    font-size: 10px;
+    color: var(--accent1);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .fc-question {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  .fc-hint {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px dashed var(--border);
+  }
+  .fc-answer {
+    display: none;
+    background: linear-gradient(135deg, rgba(0,112,243,0.04), rgba(124,58,237,0.04));
+    border: 1px solid rgba(0,112,243,0.2);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-top: 12px;
+  }
+  .fc-answer.shown { display: block; animation: slideDown 0.25s ease both; }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  .fc-answer .lbl { font-size: 10px; letter-spacing: 2px; color: var(--accent1); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+  .fc-answer .txt { font-size: 13.5px; color: var(--text); line-height: 1.7; }
+
+  .fc-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 24px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .fc-score {
+    display: flex; gap: 8px;
+  }
+  .fc-score .btn { padding: 8px 14px; font-size: 10.5px; }
+  .fc-score .miss { color: var(--accent5); border-color: rgba(220,38,38,0.3); }
+  .fc-score .miss:hover { background: var(--accent5); color: white; border-color: var(--accent5); }
+  .fc-score .hit  { color: var(--accent3); border-color: rgba(5,150,105,0.3); }
+  .fc-score .hit:hover  { background: var(--accent3); color: white; border-color: var(--accent3); }
+  .fc-nav { display: flex; gap: 6px; }
+
+  /* stats row */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .stat .lbl { font-size: 10px; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px; }
+  .stat .val { font-family: var(--font-sans); font-weight: 800; font-size: 1.6rem; line-height: 1; letter-spacing: -0.5px; }
+  .stat.green .val { color: var(--accent3); }
+  .stat.red   .val { color: var(--accent5); }
+  .stat.cyan  .val { color: var(--accent1); }
+
+  /* quick recall */
+  .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .qr {
+    padding: 14px 18px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: all 0.15s;
+  }
+  .qr:hover { border-color: rgba(0,112,243,0.3); background: rgba(0,112,243,0.02); }
+  .qr .qr-n {
+    min-width: 26px; height: 26px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg3);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent1);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .qr .qr-q { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+  /* filter row */
+  .fc-filter-row {
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .fc-filter-row .lbl { font-size: 10px; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div id="mlp-topbar"></div>
+
+<main>
+
+  <!-- HEAD -->
+  <div class="iv-head fade-up">
+    <div>
+      <div class="eyebrow">Framework + Active Recall</div>
+      <h1 class="page-title">Modo <em>entrevista</em></h1>
+      <p class="page-sub">
+        Para qualquer algoritmo canônico, responda 10 dimensões. Se conseguir, você opera acima da média.
+        Use os flashcards para treinar recuperação aleatória — pressão de entrevista é prática, não talento.
+      </p>
+    </div>
+    <div class="highlight-box">
+      <div class="hl-title">Como usar</div>
+      <p>
+        1. Revise o framework abaixo.<br>
+        2. Vá para os flashcards, leia a pergunta, formule resposta mentalmente.<br>
+        3. Revele a resposta de referência e marque acertou / errei.<br>
+        4. Atalhos: <span class="kbd">␣</span> revelar · <span class="kbd">→</span> próximo · <span class="kbd">A</span> acertei · <span class="kbd">E</span> errei
+      </p>
+    </div>
+  </div>
+
+  <!-- FRAMEWORK 10 -->
+  <section class="section" style="margin-top:24px">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Framework — 10 dimensões por algoritmo</h2>
+      <div class="section-line"></div>
+      <span class="section-aside">Aplica a TODO algoritmo canônico</span>
+    </div>
+
+    <div class="fw-grid-big">
+      <div class="fw-item">
+        <div class="fw-n">01</div>
+        <div class="fw-tag">Problema</div>
+        <div class="fw-q">O que resolve?</div>
+        <div class="fw-a">Tipo de tarefa (regressão / classificação / clustering / ranking) e tipo de output esperado.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">02</div>
+        <div class="fw-tag">Hipótese</div>
+        <div class="fw-q">Qual hipótese assume?</div>
+        <div class="fw-a">Linearidade, independência condicional, normalidade dos erros, smoothness, MDP, manifold de baixa dimensão.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">03</div>
+        <div class="fw-tag">Falha</div>
+        <div class="fw-q">Quando falha?</div>
+        <div class="fw-a">Cenários onde a hipótese central é violada — exemplos concretos com dataset/condição.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">04</div>
+        <div class="fw-tag">Performance</div>
+        <div class="fw-q">Complexidade?</div>
+        <div class="fw-a">Treino e inferência — O(n), O(n log n), O(n²), O(n·d²). Memória.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">05</div>
+        <div class="fw-tag">Compreensão</div>
+        <div class="fw-q">Interpretável?</div>
+        <div class="fw-a">Glass box (coeficientes, regras) vs black box. Ferramentas: SHAP, LIME, feature importance, attention.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">06</div>
+        <div class="fw-tag">Escala</div>
+        <div class="fw-q">Escala bem?</div>
+        <div class="fw-a">Milhões de amostras? Paralelizável? Online learning? Distribuído?</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">07</div>
+        <div class="fw-tag">Robustez</div>
+        <div class="fw-q">Sensível a outlier?</div>
+        <div class="fw-a">MSE eleva ao quadrado → muito sensível. Hinge, Huber, MAE → mais robusto. Árvores → quase imunes.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">08</div>
+        <div class="fw-tag">Pré-processamento</div>
+        <div class="fw-q">Precisa feature scaling?</div>
+        <div class="fw-a">KNN, SVM, redes neurais, gradient descent: sim. Árvores e ensembles de árvores: não.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">09</div>
+        <div class="fw-tag">Regularização</div>
+        <div class="fw-q">Como evita overfitting?</div>
+        <div class="fw-a">L1/L2, dropout, early stopping, pruning, max_depth, data augmentation, CV.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">10</div>
+        <div class="fw-tag">Avaliação</div>
+        <div class="fw-q">Qual métrica usar?</div>
+        <div class="fw-a">Regressão → RMSE/MAE/R². Classificação → F1/AUC/log-loss. Ranking → NDCG/MAP. Calibração → Brier.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLASHCARDS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Flashcards — Active Recall</h2>
+      <div class="section-line"></div>
+      <span class="section-aside" id="fc-deck-size">— cartas</span>
+    </div>
+
+    <div class="fc-filter-row">
+      <span class="lbl">Filtrar:</span>
+      <div class="pill-row" id="fc-filter"></div>
+      <button class="btn ghost" id="fc-shuffle">↻ Embaralhar</button>
+      <button class="btn ghost" id="fc-reset">Reset Stats</button>
+    </div>
+
+    <div class="flashcard-stage">
+      <div class="fc-meta">
+        <div class="fc-counter">Carta <strong id="fc-idx">1</strong> / <span id="fc-total">100</span></div>
+        <div class="fc-controls">
+          <button class="btn ghost" id="fc-prev">← Anterior</button>
+          <button class="btn" id="fc-reveal">Revelar resposta <span class="btn-arrow">↓</span></button>
+          <button class="btn primary" id="fc-next">Próxima <span class="btn-arrow">→</span></button>
+        </div>
+      </div>
+
+      <div class="flashcard cyan" id="fc-card">
+        <div class="fc-q-num" id="fc-q-num">Dimensão 01 — Problema</div>
+        <div class="fc-algo" id="fc-algo">Linear Regression</div>
+        <div class="fc-question" id="fc-question">Carregando...</div>
+        <div class="fc-answer" id="fc-answer">
+          <div class="lbl">Resposta de referência</div>
+          <div class="txt" id="fc-answer-txt"></div>
+        </div>
+        <div class="fc-hint" id="fc-hint">clique para revelar · ou ␣ espaço</div>
+      </div>
+
+      <div class="fc-foot">
+        <div class="fc-score">
+          <button class="btn miss" id="fc-miss">✗ Errei (E)</button>
+          <button class="btn hit"  id="fc-hit">✓ Acertei (A)</button>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat cyan">
+          <div class="lbl">Vistas</div>
+          <div class="val" id="st-seen">0</div>
+        </div>
+        <div class="stat green">
+          <div class="lbl">Acertos</div>
+          <div class="val" id="st-hit">0</div>
+        </div>
+        <div class="stat red">
+          <div class="lbl">Errados</div>
+          <div class="val" id="st-miss">0</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Taxa de acerto</div>
+          <div class="val" id="st-rate">—</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK RECALL -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Perguntas-armadilha mais comuns</h2>
+      <div class="section-line"></div>
+      <span class="section-aside">se você travar aqui, sabe onde estudar</span>
+    </div>
+
+    <div class="quick-grid">
+      <div class="qr"><div class="qr-n">01</div><div class="qr-q">Quais são os 5 paradigmas principais de ML? Cite um algoritmo canônico de cada.</div></div>
+      <div class="qr"><div class="qr-n">02</div><div class="qr-q">Qual é a diferença entre Ridge e Lasso em termos geométricos?</div></div>
+      <div class="qr"><div class="qr-n">03</div><div class="qr-q">Por que KNN precisa de feature scaling e Decision Tree não?</div></div>
+      <div class="qr"><div class="qr-n">04</div><div class="qr-q">Em que cenário você usaria DBSCAN ao invés de K-Means?</div></div>
+      <div class="qr"><div class="qr-n">05</div><div class="qr-q">Qual é a hipótese central do Naive Bayes e quando ela falha na prática?</div></div>
+      <div class="qr"><div class="qr-n">06</div><div class="qr-q">Por que t-SNE não deve ir para produção?</div></div>
+      <div class="qr"><div class="qr-n">07</div><div class="qr-q">Explique bias-variance trade-off usando learning curves.</div></div>
+      <div class="qr"><div class="qr-n">08</div><div class="qr-q">Por que XGBoost frequentemente vence Random Forest?</div></div>
+      <div class="qr"><div class="qr-n">09</div><div class="qr-q">Qual a diferença entre bagging e boosting?</div></div>
+      <div class="qr"><div class="qr-n">10</div><div class="qr-q">O que é data leakage? Cite 3 exemplos comuns.</div></div>
+      <div class="qr"><div class="qr-n">11</div><div class="qr-q">Quando você usaria SMOTE? Quais riscos?</div></div>
+      <div class="qr"><div class="qr-n">12</div><div class="qr-q">Como detectar e mitigar data drift em produção?</div></div>
+      <div class="qr"><div class="qr-n">13</div><div class="qr-q">Por que log-loss é preferível a accuracy em classes desbalanceadas?</div></div>
+      <div class="qr"><div class="qr-n">14</div><div class="qr-q">O que é calibração de probabilidades? Por que ela importa?</div></div>
+      <div class="qr"><div class="qr-n">15</div><div class="qr-q">Diferença entre MLM e NTP? Por que GPT usa NTP?</div></div>
+      <div class="qr"><div class="qr-n">16</div><div class="qr-q">O que é o kernel trick? Por que ele é "trick"?</div></div>
+    </div>
+  </section>
+
+</main>
+
+<div id="mlp-footer"></div>
+
+<script src="assets/lessons.js"></script>
+<script src="assets/portal.js"></script>
+<script src="assets/algorithms.js"></script>
+<script>
+  MLPortal.mount('interview');
+
+  // ---------- FLASHCARDS ----------
+  const STATS_KEY = 'ml_portal_fc_stats_v1';
+  function loadStats() { try { return JSON.parse(localStorage.getItem(STATS_KEY)) || { seen:0, hit:0, miss:0 }; } catch(_){ return { seen:0, hit:0, miss:0 }; } }
+  function saveStats(s) {
+    localStorage.setItem(STATS_KEY, JSON.stringify(s));
+    window.dispatchEvent(new CustomEvent('mlp:fcstats', { detail: s }));
+  }
+
+  function buildDeck(paradigm) {
+    const deck = [];
+    ALGORITHMS.forEach(a => {
+      if (paradigm !== 'all' && a.paradigm !== paradigm) return;
+      a.fw.forEach((row, i) => {
+        deck.push({
+          algo: a.name,
+          paradigm: a.paradigm,
+          qNum: i + 1,
+          q: row.q,
+          a: row.a
+        });
+      });
+    });
+    return deck;
+  }
+
+  const PARADIGMS = [
+    { id: 'all',          label: 'Todas' },
+    { id: 'supervised',   label: 'Supervisionado' },
+    { id: 'unsupervised', label: 'Não-Superv.' },
+    { id: 'semi',         label: 'Semi' },
+    { id: 'self',         label: 'Auto-Superv.' },
+    { id: 'rl',           label: 'RL' },
+  ];
+
+  let filter = 'all';
+  let deck = buildDeck(filter);
+  let idx = 0;
+  let revealed = false;
+  let stats = loadStats();
+
+  function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  shuffle(deck);
+
+  function renderFilters() {
+    const host = document.getElementById('fc-filter');
+    host.innerHTML = PARADIGMS.map(p =>
+      `<button class="pill ${filter === p.id ? 'active' : ''}" data-id="${p.id}">${p.label}</button>`
+    ).join('');
+    host.querySelectorAll('.pill').forEach(b => {
+      b.addEventListener('click', () => {
+        filter = b.dataset.id;
+        deck = shuffle(buildDeck(filter));
+        idx = 0; revealed = false;
+        renderFilters();
+        render();
+      });
+    });
+  }
+
+  function render() {
+    const c = deck[idx];
+    if (!c) return;
+    const colorMap = { supervised:'cyan', unsupervised:'violet', semi:'green', self:'amber', rl:'red' };
+    const card = document.getElementById('fc-card');
+    card.className = 'flashcard ' + (colorMap[c.paradigm] || 'cyan');
+    document.getElementById('fc-q-num').textContent = 'Dimensão ' + String(c.qNum).padStart(2,'0');
+    document.getElementById('fc-algo').textContent = c.algo;
+    document.getElementById('fc-question').textContent = c.q;
+    document.getElementById('fc-answer-txt').textContent = c.a;
+    document.getElementById('fc-answer').classList.toggle('shown', revealed);
+    document.getElementById('fc-hint').style.display = revealed ? 'none' : 'block';
+    document.getElementById('fc-idx').textContent = idx + 1;
+    document.getElementById('fc-total').textContent = deck.length;
+    document.getElementById('fc-deck-size').textContent = deck.length + ' cartas';
+    renderStats();
+  }
+
+  function renderStats() {
+    document.getElementById('st-seen').textContent = stats.seen;
+    document.getElementById('st-hit').textContent = stats.hit;
+    document.getElementById('st-miss').textContent = stats.miss;
+    const total = stats.hit + stats.miss;
+    document.getElementById('st-rate').textContent = total ? Math.round(100*stats.hit/total) + '%' : '—';
+  }
+
+  function reveal() {
+    revealed = true;
+    document.getElementById('fc-answer').classList.add('shown');
+    document.getElementById('fc-hint').style.display = 'none';
+  }
+
+  function next(dir = 1) {
+    if (!revealed && dir > 0) stats.seen++;
+    revealed = false;
+    idx = (idx + dir + deck.length) % deck.length;
+    saveStats(stats);
+    render();
+  }
+
+  function score(hit) {
+    if (!revealed) reveal();
+    if (hit) stats.hit++; else stats.miss++;
+    saveStats(stats);
+    setTimeout(() => next(1), 250);
+  }
+
+  document.getElementById('fc-card').addEventListener('click', reveal);
+  document.getElementById('fc-reveal').addEventListener('click', reveal);
+  document.getElementById('fc-next').addEventListener('click', () => next(1));
+  document.getElementById('fc-prev').addEventListener('click', () => next(-1));
+  document.getElementById('fc-hit').addEventListener('click', () => score(true));
+  document.getElementById('fc-miss').addEventListener('click', () => score(false));
+  document.getElementById('fc-shuffle').addEventListener('click', () => { shuffle(deck); idx = 0; revealed = false; render(); });
+  document.getElementById('fc-reset').addEventListener('click', () => {
+    if (confirm('Zerar estatísticas dos flashcards?')) { stats = { seen:0, hit:0, miss:0 }; saveStats(stats); renderStats(); }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === ' ') { e.preventDefault(); reveal(); }
+    else if (e.key === 'ArrowRight') next(1);
+    else if (e.key === 'ArrowLeft')  next(-1);
+    else if (e.key.toLowerCase() === 'a') score(true);
+    else if (e.key.toLowerCase() === 'e') score(false);
+  });
+
+  renderFilters();
+  render();
+</script>
+</body>
+</html>

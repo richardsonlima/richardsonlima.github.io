@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algoritmos — Portal de ML</title>
+<script src="assets/theme-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portal.css">
+<style>
+  .filter-bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    margin: 32px 0 24px;
+    align-items: center;
+  }
+  @media (max-width: 700px) { .filter-bar { grid-template-columns: 1fr; } }
+
+  .search-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .search-input:focus { border-color: var(--accent1); }
+  .search-input::placeholder { color: var(--text-faint); }
+
+  .count-pill {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    padding: 8px 14px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+  }
+  .count-pill strong { color: var(--text); font-weight: 700; }
+
+  /* paradigm section */
+  .para-section { margin-top: 56px; }
+  .para-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .para-dot {
+    width: 10px; height: 10px; border-radius: 3px;
+  }
+  .para-section.cyan   .para-dot { background: var(--accent1); }
+  .para-section.violet .para-dot { background: var(--accent2); }
+  .para-section.green  .para-dot { background: var(--accent3); }
+  .para-section.amber  .para-dot { background: var(--accent4); }
+  .para-section.red    .para-dot { background: var(--accent5); }
+  .para-header .ttl {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.3px;
+  }
+  .para-header .sub { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; }
+  .para-header .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+
+  /* algo card */
+  .algo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .algo-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+  }
+  .algo-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .algo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .algo-card.cyan::before   { background: var(--accent1); }
+  .algo-card.violet::before { background: var(--accent2); }
+  .algo-card.green::before  { background: var(--accent3); }
+  .algo-card.amber::before  { background: var(--accent4); }
+  .algo-card.red::before    { background: var(--accent5); }
+  .algo-card:hover.cyan   { border-color: rgba(0,112,243,0.4); }
+  .algo-card:hover.violet { border-color: rgba(124,58,237,0.4); }
+  .algo-card:hover.green  { border-color: rgba(5,150,105,0.4); }
+  .algo-card:hover.amber  { border-color: rgba(217,119,6,0.4); }
+  .algo-card:hover.red    { border-color: rgba(220,38,38,0.4); }
+
+  .algo-card .ac-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+  }
+  .algo-card .ac-tag {
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .algo-card.cyan   .ac-tag { color: var(--accent1); }
+  .algo-card.violet .ac-tag { color: var(--accent2); }
+  .algo-card.green  .ac-tag { color: var(--accent3); }
+  .algo-card.amber  .ac-tag { color: var(--accent4); }
+  .algo-card.red    .ac-tag { color: var(--accent5); }
+  .algo-card .ac-arrow {
+    font-size: 11px;
+    color: var(--text-muted);
+    transition: transform 0.15s;
+  }
+  .algo-card:hover .ac-arrow { color: var(--accent1); transform: translateX(3px); }
+
+  .algo-card .ac-name {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+  .algo-card .ac-idea {
+    font-size: 11.5px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+  .algo-card .ac-foot {
+    display: flex; gap: 4px; margin-top: 12px; flex-wrap: wrap;
+  }
+
+  /* MODAL --------------------------------- */
+  .modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,0.6);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+  }
+  .modal-bg.open { display: flex; animation: fadeIn 0.18s ease both; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .modal {
+    background: var(--bg);
+    border-radius: 10px;
+    max-width: 980px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    animation: modalIn 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  @keyframes modalIn { from { transform: translateY(20px) scale(0.98); opacity: 0; } to { transform: none; opacity: 1; } }
+
+  .modal-head {
+    padding: 28px 32px 22px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+    position: relative;
+  }
+  .modal-head::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .modal-head.cyan::before   { background: var(--accent1); }
+  .modal-head.violet::before { background: var(--accent2); }
+  .modal-head.green::before  { background: var(--accent3); }
+  .modal-head.amber::before  { background: var(--accent4); }
+  .modal-head.red::before    { background: var(--accent5); }
+
+  .modal-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .modal-head.cyan   .modal-tag { color: var(--accent1); }
+  .modal-head.violet .modal-tag { color: var(--accent2); }
+  .modal-head.green  .modal-tag { color: var(--accent3); }
+  .modal-head.amber  .modal-tag { color: var(--accent4); }
+  .modal-head.red    .modal-tag { color: var(--accent5); }
+  .modal-title {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .modal-sub {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 10px;
+    max-width: 700px;
+  }
+  .modal-close {
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    cursor: pointer;
+    display: grid; place-items: center;
+  }
+  .modal-close:hover { background: var(--text); color: var(--bg); }
+
+  .modal-body { padding: 28px 32px 36px; }
+
+  .fw-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 700px) { .fw-grid { grid-template-columns: 1fr; } }
+  .fw-row {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 14px 16px;
+  }
+  .fw-row .q {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent1);
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  .fw-row .a {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .modal-section {
+    margin-top: 22px;
+  }
+  .modal-section h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: var(--text);
+    letter-spacing: -0.2px;
+  }
+  .modal-section .stripe {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .modal-section .stripe::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .so-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 700px) { .so-grid { grid-template-columns: 1fr; } }
+  .so-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 14px 16px;
+  }
+  .so-box .ttl { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+  .so-box.use .ttl { color: var(--accent3); }
+  .so-box.skip .ttl { color: var(--accent5); }
+  .so-box ul { list-style: none; padding: 0; }
+  .so-box li {
+    font-size: 12px;
+    color: var(--text-dim);
+    padding: 4px 0 4px 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .so-box.use li::before { content: '+'; position: absolute; left: 0; color: var(--accent3); font-weight: 700; }
+  .so-box.skip li::before { content: '−'; position: absolute; left: 0; color: var(--accent5); font-weight: 700; }
+
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div id="mlp-topbar"></div>
+
+<main>
+
+  <div class="fade-up">
+    <div class="eyebrow">24 algoritmos canônicos · 5 paradigmas</div>
+    <h1 class="page-title"><em>Catálogo</em> de algoritmos</h1>
+    <p class="page-sub">
+      Clique em qualquer algoritmo para abrir a ficha técnica completa — hipóteses, trade-offs, complexidade,
+      métricas, escala, interpretabilidade e quando NÃO usar. Filtre por paradigma ou busque.
+    </p>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar fade-up d1">
+    <input class="search-input" id="search" placeholder="Buscar: 'kernel', 'overfitting', 'kaggle', 'embeddings'..." />
+    <div class="count-pill"><strong id="count">24</strong> algoritmos</div>
+  </div>
+
+  <div class="pill-row" id="filters" style="margin-bottom:8px"></div>
+
+  <!-- HOST -->
+  <div id="catalog"></div>
+
+  <div class="no-results" id="empty" style="display:none">Nada encontrado. Tente outra palavra-chave.</div>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg" onclick="closeModalOnBg(event)">
+  <div class="modal" id="modal">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<div id="mlp-footer"></div>
+
+<script src="assets/lessons.js"></script>
+<script src="assets/portal.js"></script>
+<script src="assets/algorithms.js"></script>
+<script>
+  MLPortal.mount('lessons');
+
+  const PARADIGMS = [
+    { id: 'all',          label: 'Todos',           color: '' },
+    { id: 'supervised',   label: 'Supervisionado',  color: 'cyan',   anchor: 'supervisionado' },
+    { id: 'unsupervised', label: 'Não-Superv.',     color: 'violet', anchor: 'nao-supervisionado' },
+    { id: 'semi',         label: 'Semi-Superv.',    color: 'green',  anchor: 'semi' },
+    { id: 'self',         label: 'Auto-Superv.',    color: 'amber',  anchor: 'auto' },
+    { id: 'rl',           label: 'RL',              color: 'red',    anchor: 'rl' },
+    { id: 'deep',         label: 'Deep Learning',   color: 'cyan' },
+  ];
+
+  let activeFilter = 'all';
+  let searchTerm = '';
+
+  function renderFilters() {
+    const host = document.getElementById('filters');
+    host.innerHTML = PARADIGMS.map(p =>
+      `<button class="pill ${activeFilter === p.id ? 'active' : ''}" data-filter="${p.id}">${p.label}</button>`
+    ).join('');
+    host.querySelectorAll('.pill').forEach(b => {
+      b.addEventListener('click', () => {
+        activeFilter = b.dataset.filter;
+        renderFilters();
+        renderCatalog();
+      });
+    });
+  }
+
+  function matches(algo) {
+    if (activeFilter !== 'all') {
+      if (activeFilter === 'deep') {
+        if (!algo.tags?.includes('deep')) return false;
+      } else if (algo.paradigm !== activeFilter) return false;
+    }
+    if (searchTerm) {
+      const t = searchTerm.toLowerCase();
+      const hay = (algo.name + ' ' + algo.idea + ' ' + (algo.tags||[]).join(' ') + ' ' + (algo.also||'')).toLowerCase();
+      if (!hay.includes(t)) return false;
+    }
+    return true;
+  }
+
+  function renderCatalog() {
+    const host = document.getElementById('catalog');
+    const groups = [
+      { id: 'supervised',   label: 'Supervisionado',        sub: 'Tem rótulo y · Regressão & Classificação', color: 'cyan'   },
+      { id: 'unsupervised', label: 'Não-Supervisionado',    sub: 'Sem rótulo · Estrutura, agrupamento, anomalia', color: 'violet' },
+      { id: 'semi',         label: 'Semi-Supervisionado',   sub: 'Poucos rótulos + muitos dados',           color: 'green'  },
+      { id: 'self',         label: 'Auto-Supervisionado',   sub: 'Modelo gera o próprio rótulo · Foundation models', color: 'amber'  },
+      { id: 'rl',           label: 'Reinforcement Learning', sub: 'Aprendizado por interação · Decisão sob incerteza', color: 'red' },
+    ];
+    let total = 0;
+    host.innerHTML = groups.map(g => {
+      const items = ALGORITHMS.filter(a => a.paradigm === g.id && matches(a));
+      total += items.length;
+      if (items.length === 0) return '';
+      return `
+        <section class="para-section ${g.color}" id="${g.id}">
+          <div class="para-header">
+            <span class="para-dot"></span>
+            <span class="ttl">${g.label}</span>
+            <span class="sub">${items.length} ${items.length === 1 ? 'algoritmo' : 'algoritmos'} · ${g.sub}</span>
+            <span class="line"></span>
+          </div>
+          <div class="algo-grid">
+            ${items.map(a => `
+              <button class="algo-card ${g.color}" data-algo="${a.id}">
+                <div class="ac-head">
+                  <span class="ac-tag">${a.tag || a.type || ''}</span>
+                  <span class="ac-arrow">→</span>
+                </div>
+                <div class="ac-name">${a.name}</div>
+                <div class="ac-idea">${a.idea}</div>
+                <div class="ac-foot">${(a.tags||[]).slice(0,3).map(t => `<span class="tag">${t}</span>`).join('')}</div>
+              </button>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }).join('');
+    document.getElementById('count').textContent = total;
+    document.getElementById('empty').style.display = total === 0 ? 'block' : 'none';
+
+    host.querySelectorAll('.algo-card').forEach(c => {
+      c.addEventListener('click', () => openModal(c.dataset.algo));
+    });
+  }
+
+  // -------- MODAL --------
+  function openModal(id) {
+    const a = ALGORITHMS.find(x => x.id === id);
+    if (!a) return;
+    const color = ({supervised:'cyan',unsupervised:'violet',semi:'green',self:'amber',rl:'red'})[a.paradigm];
+    const modal = document.getElementById('modal');
+    modal.innerHTML = `
+      <div class="modal-head ${color}">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-tag">${a.tag || a.type || ''}</div>
+        <div class="modal-title">${a.name}</div>
+        <div class="modal-sub">${a.long || a.idea}</div>
+      </div>
+      <div class="modal-body">
+        ${a.math ? `<div class="modal-section">
+          <div class="stripe">Objetivo matemático</div>
+          <div class="math-block" style="font-size:14px;padding:10px 18px">${a.math}</div>
+        </div>` : ''}
+
+        <div class="modal-section">
+          <div class="stripe">10 perguntas de entrevista</div>
+          <div class="fw-grid">
+            ${a.fw.map((row,i) => `
+              <div class="fw-row">
+                <div class="q">${String(i+1).padStart(2,'0')} — ${row.q}</div>
+                <div class="a">${row.a}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <div class="stripe">Quando usar vs quando NÃO usar</div>
+          <div class="so-grid">
+            <div class="so-box use">
+              <div class="ttl">Use quando</div>
+              <ul>${a.use.map(x => `<li>${x}</li>`).join('')}</ul>
+            </div>
+            <div class="so-box skip">
+              <div class="ttl">NÃO use quando</div>
+              <ul>${a.skip.map(x => `<li>${x}</li>`).join('')}</ul>
+            </div>
+          </div>
+        </div>
+
+        ${a.also ? `<div class="modal-section">
+          <div class="stripe">Veja também</div>
+          <div style="font-size:12px;color:var(--text-dim);line-height:1.7">${a.also}</div>
+        </div>` : ''}
+      </div>
+    `;
+    document.getElementById('modal-bg').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-bg').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnBg(ev) { if (ev.target.id === 'modal-bg') closeModal(); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  document.getElementById('search').addEventListener('input', (e) => {
+    searchTerm = e.target.value.trim();
+    renderCatalog();
+  });
+
+  renderFilters();
+  renderCatalog();
+</script>
+</body>
+</html>

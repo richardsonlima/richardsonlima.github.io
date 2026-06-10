@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossário — Portal de ML</title>
+<script src="assets/theme-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portal.css">
+<style>
+  .glos-head {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 900px) { .glos-head { grid-template-columns: 1fr; } }
+
+  /* alphabet rail */
+  .alpha-rail {
+    position: sticky;
+    top: 80px;
+    z-index: 50;
+    background: rgba(248,249,251,0.94);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 24px 0 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+  }
+  .alpha-rail a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    border-radius: 3px;
+    transition: all 0.15s;
+    min-width: 24px;
+    text-align: center;
+  }
+  .alpha-rail a:hover { background: var(--accent1); color: white; }
+  .alpha-rail a.disabled { opacity: 0.25; pointer-events: none; }
+
+  .letter-block { margin-bottom: 40px; }
+  .letter-head {
+    display: flex; align-items: center; gap: 18px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .letter-mark {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--accent1);
+  }
+  .letter-count { font-size: 10px; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; }
+
+  .term-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 12px;
+  }
+  .term {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .term::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--border);
+  }
+  .term.cyan::before   { background: var(--accent1); }
+  .term.violet::before { background: var(--accent2); }
+  .term.green::before  { background: var(--accent3); }
+  .term.amber::before  { background: var(--accent4); }
+  .term.red::before    { background: var(--accent5); }
+
+  .term-name {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    letter-spacing: -0.2px;
+    margin-bottom: 4px;
+  }
+  .term-tag {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .term-def {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  .term-also {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* search */
+  .search-input {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+    margin-top: 24px;
+  }
+  .search-input:focus { border-color: var(--accent1); }
+
+  .no-hits {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div id="mlp-topbar"></div>
+
+<main>
+
+  <div class="glos-head fade-up">
+    <div>
+      <div class="eyebrow">Índice · 90+ termos</div>
+      <h1 class="page-title"><em>Glossário</em> de ML</h1>
+      <p class="page-sub">
+        Os termos que aparecem em entrevista, prova e leitura de papers — definidos em uma linha cada.
+        Para fundir vocabulário: leia o glossário 1× por semana. É barato e paga muito.
+      </p>
+    </div>
+    <input class="search-input" id="search" placeholder="Buscar termo: 'overfitting', 'kernel', 'embedding'..." />
+  </div>
+
+  <div class="alpha-rail" id="alpha-rail"></div>
+
+  <div id="host"></div>
+
+  <div class="no-hits" id="empty" style="display:none">Nenhum termo encontrado.</div>
+
+</main>
+
+<div id="mlp-footer"></div>
+
+<script src="assets/lessons.js"></script>
+<script src="assets/portal.js"></script>
+<script>
+  MLPortal.mount('glossary');
+
+  const COLORS = {
+    fundamento:  '',
+    supervised:  'cyan',
+    unsupervised:'violet',
+    semi:        'green',
+    self:        'amber',
+    rl:          'red',
+    eng:         '',
+    deep:        '',
+  };
+
+  const TERMS = [
+    // A
+    { name: 'Accuracy',          tag: 'Métrica',        def: 'Fração de predições corretas. Engana com classes desbalanceadas — use F1 ou AUC.' },
+    { name: 'Active Learning',   tag: 'Semi',           cat: 'semi', def: 'Modelo escolhe ativamente quais amostras o humano deve rotular para maximizar ganho de informação.' },
+    { name: 'AUC-ROC',           tag: 'Métrica',        def: 'Área sob a curva ROC. Probabilidade de o modelo ranquear um positivo aleatório acima de um negativo aleatório.' },
+    { name: 'Autoencoder',       tag: 'Deep',           cat: 'deep', def: 'Rede que comprime input em representação latente e tenta reconstruí-lo. Usado em redução, denoising e anomalia.' },
+    { name: 'Attention',         tag: 'Deep',           cat: 'deep', def: 'Mecanismo que pondera dinamicamente partes do input. Base do Transformer.' },
+    { name: 'Active Recall',     tag: 'Estudo',         def: 'Estratégia de estudo: forçar o cérebro a recuperar a informação ao invés de reler. Flashcards são a forma canônica.' },
+
+    // B
+    { name: 'Backpropagation',   tag: 'Deep',           cat: 'deep', def: 'Algoritmo que calcula gradientes da loss em relação aos pesos via chain rule, da saída para a entrada.' },
+    { name: 'Bagging',           tag: 'Ensemble',       cat: 'supervised', def: 'Bootstrap Aggregating. Treinar N modelos em amostras com reposição e agregar predições. Reduz variância.' },
+    { name: 'Batch Normalization', tag: 'Deep',         cat: 'deep', def: 'Normaliza ativações dentro de um mini-batch para acelerar convergência e estabilizar treino.' },
+    { name: 'Bayes\' Theorem',   tag: 'Probabilidade',  def: 'P(A|B) = P(B|A) · P(A) / P(B). Fundamento dos métodos probabilísticos.' },
+    { name: 'Bias-Variance Trade-off', tag: 'Fundamento', def: 'Bias = erro sistemático; Variance = sensibilidade ao dataset. Total error = Bias² + Variance + Noise. O ponto ótimo balanceia ambos.' },
+    { name: 'Boosting',          tag: 'Ensemble',       cat: 'supervised', def: 'Treinar modelos sequencialmente, cada um corrigindo os erros do anterior. Reduz bias.' },
+    { name: 'Brier Score',       tag: 'Métrica',        def: 'MSE entre probabilidades preditas e rótulos. Mede calibração probabilística.' },
+
+    // C
+    { name: 'Calibração',        tag: 'Métrica',        def: 'O quanto a probabilidade predita corresponde à frequência real. Platt scaling e isotonic calibration corrigem.' },
+    { name: 'CatBoost',          tag: 'Boosting',       cat: 'supervised', def: 'Gradient boosting otimizado para features categóricas via ordered target encoding.' },
+    { name: 'Centroide',         tag: 'Clustering',     cat: 'unsupervised', def: 'Ponto médio de um cluster. K-Means atualiza centróides iterativamente.' },
+    { name: 'Classificação',     tag: 'Tarefa',         cat: 'supervised', def: 'Predição de saída categórica: binária, multiclasse ou multilabel.' },
+    { name: 'CLIP',              tag: 'Multimodal',     cat: 'self', def: 'Contrastive Language-Image Pretraining. Aprende embeddings conjuntos de texto e imagem.' },
+    { name: 'Clustering',        tag: 'Tarefa',         cat: 'unsupervised', def: 'Agrupar pontos por similaridade sem rótulos. K-Means, DBSCAN, Hierarchical.' },
+    { name: 'CNN',               tag: 'Deep',           cat: 'deep', def: 'Convolutional Neural Network. Convoluções compartilham pesos espacialmente. Default para imagens.' },
+    { name: 'Concept Drift',     tag: 'MLOps',          def: 'A relação P(y|x) muda ao longo do tempo. Diferente de data drift, onde P(x) muda.' },
+    { name: 'Contrastive Learning', tag: 'SSL',         cat: 'self', def: 'Aprende aproximando pares positivos e afastando negativos no espaço de embedding.' },
+    { name: 'Cross-Validation',  tag: 'Validação',      def: 'k-fold: dividir dados em k partes, treinar em k−1 e validar na restante, rotacionando.' },
+    { name: 'Curse of Dimensionality', tag: 'Geometria', def: 'Em alta dimensão, distâncias entre pontos colapsam, volume se concentra na casca, e amostras tornam-se esparsas.' },
+
+    // D
+    { name: 'Data Drift',        tag: 'MLOps',          def: 'A distribuição P(x) muda. Detectado via testes de distribuição (KS, PSI).' },
+    { name: 'Data Leakage',      tag: 'MLOps',          def: 'Informação do futuro/target vaza para o treino. Inflar métricas em treino, falhar em produção.' },
+    { name: 'DBSCAN',            tag: 'Clustering',     cat: 'unsupervised', def: 'Density-Based Spatial Clustering. Acha clusters de forma arbitrária e marca outliers.' },
+    { name: 'Decision Tree',     tag: 'Modelo',         cat: 'supervised', def: 'Particionamento hierárquico por splits que maximizam pureza (Gini/entropia).' },
+    { name: 'Deep Learning',     tag: 'Família',        cat: 'deep', def: 'Redes neurais com múltiplas camadas que aprendem representações hierárquicas.' },
+    { name: 'DPO',               tag: 'RLHF',           cat: 'rl', def: 'Direct Preference Optimization. Alinha LLMs com preferências sem treinar reward model separado.' },
+    { name: 'Dropout',           tag: 'Regularização',  cat: 'deep', def: 'Desliga neurônios aleatoriamente durante treino. Evita co-adaptação.' },
+
+    // E
+    { name: 'Early Stopping',    tag: 'Regularização',  def: 'Para o treino quando a métrica de validação para de melhorar. Forma barata e eficaz de regularização.' },
+    { name: 'ElasticNet',        tag: 'Regressão',      cat: 'supervised', def: 'Combina penalização L1 + L2. Bom com features correlacionadas.' },
+    { name: 'Embedding',         tag: 'Representação',  def: 'Vetor denso de baixa dimensão que captura semântica de um objeto (palavra, imagem, usuário).' },
+    { name: 'Ensemble',          tag: 'Família',        def: 'Combinação de múltiplos modelos. Bagging, boosting, stacking.' },
+    { name: 'Entropy',           tag: 'Teoria Inf.',    def: 'H(X) = −Σ p log p. Mede incerteza/desordem. Critério de split em árvores.' },
+    { name: 'Epoch',             tag: 'Treino',         def: 'Uma passagem completa pelos dados de treino.' },
+
+    // F
+    { name: 'Feature Engineering', tag: 'Engenharia',   def: 'Criar features informativas a partir dos dados brutos. O gap que separa juniors de seniors.' },
+    { name: 'Feature Importance', tag: 'Interpretab.',  def: 'Medida de quanto cada feature contribui para predições. Gain em árvores, SHAP em qualquer modelo.' },
+    { name: 'Feature Scaling',   tag: 'Pré-process.',   def: 'Normalizar features para magnitudes comparáveis. Min-max, z-score, robust scaler.' },
+    { name: 'F1 Score',          tag: 'Métrica',        def: 'Média harmônica de precisão e recall. Útil em classes desbalanceadas.' },
+    { name: 'Few-Shot Learning', tag: 'IA Moderna',     def: 'Aprender com pouquíssimos exemplos por classe. LLMs fazem in-context.' },
+    { name: 'Foundation Model',  tag: 'IA Moderna',     cat: 'self', def: 'Modelo pré-treinado em escala que serve de base para múltiplas tarefas downstream.' },
+
+    // G
+    { name: 'Gini Index',        tag: 'Árvore',         def: '1 − Σ pₖ². Critério de impureza em árvores. Próximo de zero = puro.' },
+    { name: 'GMM',               tag: 'Clustering',     cat: 'unsupervised', def: 'Gaussian Mixture Model. Clusters como misturas de gaussianas, com soft assignment.' },
+    { name: 'Gradient Boosting', tag: 'Ensemble',       cat: 'supervised', def: 'Árvores fracas sequenciais cada uma corrigindo o resíduo (gradiente) da anterior.' },
+    { name: 'Gradient Descent',  tag: 'Otimização',     def: 'Iterativamente atualizar parâmetros na direção oposta ao gradiente da loss.' },
+    { name: 'GRU',               tag: 'Deep',           cat: 'deep', def: 'Gated Recurrent Unit. Versão simplificada do LSTM com menos gates.' },
+
+    // H
+    { name: 'Hiperparâmetro',    tag: 'Treino',         def: 'Parâmetro que controla o treino mas não é aprendido dos dados. λ, learning rate, max_depth.' },
+    { name: 'Huber Loss',        tag: 'Loss',           def: 'Loss híbrida quadrática para erros pequenos e linear para grandes. Robusta a outliers.' },
+
+    // I
+    { name: 'Imbalanced Classes', tag: 'Pré-process.',  def: 'Quando uma classe é muito mais frequente. Use SMOTE, class weights, ou métricas adequadas.' },
+    { name: 'In-Context Learning', tag: 'LLMs',         cat: 'self', def: 'LLM aprende uma tarefa apenas vendo exemplos no prompt, sem atualizar pesos.' },
+    { name: 'Isolation Forest',  tag: 'Anomalia',       cat: 'unsupervised', def: 'Anomalias são fáceis de isolar — caminhos curtos em árvores aleatórias.' },
+
+    // K
+    { name: 'K-Means',           tag: 'Clustering',     cat: 'unsupervised', def: 'Particiona em k clusters minimizando distância aos centróides. Pressupõe clusters esféricos.' },
+    { name: 'Kernel Trick',      tag: 'SVM',            cat: 'supervised', def: 'Substituir produtos internos por kernel K(x,y) para operar em espaço de alta dim sem mapeá-lo explicitamente.' },
+    { name: 'KL Divergence',     tag: 'Teoria Inf.',    def: 'Mede divergência entre duas distribuições. Não simétrica. Base de muitas losses.' },
+    { name: 'KNN',               tag: 'Modelo',         cat: 'supervised', def: 'Classifica pela maioria dos k vizinhos mais próximos no espaço de features.' },
+
+    // L
+    { name: 'L1 Regularization', tag: 'Regularização',  def: 'Penaliza |β|. Induz esparsidade — zera coeficientes.' },
+    { name: 'L2 Regularization', tag: 'Regularização',  def: 'Penaliza β². Encolhe coeficientes uniformemente.' },
+    { name: 'Label Propagation', tag: 'Semi',           cat: 'semi', def: 'Propaga rótulos por similaridade em grafo dos pontos rotulados aos não rotulados.' },
+    { name: 'Lasso',             tag: 'Regressão',      cat: 'supervised', def: 'Regressão linear com L1. Faz seleção automática de features.' },
+    { name: 'LightGBM',          tag: 'Boosting',       cat: 'supervised', def: 'Gradient boosting otimizado por histogramas e leaf-wise growth. Muito rápido.' },
+    { name: 'Linear Regression', tag: 'Modelo',         cat: 'supervised', def: 'f(x) = βᵀx + b. Minimiza MSE.' },
+    { name: 'Logistic Regression', tag: 'Modelo',       cat: 'supervised', def: 'Classificação binária via função sigmoide sobre combinação linear. Probabilidades calibradas.' },
+    { name: 'Log-Loss',          tag: 'Loss',           def: '−Σ y log p + (1-y) log(1-p). Penaliza confiança errada exponencialmente.' },
+    { name: 'LSTM',              tag: 'Deep',           cat: 'deep', def: 'Long Short-Term Memory. RNN com gates que lida com dependências longas.' },
+
+    // M
+    { name: 'MAE',               tag: 'Métrica',        def: 'Mean Absolute Error. Robusto a outliers. Mesma unidade do target.' },
+    { name: 'Manifold',          tag: 'Geometria',      def: 'Subespaço curvo de baixa dimensão onde dados de alta dim "vivem". Base de UMAP, autoencoders.' },
+    { name: 'MAP / NDCG',        tag: 'Ranking',        def: 'Métricas de ranking — quão bem o modelo ordena os resultados relevantes no topo.' },
+    { name: 'Masked LM',         tag: 'SSL',            cat: 'self', def: 'Esconde tokens e treina para reconstruí-los. Receita do BERT.' },
+    { name: 'MDP',               tag: 'RL',             cat: 'rl', def: 'Markov Decision Process. Estado, ação, recompensa, transição. A formalização do RL.' },
+    { name: 'MLOps',             tag: 'Engenharia',     def: 'Pipelines, CI/CD, monitoramento, drift detection, serving — operar ML em produção.' },
+    { name: 'Multicolinearidade', tag: 'Pré-process.',  def: 'Features fortemente correlacionadas. Desestabiliza coeficientes em regressão linear.' },
+
+    // N
+    { name: 'Naive Bayes',       tag: 'Modelo',         cat: 'supervised', def: 'Aplica Bayes assumindo independência condicional entre features. Imbatível em texto.' },
+    { name: 'NTP',               tag: 'LLMs',           cat: 'self', def: 'Next Token Prediction. P(xₜ | x_&lt;t). Base do GPT.' },
+    { name: 'NLP',               tag: 'Domínio',        def: 'Natural Language Processing. Texto como dado.' },
+
+    // O
+    { name: 'Off-policy',        tag: 'RL',             cat: 'rl', def: 'Aprende a política ótima a partir de dados gerados por outra política. Q-Learning, DQN.' },
+    { name: 'One-Class SVM',     tag: 'Anomalia',       cat: 'unsupervised', def: 'Aprende uma fronteira que envolve a região "normal" dos dados.' },
+    { name: 'Overfitting',       tag: 'Fundamento',     def: 'Modelo decora o treino e generaliza mal. Variância alta. Gap grande train vs val.' },
+
+    // P
+    { name: 'PCA',               tag: 'Redução Dim.',   cat: 'unsupervised', def: 'Projeta dados nas direções de máxima variância (autovetores da covariância).' },
+    { name: 'Perplexity',        tag: 'NLP',            def: 'exp(cross-entropy). Mede o quão "surpreso" o modelo está com o texto. Menor = melhor.' },
+    { name: 'PPO',               tag: 'RL',             cat: 'rl', def: 'Proximal Policy Optimization. Policy gradient com clipping. Default moderno.' },
+    { name: 'Precision',         tag: 'Métrica',        def: 'TP / (TP + FP). Dos que predisse positivo, quantos são positivos de fato.' },
+    { name: 'Pruning',           tag: 'Regularização',  cat: 'supervised', def: 'Cortar ramos da árvore que não contribuem para a generalização.' },
+    { name: 'Pseudo-Labeling',   tag: 'Semi',           cat: 'semi', def: 'Modelo treinado em labeled prediz no unlabeled; predições confiantes viram rótulos.' },
+
+    // Q
+    { name: 'Q-Learning',        tag: 'RL',             cat: 'rl', def: 'Aprende Q(s,a) via Bellman update. Off-policy, tabular.' },
+
+    // R
+    { name: 'RAG',               tag: 'IA Moderna',     cat: 'self', def: 'Retrieval-Augmented Generation. LLM consulta uma base externa antes de responder.' },
+    { name: 'Random Forest',     tag: 'Ensemble',       cat: 'supervised', def: 'Bagging de árvores com subsample de features. Default robusto para tabular.' },
+    { name: 'Recall',            tag: 'Métrica',        def: 'TP / (TP + FN). Dos positivos reais, quantos o modelo capturou.' },
+    { name: 'Regressão',         tag: 'Tarefa',         cat: 'supervised', def: 'Predição de saída contínua: preço, score, temperatura.' },
+    { name: 'Regularização',     tag: 'Fundamento',     def: 'Penalizar complexidade para reduzir overfitting. L1, L2, dropout, early stopping.' },
+    { name: 'Reward Hacking',    tag: 'RL',             cat: 'rl', def: 'Agente explora falhas do reward function para maximizar reward sem cumprir o objetivo real.' },
+    { name: 'Ridge',             tag: 'Regressão',      cat: 'supervised', def: 'Regressão linear com penalização L2. Reduz variância em multicolinearidade.' },
+    { name: 'RLHF',              tag: 'IA Moderna',     cat: 'rl', def: 'RL from Human Feedback. Treina reward model com preferências humanas e otimiza LLM via PPO.' },
+    { name: 'RMSE',              tag: 'Métrica',        def: 'Raiz do MSE. Mesma unidade do target. Sensível a outliers.' },
+    { name: 'RNN',               tag: 'Deep',           cat: 'deep', def: 'Recurrent Neural Network. Estado oculto recorrente para dados sequenciais.' },
+    { name: 'ROC Curve',         tag: 'Métrica',        def: 'TPR vs FPR variando o threshold. AUC = área sob a curva.' },
+
+    // S
+    { name: 'Self-Attention',    tag: 'Deep',           cat: 'deep', def: 'Cada token atende a todos os outros. Pilar do Transformer.' },
+    { name: 'Self-Supervised',   tag: 'Paradigma',      cat: 'self', def: 'Modelo gera o próprio rótulo a partir dos dados brutos. Base dos LLMs.' },
+    { name: 'Semi-Supervised',   tag: 'Paradigma',      cat: 'semi', def: 'Aprende com poucos rótulos + muitos dados não rotulados.' },
+    { name: 'SHAP',              tag: 'Interpretab.',   def: 'Shapley values aplicados a ML. Atribui contribuição de cada feature por predição.' },
+    { name: 'Silhouette Score',  tag: 'Clustering',     def: 'Mede coesão (distância intra-cluster) vs separação (distância inter-cluster). [-1, 1].' },
+    { name: 'Sigmoid',           tag: 'Ativação',       def: 'σ(x) = 1/(1+e^−x). Squashes para (0, 1). Base da logistic regression.' },
+    { name: 'SMOTE',             tag: 'Pré-process.',   def: 'Synthetic Minority Oversampling. Cria amostras sintéticas interpolando vizinhos da classe minoritária.' },
+    { name: 'Softmax',           tag: 'Ativação',       def: 'Generaliza sigmoide para multiclasse. σ(zᵢ) = e^zᵢ / Σ e^zⱼ.' },
+    { name: 'Stochastic GD',     tag: 'Otimização',     def: 'SGD. Atualiza usando um (ou mini-batch) exemplo por vez. Escalável para datasets grandes.' },
+    { name: 'Supervisionado',    tag: 'Paradigma',      cat: 'supervised', def: 'Aprende f(X)→y a partir de pares entrada/rótulo.' },
+    { name: 'Support Vector',    tag: 'SVM',            cat: 'supervised', def: 'Pontos mais próximos da margem. São os únicos que definem o hiperplano.' },
+    { name: 'SVM',               tag: 'Modelo',         cat: 'supervised', def: 'Encontra hiperplano de máxima margem entre classes. Kernel trick para não-linearidade.' },
+
+    // T
+    { name: 't-SNE',             tag: 'Redução Dim.',   cat: 'unsupervised', def: 'Mapeia dados em 2D/3D preservando vizinhança local. Só para visualização.' },
+    { name: 'Tokenizer',         tag: 'NLP',            def: 'Divide texto em tokens (BPE, WordPiece). Subword é o default moderno.' },
+    { name: 'Transfer Learning', tag: 'IA Moderna',     def: 'Reaproveita um modelo pré-treinado em uma tarefa para outra. Fine-tuning é a forma comum.' },
+    { name: 'Transformer',       tag: 'Deep',           cat: 'deep', def: 'Arquitetura baseada em self-attention. Base de LLMs, ViT, multimodal.' },
+
+    // U
+    { name: 'UMAP',              tag: 'Redução Dim.',   cat: 'unsupervised', def: 'Preserva estrutura local e parcialmente global. Escalável, vai para pipelines.' },
+    { name: 'Underfitting',      tag: 'Fundamento',     def: 'Modelo simples demais para o sinal. Bias alto. Erro alto em treino e validação.' },
+
+    // V
+    { name: 'Validation Set',    tag: 'Validação',      def: 'Subconjunto separado do treino para tunar hiperparâmetros sem contaminar o test set.' },
+    { name: 'Vanishing Gradient', tag: 'Deep',          cat: 'deep', def: 'Gradientes diminuem nas camadas iniciais, impedindo aprendizado. Mitigado por ReLU, residual connections, LSTM gates.' },
+    { name: 'Variance',          tag: 'Fundamento',     def: 'Sensibilidade do modelo a variações no dataset de treino. Alta variância = overfitting.' },
+
+    // W
+    { name: 'Weak Supervision',  tag: 'Semi',           cat: 'semi', def: 'Combina múltiplas fontes ruidosas de rótulos (heurísticas, regras) para treinar.' },
+    { name: 'Weight Decay',      tag: 'Regularização',  def: 'Equivalente a L2 — encolhe pesos a cada passo. Padrão em deep learning.' },
+
+    // X
+    { name: 'XGBoost',           tag: 'Boosting',       cat: 'supervised', def: 'Gradient boosting com regularização explícita, segunda derivada, histogramas. Domina Kaggle tabular.' },
+
+    // Z
+    { name: 'Zero-Shot',         tag: 'IA Moderna',     def: 'Aplicar um modelo a uma classe/tarefa nunca vista. CLIP, GPT fazem zero-shot via prompt.' },
+  ];
+
+  const ALPHA = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+  function groupByLetter(terms) {
+    const map = {};
+    terms.forEach(t => {
+      const k = t.name.charAt(0).toUpperCase();
+      (map[k] = map[k] || []).push(t);
+    });
+    Object.values(map).forEach(arr => arr.sort((a,b) => a.name.localeCompare(b.name)));
+    return map;
+  }
+
+  function render(filter = '') {
+    const host = document.getElementById('host');
+    const f = filter.trim().toLowerCase();
+    const visible = TERMS.filter(t => !f || (t.name + ' ' + t.def + ' ' + t.tag).toLowerCase().includes(f));
+    const grouped = groupByLetter(visible);
+
+    // alpha rail
+    const rail = document.getElementById('alpha-rail');
+    rail.innerHTML = ALPHA.map(L => {
+      const has = !!grouped[L];
+      return `<a href="${has ? '#L-' + L : '#'}" class="${has ? '' : 'disabled'}">${L}</a>`;
+    }).join('');
+
+    host.innerHTML = ALPHA.filter(L => grouped[L]).map(L => `
+      <section class="letter-block" id="L-${L}">
+        <div class="letter-head">
+          <span class="letter-mark">${L}</span>
+          <span class="letter-count">${grouped[L].length} ${grouped[L].length === 1 ? 'termo' : 'termos'}</span>
+        </div>
+        <div class="term-grid">
+          ${grouped[L].map(t => `
+            <div class="term ${COLORS[t.cat] || ''}">
+              <div class="term-name">${t.name}</div>
+              <div class="term-tag">${t.tag}</div>
+              <div class="term-def">${t.def}</div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `).join('');
+
+    document.getElementById('empty').style.display = visible.length === 0 ? 'block' : 'none';
+  }
+
+  document.getElementById('search').addEventListener('input', e => render(e.target.value));
+  render();
+</script>
+</body>
+</html>
