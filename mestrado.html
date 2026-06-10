@@ -9,7 +9,9 @@ sitemap: false
   <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0b2147" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
     <title>Richardson Lima | ITA PG-EEC · Mestrado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,6 +66,8 @@ sitemap: false
 
       html {
         scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
       }
 
       body {
@@ -73,6 +77,7 @@ sitemap: false
         line-height: 1.55;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
+        overflow-x: hidden;
       }
 
       .mono {
@@ -99,9 +104,10 @@ sitemap: false
         justify-content: space-between;
         align-items: center;
         gap: 16px;
-        padding: 14px 40px;
+        padding: 14px max(40px, env(safe-area-inset-left)) 14px max(40px, env(safe-area-inset-right));
         background: color-mix(in srgb, var(--bg) 86%, transparent);
         backdrop-filter: saturate(140%) blur(10px);
+        -webkit-backdrop-filter: saturate(140%) blur(10px);
         border-bottom: 1px solid var(--border);
       }
 
@@ -156,15 +162,30 @@ sitemap: false
         box-shadow: 0 1px 2px rgba(0, 0, 0, .12);
       }
 
+      .seg-lang button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .seg-lang .flag {
+        font-size: .9rem;
+        line-height: 1;
+      }
+
+      .seg-lang .lang-tag {
+        font-family: var(--mono);
+      }
+
       /* ---------- LAYOUT ---------- */
       .wrap {
         max-width: 1080px;
         margin: 0 auto;
-        padding: 0 40px;
+        padding: 0 max(clamp(20px, 5vw, 40px), env(safe-area-inset-left)) 0 max(clamp(20px, 5vw, 40px), env(safe-area-inset-right));
       }
 
       .section {
-        padding: 76px 0;
+        padding: clamp(48px, 8vw, 76px) 0;
         border-top: 1px solid var(--border);
       }
 
@@ -195,7 +216,7 @@ sitemap: false
       .sec-title {
         font-family: var(--serif);
         font-weight: 500;
-        font-size: 2.3rem;
+        font-size: clamp(1.7rem, 4.6vw, 2.3rem);
         letter-spacing: -.5px;
         line-height: 1.05;
         margin: 16px 0 36px;
@@ -311,7 +332,7 @@ sitemap: false
       .cd-unit .v {
         font-family: var(--serif);
         font-weight: 500;
-        font-size: 2.6rem;
+        font-size: clamp(2rem, 6vw, 2.6rem);
         line-height: 1;
         color: var(--navy-ink);
         font-variant-numeric: tabular-nums;
@@ -432,7 +453,7 @@ sitemap: false
       .mecade-name h2 {
         font-family: var(--serif);
         font-weight: 600;
-        font-size: 3.2rem;
+        font-size: clamp(2.4rem, 8vw, 3.2rem);
         letter-spacing: -1px;
         line-height: 1;
       }
@@ -518,100 +539,120 @@ sitemap: false
         margin-top: 3px;
       }
 
-      .mecade-cta {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 14px;
-        margin-top: 14px;
+      .validate {
+        margin-top: 18px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+        overflow: hidden;
       }
 
-      .cta-card {
+      .validate-head {
         background: var(--navy);
         color: #fff;
-        border-radius: 16px;
-        padding: 30px 32px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        padding: 34px 36px 30px;
       }
 
-      html[data-theme='dark'] .cta-card {
+      html[data-theme='dark'] .validate-head {
         background: linear-gradient(135deg, #1b3a6b, #25508f);
       }
 
-      .cta-card h3 {
+      .validate-kicker {
+        display: block;
+        font-size: .62rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #f2b400;
+        margin-bottom: 14px;
+      }
+
+      .validate-head h3 {
         font-family: var(--serif);
         font-weight: 500;
-        font-size: 1.7rem;
-        letter-spacing: -.4px;
-        margin-bottom: 10px;
+        font-size: 1.95rem;
+        letter-spacing: -.5px;
+        margin-bottom: 14px;
         color: #fff;
       }
 
-      .cta-card p {
-        font-size: .95rem;
-        color: rgba(255, 255, 255, .82);
-        max-width: 480px;
+      .validate-head p {
+        font-size: .96rem;
+        line-height: 1.62;
+        color: rgba(255, 255, 255, .84);
+        max-width: 780px;
       }
 
-      .cta-btn {
-        align-self: flex-start;
-        margin-top: 20px;
-        background: #f2b400;
-        color: #1b1a16;
-        font-weight: 700;
-        font-size: .9rem;
-        padding: 13px 24px;
-        border-radius: 10px;
-        transition: .18s;
+      .validate-meta {
+        margin-top: 16px;
+        font-size: .68rem;
+        letter-spacing: .4px;
+        color: rgba(255, 255, 255, .6);
+        text-transform: uppercase;
       }
 
-      .cta-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 22px rgba(242, 180, 0, .35);
-      }
-
-      .mat-col {
+      .validate-steps {
         display: grid;
-        grid-template-rows: 1fr 1fr;
-        gap: 14px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--border);
       }
 
-      .mat {
-        border: 1px solid var(--border);
+      .vstep {
         background: var(--surface);
-        border-radius: 16px;
-        padding: 22px 24px;
+        padding: 26px 26px 24px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        gap: 10px;
         transition: .18s;
+        position: relative;
       }
 
-      .mat:hover {
-        border-color: var(--navy);
+      .vstep:hover {
+        background: var(--surface-2);
         transform: translateY(-2px);
       }
 
-      .mat .mono {
+      .vstep-n {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--navy-soft);
+        line-height: 1;
+      }
+
+      html[data-theme='dark'] .vstep-n { color: #2c4d80; }
+
+      .vstep-src {
         font-size: .6rem;
         text-transform: uppercase;
-        letter-spacing: 1.5px;
+        letter-spacing: 1.8px;
         color: var(--gold);
       }
 
-      .mat .lk {
-        font-weight: 700;
-        font-size: 1.05rem;
-        margin-top: 6px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+      .vstep-name {
+        font-size: .98rem;
+        font-weight: 500;
+        line-height: 1.36;
+        color: var(--fg);
+        flex: 1;
       }
 
-      .mat:hover .lk {
+      .vstep-go {
+        font-size: .76rem;
+        font-weight: 600;
         color: var(--navy-ink);
+        margin-top: 4px;
       }
+
+      .vstep.primary {
+        background: var(--navy-soft);
+      }
+
+      .vstep.primary:hover {
+        background: var(--navy-soft);
+        filter: brightness(.97);
+      }
+
+      .vstep.primary .vstep-n { color: var(--navy); }
 
       /* ---------- TABLES ---------- */
       .tablebox {
@@ -1231,6 +1272,72 @@ sitemap: false
         background: var(--surface-2);
       }
 
+      /* ---------- Records & milestones ---------- */
+      .records {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .rec {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        padding: 18px 20px;
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        background: var(--surface);
+      }
+      .rec-icon {
+        flex: none;
+        width: 26px; height: 26px;
+        display: grid; place-items: center;
+        border-radius: 7px;
+        font-size: .82rem;
+        font-weight: 700;
+      }
+      .rec-done .rec-icon { background: var(--ok-bg); color: var(--ok); }
+      .rec-wip .rec-icon { background: var(--amber-bg); color: var(--amber); }
+      .rec-pending .rec-icon { background: var(--surface-2); color: var(--muted); }
+      .rec-title { font-size: .98rem; font-weight: 600; margin-bottom: 4px; letter-spacing: -.2px; }
+      .rec-sub { font-size: .82rem; color: var(--muted); line-height: 1.45; }
+
+      /* ---------- NOREG compliance ---------- */
+      .no-intro { font-size: .95rem; color: var(--muted); max-width: 720px; margin: -8px 0 18px; }
+      .noreg {
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        overflow: hidden;
+      }
+      .nr-row {
+        display: grid;
+        grid-template-columns: 1.1fr 1.1fr 1.4fr;
+        gap: 18px;
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border);
+        align-items: baseline;
+      }
+      .nr-row:last-child { border-bottom: none; }
+      .nr-head {
+        background: var(--surface-2);
+        font-family: var(--mono);
+        font-size: .6rem;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: var(--gold);
+      }
+      .nr-item { font-size: .92rem; font-weight: 600; display: flex; gap: 9px; align-items: baseline; }
+      .nr-ok { color: var(--ok); font-weight: 700; flex: none; }
+      .nr-mine { font-size: .9rem; color: var(--fg); }
+      .nr-norm { font-size: .78rem; color: var(--muted); line-height: 1.4; }
+      .no-note { font-size: .82rem; color: var(--muted); line-height: 1.55; max-width: 760px; margin-top: 14px; }
+
+      @media (max-width: 680px) {
+        .records { grid-template-columns: 1fr; }
+        .nr-row { grid-template-columns: 1fr; gap: 6px; }
+        .nr-head { display: none; }
+        .nr-norm::before { content: '· '; }
+      }
+
       .pub-access {
         display: flex;
         flex-direction: column;
@@ -1406,12 +1513,8 @@ sitemap: false
           grid-template-columns: repeat(2, 1fr);
         }
 
-        .mecade-cta {
+        .validate-steps {
           grid-template-columns: 1fr;
-        }
-
-        .mat-col {
-          grid-template-rows: auto auto;
         }
       }
 
@@ -1427,7 +1530,7 @@ sitemap: false
         }
 
         .wrap {
-          padding: 0 18px;
+          padding: 0 max(18px, env(safe-area-inset-left)) 0 max(18px, env(safe-area-inset-right));
         }
 
         .section {
@@ -1489,6 +1592,50 @@ sitemap: false
           align-items: stretch;
         }
       }
+
+      /* Small phones (iPhone SE / mini and similar) */
+      @media (max-width: 440px) {
+        .nav {
+          padding: 10px max(14px, env(safe-area-inset-left)) 10px max(14px, env(safe-area-inset-right));
+        }
+
+        .nav-controls {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .seg button {
+          padding: 6px 9px;
+          font-size: .62rem;
+        }
+
+        .cd-unit {
+          padding: 16px 8px;
+        }
+
+        .cd-unit .v {
+          font-size: 1.7rem;
+        }
+
+        .validate-head {
+          padding: 26px 22px 24px;
+        }
+
+        .vstep {
+          padding: 22px 22px 20px;
+        }
+      }
+
+      /* Honour reduced-motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        * {
+          transition-duration: .01ms !important;
+        }
+      }
     </style>
   </head>
 
@@ -1501,9 +1648,13 @@ sitemap: false
           <button data-theme-value="light" onclick="setTheme('light')" data-i18n="theme_light">Light</button>
           <button data-theme-value="dark" onclick="setTheme('dark')" data-i18n="theme_dark">Dark</button>
         </div>
-        <div class="seg">
-          <button data-lang-value="en" onclick="setLang('en')">EN</button>
-          <button data-lang-value="pt" onclick="setLang('pt')">PT</button>
+        <div class="seg seg-lang">
+          <button data-lang-value="pt" onclick="setLang('pt')" aria-label="Português (Brasil)">
+            <span class="flag" aria-hidden="true">🇧🇷</span><span class="lang-tag">PT/BR</span>
+          </button>
+          <button data-lang-value="en" onclick="setLang('en')" aria-label="English (US)">
+            <span class="flag" aria-hidden="true">🇺🇸</span><span class="lang-tag">EN/US</span>
+          </button>
         </div>
       </div>
     </nav>
@@ -1604,32 +1755,33 @@ sitemap: false
           <div id="mecadeLayers"></div>
         </div>
 
-        <div class="mecade-cta">
-          <div class="cta-card">
-            <h3 data-i18n="mc_cta_title">Help validate MECADE</h3>
-            <p data-i18n="mc_cta_desc">A 10-minute expert survey.</p>
-            <a class="cta-btn" href="https://forms.gle/cWQhdargarRRThu68" target="_blank" rel="noopener"
-              data-i18n="mc_cta_btn">Open the survey ↗</a>
+        <div class="validate" id="validate">
+          <div class="validate-head">
+            <span class="validate-kicker mono" data-i18n="mc_v_kicker">Open validation</span>
+            <h3 data-i18n="mc_v_title">Help validate MECADE</h3>
+            <p data-i18n="mc_v_desc">Validation intro.</p>
+            <p class="validate-meta mono"><span data-i18n="mc_v_audience">For SRE, Distributed Systems &amp; Chaos Engineering professionals</span> · <span data-i18n="mc_v_time">8–12 min</span></p>
           </div>
-          <div class="mat-col">
-            <a class="mat" href="https://github.com/richardsonlima/mecade/blob/main/README.md" target="_blank"
-              rel="noopener">
-              <span class="mono">GitHub</span><span class="lk"><span data-i18n="mc_repo">Repository</span> ↗</span>
+          <div class="validate-steps">
+            <a class="vstep" href="https://www.youtube.com/watch?v=N6bE7Qh9pWc&list=PLkxSfloUbcmAlTUslIEu1mr4Nv1cviRAo" target="_blank" rel="noopener">
+              <span class="vstep-n mono"><span style="color: #93a6c5b8">01</span></span>
+              <span class="vstep-src mono" style="font-size: 15px">YouTube</span>
+              <span class="vstep-name" data-i18n="mc_v_s1">Watch the video series (7 layers)</span>
+              <span class="vstep-go mono" data-i18n="mc_v_step1">First step ↗</span>
             </a>
-            <a class="mat" href="https://www.youtube.com/watch?v=N6bE7Qh9pWc&list=PLkxSfloUbcmAlTUslIEu1mr4Nv1cviRAo"
-              target="_blank" rel="noopener">
-              <span class="mono">YouTube</span><span class="lk"><span data-i18n="mc_videos">Video series</span> ↗</span>
+            <a class="vstep" href="https://github.com/richardsonlima/mecade/blob/main/README.md" target="_blank" rel="noopener">
+              <span class="vstep-n mono" style="color: rgba(147, 166, 197, 0.898)">02</span>
+              <span class="vstep-src mono" style="font-size: 15px">GitHub</span>
+              <span class="vstep-name" data-i18n="mc_v_s2">Read the repository &amp; E2E docs</span>
+              <span class="vstep-go mono" data-i18n="mc_v_step2">Second step ↗</span>
+            </a>
+            <a class="vstep primary" href="https://forms.gle/cWQhdargarRRThu68" target="_blank" rel="noopener">
+              <span class="vstep-n mono">03</span>
+              <span class="vstep-src mono" data-i18n="mc_v_form_src" style="font-size: 15px">Survey</span>
+              <span class="vstep-name" data-i18n="mc_v_s3">Answer the ~10-minute evaluation form</span>
+              <span class="vstep-go mono" data-i18n="mc_v_step3">Open the form ↗</span>
             </a>
           </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <span class="eyebrow" data-i18n="s1_label">01 / Objective</span>
-        <h2 class="sec-title" data-i18n="s1_title">Research core &amp; questions</h2>
-        <p class="objective" data-i18n="s1_objective">Build a model to assess dependability assurance.</p>
-        <div class="tablebox">
-          <div id="rqsTable"></div>
         </div>
       </section>
 
@@ -1646,6 +1798,32 @@ sitemap: false
         <h2 class="sec-title" data-i18n="s3_title">Credits &amp; records</h2>
         <div class="tablebox">
           <div id="curriculum"></div>
+        </div>
+
+        <div class="subhead" data-i18n="rec_label" style="margin-top:48px">Records &amp; milestones</div>
+        <div class="records" id="records"></div>
+
+        <div class="subhead" data-i18n="no_label" style="margin-top:48px">NOREG 2021 compliance</div>
+        <p class="no-intro" data-i18n="no_intro">Cross-check against ITA official norms.</p>
+        <div class="noreg" id="noreg"></div>
+        <p class="no-note" data-i18n="no_note">A norma define mínimo de 2 e máximo de 5 períodos letivos. Como aluno regular desde 2025.1, o quinto período encerra em 31 ago 2027, portanto a meta pessoal de junho de 2027 é conservadoramente segura. O CPG pode conceder extensão de mais um período letivo, para situação crítica/elegível (se necessário).</p>
+      </section>
+
+      <section class="section">
+        <span class="eyebrow" data-i18n="s5_label">05 / Output</span>
+        <h2 class="sec-title" data-i18n="s5_title">Publications &amp; dissertation</h2>
+        <div class="tablebox">
+          <div id="pubs"></div>
+        </div>
+        <p class="pub-note" data-i18n="p_a2_note">* Restricted access for blind review.</p>
+      </section>
+
+      <section class="section">
+        <span class="eyebrow" data-i18n="s1_label">01 / Objective</span>
+        <h2 class="sec-title" data-i18n="s1_title">Research core &amp; questions</h2>
+        <p class="objective" data-i18n="s1_objective">Build a model to assess dependability assurance.</p>
+        <div class="tablebox">
+          <div id="rqsTable"></div>
         </div>
       </section>
 
@@ -1688,15 +1866,6 @@ sitemap: false
         <div class="tablebox">
           <div id="map5"></div>
         </div>
-      </section>
-
-      <section class="section">
-        <span class="eyebrow" data-i18n="s5_label">05 / Output</span>
-        <h2 class="sec-title" data-i18n="s5_title">Publications &amp; dissertation</h2>
-        <div class="tablebox">
-          <div id="pubs"></div>
-        </div>
-        <p class="pub-note" data-i18n="p_a2_note">* Restricted access for blind review.</p>
       </section>
 
       <section class="section">
@@ -1788,13 +1957,20 @@ sitemap: false
           fd_source: "Primary studies per source",
           fd_region: "Primary studies per region",
           fd_caption: "Distribution of the 23 primary studies returned by the systematic search across the three databases (1960–2022). Region is derived from the first author&rsquo;s institutional affiliation (continent) and answers QP4.",
-          mc_cta_title: "Help validate MECADE",
-          mc_cta_desc: "A ~10-minute expert survey for SRE, Distributed Systems and Chaos Engineering practitioners on the framework&rsquo;s applicability and consistency.",
-          mc_cta_btn: "Open the survey",
-          mc_repo: "Repository &amp; docs",
-          mc_videos: "Video series (7 layers)",
+          mc_v_kicker: "Open validation",
+          mc_v_title: "Help validate MECADE",
+          mc_v_desc: "Contribute your experience to evaluating MECADE, a seven-layer framework developed at ITA. It proposes a closed-loop cybernetic cycle that integrates Chaos Engineering with intelligent observability to detect gray failures and provide immutable Blockchain-based audit, shifting from failure prediction to active tolerance and quantifiably reducing MTTR and RTO in critical distributed systems.",
+          mc_v_audience: "For specialists, researchers and practitioners in SRE, Distributed Systems, Dependability and Chaos Engineering",
+          mc_v_time: "Estimated 8–12 min",
+          mc_v_s1: "Watch the technical video series (layers 01–07)",
+          mc_v_s2: "Read the repository &amp; end-to-end (E2E) documentation",
+          mc_v_s3: "Answer the evaluation form on applicability &amp; consistency",
+          mc_v_form_src: "Survey",
+          mc_v_step1: "First step ↗",
+          mc_v_step2: "Second step ↗",
+          mc_v_step3: "Open the form ↗",
 
-          s1_label: "01 / Objective",
+          s1_label: "04 / Objective",
           s1_title: "Research core &amp; questions",
           s1_objective: "Build a model to assess the dependability assurance of critical systems, evaluating their resilience and identifying recommended changes. The model is validated through isolated experiments grounded in Chaos Engineering.",
           t_id: "ID", t_q: "Research question", t_r: "Rationale",
@@ -1806,27 +1982,32 @@ sitemap: false
           pr_search: "Search string", pr_period: "Time span", pr_sources: "Sources",
           pr_ci: "Inclusion criteria", pr_ce: "Exclusion criteria", pr_ac: "Control articles",
 
-          s2_label: "02 / Timeline",
+          s2_label: "01 / Timeline",
           s2_title: "Academic progress",
           tl1: "Admitted to the Program", tl1_d: "Admission to PG-EEC · ITA. Start of the journey balancing the master&rsquo;s with professional life.",
           tl2: "Special Student · 15 credits", tl2_d: "3 years · 5 courses completed. One course per semester.",
           tl3: "Admitted as Regular Student", tl3_d: "Automatic transition after the special period. Full dedication to the program.",
           tl4: "CT-234 · Audited as Listener", tl4_t: "2025.1 · audited", tl4_d: "Preventive strategy given the course complexity, with no risk of failing.",
           tl5: "CT-234 · Approved (+3 cr.)", tl5_d: "Last coursework credit. 18-credit goal 100% fulfilled.",
-          tl6: "Dissertation &amp; Submissions", tl6_d: "Dissertation writing and MECADE validation. Paper submitted to LADC 2026 (under blind review).",
+          tl6: "Dissertation &amp; Submissions", tl6_d: "Dissertation writing and MECADE validation. Co-authored paper in review with the advisor before submission to LADC 2026.",
           tl7: "Defense · Regulation Deadline", tl7_d: "Goal: defend before June 2027.",
           tl_now: "now",
           per_label: "Program periods",
           per_p1: "Approval", per_p2: "Special", per_p3: "Regular",
           per_d1: "PG-EEC admission", per_d2: "3 years · 6 semesters", per_d3: "2.5 years · 5 semesters",
 
-          s3_label: "03 / Curriculum",
+          s3_label: "02 / Curriculum",
           s3_title: "Credits &amp; records",
           c_code: "Code", c_name: "Course", c_status: "Status", c_credits: "Cr.",
           st_app: "Approved", st_prog: "In progress",
           c6_note: "↳ audited 2025.1 · official 2025.2",
           c6_mat: "Course material",
           c_total: "Total coursework credits",
+          rec_label: "Records &amp; milestones",
+          no_label: "NOREG 2021 compliance",
+          no_intro: "Cross-check of my progress against the official ITA Graduate Norms (NOREG 2021).",
+          no_item: "Item", no_mine: "My data", no_norm: "ITA norm",
+          no_note: "The norm sets a minimum of 2 and a maximum of 5 academic periods. As a regular student from 2025.1, the fifth period ends on Aug 31, 2027, so the personal goal of June 2027 is conservatively safe. The CPG may grant an extension of one additional period if needed.",
           c1: "Software Engineering Fundamentals",
           c2: "Teaching Internship I",
           c3: "Computing Research Methodology",
@@ -1835,7 +2016,7 @@ sitemap: false
           c6: "Data Structures &amp; Complexity",
           c7: "M.Sc. Dissertation",
 
-          s4_label: "04 / Mapping",
+          s4_label: "05 / Mapping",
           s4_title: "Systematic mapping &amp; SLM base",
           m_g1: "Primary studies · database search",
           m_g2: "Manual inclusion",
@@ -1852,16 +2033,16 @@ sitemap: false
           m_domain: "Domain", m_context: "Context / study",
           m_link: "Link", m_open: "Open",
 
-          s5_label: "05 / Output",
+          s5_label: "03 / Output",
           s5_title: "Publications &amp; dissertation",
           p_type: "Type", p_item: "Item", p_status: "Status", p_access: "Access",
           p_profile_t: "Research profile", p_profile_i: "ResearchGate profile", p_active: "Active", p_open_profile: "Open profile",
           p_a1_t: "Article 1", p_a1_i: "First published paper (SBC / SBSI Estendido)", p_published: "Published", p_open_pub: "Open publication",
-          p_a2_t: "Article 2", p_a2_i: "MECADE validation paper for LADC 2026", p_review: "Under review", p_confidential: "Confidential (blind review)",
+          p_a2_t: "Article 2", p_a2_i: "MECADE validation paper (co-authored, target: LADC 2026)", p_review: "In review w/ advisor", p_confidential: "Confidential (pre-submission)",
           p_a3_t: "Article 3", p_a3_i: "Third paper in pipeline", p_backlog: "Backlog", p_pending: "Pending definition",
           p_diss_t: "M.Sc. Dissertation", p_diss_i: "Dissertation writing project", p_wip: "Writing", p_private: "Private",
           p_a2_pt: "Overleaf v7 · PT", p_a2_en: "Overleaf v7 · EN", p_diss_link: "Overleaf · Dissertation",
-          p_a2_note: "* Article 2 (version 7) is under review and cannot be publicly released until the final review is complete. The final version will be submitted to LADC 2026 (Latin American Symposium on Dependable and Secure Computing). The dissertation is a work in progress and its content remains private until the defense, in accordance with program guidelines.",
+          p_a2_note: "* Article 2 (version 7) is in review with the advisor (Prof. Dr. Johnny Marques) before submission. The LADC 2026 call for papers is not open yet, so submission is still pending. The draft is confidential and cannot be publicly released. The dissertation is a work in progress and its content remains private until the defense, in accordance with program guidelines.",
 
           foot_updated: "Updated June 2026",
           ex_label: "06 / Extras",
@@ -1912,13 +2093,20 @@ sitemap: false
           fd_source: "Estudos primários por fonte",
           fd_region: "Estudos primários por região",
           fd_caption: "Distribuição dos 23 estudos primários retornados pela busca sistemática nas três bases (1960–2022). A região é derivada da afiliação institucional do primeiro autor (continente) e responde à QP4.",
-          mc_cta_title: "Ajude a validar o MECADE",
-          mc_cta_desc: "Um formulário de ~10 minutos para profissionais de SRE, Sistemas Distribuídos e Engenharia do Caos sobre a aplicabilidade e consistência do framework.",
-          mc_cta_btn: "Abrir formulário",
-          mc_repo: "Repositório &amp; docs",
-          mc_videos: "Série de vídeos (7 camadas)",
+          mc_v_kicker: "Validação aberta",
+          mc_v_title: "Ajude a validar o MECADE",
+          mc_v_desc: "Contribua com sua experiência para a avaliação do MECADE, um framework estruturado em sete camadas desenvolvido no âmbito do ITA. Ele propõe um ciclo cibernético de malha fechada que integra a Engenharia do Caos à observabilidade inteligente para detectar falhas cinzentas (gray failures) e auditoria imutável via Blockchain, transformando a postura de previsão de falhas em tolerância ativa e reduzindo quantificavelmente métricas como MTTR e RTO em sistemas críticos distribuídos.",
+          mc_v_audience: "Para especialistas, pesquisadores e profissionais de SRE, Sistemas Distribuídos, Dependabilidade e Engenharia do Caos",
+          mc_v_time: "Tempo estimado 8–12 min",
+          mc_v_s1: "Assista à série de vídeos técnicos (camadas 01–07)",
+          mc_v_s2: "Leia o repositório &amp; a documentação ponta a ponta (E2E)",
+          mc_v_s3: "Responda ao formulário sobre aplicabilidade &amp; consistência",
+          mc_v_form_src: "Formulário",
+          mc_v_step1: "Primeiro passo ↗",
+          mc_v_step2: "Segundo passo ↗",
+          mc_v_step3: "Abrir formulário ↗",
 
-          s1_label: "01 / Objetivo",
+          s1_label: "04 / Objetivo",
           s1_title: "Núcleo da pesquisa &amp; questões",
           s1_objective: "Criar um modelo de avaliação da garantia de dependabilidade de sistemas críticos, avaliando a resiliência desses sistemas e identificando recomendações de modificações necessárias. A avaliação do modelo se dá por meio de experimentos isolados baseados em Engenharia do Caos.",
           t_id: "ID", t_q: "Questão de pesquisa", t_r: "Justificativa",
@@ -1930,27 +2118,32 @@ sitemap: false
           pr_search: "String de busca", pr_period: "Período", pr_sources: "Fontes",
           pr_ci: "Critérios de inclusão", pr_ce: "Critérios de exclusão", pr_ac: "Artigos de controle",
 
-          s2_label: "02 / Linha do tempo",
+          s2_label: "01 / Linha do tempo",
           s2_title: "Progresso acadêmico",
           tl1: "Aprovação no Programa", tl1_d: "Admissão ao PG-EEC · ITA. Início da jornada conciliando mestrado e vida profissional.",
           tl2: "Aluno Especial · 15 créditos", tl2_d: "3 anos · 5 disciplinas concluídas. Uma disciplina por semestre.",
           tl3: "Admissão como Aluno Regular", tl3_d: "Transição automática após o período especial. Dedicação exclusiva ao programa.",
-          tl4: "CT-234 · Cursada como Ouvinte", tl4_t: "2025.1 · ouvinte", tl4_d: "Estratégia preventiva dada a complexidade da disciplina, sem risco de reprovação.",
+          tl4: "CT-234 · Cursada como Ouvinte", tl4_t: "2025.1 · ouvinte", tl4_d: "Estratégia preventiva para minimizar risco de reprovação.",
           tl5: "CT-234 · Aprovado (+3 cr.)", tl5_d: "Último crédito de disciplina. Meta de 18 créditos 100% cumprida.",
-          tl6: "Dissertação &amp; Submissões", tl6_d: "Escrita da dissertação e validação do MECADE. Artigo submetido à LADC 2026 (em blind review).",
+          tl6: "Dissertação &amp; Submissões", tl6_d: "Escrita da dissertação e validação do MECADE. Artigo em coautoria em revisão com o orientador antes da submissão à LADC 2026.",
           tl7: "Defesa · Prazo Regulamentar", tl7_d: "Meta: defesa antes de junho de 2027.",
           tl_now: "agora",
           per_label: "Períodos do Programa",
           per_p1: "Aprovação", per_p2: "Especial", per_p3: "Regular",
           per_d1: "Admissão PG-EEC", per_d2: "3 anos · 6 semestres", per_d3: "2,5 anos · 5 semestres",
 
-          s3_label: "03 / Currículo",
+          s3_label: "02 / Currículo",
           s3_title: "Créditos &amp; registros",
           c_code: "Código", c_name: "Disciplina", c_status: "Status", c_credits: "Cr.",
           st_app: "Aprovado", st_prog: "Em curso",
           c6_note: "↳ ouvinte 2025.1 · oficial 2025.2",
           c6_mat: "Material da disciplina",
           c_total: "Total de créditos de disciplinas",
+          rec_label: "Registros &amp; marcos",
+          no_label: "Conformidade NOREG 2021",
+          no_intro: "Cruzamento do meu progresso com as Normas Reguladoras da Pós-Graduação do ITA (NOREG 2021).",
+          no_item: "Item", no_mine: "Meus dados", no_norm: "Norma ITA",
+          no_note: "A norma define mínimo de 2 e máximo de 5 períodos letivos. Como aluno regular desde 2025.1, o quinto período encerra em 31 ago 2027, portanto a meta pessoal de junho de 2027 é conservadoramente segura. O CPG pode conceder extensão de mais um período letivo, se necessário.",
           c1: "Fundamentos de Engenharia de Software",
           c2: "Estágio em Docência I",
           c3: "Metodologia de Pesquisa em Computação",
@@ -1959,7 +2152,7 @@ sitemap: false
           c6: "Estruturas de Dados &amp; Complexidade",
           c7: "Dissertação de Mestrado",
 
-          s4_label: "04 / Mapeamento",
+          s4_label: "05 / Mapeamento",
           s4_title: "Mapeamento sistemático &amp; base SLM",
           m_g1: "Estudos primários · busca nas bases",
           m_g2: "Inclusão manual",
@@ -1976,16 +2169,16 @@ sitemap: false
           m_domain: "Domínio", m_context: "Contexto / estudo",
           m_link: "Link", m_open: "Abrir",
 
-          s5_label: "05 / Produção",
+          s5_label: "03 / Produção",
           s5_title: "Publicações &amp; dissertação",
           p_type: "Tipo", p_item: "Item", p_status: "Status", p_access: "Acesso",
           p_profile_t: "Perfil de pesquisa", p_profile_i: "Perfil no ResearchGate", p_active: "Ativo", p_open_profile: "Abrir perfil",
           p_a1_t: "Artigo 1", p_a1_i: "Primeiro artigo publicado (SBC / SBSI Estendido)", p_published: "Publicado", p_open_pub: "Abrir publicação",
-          p_a2_t: "Artigo 2", p_a2_i: "Artigo de validação do MECADE para a LADC 2026", p_review: "Em avaliação", p_confidential: "Confidencial (blind review)",
+          p_a2_t: "Artigo 2", p_a2_i: "Artigo de validação do MECADE (coautoria, alvo: LADC 2026)", p_review: "Em revisão c/ orientador", p_confidential: "Confidencial (pré-submissão)",
           p_a3_t: "Artigo 3", p_a3_i: "Terceiro artigo em pipeline", p_backlog: "Backlog", p_pending: "Definição pendente",
           p_diss_t: "Dissertação de Mestrado", p_diss_i: "Projeto de escrita da dissertação", p_wip: "Em escrita", p_private: "Privado",
           p_a2_pt: "Overleaf v7 · PT", p_a2_en: "Overleaf v7 · EN", p_diss_link: "Overleaf · Dissertação",
-          p_a2_note: "* O Artigo 2 (versão 7) está em processo de avaliação e não pode ser divulgado publicamente até a conclusão da revisão final. A versão final será submetida à LADC 2026 (Latin-American Symposium on Dependable and Secure Computing). A dissertação é um projeto em andamento e seu conteúdo permanece privado até a defesa, conforme as diretrizes do programa.",
+          p_a2_note: "* O Artigo 2 (versão 7) está em revisão com o orientador (Prof. Dr. Johnny Marques) antes da submissão. A chamada de trabalhos da LADC 2026 ainda não foi aberta, portanto a submissão ainda não foi possível. O rascunho é confidencial e não pode ser divulgado publicamente. A dissertação é um projeto em andamento e seu conteúdo permanece privado até a defesa, conforme as diretrizes do programa.",
 
           foot_updated: "Atualizado em junho de 2026",
           ex_label: "06 / Extras",
@@ -2098,6 +2291,45 @@ sitemap: false
         { en: "Not written in English", pt: "Não está escrito em inglês" },
         { en: "Full version of the paper unavailable", pt: "Impossibilidade de obter a versão completa do artigo" }
       ];
+
+      // Records & milestones (status: done / wip / pending)
+      const RECORDS = [
+        { st: "done", en: "Approved credits — 18/18", pt: "Créditos aprovados - 18/18",
+          en2: "CT-234 audited in 2025.1 (preventive) and taken officially in 2025.2, passed. Last coursework credit of the program.",
+          pt2: "CT-234 cursada como ouvinte em 2025.1 (estratégia preventiva) e oficialmente em 2025.2, concluída com aprovação. Último crédito de disciplina do programa." },
+        { st: "done", en: "English exam — Approved", pt: "Exame de Inglês - Aprovado",
+          en2: "ITA English exam (TDIE) applied by the Graduate Office — the exam accepted by the norm for military and civil servants, also applied institutionally to all master's students.",
+          pt2: "Prova de inglês do ITA (TDIE) aplicada pela Secretaria da Pós-Graduação,  exame aceito pela norma para militares e servidores civis, também aplicado institucionalmente a todos os alunos de mestrado." },
+        { st: "done", en: "Co-authored article — LADC 2026", pt: "Artigo em coautoria - LADC 2026",
+          en2: "In review with the advisor (Prof. Dr. Johnny Marques) before submission.",
+          pt2: "Em revisão com o orientador (Prof. Dr. Johnny Marques) antes da submissão." },
+        { st: "wip", en: "Dissertation — CT500 in writing", pt: "Dissertação - CT500 em escrita",
+          en2: "Dissertation writing project in progress.",
+          pt2: "Escrita da dissertação em andamento. (acompanhamento semanal)" },
+        { st: "pending", en: "Committee nomination", pt: "Nomeação da Banca",
+          en2: "Pending.", pt2: "Pendente." },
+        { st: "pending", en: "Formal request", pt: "Requerimento formal",
+          en2: "Pending.", pt2: "Pendente." }
+      ];
+
+      // NOREG 2021 cross-check
+      const NOREG = [
+        { ok: true, item_en: "Minimum credits", item_pt: "Mínimo de créditos",
+          mine_en: "18 cr. completed", mine_pt: "18 cr. concluídos",
+          norm_en: "Minimum 18 credits", norm_pt: "Mínimo 18 créditos" },
+        { ok: true, item_en: "English exam", item_pt: "Exame de inglês",
+          mine_en: "Approved (TDIE)", mine_pt: "Aprovado (TDIE)",
+          norm_en: "Within 2 periods after first enrollment", norm_pt: "Em até 2 períodos após a primeira matrícula" },
+        { ok: true, item_en: "Co-authored article w/ advisor", item_pt: "Artigo em coautoria com orientador",
+          mine_en: "In review (target LADC 2026)", mine_pt: "Em revisão (alvo LADC 2026)",
+          norm_en: "Required to request the exam", norm_pt: "Exigido para requerer o exame" },
+        { ok: true, item_en: "Accredited advisor", item_pt: "Orientador credenciado",
+          mine_en: "Prof. Dr. Johnny Marques", mine_pt: "Prof. Dr. Johnny Marques",
+          norm_en: "Permanent or collaborating faculty", norm_pt: "Docente permanente ou colaborador" },
+        { ok: true, item_en: "Maximum deadline", item_pt: "Prazo máximo",
+          mine_en: "Target 2027.1 (Jun 2027)", mine_pt: "Meta 2027.1 (jun 2027)",
+          norm_en: "Min. 2, max. 5 academic periods → up to Aug 31, 2027", norm_pt: "Mín. 2, máx. 5 períodos letivos → até 31 ago 2027" }
+      ];
       const CONTROL = [
         ["AC1", "A Chaos Engineering Approach for Improving the Resiliency of IT Services Configurations", "https://ieeexplore.ieee.org/document/9789887"],
         ["AC2", "Basic concepts and taxonomy of dependable and secure computing", "https://ieeexplore.ieee.org/document/1335465"],
@@ -2198,8 +2430,9 @@ sitemap: false
       function initLang() {
         let saved = null;
         try { saved = localStorage.getItem('mestrado-lang'); } catch (e) { }
+        // Default to Portuguese (pt-BR) on first visit; honour a previous choice.
         if (saved !== 'pt' && saved !== 'en') {
-          saved = (navigator.language || 'en').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+          saved = 'pt';
         }
         setLang(saved);
       }
@@ -2215,8 +2448,23 @@ sitemap: false
         let saved = null;
         try { saved = localStorage.getItem('mestrado-theme'); } catch (e) { }
         if (saved === 'light' || saved === 'dark') { setTheme(saved); return; }
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(prefersDark ? 'dark' : 'light');
+        // 1) Honour the device's color-scheme mode when available.
+        const mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+        if (mq && (mq.matches || window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          setTheme(mq.matches ? 'dark' : 'light');
+        } else {
+          // 2) Fallback: infer from local time (dark between 19h and 6h).
+          const h = new Date().getHours();
+          setTheme((h >= 19 || h < 6) ? 'dark' : 'light');
+        }
+        // Live-update if the user flips their OS mode and hasn't chosen manually.
+        if (mq && mq.addEventListener) {
+          mq.addEventListener('change', e => {
+            let s = null;
+            try { s = localStorage.getItem('mestrado-theme'); } catch (err) { }
+            if (s !== 'light' && s !== 'dark') setTheme(e.matches ? 'dark' : 'light');
+          });
+        }
       }
 
       /* ===================== COUNTDOWN ===================== */
@@ -2352,6 +2600,31 @@ sitemap: false
           }
         }
 
+        // Records & milestones
+        const rec = document.getElementById('records');
+        if (rec) {
+          const stTxt = { done: L('done') || '✓', wip: '', pending: '' };
+          rec.innerHTML = RECORDS.map(r => {
+            const icon = r.st === 'done' ? '✓' : (r.st === 'wip' ? '◐' : '○');
+            return '<div class="rec rec-' + r.st + '">' +
+              '<span class="rec-icon">' + icon + '</span>' +
+              '<div class="rec-body"><div class="rec-title">' + pick({ en: r.en, pt: r.pt }) + '</div>' +
+              '<div class="rec-sub">' + pick({ en: r.en2, pt: r.pt2 }) + '</div></div></div>';
+          }).join('');
+        }
+
+        // NOREG 2021 compliance
+        const nr = document.getElementById('noreg');
+        if (nr) {
+          const head = '<div class="nr-row nr-head"><span>' + L('no_item') + '</span><span>' + L('no_mine') + '</span><span>' + L('no_norm') + '</span></div>';
+          const rows = NOREG.map(n =>
+            '<div class="nr-row"><span class="nr-item"><span class="nr-ok">✓</span>' + pick({ en: n.item_en, pt: n.item_pt }) + '</span>' +
+            '<span class="nr-mine">' + pick({ en: n.mine_en, pt: n.mine_pt }) + '</span>' +
+            '<span class="nr-norm mono">' + pick({ en: n.norm_en, pt: n.norm_pt }) + '</span></div>'
+          ).join('');
+          nr.innerHTML = head + rows;
+        }
+
         // Mapping groups (real SLR protocol: primary studies + manual inclusion)
         const mapCell = (c, ci, ri, ncols) => {
           if (ci === ncols - 1) return c ? '<a href="' + c + '" target="_blank" rel="noopener" class="mono maplink">' + L('m_open') + ' ↗</a>' : '<span class="muted">·</span>';
@@ -2483,3 +2756,8 @@ sitemap: false
   </body>
 
 </html>
+
+<style id="__om-edit-overrides">
+#validate .vstep-n >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { color: rgba(147, 166, 197, 0.945) !important }
+#validate .vstep-n >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { color: rgba(147, 166, 197, 0.898) !important }
+</style>
