@@ -635,6 +635,53 @@ sitemap: false
         font-size: 11px;
         border: 1px solid color-mix(in srgb, var(--text-inv) 12%, transparent);
       }
+
+      .section-highlight {
+        background: var(--bg-inv);
+        color: var(--text-inv);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+      }
+
+      .section-highlight .section-header {
+        margin-bottom: 28px;
+      }
+
+      .section-highlight .section-title,
+      .section-highlight .section-aside,
+      .section-highlight .section-num {
+        color: var(--text-inv);
+      }
+
+      .section-highlight .section-line {
+        border-color: rgba(255, 255, 255, 0.16);
+      }
+
+      .section-highlight .data-block {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .section-highlight .data-block-head .data-block-title,
+      .section-highlight .data-block-meta,
+      .section-highlight .data-block-sub {
+        color: var(--text-inv);
+      }
+
+      .section-highlight .btn {
+        color: var(--text-inv);
+      }
+
+      .section-highlight .btn.primary {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      .section-highlight .btn.ghost {
+        background: rgba(255, 255, 255, 0.06);
+      }
     </style>
   </head>
 
@@ -851,242 +898,247 @@ sitemap: false
             <div class="card-title">O gap que destrói teóricos</div>
             <div class="card-desc">Feature engineering · Pipelines · Data leakage · Validação · Drift · Métricas ·
               Inferência · Serving · MLOps.</div>
-            <!-- DADOS & BACKUP -->
-            <section class="section" id="dados">
-              <div class="section-header">
-                <span class="section-num">05</span>
-                <h2 class="section-title">Dados & Backup</h2>
-                <div class="section-line"></div>
-                <span class="section-aside" id="data-status">salvo localmente</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-highlight" id="dados">
+        <div class="section-header">
+          <span class="section-num">05</span>
+          <h2 class="section-title">Dados & Backup</h2>
+          <div class="section-line"></div>
+          <span class="section-aside" id="data-status">salvo localmente</span>
+        </div>
+
+        <div class="data-grid">
+          <div class="data-block">
+            <div class="data-block-head">
+              <div class="data-block-title">Exportar progresso</div>
+              <div class="data-block-sub">Baixe um snapshot legível em Markdown ou JSON. Versione no git,
+                sincronize via Dropbox, ou guarde como backup.</div>
+            </div>
+            <div class="data-block-actions">
+              <button class="btn primary" id="btn-export-md">↓ Markdown <span class="btn-arrow">→</span></button>
+              <button class="btn" id="btn-export-json">↓ JSON</button>
+            </div>
+            <div class="data-block-meta" id="data-meta">— vistas, — acertos</div>
+          </div>
+
+          <div class="data-block">
+            <div class="data-block-head">
+              <div class="data-block-title">Importar progresso</div>
+              <div class="data-block-sub">Selecione um <code>.md</code> ou <code>.json</code> exportado. O estado
+                é mesclado — timestamps mais recentes vencem.</div>
+            </div>
+            <div class="data-block-actions">
+              <button class="btn primary" id="btn-import">↑ Selecionar arquivo</button>
+              <button class="btn ghost" id="btn-reset-all" title="Apagar todo o progresso local">Apagar
+                tudo</button>
+            </div>
+            <div class="data-block-meta" id="import-status">aguardando arquivo…</div>
+          </div>
+
+          <div class="data-block" id="sync-block">
+            <div class="data-block-head">
+              <div class="data-block-title">
+                Sincronizar com arquivo
+                <span class="badge badge-ghost" id="sync-badge">não conectado</span>
               </div>
-
-              <div class="data-grid">
-                <div class="data-block">
-                  <div class="data-block-head">
-                    <div class="data-block-title">Exportar progresso</div>
-                    <div class="data-block-sub">Baixe um snapshot legível em Markdown ou JSON. Versione no git,
-                      sincronize via Dropbox, ou guarde como backup.</div>
-                  </div>
-                  <div class="data-block-actions">
-                    <button class="btn primary" id="btn-export-md">↓ Markdown <span class="btn-arrow">→</span></button>
-                    <button class="btn" id="btn-export-json">↓ JSON</button>
-                  </div>
-                  <div class="data-block-meta" id="data-meta">— vistas, — acertos</div>
-                </div>
-
-                <div class="data-block">
-                  <div class="data-block-head">
-                    <div class="data-block-title">Importar progresso</div>
-                    <div class="data-block-sub">Selecione um <code>.md</code> ou <code>.json</code> exportado. O estado
-                      é mesclado — timestamps mais recentes vencem.</div>
-                  </div>
-                  <div class="data-block-actions">
-                    <button class="btn primary" id="btn-import">↑ Selecionar arquivo</button>
-                    <button class="btn ghost" id="btn-reset-all" title="Apagar todo o progresso local">Apagar
-                      tudo</button>
-                  </div>
-                  <div class="data-block-meta" id="import-status">aguardando arquivo…</div>
-                </div>
-
-                <div class="data-block" id="sync-block">
-                  <div class="data-block-head">
-                    <div class="data-block-title">
-                      Sincronizar com arquivo
-                      <span class="badge badge-ghost" id="sync-badge">não conectado</span>
-                    </div>
-                    <div class="data-block-sub" id="sync-help">Conecte um arquivo <code>.md</code> local — toda
-                      atualização (concluir lição, flashcard) grava automaticamente. Funciona como um vault do Obsidian.
-                    </div>
-                  </div>
-                  <div class="data-block-actions" id="sync-actions">
-                    <button class="btn primary" id="btn-sync-connect">⊕ Conectar arquivo</button>
-                    <button class="btn" id="btn-sync-load">⤓ Carregar de arquivo</button>
-                  </div>
-                  <div class="data-block-meta" id="sync-meta">disponível em Chrome / Edge</div>
-                </div>
+              <div class="data-block-sub" id="sync-help">Conecte um arquivo <code>.md</code> local — toda
+                atualização (concluir lição, flashcard) grava automaticamente. Funciona como um vault do Obsidian.
               </div>
-            </section>
+            </div>
+            <div class="data-block-actions" id="sync-actions">
+              <button class="btn primary" id="btn-sync-connect">⊕ Conectar arquivo</button>
+              <button class="btn" id="btn-sync-load">⤓ Carregar de arquivo</button>
+            </div>
+            <div class="data-block-meta" id="sync-meta">disponível em Chrome / Edge</div>
+          </div>
+        </div>
+      </section>
 
-            <div id="mlp-footer"></div>
+    </main>
 
-            <script src="assets/lessons.js"></script>
-            <script src="assets/portal.js"></script>
-            <script>
-              MLPortal.mount('home');
+    <div id="mlp-footer"></div>
 
-              // Roadmap — render all etapas from the catalog
-              (function renderRoadmap() {
-                const host = document.getElementById('roadmap-grid');
-                if (!host || !window.LESSON_CATALOG) return;
-                host.innerHTML = window.LESSON_CATALOG.map(e => {
-                  const sClass = 's' + (((e.n - 1) % 5) + 1);
-                  return `
+    <script src="assets/lessons.js"></script>
+    <script src="assets/portal.js"></script>
+    <script>
+      MLPortal.mount('home');
+
+      // Roadmap — render all etapas from the catalog
+      (function renderRoadmap() {
+        const host = document.getElementById('roadmap-grid');
+        if (!host || !window.LESSON_CATALOG) return;
+        host.innerHTML = window.LESSON_CATALOG.map(e => {
+          const sClass = 's' + (((e.n - 1) % 5) + 1);
+          return `
         <a href="curriculum.html#${e.slug}" class="rm-step ${sClass}" style="text-decoration:none">
           <div class="rm-num">${String(e.n).padStart(2, '0')}</div>
           <div class="rm-label">Etapa</div>
           <div class="rm-title">${e.title}</div>
           <div class="rm-count">${e.lessons.length} lições</div>
         </a>`;
-                }).join('');
-              })();
+        }).join('');
+      })();
 
-              // Phase progress visualization — derived from the catalog (always in sync)
-              const PHASES = (window.LESSON_CATALOG || []).map(e => ({
-                name: e.title,
-                lessons: e.lessons.map(l => l.id)
-              }));
+      // Phase progress visualization — derived from the catalog (always in sync)
+      const PHASES = (window.LESSON_CATALOG || []).map(e => ({
+        name: e.title,
+        lessons: e.lessons.map(l => l.id)
+      }));
 
-              function renderPhases() {
-                const ppHost = document.getElementById('pp-phases');
-                const colors = ['var(--accent1)', 'var(--accent2)', 'var(--accent3)', 'var(--accent4)', 'var(--accent5)', 'var(--accent1)', 'var(--accent2)', 'var(--accent3)', 'var(--accent4)', 'var(--accent5)'];
-                let totalDone = 0, totalAll = 0;
-                ppHost.innerHTML = PHASES.map((p, i) => {
-                  const done = p.lessons.filter(id => MLPortal.isDone(id)).length;
-                  const pct = Math.round(100 * done / p.lessons.length);
-                  totalDone += done; totalAll += p.lessons.length;
-                  return `
+      function renderPhases() {
+        const ppHost = document.getElementById('pp-phases');
+        const colors = ['var(--accent1)', 'var(--accent2)', 'var(--accent3)', 'var(--accent4)', 'var(--accent5)', 'var(--accent1)', 'var(--accent2)', 'var(--accent3)', 'var(--accent4)', 'var(--accent5)'];
+        let totalDone = 0, totalAll = 0;
+        ppHost.innerHTML = PHASES.map((p, i) => {
+          const done = p.lessons.filter(id => MLPortal.isDone(id)).length;
+          const pct = Math.round(100 * done / p.lessons.length);
+          totalDone += done; totalAll += p.lessons.length;
+          return `
         <div class="pp-phase">
           <span class="pp-name">${String(i + 1).padStart(2, '0')} · ${p.name}</span>
           <div class="pp-bar"><div class="pp-bar-fill" style="width:${pct}%;background:${colors[i % colors.length]}"></div></div>
           <span class="pp-count">${done}/${p.lessons.length}</span>
         </div>`;
-                }).join('');
-                document.getElementById('pp-total').innerHTML = `${totalDone}<span class="of">/${totalAll}</span>`;
-                document.getElementById('pp-pct').textContent = (totalAll ? Math.round(100 * totalDone / totalAll) : 0) + '%';
-                document.getElementById('pp-fill').style.width = (totalAll ? (100 * totalDone / totalAll) : 0) + '%';
-              }
-              renderPhases();
-              window.addEventListener('mlp:progress', renderPhases);
+        }).join('');
+        document.getElementById('pp-total').innerHTML = `${totalDone}<span class="of">/${totalAll}</span>`;
+        document.getElementById('pp-pct').textContent = (totalAll ? Math.round(100 * totalDone / totalAll) : 0) + '%';
+        document.getElementById('pp-fill').style.width = (totalAll ? (100 * totalDone / totalAll) : 0) + '%';
+      }
+      renderPhases();
+      window.addEventListener('mlp:progress', renderPhases);
 
-              document.getElementById('pp-reset').addEventListener('click', () => {
-                if (confirm('Limpar todo o progresso?')) MLPortal.reset();
-              });
+      document.getElementById('pp-reset').addEventListener('click', () => {
+        if (confirm('Limpar todo o progresso?')) MLPortal.reset();
+      });
 
-              // ---------- DADOS & BACKUP ----------
-              function toast(msg, kind = '') {
-                let el = document.querySelector('.toast');
-                if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); }
-                el.textContent = msg;
-                el.className = 'toast show' + (kind ? ' ' + kind : '');
-                clearTimeout(toast._t);
-                toast._t = setTimeout(() => { el.className = 'toast'; }, 3000);
-              }
+      // ---------- DADOS & BACKUP ----------
+      function toast(msg, kind = '') {
+        let el = document.querySelector('.toast');
+        if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); }
+        el.textContent = msg;
+        el.className = 'toast show' + (kind ? ' ' + kind : '');
+        clearTimeout(toast._t);
+        toast._t = setTimeout(() => { el.className = 'toast'; }, 3000);
+      }
 
-              function updateDataMeta() {
-                let stats = { seen: 0, hit: 0, miss: 0 };
-                try { stats = JSON.parse(localStorage.getItem('ml_portal_fc_stats_v1')) || stats; } catch (_) { }
-                const total = stats.hit + stats.miss;
-                const rate = total ? Math.round(100 * stats.hit / total) + '% acerto' : '';
-                document.getElementById('data-meta').textContent =
-                  `${MLPortal.completedCount()} lições · ${stats.seen} cartas vistas · ${stats.hit} acertos${rate ? ' · ' + rate : ''}`;
-              }
-              updateDataMeta();
-              window.addEventListener('mlp:progress', updateDataMeta);
-              window.addEventListener('mlp:fcstats', updateDataMeta);
+      function updateDataMeta() {
+        let stats = { seen: 0, hit: 0, miss: 0 };
+        try { stats = JSON.parse(localStorage.getItem('ml_portal_fc_stats_v1')) || stats; } catch (_) { }
+        const total = stats.hit + stats.miss;
+        const rate = total ? Math.round(100 * stats.hit / total) + '% acerto' : '';
+        document.getElementById('data-meta').textContent =
+          `${MLPortal.completedCount()} lições · ${stats.seen} cartas vistas · ${stats.hit} acertos${rate ? ' · ' + rate : ''}`;
+      }
+      updateDataMeta();
+      window.addEventListener('mlp:progress', updateDataMeta);
+      window.addEventListener('mlp:fcstats', updateDataMeta);
 
-              // export
-              document.getElementById('btn-export-md').addEventListener('click', () => {
-                MLPortal.downloadMarkdown();
-                toast('Arquivo .md baixado', 'success');
-              });
-              document.getElementById('btn-export-json').addEventListener('click', () => {
-                MLPortal.downloadJSON();
-                toast('Arquivo .json baixado', 'success');
-              });
+      // export
+      document.getElementById('btn-export-md').addEventListener('click', () => {
+        MLPortal.downloadMarkdown();
+        toast('Arquivo .md baixado', 'success');
+      });
+      document.getElementById('btn-export-json').addEventListener('click', () => {
+        MLPortal.downloadJSON();
+        toast('Arquivo .json baixado', 'success');
+      });
 
-              // import
-              document.getElementById('btn-import').addEventListener('click', async () => {
-                try {
-                  const snap = await MLPortal.pickAndImport('merge');
-                  const n = Object.keys(snap.progress || {}).length;
-                  document.getElementById('import-status').textContent = `Último import: ${n} lição(ões) reconhecida(s) · ${new Date().toLocaleTimeString()}`;
-                  toast(`Importado: ${n} lições`, 'success');
-                  renderPhases();
-                  updateDataMeta();
-                } catch (err) {
-                  if (err.message !== 'Cancelado') {
-                    document.getElementById('import-status').textContent = 'Erro: ' + err.message;
-                    toast('Falha no import: ' + err.message, 'error');
-                  }
-                }
-              });
+      // import
+      document.getElementById('btn-import').addEventListener('click', async () => {
+        try {
+          const snap = await MLPortal.pickAndImport('merge');
+          const n = Object.keys(snap.progress || {}).length;
+          document.getElementById('import-status').textContent = `Último import: ${n} lição(ões) reconhecida(s) · ${new Date().toLocaleTimeString()}`;
+          toast(`Importado: ${n} lições`, 'success');
+          renderPhases();
+          updateDataMeta();
+        } catch (err) {
+          if (err.message !== 'Cancelado') {
+            document.getElementById('import-status').textContent = 'Erro: ' + err.message;
+            toast('Falha no import: ' + err.message, 'error');
+          }
+        }
+      });
 
-              // reset all
-              document.getElementById('btn-reset-all').addEventListener('click', () => {
-                if (confirm('Apagar TODO o progresso local? Esta ação não pode ser desfeita.\n\nDica: exporte um .md antes para não perder.')) {
-                  MLPortal.reset();
-                  try { localStorage.removeItem('ml_portal_fc_stats_v1'); } catch (_) { }
-                  renderPhases();
-                  updateDataMeta();
-                  toast('Progresso limpo');
-                }
-              });
+      // reset all
+      document.getElementById('btn-reset-all').addEventListener('click', () => {
+        if (confirm('Apagar TODO o progresso local? Esta ação não pode ser desfeita.\n\nDica: exporte um .md antes para não perder.')) {
+          MLPortal.reset();
+          try { localStorage.removeItem('ml_portal_fc_stats_v1'); } catch (_) { }
+          renderPhases();
+          updateDataMeta();
+          toast('Progresso limpo');
+        }
+      });
 
-              // ---------- SYNC (File System Access API) ----------
-              const syncBlock = document.getElementById('sync-block');
-              const syncBadge = document.getElementById('sync-badge');
-              const syncMeta = document.getElementById('sync-meta');
-              const syncActions = document.getElementById('sync-actions');
-              const syncHelp = document.getElementById('sync-help');
+      // ---------- SYNC (File System Access API) ----------
+      const syncBlock = document.getElementById('sync-block');
+      const syncBadge = document.getElementById('sync-badge');
+      const syncMeta = document.getElementById('sync-meta');
+      const syncActions = document.getElementById('sync-actions');
+      const syncHelp = document.getElementById('sync-help');
 
-              async function refreshSyncUI() {
-                if (!MLPortal.fsaSupported) {
-                  syncBlock.classList.add('unsupported');
-                  syncBadge.textContent = 'não suportado';
-                  syncMeta.textContent = 'use Chrome ou Edge para auto-sync';
-                  return;
-                }
-                const handle = await MLPortal.getSyncHandle();
-                if (handle) {
-                  syncBadge.textContent = 'conectado';
-                  syncBadge.className = 'badge badge-green';
-                  syncMeta.textContent = `arquivo: ${handle.name} · grava automaticamente`;
-                  syncActions.innerHTML = `
+      async function refreshSyncUI() {
+        if (!MLPortal.fsaSupported) {
+          syncBlock.classList.add('unsupported');
+          syncBadge.textContent = 'não suportado';
+          syncMeta.textContent = 'use Chrome ou Edge para auto-sync';
+          return;
+        }
+        const handle = await MLPortal.getSyncHandle();
+        if (handle) {
+          syncBadge.textContent = 'conectado';
+          syncBadge.className = 'badge badge-green';
+          syncMeta.textContent = `arquivo: ${handle.name} · grava automaticamente`;
+          syncActions.innerHTML = `
         <button class="btn" id="btn-sync-write">↻ Salvar agora</button>
         <button class="btn ghost" id="btn-sync-disc">✕ Desconectar</button>
       `;
-                  document.getElementById('btn-sync-write').onclick = async () => {
-                    const ok = await MLPortal.writeSyncFile();
-                    toast(ok ? 'Arquivo atualizado' : 'Sem permissão de gravação', ok ? 'success' : 'error');
-                  };
-                  document.getElementById('btn-sync-disc').onclick = async () => {
-                    await MLPortal.disconnectSyncFile();
-                    refreshSyncUI();
-                    toast('Desconectado');
-                  };
-                } else {
-                  syncBadge.textContent = 'não conectado';
-                  syncBadge.className = 'badge badge-ghost';
-                  syncMeta.textContent = 'disponível · Chrome / Edge';
-                  syncActions.innerHTML = `
+          document.getElementById('btn-sync-write').onclick = async () => {
+            const ok = await MLPortal.writeSyncFile();
+            toast(ok ? 'Arquivo atualizado' : 'Sem permissão de gravação', ok ? 'success' : 'error');
+          };
+          document.getElementById('btn-sync-disc').onclick = async () => {
+            await MLPortal.disconnectSyncFile();
+            refreshSyncUI();
+            toast('Desconectado');
+          };
+        } else {
+          syncBadge.textContent = 'não conectado';
+          syncBadge.className = 'badge badge-ghost';
+          syncMeta.textContent = 'disponível · Chrome / Edge';
+          syncActions.innerHTML = `
         <button class="btn primary" id="btn-sync-connect">⊕ Conectar arquivo</button>
         <button class="btn" id="btn-sync-load">⤓ Carregar de arquivo</button>
       `;
-                  document.getElementById('btn-sync-connect').onclick = async () => {
-                    try {
-                      await MLPortal.connectSyncFile();
-                      toast('Arquivo conectado · auto-sync ativo', 'success');
-                      refreshSyncUI();
-                    } catch (err) {
-                      if (err.name !== 'AbortError') toast('Erro: ' + err.message, 'error');
-                    }
-                  };
-                  document.getElementById('btn-sync-load').onclick = async () => {
-                    try {
-                      const snap = await MLPortal.loadFromSyncFile();
-                      const n = Object.keys(snap.progress || {}).length;
-                      toast(`Carregado: ${n} lições · auto-sync ativo`, 'success');
-                      refreshSyncUI();
-                      renderPhases();
-                      updateDataMeta();
-                    } catch (err) {
-                      if (err.name !== 'AbortError') toast('Erro: ' + err.message, 'error');
-                    }
-                  };
-                }
-              }
+          document.getElementById('btn-sync-connect').onclick = async () => {
+            try {
+              await MLPortal.connectSyncFile();
+              toast('Arquivo conectado · auto-sync ativo', 'success');
               refreshSyncUI();
-            </script>
+            } catch (err) {
+              if (err.name !== 'AbortError') toast('Erro: ' + err.message, 'error');
+            }
+          };
+          document.getElementById('btn-sync-load').onclick = async () => {
+            try {
+              const snap = await MLPortal.loadFromSyncFile();
+              const n = Object.keys(snap.progress || {}).length;
+              toast(`Carregado: ${n} lições · auto-sync ativo`, 'success');
+              refreshSyncUI();
+              renderPhases();
+              updateDataMeta();
+            } catch (err) {
+              if (err.name !== 'AbortError') toast('Erro: ' + err.message, 'error');
+            }
+          };
+        }
+      }
+      refreshSyncUI();
+    </script>
   </body>
 
 </html>
