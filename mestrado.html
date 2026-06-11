@@ -597,6 +597,70 @@ sitemap: false
         background: var(--border);
       }
 
+      .wf-callout {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 10px 22px;
+        margin-top: 16px;
+        padding: 18px 24px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        text-decoration: none;
+        color: var(--fg);
+        transition: .18s;
+      }
+
+      .wf-callout:hover {
+        border-color: var(--navy-soft);
+        background: var(--surface-2);
+      }
+
+      .wf-kicker {
+        font-size: .58rem;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: var(--gold);
+        white-space: nowrap;
+        padding-right: 22px;
+        border-right: 1px solid var(--border);
+      }
+
+      .wf-text {
+        font-size: .92rem;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .wf-text strong {
+        color: var(--navy-ink);
+        font-weight: 600;
+      }
+
+      .wf-go {
+        font-size: .76rem;
+        color: var(--navy-ink);
+        white-space: nowrap;
+        border-bottom: 1px solid transparent;
+      }
+
+      .wf-callout:hover .wf-go {
+        border-bottom-color: var(--navy-ink);
+      }
+
+      @media (max-width: 680px) {
+        .wf-callout {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .wf-kicker {
+          border-right: none;
+          padding-right: 0;
+        }
+      }
+
       .vstep {
         background: var(--surface);
         padding: 26px 26px 24px;
@@ -1982,6 +2046,12 @@ sitemap: false
             </a>
           </div>
         </div>
+
+        <a class="wf-callout" href="https://mecade-wireframe.pages.dev/" target="_blank" rel="noopener">
+          <span class="wf-kicker mono" data-i18n="mc_wf_kicker">Prototype · access-controlled</span>
+          <span class="wf-text"><strong data-i18n="mc_wf_lead">MECADE Wireframe -  do paper ao software.</strong> <span data-i18n="mc_wf_desc">A governance and audit platform that operationalizes Chaos Engineering as a seven-layer cybernetic cycle, for regulated sectors (financial, aerospace, and beyond).</span></span>
+          <span class="wf-go mono" data-i18n="mc_wf_go">Open prototype ↗</span>
+        </a>
       </section>
 
       <section class="section validation">
@@ -2196,6 +2266,10 @@ sitemap: false
           ev_overall: "Overall rating", ev_reviewers: "Senior reviewers", ev_high: "Ratings ≥ 4 / 5", ev_items: "Layer item ratings",
           ev_block_layers: "Ratings per layer", ev_block_dims: "Evaluation dimensions", ev_block_profiles: "Reviewer profile (anonymized)",
           ev_caption: "Aggregated results from 4 senior reviewers. Profiles are anonymized by role and experience; individual identities and contacts are not disclosed.",
+          mc_wf_kicker: "Prototype · access-controlled",
+          mc_wf_lead: "MECADE Wireframe — from paper to software.",
+          mc_wf_desc: "A governance and audit platform that operationalizes Chaos Engineering as a seven-layer cybernetic cycle, for regulated sectors (financial, aerospace, and beyond).",
+          mc_wf_go: "Open prototype ↗",
           mc_v_kicker: "Open validation",
           mc_v_title: "Help validate MECADE",
           mc_v_desc: "Contribute your experience to evaluating MECADE, a seven-layer framework developed at ITA. It proposes a closed-loop cybernetic cycle that integrates Chaos Engineering with intelligent observability to detect gray failures and provide immutable Blockchain-based audit, shifting from failure prediction to active tolerance and quantifiably reducing MTTR and RTO in critical distributed systems.",
@@ -2338,6 +2412,10 @@ sitemap: false
           ev_overall: "Nota geral", ev_reviewers: "Avaliadores sêniores", ev_high: "Notas ≥ 4 / 5", ev_items: "Itens avaliados por camada",
           ev_block_layers: "Notas por camada", ev_block_dims: "Dimensões de avaliação", ev_block_profiles: "Perfil dos avaliadores (anonimizado)",
           ev_caption: "Resultados agregados de 4 avaliadores sêniores. Os perfis são anonimizados por papel e experiência; identidades e contatos individuais não são divulgados.",
+          mc_wf_kicker: "Protótipo · acesso controlado",
+          mc_wf_lead: "MECADE Wireframe — do paper ao software.",
+          mc_wf_desc: "Uma plataforma de governança e auditoria que operacionaliza a Engenharia do Caos como um ciclo cibernético de sete camadas, para setores regulados (financeiro, aeroespacial e etc).",
+          mc_wf_go: "Abrir protótipo ↗",
           mc_v_kicker: "Validação aberta",
           mc_v_title: "Ajude a validar o MECADE",
           mc_v_desc: "Contribua com sua experiência para a avaliação do MECADE, um framework estruturado em sete camadas desenvolvido no âmbito do ITA. Ele propõe um ciclo cibernético de malha fechada que integra a Engenharia do Caos à observabilidade inteligente para detectar falhas cinzentas (gray failures) e auditoria imutável via Blockchain, transformando a postura de previsão de falhas em tolerância ativa e reduzindo quantificavelmente métricas como MTTR e RTO em sistemas críticos distribuídos.",
