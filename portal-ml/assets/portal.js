@@ -14,7 +14,7 @@
     { href: 'index.html',      label: 'Início',     key: 'home' },
     { href: 'curriculum.html', label: 'Trilha',     key: 'curriculum' },
     { href: 'lessons.html',    label: 'Algoritmos', key: 'lessons' },
-    { href: 'interview.html',  label: 'Entrevista', key: 'interview' },
+    { href: 'interview.html',  label: 'Flashcards', key: 'interview' },
     { href: 'resources.html',  label: 'Recursos',   key: 'resources' },
     { href: 'glossary.html',   label: 'Glossário',  key: 'glossary' },
   ];
