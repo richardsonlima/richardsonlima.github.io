@@ -372,9 +372,10 @@ sitemap: false
       }
 
       .bar .fill {
+        display: block;
         height: 100%;
         border-radius: 6px;
-        background: linear-gradient(90deg, var(--navy), var(--navy-ink));
+        background: var(--navy);
       }
 
       .bar .fill.top {
@@ -553,10 +554,10 @@ sitemap: false
       }
 
       .qbar .qfill {
+        display: block;
         height: 100%;
         border-radius: 5px;
         background: var(--navy);
-        opacity: .82;
       }
 
       .qbar .qval {
@@ -938,7 +939,7 @@ sitemap: false
           k_reviewers: "avaliadores sêniores", k_overall: "média geral", k_high: "notas ≥ 4 / 5",
           k_items: "itens avaliados", k_incidents: "com incidentes reais", k_sector: "do setor financeiro",
           years_lbl: "anos", sector_lbl: "Setor", incidents_yes: "Incidentes reais",
-          of5: "/ 5", note: "Metodologia: validação aberta via formulário (Google Forms), respondida por 6 profissionais sêniores de SRE, Engenharia do Caos e sistemas distribuídos. Escala Likert de 1 a 5. As médias por camada usam 210 itens (7 camadas × 5 questões × 6 respostas); a distribuição geral considera 324 itens avaliativos (camadas + dimensões). Todos os resultados são agregados e anonimizados — identidades, e-mails e empresas dos avaliadores não são divulgados."
+          of5: "/ 5", note: "Metodologia: validação aberta via formulário (Google Forms), respondida por 6 profissionais sêniores de SRE, Engenharia do Caos e sistemas distribuídos. Escala Likert de 1 a 5. As médias por camada usam 210 itens (7 camadas × 5 questões × 6 respostas); a distribuição geral considera 324 itens avaliativos (camadas + dimensões). Todos os resultados são agregados e anonimizados, identidades, e-mails e empresas dos avaliadores não são divulgados."
         },
         en: {
           brand_sub: "Validation Dashboard",
@@ -968,7 +969,7 @@ sitemap: false
           k_reviewers: "senior reviewers", k_overall: "overall avg", k_high: "ratings ≥ 4 / 5",
           k_items: "rated items", k_incidents: "with real incidents", k_sector: "from finance",
           years_lbl: "yrs", sector_lbl: "Sector", incidents_yes: "Real incidents",
-          of5: "/ 5", note: "Methodology: open validation via online form (Google Forms), answered by 6 senior practitioners in SRE, Chaos Engineering and distributed systems. Likert scale 1–5. Per-layer averages use 210 items (7 layers × 5 questions × 6 responses); the overall distribution covers 324 evaluative items (layers + dimensions). All results are aggregated and anonymized — reviewer identities, e-mails and companies are not disclosed."
+          of5: "/ 5", note: "Methodology: open validation via online form (Google Forms), answered by 6 senior practitioners in SRE, Chaos Engineering and distributed systems. Likert scale 1–5. Per-layer averages use 210 items (7 layers × 5 questions × 6 responses); the overall distribution covers 324 evaluative items (layers + dimensions). All results are aggregated and anonymized, reviewer identities, e-mails and companies are not disclosed."
         }
       };
 
@@ -1041,11 +1042,19 @@ sitemap: false
           return '<i style="width:' + (n / total * 100).toFixed(2) + '%;background:' + DCOL[k] + '"></i>';
         }).join('');
       }
+      function scoreColor(v) {
+        if (v >= 4.5) return '#2f8f4f';
+        if (v >= 4.0) return '#5aa86d';
+        if (v >= 3.5) return '#9aae4e';
+        if (v >= 3.0) return '#c79a3a';
+        if (v >= 2.0) return '#cf7d3a';
+        return '#cf5a3a';
+      }
       function ratingBar(label, v, opts) {
         opts = opts || {};
         var w = (v / 5 * 100).toFixed(1);
         return '<div class="bar"><span class="lab">' + label + '</span>' +
-          '<span class="track"><span class="fill' + (opts.top ? ' top' : '') + '" style="width:' + w + '%"></span></span>' +
+          '<span class="track"><span class="fill" style="width:' + w + '%;background:' + scoreColor(v) + '"></span></span>' +
           '<span class="val">' + fmt(v) + '</span></div>';
       }
 
@@ -1093,7 +1102,7 @@ sitemap: false
           var top = l.avg === Math.max.apply(null, DATA.layers.map(function (x) { return x.avg; }));
           var qb = l.questions.map(function (q) {
             return '<div class="qbar"><span class="qlab">' + pick(q) + '</span>' +
-              '<span class="qtrack"><span class="qfill" style="width:' + (q.avg / 5 * 100).toFixed(1) + '%"></span></span>' +
+              '<span class="qtrack"><span class="qfill" style="width:' + (q.avg / 5 * 100).toFixed(1) + '%;background:' + scoreColor(q.avg) + '"></span></span>' +
               '<span class="qval">' + fmt(q.avg) + '</span></div>';
           }).join('');
           return '<details class="lcard"' + (idx === 0 ? ' open' : '') + '><summary>' +
@@ -1108,7 +1117,7 @@ sitemap: false
         document.getElementById('dimCards').innerHTML = DATA.dims.map(function (d, idx) {
           var qb = d.questions.map(function (q) {
             return '<div class="qbar"><span class="qlab">' + pick(q) + '</span>' +
-              '<span class="qtrack"><span class="qfill" style="width:' + (q.avg / 5 * 100).toFixed(1) + '%"></span></span>' +
+              '<span class="qtrack"><span class="qfill" style="width:' + (q.avg / 5 * 100).toFixed(1) + '%;background:' + scoreColor(q.avg) + '"></span></span>' +
               '<span class="qval">' + fmt(q.avg) + '</span></div>';
           }).join('');
           var items = d.questions.length * 6;
