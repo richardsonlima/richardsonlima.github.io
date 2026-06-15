@@ -1326,6 +1326,318 @@ sitemap: false
         }
       }
 
+      /* ---------- Expert validation · slide-19 pattern ---------- */
+      .vwrap {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 48px;
+        align-items: start;
+        margin-top: 8px;
+      }
+
+      .vleft {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .vring {
+        position: relative;
+        width: 210px;
+        height: 210px;
+        margin: 6px auto 0;
+      }
+
+      .vring .arc {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: conic-gradient(from -90deg, var(--navy) 0 85.6%, var(--border) 85.6% 100%);
+      }
+
+      .vring .hole {
+        position: absolute;
+        inset: 24px;
+        border-radius: 50%;
+        background: var(--bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .vring .hole .big {
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: 3.4rem;
+        line-height: 1;
+        letter-spacing: -.02em;
+        color: var(--navy-ink);
+      }
+
+      .vring .hole .of {
+        font-family: var(--mono);
+        font-size: .8rem;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      .vmini {
+        display: flex;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .vmini .m {
+        flex: 1;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 8px;
+        text-align: center;
+      }
+
+      .vmini .m .n {
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: var(--navy-ink);
+      }
+
+      .vmini .m .l {
+        font-family: var(--mono);
+        font-size: .68rem;
+        color: var(--muted);
+        margin-top: 5px;
+        line-height: 1.3;
+      }
+
+      .vprofile {
+        margin-top: 22px;
+        border-top: 1px solid var(--border);
+        padding-top: 18px;
+      }
+
+      .vprofile .pl {
+        font-family: var(--mono);
+        font-size: .62rem;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 12px;
+      }
+
+      .vprofile .pr {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        font-size: .98rem;
+        color: var(--fg);
+        padding: 6px 0;
+      }
+
+      .vprofile .pr .k {
+        font-family: var(--mono);
+        font-size: .64rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--muted);
+        width: 92px;
+        flex: none;
+      }
+
+      .vprofile .pr b {
+        color: var(--navy-ink);
+        font-weight: 600;
+      }
+
+      .vright {
+        min-width: 0;
+      }
+
+      .vbars-title {
+        font-family: var(--mono);
+        font-size: .68rem;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 2px 0 14px;
+      }
+
+      .vbars {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .vbar {
+        display: grid;
+        grid-template-columns: 190px 1fr 48px;
+        align-items: center;
+        gap: 14px;
+        padding: 6px 0;
+      }
+
+      .vbar .vlab {
+        font-size: 1rem;
+        color: var(--fg);
+      }
+
+      .vtrack {
+        height: 22px;
+        border-radius: 7px;
+        background: var(--surface-2);
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px var(--border);
+      }
+
+      .vfill {
+        height: 100%;
+        border-radius: 7px;
+        background: linear-gradient(90deg, var(--navy), var(--navy-ink));
+      }
+
+      .vfill.top {
+        background: linear-gradient(90deg, var(--navy), var(--gold));
+      }
+
+      .vval {
+        font-family: var(--mono);
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--navy-ink);
+        text-align: right;
+      }
+
+      .vdist {
+        margin-top: 22px;
+        border-top: 1px solid var(--border);
+        padding-top: 18px;
+      }
+
+      .vdist .dl {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin-bottom: 11px;
+        flex-wrap: wrap;
+      }
+
+      .vdist .dl .t {
+        font-family: var(--mono);
+        font-size: .68rem;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .vdist .dl .h {
+        font-size: .82rem;
+        color: var(--muted);
+      }
+
+      .vstack {
+        display: flex;
+        height: 26px;
+        border-radius: 7px;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px var(--border);
+      }
+
+      .vstack i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--mono);
+        font-size: .72rem;
+        font-weight: 600;
+        color: #fff;
+        min-width: 0;
+      }
+
+      .vlegend {
+        display: flex;
+        gap: 18px;
+        margin-top: 11px;
+        flex-wrap: wrap;
+      }
+
+      .vlegend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-family: var(--mono);
+        font-size: .76rem;
+        color: var(--muted);
+      }
+
+      .vlegend i {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        display: inline-block;
+      }
+
+      .vquote {
+        margin-top: 20px;
+        display: flex;
+        gap: 11px;
+        flex-wrap: wrap;
+      }
+
+      .vquote .q {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-size: .9rem;
+        color: var(--fg);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 9px 16px;
+      }
+
+      .vquote .q b {
+        color: var(--navy-ink);
+        font-weight: 600;
+      }
+
+      .vcap {
+        margin-top: 16px;
+        font-family: var(--mono);
+        font-size: .76rem;
+        color: var(--muted);
+        line-height: 1.5;
+        max-width: 760px;
+      }
+
+      @media (max-width: 860px) {
+        .vwrap {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .vleft {
+          max-width: 420px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .vbar {
+          grid-template-columns: 120px 1fr 44px;
+          gap: 10px;
+        }
+
+        .vbar .vlab {
+          font-size: .9rem;
+        }
+
+        .vmini .m .l {
+          font-size: .62rem;
+        }
+      }
+
       @media (max-width: 680px) {
         .findings {
           grid-template-columns: 1fr;
@@ -2124,6 +2436,14 @@ sitemap: false
               seven-layer cybernetic cycle, for regulated sectors (financial, aerospace, and beyond).</span></span>
           <span class="wf-go mono" data-i18n="mc_wf_go">Open prototype ↗</span>
         </a>
+
+        <a class="wf-callout" href="https://mecade-slides.pages.dev/#1" target="_blank" rel="noopener">
+          <span class="wf-kicker mono" data-i18n="mc_sl_kicker">Slides · access-controlled</span>
+          <span class="wf-text"><strong data-i18n="mc_sl_lead">MECADE Slides: the MECADE proposal.</strong> <span
+              data-i18n="mc_sl_desc">Presentation deck walking through the systematic mapping, the seven-layer model,
+              the expert validation and the roadmap.</span></span>
+          <span class="wf-go mono" data-i18n="mc_sl_go">Open slides ↗</span>
+        </a>
       </section>
 
       <section class="section validation">
@@ -2131,35 +2451,55 @@ sitemap: false
         <h2 class="sec-title" data-i18n="ev_title">What experts say about MECADE</h2>
         <p class="objective" data-i18n="ev_intro">Independent evaluation by senior practitioners.</p>
 
-        <div class="ev-hero">
-          <div class="ev-score">
-            <span class="ev-score-v mono">4.42</span>
-            <span class="ev-score-max mono">/ 5</span>
-            <span class="ev-score-k" data-i18n="ev_overall">Overall rating</span>
+        <div class="vwrap">
+          <div class="vleft">
+            <div class="vring">
+              <div class="arc"></div>
+              <div class="hole"><span class="big" id="evBig">4,28</span><span class="of" data-i18n="ev_of">overall /
+                  5</span></div>
+            </div>
+            <div class="vmini">
+              <div class="m">
+                <div class="n">78%</div>
+                <div class="l" data-i18n="ev_m1">ratings ≥ 4</div>
+              </div>
+              <div class="m">
+                <div class="n">6</div>
+                <div class="l" data-i18n="ev_m2">senior reviewers</div>
+              </div>
+              <div class="m">
+                <div class="n">6/6</div>
+                <div class="l" data-i18n="ev_m3">real incidents</div>
+              </div>
+            </div>
+            <div class="vprofile">
+              <p class="pl" data-i18n="ev_profile">Reviewer profile</p>
+              <div class="pr"><span class="k" data-i18n="ev_p_sen">Seniority</span><b data-i18n="ev_p_sen_v">4 with 10+
+                  years</b></div>
+              <div class="pr"><span class="k" data-i18n="ev_p_sec">Sector</span><b data-i18n="ev_p_sec_v">5 financial, 1
+                  SaaS</b></div>
+              <div class="pr"><span class="k" data-i18n="ev_p_rol">Roles</span><b data-i18n="ev_p_rol_v">SRE, Chaos
+                  Eng., SW Eng.</b></div>
+            </div>
           </div>
-          <div class="ev-hero-facts">
-            <div class="ev-hf"><span class="ev-hf-v mono">4</span><span class="ev-hf-k" data-i18n="ev_reviewers">Senior
-                reviewers</span></div>
-            <div class="ev-hf"><span class="ev-hf-v mono">91%</span><span class="ev-hf-k" data-i18n="ev_high">Ratings ≥
-                4 / 5</span></div>
-            <div class="ev-hf"><span class="ev-hf-v mono">140</span><span class="ev-hf-k" data-i18n="ev_items">Layer
-                item ratings</span></div>
+          <div class="vright">
+            <p class="vbars-title" data-i18n="ev_bars_title">Average per model layer (scale 1–5)</p>
+            <div class="vbars" id="evBars"></div>
+            <div class="vdist">
+              <div class="dl"><span class="t" data-i18n="ev_dist">Ratings distribution</span><span class="h"
+                  data-i18n="ev_dist_h">324 evaluative responses, no 1-star</span></div>
+              <div class="vstack" id="evStack"></div>
+              <div class="vlegend" id="evLegend"></div>
+            </div>
+            <div class="vquote">
+              <span class="q" data-i18n="ev_q1">Blockchain audit: <b>5× Interesting, 1× Essential</b></span>
+              <span class="q" data-i18n="ev_q2">Most cited as innovative: <b>Detection</b></span>
+              <span class="q" data-i18n="ev_q3"><b>“The whole model is quite innovative”</b></span>
+            </div>
+            <p class="vcap" data-i18n="ev_cap">Recurring constructive feedback: validate with a real production case,
+              addressed in next steps. Aggregated and anonymized results.</p>
           </div>
         </div>
-
-        <div class="mapblock" data-i18n="ev_block_layers">Ratings per layer</div>
-        <div class="chart">
-          <div id="evLayers" class="bars"></div>
-        </div>
-
-        <div class="mapblock" data-i18n="ev_block_dims">Evaluation dimensions</div>
-        <div class="ev-dims" id="evDims"></div>
-
-        <div class="mapblock" data-i18n="ev_block_profiles">Reviewer profile (anonymized)</div>
-        <div class="ev-profiles" id="evProfiles"></div>
-
-        <div class="ev-highlights" id="evHighlights"></div>
-        <p class="fd-caption" data-i18n="ev_caption">Anonymized expert validation.</p>
       </section>
 
       <section class="section">
@@ -2339,14 +2679,24 @@ sitemap: false
           fd_caption: "Distribution of the 23 primary studies returned by the systematic search across the three databases (1960–2022). Region is derived from the first author&rsquo;s institutional affiliation (continent) and answers QP4.",
           ev_label: "Expert validation",
           ev_title: "What experts say about MECADE",
-          ev_intro: "Independent evaluation by senior practitioners from the financial sector (banks, fintechs, payments), gathered through the open validation survey.",
-          ev_overall: "Overall rating", ev_reviewers: "Senior reviewers", ev_high: "Ratings ≥ 4 / 5", ev_items: "Layer item ratings",
-          ev_block_layers: "Ratings per layer", ev_block_dims: "Evaluation dimensions", ev_block_profiles: "Reviewer profile (anonymized)",
-          ev_caption: "Aggregated results from 4 senior reviewers. Profiles are anonymized by role and experience; individual identities and contacts are not disclosed.",
+          ev_intro: "Independent evaluation by 6 senior practitioners, most from the financial sector (banks, fintechs, payments), all with hands-on experience in real critical incidents, through the open validation survey.",
+          ev_of: "overall / 5", ev_m1: "ratings ≥ 4", ev_m2: "senior reviewers", ev_m3: "real incidents",
+          ev_profile: "Reviewer profile", ev_p_sen: "Seniority", ev_p_sen_v: "4 with 10+ years",
+          ev_p_sec: "Sector", ev_p_sec_v: "5 financial, 1 SaaS", ev_p_rol: "Roles", ev_p_rol_v: "SRE, Chaos Eng., SW Eng.",
+          ev_bars_title: "Average per model layer (scale 1–5)",
+          ev_dist: "Ratings distribution", ev_dist_h: "324 evaluative responses, no 1-star",
+          ev_q1: "Blockchain audit: <b>5× Interesting, 1× Essential</b>",
+          ev_q2: "Most cited as innovative: <b>Detection</b>",
+          ev_q3: "<b>“The whole model is quite innovative”</b>",
+          ev_cap: "Recurring constructive feedback: validate with a real production case, addressed in next steps. Aggregated and anonymized results.",
           mc_wf_kicker: "Prototype · access-controlled",
-          mc_wf_lead: "MECADE Wireframe — from paper to software.",
+          mc_wf_lead: "MECADE Wireframe: from paper to software.",
           mc_wf_desc: "A governance and audit platform that operationalizes Chaos Engineering as a seven-layer cybernetic cycle, for regulated sectors (financial, aerospace, and beyond).",
           mc_wf_go: "Open prototype ↗",
+          mc_sl_kicker: "Slides · access-controlled",
+          mc_sl_lead: "MECADE Slides: the product proposal.",
+          mc_sl_desc: "Presentation deck walking through the systematic mapping, the seven-layer model, the expert validation and the roadmap.",
+          mc_sl_go: "Open slides ↗",
           mc_v_kicker: "Open validation",
           mc_v_title: "Help validate MECADE",
           mc_v_desc: "Contribute your experience to evaluating MECADE, a seven-layer framework developed at ITA. It proposes a closed-loop cybernetic cycle that integrates Chaos Engineering with intelligent observability to detect gray failures and provide immutable Blockchain-based audit, shifting from failure prediction to active tolerance and quantifiably reducing MTTR and RTO in critical distributed systems.",
@@ -2485,14 +2835,24 @@ sitemap: false
           fd_caption: "Distribuição dos 23 estudos primários retornados pela busca sistemática nas três bases (1960–2022). A região é derivada da afiliação institucional do primeiro autor (continente) e responde à QP4.",
           ev_label: "Validação por especialistas",
           ev_title: "O que os especialistas dizem do MECADE",
-          ev_intro: "Avaliação independente por profissionais sêniores do setor financeiro (bancos, fintechs, pagamentos), coletada por meio do formulário de validação aberta.",
-          ev_overall: "Nota geral", ev_reviewers: "Avaliadores sêniores", ev_high: "Notas ≥ 4 / 5", ev_items: "Itens avaliados por camada",
-          ev_block_layers: "Notas por camada", ev_block_dims: "Dimensões de avaliação", ev_block_profiles: "Perfil dos avaliadores (anonimizado)",
-          ev_caption: "Resultados agregados de 4 avaliadores sêniores. Os perfis são anonimizados por papel e experiência; identidades e contatos individuais não são divulgados.",
+          ev_intro: "Avaliação independente por 6 profissionais sêniores, a maioria do setor financeiro (bancos, fintechs, pagamentos), todos com atuação em incidentes críticos reais, por meio do formulário de validação aberta.",
+          ev_of: "média geral / 5", ev_m1: "notas ≥ 4", ev_m2: "avaliadores seniores", ev_m3: "incidentes reais",
+          ev_profile: "Perfil dos avaliadores", ev_p_sen: "Senioridade", ev_p_sen_v: "4 com mais de 10 anos",
+          ev_p_sec: "Setor", ev_p_sec_v: "5 financeiro, 1 SaaS", ev_p_rol: "Funções", ev_p_rol_v: "SRE, Chaos Eng., Eng. SW",
+          ev_bars_title: "Média por camada do modelo (escala 1 a 5)",
+          ev_dist: "Distribuição das notas", ev_dist_h: "324 respostas avaliativas, nenhuma nota 1",
+          ev_q1: "Auditoria blockchain: <b>5x Interessante, 1x Essencial</b>",
+          ev_q2: "Mais citada como inovadora: <b>Detecção</b>",
+          ev_q3: "<b>“O modelo todo é bastante inovador”</b>",
+          ev_cap: "Crítica construtiva recorrente: validar com caso prático em produção, endereçado nos próximos passos. Resultados agregados e anonimizados.",
           mc_wf_kicker: "Protótipo · acesso controlado",
-          mc_wf_lead: "MECADE Wireframe — do paper ao software.",
+          mc_wf_lead: "MECADE Wireframe: do paper ao software.",
           mc_wf_desc: "Uma plataforma de governança e auditoria que operacionaliza a Engenharia do Caos como um ciclo cibernético de sete camadas, para setores regulados (financeiro, aeroespacial e etc).",
           mc_wf_go: "Abrir protótipo ↗",
+          mc_sl_kicker: "Slides · acesso controlado",
+          mc_sl_lead: "MECADE Slides: a proposta do MECADE.",
+          mc_sl_desc: "Deck de apresentação que percorre o mapeamento sistemático, o modelo de sete camadas, a validação por especialistas e o roadmap.",
+          mc_sl_go: "Abrir slides ↗",
           mc_v_kicker: "Validação aberta",
           mc_v_title: "Ajude a validar o MECADE",
           mc_v_desc: "Contribua com sua experiência para a avaliação do MECADE, um framework estruturado em sete camadas desenvolvido no âmbito do ITA. Ele propõe um ciclo cibernético de malha fechada que integra a Engenharia do Caos à observabilidade inteligente para detectar falhas cinzentas (gray failures) e auditoria imutável via Blockchain, transformando a postura de previsão de falhas em tolerância ativa e reduzindo quantificavelmente métricas como MTTR e RTO em sistemas críticos distribuídos.",
@@ -2645,30 +3005,20 @@ sitemap: false
 
       // Expert validation results (anonymized, positive scores only)
       const EV_LAYERS = [
-        { en: "01 · Planning", pt: "01 · Planejamento", v: 4.35 },
-        { en: "02 · Objectives & Indicators", pt: "02 · Objetivos & Indicadores", v: 4.40 },
-        { en: "03 · Automatic Detection", pt: "03 · Detecção Automática", v: 4.40 },
-        { en: "04 · Technical Implementation", pt: "04 · Implementações Técnicas", v: 4.25 },
-        { en: "05 · Integration", pt: "05 · Integração", v: 4.50 },
-        { en: "06 · Audit", pt: "06 · Auditoria", v: 4.20 },
-        { en: "07 · Continuous Improvement", pt: "07 · Melhoria Contínua", v: 4.85 }
+        { en: "Planning", pt: "Planejamento", v: 4.20 },
+        { en: "Measurement & Indicators", pt: "Medição e Indicadores", v: 4.23 },
+        { en: "Detection", pt: "Detecção", v: 4.07 },
+        { en: "Implementation", pt: "Implementação", v: 4.20 },
+        { en: "CI/CD Integration", pt: "Integração CI/CD", v: 4.30 },
+        { en: "Audit", pt: "Auditoria", v: 4.07 },
+        { en: "Continuous improvement", pt: "Melhoria contínua", v: 4.63, top: true }
       ];
-      const EV_DIMS = [
-        { en: "Comparison with state of the art", pt: "Comparação com estado da arte", v: 4.75 },
-        { en: "Model validation (overall)", pt: "Validação do modelo (global)", v: 4.60 },
-        { en: "Case study & experiments", pt: "Estudo de caso & experimentos", v: 4.55 },
-        { en: "Practical feasibility", pt: "Viabilidade prática", v: 4.30 }
-      ];
-      const EV_PROFILES = [
-        { en: "SRE · 10+ yrs · Financial sector", pt: "SRE · 10+ anos · Setor financeiro" },
-        { en: "Chaos Engineering Leader · 5–10 yrs · Financial sector", pt: "Chaos Engineering Leader · 5–10 anos · Setor financeiro" },
-        { en: "SRE · 10+ yrs · Financial sector", pt: "SRE · 10+ anos · Setor financeiro" },
-        { en: "Software Engineer · 1–5 yrs · Financial sector", pt: "Eng. de Software · 1–5 anos · Setor financeiro" }
-      ];
-      const EV_HIGHLIGHTS = [
-        { icon: "★", en: "Most innovative layer cited: Layer 3 — automatic detection of gray failures.", pt: "Camada mais inovadora citada: Camada 3 -  detecção automática de gray failures." },
-        { icon: "◆", en: "Blockchain-based audit rated \"interesting\" by all 4 reviewers.", pt: "Auditoria via Blockchain considerada \"interessante\" pelos 4 avaliadores." },
-        { icon: "✓", en: "All reviewers have hands-on experience with real critical incidents.", pt: "Todos os avaliadores têm experiência prática com incidentes críticos reais." }
+      const EV_DIST = [
+        { v: 5, n: 171, color: "#3c8a50" },
+        { v: 4, n: 83, color: "#8fc69b", ink: "#234d2e" },
+        { v: 3, n: 59, color: "#c9c4ba", ink: "#3a3833" },
+        { v: 2, n: 11, color: "#e0a23a" },
+        { v: 1, n: 0, color: "var(--border)" }
       ];
 
       const TIMELINE = [
@@ -3192,22 +3542,27 @@ sitemap: false
         const cRegion = document.getElementById('chartRegion');
         if (cRegion) cRegion.innerHTML = bar(STUDIES_REGION.map(r => [pick({ en: r.en, pt: r.pt }), r.n]));
 
-        // Expert validation
-        const ratingBar = (label, v) =>
-          '<div class="bar-row rating"><span class="bar-lbl mono">' + label + '</span>' +
-          '<span class="bar-track"><span class="bar-fill" style="width:' + (v / 5 * 100) + '%"></span></span>' +
-          '<span class="bar-val mono">' + v.toFixed(2) + '</span></div>';
-        const evL = document.getElementById('evLayers');
-        if (evL) evL.innerHTML = EV_LAYERS.map(d => ratingBar(pick(d), d.v)).join('');
-        const evD = document.getElementById('evDims');
-        if (evD) evD.innerHTML = EV_DIMS.map(d =>
-          '<div class="ev-dim"><span class="ev-dim-v mono">' + d.v.toFixed(2) + '</span>' +
-          '<span class="ev-dim-k">' + pick(d) + '</span></div>').join('');
-        const evP = document.getElementById('evProfiles');
-        if (evP) evP.innerHTML = EV_PROFILES.map(p => '<span class="ev-chip mono">' + pick(p) + '</span>').join('');
-        const evH = document.getElementById('evHighlights');
-        if (evH) evH.innerHTML = EV_HIGHLIGHTS.map(h =>
-          '<div class="ev-hl"><span class="ev-hl-i">' + h.icon + '</span><span>' + pick(h) + '</span></div>').join('');
+        // Expert validation · slide-19 pattern
+        const fmtV = (n) => CURRENT_LANG === 'pt' ? n.toFixed(2).replace('.', ',') : n.toFixed(2);
+        const evBig = document.getElementById('evBig');
+        if (evBig) evBig.textContent = CURRENT_LANG === 'pt' ? '4,28' : '4.28';
+        const evBars = document.getElementById('evBars');
+        if (evBars) evBars.innerHTML = EV_LAYERS.map(d => {
+          const w = (d.v / 5 * 100).toFixed(1);
+          return '<div class="vbar"><span class="vlab">' + pick(d) + '</span>' +
+            '<div class="vtrack"><div class="vfill' + (d.top ? ' top' : '') + '" style="width:' + w + '%"></div></div>' +
+            '<span class="vval">' + fmtV(d.v) + '</span></div>';
+        }).join('');
+        const evTotal = EV_DIST.reduce((a, b) => a + b.n, 0);
+        const evStack = document.getElementById('evStack');
+        if (evStack) evStack.innerHTML = EV_DIST.filter(d => d.n > 0).map(d => {
+          const w = (d.n / evTotal * 100).toFixed(2);
+          return '<i style="width:' + w + '%; background:' + d.color + (d.ink ? '; color:' + d.ink : '') + '">' +
+            (d.n / evTotal > 0.06 ? d.n : '') + '</i>';
+        }).join('');
+        const evLegend = document.getElementById('evLegend');
+        if (evLegend) evLegend.innerHTML = EV_DIST.map(d =>
+          '<span><i style="background:' + d.color + '"></i>' + d.v + ' (' + d.n + ')</span>').join('');
       }
 
       /* ===================== BOOT ===================== */
