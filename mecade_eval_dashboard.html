@@ -1,0 +1,1200 @@
+---
+layout: null
+permalink: /mecade_eval_dashboard/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="pt">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0f14" media="(prefers-color-scheme: dark)">
+    <title>MECADE · Validation Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet">
+    <style>
+      :root {
+        --bg: #ffffff;
+        --surface: #faf9f7;
+        --surface-2: #f4f2ee;
+        --fg: #1a1a17;
+        --muted: #6b6862;
+        --border: #ece9e3;
+        --navy: #1b3a6b;
+        --navy-ink: #1b3a6b;
+        --navy-soft: rgba(27, 58, 107, 0.07);
+        --gold: #b07d05;
+        --gold-bg: rgba(242, 180, 0, 0.16);
+        --serif: 'Newsreader', Georgia, serif;
+        --sans: 'Public Sans', system-ui, sans-serif;
+        --mono: 'JetBrains Mono', monospace;
+        --d5: #3c8a50;
+        --d4: #8fc69b;
+        --d3: #c9c4ba;
+        --d2: #e0a23a;
+        --d1: #d2693f;
+      }
+
+      html[data-theme='dark'] {
+        --bg: #0d0f14;
+        --surface: #14171e;
+        --surface-2: #181c25;
+        --fg: #e8eaee;
+        --muted: #99a0ac;
+        --border: #262b37;
+        --navy: #8fb4ec;
+        --navy-ink: #c7d8f4;
+        --navy-soft: rgba(143, 180, 236, 0.12);
+        --gold: #e7b53c;
+        --gold-bg: rgba(231, 181, 60, 0.14);
+        --d5: #4ba365;
+        --d4: #7bb98a;
+        --d3: #6f6e67;
+        --d2: #cf9433;
+        --d1: #c75f3a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--sans);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        transition: background .3s, color .3s;
+      }
+
+      .mono {
+        font-family: var(--mono);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      /* ---------- NAV ---------- */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 13px clamp(18px, 5vw, 56px);
+        background: color-mix(in srgb, var(--bg) 86%, transparent);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-brand {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+      }
+
+      .nav-brand b {
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: 1.05rem;
+        letter-spacing: -.01em;
+      }
+
+      .nav-brand span {
+        font-family: var(--mono);
+        font-size: .62rem;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .nav-controls {
+        display: flex;
+        gap: 8px;
+      }
+
+      .seg {
+        display: flex;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        overflow: hidden;
+        background: var(--surface);
+      }
+
+      .seg button {
+        font-family: var(--mono);
+        font-size: .68rem;
+        padding: 7px 12px;
+        border: none;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        transition: .15s;
+      }
+
+      .seg button[aria-pressed='true'] {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      html[data-theme='dark'] .seg button[aria-pressed='true'] {
+        color: #0d0f14;
+      }
+
+      /* ---------- LAYOUT ---------- */
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 clamp(18px, 5vw, 56px);
+      }
+
+      section.block {
+        padding: clamp(40px, 6vw, 70px) 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: .66rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 14px;
+      }
+
+      h2.sec-title {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+        letter-spacing: -.02em;
+        margin: 0 0 10px;
+        line-height: 1.08;
+      }
+
+      .sec-sub {
+        color: var(--muted);
+        max-width: 760px;
+        margin: 0 0 30px;
+        font-size: 1rem;
+      }
+
+      .subhead {
+        font-family: var(--mono);
+        font-size: .66rem;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 34px 0 14px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+      }
+
+      /* ---------- HERO ---------- */
+      .hero {
+        padding: clamp(40px, 6vw, 64px) 0 clamp(34px, 5vw, 52px);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        gap: clamp(28px, 5vw, 56px);
+        align-items: center;
+      }
+
+      .ring {
+        position: relative;
+        width: 230px;
+        height: 230px;
+        margin: 0 auto;
+      }
+
+      .ring .arc {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: conic-gradient(from -90deg, var(--navy) 0 85.6%, var(--border) 85.6% 100%);
+      }
+
+      .ring .hole {
+        position: absolute;
+        inset: 22px;
+        border-radius: 50%;
+        background: var(--bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ring .big {
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: 3.8rem;
+        line-height: 1;
+        letter-spacing: -.02em;
+        color: var(--navy-ink);
+      }
+
+      .ring .of {
+        font-family: var(--mono);
+        font-size: .76rem;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      .hero h1 {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: clamp(2rem, 4.6vw, 3.2rem);
+        letter-spacing: -.025em;
+        line-height: 1.04;
+        margin: 0 0 14px;
+      }
+
+      .hero p.lede {
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 620px;
+        margin: 0 0 26px;
+      }
+
+      .kpis {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--surface);
+      }
+
+      .kpi {
+        padding: 18px 16px;
+        border-right: 1px solid var(--border);
+      }
+
+      .kpi:last-child {
+        border-right: none;
+      }
+
+      .kpi .n {
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: 1.9rem;
+        line-height: 1;
+        color: var(--navy-ink);
+      }
+
+      .kpi .l {
+        font-family: var(--mono);
+        font-size: .64rem;
+        letter-spacing: .4px;
+        color: var(--muted);
+        margin-top: 7px;
+        line-height: 1.3;
+      }
+
+      /* ---------- DISTRIBUTION ---------- */
+      .stack {
+        display: flex;
+        height: 26px;
+        border-radius: 7px;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px var(--border);
+      }
+
+      .stack i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--mono);
+        font-size: .72rem;
+        font-weight: 600;
+        color: #fff;
+        min-width: 0;
+      }
+
+      .legend {
+        display: flex;
+        gap: 16px;
+        margin-top: 11px;
+        flex-wrap: wrap;
+      }
+
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-family: var(--mono);
+        font-size: .74rem;
+        color: var(--muted);
+      }
+
+      .legend i {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+      }
+
+      /* ---------- BARS ---------- */
+      .bar {
+        display: grid;
+        grid-template-columns: 1fr 84px 46px;
+        align-items: center;
+        gap: 14px;
+        padding: 6px 0;
+      }
+
+      .bar .lab {
+        font-size: .96rem;
+      }
+
+      .bar .track {
+        height: 18px;
+        border-radius: 6px;
+        background: var(--surface-2);
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px var(--border);
+      }
+
+      .bar .fill {
+        height: 100%;
+        border-radius: 6px;
+        background: linear-gradient(90deg, var(--navy), var(--navy-ink));
+      }
+
+      .bar .fill.top {
+        background: linear-gradient(90deg, var(--navy), var(--gold));
+      }
+
+      .bar .val {
+        font-family: var(--mono);
+        font-size: .92rem;
+        font-weight: 600;
+        color: var(--navy-ink);
+        text-align: right;
+      }
+
+      /* ---------- PROFILE ---------- */
+      .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .pcard {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 18px 20px;
+      }
+
+      .pcard .pid {
+        font-family: var(--mono);
+        font-size: .7rem;
+        letter-spacing: 1px;
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .pcard .badge {
+        font-family: var(--mono);
+        font-size: .58rem;
+        text-transform: uppercase;
+        letter-spacing: .6px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: var(--ok-bg, var(--gold-bg));
+        color: var(--ok, var(--gold));
+        border: 1px solid color-mix(in srgb, var(--ok, var(--gold)) 30%, transparent);
+      }
+
+      .pcard .role {
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin: 12px 0 4px;
+        line-height: 1.25;
+      }
+
+      .pcard .meta {
+        font-size: .85rem;
+        color: var(--muted);
+      }
+
+      .pcard .meta b {
+        color: var(--fg);
+        font-weight: 600;
+      }
+
+      /* ---------- LAYER / DIM CARDS ---------- */
+      .cards {
+        display: grid;
+        gap: 14px;
+      }
+
+      .lcard {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        overflow: hidden;
+      }
+
+      .lcard summary {
+        list-style: none;
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: 44px 1fr auto;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 22px;
+      }
+
+      .lcard summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .lcard .ln {
+        font-family: var(--mono);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--navy);
+        width: 44px;
+        height: 44px;
+        border-radius: 11px;
+        background: var(--navy-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lcard .lname {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.15;
+      }
+
+      .lcard .lmeta {
+        font-family: var(--mono);
+        font-size: .68rem;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+
+      .lcard .lavg {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+
+      .lcard .lavg .v {
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--navy-ink);
+      }
+
+      .lcard .lavg .chev {
+        font-family: var(--mono);
+        color: var(--muted);
+        transition: transform .2s;
+        font-size: 1rem;
+      }
+
+      .lcard[open] .lavg .chev {
+        transform: rotate(180deg);
+      }
+
+      .lcard .body {
+        padding: 4px 22px 22px;
+        border-top: 1px solid var(--border);
+      }
+
+      .lcard .body .qbars {
+        margin-top: 16px;
+      }
+
+      .qbar {
+        display: grid;
+        grid-template-columns: 1fr 110px 44px;
+        align-items: center;
+        gap: 14px;
+        padding: 5px 0;
+      }
+
+      .qbar .qlab {
+        font-size: .9rem;
+        color: var(--fg);
+      }
+
+      .qbar .qtrack {
+        height: 14px;
+        border-radius: 5px;
+        background: var(--surface-2);
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px var(--border);
+      }
+
+      .qbar .qfill {
+        height: 100%;
+        border-radius: 5px;
+        background: var(--navy);
+        opacity: .82;
+      }
+
+      .qbar .qval {
+        font-family: var(--mono);
+        font-size: .84rem;
+        font-weight: 600;
+        text-align: right;
+        color: var(--muted);
+      }
+
+      .mini-dist {
+        display: flex;
+        height: 8px;
+        width: 130px;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      /* ---------- INSIGHTS ---------- */
+      .insight-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .icard {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        padding: 22px;
+      }
+
+      .icard h3 {
+        font-family: var(--mono);
+        font-size: .68rem;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 18px;
+        font-weight: 600;
+      }
+
+      .splitbar {
+        display: flex;
+        height: 40px;
+        border-radius: 9px;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px var(--border);
+      }
+
+      .splitbar i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--mono);
+        font-size: .76rem;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .split-legend {
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .split-legend div {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: .9rem;
+      }
+
+      .split-legend i {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        flex: none;
+      }
+
+      .split-legend b {
+        margin-left: auto;
+        font-family: var(--mono);
+        font-weight: 600;
+      }
+
+      .chips {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .chip {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: .92rem;
+        padding: 9px 13px;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        background: var(--bg);
+      }
+
+      .chip .num {
+        font-family: var(--mono);
+        font-size: .66rem;
+        color: var(--gold);
+        flex: none;
+      }
+
+      /* ---------- QUOTES ---------- */
+      .quotes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .quote {
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--gold);
+        border-radius: 0 12px 12px 0;
+        background: var(--surface);
+        padding: 18px 22px;
+      }
+
+      .quote .qhead {
+        font-family: var(--mono);
+        font-size: .62rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 9px;
+        display: flex;
+        gap: 9px;
+        align-items: center;
+      }
+
+      .quote .qtag {
+        color: var(--gold);
+      }
+
+      .quote p {
+        margin: 0;
+        font-size: .95rem;
+        line-height: 1.5;
+        color: var(--fg);
+      }
+
+      /* ---------- FOOTER ---------- */
+      footer {
+        padding: 40px 0 70px;
+      }
+
+      footer .note {
+        font-family: var(--mono);
+        font-size: .76rem;
+        color: var(--muted);
+        line-height: 1.6;
+        max-width: 820px;
+      }
+
+      footer .back {
+        display: inline-flex;
+        margin-top: 22px;
+        font-family: var(--mono);
+        font-size: .8rem;
+        color: var(--navy-ink);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 2px;
+      }
+
+      footer .back:hover {
+        border-bottom-color: var(--navy-ink);
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .ring {
+          margin: 0 0 8px;
+        }
+
+        .profile-grid,
+        .insight-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .kpis {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .kpi:nth-child(2) {
+          border-right: none;
+        }
+
+        .kpi:nth-child(1),
+        .kpi:nth-child(2) {
+          border-bottom: 1px solid var(--border);
+        }
+
+        .quotes {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .bar {
+          grid-template-columns: 1fr 60px 40px;
+          gap: 9px;
+        }
+
+        .qbar {
+          grid-template-columns: 1fr 70px 40px;
+          gap: 9px;
+        }
+
+        .lcard summary {
+          grid-template-columns: 38px 1fr auto;
+          gap: 11px;
+          padding: 15px 16px;
+        }
+
+        .lcard .body {
+          padding: 4px 16px 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="nav">
+      <div class="nav-brand">
+        <b>MECADE</b><span data-i18n="brand_sub">Validation Dashboard</span>
+      </div>
+      <div class="nav-controls">
+        <div class="seg" role="group" aria-label="Theme">
+          <button data-theme-value="light" onclick="setTheme('light')" data-i18n="t_light">Light</button>
+          <button data-theme-value="dark" onclick="setTheme('dark')" data-i18n="t_dark">Dark</button>
+        </div>
+        <div class="seg" role="group" aria-label="Language">
+          <button data-lang-value="pt" onclick="setLang('pt')">PT</button>
+          <button data-lang-value="en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero">
+        <span class="eyebrow" data-i18n="hero_eyebrow">Expert validation · MECADE</span>
+        <div class="hero-grid">
+          <div class="ring">
+            <div class="arc"></div>
+            <div class="hole"><span class="big" id="heroBig">4,28</span><span class="of" data-i18n="hero_of">overall /
+                5</span></div>
+          </div>
+          <div>
+            <h1 data-i18n="hero_title">What experts say about MECADE</h1>
+            <p class="lede" data-i18n="hero_lede">Full results of the open validation survey.</p>
+            <div class="kpis" id="heroKpis"></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="block">
+        <span class="eyebrow" data-i18n="dist_eyebrow">01 · Overall</span>
+        <h2 class="sec-title" data-i18n="dist_title">Rating distribution</h2>
+        <p class="sec-sub" data-i18n="dist_sub">Every evaluative item across the seven layers and four assessment
+          dimensions, on a 1–5 scale.</p>
+        <div class="stack" id="distStack"></div>
+        <div class="legend" id="distLegend"></div>
+      </section>
+
+      <section class="block">
+        <span class="eyebrow" data-i18n="prof_eyebrow">02 · Reviewers</span>
+        <h2 class="sec-title" data-i18n="prof_title">Reviewer profile</h2>
+        <p class="sec-sub" data-i18n="prof_sub">Six senior practitioners, anonymized by role, experience and sector.
+          Names, e-mails and companies are not disclosed.</p>
+        <div class="profile-grid" id="profileGrid"></div>
+        <div class="subhead" data-i18n="dom_title">Reviewer hands-on expertise by domain (avg / 5)</div>
+        <div id="domainBars"></div>
+      </section>
+
+      <section class="block">
+        <span class="eyebrow" data-i18n="lay_eyebrow">03 · Seven layers</span>
+        <h2 class="sec-title" data-i18n="lay_title">Results by model layer</h2>
+        <p class="sec-sub" data-i18n="lay_sub">Average per layer with full per-question breakdown. Tap a layer to
+          expand.</p>
+        <div class="cards" id="layerCards"></div>
+      </section>
+
+      <section class="block">
+        <span class="eyebrow" data-i18n="dim_eyebrow">04 · Dimensions</span>
+        <h2 class="sec-title" data-i18n="dim_title">Evaluation dimensions</h2>
+        <p class="sec-sub" data-i18n="dim_sub">Cross-cutting assessment of the model beyond the individual layers.</p>
+        <div class="cards" id="dimCards"></div>
+      </section>
+
+      <section class="block">
+        <span class="eyebrow" data-i18n="pri_eyebrow">05 · Prioritization</span>
+        <h2 class="sec-title" data-i18n="pri_title">Layer prioritization</h2>
+        <p class="sec-sub" data-i18n="pri_sub">How reviewers ranked the importance of each layer (avg / 5).</p>
+        <div id="priorBars"></div>
+      </section>
+
+      <section class="block">
+        <span class="eyebrow" data-i18n="ins_eyebrow">06 · Qualitative</span>
+        <h2 class="sec-title" data-i18n="ins_title">Qualitative insights</h2>
+        <p class="sec-sub" data-i18n="ins_sub">Closed-question signals on maturity, the audit layer and perceived
+          innovation.</p>
+        <div class="insight-grid">
+          <div class="icard">
+            <h3 data-i18n="ins_state">The model is…</h3>
+            <div class="splitbar" id="stateBar"></div>
+            <div class="split-legend" id="stateLegend"></div>
+          </div>
+          <div class="icard">
+            <h3 data-i18n="ins_audit">Blockchain audit layer</h3>
+            <div class="splitbar" id="auditBar"></div>
+            <div class="split-legend" id="auditLegend"></div>
+          </div>
+          <div class="icard">
+            <h3 data-i18n="ins_innov">Most innovative layer (cited)</h3>
+            <div class="chips" id="innovChips"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <span class="eyebrow" data-i18n="qual_eyebrow">07 · Open feedback</span>
+        <h2 class="sec-title" data-i18n="qual_title">Risks &amp; suggestions</h2>
+        <p class="sec-sub" data-i18n="qual_sub">Verbatim open-ended answers, anonymized. The recurring theme is a real
+          production case study.</p>
+        <div class="subhead" data-i18n="qual_risks">Perceived risks of adoption</div>
+        <div class="quotes" id="risksQuotes"></div>
+        <div class="subhead" data-i18n="qual_sugg">Improvement suggestions</div>
+        <div class="quotes" id="suggQuotes"></div>
+      </section>
+
+      <footer>
+        <p class="note" id="footNote"></p>
+        <a class="back" href="https://www.richardsonlima.com.br/mestrado/" data-i18n="foot_back">← Back to the master's
+          page</a>
+      </footer>
+    </div>
+
+    <script>
+      var DATA = { "meta": { "reviewers": 6, "scale": 5 }, "profile": [{ "id": "R1", "role": "SRE", "years": "10+", "sector": "Financeiro (Bancos, Fintechs, Pagamentos)", "incidents": "Sim" }, { "id": "R2", "role": "Chaos Engineering Leader", "years": "5–10", "sector": "Financeiro (Bancos, Fintechs, Pagamentos)", "incidents": "Sim" }, { "id": "R3", "role": "SRE", "years": "10+", "sector": "Financeiro (Bancos, Fintechs, Pagamentos)", "incidents": "Sim" }, { "id": "R4", "role": "Engenheiro de software", "years": "1–5", "sector": "Financeiro (Bancos, Fintechs, Pagamentos)", "incidents": "Sim" }, { "id": "R5", "role": "Negócios em tecnologia em cima de SRE, Observabilidade e gestão de incidentes", "years": "10+", "sector": "Startups / SaaS", "incidents": "Sim" }, { "id": "R6", "role": "Coord de sistemas", "years": "10+", "sector": "Financeiro (Bancos, Fintechs, Pagamentos)", "incidents": "Sim" }], "layers": [{ "n": 1, "en": "Planning", "pt": "Planejamento", "avg": 4.2, "dist": { "1": 0, "2": 1, "3": 6, "4": 9, "5": 14 }, "questions": [{ "en": "Clearly defines steady state", "pt": "Define o steady state com clareza", "avg": 4 }, { "en": "FMEA fault modeling is adequate", "pt": "Modelagem de falhas (FMEA) é adequada", "avg": 4.33 }, { "en": "Chaos Budget is applicable", "pt": "Chaos Budget é aplicável", "avg": 3.83 }, { "en": "Scenarios are realistic", "pt": "Cenários são realistas", "avg": 4.33 }, { "en": "Planning helps reduce MTTR", "pt": "Planejamento reduz o MTTR", "avg": 4.5 }] }, { "n": 2, "en": "Objectives & Indicators", "pt": "Objetivos e Indicadores", "avg": 4.23, "dist": { "1": 0, "2": 1, "3": 5, "4": 10, "5": 14 }, "questions": [{ "en": "KPIs reflect dependability", "pt": "KPIs refletem dependabilidade", "avg": 4 }, { "en": "P95/P99 metrics are adequate", "pt": "Métricas (P95, P99) são adequadas", "avg": 4.33 }, { "en": "Allows measuring MTTR and RTO", "pt": "Permite medir MTTR e RTO", "avg": 4.67 }, { "en": "Metrics align with business", "pt": "Alinhamento entre métricas e negócio", "avg": 3.83 }, { "en": "Intelligent observability is feasible", "pt": "Observabilidade inteligente é viável", "avg": 4.33 }] }, { "n": 3, "en": "Automatic Detection", "pt": "Detecção Automática", "avg": 4.07, "dist": { "1": 0, "2": 3, "3": 5, "4": 9, "5": 13 }, "questions": [{ "en": "Detects gray failures", "pt": "Detecta falhas cinzentas (gray failures)", "avg": 4.17 }, { "en": "Enables early fault detection", "pt": "Permite detecção antecipada", "avg": 4.5 }, { "en": "Reduces false positives", "pt": "Reduz falsos positivos", "avg": 3.17 }, { "en": "Isolation strategies are effective", "pt": "Estratégias de isolamento são eficazes", "avg": 4 }, { "en": "Detection + response is consistent", "pt": "Detecção + resposta é consistente", "avg": 4.5 }] }, { "n": 4, "en": "Technical Implementation", "pt": "Implementações Técnicas", "avg": 4.2, "dist": { "1": 0, "2": 2, "3": 4, "4": 10, "5": 14 }, "questions": [{ "en": "Fault injection reflects real scenarios", "pt": "Injeção representa cenários reais", "avg": 4.33 }, { "en": "Cloud adaptation is adequate", "pt": "Adaptação para cloud é adequada", "avg": 4.5 }, { "en": "Chaos scripts are feasible", "pt": "Scripts de caos são viáveis", "avg": 4.67 }, { "en": "Security control is sufficient", "pt": "Controle de segurança é suficiente", "avg": 3.67 }, { "en": "Safe experimentation in production", "pt": "Experimentação segura em produção", "avg": 3.83 }] }, { "n": 5, "en": "Integration", "pt": "Integração", "avg": 4.3, "dist": { "1": 0, "2": 2, "3": 4, "4": 7, "5": 17 }, "questions": [{ "en": "CI/CD integration is feasible", "pt": "Integração com CI/CD é viável", "avg": 4 }, { "en": "Shift-Left Resilience applies", "pt": "Shift-Left Resilience é aplicável", "avg": 4.5 }, { "en": "Allows continuous execution", "pt": "Permite execução contínua", "avg": 4.17 }, { "en": "Compatible with modern tooling", "pt": "Compatível com ferramentas modernas", "avg": 4.17 }, { "en": "Promotes DevOps/SRE culture", "pt": "Promove cultura DevOps/SRE", "avg": 4.67 }] }, { "n": 6, "en": "Audit", "pt": "Auditoria", "avg": 4.07, "dist": { "1": 0, "2": 2, "3": 7, "4": 8, "5": 13 }, "questions": [{ "en": "Blockchain audit is relevant", "pt": "Blockchain para auditoria é relevante", "avg": 3.33 }, { "en": "Improves traceability", "pt": "Melhora rastreabilidade", "avg": 4.5 }, { "en": "Meets regulatory requirements", "pt": "Atende requisitos regulatórios", "avg": 4.5 }, { "en": "AI use is feasible", "pt": "Uso de IA é viável", "avg": 4.67 }, { "en": "Overhead is acceptable", "pt": "Overhead é aceitável", "avg": 3.33 }] }, { "n": 7, "en": "Continuous Improvement", "pt": "Melhoria Contínua", "avg": 4.63, "dist": { "1": 0, "2": 0, "3": 3, "4": 5, "5": 22 }, "questions": [{ "en": "Promotes organizational learning", "pt": "Promove aprendizado organizacional", "avg": 4.33 }, { "en": "Knowledge Base is relevant", "pt": "Knowledge Base é relevante", "avg": 4.83 }, { "en": "Supports PDCA cycle", "pt": "Suporta ciclo PDCA", "avg": 4.5 }, { "en": "Model evolves over time", "pt": "Modelo evolui com o tempo", "avg": 4.83 }, { "en": "Increases org maturity", "pt": "Aumenta maturidade organizacional", "avg": 4.67 }] }], "dims": [{ "en": "Model Validation", "pt": "Validação do Modelo", "avg": 4.4, "dist": { "1": 0, "2": 0, "3": 6, "4": 6, "5": 18 }, "questions": [{ "en": "Makes dependability measurable", "pt": "Torna a dependabilidade mensurável", "avg": 4 }, { "en": "Chaos provides empirical evidence", "pt": "Fornece evidência empírica", "avg": 4.67 }, { "en": "Enables scientific validation", "pt": "Permite validação científica", "avg": 4.33 }, { "en": "Superior to traditional approaches", "pt": "Superior a abordagens tradicionais", "avg": 4.33 }, { "en": "Contributes to MTTR reduction", "pt": "Contribui para redução do MTTR", "avg": 4.67 }] }, { "en": "Simulation / Case Study", "pt": "Simulação / Estudo de Caso", "avg": 4.4, "dist": { "1": 0, "2": 0, "3": 6, "4": 6, "5": 18 }, "questions": [{ "en": "Scenario is representative", "pt": "Cenário é representativo", "avg": 4.33 }, { "en": "Experiments are realistic", "pt": "Experimentos são realistas", "avg": 4.17 }, { "en": "Results are convincing", "pt": "Resultados são convincentes", "avg": 4.5 }, { "en": "Model is reproducible", "pt": "Modelo é reproduzível", "avg": 4.33 }, { "en": "Evidence is sufficient", "pt": "Evidência é suficiente", "avg": 4.67 }] }, { "en": "Practical Feasibility", "pt": "Viabilidade Prática", "avg": 4.03, "dist": { "1": 0, "2": 0, "3": 11, "4": 7, "5": 12 }, "questions": [{ "en": "Applicable in practice", "pt": "Aplicável na prática", "avg": 4.5 }, { "en": "Cost is acceptable", "pt": "Custo é aceitável", "avg": 3.83 }, { "en": "Complexity is adequate", "pt": "Complexidade é adequada", "avg": 3.5 }, { "en": "Scalable", "pt": "É escalável", "avg": 3.5 }, { "en": "Brings real benefits", "pt": "Traria benefícios reais", "avg": 4.83 }] }, { "en": "State of the Art", "pt": "Comparação com Estado da Arte", "avg": 4.58, "dist": { "1": 0, "2": 0, "3": 2, "4": 6, "5": 16 }, "questions": [{ "en": "Advances on traditional Fault Injection", "pt": "Avança sobre Fault Injection tradicional", "avg": 4.5 }, { "en": "Improves current Chaos Engineering", "pt": "Melhora Chaos Engineering atual", "avg": 4.5 }, { "en": "Audit is a relevant differentiator", "pt": "Auditoria é diferencial relevante", "avg": 4.67 }, { "en": "Contributes to dependability", "pt": "Contribui para dependabilidade", "avg": 4.67 }] }], "domains": [{ "en": "Microservices", "pt": "Microserviços", "avg": 3.67, "dist": { "1": 0, "2": 0, "3": 2, "4": 4, "5": 0 } }, { "en": "Distributed Systems", "pt": "Sistemas Distribuídos", "avg": 3.33, "dist": { "1": 0, "2": 0, "3": 4, "4": 2, "5": 0 } }, { "en": "Cloud Computing", "pt": "Cloud Computing", "avg": 4.17, "dist": { "1": 0, "2": 0, "3": 2, "4": 1, "5": 3 } }, { "en": "Legacy Systems", "pt": "Sistemas Legados", "avg": 2.67, "dist": { "1": 0, "2": 3, "3": 2, "4": 1, "5": 0 } }, { "en": "Observability", "pt": "Observabilidade", "avg": 4.17, "dist": { "1": 0, "2": 0, "3": 1, "4": 3, "5": 2 } }, { "en": "Resilience Engineering / HA", "pt": "Eng. de Resiliência / Alta Disp.", "avg": 4.33, "dist": { "1": 0, "2": 0, "3": 1, "4": 2, "5": 3 } }, { "en": "Reliability Testing (Chaos/FI)", "pt": "Testes de Confiabilidade (Chaos/FI)", "avg": 3.67, "dist": { "1": 0, "2": 2, "3": 1, "4": 0, "5": 3 } }, { "en": "Infra Automation (IaC, CI/CD)", "pt": "Automação de Infra (IaC, CI/CD)", "avg": 3.33, "dist": { "1": 0, "2": 1, "3": 3, "4": 1, "5": 1 } }, { "en": "Production Monitoring", "pt": "Monitoramento em Produção", "avg": 3.5, "dist": { "1": 0, "2": 1, "3": 2, "4": 2, "5": 1 } }, { "en": "SRE", "pt": "SRE", "avg": 4.33, "dist": { "1": 0, "2": 0, "3": 1, "4": 2, "5": 3 } }, { "en": "Systems Security", "pt": "Segurança de Sistemas", "avg": 2.17, "dist": { "1": 0, "2": 5, "3": 1, "4": 0, "5": 0 } }, { "en": "Real-Time / Mission-Critical", "pt": "Tempo Real / Missão Crítica", "avg": 3.33, "dist": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 0 } }, { "en": "Incident Analysis / Post-mortem", "pt": "Análise de Incidentes / Post-mortem", "avg": 4.33, "dist": { "1": 0, "2": 0, "3": 1, "4": 2, "5": 3 } }, { "en": "Chaos Engineering", "pt": "Engenharia do Caos", "avg": 3.5, "dist": { "1": 0, "2": 3, "3": 0, "4": 0, "5": 3 } }], "prior": [{ "en": "Measurement", "pt": "Medição", "avg": 4.83 }, { "en": "Detection", "pt": "Detecção", "avg": 4.67 }, { "en": "Planning", "pt": "Planejamento", "avg": 4.17 }, { "en": "Implementation", "pt": "Implementação", "avg": 3.83 }, { "en": "Continuous improvement", "pt": "Melhoria contínua", "avg": 3.67 }, { "en": "Integration", "pt": "Integração", "avg": 3.5 }, { "en": "Audit", "pt": "Auditoria", "avg": 3 }], "overall": { "avg": 4.28, "n": 324, "pctHigh": 78, "dist": { "1": 0, "2": 11, "3": 59, "4": 83, "5": 171 } }, "layerOverall": { "avg": 4.24, "n": 210, "dist": { "1": 0, "2": 11, "3": 34, "4": 58, "5": 107 }, "pctHigh": 79 }, "modeloEsta": { "Muito teórico": 3, "Equilibrado": 3 }, "blockchain": { "Interessante": 5, "Essencial": 1 }, "innovative": ["O modelo todo é bastante inovador.", "O11s inteligente", "Camada 03", "Camada 3", "Detecção", "Planejamento e implementação"], "risks": [{ "id": "R1", "pt": "Aderência ao dia a dia de um produto e como isso melhora a vida do cliente" }, { "id": "R2", "pt": "Alta complexidade" }, { "id": "R3", "pt": "Conseguir discriminar a cultura em toda a Organização" }, { "id": "R4", "pt": "Acontecer algum falso positivo, durante a etapa de experimentação ela só é viável no ambiente de produção pelo cenário apresentado, sendo que é antes de levarmos para o ambiente produtivo poderia ser simulado o steady state em produção para avaliar e calcular os experimentos, não consegui encontrar esse ponto, principalmente na parte de ci/cd uma injeção de carga no ambiente de homogalacao por exemplo, antes dos testes de chaos, ajudaria a bloquear uma implantação nova com erros caso o steady state não permaneça o mesmo. Então seria validar um modelo ideal e repetir continuamente com carga média, normalizando steady state da aplicação e experimentando antes que a aplicação atinja o ambiente de produção." }, { "id": "R5", "pt": "Alto custo e geração alta de ruído no total de eventos (sejam alertas ou incidentes), tirando isso o modelo me parece ótimo." }, { "id": "R6", "pt": "As metrificações não passarem por reavaliação constante" }], "suggestions": [{ "id": "R1", "pt": "Case real e na prática com algum produto" }, { "id": "R4", "pt": "Apenas senti falta de contemplação das falhas aplicacional causadas por uma perda de comunicação de sistemas ao qual não temos controle, sistemas externos, olhar o SLO é algo importante para identificar, mas validar a resiliência aplicacional também poderia ser considerado no modelo, não apenas resiliência de infraestrutura." }, { "id": "R5", "pt": "Formas de não ser muito caro e de não poluir muito com falsos/positivos nos eventos" }, { "id": "R6", "pt": "A camada de medição achei quem poderia ser mais explorada" }] };
+
+      var I18N = {
+        pt: {
+          brand_sub: "Painel de Validação",
+          t_light: "Claro", t_dark: "Escuro",
+          hero_eyebrow: "Validação por especialistas · MECADE",
+          hero_of: "média geral / 5",
+          hero_title: "O que os especialistas dizem do MECADE",
+          hero_lede: "Resultado completo do formulário de validação aberta, com 6 profissionais sêniores de sistemas críticos. Dados agregados e anonimizados.",
+          dist_eyebrow: "01 · Geral", dist_title: "Distribuição das notas",
+          dist_sub: "Cada item avaliativo das sete camadas e das quatro dimensões de avaliação, em escala de 1 a 5.",
+          prof_eyebrow: "02 · Avaliadores", prof_title: "Perfil dos avaliadores",
+          prof_sub: "Seis profissionais sêniores, anonimizados por função, experiência e setor. Nomes, e-mails e empresas não são divulgados.",
+          dom_title: "Experiência prática dos avaliadores por domínio (média / 5)",
+          lay_eyebrow: "03 · Sete camadas", lay_title: "Resultados por camada do modelo",
+          lay_sub: "Média por camada com detalhamento completo por questão. Toque em uma camada para expandir.",
+          dim_eyebrow: "04 · Dimensões", dim_title: "Dimensões de avaliação",
+          dim_sub: "Avaliação transversal do modelo, além das camadas individuais.",
+          pri_eyebrow: "05 · Priorização", pri_title: "Priorização das camadas",
+          pri_sub: "Como os avaliadores ranquearam a importância de cada camada (média / 5).",
+          ins_eyebrow: "06 · Qualitativo", ins_title: "Insights qualitativos",
+          ins_sub: "Sinais das questões fechadas sobre maturidade, a camada de auditoria e a inovação percebida.",
+          ins_state: "O modelo está…", ins_audit: "Camada de auditoria (Blockchain)", ins_innov: "Camada mais inovadora (citada)",
+          qual_eyebrow: "07 · Respostas abertas", qual_title: "Riscos e sugestões",
+          qual_sub: "Respostas abertas na íntegra, anonimizadas. O tema recorrente é um estudo de caso real em produção.",
+          qual_risks: "Riscos percebidos na adoção", qual_sugg: "Sugestões de melhoria",
+          foot_back: "← Voltar para a página do mestrado",
+          k_reviewers: "avaliadores sêniores", k_overall: "média geral", k_high: "notas ≥ 4 / 5",
+          k_items: "itens avaliados", k_incidents: "com incidentes reais", k_sector: "do setor financeiro",
+          years_lbl: "anos", sector_lbl: "Setor", incidents_yes: "Incidentes reais",
+          of5: "/ 5", note: "Metodologia: validação aberta via formulário (Google Forms), respondida por 6 profissionais sêniores de SRE, Engenharia do Caos e sistemas distribuídos. Escala Likert de 1 a 5. As médias por camada usam 210 itens (7 camadas × 5 questões × 6 respostas); a distribuição geral considera 324 itens avaliativos (camadas + dimensões). Todos os resultados são agregados e anonimizados — identidades, e-mails e empresas dos avaliadores não são divulgados."
+        },
+        en: {
+          brand_sub: "Validation Dashboard",
+          t_light: "Light", t_dark: "Dark",
+          hero_eyebrow: "Expert validation · MECADE",
+          hero_of: "overall / 5",
+          hero_title: "What experts say about MECADE",
+          hero_lede: "Full results of the open validation survey, answered by 6 senior critical-systems practitioners. Aggregated and anonymized data.",
+          dist_eyebrow: "01 · Overall", dist_title: "Rating distribution",
+          dist_sub: "Every evaluative item across the seven layers and four assessment dimensions, on a 1–5 scale.",
+          prof_eyebrow: "02 · Reviewers", prof_title: "Reviewer profile",
+          prof_sub: "Six senior practitioners, anonymized by role, experience and sector. Names, e-mails and companies are not disclosed.",
+          dom_title: "Reviewer hands-on expertise by domain (avg / 5)",
+          lay_eyebrow: "03 · Seven layers", lay_title: "Results by model layer",
+          lay_sub: "Average per layer with full per-question breakdown. Tap a layer to expand.",
+          dim_eyebrow: "04 · Dimensions", dim_title: "Evaluation dimensions",
+          dim_sub: "Cross-cutting assessment of the model beyond the individual layers.",
+          pri_eyebrow: "05 · Prioritization", pri_title: "Layer prioritization",
+          pri_sub: "How reviewers ranked the importance of each layer (avg / 5).",
+          ins_eyebrow: "06 · Qualitative", ins_title: "Qualitative insights",
+          ins_sub: "Closed-question signals on maturity, the audit layer and perceived innovation.",
+          ins_state: "The model is…", ins_audit: "Blockchain audit layer", ins_innov: "Most innovative layer (cited)",
+          qual_eyebrow: "07 · Open feedback", qual_title: "Risks & suggestions",
+          qual_sub: "Verbatim open-ended answers, anonymized. The recurring theme is a real production case study.",
+          qual_risks: "Perceived risks of adoption", qual_sugg: "Improvement suggestions",
+          foot_back: "← Back to the master's page",
+          k_reviewers: "senior reviewers", k_overall: "overall avg", k_high: "ratings ≥ 4 / 5",
+          k_items: "rated items", k_incidents: "with real incidents", k_sector: "from finance",
+          years_lbl: "yrs", sector_lbl: "Sector", incidents_yes: "Real incidents",
+          of5: "/ 5", note: "Methodology: open validation via online form (Google Forms), answered by 6 senior practitioners in SRE, Chaos Engineering and distributed systems. Likert scale 1–5. Per-layer averages use 210 items (7 layers × 5 questions × 6 responses); the overall distribution covers 324 evaluative items (layers + dimensions). All results are aggregated and anonymized — reviewer identities, e-mails and companies are not disclosed."
+        }
+      };
+
+      // ---- translations for free-text & categorical (EN) ----
+      var TX = {
+        role: {
+          "Negócios em tecnologia em cima de SRE, Observabilidade e gestão de incidentes": "Tech business on top of SRE, Observability & incident management",
+          "Engenheiro de software": "Software Engineer",
+          "Coord de sistemas": "Systems Coordinator",
+          "Chaos Engineering Leader": "Chaos Engineering Leader",
+          "SRE": "SRE"
+        },
+        sector: {
+          "Financeiro (Bancos, Fintechs, Pagamentos)": "Finance (Banks, Fintechs, Payments)",
+          "Startups / SaaS": "Startups / SaaS"
+        },
+        state: { "Muito teórico": "Very theoretical", "Equilibrado": "Balanced", "Muito prático": "Very practical" },
+        audit: { "Interessante": "Interesting", "Essencial": "Essential", "Irrelevante": "Irrelevant" },
+        innov: {
+          "O modelo todo é bastante inovador.": "The whole model is quite innovative",
+          "O11s inteligente": "Intelligent observability (O11y)",
+          "Camada 03": "Layer 3 (Detection)", "Camada 3": "Layer 3 (Detection)",
+          "Detecção": "Detection", "Planejamento e implementação": "Planning & Implementation"
+        },
+        risks: {
+          R1: "Fit with a product's day-to-day and how it improves the customer's life.",
+          R2: "High complexity.",
+          R3: "Spreading the culture across the entire organization.",
+          R4: "Risk of false positives. As presented, the experimentation stage is only viable in production; simulating the steady state in production beforehand to size the experiments would help. Especially in CI/CD, a load injection in staging before the chaos tests would help block a faulty deployment if the steady state shifts. The idea is to validate an ideal model and repeat it continuously under average load, normalizing the application's steady state before it reaches production.",
+          R5: "High cost and high noise in the total number of events (alerts or incidents); other than that the model looks great.",
+          R6: "Metrics not going through constant re-evaluation."
+        },
+        sugg: {
+          R1: "A real, hands-on case study with an actual product.",
+          R4: "I missed coverage of application-level failures caused by loss of communication with systems we don't control (external systems). Looking at the SLO matters, but validating application resilience, not only infrastructure resilience, could also be part of the model.",
+          R5: "Ways to keep it from being too costly and from polluting events with false positives.",
+          R6: "I felt the measurement layer could be explored further."
+        }
+      };
+
+      var DCOL = { 5: 'var(--d5)', 4: 'var(--d4)', 3: 'var(--d3)', 2: 'var(--d2)', 1: 'var(--d1)' };
+      var DINK = { 5: '#fff', 4: '#234d2e', 3: '#3a3833', 2: '#3a2a00', 1: '#fff' };
+
+      var LANG = 'pt';
+      function L(k) { return (I18N[LANG] && I18N[LANG][k]) || I18N.en[k] || k; }
+      function pick(o) { return (o && (o[LANG] || o.en)) || ''; }
+      function fmt(n) { return LANG === 'pt' ? Number(n).toFixed(2).replace('.', ',') : Number(n).toFixed(2); }
+      function tx(map, v) { if (LANG === 'pt') return v; return (map && map[v]) || v; }
+
+      function distStack(dist, total, opts) {
+        opts = opts || {};
+        var order = [5, 4, 3, 2, 1];
+        return order.map(function (k) {
+          var n = dist[k] || 0; if (!n) return '';
+          var w = (n / total * 100).toFixed(2);
+          var show = (n / total) > 0.05 ? n : '';
+          return '<i style="width:' + w + '%;background:' + DCOL[k] + ';color:' + DINK[k] + '">' + show + '</i>';
+        }).join('');
+      }
+      function distLegend(dist) {
+        var order = [5, 4, 3, 2, 1];
+        return order.map(function (k) {
+          return '<span><i style="background:' + DCOL[k] + '"></i>' + k + ' (' + (dist[k] || 0) + ')</span>';
+        }).join('');
+      }
+      function miniDist(dist, total) {
+        var order = [5, 4, 3, 2, 1];
+        return order.map(function (k) {
+          var n = dist[k] || 0; if (!n) return '';
+          return '<i style="width:' + (n / total * 100).toFixed(2) + '%;background:' + DCOL[k] + '"></i>';
+        }).join('');
+      }
+      function ratingBar(label, v, opts) {
+        opts = opts || {};
+        var w = (v / 5 * 100).toFixed(1);
+        return '<div class="bar"><span class="lab">' + label + '</span>' +
+          '<span class="track"><span class="fill' + (opts.top ? ' top' : '') + '" style="width:' + w + '%"></span></span>' +
+          '<span class="val">' + fmt(v) + '</span></div>';
+      }
+
+      function render() {
+        document.documentElement.setAttribute('lang', LANG);
+        document.querySelectorAll('[data-i18n]').forEach(function (n) {
+          var v = I18N[LANG][n.getAttribute('data-i18n')]; if (v != null) n.innerHTML = v;
+        });
+        document.querySelectorAll('[data-lang-value]').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-lang-value') === LANG));
+        });
+
+        // hero
+        document.getElementById('heroBig').textContent = LANG === 'pt' ? '4,28' : '4.28';
+        var fin = DATA.profile.filter(function (p) { return p.sector.indexOf('Financ') === 0; }).length;
+        var kpis = [
+          [DATA.meta.reviewers, L('k_reviewers')],
+          [fmt(DATA.overall.avg), L('k_overall') + ' ' + L('of5')],
+          [DATA.overall.pctHigh + '%', L('k_high')],
+          [DATA.overall.n, L('k_items')]
+        ];
+        document.getElementById('heroKpis').innerHTML = kpis.map(function (k) {
+          return '<div class="kpi"><div class="n">' + k[0] + '</div><div class="l">' + k[1] + '</div></div>';
+        }).join('');
+
+        // distribution
+        document.getElementById('distStack').innerHTML = distStack(DATA.overall.dist, DATA.overall.n);
+        document.getElementById('distLegend').innerHTML = distLegend(DATA.overall.dist);
+
+        // profile
+        document.getElementById('profileGrid').innerHTML = DATA.profile.map(function (p) {
+          return '<div class="pcard"><div class="pid">' + p.id + '<span class="badge">' + L('incidents_yes') + '</span></div>' +
+            '<div class="role">' + tx(TX.role, p.role) + '</div>' +
+            '<div class="meta"><b>' + p.years + '</b> ' + L('years_lbl') + ' · ' + tx(TX.sector, p.sector) + '</div></div>';
+        }).join('');
+
+        // domains (sorted desc)
+        var doms = DATA.domains.slice().sort(function (a, b) { return b.avg - a.avg; });
+        document.getElementById('domainBars').innerHTML = doms.map(function (d) {
+          return ratingBar(pick(d), d.avg);
+        }).join('');
+
+        // layer cards
+        document.getElementById('layerCards').innerHTML = DATA.layers.map(function (l, idx) {
+          var top = l.avg === Math.max.apply(null, DATA.layers.map(function (x) { return x.avg; }));
+          var qb = l.questions.map(function (q) {
+            return '<div class="qbar"><span class="qlab">' + pick(q) + '</span>' +
+              '<span class="qtrack"><span class="qfill" style="width:' + (q.avg / 5 * 100).toFixed(1) + '%"></span></span>' +
+              '<span class="qval">' + fmt(q.avg) + '</span></div>';
+          }).join('');
+          return '<details class="lcard"' + (idx === 0 ? ' open' : '') + '><summary>' +
+            '<span class="ln">' + (l.n < 10 ? '0' + l.n : l.n) + '</span>' +
+            '<span><span class="lname">' + pick(l) + '</span><span class="lmeta">' + L('k_items') + ': 30 · ' +
+            '<span class="mini-dist">' + miniDist(l.dist, 30) + '</span></span></span>' +
+            '<span class="lavg"><span class="v"' + (top ? ' style="color:var(--gold)"' : '') + '>' + fmt(l.avg) + '</span><span class="chev">▾</span></span>' +
+            '</summary><div class="body"><div class="qbars">' + qb + '</div></div></details>';
+        }).join('');
+
+        // dimension cards
+        document.getElementById('dimCards').innerHTML = DATA.dims.map(function (d, idx) {
+          var qb = d.questions.map(function (q) {
+            return '<div class="qbar"><span class="qlab">' + pick(q) + '</span>' +
+              '<span class="qtrack"><span class="qfill" style="width:' + (q.avg / 5 * 100).toFixed(1) + '%"></span></span>' +
+              '<span class="qval">' + fmt(q.avg) + '</span></div>';
+          }).join('');
+          var items = d.questions.length * 6;
+          return '<details class="lcard"' + (idx === 0 ? ' open' : '') + '><summary>' +
+            '<span class="ln">D' + (idx + 1) + '</span>' +
+            '<span><span class="lname">' + pick(d) + '</span><span class="lmeta">' + L('k_items') + ': ' + items + ' · ' +
+            '<span class="mini-dist">' + miniDist(d.dist, items) + '</span></span></span>' +
+            '<span class="lavg"><span class="v">' + fmt(d.avg) + '</span><span class="chev">▾</span></span>' +
+            '</summary><div class="body"><div class="qbars">' + qb + '</div></div></details>';
+        }).join('');
+
+        // prioritization
+        document.getElementById('priorBars').innerHTML = DATA.prior.map(function (p, i) {
+          return ratingBar(pick(p), p.avg, { top: i === 0 });
+        }).join('');
+
+        // insights — state
+        renderSplit('stateBar', 'stateLegend', DATA.modeloEsta, TX.state, DATA.meta.reviewers,
+          { "Muito teórico": "var(--d2)", "Equilibrado": "var(--d4)", "Muito prático": "var(--d5)" });
+        // insights — audit
+        renderSplit('auditBar', 'auditLegend', DATA.blockchain, TX.audit, DATA.meta.reviewers,
+          { "Interessante": "var(--navy)", "Essencial": "var(--gold)", "Irrelevante": "var(--d3)" });
+
+        // insights — innovative
+        var CANON = {
+          "O modelo todo é bastante inovador.": { pt: "O modelo todo é inovador", en: "The whole model is innovative" },
+          "O11s inteligente": { pt: "Observabilidade inteligente", en: "Intelligent observability (O11y)" },
+          "Camada 03": { pt: "Detecção (Camada 3)", en: "Detection (Layer 3)" },
+          "Camada 3": { pt: "Detecção (Camada 3)", en: "Detection (Layer 3)" },
+          "Detecção": { pt: "Detecção (Camada 3)", en: "Detection (Layer 3)" },
+          "Planejamento e implementação": { pt: "Planejamento e implementação", en: "Planning & Implementation" }
+        };
+        var counts = {};
+        DATA.innovative.forEach(function (v) {
+          var c = CANON[v.trim()] || { pt: v.trim(), en: v.trim() };
+          var key = pick(c); counts[key] = (counts[key] || 0) + 1;
+        });
+        var chips = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
+        document.getElementById('innovChips').innerHTML = chips.map(function (c) {
+          return '<div class="chip"><span class="num">' + counts[c] + '×</span><span>' + c + '</span></div>';
+        }).join('');
+
+        // quotes
+        document.getElementById('risksQuotes').innerHTML = DATA.risks.map(function (r) {
+          var t = LANG === 'pt' ? r.pt : (TX.risks[r.id] || r.pt);
+          return '<div class="quote"><div class="qhead"><span class="qtag">' + r.id + '</span></div><p>' + t + '</p></div>';
+        }).join('');
+        document.getElementById('suggQuotes').innerHTML = DATA.suggestions.map(function (s) {
+          var t = LANG === 'pt' ? s.pt : (TX.sugg[s.id] || s.pt);
+          return '<div class="quote"><div class="qhead"><span class="qtag">' + s.id + '</span></div><p>' + t + '</p></div>';
+        }).join('');
+
+        document.getElementById('footNote').textContent = L('note');
+      }
+
+      function renderSplit(barId, legId, obj, txmap, total, colors) {
+        var keys = Object.keys(obj).sort(function (a, b) { return obj[b] - obj[a]; });
+        document.getElementById(barId).innerHTML = keys.map(function (k) {
+          var n = obj[k]; var w = (n / total * 100).toFixed(2);
+          var col = colors[k] || 'var(--navy)';
+          return '<i style="width:' + w + '%;background:' + col + '">' + n + '</i>';
+        }).join('');
+        document.getElementById(legId).innerHTML = keys.map(function (k) {
+          var col = colors[k] || 'var(--navy)';
+          return '<div><i style="background:' + col + '"></i>' + tx(txmap, k) + '<b>' + obj[k] + '</b></div>';
+        }).join('');
+      }
+
+      function setLang(l) { LANG = l; try { localStorage.setItem('mecade-dash-lang', l); } catch (e) { } render(); }
+      function setTheme(t) {
+        document.documentElement.setAttribute('data-theme', t);
+        document.querySelectorAll('[data-theme-value]').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-theme-value') === t));
+        });
+        try { localStorage.setItem('mecade-dash-theme', t); } catch (e) { }
+      }
+
+      (function init() {
+        var savedT = null, savedL = null;
+        try { savedT = localStorage.getItem('mecade-dash-theme'); savedL = localStorage.getItem('mecade-dash-lang'); } catch (e) { }
+        if (!savedT) savedT = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        setTheme(savedT);
+        LANG = savedL || 'pt';
+        render();
+      })();
+    </script>
+  </body>
+
+</html>
