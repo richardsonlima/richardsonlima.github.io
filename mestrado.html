@@ -1157,6 +1157,7 @@ sitemap: false
         gap: 18px;
         margin: 4px 0 8px;
       }
+
       .ev-score {
         background: var(--navy);
         color: #fff;
@@ -1167,11 +1168,24 @@ sitemap: false
         align-items: baseline;
         gap: 4px 10px;
       }
+
       html[data-theme='dark'] .ev-score {
         background: linear-gradient(135deg, #1b3a6b, #25508f);
       }
-      .ev-score-v { font-family: var(--serif); font-size: 3.6rem; line-height: 1; font-weight: 500; color: #fff; }
-      .ev-score-max { font-size: 1.1rem; color: rgba(255,255,255,.6); }
+
+      .ev-score-v {
+        font-family: var(--serif);
+        font-size: 3.6rem;
+        line-height: 1;
+        font-weight: 500;
+        color: #fff;
+      }
+
+      .ev-score-max {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, .6);
+      }
+
       .ev-score-k {
         flex-basis: 100%;
         margin-top: 8px;
@@ -1181,6 +1195,7 @@ sitemap: false
         color: #f2b400;
         font-family: var(--mono);
       }
+
       .ev-hero-facts {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1189,6 +1204,7 @@ sitemap: false
         overflow: hidden;
         background: var(--surface);
       }
+
       .ev-hf {
         padding: 24px 18px;
         display: flex;
@@ -1197,17 +1213,34 @@ sitemap: false
         gap: 8px;
         border-right: 1px solid var(--border);
       }
-      .ev-hf:last-child { border-right: none; }
-      .ev-hf-v { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: var(--navy-ink); }
-      .ev-hf-k { font-size: .76rem; color: var(--muted); line-height: 1.3; }
 
-      .bar-row.rating .bar-fill { background: var(--gold); }
+      .ev-hf:last-child {
+        border-right: none;
+      }
+
+      .ev-hf-v {
+        font-family: var(--serif);
+        font-size: 2.2rem;
+        line-height: 1;
+        color: var(--navy-ink);
+      }
+
+      .ev-hf-k {
+        font-size: .76rem;
+        color: var(--muted);
+        line-height: 1.3;
+      }
+
+      .bar-row.rating .bar-fill {
+        background: var(--gold);
+      }
 
       .ev-dims {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
+
       .ev-dim {
         display: flex;
         align-items: baseline;
@@ -1217,10 +1250,26 @@ sitemap: false
         border-radius: 13px;
         background: var(--surface);
       }
-      .ev-dim-v { font-family: var(--serif); font-size: 1.7rem; color: var(--navy-ink); flex: none; }
-      .ev-dim-k { font-size: .92rem; font-weight: 500; line-height: 1.3; }
 
-      .ev-profiles { display: flex; flex-wrap: wrap; gap: 10px; }
+      .ev-dim-v {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        color: var(--navy-ink);
+        flex: none;
+      }
+
+      .ev-dim-k {
+        font-size: .92rem;
+        font-weight: 500;
+        line-height: 1.3;
+      }
+
+      .ev-profiles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
       .ev-chip {
         font-size: .78rem;
         padding: 9px 15px;
@@ -1235,6 +1284,7 @@ sitemap: false
         gap: 10px;
         margin-top: 28px;
       }
+
       .ev-hl {
         display: flex;
         gap: 13px;
@@ -1246,14 +1296,34 @@ sitemap: false
         font-size: .95rem;
         line-height: 1.45;
       }
-      .ev-hl-i { color: var(--gold); font-size: 1rem; flex: none; }
+
+      .ev-hl-i {
+        color: var(--gold);
+        font-size: 1rem;
+        flex: none;
+      }
 
       @media (max-width: 680px) {
-        .ev-hero { grid-template-columns: 1fr; }
-        .ev-hero-facts { grid-template-columns: 1fr; }
-        .ev-hf { border-right: none; border-bottom: 1px solid var(--border); }
-        .ev-hf:last-child { border-bottom: none; }
-        .ev-dims { grid-template-columns: 1fr; }
+        .ev-hero {
+          grid-template-columns: 1fr;
+        }
+
+        .ev-hero-facts {
+          grid-template-columns: 1fr;
+        }
+
+        .ev-hf {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .ev-hf:last-child {
+          border-bottom: none;
+        }
+
+        .ev-dims {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 680px) {
@@ -2049,7 +2119,9 @@ sitemap: false
 
         <a class="wf-callout" href="https://mecade-wireframe.pages.dev/" target="_blank" rel="noopener">
           <span class="wf-kicker mono" data-i18n="mc_wf_kicker">Prototype · access-controlled</span>
-          <span class="wf-text"><strong data-i18n="mc_wf_lead">MECADE Wireframe -  do paper ao software.</strong> <span data-i18n="mc_wf_desc">A governance and audit platform that operationalizes Chaos Engineering as a seven-layer cybernetic cycle, for regulated sectors (financial, aerospace, and beyond).</span></span>
+          <span class="wf-text"><strong data-i18n="mc_wf_lead">MECADE Wireframe -  do paper ao software.</strong> <span
+              data-i18n="mc_wf_desc">A governance and audit platform that operationalizes Chaos Engineering as a
+              seven-layer cybernetic cycle, for regulated sectors (financial, aerospace, and beyond).</span></span>
           <span class="wf-go mono" data-i18n="mc_wf_go">Open prototype ↗</span>
         </a>
       </section>
@@ -2066,14 +2138,19 @@ sitemap: false
             <span class="ev-score-k" data-i18n="ev_overall">Overall rating</span>
           </div>
           <div class="ev-hero-facts">
-            <div class="ev-hf"><span class="ev-hf-v mono">4</span><span class="ev-hf-k" data-i18n="ev_reviewers">Senior reviewers</span></div>
-            <div class="ev-hf"><span class="ev-hf-v mono">91%</span><span class="ev-hf-k" data-i18n="ev_high">Ratings ≥ 4 / 5</span></div>
-            <div class="ev-hf"><span class="ev-hf-v mono">140</span><span class="ev-hf-k" data-i18n="ev_items">Layer item ratings</span></div>
+            <div class="ev-hf"><span class="ev-hf-v mono">4</span><span class="ev-hf-k" data-i18n="ev_reviewers">Senior
+                reviewers</span></div>
+            <div class="ev-hf"><span class="ev-hf-v mono">91%</span><span class="ev-hf-k" data-i18n="ev_high">Ratings ≥
+                4 / 5</span></div>
+            <div class="ev-hf"><span class="ev-hf-v mono">140</span><span class="ev-hf-k" data-i18n="ev_items">Layer
+                item ratings</span></div>
           </div>
         </div>
 
         <div class="mapblock" data-i18n="ev_block_layers">Ratings per layer</div>
-        <div class="chart"><div id="evLayers" class="bars"></div></div>
+        <div class="chart">
+          <div id="evLayers" class="bars"></div>
+        </div>
 
         <div class="mapblock" data-i18n="ev_block_dims">Evaluation dimensions</div>
         <div class="ev-dims" id="evDims"></div>
@@ -2354,8 +2431,8 @@ sitemap: false
           p_a2_t: "Article 2", p_a2_i: "MECADE validation paper (co-authored, target: LADC 2026)", p_review: "In review w/ advisor", p_confidential: "Confidential (pre-submission)",
           p_a3_t: "Article 3", p_a3_i: "Third paper in pipeline", p_backlog: "Backlog", p_pending: "Pending definition",
           p_diss_t: "M.Sc. Dissertation", p_diss_i: "Dissertation writing project", p_wip: "Writing", p_private: "Private",
-          p_a2_pt: "Overleaf v7 · PT", p_a2_en: "Overleaf v7 · EN", p_diss_link: "Overleaf · Dissertation",
-          p_a2_note: "* Article 2 (version 7) is in review with the advisor (Prof. Dr. Johnny Marques) before submission. The LADC 2026 call for papers is not open yet, so submission is still pending. The draft is confidential and cannot be publicly released. The dissertation is a work in progress and its content remains private until the defense, in accordance with program guidelines.",
+          p_a2_pt: "Overleaf v9 · PT", p_a2_en: "Overleaf v9 · EN", p_diss_link: "Overleaf · Dissertation",
+          p_a2_note: "* Article 2 (version 9) is in review with the advisor (Prof. Dr. Johnny Marques) before submission. The LADC 2026 call for papers is not open yet, so submission is still pending. The draft is confidential and cannot be publicly released. The dissertation is a work in progress and its content remains private until the defense, in accordance with program guidelines.",
 
           foot_updated: "Updated June 2026",
           ex_label: "06 / Extras",
@@ -2500,8 +2577,8 @@ sitemap: false
           p_a2_t: "Artigo 2", p_a2_i: "Artigo de validação do MECADE (coautoria, alvo: LADC 2026)", p_review: "Em revisão c/ orientador", p_confidential: "Confidencial (pré-submissão)",
           p_a3_t: "Artigo 3", p_a3_i: "Terceiro artigo em pipeline", p_backlog: "Backlog", p_pending: "Definição pendente",
           p_diss_t: "Dissertação de Mestrado", p_diss_i: "Projeto de escrita da dissertação", p_wip: "Em escrita", p_private: "Privado",
-          p_a2_pt: "Overleaf v7 · PT", p_a2_en: "Overleaf v7 · EN", p_diss_link: "Overleaf · Dissertação",
-          p_a2_note: "* O Artigo 2 (versão 7) está em revisão com o orientador (Prof. Dr. Johnny Marques) antes da submissão. A chamada de trabalhos da LADC 2026 ainda não foi aberta, portanto a submissão ainda não foi possível. O rascunho é confidencial e não pode ser divulgado publicamente. A dissertação é um projeto em andamento e seu conteúdo permanece privado até a defesa, conforme as diretrizes do programa.",
+          p_a2_pt: "Overleaf v9 · PT", p_a2_en: "Overleaf v9 · EN", p_diss_link: "Overleaf · Dissertação",
+          p_a2_note: "* O Artigo 2 (versão 9) está em revisão com o orientador (Prof. Dr. Johnny Marques) antes da submissão. A chamada de trabalhos da LADC 2026 ainda não foi aberta, portanto a submissão ainda não foi possível. O rascunho é confidencial e não pode ser divulgado publicamente. A dissertação é um projeto em andamento e seu conteúdo permanece privado até a defesa, conforme as diretrizes do programa.",
 
           foot_updated: "Atualizado em junho de 2026",
           ex_label: "06 / Extras",
@@ -2528,8 +2605,8 @@ sitemap: false
         selection: "https://www.pgfis.ita.br/post/processo-seletivo",
         pgeec: "https://www.pgfis.ita.br/post/pg-eec",
         ct234: "https://www.comp.ita.br/~alonso/ensino.html",
-        overleafPT: "https://www.overleaf.com/project/69e57f6eea66d6ed3daf42ea",
-        overleafEN: "https://www.overleaf.com/project/69f951628033f4186defd04c",
+        overleafPT: "https://www.overleaf.com/project/6a2f4e91ebfc06888b4f8110",
+        overleafEN: "https://www.overleaf.com/project/6a2f4e9bd7922f199cf0f14d",
         overleafDiss: "https://www.overleaf.com/project/6a260605fb4d51b7962738f7",
         tplRepo: "https://github.com/gabriellnuness/Template_Thesis_ITA",
         tplOverleaf: "https://www.overleaf.com/latex/templates/template-instituto-tecnologico-de-aeronautica-ita/fwnrwrszsrdq",
