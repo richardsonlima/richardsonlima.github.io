@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/colors.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/typography.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/effects.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/base.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/styles.css">
+<link rel="stylesheet" href="_ds/bridge.css">
+<link rel="stylesheet" href="_ds/responsive.css">
+<script src="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/_ds_bundle.js"></script>
+<style>
+  html { scroll-behavior: smooth }
+  .doc-link { display:block; padding:6px 12px; border-radius:8px; color:var(--rl-ink-3); font-size:.86rem; text-decoration:none; border-left:2px solid transparent; transition:all .18s }
+  .doc-link:hover { color:var(--rl-violet-700); background:var(--rl-violet-100) }
+  .doc-link.on { color:var(--rl-violet-700); background:var(--rl-violet-100); border-left-color:var(--rl-violet-500); font-weight:600 }
+  .cw { background:#0a0a0c; border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden; margin:18px 0; box-shadow:var(--shadow-terminal) }
+  .cw-h { background:#050507; padding:9px 15px; border-bottom:1px solid rgba(255,255,255,.07); font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.08em; color:#5f5f68; display:flex; justify-content:space-between }
+  .cw-b { padding:18px 20px; font-family:'JetBrains Mono',monospace; font-size:.8rem; line-height:1.7; color:#d6d6dc; overflow-x:auto }
+  .cw-b .k { color:#c98aff } .cw-b .s { color:#9fe88d } .cw-b .c { color:#5f5f68; font-style:italic } .cw-b .f { color:#57d9e0 } .cw-b .n { color:#f0a35e }
+  .nav-a { color: var(--rl-ink-2); font-size:.92rem; font-weight:500; text-decoration:none; transition: color .2s }
+  .nav-a:hover { color: var(--rl-violet-600) }
+  .nav-a.on { color: var(--rl-violet-700); font-weight:600 }
+  .doc-body h2 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.7rem; letter-spacing:-.02em; margin:0 0 14px; scroll-margin-top:90px }
+  .doc-body h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.1rem; margin:26px 0 10px }
+  .doc-body p { color:var(--rl-ink-2); line-height:1.7; margin:0 0 14px; font-size:1rem }
+  .doc-body section { margin-bottom:64px }
+  .ic { background:var(--rl-paper-3); padding:2px 7px; border-radius:5px; font-family:'JetBrains Mono',monospace; font-size:.85em; color:var(--rl-violet-700) }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; background:var(--rl-paper); color:var(--rl-ink); font-family:'Inter',system-ui,sans-serif;">
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px 40px; background:rgba(255,255,255,.82); backdrop-filter:blur(14px); border-bottom:1px solid var(--rl-line);">
+    <a href="index.html" style="display:flex; align-items:center; gap:11px; text-decoration:none;">
+      <div style="width:28px; height:28px; border-radius:8px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);"></div>
+      <div style="display:flex; flex-direction:column; line-height:1;">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.15rem; letter-spacing:-.02em; color:var(--rl-ink);">Æon</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:.54rem; letter-spacing:.22em; color:var(--rl-violet-600); margin-top:3px;">CHAOS ENGINEERING</span>
+      </div>
+    </a>
+    <div style="display:flex; align-items:center; gap:26px;">
+      <div style="display:flex; gap:24px;">
+        <a href="core.dc.html" class="nav-a">{{ t.navArch }}</a>
+        <a href="standards.dc.html" class="nav-a">{{ t.navStd }}</a>
+        <a href="docs.dc.html" class="nav-a on">{{ t.navDocs }}</a>
+        <a href="personal-assistant.dc.html" class="nav-a">{{ t.navUse }}</a>
+      </div>
+      <div style="display:flex; gap:4px; background:var(--rl-paper-3); border-radius:999px; padding:3px;">
+        <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
+        <button onClick="{{ setPt }}" style="{{ ptBtn }}">PT</button>
+      </div>
+    </div>
+  </nav>
+
+  <div style="display:grid; grid-template-columns:264px 1fr; max-width:1280px; margin:0 auto;">
+    <!-- SIDEBAR -->
+    <aside style="border-right:1px solid var(--rl-line); padding:36px 18px;">
+      <div style="position:sticky; top:90px;">
+        <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="4">
+          <div style="margin-bottom:22px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:{{ g.labelC }}; font-weight:700; margin:0 0 8px 12px;">{{ g.label }}</div>
+            <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3">
+              <a href="#{{ it.id }}" class="doc-link {{ it.cls }}" onClick="{{ it.onSel }}">{{ it.label }}</a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="doc-body" style="padding:48px 56px 100px; max-width:840px;">
+      <header style="margin-bottom:48px;">
+        <span style="font-size:.72rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.kicker }}</span>
+        <h1 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:2.6rem; letter-spacing:-.03em; margin:18px 0 10px; line-height:1.1;">{{ t.title }}</h1>
+        <p style="font-size:1.12rem; color:var(--rl-ink-3); line-height:1.6; max-width:620px;">{{ t.lede }}</p>
+      </header>
+
+      <section id="intro">
+        <h2>{{ t.introH }}</h2>
+        <p>{{ t.introP1 }}</p>
+        <div style="border:1px solid var(--rl-violet-300); background:var(--rl-violet-100); border-radius:var(--radius-md); padding:18px 22px; margin:18px 0;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; color:var(--rl-violet-700); letter-spacing:.06em;">{{ t.calloutK }}</div>
+          <p style="margin:8px 0 0; font-size:.96rem; color:var(--rl-ink-2);">{{ t.introCallout }}</p>
+        </div>
+      </section>
+
+      <section id="install">
+        <h2>{{ t.installH }}</h2>
+        <p>{{ t.installP }}</p>
+        <div class="cw"><div class="cw-h"><span>BASH</span></div><div class="cw-b"><pre><span class="c"># 1 · install the resilience runtime</span>
+pip install aeon-core
+
+<span class="c"># 2 · verify the toolchain</span>
+aeon doctor</pre></div></div>
+      </section>
+
+      <section id="quickstart">
+        <h2>{{ t.qsH }}</h2>
+        <p>{{ t.qsP }}</p>
+        <div class="cw"><div class="cw-h"><span>PYTHON</span><span>agent.py</span></div><div class="cw-b"><pre><span class="k">from</span> aeon <span class="k">import</span> Agent, ChaosBudget
+
+agent = <span class="f">Agent</span>(
+    name=<span class="s">"sentinel"</span>,
+    model_provider=<span class="s">"ollama"</span>,
+    model_name=<span class="s">"mistral"</span>,
+    <span class="c"># the Safety Envelope, declared up front</span>
+    chaos_budget=<span class="f">ChaosBudget</span>(p99_ms=<span class="n">300</span>, error_rate=<span class="n">0.02</span>),
+)
+agent.<span class="f">start</span>()</pre></div></div>
+      </section>
+
+      <section id="architecture">
+        <h2>{{ t.archH }}</h2>
+        <p>{{ t.archP }}</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px;">
+          <sc-for list="{{ layerRows }}" as="L" hint-placeholder-count="7">
+            <div style="display:flex; gap:12px; align-items:center; background:var(--rl-paper-2); border:1px solid var(--rl-line); border-radius:10px; padding:12px 14px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.82rem; color:var(--rl-violet-700);">L{{ L.n }}</span>
+              <span style="font-size:.9rem; font-weight:600;">{{ L.name }}</span>
+              <span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:.6rem; color:var(--rl-ink-4);">{{ L.tag }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="axioms">
+        <h2>{{ t.axH }}</h2>
+        <p>{{ t.axP }}</p>
+        <div class="cw"><div class="cw-h"><span>PYTHON</span><span>DEFINING AN AXIOM</span></div><div class="cw-b"><pre><span class="k">from</span> aeon.executive <span class="k">import</span> axiom
+
+<span class="n">@axiom</span>(on_violation=<span class="s">"BLOCK"</span>, response_time_ms=<span class="n">0.1</span>)
+<span class="k">def</span> <span class="f">envelope_guard</span>(metric):
+    <span class="c"># deterministic kill-switch, runs before any action</span>
+    <span class="k">if</span> metric.p99_deviation &gt; metric.budget:
+        <span class="k">return</span> <span class="k">False</span>   <span class="c"># BLOCK → Safe State</span>
+    <span class="k">return</span> <span class="k">True</span>        <span class="c"># GO</span></pre></div></div>
+      </section>
+
+      <section id="chaos">
+        <h2>{{ t.chaosH }}</h2>
+        <p>{{ t.chaosP }}</p>
+        <div class="cw"><div class="cw-h"><span>BASH</span></div><div class="cw-b"><pre><span class="c"># inject a fault inside a bounded blast radius</span>
+aeon chaos run <span class="s">"degrade gateway latency"</span> --blast-radius=staging
+
+<span class="c"># → [L4] fault injected · ALERT → LIMIT → BLOCK · Safe State restored</span></pre></div></div>
+      </section>
+
+      <section id="gate">
+        <h2>{{ t.gateH }}</h2>
+        <p>{{ t.gateP }}</p>
+        <div class="cw"><div class="cw-h"><span>YAML</span><span>.gitlab-ci · RESILIENCE GATE</span></div><div class="cw-b"><pre><span class="k">stages:</span> [deploy-staging, chaos-test, slo-validation, deploy-production]
+
+<span class="k">chaos-test:</span>
+  <span class="k">script:</span>
+    <span class="c"># latency injection in the gateway service</span>
+    - kubectl apply -f chaos/latency-injection.yaml
+
+<span class="k">slo-validation:</span>
+  <span class="k">script:</span>
+    - P99=$(promql <span class="s">"histogram_quantile(0.99, http_latency)"</span>)
+    - ERR=$(promql <span class="s">"rate(http_errors[1m])"</span>)
+    <span class="c"># gate on the Safety Envelope → implicit BLOCK</span>
+    - <span class="k">if</span> [ <span class="s">"$P99"</span> -gt <span class="s">"300ms"</span> ] || [ <span class="s">"$ERR"</span> -gt <span class="s">"0.02"</span> ]; <span class="k">then</span>
+        echo <span class="s">"SLO violation, BLOCK"</span>; exit <span class="n">1</span>; <span class="k">fi</span></pre></div></div>
+      </section>
+
+      <section id="audit">
+        <h2>{{ t.auditH }}</h2>
+        <p>{{ t.auditP }}</p>
+        <div class="cw"><div class="cw-h"><span>LOG</span><span>provenance.chain</span></div><div class="cw-b"><pre><span class="c"># every decision is chained, off the critical path</span>
+event=AXIOM_BLOCK  ts=2026-06-18T15:58:13Z
+  prev=0x7c1a…b4  hash=<span class="f">0x9f3a…e1</span>  sig=ed25519:ok</pre></div></div>
+      </section>
+
+      <section id="cli">
+        <h2>{{ t.cliH }}</h2>
+        <p>{{ t.cliP }}</p>
+        <div class="cw"><div class="cw-b"><pre>aeon init &lt;name&gt;             <span class="c"># scaffold a resilient agent</span>
+aeon serve --port 8000      <span class="c"># start the gateway</span>
+aeon chaos run "&lt;goal&gt;"      <span class="c"># run a controlled fault</span>
+aeon audit verify           <span class="c"># replay the provenance chain</span></pre></div></div>
+      </section>
+
+      <section id="config">
+        <h2>{{ t.cfgH }}</h2>
+        <p>{{ t.cfgP }}</p>
+        <div class="cw"><div class="cw-h"><span>YAML</span><span>aeon.yaml</span></div><div class="cw-b"><pre><span class="k">agent:</span>
+  <span class="k">name:</span> <span class="s">"sentinel-01"</span>
+  <span class="k">trust_level:</span> <span class="s">"restricted"</span>  <span class="c"># full · restricted · isolated</span>
+<span class="k">chaos_budget:</span>
+  <span class="k">p99_ms:</span> <span class="n">300</span>
+  <span class="k">error_rate:</span> <span class="n">0.02</span>
+<span class="k">audit:</span>
+  <span class="k">mode:</span> <span class="s">"off-chain-buffer"</span>
+  <span class="k">finality:</span> <span class="s">"deterministic"</span></pre></div></div>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang: 'en', active: 'intro' };
+
+  componentDidMount() {
+    const ids = ['intro', 'install', 'quickstart', 'architecture', 'axioms', 'chaos', 'gate', 'audit', 'cli', 'config'];
+    this._obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) this.setState({ active: e.target.id }); });
+    }, { rootMargin: '-80px 0px -65% 0px', threshold: 0 });
+    ids.forEach(id => { const el = document.getElementById(id); if (el) this._obs.observe(el); });
+  }
+  componentWillUnmount() { if (this._obs) this._obs.disconnect(); }
+
+  dict() {
+    return {
+      en: {
+        navArch: 'Architecture', navStd: 'Standards', navDocs: 'Docs', navUse: 'Use cases',
+        kicker: 'TECHNICAL MANUAL', title: 'Æon Documentation', lede: 'The definitive guide to building dependable LLM agents with chaos engineering at the core.',
+        gGetting: 'Getting started', gCycle: 'The cycle', gOps: 'Operations', gRef: 'Reference',
+        introH: 'Introduction', introP1: 'Æon is not an LLM wrapper. It is a chaos-native runtime that wraps agent reasoning in a deterministic Safety Envelope. Most frameworks are Think → Act. Æon is Think → Verify → Act.',
+        calloutK: 'WHY ÆON', introCallout: 'Verification happens before execution. That makes Æon suitable for high-consequence environments where an unchecked action is unacceptable.',
+        installH: 'Installation', installP: 'Æon requires Python 3.10+ on Linux, macOS, or WSL.',
+        qsH: 'Quickstart', qsP: 'An agent declares its Chaos Budget up front, the envelope it promises to stay inside.',
+        archH: 'Architecture', archP: 'The runtime coordinates seven interdependent layers as a closed cybernetic cycle. Observability is separated from execution (COM/MON).',
+        axH: 'Axioms', axP: 'Axioms are deterministic Python functions that intercept actions before execution. Guardrails with teeth, not prompts.',
+        chaosH: 'Chaos experiments', chaosP: 'Inject faults into agent runs and tool calls inside a bounded blast radius, then watch the axioms respond.',
+        gateH: 'Resilience gate (CI/CD)', gateP: 'Chaos becomes a mandatory pipeline step. A version is promoted only if it holds the Safety Envelope under induced failure.',
+        auditH: 'Audit & provenance', auditP: 'Every reasoning step, tool call and axiom decision is chained into an immutable trail, recorded asynchronously, off the critical path.',
+        cliH: 'CLI reference', cliP: 'The aeon command manages the full lifecycle.',
+        cfgH: 'Configuration', cfgP: 'A single aeon.yaml declares the agent, its budget, and audit guarantees.',
+        footTag: '',
+      },
+      pt: {
+        navArch: 'Arquitetura', navStd: 'Padrões', navDocs: 'Docs', navUse: 'Casos de uso',
+        kicker: 'MANUAL TÉCNICO', title: 'Documentação Æon', lede: 'O guia definitivo para construir agentes LLM confiáveis com chaos engineering no núcleo.',
+        gGetting: 'Primeiros passos', gCycle: 'O ciclo', gOps: 'Operações', gRef: 'Referência',
+        introH: 'Introdução', introP1: 'O Æon não é um wrapper de LLM. É um runtime chaos-native que envolve o raciocínio do agente num Safety Envelope determinístico. A maioria dos frameworks é Pensar → Agir. O Æon é Pensar → Verificar → Agir.',
+        calloutK: 'POR QUE ÆON', introCallout: 'A verificação acontece antes da execução. Isso torna o Æon adequado a ambientes de alta consequência onde uma ação não verificada é inaceitável.',
+        installH: 'Instalação', installP: 'O Æon requer Python 3.10+ em Linux, macOS ou WSL.',
+        qsH: 'Quickstart', qsP: 'Um agente declara seu Chaos Budget de antemão, o envelope que ele promete respeitar.',
+        archH: 'Arquitetura', archP: 'O runtime coordena sete camadas interdependentes como um ciclo cibernético fechado. A observabilidade é separada da execução (COM/MON).',
+        axH: 'Axiomas', axP: 'Axiomas são funções Python determinísticas que interceptam ações antes da execução. Guardrails com dentes, não prompts.',
+        chaosH: 'Experimentos de caos', chaosP: 'Injete falhas em execuções e chamadas de ferramentas dentro de um blast radius controlado e veja os axiomas responderem.',
+        gateH: 'Gate de resiliência (CI/CD)', gateP: 'O caos vira um passo obrigatório do pipeline. Uma versão só é promovida se mantiver o Safety Envelope sob falha induzida.',
+        auditH: 'Auditoria & proveniência', auditP: 'Cada passo de raciocínio, chamada e decisão de axioma é encadeado numa trilha imutável, gravada de forma assíncrona, fora do caminho crítico.',
+        cliH: 'Referência da CLI', cliP: 'O comando aeon gerencia todo o ciclo de vida.',
+        cfgH: 'Configuração', cfgP: 'Um único aeon.yaml declara o agente, seu budget e as garantias de auditoria.',
+        footTag: '',
+      },
+    };
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const T = this.dict()[lang];
+    const langBtn = (active) => `font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:700; border:none; cursor:pointer; padding:5px 11px; border-radius:999px; background:${active ? '#fff' : 'transparent'}; color:${active ? 'var(--rl-violet-700)' : 'var(--rl-ink-3)'}; box-shadow:${active ? '0 1px 3px rgba(0,0,0,.1)' : 'none'};`;
+
+    const mk = (id, label) => ({ id, label, cls: this.state.active === id ? 'on' : '', onSel: () => this.setState({ active: id }) });
+    const lbl = lang === 'pt'
+      ? { intro: 'Introdução', install: 'Instalação', quickstart: 'Quickstart', architecture: 'Arquitetura', axioms: 'Axiomas', chaos: 'Experimentos de caos', gate: 'Gate de resiliência', audit: 'Auditoria', cli: 'CLI', config: 'Configuração' }
+      : { intro: 'Introduction', install: 'Installation', quickstart: 'Quickstart', architecture: 'Architecture', axioms: 'Axioms', chaos: 'Chaos experiments', gate: 'Resilience gate', audit: 'Audit & provenance', cli: 'CLI reference', config: 'Configuration' };
+
+    const navGroups = [
+      { label: T.gGetting, labelC: 'var(--rl-ink-3)', items: [mk('intro', lbl.intro), mk('install', lbl.install), mk('quickstart', lbl.quickstart)] },
+      { label: T.gCycle, labelC: 'var(--rl-ink-3)', items: [mk('architecture', lbl.architecture), mk('axioms', lbl.axioms), mk('chaos', lbl.chaos)] },
+      { label: T.gOps, labelC: 'var(--rl-danger)', items: [mk('gate', lbl.gate), mk('audit', lbl.audit)] },
+      { label: T.gRef, labelC: 'var(--rl-ink-3)', items: [mk('cli', lbl.cli), mk('config', lbl.config)] },
+    ];
+
+    const names = lang === 'pt'
+      ? ['Planejamento', 'Métricas', 'Detecção', 'Execução', 'Controle', 'Auditoria', 'Feedback']
+      : ['Planning', 'Metrics', 'Detection', 'Execution', 'Control', 'Audit', 'Feedback'];
+    const tags = ['BUDGET', 'RRINDEX', 'ALERT·LIMIT', 'BLOCK', 'RaC', 'PROVENANCE', 'POLICY'];
+    const layerRows = names.map((name, i) => ({ n: i + 1, name, tag: tags[i] }));
+
+    return {
+      t: T, lang,
+      setEn: () => this.setState({ lang: 'en' }),
+      setPt: () => this.setState({ lang: 'pt' }),
+      enBtn: langBtn(lang === 'en'), ptBtn: langBtn(lang === 'pt'),
+      navGroups, layerRows,
+    };
+  }
+}
+</script>
+</body>
+</html>

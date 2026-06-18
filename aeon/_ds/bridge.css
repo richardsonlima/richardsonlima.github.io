@@ -1,0 +1,56 @@
+/* ============================================================
+   Æon DS — Token Bridge / Compatibility Shim
+   The shipped components (Button/Badge/Card) and base.css reference
+   a token vocabulary that the token files don't define under those
+   exact names. This maps the component-expected names onto the real
+   shipped values so everything renders as intended. Load AFTER styles.css.
+   ============================================================ */
+
+:root {
+  /* ---- base.css expectations ---- */
+  --text-primary: var(--rl-ink);
+  --text-body: var(--fs-body);
+  --leading-normal: var(--lh-body);
+  --weight-regular: var(--fw-regular);
+  --weight-bold: var(--fw-bold);
+  --tracking-tight: var(--ls-head);
+
+  /* ---- accent / ink ---- */
+  --accent-ink: var(--rl-violet-700);
+  --aeon-ink: var(--rl-ink);
+
+  /* ---- surfaces ---- */
+  --surface: var(--rl-paper);
+  --surface-muted: var(--rl-paper-3);
+
+  /* ---- aurora gradients ---- */
+  --aurora: var(--gradient-aurora);
+  --aurora-soft: var(--gradient-aurora-soft);
+
+  /* ---- component tint tokens ---- */
+  --aeon-tint-violet: var(--rl-violet-100);
+  --aeon-violet-ink: var(--rl-violet-700);
+  --aeon-tint-cyan: var(--rl-cyan-100);
+  --aeon-cyan: var(--rl-cyan-600);
+
+  /* ---- spectrum stops for the aurora ring (effects.css --aura-ring) ---- */
+  --spec-violet: #6600ff;
+  --spec-blue: #4a6cff;
+  --spec-cyan: #00d0dd;
+  --spec-mint: #57ad68;
+  --spec-amber: #d68a1e;
+  --spec-pink: #ff4d8d;
+
+  /* ---- console (dark) sub-theme primitives used by Card variant="console" ---- */
+  --con-surface: #0a0a0c;
+  --con-border: rgba(255, 255, 255, 0.10);
+  --con-ink: #f4f4f6;
+  --con-ink-dim: #b6b6c0;
+}
+
+/* The console card variant sets .aeon-console; make sure its surface vars
+   resolve even outside the colors.css .aeon-console block. */
+.aeon-console {
+  --text-primary: var(--con-ink);
+  --text-secondary: var(--con-ink-dim);
+}

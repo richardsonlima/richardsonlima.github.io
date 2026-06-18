@@ -1,0 +1,882 @@
+---
+layout: null
+permalink: /aeon/
+sitemap: false
+---
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./support.js"></script>
+  </head>
+
+  <body>
+    <x-dc>
+      <helmet>
+        <link rel="stylesheet"
+          href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/fonts.css">
+        <link rel="stylesheet"
+          href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/colors.css">
+        <link rel="stylesheet"
+          href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/typography.css">
+        <link rel="stylesheet"
+          href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/spacing.css">
+        <link rel="stylesheet"
+          href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/effects.css">
+        <link rel="stylesheet"
+          href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/base.css">
+        <link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/styles.css">
+        <link rel="stylesheet" href="_ds/bridge.css">
+        <link rel="stylesheet" href="_ds/responsive.css">
+        <script src="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/_ds_bundle.js"></script>
+        <style>
+          @keyframes aeonDrift {
+
+            0%,
+            100% {
+              transform: translateY(0) translateX(0);
+              opacity: .45
+            }
+
+            50% {
+              transform: translateY(-26px) translateX(8px);
+              opacity: .95
+            }
+          }
+
+          @keyframes aeonPulse {
+
+            0%,
+            100% {
+              opacity: .4;
+              transform: scale(.85)
+            }
+
+            50% {
+              opacity: 1;
+              transform: scale(1)
+            }
+          }
+
+          @keyframes aeonStreamIn {
+            from {
+              opacity: 0;
+              transform: translateY(6px)
+            }
+
+            to {
+              opacity: 1;
+              transform: translateY(0)
+            }
+          }
+
+          .aeon-row::-webkit-scrollbar {
+            height: 0
+          }
+
+          .lay-chip {
+            transition: all .25s var(--ease-float)
+          }
+
+          .lay-chip:hover {
+            transform: translateY(-3px)
+          }
+
+          .ring-node {
+            transition: all .28s var(--ease-float)
+          }
+
+          .ring-node:hover {
+            transform: translate(-50%, -50%) scale(1.08)
+          }
+
+          .nav-a {
+            color: var(--rl-ink-2);
+            font-size: .92rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color .2s
+          }
+
+          .nav-a:hover {
+            color: var(--rl-violet-600)
+          }
+
+          .uc-card {
+            transition: transform .25s var(--ease-float), box-shadow .25s
+          }
+
+          .uc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card)
+          }
+
+          input[type=range].axr {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 999px;
+            outline: none;
+            background: linear-gradient(90deg, #57ad68 0 35%, #d68a1e 35% 65%, #e0245e 90% 100%);
+          }
+
+          input[type=range].axr::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--rl-ink);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+            cursor: pointer;
+          }
+
+          input[type=range].axr::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--rl-ink);
+            cursor: pointer;
+          }
+        </style>
+      </helmet>
+
+      <div
+        style="position:relative; min-height:100vh; background:var(--rl-paper); color:var(--rl-ink); font-family:'Inter',system-ui,sans-serif; overflow-x:hidden;">
+        <div
+          style="position:fixed; inset:0; background-image:var(--grid-dot); background-size:var(--grid-dot-size); z-index:0; pointer-events:none;">
+        </div>
+
+        <!-- NAV -->
+        <nav
+          style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(255,255,255,.72); backdrop-filter:blur(14px); border-bottom:1px solid var(--rl-line);">
+          <a href="index.html" style="display:flex; align-items:center; gap:11px; text-decoration:none;">
+            <div
+              style="width:30px; height:30px; border-radius:9px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);">
+            </div>
+            <div style="display:flex; flex-direction:column; line-height:1;">
+              <span
+                style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.22rem; letter-spacing:-.02em; color:var(--rl-ink);">Æon</span>
+              <span
+                style="font-family:'JetBrains Mono',monospace; font-size:.56rem; letter-spacing:.22em; color:var(--rl-violet-600); margin-top:3px;">CHAOS
+                ENGINEERING</span>
+            </div>
+          </a>
+          <div style="display:flex; align-items:center; gap:26px;">
+            <div style="display:flex; gap:24px;">
+              <a href="core.dc.html" class="nav-a">{{ t.navArch }}</a>
+              <a href="standards.dc.html" class="nav-a">{{ t.navStd }}</a>
+              <a href="docs.dc.html" class="nav-a">{{ t.navDocs }}</a>
+              <a href="personal-assistant.dc.html" class="nav-a">{{ t.navUse }}</a>
+            </div>
+            <div style="display:flex; gap:4px; background:var(--rl-paper-3); border-radius:999px; padding:3px;">
+              <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
+              <button onClick="{{ setPt }}" style="{{ ptBtn }}">PT</button>
+            </div>
+            <x-import component-from-global-scope="OnDesignSystem_79a6af.Button" as="a" href="docs.dc.html"
+              variant="primary" size="sm" hint-size="auto,38px">{{ t.navInstall }}</x-import>
+          </div>
+        </nav>
+
+        <!-- ===================== HERO (V1 copy + V3 live console) ===================== -->
+        <section style="position:relative; z-index:1; overflow:hidden;">
+          <div
+            style="position:absolute; inset:0; background:radial-gradient(70% 60% at 20% 0%, rgba(102,0,255,.10), transparent 60%), radial-gradient(60% 60% at 92% 18%, rgba(0,208,221,.10), transparent 55%); pointer-events:none;">
+          </div>
+          <div style="position:absolute; inset:0; pointer-events:none;">
+            <div
+              style="position:absolute; width:7px; height:7px; border-radius:50%; background:var(--rl-violet-400); top:24%; left:8%; animation:aeonDrift 7s ease-in-out infinite;">
+            </div>
+            <div
+              style="position:absolute; width:5px; height:5px; border-radius:50%; background:var(--rl-cyan-400); top:64%; left:16%; animation:aeonDrift 9s ease-in-out infinite .5s;">
+            </div>
+            <div
+              style="position:absolute; width:6px; height:6px; border-radius:50%; background:var(--rl-violet-300); top:14%; left:54%; animation:aeonDrift 8s ease-in-out infinite 1s;">
+            </div>
+          </div>
+          <div
+            style="position:relative; max-width:1280px; margin:0 auto; padding:84px 24px 72px; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;">
+            <div>
+              <span
+                style="display:inline-flex; align-items:center; gap:9px; font-size:.78rem; font-weight:600; letter-spacing:.02em; color:var(--rl-violet-700); background:rgba(255,255,255,.7); border:1px solid var(--rl-violet-100); padding:7px 14px; border-radius:999px;"><span
+                  style="width:7px;height:7px;border-radius:50%;background:#e0245e;animation:aeonPulse 1.4s infinite;"></span>{{ t.eyebrow }}</span>
+              <h1
+                style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2.7rem,5.4vw,4.4rem); line-height:1.0; letter-spacing:-.035em; margin:24px 0 0;">
+                {{ t.heroH1a }} <span class="aeon-aurora-text">{{ t.heroH1b }}</span></h1>
+              <p style="font-size:1.18rem; line-height:1.6; color:var(--rl-ink-2); margin:24px 0 0; max-width:560px;">
+                {{ t.heroSub }}</p>
+              <div style="display:flex; gap:13px; margin-top:34px; flex-wrap:wrap;">
+                <x-import component-from-global-scope="OnDesignSystem_79a6af.Button" as="a" href="docs.dc.html"
+                  variant="aurora" size="lg" hint-size="auto,52px">{{ t.ctaInstall }}</x-import>
+                <x-import component-from-global-scope="OnDesignSystem_79a6af.Button" as="a" href="#cycle"
+                  variant="ghost" size="lg" hint-size="auto,52px">{{ t.ctaCycle }}</x-import>
+              </div>
+              <div style="display:flex; gap:10px; margin-top:30px; flex-wrap:wrap;">
+                <span
+                  style="font-family:'JetBrains Mono',monospace; font-size:.74rem; color:var(--rl-ink-3); background:#fff; border:1px solid var(--rl-line); padding:6px 12px; border-radius:999px;">✓
+                  {{ t.chip1 }}</span>
+                <span
+                  style="font-family:'JetBrains Mono',monospace; font-size:.74rem; color:var(--rl-ink-3); background:#fff; border:1px solid var(--rl-line); padding:6px 12px; border-radius:999px;">✓
+                  {{ t.chip2 }}</span>
+                <span
+                  style="font-family:'JetBrains Mono',monospace; font-size:.74rem; color:var(--rl-ink-3); background:#fff; border:1px solid var(--rl-line); padding:6px 12px; border-radius:999px;">✓
+                  {{ t.chip3 }}</span>
+              </div>
+            </div>
+            <!-- live console -->
+            <div class="aeon-console"
+              style="position:relative; background:#0a0a0c; border:1px solid rgba(255,255,255,.08); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-terminal); font-family:'JetBrains Mono',monospace;">
+              <div
+                style="display:flex; align-items:center; gap:8px; padding:11px 15px; border-bottom:1px solid rgba(255,255,255,.07); background:#050507;">
+                <span style="width:11px;height:11px;border-radius:50%;background:#ff5f56;"></span>
+                <span style="width:11px;height:11px;border-radius:50%;background:#ffbd2e;"></span>
+                <span style="width:11px;height:11px;border-radius:50%;background:#27c93f;"></span>
+                <span style="margin-left:8px; font-size:.66rem; color:#5f5f68;">aeon · safety-envelope.log</span>
+                <span style="margin-left:auto; font-size:.6rem; color:#57ad68;">● {{ t.live }}</span>
+              </div>
+              <div style="padding:16px 16px 18px; min-height:230px; font-size:.74rem; line-height:1.75; color:#b6b6c0;">
+                <sc-for list="{{ streamLines }}" as="ln" hint-placeholder-count="6">
+                  <div style="display:flex; gap:8px; align-items:baseline; animation:aeonStreamIn .35s ease;">
+                    <span style="color:#5f5f68;">{{ ln.ts }}</span>
+                    <span style="color:{{ ln.color }}; font-weight:700; min-width:24px;">{{ ln.label }}</span>
+                    <span style="color:#d6d6dc;">{{ ln.text }}</span>
+                    <span style="margin-left:auto; color:{{ ln.tagColor }}; font-weight:700;">{{ ln.tag }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MANIFESTO ===================== -->
+        <section
+          style="position:relative; z-index:1; background:linear-gradient(180deg,var(--rl-violet-100),#fff); border-top:1px solid var(--rl-line); border-bottom:1px solid var(--rl-line);">
+          <div style="max-width:1000px; margin:0 auto; padding:64px 24px; text-align:center;">
+            <span
+              style="font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.16em; color:var(--rl-violet-600);">{{ t.mfKicker }}</span>
+            <p
+              style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.6rem,3vw,2.3rem); line-height:1.3; letter-spacing:-.02em; margin:18px auto 0; max-width:820px;">
+              {{ t.mfA }} <span class="aeon-aurora-text">{{ t.mfB }}</span> {{ t.mfC }}</p>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px;">
+              <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+                <div
+                  style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-lg); padding:22px; text-align:left;">
+                  <div
+                    style="font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; letter-spacing:.08em; color:var(--rl-violet-700);">
+                    {{ p.k }}</div>
+                  <div
+                    style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.05rem; margin-top:8px;">
+                    {{ p.name }}</div>
+                  <p style="font-size:.86rem; color:var(--rl-ink-3); margin-top:6px; line-height:1.5;">{{ p.desc }}</p>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== AGENT FAILURE TAXONOMY ===================== -->
+        <section style="position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:76px 24px;">
+          <div style="max-width:700px; margin:0 0 36px;">
+            <span
+              style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-danger); background:var(--rl-danger-100); padding:6px 13px; border-radius:999px;">{{ t.failEyebrow }}</span>
+            <h2
+              style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2rem,3.4vw,2.8rem); letter-spacing:-.025em; margin:18px 0 0;">
+              {{ t.failTitle }}</h2>
+            <p style="font-size:1.06rem; color:var(--rl-ink-2); margin:14px 0 0; line-height:1.6;">{{ t.failSub }}</p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ failures }}" as="f" hint-placeholder-count="5">
+              <div
+                style="display:grid; grid-template-columns:1fr auto 1.4fr; gap:24px; align-items:center; background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-lg); padding:20px 26px; box-shadow:var(--shadow-xs);">
+                <div>
+                  <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.02rem;">
+                    {{ f.fault }}</div>
+                  <div style="font-size:.84rem; color:var(--rl-ink-3); margin-top:4px;">{{ f.desc }}</div>
+                </div>
+                <span
+                  style="font-family:'JetBrains Mono',monospace; font-size:.74rem; font-weight:700; color:{{ f.color }}; background:{{ f.bg }}; padding:6px 12px; border-radius:999px; white-space:nowrap;">{{ f.axiom }}</span>
+                <div style="font-size:.92rem; color:var(--rl-ink-2); line-height:1.5;">{{ f.resp }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+
+        <!-- ===================== THE 7-LAYER CYCLE (V2 ring + detail) ===================== -->
+        <section id="cycle"
+          style="position:relative; z-index:1; background:linear-gradient(180deg,var(--rl-paper-2),#fff); border-top:1px solid var(--rl-line); border-bottom:1px solid var(--rl-line);">
+          <div style="max-width:1180px; margin:0 auto; padding:76px 24px;">
+            <div style="text-align:center; max-width:680px; margin:0 auto 44px;">
+              <span
+                style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.cycleEyebrow }}</span>
+              <h2
+                style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2rem,3.4vw,2.8rem); letter-spacing:-.025em; margin:18px 0 0;">
+                {{ t.cycleTitle }}</h2>
+              <p style="font-size:1.06rem; color:var(--rl-ink-2); margin:16px 0 0; line-height:1.6;">{{ t.cycleSub }}
+              </p>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center;">
+              <!-- interactive ring -->
+              <div style="position:relative; min-height:440px;">
+                <div class="aeon-aurora-ring"
+                  style="width:300px; height:300px; top:50%; left:50%; transform:translate(-50%,-50%); opacity:.3;">
+                </div>
+                <div
+                  style="position:absolute; top:50%; left:50%; width:330px; height:330px; transform:translate(-50%,-50%); border:1.5px dashed var(--rl-line-strong); border-radius:50%;">
+                </div>
+                <sc-for list="{{ ringNodes }}" as="rn" hint-placeholder-count="7">
+                  <div class="ring-node" onClick="{{ rn.onSelect }}"
+                    style="position:absolute; left:{{ rn.x }}; top:{{ rn.y }}; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:5px; width:104px; text-align:center; cursor:pointer;">
+                    <div
+                      style="width:46px; height:46px; border-radius:50%; background:{{ rn.bg }}; border:2px solid {{ rn.borderC }}; color:{{ rn.numC }}; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.9rem; display:flex; align-items:center; justify-content:center; box-shadow:{{ rn.shadow }};">
+                      {{ rn.n }}</div>
+                    <span
+                      style="font-size:.66rem; font-weight:600; color:{{ rn.labelC }}; line-height:1.1;">{{ rn.label }}</span>
+                  </div>
+                </sc-for>
+                <div
+                  style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); text-align:center; pointer-events:none;">
+                  <div
+                    style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:2.2rem; line-height:1; color:var(--rl-ink);">
+                    7</div>
+                  <div
+                    style="font-family:'JetBrains Mono',monospace; font-size:.54rem; letter-spacing:.14em; color:var(--rl-ink-3); margin-top:5px; max-width:96px;">
+                    {{ t.ringCenter }}</div>
+                </div>
+              </div>
+
+              <!-- detail panel -->
+              <div
+                style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-2xl); padding:40px 42px; box-shadow:var(--shadow-card); min-height:300px;">
+                <div style="display:flex; align-items:baseline; gap:14px;">
+                  <span
+                    style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:3.4rem; line-height:.85; background:var(--aurora); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">{{ activeLayer.n }}</span>
+                  <div>
+                    <div
+                      style="font-family:'JetBrains Mono',monospace; font-size:.62rem; letter-spacing:.16em; color:var(--rl-ink-3);">
+                      LAYER {{ activeLayer.n }}</div>
+                    <h3
+                      style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.6rem; letter-spacing:-.02em; margin-top:2px;">
+                      {{ activeLayer.name }}</h3>
+                  </div>
+                </div>
+                <span
+                  style="display:inline-block; margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:700; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:5px 12px; border-radius:999px;">{{ activeLayer.tag }}</span>
+                <p style="font-size:1.06rem; line-height:1.65; color:var(--rl-ink-2); margin:18px 0 0;">
+                  {{ activeLayer.desc }}</p>
+                <div
+                  style="display:flex; gap:18px; margin-top:24px; padding-top:18px; border-top:1px solid var(--rl-line); font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--rl-ink-3);">
+                  <span>↻ {{ t.loopFeedback }}</span>
+                  <span style="color:var(--rl-danger);">▣ {{ t.loopProtect }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== AXIOMS DEMO ===================== -->
+        <section id="axioms" style="position:relative; z-index:1;">
+          <div style="max-width:1080px; margin:0 auto; padding:78px 24px;">
+            <div style="text-align:center; max-width:640px; margin:0 auto 44px;">
+              <span
+                style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-danger); background:var(--rl-danger-100); padding:6px 13px; border-radius:999px;">{{ t.axEyebrow }}</span>
+              <h2
+                style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2rem,3.4vw,2.8rem); letter-spacing:-.025em; margin:18px 0 0;">
+                {{ t.axTitle }}</h2>
+              <p style="font-size:1.06rem; color:var(--rl-ink-2); margin:16px 0 0; line-height:1.6;">{{ t.axSub }}</p>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch;">
+              <div
+                style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-xl); padding:32px; box-shadow:var(--shadow-sm);">
+                <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                  <span
+                    style="font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--rl-ink-3);">{{ t.axMetric }}</span>
+                  <span
+                    style="font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.5rem; color:{{ ax.color }};">{{ dev }}%</span>
+                </div>
+                <input type="range" min="0" max="100" class="axr" value="{{ dev }}" onInput="{{ setDev }}"
+                  style="width:100%; margin:20px 0 8px;">
+                <div
+                  style="display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:.62rem; color:var(--rl-ink-4);">
+                  <span>STEADY</span><span style="color:var(--rl-warn);">ALERT</span><span
+                    style="color:#c2491f;">LIMIT</span><span style="color:var(--rl-danger);">BLOCK</span>
+                </div>
+                <div
+                  style="position:relative; height:14px; border-radius:999px; margin-top:26px; background:linear-gradient(90deg,#e4f1e6 0 35%,#fbeed4 35% 65%,#fbe3ea 65% 90%,#f6c6d3 90% 100%); border:1px solid var(--rl-line);">
+                  <div
+                    style="position:absolute; top:50%; width:20px; height:20px; border-radius:50%; background:#fff; border:3px solid {{ ax.color }}; transform:translate(-50%,-50%); transition:left .1s, border-color .2s; left:{{ devPct }}; box-shadow:0 2px 8px rgba(0,0,0,.18);">
+                  </div>
+                </div>
+                <div
+                  style="font-family:'JetBrains Mono',monospace; font-size:.66rem; color:var(--rl-ink-4); margin-top:14px; text-align:center;">
+                  {{ t.axDrag }}</div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:18px;">
+                <div
+                  style="background:{{ ax.bg }}; border:1.5px solid {{ ax.color }}; border-radius:var(--radius-xl); padding:26px 28px; transition:all .25s;">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <span
+                      style="font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.35rem; letter-spacing:.04em; color:{{ ax.color }};">{{ ax.label }}</span>
+                    <span
+                      style="width:10px; height:10px; border-radius:50%; background:{{ ax.color }}; animation:aeonPulse 1.4s infinite;"></span>
+                  </div>
+                  <p style="font-size:.98rem; line-height:1.55; color:var(--rl-ink-2); margin:12px 0 0;">{{ ax.desc }}
+                  </p>
+                </div>
+                <div class="aeon-console"
+                  style="flex:1; background:#0a0a0c; border:1px solid rgba(255,255,255,.08); border-radius:var(--radius-xl); padding:18px 20px; font-family:'JetBrains Mono',monospace; font-size:.76rem; line-height:1.8; color:#b6b6c0; box-shadow:var(--shadow-terminal);">
+                  <div><span style="color:#5f5f68;">›</span> envelope.check(p99_deviation)</div>
+                  <div style="color:{{ ax.color }}; font-weight:700;">[{{ ax.label }}] {{ ax.logo }}</div>
+                  <div style="color:#5f5f68;">{{ ax.logline }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== THE PROOF ===================== -->
+        <section
+          style="position:relative; z-index:1; background:linear-gradient(180deg,#fff,var(--rl-paper-2)); border-top:1px solid var(--rl-line); border-bottom:1px solid var(--rl-line);">
+          <div style="max-width:1080px; margin:0 auto; padding:76px 24px;">
+            <div style="max-width:680px; margin:0 auto 40px; text-align:center;">
+              <span
+                style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.proofEyebrow }}</span>
+              <h2
+                style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2rem,3.4vw,2.8rem); letter-spacing:-.025em; margin:18px 0 0;">
+                {{ t.proofTitle }}</h2>
+              <p
+                style="font-size:1.06rem; color:var(--rl-ink-2); margin:14px auto 0; line-height:1.6; max-width:600px;">
+                {{ t.proofSub }}</p>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px;">
+              <div
+                style="background:#fff; border:1px solid var(--rl-danger); border-radius:var(--radius-xl); overflow:hidden;">
+                <div style="padding:18px 24px; border-bottom:1px solid var(--rl-line);">
+                  <span
+                    style="font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:700; color:var(--rl-danger);">A
+                    · {{ t.pwoTag }}</span>
+                  <h3
+                    style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.18rem; margin:8px 0 0;">
+                    {{ t.pwoTitle }}</h3>
+                  <p style="font-size:.9rem; color:var(--rl-ink-2); margin:8px 0 0; line-height:1.5;">{{ t.pwoBody }}
+                  </p>
+                </div>
+                <div class="aeon-console"
+                  style="background:#0a0a0c; padding:16px 20px; font-family:'JetBrains Mono',monospace; font-size:.74rem; line-height:1.85; color:#b6b6c0;">
+                  <div><span style="color:#5f5f68;">›</span> tool.call · timeout</div>
+                  <div style="color:#d68a1e;">retry ×3 · no backoff</div>
+                  <div style="color:#8a8a94;">cascading failure → dependents</div>
+                  <div style="color:#e0245e; font-weight:700;">✗ unsafe action reached production</div>
+                </div>
+              </div>
+              <div
+                style="background:#fff; border:1.5px solid var(--rl-green-500); border-radius:var(--radius-xl); overflow:hidden;">
+                <div style="padding:18px 24px; border-bottom:1px solid var(--rl-line);">
+                  <span
+                    style="font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:700; color:var(--rl-green-600);">B
+                    · {{ t.pwTag }}</span>
+                  <h3
+                    style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.18rem; margin:8px 0 0;">
+                    {{ t.pwTitle }}</h3>
+                  <p style="font-size:.9rem; color:var(--rl-ink-2); margin:8px 0 0; line-height:1.5;">{{ t.pwBody }}</p>
+                </div>
+                <div class="aeon-console"
+                  style="background:#0a0a0c; padding:16px 20px; font-family:'JetBrains Mono',monospace; font-size:.74rem; line-height:1.85; color:#b6b6c0;">
+                  <div><span style="color:#5f5f68;">›</span> tool.call · timeout</div>
+                  <div style="color:#d68a1e;">ALERT · p99 deviation ↑</div>
+                  <div style="color:#e0764a;">LIMIT · Σ deviation &gt; budget</div>
+                  <div style="color:#57ad68; font-weight:700;">✓ BLOCK → Safe State · chained to audit</div>
+                </div>
+              </div>
+            </div>
+            <p
+              style="text-align:center; font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--rl-ink-4); margin-top:24px;">
+              {{ t.proofFoot }}</p>
+          </div>
+        </section>
+
+        <!-- ===================== WHY AEON ===================== -->
+        <section
+          style="position:relative; z-index:1; background:linear-gradient(180deg,#fff,var(--rl-paper-2)); border-top:1px solid var(--rl-line);">
+          <div style="max-width:1180px; margin:0 auto; padding:78px 24px;">
+            <div style="max-width:640px; margin:0 0 44px;">
+              <span
+                style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.whyEyebrow }}</span>
+              <h2
+                style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2rem,3.4vw,2.8rem); letter-spacing:-.025em; margin:18px 0 0;">
+                {{ t.whyTitle }}</h2>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:22px;">
+              <x-import component-from-global-scope="OnDesignSystem_79a6af.Card" variant="aura" eyebrow="{{ t.why1e }}"
+                title="{{ t.why1t }}" hint-size="100%,200px">{{ t.why1d }}</x-import>
+              <x-import component-from-global-scope="OnDesignSystem_79a6af.Card" eyebrow="{{ t.why2e }}"
+                title="{{ t.why2t }}" hint-size="100%,200px">{{ t.why2d }}</x-import>
+              <x-import component-from-global-scope="OnDesignSystem_79a6af.Card" eyebrow="{{ t.why3e }}"
+                title="{{ t.why3t }}" hint-size="100%,200px">{{ t.why3d }}</x-import>
+              <x-import component-from-global-scope="OnDesignSystem_79a6af.Card" eyebrow="{{ t.why4e }}"
+                title="{{ t.why4t }}" hint-size="100%,200px">{{ t.why4d }}</x-import>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== USE CASES (SVG icons, no financial) ===================== -->
+        <section
+          style="position:relative; z-index:1; background:var(--rl-paper-2); border-top:1px solid var(--rl-line);">
+          <div style="max-width:1180px; margin:0 auto; padding:64px 24px;">
+            <h2
+              style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.6rem; letter-spacing:-.02em; margin:0 0 28px;">
+              {{ t.ucTitle }}</h2>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+              <div class="uc-card"
+                style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-lg); padding:26px;">
+                <div
+                  style="width:46px; height:46px; border-radius:13px; background:var(--rl-violet-100); display:flex; align-items:center; justify-content:center; color:var(--rl-violet-700);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                    <path
+                      d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  </svg>
+                </div>
+                <div
+                  style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.05rem; margin-top:16px;">
+                  {{ t.ucAeroN }}</div>
+                <p style="font-size:.86rem; color:var(--rl-ink-3); margin-top:8px; line-height:1.5;">{{ t.ucAeroD }}</p>
+              </div>
+              <div class="uc-card"
+                style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-lg); padding:26px;">
+                <div
+                  style="width:46px; height:46px; border-radius:13px; background:var(--rl-cyan-100); display:flex; align-items:center; justify-content:center; color:var(--rl-cyan-600);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9z" />
+                  </svg>
+                </div>
+                <div
+                  style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.05rem; margin-top:16px;">
+                  {{ t.ucEnergyN }}</div>
+                <p style="font-size:.86rem; color:var(--rl-ink-3); margin-top:8px; line-height:1.5;">{{ t.ucEnergyD }}
+                </p>
+              </div>
+              <div class="uc-card"
+                style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-lg); padding:26px;">
+                <div
+                  style="width:46px; height:46px; border-radius:13px; background:var(--rl-violet-100); display:flex; align-items:center; justify-content:center; color:var(--rl-violet-700);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                  </svg>
+                </div>
+                <div
+                  style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.05rem; margin-top:16px;">
+                  {{ t.ucOilN }}</div>
+                <p style="font-size:.86rem; color:var(--rl-ink-3); margin-top:8px; line-height:1.5;">{{ t.ucOilD }}</p>
+              </div>
+              <div class="uc-card"
+                style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-lg); padding:26px;">
+                <div
+                  style="width:46px; height:46px; border-radius:13px; background:var(--rl-cyan-100); display:flex; align-items:center; justify-content:center; color:var(--rl-cyan-600);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <div
+                  style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.05rem; margin-top:16px;">
+                  {{ t.ucInfraN }}</div>
+                <p style="font-size:.86rem; color:var(--rl-ink-3); margin-top:8px; line-height:1.5;">{{ t.ucInfraD }}
+                </p>
+              </div>
+            </div>
+            <a href="industrial.dc.html"
+              style="display:inline-flex; align-items:center; gap:8px; margin-top:26px; font-family:'JetBrains Mono',monospace; font-size:.8rem; font-weight:700; color:var(--rl-violet-700); text-decoration:none;">{{ t.ucCta }}
+              →</a>
+          </div>
+        </section>
+
+        <!-- ===================== QUICKSTART ===================== -->
+        <section style="position:relative; z-index:1; max-width:920px; margin:0 auto; padding:78px 24px;">
+          <div style="text-align:center; max-width:560px; margin:0 auto 36px;">
+            <h2
+              style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.8rem,3vw,2.4rem); letter-spacing:-.025em;">
+              {{ t.qsTitle }}</h2>
+            <p style="font-size:1.02rem; color:var(--rl-ink-2); margin:14px 0 0;">{{ t.qsSub }}</p>
+          </div>
+          <div class="aeon-console"
+            style="background:#0a0a0c; border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-terminal);">
+            <div
+              style="display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,.07); background:#050507;">
+              <span style="width:11px;height:11px;border-radius:50%;background:#ff5f56;"></span>
+              <span style="width:11px;height:11px;border-radius:50%;background:#ffbd2e;"></span>
+              <span style="width:11px;height:11px;border-radius:50%;background:#27c93f;"></span>
+              <span
+                style="margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:.68rem; color:#5f5f68;">zsh</span>
+            </div>
+            <div style="padding:24px; font-family:'JetBrains Mono',monospace; font-size:.85rem; line-height:1.85;">
+              <div><span style="color:#00d0dd;">$</span> <span style="color:#f4f4f6;">pip install aeon-core</span></div>
+              <div style="color:#27c93f;">✓ installed aeon-core · resilience runtime ready</div>
+              <div style="margin-top:10px;"><span style="color:#00d0dd;">$</span> <span style="color:#f4f4f6;">aeon init
+                  sentinel-agent</span></div>
+              <div style="color:#8a8a94;">↳ scaffolded · aeon.yaml · chaos_budget.yaml · agent.py</div>
+              <div style="margin-top:10px;"><span style="color:#00d0dd;">$</span> <span style="color:#f4f4f6;">aeon
+                  chaos run "degrade gateway latency"</span></div>
+              <div><span style="color:#8a3dff;">[L4]</span> fault injected · <span style="color:#d68a1e;">ALERT</span> →
+                <span style="color:#e0245e;">BLOCK</span> · <span style="color:#27c93f;">Safe State restored</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer style="position:relative; z-index:1; border-top:1px solid var(--rl-line); background:#fff;">
+          <div
+            style="max-width:1180px; margin:0 auto; padding:48px 24px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:11px;">
+              <div
+                style="width:26px; height:26px; border-radius:8px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);">
+              </div>
+              <span style="font-size:.86rem; color:var(--rl-ink-3);">{{ t.footTag }}</span>
+            </div>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--rl-ink-4);">Æon · Chaos
+              Engineering Runtime · {{ year }}</span>
+          </div>
+        </footer>
+      </div>
+    </x-dc>
+    <script type="text/x-dc" data-dc-script
+      data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang: 'en', layer: 2, dev: 18, stream: [] };
+
+  componentDidMount() {
+    const seq = [
+      { l: 'L3', c: '#00d0dd', t: 'gray-failure probe · p99 +12%', tag: 'ALERT', tc: '#d68a1e' },
+      { l: 'L4', c: '#f4f4f6', t: 'fault injected · control-svc +800ms', tag: '', tc: '' },
+      { l: 'L3', c: '#00d0dd', t: 'Σ deviation > chaos budget', tag: 'LIMIT', tc: '#e0764a' },
+      { l: 'L4', c: '#e0245e', t: 'kill-switch 0.1ms → Safe State', tag: 'BLOCK', tc: '#e0245e' },
+      { l: 'L6', c: '#8a3dff', t: 'event chained · 0x9f3a…e1', tag: 'AUDIT', tc: '#8a3dff' },
+      { l: 'L7', c: '#57ad68', t: 'policy vn+1 · envelope tightened', tag: 'LEARN', tc: '#57ad68' },
+    ];
+    let i = 0;
+    const tick = () => {
+      const ts = new Date().toTimeString().slice(0, 8);
+      const e = seq[i % seq.length];
+      this.setState(s => ({ stream: [...s.stream, { ...e, ts, id: i }].slice(-6) }));
+      i++;
+    };
+    tick(); tick(); tick(); tick();
+    this._iv = setInterval(tick, 1600);
+  }
+  componentWillUnmount() { clearInterval(this._iv); }
+
+  axiomState() {
+    const d = this.state.dev;
+    const T = this.dict()[this.state.lang];
+    if (d < 35) return { label: 'STEADY', color: '#3f8f54', bg: '#e4f1e6', desc: T.axSteady, logo: 'OK · within envelope', logline: 'continuous monitoring · no action' };
+    if (d < 65) return { label: 'ALERT', color: '#d68a1e', bg: '#fbeed4', desc: T.axAlert, logo: 'deviation > δ_alert', logline: 'enhanced tracing engaged · L3' };
+    if (d < 90) return { label: 'LIMIT', color: '#c2491f', bg: '#fbe3d4', desc: T.axLimit, logo: 'Σ deviation > chaos budget', logline: 'automatic mitigation · L3→L5' };
+    return { label: 'BLOCK', color: '#e0245e', bg: '#fbe3ea', desc: T.axBlock, logo: 'envelope violated', logline: 'kill-switch fired 0.1ms · Safe State · L4' };
+  }
+
+  dict() {
+    return {
+      en: {
+        navArch: 'Architecture', navStd: 'Standards', navDocs: 'Docs', navUse: 'Use cases', navInstall: 'Install', live: 'LIVE',
+        eyebrow: 'Chaos Engineering for LLM Agents',
+        heroH1a: 'Build agents that', heroH1b: 'fail safe.',
+        heroSub: 'Chaos engineering for LLM agents. Æon injects controlled faults, gates every action with deterministic axioms, and chains the proof into an immutable trail, so resilience is engineered, not hoped for.',
+        ctaInstall: 'Install Core', ctaCycle: 'Explore the cycle',
+        chip1: 'Deterministic axioms', chip2: 'Gray-failure detection', chip3: 'Immutable audit',
+        mfKicker: 'THE DISCIPLINE', mfA: 'The engineering discipline that makes LLM agents', mfB: 'dependable enough', mfC: 'for domains where being wrong is not an option.',
+        failEyebrow: 'WHAT BREAKS', failTitle: 'What is an agent failure?', failSub: 'Not a server going down, an agent doing the wrong thing. Æon names each failure mode and binds it to a deterministic response.',
+        proofEyebrow: 'THE PROOF', proofTitle: 'Don’t trust it, break it.', proofSub: 'Same agent, same injected fault, paired A/B. The only variable is Æon, an experiment you can reproduce, not a benchmark to take on faith.',
+        pwoTag: 'NO ENVELOPE', pwoTitle: 'Baseline', pwoBody: 'A tool stalls. The agent retries blindly, the failure cascades through dependent calls, and a wrong action reaches production.',
+        pwTag: 'ÆON-GOVERNED', pwTitle: 'Same agent, with the envelope', pwBody: 'The same stall trips ALERT, crosses the budget into LIMIT, and BLOCK aborts into a Safe State, every step chained to the audit trail.',
+        proofFoot: 'same workload · same fault script · same window · only Æon differs',
+        ringCenter: 'LAYER CYBERNETIC CYCLE',
+        cycleEyebrow: 'THE ARCHITECTURE', cycleTitle: 'A seven-layer cycle for dependable agents',
+        cycleSub: 'Observability intelligence is logically separated from fault execution (the COM/MON principle). Tap a layer to inspect its role in the loop.',
+        loopFeedback: 'feedback loop · negative entropy', loopProtect: 'deterministic protection · ms',
+        axEyebrow: 'THE AXIOMS', axTitle: 'ALERT → LIMIT → BLOCK',
+        axSub: 'Deterministic decision functions over measurable thresholds. Drag the deviation and watch the Safety Envelope respond.',
+        axMetric: 'p99 latency deviation', axDrag: 'drag to inject deviation →',
+        axSteady: 'Inside the Safety Envelope. The agent operates normally under continuous monitoring.',
+        axAlert: 'Deviation crossed δ_alert. Enhanced tracing engages; the deviation integral begins accumulating.',
+        axLimit: 'Accumulated deviation exceeded the Chaos Budget. Automatic mitigation is triggered before collapse.',
+        axBlock: 'Envelope violated. The kill-switch aborts within milliseconds and transitions the agent to a Safe State.',
+        whyEyebrow: 'WHY ÆON', whyTitle: 'Not another LLM wrapper.',
+        why1e: 'Deterministic over probabilistic', why1t: 'Code-level guardrails', why1d: 'Axioms are Python decision functions enforced at runtime, not prompts that can be talked around. Think → Verify → Act.',
+        why2e: 'Chaos-native', why2t: 'Resilience you can prove', why2d: 'Inject faults into agent runs and tool calls inside a bounded blast radius. Validate behaviour under turbulence before users do.',
+        why3e: 'Auditable by design', why3t: 'A digital black box', why3d: 'Every reasoning step, tool call and axiom decision is chained into an immutable, forensic-grade provenance trail.',
+        why4e: 'Closed-loop', why4t: 'It learns from chaos', why4d: 'Each campaign feeds a Knowledge Base that tightens budgets and thresholds, the system grows more resilient every cycle.',
+        ucTitle: 'Built for regulated, high-consequence domains',
+        ucAeroN: 'Aerospace', ucAeroD: 'Decisions within strict time windows, never blocked by auxiliary subsystems.',
+        ucEnergyN: 'Energy & Power', ucEnergyD: 'Grids that must hold through simultaneous failures and adverse conditions.',
+        ucOilN: 'Industrial Control', ucOilD: 'Anomaly detection fast enough to never impede an emergency shutdown.',
+        ucInfraN: 'Critical Infrastructure', ucInfraD: 'Operating through cascading failures and adverse multi-region scenarios.',
+        ucCta: 'Read the safety-critical guide',
+        qsTitle: 'From zero to a resilient agent', qsSub: 'A chaos-native runtime, batteries included. Install, scaffold, and run your first controlled fault.',
+        footTag: 'Standards-first · safety-native · built by Richardson Lima',
+      },
+      pt: {
+        navArch: 'Arquitetura', navStd: 'Padrões', navDocs: 'Docs', navUse: 'Casos de uso', navInstall: 'Instalar', live: 'AO VIVO',
+        eyebrow: 'Chaos Engineering para Agentes LLM',
+        heroH1a: 'Construa agentes que', heroH1b: 'falham com segurança.',
+        heroSub: 'Chaos engineering para agentes LLM. O Æon injeta falhas controladas, governa cada ação com axiomas determinísticos e encadeia a prova numa trilha imutável, resiliência é engenharia, não esperança.',
+        ctaInstall: 'Instalar Core', ctaCycle: 'Explorar o ciclo',
+        chip1: 'Axiomas determinísticos', chip2: 'Detecção de gray-failures', chip3: 'Auditoria imutável',
+        mfKicker: 'A DISCIPLINA', mfA: 'A disciplina de engenharia que torna agentes LLM', mfB: 'confiáveis o bastante', mfC: 'para domínios onde errar não é uma opção.',
+        failEyebrow: 'O QUE QUEBRA', failTitle: 'O que é uma falha de agente?', failSub: 'Não é um servidor caindo, é um agente fazendo a coisa errada. O Æon nomeia cada modo de falha e o liga a uma resposta determinística.',
+        proofEyebrow: 'A PROVA', proofTitle: 'Não confie, quebre.', proofSub: 'Mesmo agente, mesma falha injetada, A/B pareado. A única variável é o Æon, um experimento reproduzível, não um benchmark para aceitar de fé.',
+        pwoTag: 'SEM ENVELOPE', pwoTitle: 'Baseline', pwoBody: 'Uma ferramenta trava. O agente tenta de novo às cegas, a falha se propaga pelas chamadas dependentes e uma ação errada chega à produção.',
+        pwTag: 'GOVERNADO PELO ÆON', pwTitle: 'Mesmo agente, com o envelope', pwBody: 'A mesma trava dispara ALERT, cruza o budget para LIMIT, e o BLOCK aborta para um Safe State, cada passo encadeado na trilha de auditoria.',
+        proofFoot: 'mesma carga · mesmo script de falha · mesma janela · só o Æon muda',
+        ringCenter: 'CICLO CIBERNÉTICO DE CAMADAS',
+        cycleEyebrow: 'A ARQUITETURA', cycleTitle: 'Um ciclo de sete camadas para agentes confiáveis',
+        cycleSub: 'A inteligência de observabilidade é separada logicamente da execução de falhas (princípio COM/MON). Toque numa camada para inspecionar seu papel no ciclo.',
+        loopFeedback: 'loop de feedback · entropia negativa', loopProtect: 'proteção determinística · ms',
+        axEyebrow: 'OS AXIOMAS', axTitle: 'ALERT → LIMIT → BLOCK',
+        axSub: 'Funções de decisão determinísticas sobre limiares mensuráveis. Arraste o desvio e veja o Safety Envelope responder.',
+        axMetric: 'desvio de latência p99', axDrag: 'arraste para injetar desvio →',
+        axSteady: 'Dentro do Safety Envelope. O agente opera normalmente sob monitoramento contínuo.',
+        axAlert: 'O desvio cruzou δ_alert. O tracing detalhado é ativado; a integral do desvio começa a acumular.',
+        axLimit: 'O desvio acumulado excedeu o Chaos Budget. A mitigação automática é acionada antes do colapso.',
+        axBlock: 'Envelope violado. O kill-switch aborta em milissegundos e leva o agente a um Safe State.',
+        whyEyebrow: 'POR QUE ÆON', whyTitle: 'Não é só mais um wrapper de LLM.',
+        why1e: 'Determinístico, não probabilístico', why1t: 'Guardrails em nível de código', why1d: 'Axiomas são funções de decisão em Python aplicadas em runtime, não prompts contornáveis. Pense → Verifique → Aja.',
+        why2e: 'Chaos-native', why2t: 'Resiliência que se prova', why2d: 'Injete falhas em execuções e chamadas de ferramentas dentro de um blast radius controlado. Valide o comportamento sob turbulência antes dos usuários.',
+        why3e: 'Auditável por design', why3t: 'Uma caixa-preta digital', why3d: 'Cada passo de raciocínio, chamada e decisão de axioma é encadeado numa trilha de proveniência imutável, de nível forense.',
+        why4e: 'Ciclo fechado', why4t: 'Aprende com o caos', why4d: 'Cada campanha alimenta uma Knowledge Base que ajusta budgets e limiares, o sistema fica mais resiliente a cada ciclo.',
+        ucTitle: 'Feito para domínios regulados e de alta consequência',
+        ucAeroN: 'Aeroespacial', ucAeroD: 'Decisões em janelas de tempo estritas, nunca bloqueadas por subsistemas auxiliares.',
+        ucEnergyN: 'Energia & Potência', ucEnergyD: 'Redes que precisam resistir a falhas simultâneas e condições adversas.',
+        ucOilN: 'Controle Industrial', ucOilD: 'Detecção de anomalias rápida o bastante para nunca impedir um shutdown de emergência.',
+        ucInfraN: 'Infraestrutura Crítica', ucInfraD: 'Operar sob falhas em cascata e cenários adversos multi-região.',
+        ucCta: 'Ver o guia safety-critical',
+        qsTitle: 'Do zero a um agente resiliente', qsSub: 'Um runtime chaos-native, com baterias inclusas. Instale, gere o scaffold e rode sua primeira falha controlada.',
+        footTag: 'Standards-first · safety-native · feito por Richardson Lima',
+      },
+    };
+  }
+
+  layerData() {
+    const en = [
+      { name: 'Planning', tag: 'CHAOS BUDGET', desc: 'FMEA and hypothesis definition. The blast radius and the Safety Envelope are fixed before a single fault is injected.' },
+      { name: 'Metrics', tag: 'RRINDEX · SLO', desc: 'SLOs, latency percentiles and resilience-scalability indices. The metrological ground truth every decision is measured against.' },
+      { name: 'Detection', tag: 'ALERT · LIMIT', desc: 'Gray-failure detection over live traces. The observability core that fires the ALERT and LIMIT axioms in near-real time.' },
+      { name: 'Execution', tag: 'BLOCK', desc: 'Controlled fault injection with a deterministic kill-switch. BLOCK aborts within milliseconds into a Safe State.' },
+      { name: 'Control', tag: 'RESILIENCE-AS-CODE', desc: 'Chaos experiments become a mandatory CI/CD gate. Shift-left resilience, GitOps-versioned, promoted only inside the envelope.' },
+      { name: 'Audit', tag: 'PROVENANCE', desc: 'An immutable digital black box. Hybrid off-chain/on-chain provenance keeps the critical path fast and the trail forensic.' },
+      { name: 'Feedback', tag: 'POLICY vn+1', desc: 'Negative entropy. Every campaign feeds the Knowledge Base, refining budgets, thresholds and policies for the next cycle.' },
+    ];
+    const pt = [
+      { name: 'Planejamento', tag: 'CHAOS BUDGET', desc: 'FMEA e definição de hipóteses. O blast radius e o Safety Envelope são fixados antes de qualquer falha ser injetada.' },
+      { name: 'Métricas', tag: 'RRINDEX · SLO', desc: 'SLOs, percentis de latência e índices de escalabilidade de resiliência. A verdade metrológica contra a qual cada decisão é medida.' },
+      { name: 'Detecção', tag: 'ALERT · LIMIT', desc: 'Detecção de gray-failures sobre traces ao vivo. O núcleo de observabilidade que dispara os axiomas ALERT e LIMIT em quase tempo real.' },
+      { name: 'Execução', tag: 'BLOCK', desc: 'Injeção de falhas controlada com kill-switch determinístico. O BLOCK aborta em milissegundos para um Safe State.' },
+      { name: 'Controle', tag: 'RESILIENCE-AS-CODE', desc: 'Experimentos de caos viram um gate obrigatório de CI/CD. Shift-left resilience, versionado por GitOps, promovido só dentro do envelope.' },
+      { name: 'Auditoria', tag: 'PROVENANCE', desc: 'Uma caixa-preta digital imutável. Proveniência híbrida off-chain/on-chain mantém o caminho crítico rápido e a trilha forense.' },
+      { name: 'Feedback', tag: 'POLICY vn+1', desc: 'Entropia negativa. Cada campanha alimenta a Knowledge Base, refinando budgets, limiares e políticas para o próximo ciclo.' },
+    ];
+    return this.state.lang === 'pt' ? pt : en;
+  }
+
+  pillarsData() {
+    const en = [
+      { k: 'L3–L4', name: 'Controlled chaos', desc: 'Inject faults on purpose, inside a bounded blast radius.' },
+      { k: 'AXIOMS', name: 'Deterministic axioms', desc: 'ALERT · LIMIT · BLOCK enforced in code, before any action.' },
+      { k: 'L6', name: 'Immutable audit', desc: 'Every decision chained into a forensic provenance trail.' },
+    ];
+    const pt = [
+      { k: 'L3–L4', name: 'Caos controlado', desc: 'Injete falhas de propósito, dentro de um blast radius limitado.' },
+      { k: 'AXIOMAS', name: 'Axiomas determinísticos', desc: 'ALERT · LIMIT · BLOCK aplicados em código, antes de qualquer ação.' },
+      { k: 'L6', name: 'Auditoria imutável', desc: 'Cada decisão encadeada numa trilha de proveniência forense.' },
+    ];
+    return this.state.lang === 'pt' ? pt : en;
+  }
+
+  failuresData() {
+    const en = [
+      { fault: 'Tool latency / timeout', desc: 'a dependency slows under load', axiom: 'ALERT → LIMIT', resp: 'Enhanced tracing engages; if the deviation integral crosses the budget, mitigation fires before users feel it.' },
+      { fault: 'Tool error / partial failure', desc: 'a call returns broken or empty', axiom: 'RECOVERY', resp: 'Event-driven re-reasoning replaces a brittle DAG crash, the agent adapts instead of stalling.' },
+      { fault: 'Unauthorized or unsafe action', desc: 'the model tries something it should not', axiom: 'BLOCK', resp: 'The kill-switch aborts in sub-millisecond bounds and drives the agent to a Safe State.' },
+      { fault: 'Hallucinated / uncited claim', desc: 'output not grounded in sources', axiom: 'CITATION', resp: 'Claims are cross-checked against the vault; unsupported output is blocked at runtime.' },
+      { fault: 'Runaway loop / cost blowout', desc: 'the agent spirals or over-spends', axiom: 'LIMIT', resp: 'The Chaos Budget caps the blast radius; the run is halted before it burns through the budget.' },
+    ];
+    const pt = [
+      { fault: 'Latência / timeout de ferramenta', desc: 'uma dependência fica lenta sob carga', axiom: 'ALERT → LIMIT', resp: 'O tracing detalhado é ativado; se a integral do desvio cruza o budget, a mitigação dispara antes do usuário sentir.' },
+      { fault: 'Erro / falha parcial de ferramenta', desc: 'uma chamada retorna quebrada ou vazia', axiom: 'RECOVERY', resp: 'O re-raciocínio orientado a eventos substitui o crash de um DAG rígido, o agente se adapta em vez de travar.' },
+      { fault: 'Ação não autorizada ou insegura', desc: 'o modelo tenta algo que não devia', axiom: 'BLOCK', resp: 'O kill-switch aborta em limites submilissegundo e leva o agente a um Safe State.' },
+      { fault: 'Alegação alucinada / sem fonte', desc: 'saída sem fundamento nas fontes', axiom: 'CITATION', resp: 'As alegações são checadas contra o vault; saída sem suporte é bloqueada em runtime.' },
+      { fault: 'Loop descontrolado / estouro de custo', desc: 'o agente entra em espiral ou gasta demais', axiom: 'LIMIT', resp: 'O Chaos Budget limita o blast radius; a execução é interrompida antes de queimar o budget.' },
+    ];
+    const colors = [
+      { color: '#d68a1e', bg: 'var(--rl-warn-100)' },
+      { color: 'var(--rl-cyan-600)', bg: 'var(--rl-cyan-100)' },
+      { color: 'var(--rl-danger)', bg: 'var(--rl-danger-100)' },
+      { color: 'var(--rl-violet-700)', bg: 'var(--rl-violet-100)' },
+      { color: '#c2491f', bg: 'var(--rl-warn-100)' },
+    ];
+    const arr = this.state.lang === 'pt' ? pt : en;
+    return arr.map((f, i) => ({ ...f, color: colors[i].color, bg: colors[i].bg }));
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const T = this.dict()[lang];
+    const ax = this.axiomState();
+    const langBtn = (active) => `font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:700; border:none; cursor:pointer; padding:5px 11px; border-radius:999px; background:${active ? '#fff' : 'transparent'}; color:${active ? 'var(--rl-violet-700)' : 'var(--rl-ink-3)'}; box-shadow:${active ? '0 1px 3px rgba(0,0,0,.1)' : 'none'};`;
+
+    const ld = this.layerData();
+    const layers = ld.map((l, i) => ({ n: i + 1, name: l.name, tag: l.tag, desc: l.desc }));
+
+    const pos = [['50%', '8%'], ['84%', '24%'], ['92%', '62%'], ['68%', '90%'], ['32%', '90%'], ['8%', '62%'], ['16%', '24%']];
+    const ringNodes = ld.map((l, i) => {
+      const active = i === this.state.layer;
+      return {
+        n: i + 1, label: l.name, x: pos[i][0], y: pos[i][1],
+        onSelect: () => this.setState({ layer: i }),
+        bg: active ? 'var(--aurora)' : '#fff',
+        borderC: active ? 'transparent' : 'var(--rl-violet-300)',
+        numC: active ? '#fff' : 'var(--rl-violet-700)',
+        labelC: active ? 'var(--rl-ink)' : 'var(--rl-ink-3)',
+        shadow: active ? 'var(--glow-violet)' : 'var(--shadow-sm)',
+      };
+    });
+
+    const streamLines = this.state.stream.map(s => ({
+      ts: s.ts, label: s.l, color: s.c, text: s.t, tag: s.tag, tagColor: s.tc, id: s.id,
+    }));
+
+    return {
+      t: T, lang,
+      setEn: () => this.setState({ lang: 'en' }),
+      setPt: () => this.setState({ lang: 'pt' }),
+      enBtn: langBtn(lang === 'en'), ptBtn: langBtn(lang === 'pt'),
+      layers, activeLayer: layers[this.state.layer], ringNodes,
+      dev: this.state.dev, devPct: this.state.dev + '%',
+      setDev: (e) => this.setState({ dev: +e.target.value }),
+      ax,
+      streamLines,
+      pillars: this.pillarsData(), failures: this.failuresData(),
+      year: '2026',
+    };
+  }
+}
+</script>
+  </body>
+
+</html>

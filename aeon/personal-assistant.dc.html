@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/colors.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/typography.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/effects.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/base.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/styles.css">
+<link rel="stylesheet" href="_ds/bridge.css">
+<link rel="stylesheet" href="_ds/responsive.css">
+<script src="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/_ds_bundle.js"></script>
+<style>
+  .nav-a { color: var(--rl-ink-2); font-size:.92rem; font-weight:500; text-decoration:none; transition: color .2s }
+  .nav-a:hover { color: var(--rl-violet-600) }
+  .nav-a.on { color: var(--rl-violet-700); font-weight:600 }
+  .cw { background:#0a0a0c; border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden; margin:0; box-shadow:var(--shadow-terminal) }
+  .cw-h { background:#050507; padding:9px 15px; border-bottom:1px solid rgba(255,255,255,.07); font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.08em; color:#5f5f68; display:flex; justify-content:space-between }
+  .cw-b { padding:18px 20px; font-family:'JetBrains Mono',monospace; font-size:.8rem; line-height:1.7; color:#d6d6dc; overflow-x:auto }
+  .cw-b .k { color:#c98aff } .cw-b .s { color:#9fe88d } .cw-b .c { color:#5f5f68; font-style:italic } .cw-b .f { color:#57d9e0 } .cw-b .n { color:#f0a35e }
+  tbody tr:hover { background: var(--rl-violet-100) }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; background:var(--rl-paper); color:var(--rl-ink); font-family:'Inter',system-ui,sans-serif; overflow-x:hidden;">
+  <div style="position:fixed; inset:0; background-image:var(--grid-dot); background-size:var(--grid-dot-size); z-index:0; pointer-events:none;"></div>
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(255,255,255,.72); backdrop-filter:blur(14px); border-bottom:1px solid var(--rl-line);">
+    <a href="index.html" style="display:flex; align-items:center; gap:11px; text-decoration:none;">
+      <div style="width:30px; height:30px; border-radius:9px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);"></div>
+      <div style="display:flex; flex-direction:column; line-height:1;">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.22rem; letter-spacing:-.02em; color:var(--rl-ink);">Æon</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:.56rem; letter-spacing:.22em; color:var(--rl-violet-600); margin-top:3px;">CHAOS ENGINEERING</span>
+      </div>
+    </a>
+    <div style="display:flex; align-items:center; gap:26px;">
+      <div style="display:flex; gap:24px;">
+        <a href="core.dc.html" class="nav-a">{{ t.navArch }}</a>
+        <a href="standards.dc.html" class="nav-a">{{ t.navStd }}</a>
+        <a href="docs.dc.html" class="nav-a">{{ t.navDocs }}</a>
+        <a href="personal-assistant.dc.html" class="nav-a on">{{ t.navUse }}</a>
+      </div>
+      <div style="display:flex; gap:4px; background:var(--rl-paper-3); border-radius:999px; padding:3px;">
+        <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
+        <button onClick="{{ setPt }}" style="{{ ptBtn }}">PT</button>
+      </div>
+      <x-import component-from-global-scope="OnDesignSystem_79a6af.Button" as="a" href="docs.dc.html" variant="primary" size="sm" hint-size="auto,38px">{{ t.navInstall }}</x-import>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; z-index:1; overflow:hidden;">
+    <div style="position:absolute; inset:0; background:var(--hero-wash); pointer-events:none;"></div>
+    <div style="position:relative; max-width:880px; margin:0 auto; padding:80px 24px 44px; text-align:center;">
+      <span style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.eyebrow }}</span>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2.4rem,5vw,3.6rem); line-height:1.05; letter-spacing:-.03em; margin:22px 0 0;">{{ t.h1a }} <span class="aeon-aurora-text">{{ t.h1b }}</span></h1>
+      <p style="font-size:1.14rem; line-height:1.6; color:var(--rl-ink-2); margin:22px auto 0; max-width:620px;">{{ t.sub }}</p>
+    </div>
+  </header>
+
+  <!-- PROVIDERS -->
+  <section style="position:relative; z-index:1; max-width:1000px; margin:0 auto; padding:40px 24px 8px;">
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.5rem; letter-spacing:-.02em; margin:0 0 8px;">{{ t.provTitle }}</h2>
+    <p style="color:var(--rl-ink-3); font-size:.98rem; margin:0 0 22px;">{{ t.provSub }}</p>
+    <div style="border:1px solid var(--rl-line); border-radius:var(--radius-xl); overflow:hidden; background:#fff;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead><tr style="background:var(--rl-paper-3);">
+          <th style="text-align:left; padding:13px 20px; font-family:'JetBrains Mono',monospace; font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thProv }}</th>
+          <th style="text-align:left; padding:13px 20px; font-family:'JetBrains Mono',monospace; font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thBest }}</th>
+          <th style="text-align:left; padding:13px 20px; font-family:'JetBrains Mono',monospace; font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thPriv }}</th>
+        </tr></thead>
+        <tbody>
+          <sc-for list="{{ providers }}" as="p" hint-placeholder-count="4">
+            <tr style="border-top:1px solid var(--rl-line);">
+              <td style="padding:13px 20px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.92rem;">{{ p.name }}</td>
+              <td style="padding:13px 20px; font-size:.88rem; color:var(--rl-ink-2);">{{ p.best }}</td>
+              <td style="padding:13px 20px; font-size:.84rem; color:var(--rl-ink-3); font-family:'JetBrains Mono',monospace;">{{ p.priv }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section style="position:relative; z-index:1; max-width:1000px; margin:0 auto; padding:48px 24px 80px;">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+        <div style="display:grid; grid-template-columns:52px 1fr; gap:22px; align-items:start; background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-xl); padding:28px 30px; box-shadow:var(--shadow-xs);">
+          <div style="width:44px; height:44px; border-radius:50%; background:var(--aurora); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.15rem; display:flex; align-items:center; justify-content:center; box-shadow:var(--glow-violet);">{{ s.n }}</div>
+          <div>
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.22rem; letter-spacing:-.01em;">{{ s.title }}</h3>
+            <p style="font-size:.96rem; color:var(--rl-ink-2); margin:8px 0 16px; line-height:1.55;">{{ s.body }}</p>
+            <div class="cw"><div class="cw-h"><span>{{ s.lang }}</span><span>{{ s.file }}</span></div><div class="cw-b">{{ s.code }}</div></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:28px; border:1px solid var(--rl-cyan-400); background:var(--rl-cyan-100); border-radius:var(--radius-lg); padding:22px 26px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; color:var(--rl-cyan-600); letter-spacing:.06em;">{{ t.tipK }}</div>
+      <p style="margin:8px 0 0; font-size:.96rem; color:var(--rl-ink-2); line-height:1.55;">{{ t.tip }}</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:1; border-top:1px solid var(--rl-line); background:#fff;">
+    <div style="max-width:1000px; margin:0 auto; padding:48px 24px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <div style="width:26px; height:26px; border-radius:8px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);"></div>
+        <span style="font-size:.86rem; color:var(--rl-ink-3);">{{ t.footTag }}</span>
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--rl-ink-4);">Æon · Build Guide · {{ year }}</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang: 'en' };
+
+  dict() {
+    return {
+      en: {
+        navArch: 'Architecture', navStd: 'Standards', navDocs: 'Docs', navUse: 'Use cases', navInstall: 'Install',
+        eyebrow: 'BUILD GUIDE',
+        h1a: 'Build your first', h1b: 'resilient agent.',
+        sub: 'From an empty terminal to an agent governed by a Safety Envelope, and proven with a controlled fault. No cloud account required to start.',
+        provTitle: 'Choose a model provider', provSub: 'Start local and free with Ollama; switch to a cloud provider for production. The agent code stays the same.',
+        thProv: 'Provider', thBest: 'Best for', thPriv: 'Privacy',
+        tipK: 'TIP', tip: 'Begin with Ollama for development, it runs entirely on your machine, so your data and your chaos experiments never leave it.',
+        footTag: 'Standards-first · safety-native · built by Richardson Lima',
+      },
+      pt: {
+        navArch: 'Arquitetura', navStd: 'Padrões', navDocs: 'Docs', navUse: 'Casos de uso', navInstall: 'Instalar',
+        eyebrow: 'GUIA DE CONSTRUÇÃO',
+        h1a: 'Construa seu primeiro', h1b: 'agente resiliente.',
+        sub: 'De um terminal vazio a um agente governado por um Safety Envelope, e provado com uma falha controlada. Sem conta em nuvem para começar.',
+        provTitle: 'Escolha um provedor de modelo', provSub: 'Comece local e grátis com o Ollama; troque para um provedor em nuvem na produção. O código do agente permanece o mesmo.',
+        thProv: 'Provedor', thBest: 'Melhor para', thPriv: 'Privacidade',
+        tipK: 'DICA', tip: 'Comece com o Ollama no desenvolvimento, ele roda inteiramente na sua máquina, então seus dados e experimentos de caos nunca saem dela.',
+        footTag: 'Standards-first · safety-native · feito por Richardson Lima',
+      },
+    };
+  }
+
+  providersData() {
+    const en = [
+      { name: 'Ollama', best: 'Local dev & privacy', priv: 'on-device' },
+      { name: 'OpenRouter', best: 'Trying many models', priv: 'cloud' },
+      { name: 'OpenAI', best: 'Production GPT', priv: 'cloud' },
+      { name: 'AWS Bedrock', best: 'Enterprise', priv: 'AWS' },
+    ];
+    const pt = [
+      { name: 'Ollama', best: 'Dev local & privacidade', priv: 'no dispositivo' },
+      { name: 'OpenRouter', best: 'Testar vários modelos', priv: 'nuvem' },
+      { name: 'OpenAI', best: 'GPT em produção', priv: 'nuvem' },
+      { name: 'AWS Bedrock', best: 'Enterprise', priv: 'AWS' },
+    ];
+    return this.state.lang === 'pt' ? pt : en;
+  }
+
+  stepsData() {
+    const R = window.React;
+    const code = (html) => R.createElement('pre', { dangerouslySetInnerHTML: { __html: html } });
+    const en = [
+      { title: 'Install the runtime', body: 'Æon ships as a single package with batteries included.', lang: 'BASH', file: '', html: 'pip install aeon-core\nplaywright install   <span class="c"># optional · browser tool</span>' },
+      { title: 'Define the agent and its envelope', body: 'Declare the Chaos Budget up front, the limits the agent promises to stay inside.', lang: 'PYTHON', file: 'agent.py', html: '<span class="k">from</span> aeon <span class="k">import</span> Agent, ChaosBudget\n\nagent = <span class="f">Agent</span>(\n    name=<span class="s">"assistant"</span>,\n    model_provider=<span class="s">"ollama"</span>,\n    model_name=<span class="s">"mistral"</span>,\n    chaos_budget=<span class="f">ChaosBudget</span>(p99_ms=<span class="n">300</span>, error_rate=<span class="n">0.02</span>),\n)' },
+      { title: 'Add a capability', body: 'Extend the agent with a skill. Capabilities are plain classes the runtime can call.', lang: 'PYTHON', file: 'journal.py', html: '<span class="k">class</span> <span class="f">JournalCapability</span>(Capability):\n    <span class="k">async def</span> <span class="f">save_entry</span>(self, text: str) -&gt; str:\n        self.store.<span class="f">append</span>(text)\n        <span class="k">return</span> <span class="s">"entry saved"</span>\n\nagent.extensions.<span class="f">register</span>(<span class="f">JournalCapability</span>())' },
+      { title: 'Add a safety axiom', body: 'A deterministic guardrail that runs before any action, not a prompt.', lang: 'PYTHON', file: 'axioms.py', html: '<span class="n">@agent.axiom</span>(on_violation=<span class="s">"BLOCK"</span>)\n<span class="k">def</span> <span class="f">no_secret_leak</span>(response: str):\n    <span class="k">if</span> re.<span class="f">search</span>(<span class="s">r"sk-[a-z0-9]+"</span>, response):\n        <span class="k">return</span> <span class="k">False</span>   <span class="c"># BLOCK the leak</span>\n    <span class="k">return</span> <span class="k">True</span>' },
+      { title: 'Run a controlled fault', body: 'Inject turbulence in a bounded blast radius and watch the axioms respond.', lang: 'BASH', file: '', html: 'aeon chaos run <span class="s">"degrade tool latency"</span> --blast-radius=local\n<span class="c"># [L4] fault injected · ALERT → LIMIT → BLOCK · Safe State</span>' },
+      { title: 'Go multi-platform', body: 'The same governed agent can answer on any channel, one codebase, one envelope.', lang: 'PYTHON', file: 'main.py', html: '<span class="k">from</span> aeon.integrations <span class="k">import</span> Telegram, Discord\n\nagent.integrations.<span class="f">register</span>(<span class="f">Telegram</span>(token=...))\nagent.integrations.<span class="f">register</span>(<span class="f">Discord</span>(token=...))\nagent.<span class="f">start</span>()' },
+    ];
+    const pt = [
+      { title: 'Instale o runtime', body: 'O Æon vem como um único pacote, com baterias inclusas.', lang: 'BASH', file: '', html: 'pip install aeon-core\nplaywright install   <span class="c"># opcional · ferramenta de browser</span>' },
+      { title: 'Defina o agente e seu envelope', body: 'Declare o Chaos Budget de antemão, os limites que o agente promete respeitar.', lang: 'PYTHON', file: 'agent.py', html: '<span class="k">from</span> aeon <span class="k">import</span> Agent, ChaosBudget\n\nagent = <span class="f">Agent</span>(\n    name=<span class="s">"assistant"</span>,\n    model_provider=<span class="s">"ollama"</span>,\n    model_name=<span class="s">"mistral"</span>,\n    chaos_budget=<span class="f">ChaosBudget</span>(p99_ms=<span class="n">300</span>, error_rate=<span class="n">0.02</span>),\n)' },
+      { title: 'Adicione uma capacidade', body: 'Estenda o agente com uma skill. Capacidades são classes simples que o runtime pode chamar.', lang: 'PYTHON', file: 'journal.py', html: '<span class="k">class</span> <span class="f">JournalCapability</span>(Capability):\n    <span class="k">async def</span> <span class="f">save_entry</span>(self, text: str) -&gt; str:\n        self.store.<span class="f">append</span>(text)\n        <span class="k">return</span> <span class="s">"entrada salva"</span>\n\nagent.extensions.<span class="f">register</span>(<span class="f">JournalCapability</span>())' },
+      { title: 'Adicione um axioma de segurança', body: 'Um guardrail determinístico que roda antes de qualquer ação, não um prompt.', lang: 'PYTHON', file: 'axioms.py', html: '<span class="n">@agent.axiom</span>(on_violation=<span class="s">"BLOCK"</span>)\n<span class="k">def</span> <span class="f">no_secret_leak</span>(response: str):\n    <span class="k">if</span> re.<span class="f">search</span>(<span class="s">r"sk-[a-z0-9]+"</span>, response):\n        <span class="k">return</span> <span class="k">False</span>   <span class="c"># BLOCK o vazamento</span>\n    <span class="k">return</span> <span class="k">True</span>' },
+      { title: 'Rode uma falha controlada', body: 'Injete turbulência num blast radius limitado e veja os axiomas responderem.', lang: 'BASH', file: '', html: 'aeon chaos run <span class="s">"degrade tool latency"</span> --blast-radius=local\n<span class="c"># [L4] falha injetada · ALERT → LIMIT → BLOCK · Safe State</span>' },
+      { title: 'Vá multi-plataforma', body: 'O mesmo agente governado responde em qualquer canal, um código, um envelope.', lang: 'PYTHON', file: 'main.py', html: '<span class="k">from</span> aeon.integrations <span class="k">import</span> Telegram, Discord\n\nagent.integrations.<span class="f">register</span>(<span class="f">Telegram</span>(token=...))\nagent.integrations.<span class="f">register</span>(<span class="f">Discord</span>(token=...))\nagent.<span class="f">start</span>()' },
+    ];
+    const arr = this.state.lang === 'pt' ? pt : en;
+    return arr.map((s, i) => ({ n: i + 1, title: s.title, body: s.body, lang: s.lang, file: s.file, code: code(s.html) }));
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const T = this.dict()[lang];
+    const langBtn = (active) => `font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:700; border:none; cursor:pointer; padding:5px 11px; border-radius:999px; background:${active ? '#fff' : 'transparent'}; color:${active ? 'var(--rl-violet-700)' : 'var(--rl-ink-3)'}; box-shadow:${active ? '0 1px 3px rgba(0,0,0,.1)' : 'none'};`;
+    return {
+      t: T, lang,
+      setEn: () => this.setState({ lang: 'en' }),
+      setPt: () => this.setState({ lang: 'pt' }),
+      enBtn: langBtn(lang === 'en'), ptBtn: langBtn(lang === 'pt'),
+      providers: this.providersData(), steps: this.stepsData(),
+      year: '2026',
+    };
+  }
+}
+</script>
+</body>
+</html>

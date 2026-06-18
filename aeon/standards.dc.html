@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/colors.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/typography.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/effects.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/base.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/styles.css">
+<link rel="stylesheet" href="_ds/bridge.css">
+<link rel="stylesheet" href="_ds/responsive.css">
+<script src="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/_ds_bundle.js"></script>
+<style>
+  .nav-a { color: var(--rl-ink-2); font-size:.92rem; font-weight:500; text-decoration:none; transition: color .2s }
+  .nav-a:hover { color: var(--rl-violet-600) }
+  .nav-a.on { color: var(--rl-violet-700); font-weight:600 }
+  tbody tr:hover { background: var(--rl-violet-100) }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; background:var(--rl-paper); color:var(--rl-ink); font-family:'Inter',system-ui,sans-serif; overflow-x:hidden;">
+  <div style="position:fixed; inset:0; background-image:var(--grid-dot); background-size:var(--grid-dot-size); z-index:0; pointer-events:none;"></div>
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(255,255,255,.72); backdrop-filter:blur(14px); border-bottom:1px solid var(--rl-line);">
+    <a href="index.html" style="display:flex; align-items:center; gap:11px; text-decoration:none;">
+      <div style="width:30px; height:30px; border-radius:9px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);"></div>
+      <div style="display:flex; flex-direction:column; line-height:1;">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.22rem; letter-spacing:-.02em; color:var(--rl-ink);">Æon</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:.56rem; letter-spacing:.22em; color:var(--rl-violet-600); margin-top:3px;">CHAOS ENGINEERING</span>
+      </div>
+    </a>
+    <div style="display:flex; align-items:center; gap:26px;">
+      <div style="display:flex; gap:24px;">
+        <a href="core.dc.html" class="nav-a">{{ t.navArch }}</a>
+        <a href="standards.dc.html" class="nav-a on">{{ t.navStd }}</a>
+        <a href="docs.dc.html" class="nav-a">{{ t.navDocs }}</a>
+        <a href="personal-assistant.dc.html" class="nav-a">{{ t.navUse }}</a>
+      </div>
+      <div style="display:flex; gap:4px; background:var(--rl-paper-3); border-radius:999px; padding:3px;">
+        <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
+        <button onClick="{{ setPt }}" style="{{ ptBtn }}">PT</button>
+      </div>
+      <x-import component-from-global-scope="OnDesignSystem_79a6af.Button" as="a" href="docs.dc.html" variant="primary" size="sm" hint-size="auto,38px">{{ t.navInstall }}</x-import>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; z-index:1; overflow:hidden;">
+    <div style="position:absolute; inset:0; background:var(--hero-wash); pointer-events:none;"></div>
+    <div style="position:relative; max-width:880px; margin:0 auto; padding:84px 24px 48px; text-align:center;">
+      <span style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.eyebrow }}</span>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2.5rem,5vw,3.8rem); line-height:1.04; letter-spacing:-.03em; margin:22px 0 0;">{{ t.h1a }} <span class="aeon-aurora-text">{{ t.h1b }}</span></h1>
+      <p style="font-size:1.16rem; line-height:1.6; color:var(--rl-ink-2); margin:22px auto 0; max-width:620px;">{{ t.sub }}</p>
+    </div>
+  </header>
+
+  <!-- OPERATIONAL AXIOMS SPEC -->
+  <section style="position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:56px 24px;">
+    <div style="max-width:620px; margin:0 0 32px;">
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.8rem,3vw,2.4rem); letter-spacing:-.025em;">{{ t.axTitle }}</h2>
+      <p style="font-size:1.02rem; color:var(--rl-ink-2); margin:12px 0 0; line-height:1.6;">{{ t.axSub }}</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <sc-for list="{{ axioms }}" as="a" hint-placeholder-count="3">
+        <div style="background:#fff; border:1px solid var(--rl-line); border-top:3px solid {{ a.color }}; border-radius:var(--radius-lg); padding:26px; box-shadow:var(--shadow-xs);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.05rem; color:{{ a.color }};">{{ a.name }}</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:.62rem; color:var(--rl-ink-4);">{{ a.layer }}</span>
+          </div>
+          <p style="font-size:.9rem; color:var(--rl-ink-2); margin:12px 0 16px; line-height:1.55; min-height:66px;">{{ a.desc }}</p>
+          <div style="background:#0a0a0c; border-radius:var(--radius-sm); padding:12px 14px; font-family:'JetBrains Mono',monospace; font-size:.72rem; color:#b6b6c0;">
+            <span style="color:{{ a.color }};">{{ a.cond }}</span><br><span style="color:#5f5f68;">{{ a.formula }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- SAFETY ENVELOPE / BUDGET -->
+  <section style="position:relative; z-index:1; background:linear-gradient(180deg,#fff,var(--rl-paper-2)); border-top:1px solid var(--rl-line); border-bottom:1px solid var(--rl-line);">
+    <div style="max-width:1080px; margin:0 auto; padding:64px 24px; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-xl); padding:32px; box-shadow:var(--shadow-sm);">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:4px 10px; border-radius:999px;">SAFETY ENVELOPE</span>
+        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.35rem; margin:16px 0 0;">{{ t.envTitle }}</h3>
+        <p style="font-size:.96rem; color:var(--rl-ink-2); margin:10px 0 16px; line-height:1.55;">{{ t.envBody }}</p>
+        <div style="background:#0a0a0c; border-radius:var(--radius-sm); padding:14px 16px; font-family:'JetBrains Mono',monospace; font-size:.78rem; color:#b6b6c0;"><span style="color:#00d0dd;">|D(t)| ≤ δ</span> <span style="color:#5f5f68;">,  admissible deviation band</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-xl); padding:32px; box-shadow:var(--shadow-sm);">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; color:var(--rl-cyan-600); background:var(--rl-cyan-100); padding:4px 10px; border-radius:999px;">CHAOS BUDGET</span>
+        <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.35rem; margin:16px 0 0;">{{ t.budTitle }}</h3>
+        <p style="font-size:.96rem; color:var(--rl-ink-2); margin:10px 0 16px; line-height:1.55;">{{ t.budBody }}</p>
+        <div style="background:#0a0a0c; border-radius:var(--radius-sm); padding:14px 16px; font-family:'JetBrains Mono',monospace; font-size:.78rem; color:#b6b6c0;"><span style="color:#e0245e;">I(T) = ∫|D(t)|dt &gt; B</span> <span style="color:#5f5f68;">→ BLOCK</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIT REQUIREMENTS TABLE -->
+  <section style="position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:72px 24px;">
+    <div style="max-width:640px; margin:0 0 28px;">
+      <span style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.auditEyebrow }}</span>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.8rem,3vw,2.4rem); letter-spacing:-.025em; margin:18px 0 0;">{{ t.auditTitle }}</h2>
+      <p style="font-size:1.0rem; color:var(--rl-ink-2); margin:12px 0 0; line-height:1.6;">{{ t.auditSub }}</p>
+    </div>
+    <div style="border:1px solid var(--rl-line); border-radius:var(--radius-xl); overflow:hidden; background:#fff;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:var(--rl-paper-3);">
+            <th style="text-align:left; padding:15px 22px; font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thCrit }}</th>
+            <th style="text-align:left; padding:15px 22px; font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thReq }}</th>
+            <th style="text-align:left; padding:15px 22px; font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thWhy }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ audit }}" as="r" hint-placeholder-count="6">
+            <tr style="border-top:1px solid var(--rl-line);">
+              <td style="padding:14px 22px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.92rem;">{{ r.crit }}</td>
+              <td style="padding:14px 22px;"><span style="font-family:'JetBrains Mono',monospace; font-size:.78rem; font-weight:700; color:var(--rl-violet-700);">{{ r.req }}</span></td>
+              <td style="padding:14px 22px; font-size:.88rem; color:var(--rl-ink-2); line-height:1.5;">{{ r.why }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CONVENTIONS -->
+  <section style="position:relative; z-index:1; background:var(--rl-paper-2); border-top:1px solid var(--rl-line);">
+    <div style="max-width:1080px; margin:0 auto; padding:64px 24px;">
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.6rem; letter-spacing:-.02em; margin:0 0 28px;">{{ t.convTitle }}</h2>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:22px;">
+        <x-import component-from-global-scope="OnDesignSystem_79a6af.Card" eyebrow="{{ t.conv1e }}" title="{{ t.conv1t }}" hint-size="100%,180px">{{ t.conv1d }}</x-import>
+        <x-import component-from-global-scope="OnDesignSystem_79a6af.Card" eyebrow="{{ t.conv2e }}" title="{{ t.conv2t }}" hint-size="100%,180px">{{ t.conv2d }}</x-import>
+        <x-import component-from-global-scope="OnDesignSystem_79a6af.Card" eyebrow="{{ t.conv3e }}" title="{{ t.conv3t }}" hint-size="100%,180px">{{ t.conv3d }}</x-import>
+        <x-import component-from-global-scope="OnDesignSystem_79a6af.Card" eyebrow="{{ t.conv4e }}" title="{{ t.conv4t }}" hint-size="100%,180px">{{ t.conv4d }}</x-import>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:1; border-top:1px solid var(--rl-line); background:#fff;">
+    <div style="max-width:1080px; margin:0 auto; padding:48px 24px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <div style="width:26px; height:26px; border-radius:8px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);"></div>
+        <span style="font-size:.86rem; color:var(--rl-ink-3);">{{ t.footTag }}</span>
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--rl-ink-4);">Æon · Standards · {{ year }}</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1080,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang: 'en' };
+
+  dict() {
+    return {
+      en: {
+        navArch: 'Architecture', navStd: 'Standards', navDocs: 'Docs', navUse: 'Use cases', navInstall: 'Install',
+        eyebrow: 'SPECIFICATIONS',
+        h1a: 'The blueprints of a', h1b: 'dependable runtime.',
+        sub: 'Consistent. Interoperable. Deterministic. The formal contracts every Æon agent honours, axioms, envelopes, audit guarantees and resilience-as-code conventions.',
+        axTitle: 'Operational axioms', axSub: 'Deterministic decision functions over measurable thresholds. Each axiom has explicit, testable criteria.',
+        envTitle: 'A monitored band', envBody: 'A relative deviation D(t) of an observed metric from its steady-state baseline must stay inside the admissible band δ defined in planning.',
+        budTitle: 'A bounded integral', budBody: 'Persistence matters: the time-integral of deviation must not exceed the budget B. This is what catches slow gray failures, not just spikes.',
+        auditEyebrow: 'AUDIT & PROVENANCE', auditTitle: 'Minimum audit infrastructure', auditSub: 'The digital black box records asynchronously, off the critical path, but it must still meet hard guarantees.',
+        thCrit: 'Criterion', thReq: 'Requirement', thWhy: 'Why it matters',
+        convTitle: 'Engineering conventions',
+        conv1e: 'Resilience as Code', conv1t: 'Versioned & gated', conv1d: 'Experiments, envelopes and policies are software artifacts. Chaos runs as a mandatory CI/CD gate, shift-left, GitOps-versioned.',
+        conv2e: 'Interoperability', conv2t: 'Formal packets', conv2d: 'Agents exchange structured, signed packets with headers, never raw text. Native MCP host integration and capability discovery.',
+        conv3e: 'COM/MON', conv3t: 'Segregated control', conv3d: 'Monitoring (L3) and command (L4) are independent subsystems, so the kill-switch never blocks on the path it protects.',
+        conv4e: 'Versioning', conv4t: 'Semantic & auditable', conv4d: 'SemVer for the runtime; every policy revision (vn+1) is chained into the provenance trail for forensic reconstruction.',
+        footTag: 'Standards-first · safety-native · built by Richardson Lima',
+      },
+      pt: {
+        navArch: 'Arquitetura', navStd: 'Padrões', navDocs: 'Docs', navUse: 'Casos de uso', navInstall: 'Instalar',
+        eyebrow: 'ESPECIFICAÇÕES',
+        h1a: 'Os blueprints de um', h1b: 'runtime confiável.',
+        sub: 'Consistente. Interoperável. Determinístico. Os contratos formais que todo agente Æon honra, axiomas, envelopes, garantias de auditoria e convenções de resilience-as-code.',
+        axTitle: 'Axiomas operacionais', axSub: 'Funções de decisão determinísticas sobre limiares mensuráveis. Cada axioma tem critérios explícitos e testáveis.',
+        envTitle: 'Uma faixa monitorada', envBody: 'O desvio relativo D(t) de uma métrica observada em relação ao steady-state deve permanecer dentro da faixa admissível δ definida no planejamento.',
+        budTitle: 'Uma integral limitada', budBody: 'A persistência importa: a integral no tempo do desvio não pode exceder o budget B. É isso que captura gray failures lentas, não só picos.',
+        auditEyebrow: 'AUDITORIA & PROVENIÊNCIA', auditTitle: 'Infraestrutura mínima de auditoria', auditSub: 'A caixa-preta digital grava de forma assíncrona, fora do caminho crítico, mas ainda assim precisa cumprir garantias rígidas.',
+        thCrit: 'Critério', thReq: 'Requisito', thWhy: 'Por que importa',
+        convTitle: 'Convenções de engenharia',
+        conv1e: 'Resilience as Code', conv1t: 'Versionado & com gate', conv1d: 'Experimentos, envelopes e políticas são artefatos de software. O caos roda como gate obrigatório de CI/CD, shift-left, versionado por GitOps.',
+        conv2e: 'Interoperabilidade', conv2t: 'Pacotes formais', conv2d: 'Agentes trocam pacotes estruturados e assinados, com cabeçalhos, nunca texto cru. Integração nativa com host MCP e descoberta de capacidades.',
+        conv3e: 'COM/MON', conv3t: 'Controle segregado', conv3d: 'Monitoramento (L3) e comando (L4) são subsistemas independentes, então o kill-switch nunca bloqueia no caminho que protege.',
+        conv4e: 'Versionamento', conv4t: 'Semântico & auditável', conv4d: 'SemVer para o runtime; cada revisão de política (vn+1) é encadeada na trilha de proveniência para reconstrução forense.',
+        footTag: 'Standards-first · safety-native · feito por Richardson Lima',
+      },
+    };
+  }
+
+  axiomsData() {
+    const en = [
+      { name: 'ALERT', layer: 'L3', color: '#d68a1e', desc: 'Initial deviation past the alert threshold. Engages enhanced tracing and records the event.', cond: 'trigger', formula: '|D(t)| > δ_alert' },
+      { name: 'LIMIT', layer: 'L3', color: '#c2491f', desc: 'Accumulated deviation crosses the Chaos Budget. Automatic mitigation begins before collapse.', cond: 'trigger', formula: 'I(T) > B' },
+      { name: 'BLOCK', layer: 'L4', color: '#e0245e', desc: 'Envelope violated. The kill-switch aborts in milliseconds and transitions to a Safe State.', cond: 'trigger', formula: 'envelope.violated → kill' },
+    ];
+    const pt = [
+      { name: 'ALERT', layer: 'L3', color: '#d68a1e', desc: 'Desvio inicial além do limiar de alerta. Ativa tracing detalhado e registra o evento.', cond: 'gatilho', formula: '|D(t)| > δ_alert' },
+      { name: 'LIMIT', layer: 'L3', color: '#c2491f', desc: 'Desvio acumulado cruza o Chaos Budget. A mitigação automática começa antes do colapso.', cond: 'gatilho', formula: 'I(T) > B' },
+      { name: 'BLOCK', layer: 'L4', color: '#e0245e', desc: 'Envelope violado. O kill-switch aborta em milissegundos e transiciona para um Safe State.', cond: 'gatilho', formula: 'envelope.violated → kill' },
+    ];
+    return this.state.lang === 'pt' ? pt : en;
+  }
+
+  auditData() {
+    const en = [
+      { crit: 'Latency', req: '≤ 500 ms', why: 'Recording must never touch the critical decision path (BLOCK axiom).' },
+      { crit: 'Throughput', req: '≥ 1,000 tps', why: 'Support high event frequency during chaos campaigns.' },
+      { crit: 'Finality', req: 'Deterministic', why: 'No reordering or inconsistency of auditable records.' },
+      { crit: 'Governance', req: 'Permissioned', why: 'Participant control, compliance and performance predictability.' },
+      { crit: 'Smart contracts', req: 'Required', why: 'Automated integrity validation and audit policies.' },
+      { crit: 'Persistence', req: 'Off-chain (hashes)', why: 'Verify voluminous data via digests, not full on-chain storage.' },
+    ];
+    const pt = [
+      { crit: 'Latência', req: '≤ 500 ms', why: 'A gravação nunca pode tocar o caminho crítico de decisão (axioma BLOCK).' },
+      { crit: 'Throughput', req: '≥ 1.000 tps', why: 'Suportar alta frequência de eventos durante campanhas de caos.' },
+      { crit: 'Finalidade', req: 'Determinística', why: 'Sem reordenação ou inconsistência de registros auditáveis.' },
+      { crit: 'Governança', req: 'Permissionada', why: 'Controle de participantes, compliance e previsibilidade de performance.' },
+      { crit: 'Smart contracts', req: 'Obrigatórios', why: 'Validação automática de integridade e políticas de auditoria.' },
+      { crit: 'Persistência', req: 'Off-chain (hashes)', why: 'Verificar dados volumosos via digests, não armazenamento on-chain completo.' },
+    ];
+    return this.state.lang === 'pt' ? pt : en;
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const T = this.dict()[lang];
+    const langBtn = (active) => `font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:700; border:none; cursor:pointer; padding:5px 11px; border-radius:999px; background:${active ? '#fff' : 'transparent'}; color:${active ? 'var(--rl-violet-700)' : 'var(--rl-ink-3)'}; box-shadow:${active ? '0 1px 3px rgba(0,0,0,.1)' : 'none'};`;
+    return {
+      t: T, lang,
+      setEn: () => this.setState({ lang: 'en' }),
+      setPt: () => this.setState({ lang: 'pt' }),
+      enBtn: langBtn(lang === 'en'), ptBtn: langBtn(lang === 'pt'),
+      axioms: this.axiomsData(), audit: this.auditData(),
+      year: '2026',
+    };
+  }
+}
+</script>
+</body>
+</html>

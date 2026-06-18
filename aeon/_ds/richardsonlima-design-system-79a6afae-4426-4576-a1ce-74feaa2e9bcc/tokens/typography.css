@@ -1,0 +1,56 @@
+/* ============================================================
+   Richardson Lima — Typography Tokens
+   Newsreader (literary serif · reading & display)
+   · Inter (UI / sans) · JetBrains Mono (code / metrics)
+   Loaded from Google Fonts CDN — see fonts.css.
+   ============================================================ */
+
+:root {
+  /* ---- Families ---- */
+  --font-serif: 'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Semantic family roles */
+  --font-reading: var(--font-serif);   /* long-form article body */
+  --font-display: var(--font-serif);   /* hero & headlines (literary) */
+  --font-ui: var(--font-sans);         /* nav, labels, buttons, meta */
+  --font-code: var(--font-mono);       /* code, terminal, numeric */
+
+  /* ---- Type scale (rem · 1rem = 16px) ---- */
+  --fs-display: 4.5rem;   /* 72px — hero headline */
+  --fs-h1: 3.25rem;       /* 52px — page / article title */
+  --fs-h2: 2.25rem;       /* 36px — section head */
+  --fs-h3: 1.5rem;        /* 24px — subsection / card title */
+  --fs-h4: 1.1875rem;     /* 19px */
+  --fs-lead: 1.5rem;      /* 24px — deck / standfirst */
+  --fs-read: 1.375rem;    /* 22px — article reading size (serif) */
+  --fs-body: 1rem;        /* 16px — UI body */
+  --fs-sm: 0.9375rem;     /* 15px — secondary UI */
+  --fs-xs: 0.8125rem;     /* 13px — meta / mono labels */
+  --fs-eyebrow: 0.75rem;  /* 12px — uppercase section labels */
+
+  /* ---- Weights ---- */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Line heights ---- */
+  --lh-tight: 1.08;       /* display headlines */
+  --lh-snug: 1.2;         /* headings */
+  --lh-reading: 1.6;      /* serif long-form */
+  --lh-body: 1.5;         /* UI body */
+
+  /* ---- Letter spacing ---- */
+  --ls-display: -0.025em; /* tighten large serif */
+  --ls-head: -0.015em;
+  --ls-body: 0;
+  --ls-eyebrow: 0.14em;   /* uppercase labels */
+  --ls-mono: 0.02em;
+
+  /* ---- Reading measure ---- */
+  --measure: 38rem;       /* ~640px editorial column */
+  --measure-wide: 44rem;  /* ~700px article column */
+}

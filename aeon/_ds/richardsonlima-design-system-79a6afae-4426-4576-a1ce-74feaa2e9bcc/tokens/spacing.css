@@ -1,0 +1,37 @@
+/* ============================================================
+   Æon Design System — Spacing & Layout Tokens
+   8px-based rhythm, container widths, grid gaps.
+   ============================================================ */
+
+:root {
+  /* ---- Spacing scale (8px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-15: 60px;
+  --space-20: 80px;
+  --space-25: 100px;
+  --space-30: 120px;
+
+  /* ---- Container widths ---- */
+  --container-narrow: 800px;  /* docs / standards reading column */
+  --container-base: 1000px;
+  --container-wide: 1100px;
+  --container-max: 1200px;    /* marketing shell */
+
+  /* ---- Section padding ---- */
+  --section-pad-y: var(--space-20);
+  --nav-pad-y: var(--space-5);
+  --nav-pad-x: var(--space-10);
+
+  /* ---- Grid gaps ---- */
+  --gap-sm: var(--space-3);
+  --gap-md: var(--space-5);
+  --gap-lg: var(--space-8);
+}

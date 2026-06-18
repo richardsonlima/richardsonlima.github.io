@@ -1,0 +1,109 @@
+/* ============================================================
+   Æon Design System — Effects Tokens
+   Radii, borders, shadows, AURORA glows, particle-liftoff,
+   blur, motion. Light-first "weightless" identity.
+   ============================================================ */
+
+:root {
+  /* ---- Radii (rounded, generous) ---- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;   /* big product cards */
+  --radius-pill: 999px; /* default button + chip shape */
+
+  /* ---- Border widths ---- */
+  --border-hair: 1px;
+  --border-accent: 2px;
+
+  /* ---- Soft shadows (light theme — diffuse, low-contrast) ---- */
+  --shadow-xs: 0 1px 2px rgba(20, 20, 40, 0.05);
+  --shadow-sm: 0 2px 8px rgba(20, 20, 40, 0.06);
+  --shadow-card: 0 12px 36px rgba(20, 20, 50, 0.08);
+  --shadow-float: 0 24px 60px rgba(20, 20, 50, 0.12);
+  --shadow-pill: 0 6px 18px rgba(20, 20, 40, 0.10);
+
+  /* Console (dark) shadows */
+  --shadow-terminal: 0 24px 50px rgba(0, 0, 0, 0.55);
+
+  /* ---- AURORA glows (the spectrum halo behind cards/heroes) ---- */
+  --aura-card: radial-gradient(120% 100% at 50% 0%,
+      rgba(102,0,255,.18), rgba(0,212,240,.10) 40%, transparent 70%); /* @kind other */
+  --aura-ring: conic-gradient(from 200deg,
+      var(--spec-violet), var(--spec-blue), var(--spec-cyan),
+      var(--spec-mint), var(--spec-amber), var(--spec-pink), var(--spec-violet)); /* @kind other */
+  --glow-violet: 0 0 50px rgba(102, 0, 255, 0.28);
+  --glow-spectrum: 0 0 60px rgba(102, 0, 255, .20), 0 0 80px rgba(255, 77, 141, .14);
+
+  /* ---- Blur ---- */
+  --blur-nav: 14px;
+  --blur-glass: 18px;
+
+  /* ---- Signature backgrounds ---- */
+  /* Faint dot-grid — barely-there graph paper on light */
+  --grid-dot: radial-gradient(circle at 1.5px 1.5px, rgba(20,20,40,0.05) 1px, transparent 0); /* @kind other */
+  --grid-dot-size: 38px 38px; /* @kind other */
+
+  /* Soft top aurora wash for hero sections */
+  --hero-wash: radial-gradient(60% 50% at 75% 18%,
+      rgba(102,0,255,.10), rgba(255,77,141,.07) 45%, transparent 75%); /* @kind other */
+
+  /* Glass panel fill (light, frosted) */
+  --panel-fill: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.65)); /* @kind other */
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  /* "Weightless" easing — slow floaty in/out, no overshoot */
+  --ease-float: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --dur-fast: 0.18s; /* @kind other */
+  --dur-base: 0.3s; /* @kind other */
+  --dur-slow: 0.45s; /* @kind other */
+  --dur-drift: 0.9s;    /* @kind other */
+  --dur-orbit: 30s;     /* @kind other */
+  --dur-float: 7s;      /* @kind other */
+  --dur-marquee: 32s;   /* @kind other */
+
+  /* Hover lifts (weightless) */
+  --lift: translateY(-4px); /* @kind other */
+  --lift-float: translateY(-8px); /* @kind other */
+
+  /* ---- Cursor-reactive aurora glow ----
+     Place on a full-bleed layer; JS syncs --mx/--my to the pointer. */
+  --mx: 75%; /* @kind other */
+  --my: 20%; /* @kind other */
+  --cursor-glow: radial-gradient(460px circle at var(--mx) var(--my),
+                  rgba(102,0,255,.10), rgba(0,212,240,.06) 45%, transparent 65%); /* @kind other */
+}
+
+/* ---- Aurora text: clip the spectrum into type / carets ---- */
+.aeon-aurora-text {
+  background: var(--aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ---- Aurora ring: weightless spinning spectrum halo ---- */
+.aeon-aurora-ring {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--aura-ring);
+  filter: blur(22px);
+  opacity: 0.5;
+  animation: aeon-spin var(--dur-orbit) linear infinite;
+  pointer-events: none;
+}
+
+@keyframes aeon-spin { to { transform: rotate(360deg); } }
+@keyframes aeon-marquee { to { transform: translateX(-50%); } }
+@keyframes aeon-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aeon-aurora-ring { animation: none; }
+}

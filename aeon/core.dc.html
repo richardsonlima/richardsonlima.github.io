@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/colors.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/typography.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/effects.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/tokens/base.css">
+<link rel="stylesheet" href="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/styles.css">
+<link rel="stylesheet" href="_ds/bridge.css">
+<link rel="stylesheet" href="_ds/responsive.css">
+<script src="_ds/richardsonlima-design-system-79a6afae-4426-4576-a1ce-74feaa2e9bcc/_ds_bundle.js"></script>
+<style>
+  @keyframes aeonPulse { 0%,100% { opacity:.4; transform: scale(.85) } 50% { opacity:1; transform: scale(1) } }
+  .nav-a { color: var(--rl-ink-2); font-size:.92rem; font-weight:500; text-decoration:none; transition: color .2s }
+  .nav-a:hover { color: var(--rl-violet-600) }
+  .nav-a.on { color: var(--rl-violet-700); font-weight:600 }
+  .lyr { transition: all .25s var(--ease-float) }
+  .lyr:hover { transform: translateX(5px); border-color: var(--rl-violet-300) }
+  tbody tr { transition: background .2s }
+  tbody tr:hover { background: var(--rl-violet-100) }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; background:var(--rl-paper); color:var(--rl-ink); font-family:'Inter',system-ui,sans-serif; overflow-x:hidden;">
+  <div style="position:fixed; inset:0; background-image:var(--grid-dot); background-size:var(--grid-dot-size); z-index:0; pointer-events:none;"></div>
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(255,255,255,.72); backdrop-filter:blur(14px); border-bottom:1px solid var(--rl-line);">
+    <a href="index.html" style="display:flex; align-items:center; gap:11px; text-decoration:none;">
+      <div style="width:30px; height:30px; border-radius:9px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);"></div>
+      <div style="display:flex; flex-direction:column; line-height:1;">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.22rem; letter-spacing:-.02em; color:var(--rl-ink);">Æon</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:.56rem; letter-spacing:.22em; color:var(--rl-violet-600); margin-top:3px;">CHAOS ENGINEERING</span>
+      </div>
+    </a>
+    <div style="display:flex; align-items:center; gap:26px;">
+      <div style="display:flex; gap:24px;">
+        <a href="core.dc.html" class="nav-a on">{{ t.navArch }}</a>
+        <a href="standards.dc.html" class="nav-a">{{ t.navStd }}</a>
+        <a href="docs.dc.html" class="nav-a">{{ t.navDocs }}</a>
+        <a href="personal-assistant.dc.html" class="nav-a">{{ t.navUse }}</a>
+      </div>
+      <div style="display:flex; gap:4px; background:var(--rl-paper-3); border-radius:999px; padding:3px;">
+        <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
+        <button onClick="{{ setPt }}" style="{{ ptBtn }}">PT</button>
+      </div>
+      <x-import component-from-global-scope="OnDesignSystem_79a6af.Button" as="a" href="docs.dc.html" variant="primary" size="sm" hint-size="auto,38px">{{ t.navInstall }}</x-import>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; z-index:1; overflow:hidden;">
+    <div style="position:absolute; inset:0; background:var(--hero-wash); pointer-events:none;"></div>
+    <div style="position:relative; max-width:920px; margin:0 auto; padding:84px 24px 56px; text-align:center;">
+      <span style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.eyebrow }}</span>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(2.5rem,5vw,3.8rem); line-height:1.04; letter-spacing:-.03em; margin:22px 0 0;">{{ t.h1a }} <span class="aeon-aurora-text">{{ t.h1b }}</span></h1>
+      <p style="font-size:1.16rem; line-height:1.6; color:var(--rl-ink-2); margin:22px auto 0; max-width:660px;">{{ t.sub }}</p>
+    </div>
+  </header>
+
+  <!-- THE STACK -->
+  <section style="position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:48px 24px 24px;">
+    <div style="display:grid; grid-template-columns:1fr 200px; gap:32px; align-items:start;">
+      <!-- layer rows -->
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ stack }}" as="L" hint-placeholder-count="7">
+          <div class="lyr" style="display:grid; grid-template-columns:64px 1fr auto; gap:20px; align-items:center; background:#fff; border:1px solid var(--rl-line); border-left:3px solid {{ L.edge }}; border-radius:var(--radius-lg); padding:20px 24px; box-shadow:var(--shadow-xs);">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.7rem; color:{{ L.numC }};">L{{ L.n }}</div>
+            <div>
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.12rem;">{{ L.name }}</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:700; color:{{ L.tagC }}; background:{{ L.tagBg }}; padding:3px 9px; border-radius:999px;">{{ L.tag }}</span>
+              </div>
+              <p style="font-size:.9rem; color:var(--rl-ink-3); margin:6px 0 0; line-height:1.5;">{{ L.desc }}</p>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:.62rem; color:var(--rl-ink-4); text-align:right; white-space:nowrap;">{{ L.timing }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <!-- MON/COM bracket -->
+      <div style="position:sticky; top:96px; display:flex; flex-direction:column; gap:14px; font-family:'JetBrains Mono',monospace;">
+        <div style="border:1.5px solid var(--rl-cyan-400); border-radius:var(--radius-md); padding:14px; background:var(--rl-cyan-100);">
+          <div style="font-size:.72rem; font-weight:700; color:var(--rl-cyan-600);">MON</div>
+          <div style="font-size:.66rem; color:var(--rl-ink-3); margin-top:5px; line-height:1.45;">{{ t.monNote }}</div>
+        </div>
+        <div style="border:1.5px solid var(--rl-violet-400); border-radius:var(--radius-md); padding:14px; background:var(--rl-violet-100);">
+          <div style="font-size:.72rem; font-weight:700; color:var(--rl-violet-700);">COM</div>
+          <div style="font-size:.66rem; color:var(--rl-ink-3); margin-top:5px; line-height:1.45;">{{ t.comNote }}</div>
+        </div>
+        <div style="font-size:.62rem; color:var(--rl-ink-4); line-height:1.5; padding:4px 2px;">↻ {{ t.feedbackNote }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COM/MON principle -->
+  <section style="position:relative; z-index:1; background:linear-gradient(180deg,#fff,var(--rl-paper-2)); border-top:1px solid var(--rl-line); border-bottom:1px solid var(--rl-line);">
+    <div style="max-width:1100px; margin:0 auto; padding:72px 24px;">
+      <div style="max-width:620px; margin:0 0 36px;">
+        <span style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.sepEyebrow }}</span>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.9rem,3.2vw,2.5rem); letter-spacing:-.025em; margin:18px 0 0;">{{ t.sepTitle }}</h2>
+        <p style="font-size:1.04rem; color:var(--rl-ink-2); margin:14px 0 0; line-height:1.6;">{{ t.sepSub }}</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:28px; align-items:center;">
+        <div style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-xl); padding:32px; box-shadow:var(--shadow-sm);">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; color:var(--rl-cyan-600); background:var(--rl-cyan-100); padding:4px 10px; border-radius:999px;">L3 · MONITOR</span>
+          <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.3rem; margin:16px 0 0;">{{ t.monTitle }}</h3>
+          <p style="font-size:.95rem; color:var(--rl-ink-2); margin:10px 0 0; line-height:1.55;">{{ t.monBody }}</p>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--rl-ink-3); text-align:center; line-height:1.4;">⟷<br><span style="font-size:.6rem;">{{ t.decoupled }}</span></div>
+        <div style="background:#fff; border:1px solid var(--rl-line); border-radius:var(--radius-xl); padding:32px; box-shadow:var(--shadow-sm);">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:4px 10px; border-radius:999px;">L4 · COMMAND</span>
+          <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:1.3rem; margin:16px 0 0;">{{ t.comTitle }}</h3>
+          <p style="font-size:.95rem; color:var(--rl-ink-2); margin:10px 0 0; line-height:1.55;">{{ t.comBody }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSYSTEMS TABLE -->
+  <section style="position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:72px 24px;">
+    <div style="max-width:620px; margin:0 0 32px;">
+      <span style="font-size:.74rem; font-weight:600; letter-spacing:.04em; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:6px 13px; border-radius:999px;">{{ t.subEyebrow }}</span>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:clamp(1.9rem,3.2vw,2.5rem); letter-spacing:-.025em; margin:18px 0 0;">{{ t.subTitle }}</h2>
+    </div>
+    <div style="border:1px solid var(--rl-line); border-radius:var(--radius-xl); overflow:hidden; background:#fff;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:var(--rl-paper-3);">
+            <th style="text-align:left; padding:16px 22px; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thLayer }}</th>
+            <th style="text-align:left; padding:16px 22px; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thSub }}</th>
+            <th style="text-align:left; padding:16px 22px; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rl-ink-3); font-weight:700;">{{ t.thPurpose }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ subsystems }}" as="s" hint-placeholder-count="7">
+            <tr style="border-top:1px solid var(--rl-line);">
+              <td style="padding:15px 22px;"><span style="font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:700; color:var(--rl-violet-700); background:var(--rl-violet-100); padding:4px 10px; border-radius:999px;">{{ s.layer }}</span></td>
+              <td style="padding:15px 22px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.95rem;">{{ s.name }}</td>
+              <td style="padding:15px 22px; font-size:.9rem; color:var(--rl-ink-2); line-height:1.5;">{{ s.purpose }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:1; border-top:1px solid var(--rl-line); background:#fff;">
+    <div style="max-width:1100px; margin:0 auto; padding:48px 24px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <div style="width:26px; height:26px; border-radius:8px; background:var(--aurora); -webkit-mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%); mask:radial-gradient(circle at 50% 118%, transparent 56%, #000 57%);"></div>
+        <span style="font-size:.86rem; color:var(--rl-ink-3);">{{ t.footTag }}</span>
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--rl-ink-4);">Æon · Core · {{ year }}</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang: 'en' };
+
+  dict() {
+    return {
+      en: {
+        navArch: 'Architecture', navStd: 'Standards', navDocs: 'Docs', navUse: 'Use cases', navInstall: 'Install',
+        eyebrow: 'CORE ARCHITECTURE',
+        h1a: 'The resilience runtime,', h1b: 'engineered as a loop.',
+        sub: 'Æon orchestrates seven interdependent layers into a closed cybernetic cycle. Observability intelligence is logically separated from fault execution, so deterministic protection never waits on anything slow.',
+        monNote: 'Layers 1–3 observe and decide. Critical path.',
+        comNote: 'Layers 4–5 execute and contain. Acts on MON signals.',
+        feedbackNote: 'Feedback (L6–L7) closes the loop asynchronously, negative entropy refines the next cycle.',
+        sepEyebrow: 'THE COM/MON PRINCIPLE', sepTitle: 'Detection and execution, deliberately decoupled',
+        sepSub: 'Borrowed from avionics command-and-monitor architecture: the part that watches is never the part that acts. That separation is what lets BLOCK fire in milliseconds, independent of anything downstream.',
+        monTitle: 'Observe & decide', monBody: 'Gray-failure detection over live telemetry. Computes the deviation integral and fires ALERT / LIMIT against the Safety Envelope, with zero coupling to execution.',
+        decoupled: 'decoupled',
+        comTitle: 'Execute & contain', comBody: 'Controlled fault injection and the deterministic kill-switch. On a LIMIT signal, BLOCK aborts within milliseconds and drives the agent to a Safe State.',
+        subEyebrow: 'SUBSYSTEMS', subTitle: 'What lives in each layer',
+        thLayer: 'Layer', thSub: 'Subsystem', thPurpose: 'Core purpose',
+        footTag: 'Standards-first · safety-native · built by Richardson Lima',
+      },
+      pt: {
+        navArch: 'Arquitetura', navStd: 'Padrões', navDocs: 'Docs', navUse: 'Casos de uso', navInstall: 'Instalar',
+        eyebrow: 'ARQUITETURA CORE',
+        h1a: 'O runtime de resiliência,', h1b: 'projetado como um loop.',
+        sub: 'O Æon orquestra sete camadas interdependentes num ciclo cibernético fechado. A inteligência de observabilidade é separada logicamente da execução de falhas, então a proteção determinística nunca espera por algo lento.',
+        monNote: 'Camadas 1–3 observam e decidem. Caminho crítico.',
+        comNote: 'Camadas 4–5 executam e contêm. Agem sobre sinais MON.',
+        feedbackNote: 'O feedback (L6–L7) fecha o ciclo de forma assíncrona, a entropia negativa refina o próximo ciclo.',
+        sepEyebrow: 'O PRINCÍPIO COM/MON', sepTitle: 'Detecção e execução, deliberadamente desacopladas',
+        sepSub: 'Emprestado da arquitetura command-and-monitor da aviônica: quem observa nunca é quem age. Essa separação é o que permite ao BLOCK disparar em milissegundos, independente de qualquer coisa a jusante.',
+        monTitle: 'Observar & decidir', monBody: 'Detecção de gray-failures sobre telemetria ao vivo. Calcula a integral do desvio e dispara ALERT / LIMIT contra o Safety Envelope, sem acoplamento com a execução.',
+        decoupled: 'desacoplado',
+        comTitle: 'Executar & conter', comBody: 'Injeção de falhas controlada e o kill-switch determinístico. Em um sinal LIMIT, o BLOCK aborta em milissegundos e leva o agente a um Safe State.',
+        subEyebrow: 'SUBSISTEMAS', subTitle: 'O que vive em cada camada',
+        thLayer: 'Camada', thSub: 'Subsistema', thPurpose: 'Propósito central',
+        footTag: 'Standards-first · safety-native · feito por Richardson Lima',
+      },
+    };
+  }
+
+  stackData() {
+    const en = [
+      { name: 'Planning', tag: 'CHAOS BUDGET', desc: 'FMEA, hypotheses and the Safety Envelope, the blast radius is fixed before any fault.', timing: 'pre-flight' },
+      { name: 'Metrics', tag: 'RRINDEX · SLO', desc: 'SLOs, latency percentiles and resilience-scalability indices.', timing: 'continuous' },
+      { name: 'Detection', tag: 'ALERT · LIMIT', desc: 'Gray-failure detection; deviation integral against the envelope.', timing: 'critical · ms' },
+      { name: 'Execution', tag: 'BLOCK', desc: 'Controlled fault injection and the deterministic kill-switch.', timing: 'critical · ms' },
+      { name: 'Control', tag: 'RESILIENCE-AS-CODE', desc: 'Chaos as a mandatory CI/CD gate. Shift-left resilience, GitOps-versioned.', timing: 'pipeline' },
+      { name: 'Audit', tag: 'PROVENANCE', desc: 'Immutable digital black box, hybrid off-chain/on-chain provenance.', timing: 'asynchronous' },
+      { name: 'Feedback', tag: 'POLICY vn+1', desc: 'Negative entropy feeds the Knowledge Base; budgets and thresholds evolve.', timing: 'asynchronous' },
+    ];
+    const pt = [
+      { name: 'Planejamento', tag: 'CHAOS BUDGET', desc: 'FMEA, hipóteses e o Safety Envelope, o blast radius é fixado antes de qualquer falha.', timing: 'pré-voo' },
+      { name: 'Métricas', tag: 'RRINDEX · SLO', desc: 'SLOs, percentis de latência e índices de escalabilidade de resiliência.', timing: 'contínuo' },
+      { name: 'Detecção', tag: 'ALERT · LIMIT', desc: 'Detecção de gray-failures; integral do desvio contra o envelope.', timing: 'crítico · ms' },
+      { name: 'Execução', tag: 'BLOCK', desc: 'Injeção de falhas controlada e o kill-switch determinístico.', timing: 'crítico · ms' },
+      { name: 'Controle', tag: 'RESILIENCE-AS-CODE', desc: 'Caos como gate obrigatório de CI/CD. Shift-left resilience, versionado por GitOps.', timing: 'pipeline' },
+      { name: 'Auditoria', tag: 'PROVENANCE', desc: 'Caixa-preta digital imutável, proveniência híbrida off-chain/on-chain.', timing: 'assíncrono' },
+      { name: 'Feedback', tag: 'POLICY vn+1', desc: 'Entropia negativa alimenta a Knowledge Base; budgets e limiares evoluem.', timing: 'assíncrono' },
+    ];
+    return this.state.lang === 'pt' ? pt : en;
+  }
+
+  subsystemsData() {
+    const en = [
+      { layer: 'L1', name: 'Planner', purpose: 'FMEA modelling, Chaos Budget and Safety Envelope definition.' },
+      { layer: 'L2', name: 'Metrology', purpose: 'SLO catalog, latency percentiles, resilience-scalability indices (ηI, ηt, RRIndex).' },
+      { layer: 'L3', name: 'Sentinel', purpose: 'Gray-failure detection over traces; ALERT and LIMIT axiom triggers.' },
+      { layer: 'L4', name: 'Executor', purpose: 'Fault injection in service mesh; BLOCK kill-switch and Safe-State transition.' },
+      { layer: 'L5', name: 'Gatekeeper', purpose: 'Resilience-as-Code; CI/CD resilience gate and GitOps promotion.' },
+      { layer: 'L6', name: 'Ledger', purpose: 'Hybrid off-chain/on-chain provenance; immutable, forensic audit trail.' },
+      { layer: 'L7', name: 'Curator', purpose: 'Chaos Knowledge Base; policy evolution and threshold recalibration.' },
+    ];
+    const pt = [
+      { layer: 'L1', name: 'Planner', purpose: 'Modelagem FMEA, definição do Chaos Budget e do Safety Envelope.' },
+      { layer: 'L2', name: 'Metrology', purpose: 'Catálogo de SLOs, percentis de latência, índices de resiliência (ηI, ηt, RRIndex).' },
+      { layer: 'L3', name: 'Sentinel', purpose: 'Detecção de gray-failures sobre traces; gatilhos dos axiomas ALERT e LIMIT.' },
+      { layer: 'L4', name: 'Executor', purpose: 'Injeção de falhas no service mesh; kill-switch BLOCK e transição para Safe State.' },
+      { layer: 'L5', name: 'Gatekeeper', purpose: 'Resilience-as-Code; gate de resiliência no CI/CD e promoção via GitOps.' },
+      { layer: 'L6', name: 'Ledger', purpose: 'Proveniência híbrida off-chain/on-chain; trilha de auditoria imutável e forense.' },
+      { layer: 'L7', name: 'Curator', purpose: 'Chaos Knowledge Base; evolução de políticas e recalibração de limiares.' },
+    ];
+    return this.state.lang === 'pt' ? pt : en;
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const T = this.dict()[lang];
+    const langBtn = (active) => `font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:700; border:none; cursor:pointer; padding:5px 11px; border-radius:999px; background:${active ? '#fff' : 'transparent'}; color:${active ? 'var(--rl-violet-700)' : 'var(--rl-ink-3)'}; box-shadow:${active ? '0 1px 3px rgba(0,0,0,.1)' : 'none'};`;
+    const edges = ['#00d0dd', '#00b8c4', '#6600ff', '#6600ff', '#8a3dff', '#57ad68', '#57ad68'];
+    const stack = this.stackData().map((l, i) => {
+      const crit = l.timing.includes('ms') || l.timing.includes('crít');
+      return {
+        n: i + 1, name: l.name, tag: l.tag, desc: l.desc, timing: l.timing,
+        edge: edges[i],
+        numC: 'var(--rl-violet-500)',
+        tagC: crit ? 'var(--rl-danger)' : 'var(--rl-violet-700)',
+        tagBg: crit ? 'var(--rl-danger-100)' : 'var(--rl-violet-100)',
+      };
+    });
+    return {
+      t: T, lang,
+      setEn: () => this.setState({ lang: 'en' }),
+      setPt: () => this.setState({ lang: 'pt' }),
+      enBtn: langBtn(lang === 'en'), ptBtn: langBtn(lang === 'pt'),
+      stack, subsystems: this.subsystemsData(),
+      year: '2026',
+    };
+  }
+}
+</script>
+</body>
+</html>
