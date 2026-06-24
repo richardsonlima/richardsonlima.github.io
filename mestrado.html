@@ -1836,6 +1836,23 @@ sitemap: false
         line-height: 1.4;
       }
 
+      .cur-transcript {
+        font-size: .76rem;
+        margin-top: 14px;
+        line-height: 1.5;
+      }
+
+      .cur-transcript a {
+        color: var(--navy-ink);
+        font-weight: 600;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 1px;
+      }
+
+      .cur-transcript a:hover {
+        border-bottom-color: var(--navy-ink);
+      }
+
       .cnote a {
         color: var(--navy-ink);
         font-weight: 600;
@@ -2081,6 +2098,13 @@ sitemap: false
         font-size: .92rem;
         color: var(--muted);
         line-height: 1.5;
+      }
+
+      .extra-note {
+        font-size: .72rem;
+        color: var(--navy-ink);
+        margin-top: 10px;
+        opacity: .85;
       }
 
       .extra-links {
@@ -2392,6 +2416,9 @@ sitemap: false
           <a href="https://www.pgfis.ita.br/post/processo-seletivo" target="_blank" rel="noopener"
             data-i18n="lnk_sel">Selection</a>
           <a href="https://www.pgfis.ita.br/post/pg-eec" target="_blank" rel="noopener" data-i18n="lnk_pgeec">PG-EEC</a>
+          <a href="https://orcid.org/0009-0005-9122-6543" target="_blank" rel="noopener" data-i18n="lnk_orcid">ORCID</a>
+          <a href="https://portalacademico.ita.br" target="_blank" rel="noopener" data-i18n="lnk_portal">Academic Portal</a>
+          <a href="https://portalacademico.ita.br/SolicitacaoMatricula" target="_blank" rel="noopener" data-i18n="lnk_remat">Re-enrollment Portal</a>
         </div>
       </header>
 
@@ -2613,11 +2640,12 @@ sitemap: false
           <div class="extra-card">
             <div class="extra-body">
               <span class="extra-kicker mono" data-i18n="ex_tpl_kicker">LaTeX template</span>
-              <h3 class="extra-name" data-i18n="ex_tpl_name">ITA Dissertation &amp; Thesis Template</h3>
-              <p class="extra-text" data-i18n="ex_tpl_desc">Document class compliant with ITA standards.</p>
+              <h3 class="extra-name" data-i18n="ex_tpl1_name">ITA Thesis Template · Alejandro Rios</h3>
+              <p class="extra-text" data-i18n="ex_tpl1_desc">Unified class for dissertations and theses.</p>
+              <p class="extra-note mono" data-i18n="ex_tpl1_note">Compiles on Overleaf.</p>
             </div>
             <div class="extra-links">
-              <a href="https://github.com/gabriellnuness/Template_Thesis_ITA" target="_blank" rel="noopener">
+              <a href="https://github.com/AlejandroRios/Template_Thesis_ITA" target="_blank" rel="noopener">
                 <span class="mono extra-src">GitHub</span><span class="extra-lk" data-i18n="ex_repo">GitHub
                   repository</span> ↗
               </a>
@@ -2625,6 +2653,20 @@ sitemap: false
                 target="_blank" rel="noopener">
                 <span class="mono extra-src">Overleaf</span><span class="extra-lk" data-i18n="ex_overleaf">Open on
                   Overleaf</span> ↗
+              </a>
+            </div>
+          </div>
+          <div class="extra-card">
+            <div class="extra-body">
+              <span class="extra-kicker mono"><span data-i18n="ex_tpl_kicker">LaTeX template</span> · <span data-i18n="ex_latest">latest</span></span>
+              <h3 class="extra-name" data-i18n="ex_tpl2_name">ITA Thesis Template · Gabriel Nunes</h3>
+              <p class="extra-text" data-i18n="ex_tpl2_desc">Most recent version of the same template.</p>
+              <p class="extra-note mono" data-i18n="ex_tpl2_note">Does not compile on Overleaf free tier.</p>
+            </div>
+            <div class="extra-links">
+              <a href="https://github.com/gabriellnuness/Template_Thesis_ITA" target="_blank" rel="noopener">
+                <span class="mono extra-src">GitHub</span><span class="extra-lk" data-i18n="ex_repo">GitHub
+                  repository</span> ↗
               </a>
             </div>
           </div>
@@ -2678,7 +2720,8 @@ sitemap: false
 
           links_title: "Quick links",
           lnk_cal: "Academic calendar", lnk_gimps: "GIMPS group",
-          lnk_master: "Master&rsquo;s info", lnk_sel: "Selection", lnk_pgeec: "PG-EEC",
+          lnk_master: "Master&rsquo;s info", lnk_sel: "Selection", lnk_pgeec: "PG-EEC", lnk_orcid: "ORCID",
+          lnk_portal: "Academic Portal", lnk_remat: "Re-enrollment Portal",
 
           mc_label: "The model",
           mc_name: "MECADE",
@@ -2761,6 +2804,8 @@ sitemap: false
           c6_note: "↳ audited 2025.1 · official 2025.2",
           c6_mat: "Course material",
           c_total: "Total coursework credits",
+          c_transcript: "Official academic transcript (ITA &middot; Graduate Office)",
+          c_transcript_note: "private &middot; restricted access",
           rec_label: "Records &amp; milestones",
           no_label: "NOREG 2021 compliance",
           no_intro: "Cross-check of my progress against the official ITA Graduate Norms (NOREG 2021).",
@@ -2773,6 +2818,8 @@ sitemap: false
           c5: "Quality, Reliability &amp; Security",
           c6: "Data Structures &amp; Complexity",
           c7: "M.Sc. Dissertation",
+          c8: "Thesis Seminar",
+          c8_note: "1-0-0-2 · mandatory final course before the dissertation defense (enroll 2026.2)",
 
           s4_label: "05 / Mapping",
           s4_title: "Systematic mapping &amp; SLM base",
@@ -2797,18 +2844,23 @@ sitemap: false
           p_profile_t: "Research profile", p_profile_i: "ResearchGate profile", p_active: "Active", p_open_profile: "Open profile",
           p_a1_t: "Article 1", p_a1_i: "First published paper (SBC / SBSI Estendido)", p_published: "Published", p_open_pub: "Open publication",
           p_a2_t: "Article 2", p_a2_i: "MECADE validation paper (co-authored, target: LADC 2026)", p_review: "In review w/ advisor", p_confidential: "Confidential (pre-submission)",
-          p_a3_t: "Article 3", p_a3_i: "Third paper in pipeline", p_backlog: "Backlog", p_pending: "Pending definition",
+          p_a3_t: "Article 3", p_a3_i: "Extended MECADE paper, target: peer-reviewed journal (template TBD)", p_backlog: "Backlog", p_pending: "Pending definition",
           p_diss_t: "M.Sc. Dissertation", p_diss_i: "Dissertation writing project", p_wip: "Writing", p_private: "Private",
-          p_a2_pt: "Overleaf v9 · PT", p_a2_en: "Overleaf v9 · EN", p_diss_link: "Overleaf · Dissertation",
-          p_a2_note: "* Article 2 (version 9) is in review with the advisor (Prof. Dr. Johnny Marques) before submission. The LADC 2026 call for papers is not open yet, so submission is still pending. The draft is confidential and cannot be publicly released. The dissertation is a work in progress and its content remains private until the defense, in accordance with program guidelines.",
+          p_a2_pt: "Overleaf v9 · PT", p_a2_en: "Overleaf · EN", p_a2_tpl: "Springer LNCS template", p_a3_pt: "Overleaf v9 · PT", p_a3_en: "Overleaf v9 · EN", p_diss_link: "Overleaf · Dissertation",
+          p_a2_note: "* Article 2 (version 9, English only) is co-authored with the advisor (Prof. Dr. Johnny Marques) and follows the Springer LNCS template, targeting LADC 2026. The draft is confidential until submission. Article 3 (versions in PT and EN) is in preparation for a peer-reviewed journal and stays confidential pre-submission. The dissertation is a work in progress and its content remains private until the defense, in accordance with program guidelines.",
 
           foot_updated: "Updated June 2026",
           ex_label: "06 / Extras",
           ex_title: "Resources for ITA students",
-          ex_desc: "Useful resources for the ITA graduate community. The LaTeX template below standardizes the formatting of dissertations (master&rsquo;s) and theses (doctorate) according to ITA norms.",
+          ex_desc: "Useful resources for the ITA graduate community. A single LaTeX template covers both M.Sc. dissertations and Ph.D. theses under ITA norms &mdash; two maintained forks below.",
           ex_tpl_kicker: "LaTeX template",
-          ex_tpl_name: "ITA Dissertation &amp; Thesis Template",
-          ex_tpl_desc: "Document class and structure for M.Sc. dissertations and Ph.D. theses, compliant with ITA formatting standards.",
+          ex_latest: "latest",
+          ex_tpl1_name: "ITA Thesis Template · Alejandro Rios",
+          ex_tpl1_desc: "Unified class and structure for M.Sc. dissertations and Ph.D. theses, compliant with ITA formatting standards.",
+          ex_tpl1_note: "Compiles on Overleaf (including the free tier).",
+          ex_tpl2_name: "ITA Thesis Template · Gabriel Nunes",
+          ex_tpl2_desc: "Most recent, updated version of the same unified template.",
+          ex_tpl2_note: "Does not compile on Overleaf&rsquo;s free tier &mdash; build locally (e.g. TeX Live).",
           ex_repo: "GitHub repository",
           ex_overleaf: "Open on Overleaf",
           foot_quote: "&ldquo;Standing on the shoulders of giants.&rdquo;",
@@ -2835,7 +2887,8 @@ sitemap: false
 
           links_title: "Links rápidos",
           lnk_cal: "Calendário acadêmico", lnk_gimps: "Grupo GIMPS",
-          lnk_master: "Info do mestrado", lnk_sel: "Seleção", lnk_pgeec: "PG-EEC",
+          lnk_master: "Info do mestrado", lnk_sel: "Seleção", lnk_pgeec: "PG-EEC", lnk_orcid: "ORCID",
+          lnk_portal: "Portal Acadêmico", lnk_remat: "Portal de Rematrícula",
 
           mc_label: "O modelo",
           mc_name: "MECADE",
@@ -2918,6 +2971,8 @@ sitemap: false
           c6_note: "↳ ouvinte 2025.1 · oficial 2025.2",
           c6_mat: "Material da disciplina",
           c_total: "Total de créditos de disciplinas",
+          c_transcript: "Histórico escolar oficial (ITA &middot; Pró-Reitoria de Pós-Graduação)",
+          c_transcript_note: "privado &middot; acesso restrito",
           rec_label: "Registros &amp; marcos",
           no_label: "Conformidade NOREG 2021",
           no_intro: "Cruzamento do meu progresso com as Normas Reguladoras da Pós-Graduação do ITA (NOREG 2021).",
@@ -2930,6 +2985,8 @@ sitemap: false
           c5: "Qualidade, Confiabilidade &amp; Segurança",
           c6: "Estruturas de Dados &amp; Complexidade",
           c7: "Dissertação de Mestrado",
+          c8: "Seminário de Tese",
+          c8_note: "1-0-0-2 · disciplina final obrigatória antes da defesa da dissertação (matrícula 2026.2)",
 
           s4_label: "05 / Mapeamento",
           s4_title: "Mapeamento sistemático &amp; base SLM",
@@ -2954,18 +3011,23 @@ sitemap: false
           p_profile_t: "Perfil de pesquisa", p_profile_i: "Perfil no ResearchGate", p_active: "Ativo", p_open_profile: "Abrir perfil",
           p_a1_t: "Artigo 1", p_a1_i: "Primeiro artigo publicado (SBC / SBSI Estendido)", p_published: "Publicado", p_open_pub: "Abrir publicação",
           p_a2_t: "Artigo 2", p_a2_i: "Artigo de validação do MECADE (coautoria, alvo: LADC 2026)", p_review: "Em revisão c/ orientador", p_confidential: "Confidencial (pré-submissão)",
-          p_a3_t: "Artigo 3", p_a3_i: "Terceiro artigo em pipeline", p_backlog: "Backlog", p_pending: "Definição pendente",
+          p_a3_t: "Artigo 3", p_a3_i: "Artigo estendido do MECADE, alvo: revista científica (template a definir)", p_backlog: "Backlog", p_pending: "Definição pendente",
           p_diss_t: "Dissertação de Mestrado", p_diss_i: "Projeto de escrita da dissertação", p_wip: "Em escrita", p_private: "Privado",
-          p_a2_pt: "Overleaf v9 · PT", p_a2_en: "Overleaf v9 · EN", p_diss_link: "Overleaf · Dissertação",
-          p_a2_note: "* O Artigo 2 (versão 9) está em revisão com o orientador (Prof. Dr. Johnny Marques) antes da submissão. A chamada de trabalhos da LADC 2026 ainda não foi aberta, portanto a submissão ainda não foi possível. O rascunho é confidencial e não pode ser divulgado publicamente. A dissertação é um projeto em andamento e seu conteúdo permanece privado até a defesa, conforme as diretrizes do programa.",
+          p_a2_pt: "Overleaf v9 · PT", p_a2_en: "Overleaf · EN", p_a2_tpl: "Template Springer LNCS", p_a3_pt: "Overleaf v9 · PT", p_a3_en: "Overleaf v9 · EN", p_diss_link: "Overleaf · Dissertação",
+          p_a2_note: "* O Artigo 2 (versão 9, apenas em inglês) é em coautoria com o orientador (Prof. Dr. Johnny Marques) e segue o template Springer LNCS, com alvo na LADC 2026. O rascunho é confidencial até a submissão. O Artigo 3 (versões em PT e EN) está em preparação para revista científica e permanece confidencial na pré-submissão. A dissertação é um projeto em andamento e seu conteúdo permanece privado até a defesa, conforme as diretrizes do programa.",
 
           foot_updated: "Atualizado em junho de 2026",
           ex_label: "06 / Extras",
           ex_title: "Recursos para alunos do ITA",
-          ex_desc: "Recursos úteis para a comunidade de pós-graduação do ITA. O template LaTeX abaixo padroniza a formatação de dissertações (mestrado) e teses (doutorado) conforme as normas do ITA.",
+          ex_desc: "Recursos úteis para a comunidade de pós-graduação do ITA. Um único template LaTeX cobre tanto dissertações de mestrado quanto teses de doutorado, conforme as normas do ITA &mdash; dois forks mantidos abaixo.",
           ex_tpl_kicker: "Template LaTeX",
-          ex_tpl_name: "Template de Dissertação &amp; Tese do ITA",
-          ex_tpl_desc: "Classe e estrutura de documento para dissertações de mestrado e teses de doutorado, em conformidade com as normas de formatação do ITA.",
+          ex_latest: "mais recente",
+          ex_tpl1_name: "Template de Tese do ITA · Alejandro Rios",
+          ex_tpl1_desc: "Classe e estrutura únicas para dissertações (mestrado) e teses (doutorado), em conformidade com as normas de formatação do ITA.",
+          ex_tpl1_note: "Compila no Overleaf (inclusive no plano gratuito).",
+          ex_tpl2_name: "Template de Tese do ITA · Gabriel Nunes",
+          ex_tpl2_desc: "Versão mais recente e atualizada do mesmo template unificado.",
+          ex_tpl2_note: "Não compila no plano gratuito do Overleaf &mdash; compile localmente (ex.: TeX Live).",
           ex_repo: "Repositório no GitHub",
           ex_overleaf: "Abrir no Overleaf",
           foot_quote: "&ldquo;Apoiado sobre os ombros de gigantes.&rdquo;",
@@ -2984,14 +3046,20 @@ sitemap: false
         selection: "https://www.pgfis.ita.br/post/processo-seletivo",
         pgeec: "https://www.pgfis.ita.br/post/pg-eec",
         ct234: "https://www.comp.ita.br/~alonso/ensino.html",
+        transcript: "https://drive.google.com/file/d/13iik09MQ7jTmNpR8xLNFuhEkCOv6oVAD/view?usp=share_link",
         overleafPT: "https://www.overleaf.com/project/6a2f4e91ebfc06888b4f8110",
         overleafEN: "https://www.overleaf.com/project/6a2f4e9bd7922f199cf0f14d",
+        overleafA2EN: "https://www.overleaf.com/project/6a3b11a06233c92ac7f480dc",
         overleafDiss: "https://www.overleaf.com/project/6a37ed104cb88569de5f977d",
-        tplRepo: "https://github.com/gabriellnuness/Template_Thesis_ITA",
+        springerTpl: "https://link.springer.com/series/558/information-for-authors-and-editors",
+        tplRepoAlejandro: "https://github.com/AlejandroRios/Template_Thesis_ITA",
+        tplRepoGabriel: "https://github.com/gabriellnuness/Template_Thesis_ITA",
         tplOverleaf: "https://www.overleaf.com/latex/templates/template-instituto-tecnologico-de-aeronautica-ita/fwnrwrszsrdq",
         researchgate: "https://www.researchgate.net/profile/Richardson-Edson-De-Lima",
+        orcid: "https://orcid.org/0009-0005-9122-6543",
         article1: "https://sol.sbc.org.br/index.php/sbsi_estendido/article/view/21575",
         ladc: "https://ladc.sbc.org.br/2026/",
+        ladcCfp: "https://ladc.sbc.org.br/2026/call-for-papers/",
         mecadeRepo: "https://github.com/richardsonlima/mecade/blob/main/README.md",
         mecadeVideos: "https://www.youtube.com/watch?v=N6bE7Qh9pWc&list=PLkxSfloUbcmAlTUslIEu1mr4Nv1cviRAo",
         mecadeForm: "https://forms.gle/cWQhdargarRRThu68"
@@ -3063,7 +3131,8 @@ sitemap: false
         ["CE-294", "c4", "app", "3"],
         ["CE-230", "c5", "app", "3"],
         ["CT-234", "c6", "app", "3"],
-        ["CT-500", "c7", "prog", "·"]
+        ["CT-500", "c7", "prog", "·"],
+        ["CT-301", "c8", "prog", "·"]
       ];
 
       const RQS = [
@@ -3110,6 +3179,11 @@ sitemap: false
           st: "wip", en: "Dissertation — CT500 in writing", pt: "Dissertação - CT500 em escrita",
           en2: "Dissertation writing project in progress.",
           pt2: "Escrita da dissertação em andamento. (acompanhamento semanal)"
+        },
+        {
+          st: "pending", en: "Re-enrollment 2026.2 — Jul 7–10", pt: "Rematrícula 2026.2 - 7 a 10 jul",
+          en2: "Enrollment window for the second semester of 2026 (per the 2026 academic calendar); enroll in CT-301.",
+          pt2: "Janela de matrícula do segundo semestre de 2026 (conforme o calendário acadêmico 2026); matrícula na disciplina CT-301."
         },
         {
           st: "pending", en: "Committee nomination", pt: "Nomeação da Banca",
@@ -3406,6 +3480,9 @@ sitemap: false
                   html += '<div class="cnote mono">' + L('c6_note') +
                     ' · <a href="' + LINKS.ct234 + '" target="_blank" rel="noopener">' + L('c6_mat') + ' ↗</a></div>';
                 }
+                if (COURSES[ri][0] === 'CT-301') {
+                  html += '<div class="cnote mono">' + L('c8_note') + '</div>';
+                }
                 return html;
               }
               if (ci === 2) return badge(c);
@@ -3417,6 +3494,9 @@ sitemap: false
             tr.innerHTML = '<td></td><td><b>' + L('c_total') + '</b></td><td></td><td class="mono"><b>18</b></td>';
             tb.appendChild(tr);
           }
+          const tlink = el('div', 'cur-transcript mono');
+          tlink.innerHTML = '<a href="' + LINKS.transcript + '" target="_blank" rel="noopener">' + L('c_transcript') + ' ↗</a> <span class="muted">· ' + L('c_transcript_note') + '</span>';
+          cur.appendChild(tlink);
         }
 
         // Records & milestones
@@ -3479,8 +3559,8 @@ sitemap: false
           const rows = [
             [L('p_profile_t'), L('p_profile_i'), badge('active'), '<a href="' + LINKS.researchgate + '" target="_blank" rel="noopener">' + L('p_open_profile') + ' ↗</a>'],
             [L('p_a1_t'), L('p_a1_i'), badge('published'), '<a href="' + LINKS.article1 + '" target="_blank" rel="noopener">' + L('p_open_pub') + ' ↗</a>'],
-            [L('p_a2_t'), L('p_a2_i') + ' · <a href="' + LINKS.ladc + '" target="_blank" rel="noopener" class="mono ladc">LADC 2026 ↗</a>', badge('review'), '<div class="pub-access"><a href="' + LINKS.overleafPT + '" target="_blank" rel="noopener" class="mono">' + L('p_a2_pt') + ' ↗</a><a href="' + LINKS.overleafEN + '" target="_blank" rel="noopener" class="mono">' + L('p_a2_en') + ' ↗</a><span class="muted">' + L('p_confidential') + ' *</span></div>'],
-            [L('p_a3_t'), L('p_a3_i'), badge('backlog'), '<span class="muted">' + L('p_pending') + '</span>'],
+            [L('p_a2_t'), L('p_a2_i') + ' · <a href="' + LINKS.ladcCfp + '" target="_blank" rel="noopener" class="mono ladc">LADC 2026 ↗</a> · <a href="' + LINKS.springerTpl + '" target="_blank" rel="noopener" class="mono">' + L('p_a2_tpl') + ' ↗</a>', badge('review'), '<div class="pub-access"><a href="' + LINKS.overleafA2EN + '" target="_blank" rel="noopener" class="mono">' + L('p_a2_en') + ' ↗</a><span class="muted">' + L('p_confidential') + ' *</span></div>'],
+            [L('p_a3_t'), L('p_a3_i'), badge('wip'), '<div class="pub-access"><a href="' + LINKS.overleafPT + '" target="_blank" rel="noopener" class="mono">' + L('p_a3_pt') + ' ↗</a><a href="' + LINKS.overleafEN + '" target="_blank" rel="noopener" class="mono">' + L('p_a3_en') + ' ↗</a><span class="muted">' + L('p_confidential') + ' *</span></div>'],
             [L('p_diss_t'), L('p_diss_i'), badge('wip'), '<div class="pub-access"><a href="' + LINKS.overleafDiss + '" target="_blank" rel="noopener" class="mono">' + L('p_diss_link') + ' ↗</a><span class="muted">' + L('p_private') + '</span></div>']
           ];
           renderTable(pubs, [L('p_type'), L('p_item'), L('p_status'), L('p_access')], rows, (c) => c);
