@@ -55,6 +55,7 @@ tbody tr{transition:background .2s}tbody tr:hover{background:var(--rl-violet-100
       <a href="standards.dc.html" class="nav-a on" data-i18n="navStd">Standards</a>
       <a href="docs.dc.html" class="nav-a" data-i18n="navDocs">Docs</a>
       <a href="personal-assistant.dc.html" class="nav-a" data-i18n="navUse">Use cases</a>
+      <a href="industrial.dc.html" class="nav-a" data-i18n="navSafety">Safety-critical</a>
     </div>
     <div style="display:flex;gap:4px;background:var(--rl-paper-3);border-radius:999px;padding:3px">
       <button class="lang-b on" id="benEN" onclick="setLang('en')">EN</button>
@@ -143,7 +144,7 @@ tbody tr{transition:background .2s}tbody tr:hover{background:var(--rl-violet-100
 
 <script>
 const I18N={
- en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navInstall:'Install',
+ en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navSafety:'Safety-critical',navInstall:'Install',
   eyebrow:'SPECIFICATIONS',h1a:'The blueprints of a',h1b:'dependable runtime.',
   sub:'Consistent. Interoperable. Deterministic. The formal contracts every Æon agent honours, axioms, envelopes, audit guarantees and resilience-as-code conventions.',
   axTitle:'Operational axioms',axSub:'Deterministic decision functions over measurable thresholds. Each axiom has explicit, testable criteria.',
@@ -152,7 +153,7 @@ const I18N={
   auditEyebrow:'AUDIT & PROVENANCE',auditTitle:'Minimum audit infrastructure',auditSub:'The digital black box records asynchronously, off the critical path, but it must still meet hard guarantees.',
   thCrit:'Criterion',thReq:'Requirement',thWhy:'Why it matters',convTitle:'Engineering conventions',footTag:'Standards-first · safety-native · built by Richardson Lima',
   odaT:'A standalone contract, not just a chaos feature',odaD:'The axiom engine is a self-contained module. Content filters and role-aware guardrails govern text and steer the model; axioms are the deterministic gate on the composed action, LLM reasoning plus the tool call it triggers over REST APIs, MCP servers or A2A. They compose with the guardrails you already run, adding a final, testable GO / BLOCK decision before anything executes.'},
- pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navInstall:'Instalar',
+ pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navSafety:'Setores críticos',navInstall:'Instalar',
   eyebrow:'ESPECIFICAÇÕES',h1a:'Os blueprints de um',h1b:'runtime confiável.',
   sub:'Consistente. Interoperável. Determinístico. Os contratos formais que todo agente Æon honra, axiomas, envelopes, garantias de auditoria e convenções de resilience-as-code.',
   axTitle:'Axiomas operacionais',axSub:'Funções de decisão determinísticas sobre limiares mensuráveis. Cada axioma tem critérios explícitos e testáveis.',

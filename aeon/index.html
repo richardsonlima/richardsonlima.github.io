@@ -86,6 +86,7 @@ input[type=range].axr::-moz-range-thumb{width:22px;height:22px;border-radius:50%
       <a href="standards.dc.html" class="nav-a" data-i18n="navStd">Standards</a>
       <a href="docs.dc.html" class="nav-a" data-i18n="navDocs">Docs</a>
       <a href="personal-assistant.dc.html" class="nav-a" data-i18n="navUse">Use cases</a>
+      <a href="industrial.dc.html" class="nav-a" data-i18n="navSafety">Safety-critical</a>
     </div>
     <div style="display:flex;gap:4px;background:var(--rl-paper-3);border-radius:999px;padding:3px">
       <button class="lang-b on" id="benEN" onclick="setLang('en')">EN</button>
@@ -339,7 +340,7 @@ agent.executor = <span style="color:#57d9e0">enforce</span>(agent.executor)</pre
 
 <script>
 const I18N={
- en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navInstall:'Install',
+ en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navSafety:'Safety-critical',navInstall:'Install',
   eyebrow:'Chaos Engineering for LLM Agents',heroH1a:'Build agents that',heroH1b:'fail safe.',
   heroSub:'Chaos engineering for LLM agents. Æon injects controlled faults, gates every action with deterministic axioms, and chains the proof into an immutable trail, so resilience is engineered, not hoped for.',
   ctaInstall:'Install Core',ctaCycle:'Explore the cycle',chip1:'Deterministic axioms',chip2:'Gray-failure detection',chip3:'Immutable audit',live:'LIVE',
@@ -357,7 +358,7 @@ const I18N={
   odaScopeT:'Reasoning + tool actions, one envelope',
   odaScopeD:'Filters inspect text. Guardrails steer the model. Axioms intercept the composed action, LLM reasoning plus what it is about to do through tools: REST APIs, MCP servers, A2A messages, shell, browsers. Explicit, testable criteria decide GO or BLOCK before execution.',
   odaCompl:'+ COMPLEMENTARY',odaComplD:'Not a replacement. Role-aware guardrails, I/O validation and content filters are mature and stay in place. Axioms compose with them, the final, deterministic gate on the composed action, so the layers you already trust keep working and nothing reaches a tool unchecked.'},
- pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navInstall:'Instalar',
+ pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navSafety:'Setores críticos',navInstall:'Instalar',
   eyebrow:'Chaos Engineering para Agentes LLM',heroH1a:'Construa agentes que',heroH1b:'falham com segurança.',
   heroSub:'Chaos engineering para agentes LLM. O Æon injeta falhas controladas, governa cada ação com axiomas determinísticos e encadeia a prova numa trilha imutável, resiliência é engenharia, não esperança.',
   ctaInstall:'Instalar Core',ctaCycle:'Explorar o ciclo',chip1:'Axiomas determinísticos',chip2:'Detecção de gray-failures',chip3:'Auditoria imutável',live:'AO VIVO',

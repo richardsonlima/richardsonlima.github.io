@@ -56,6 +56,7 @@ h1,h2,h3{margin:0}
       <a href="standards.dc.html" class="nav-a" data-i18n="navStd">Standards</a>
       <a href="docs.dc.html" class="nav-a on" data-i18n="navDocs">Docs</a>
       <a href="personal-assistant.dc.html" class="nav-a" data-i18n="navUse">Use cases</a>
+      <a href="industrial.dc.html" class="nav-a" data-i18n="navSafety">Safety-critical</a>
     </div>
     <div style="display:flex;gap:4px;background:var(--rl-paper-3);border-radius:999px;padding:3px">
       <button class="lang-b on" id="benEN" onclick="setLang('en')">EN</button>
@@ -191,7 +192,7 @@ aeon audit verify           <span class="c"># replay the provenance chain</span>
 
 <script>
 const I18N={
- en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',
+ en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navSafety:'Safety-critical',
   kicker:'TECHNICAL MANUAL',title:'Æon Documentation',lede:'The definitive guide to building dependable LLM agents with chaos engineering at the core.',
   introH:'Introduction',introP1:'Æon is not an LLM wrapper. It is a chaos-native runtime that wraps agent reasoning in a deterministic Safety Envelope. Most frameworks are Think → Act. Æon is Think → Verify → Act.',
   calloutK:'WHY ÆON',introCallout:'Verification happens before execution. That makes Æon suitable for high-consequence environments where an unchecked action is unacceptable.',
@@ -205,7 +206,7 @@ const I18N={
   cliH:'CLI reference',cliP:'The aeon command manages the full lifecycle.',
   cfgH:'Configuration',cfgP:'A single aeon.yaml declares the agent, its budget, and audit guarantees.',
   gGetting:'Getting started',gCycle:'The cycle',gOps:'Operations',gRef:'Reference'},
- pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',
+ pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navSafety:'Setores críticos',
   kicker:'MANUAL TÉCNICO',title:'Documentação Æon',lede:'O guia definitivo para construir agentes LLM confiáveis com chaos engineering no núcleo.',
   introH:'Introdução',introP1:'O Æon não é um wrapper de LLM. É um runtime chaos-native que envolve o raciocínio do agente num Safety Envelope determinístico. A maioria dos frameworks é Pensar → Agir. O Æon é Pensar → Verificar → Agir.',
   calloutK:'POR QUE ÆON',introCallout:'A verificação acontece antes da execução. Isso torna o Æon adequado a ambientes de alta consequência onde uma ação não verificada é inaceitável.',

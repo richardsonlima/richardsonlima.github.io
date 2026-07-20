@@ -58,6 +58,7 @@ tbody tr{transition:background .2s}tbody tr:hover{background:var(--rl-violet-100
       <a href="standards.dc.html" class="nav-a" data-i18n="navStd">Standards</a>
       <a href="docs.dc.html" class="nav-a" data-i18n="navDocs">Docs</a>
       <a href="personal-assistant.dc.html" class="nav-a on" data-i18n="navUse">Use cases</a>
+      <a href="industrial.dc.html" class="nav-a" data-i18n="navSafety">Safety-critical</a>
     </div>
     <div style="display:flex;gap:4px;background:var(--rl-paper-3);border-radius:999px;padding:3px">
       <button class="lang-b on" id="benEN" onclick="setLang('en')">EN</button>
@@ -115,7 +116,7 @@ tbody tr{transition:background .2s}tbody tr:hover{background:var(--rl-violet-100
 
 <script>
 const I18N={
- en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navInstall:'Install',
+ en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navSafety:'Safety-critical',navInstall:'Install',
   eyebrow:'BUILD GUIDE',h1a:'Build your first',h1b:'resilient agent.',
   sub:'From an empty terminal to an agent governed by a Safety Envelope, and proven with a controlled fault. No cloud account required to start.',
   provTitle:'Choose a model provider',provSub:'Start local and free with Ollama; switch to a cloud provider for production. The agent code stays the same.',
@@ -123,7 +124,7 @@ const I18N={
   tipK:'TIP',tip:'Begin with Ollama for development, it runs entirely on your machine, so your data and your chaos experiments never leave it.',
   odaNote:'Step 4 uses the axiom engine, but it does not depend on the rest of Æon. Install aeon-axioms on its own and wrap the executor of any framework, LangGraph, CrewAI, an MCP host or an A2A endpoint, to gate tool actions deterministically, alongside the content filters and guardrails you already use.',
   footTag:'Standards-first · safety-native · built by Richardson Lima'},
- pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navInstall:'Instalar',
+ pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navSafety:'Setores críticos',navInstall:'Instalar',
   eyebrow:'GUIA DE CONSTRUÇÃO',h1a:'Construa seu primeiro',h1b:'agente resiliente.',
   sub:'De um terminal vazio a um agente governado por um Safety Envelope, e provado com uma falha controlada. Sem conta em nuvem para começar.',
   provTitle:'Escolha um provedor de modelo',provSub:'Comece local e grátis com o Ollama; troque para um provedor em nuvem na produção. O código do agente permanece o mesmo.',

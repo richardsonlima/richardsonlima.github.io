@@ -58,6 +58,7 @@ tbody tr{transition:background .2s}tbody tr:hover{background:var(--rl-violet-100
       <a href="standards.dc.html" class="nav-a" data-i18n="navStd">Standards</a>
       <a href="docs.dc.html" class="nav-a" data-i18n="navDocs">Docs</a>
       <a href="personal-assistant.dc.html" class="nav-a" data-i18n="navUse">Use cases</a>
+      <a href="industrial.dc.html" class="nav-a" data-i18n="navSafety">Safety-critical</a>
     </div>
     <div style="display:flex;gap:4px;background:var(--rl-paper-3);border-radius:999px;padding:3px">
       <button class="lang-b on" id="benEN" onclick="setLang('en')">EN</button>
@@ -150,7 +151,7 @@ tbody tr{transition:background .2s}tbody tr:hover{background:var(--rl-violet-100
 
 <script>
 const I18N={
- en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navInstall:'Install',
+ en:{navArch:'Architecture',navStd:'Standards',navDocs:'Docs',navUse:'Use cases',navSafety:'Safety-critical',navInstall:'Install',
   eyebrow:'CORE ARCHITECTURE',h1a:'The resilience runtime,',h1b:'engineered as a loop.',
   sub:'Æon orchestrates seven interdependent layers into a closed cybernetic cycle. Observability intelligence is logically separated from fault execution, so deterministic protection never waits on anything slow.',
   monNote:'Layers 1–3 observe and decide. Critical path.',comNote:'Layers 4–5 execute and contain. Acts on MON signals.',feedbackNote:'Feedback (L6–L7) closes the loop asynchronously, negative entropy refines the next cycle.',
@@ -160,7 +161,7 @@ const I18N={
   decoupled:'decoupled',comTitle:'Execute & contain',comBody:'Controlled fault injection and the deterministic kill-switch. On a LIMIT signal, BLOCK aborts within milliseconds and drives the agent to a Safe State.',
   subEyebrow:'SUBSYSTEMS',subTitle:'What lives in each layer',thLayer:'Layer',thSub:'Subsystem',thPurpose:'Core purpose',footTag:'Standards-first · safety-native · built by Richardson Lima',
   odaT:'The enforcement point between thought and action',odaD:'Operational Deterministic Axioms sit exactly on the L3→L4 boundary: every composed action, the LLM reasoning plus the tool call it would trigger over REST APIs, MCP servers or A2A, passes through them before execution. This is where COM/MON becomes concrete, and the engine ships as a standalone module that composes with content filters and role-aware guardrails rather than replacing them.'},
- pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navInstall:'Instalar',
+ pt:{navArch:'Arquitetura',navStd:'Padrões',navDocs:'Docs',navUse:'Casos de uso',navSafety:'Setores críticos',navInstall:'Instalar',
   eyebrow:'ARQUITETURA CORE',h1a:'O runtime de resiliência,',h1b:'projetado como um loop.',
   sub:'O Æon orquestra sete camadas interdependentes num ciclo cibernético fechado. A inteligência de observabilidade é separada logicamente da execução de falhas, então a proteção determinística nunca espera por algo lento.',
   monNote:'Camadas 1–3 observam e decidem. Caminho crítico.',comNote:'Camadas 4–5 executam e contêm. Agem sobre sinais MON.',feedbackNote:'O feedback (L6–L7) fecha o ciclo de forma assíncrona, a entropia negativa refina o próximo ciclo.',
