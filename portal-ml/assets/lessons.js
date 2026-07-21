@@ -1,4 +1,4 @@
-/* Lesson catalog — single source of truth for trilha + export
+/* Lesson catalog, single source of truth for trilha + export
    Used by: curriculum.html (render trilha), portal.js (export markdown)
 */
 window.LESSON_CATALOG = [
@@ -10,7 +10,7 @@ window.LESSON_CATALOG = [
       { id: 'logistic-reg',   idx: '02', title: 'Logistic Regression',   desc: 'Sigmoide, log-loss, fronteira de decisão linear',       time: '75 min' },
       { id: 'metrics',        idx: '03', title: 'Métricas',              desc: 'MSE · RMSE · MAE · Accuracy · Precision · Recall · F1 · ROC-AUC', time: '60 min' },
       { id: 'overfitting',    idx: '04', title: 'Overfitting & Bias-Variance', desc: 'Curva de aprendizado, validação cruzada, train/val/test', time: '60 min' },
-      { id: 'regularization', idx: '05', title: 'Regularização L1/L2',   desc: 'Ridge, Lasso, ElasticNet — geometria e seleção de features', time: '60 min' },
+      { id: 'regularization', idx: '05', title: 'Regularização L1/L2',   desc: 'Ridge, Lasso, ElasticNet, geometria e seleção de features', time: '60 min' },
     ]
   },
   {
@@ -63,22 +63,22 @@ window.LESSON_CATALOG = [
       { id: 'fine-tuning',      idx: '25', title: 'Fine Tuning',          desc: 'BERT para classificação, instruction tuning, LoRA/QLoRA, PEFT', time: '90 min' },
       { id: 'mas',              idx: '26', title: 'Multi-Agent Systems', desc: 'Coordenação, comunicação, especialização, emergência', time: '75 min' },
       { id: 'agent-patterns',   idx: '27', title: 'Agent Patterns',       desc: 'Router, SubAgent, Handoff, Reflexion, Plan-and-Execute', time: '75 min' },
-      { id: 'agent-frameworks', idx: '28', title: 'Agent Frameworks',     desc: 'LangChain, LangGraph, AutoGen, CrewAI — quando usar cada', time: '60 min' },
+      { id: 'agent-frameworks', idx: '28', title: 'Agent Frameworks',     desc: 'LangChain, LangGraph, AutoGen, CrewAI, quando usar cada', time: '60 min' },
     ]
   },
   {
-    n: 7, slug: 'etapa-7', title: 'Métricas — modelagem clássica',
-    sub: 'Avaliar é mais difícil que treinar. Regressão, classificação, ranking, clustering — métrica errada custa caro.',
+    n: 7, slug: 'etapa-7', title: 'Métricas, modelagem clássica',
+    sub: 'Avaliar é mais difícil que treinar. Regressão, classificação, ranking, clustering, métrica errada custa caro.',
     lessons: [
-      { id: 'metrics-regression',     idx: '29', title: 'Métricas de Regressão',       desc: 'RMSE, MAE, MAPE, R², Huber, Quantile loss — quando cada uma é honesta', time: '60 min' },
+      { id: 'metrics-regression',     idx: '29', title: 'Métricas de Regressão',       desc: 'RMSE, MAE, MAPE, R², Huber, Quantile loss, quando cada uma é honesta', time: '60 min' },
       { id: 'metrics-classification', idx: '30', title: 'Métricas de Classificação',   desc: 'Precision/Recall, F1, ROC-AUC, PR-AUC, MCC, calibração, Cohen\'s κ',   time: '75 min' },
-      { id: 'metrics-ranking',        idx: '31', title: 'Métricas de Ranking',         desc: 'MAP, MRR, NDCG, Hit@k — recomendação e search',                          time: '60 min' },
-      { id: 'metrics-unsupervised',   idx: '32', title: 'Métricas Não-Supervisionadas', desc: 'Silhouette, DB, CH, ARI, NMI — clustering e anomaly detection',         time: '60 min' },
+      { id: 'metrics-ranking',        idx: '31', title: 'Métricas de Ranking',         desc: 'MAP, MRR, NDCG, Hit@k, recomendação e search',                          time: '60 min' },
+      { id: 'metrics-unsupervised',   idx: '32', title: 'Métricas Não-Supervisionadas', desc: 'Silhouette, DB, CH, ARI, NMI, clustering e anomaly detection',         time: '60 min' },
     ]
   },
   {
-    n: 8, slug: 'etapa-8', title: 'Métricas — IA moderna',
-    sub: 'LLMs, RAG, agentes — como avaliar quando "a saída certa" é fuzzy? LLM-as-judge, benchmarks, faithfulness.',
+    n: 8, slug: 'etapa-8', title: 'Métricas, IA moderna',
+    sub: 'LLMs, RAG, agentes, como avaliar quando "a saída certa" é fuzzy? LLM-as-judge, benchmarks, faithfulness.',
     lessons: [
       { id: 'metrics-llm',           idx: '33', title: 'Métricas de LLM',          desc: 'Perplexity, BLEU, ROUGE, BERTScore, MMLU, HumanEval, GSM8K',    time: '75 min' },
       { id: 'metrics-llm-judge',     idx: '34', title: 'LLM-as-Judge',             desc: 'Avaliação automatizada, MT-Bench, AlpacaEval, Arena, viéses',    time: '60 min' },

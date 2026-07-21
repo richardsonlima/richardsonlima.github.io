@@ -1,33 +1,33 @@
-/* Lesson content — Etapas 07, 08 (lições 29–36)
-   Métricas — modelagem clássica + IA moderna
+/* Lesson content, Etapas 07, 08 (lições 29–36)
+   Métricas, modelagem clássica + IA moderna
 */
 window.LESSON_CONTENT = window.LESSON_CONTENT || {};
 
 /* ═══════════════════════════════════════════════════════════════
-   ETAPA 07 — MÉTRICAS · MODELAGEM CLÁSSICA
+   ETAPA 07, MÉTRICAS · MODELAGEM CLÁSSICA
    ═══════════════════════════════════════════════════════════════ */
 
 window.LESSON_CONTENT['metrics-regression'] = {
   id: 'metrics-regression',
   title: 'Métricas de Regressão',
-  etapa: 7, etapaName: 'Métricas — modelagem clássica',
+  etapa: 7, etapaName: 'Métricas, modelagem clássica',
   time: '60 min',
   tags: ['métricas', 'regressão', 'avaliação'],
-  tagline: 'RMSE não é a única métrica — e muitas vezes <em>não é</em> a certa. Catálogo honesto.',
+  tagline: 'RMSE não é a única métrica, e muitas vezes <em>não é</em> a certa. Catálogo honesto.',
   intro: `
-    <p>Toda escolha em ML — qual modelo treinar, quando parar de tunar, qual versão fazer deploy — passa por uma métrica. Se a métrica está errada, você otimiza para a coisa errada. Esta lição cobre o catálogo de métricas de regressão e quando cada uma é honesta.</p>
+    <p>Toda escolha em ML, qual modelo treinar, quando parar de tunar, qual versão fazer deploy, passa por uma métrica. Se a métrica está errada, você otimiza para a coisa errada. Esta lição cobre o catálogo de métricas de regressão e quando cada uma é honesta.</p>
   `,
   sections: [
     {
       id: 'mse-rmse',
-      title: 'MSE / RMSE — o default',
+      title: 'MSE / RMSE, o default',
       body: `
         <div class="math">MSE = (1/n) Σ (yᵢ − ŷᵢ)²</div>
         <div class="math">RMSE = √MSE</div>
         <p>RMSE é a métrica reportada mais comum. Vantagens:</p>
         <ul>
           <li>Está na <strong>mesma unidade do target</strong> (diferente de MSE).</li>
-          <li>Diferenciável — usada como loss em treino.</li>
+          <li>Diferenciável, usada como loss em treino.</li>
           <li>Penaliza erros grandes mais que pequenos (quadrático).</li>
         </ul>
         <p>Desvantagem crítica: <strong>dominada por outliers</strong>. Um erro de 100 vale o mesmo que 100 erros de 10. Se 1% dos seus dados são outliers, RMSE conta uma história que não é a real.</p>
@@ -39,7 +39,7 @@ window.LESSON_CONTENT['metrics-regression'] = {
     },
     {
       id: 'mae',
-      title: 'MAE — mediana, não média',
+      title: 'MAE, mediana, não média',
       body: `
         <div class="math">MAE = (1/n) Σ |yᵢ − ŷᵢ|</div>
         <p>MAE é a média do erro absoluto. Mais robusta a outliers. Pense: cada outlier contribui linearmente (não ao quadrado), então não domina.</p>
@@ -48,7 +48,7 @@ window.LESSON_CONTENT['metrics-regression'] = {
         <ul>
           <li>Há outliers que você <em>não</em> quer que o modelo persiga.</li>
           <li>Você quer "erro médio realista" e não "erro com peso de outliers".</li>
-          <li>Quer reportar para stakeholders não-técnicos — MAE é literalmente "erra X em média".</li>
+          <li>Quer reportar para stakeholders não-técnicos, MAE é literalmente "erra X em média".</li>
         </ul>
       `
     },
@@ -61,7 +61,7 @@ window.LESSON_CONTENT['metrics-regression'] = {
         <p>Armadilhas:</p>
         <ul>
           <li><strong>Explode com y próximo de zero.</strong> Divisão por valores pequenos cria erros gigantes.</li>
-          <li><strong>Assimétrica:</strong> superestimar em 50% (ŷ=15 vs y=10) gera erro maior que subestimar em 50% (ŷ=5 vs y=10) — 50% vs 50%, parece, mas o MAPE é 50% vs 50%; o problema fica claro em <strong>WAPE</strong> e <strong>SMAPE</strong>.</li>
+          <li><strong>Assimétrica:</strong> superestimar em 50% (ŷ=15 vs y=10) gera erro maior que subestimar em 50% (ŷ=5 vs y=10), 50% vs 50%, parece, mas o MAPE é 50% vs 50%; o problema fica claro em <strong>WAPE</strong> e <strong>SMAPE</strong>.</li>
         </ul>
         <p>Alternativas:</p>
         <ul>
@@ -72,15 +72,15 @@ window.LESSON_CONTENT['metrics-regression'] = {
     },
     {
       id: 'r2',
-      title: 'R² — variância explicada',
+      title: 'R², variância explicada',
       body: `
         <div class="math">R² = 1 − Σ(yᵢ − ŷᵢ)² / Σ(yᵢ − ȳ)²</div>
-        <p>R² mede quanto da variância do target o modelo explica. 1.0 = perfeito. 0 = tão bom quanto chutar a média. <strong>Pode ser negativo</strong> se o modelo for pior que prever a média (não é "ao quadrado" — é uma fração com numerador que pode exceder o denominador).</p>
+        <p>R² mede quanto da variância do target o modelo explica. 1.0 = perfeito. 0 = tão bom quanto chutar a média. <strong>Pode ser negativo</strong> se o modelo for pior que prever a média (não é "ao quadrado", é uma fração com numerador que pode exceder o denominador).</p>
         <p>Gotchas:</p>
         <ul>
-          <li>R² alto NÃO significa modelo bom — pode estar overfittando. Sempre olhe em validação.</li>
+          <li>R² alto NÃO significa modelo bom, pode estar overfittando. Sempre olhe em validação.</li>
           <li>R² <strong>sempre cresce</strong> com mais features (mesmo aleatórias). Use <strong>R² ajustado</strong> para penalizar.</li>
-          <li>É sem unidade — bom para comparar modelos no <em>mesmo</em> problema, ruim para comparar entre problemas.</li>
+          <li>É sem unidade, bom para comparar modelos no <em>mesmo</em> problema, ruim para comparar entre problemas.</li>
         </ul>
         <div class="math">R²_adj = 1 − (1 − R²)·(n − 1)/(n − p − 1)</div>
         <p>Onde p é o número de features.</p>
@@ -88,12 +88,12 @@ window.LESSON_CONTENT['metrics-regression'] = {
     },
     {
       id: 'huber-quantile',
-      title: 'Huber e Quantile — robusto e direcional',
+      title: 'Huber e Quantile, robusto e direcional',
       body: `
         <p><strong>Huber loss</strong> é um meio-termo entre MSE e MAE: quadrática para erros pequenos, linear para grandes.</p>
         <div class="math">L_δ = ½(y − ŷ)²    se |y − ŷ| ≤ δ
         L_δ = δ·(|y − ŷ| − δ/2)   caso contrário</div>
-        <p>Boa quando você quer suavidade próxima ao zero (estabilidade no treino) mas robustez a outliers extremos. δ controla o ponto de virada — tipicamente percentil 75 dos resíduos.</p>
+        <p>Boa quando você quer suavidade próxima ao zero (estabilidade no treino) mas robustez a outliers extremos. δ controla o ponto de virada, tipicamente percentil 75 dos resíduos.</p>
         <p><strong>Quantile loss</strong>: você prevê um <em>percentil específico</em> da distribuição condicional, não a média.</p>
         <div class="math">L_q = max(q·(y − ŷ), (q − 1)·(y − ŷ))</div>
         <p>Quando usar:</p>
@@ -131,12 +131,12 @@ window.LESSON_CONTENT['metrics-regression'] = {
 window.LESSON_CONTENT['metrics-classification'] = {
   id: 'metrics-classification',
   title: 'Métricas de Classificação',
-  etapa: 7, etapaName: 'Métricas — modelagem clássica',
+  etapa: 7, etapaName: 'Métricas, modelagem clássica',
   time: '75 min',
   tags: ['métricas', 'classificação', 'AUC'],
-  tagline: 'Accuracy mente. <em>Custo do erro</em> manda na escolha — entender isso é a entrevista inteira.',
+  tagline: 'Accuracy mente. <em>Custo do erro</em> manda na escolha, entender isso é a entrevista inteira.',
   intro: `
-    <p>Em classificação, accuracy raramente é a métrica certa. O custo de um falso positivo vs falso negativo varia drasticamente por domínio: fraude, diagnóstico médico, spam, churn. Esta lição cobre o catálogo completo e — mais importante — como escolher.</p>
+    <p>Em classificação, accuracy raramente é a métrica certa. O custo de um falso positivo vs falso negativo varia drasticamente por domínio: fraude, diagnóstico médico, spam, churn. Esta lição cobre o catálogo completo e, mais importante, como escolher.</p>
   `,
   sections: [
     {
@@ -145,10 +145,10 @@ window.LESSON_CONTENT['metrics-classification'] = {
       body: `
         <p>Tudo deriva de quatro contagens:</p>
         <ul>
-          <li><strong>TP</strong> — predito positivo, era positivo.</li>
-          <li><strong>FP</strong> — predito positivo, era negativo (falso alarme).</li>
-          <li><strong>TN</strong> — predito negativo, era negativo.</li>
-          <li><strong>FN</strong> — predito negativo, era positivo (escapou).</li>
+          <li><strong>TP</strong>, predito positivo, era positivo.</li>
+          <li><strong>FP</strong>, predito positivo, era negativo (falso alarme).</li>
+          <li><strong>TN</strong>, predito negativo, era negativo.</li>
+          <li><strong>FN</strong>, predito negativo, era positivo (escapou).</li>
         </ul>
         <p>Métricas derivadas:</p>
         <div class="math">Precision = TP / (TP + FP)</div>
@@ -156,14 +156,14 @@ window.LESSON_CONTENT['metrics-classification'] = {
         <div class="math">FPR = FP / (FP + TN)</div>
         <div class="math">Specificity = TN / (TN + FP)</div>
         <div class="math">F1 = 2·P·R / (P + R)</div>
-        <p>F1 é a média harmônica de Precision e Recall — penaliza desbalanço (uma das duas baixa puxa F1 muito mais que a média aritmética).</p>
+        <p>F1 é a média harmônica de Precision e Recall, penaliza desbalanço (uma das duas baixa puxa F1 muito mais que a média aritmética).</p>
       `
     },
     {
       id: 'qual-priorizar',
       title: 'Custo do erro decide tudo',
       body: `
-        <p>A pergunta crítica: <strong>"o que custa mais — FP ou FN?"</strong></p>
+        <p>A pergunta crítica: <strong>"o que custa mais, FP ou FN?"</strong></p>
         <ul>
           <li><strong>Fraude bancária:</strong> FN é caro (perdeu fraude). Maximize Recall, aceite Precision menor.</li>
           <li><strong>Spam:</strong> FP é caro (email importante perdido). Maximize Precision.</li>
@@ -179,7 +179,7 @@ window.LESSON_CONTENT['metrics-classification'] = {
     },
     {
       id: 'auc-roc',
-      title: 'AUC-ROC — independente de threshold',
+      title: 'AUC-ROC, independente de threshold',
       body: `
         <p>A curva ROC plota TPR vs FPR variando o threshold. A área sob a curva (AUC) tem interpretação probabilística:</p>
         <blockquote style="margin:14px 0;padding:0 16px;border-left:3px solid var(--accent1);color:var(--text)">
@@ -192,7 +192,7 @@ window.LESSON_CONTENT['metrics-classification'] = {
         </ul>
         <p>Vantagens:</p>
         <ul>
-          <li>Independente do threshold — você ainda não decidiu onde cortar.</li>
+          <li>Independente do threshold, você ainda não decidiu onde cortar.</li>
           <li>Bom para comparar modelos antes de decidir operação.</li>
         </ul>
         <p>Limitação crucial: <strong>AUC-ROC engana em datasets muito desbalanceados</strong>. Com 0.1% de positivos, AUC de 0.95 ainda pode dar Precision miserável. Use PR-AUC para esse caso.</p>
@@ -203,7 +203,7 @@ window.LESSON_CONTENT['metrics-classification'] = {
       title: 'PR-AUC e Average Precision',
       body: `
         <p>A curva Precision-Recall plota Precision vs Recall variando o threshold. Mais informativa que ROC quando positivos são raros.</p>
-        <p>Resumo numérico: <strong>Average Precision (AP)</strong> — média ponderada de Precision em cada nível de Recall.</p>
+        <p>Resumo numérico: <strong>Average Precision (AP)</strong>, média ponderada de Precision em cada nível de Recall.</p>
         <p>Quando preferir PR-AUC sobre ROC-AUC:</p>
         <ul>
           <li>Datasets <strong>desbalanceados</strong> (positivos &lt; 5%).</li>
@@ -215,7 +215,7 @@ window.LESSON_CONTENT['metrics-classification'] = {
     },
     {
       id: 'mcc-kappa',
-      title: 'MCC e Cohen\'s κ — métricas "honestas"',
+      title: 'MCC e Cohen\'s κ, métricas "honestas"',
       body: `
         <p><strong>Matthews Correlation Coefficient (MCC)</strong>:</p>
         <div class="math">MCC = (TP·TN − FP·FN) / √((TP+FP)(TP+FN)(TN+FP)(TN+FN))</div>
@@ -244,7 +244,7 @@ window.LESSON_CONTENT['metrics-classification'] = {
     },
     {
       id: 'calibracao',
-      title: 'Calibração — quando probabilidades importam',
+      title: 'Calibração, quando probabilidades importam',
       body: `
         <p>Modelo pode ter AUC alto e <em>ainda assim</em> dar probabilidades inúteis. Se você precisa que P(y=1)=0.7 signifique "tem 70% de chance", o modelo precisa estar <strong>calibrado</strong>.</p>
         <ul>
@@ -258,7 +258,7 @@ window.LESSON_CONTENT['metrics-classification'] = {
     }
   ],
   whenToUse: [
-    'Sempre — classificação sem métrica adequada é tiro no escuro',
+    'Sempre, classificação sem métrica adequada é tiro no escuro',
     'AUC-ROC para comparar modelos antes de operação',
     'PR-AUC em datasets desbalanceados',
     'F1-macro em multiclasse desbalanceada',
@@ -274,12 +274,12 @@ window.LESSON_CONTENT['metrics-classification'] = {
 window.LESSON_CONTENT['metrics-ranking'] = {
   id: 'metrics-ranking',
   title: 'Métricas de Ranking',
-  etapa: 7, etapaName: 'Métricas — modelagem clássica',
+  etapa: 7, etapaName: 'Métricas, modelagem clássica',
   time: '60 min',
   tags: ['ranking', 'recomendação', 'IR'],
   tagline: 'Em recomendação e busca, <em>ordem</em> importa mais que predição binária.',
   intro: `
-    <p>Sistemas de recomendação, busca e information retrieval (IR) raramente são bem avaliados por accuracy ou F1. O que importa é se os itens <strong>certos aparecem no topo</strong>. Esta lição cobre as métricas que medem isso — MAP, MRR, NDCG — e quando cada uma faz sentido.</p>
+    <p>Sistemas de recomendação, busca e information retrieval (IR) raramente são bem avaliados por accuracy ou F1. O que importa é se os itens <strong>certos aparecem no topo</strong>. Esta lição cobre as métricas que medem isso, MAP, MRR, NDCG, e quando cada uma faz sentido.</p>
   `,
   sections: [
     {
@@ -299,7 +299,7 @@ window.LESSON_CONTENT['metrics-ranking'] = {
     },
     {
       id: 'mrr',
-      title: 'MRR — Mean Reciprocal Rank',
+      title: 'MRR, Mean Reciprocal Rank',
       body: `
         <div class="math">MRR = (1/N) Σᵢ 1/rankᵢ</div>
         <p>Para cada query, o "rank" é a posição do <em>primeiro item relevante</em>. MRR é a média dos recíprocos.</p>
@@ -315,11 +315,11 @@ window.LESSON_CONTENT['metrics-ranking'] = {
     },
     {
       id: 'map',
-      title: 'MAP — Mean Average Precision',
+      title: 'MAP, Mean Average Precision',
       body: `
         <p>Average Precision (AP) é a média de Precision@k em cada posição onde aparece um item relevante:</p>
         <div class="math">AP = Σₖ P@k · rel(k) / total_relevantes</div>
-        <p>MAP é a média de AP entre queries. Combina precision com sensibilidade à ordem — itens relevantes mais cedo aumentam mais o AP.</p>
+        <p>MAP é a média de AP entre queries. Combina precision com sensibilidade à ordem, itens relevantes mais cedo aumentam mais o AP.</p>
         <p>Quando preferir MAP:</p>
         <ul>
           <li>Múltiplos itens relevantes podem existir.</li>
@@ -330,28 +330,28 @@ window.LESSON_CONTENT['metrics-ranking'] = {
     },
     {
       id: 'ndcg',
-      title: 'NDCG — relevância graduada',
+      title: 'NDCG, relevância graduada',
       body: `
-        <p>MAP trata relevância como binária (relevante ou não). NDCG (Normalized Discounted Cumulative Gain) lida com <strong>relevância graduada</strong> — "muito relevante" vale mais que "razoavelmente relevante".</p>
+        <p>MAP trata relevância como binária (relevante ou não). NDCG (Normalized Discounted Cumulative Gain) lida com <strong>relevância graduada</strong>, "muito relevante" vale mais que "razoavelmente relevante".</p>
         <div class="math">DCG@k = Σᵢ (2^rel(i) − 1) / log₂(i + 1)</div>
         <div class="math">NDCG@k = DCG@k / IDCG@k</div>
-        <p>Onde IDCG é o DCG do ranking ideal — normaliza para [0, 1]. O <em>discount</em> log₂(i+1) penaliza relevantes em posições baixas.</p>
-        <p>Default moderno em search, news ranking, ads — qualquer cenário onde itens têm graus de relevância (1-5 estrelas, ctr, dwell time como proxy).</p>
+        <p>Onde IDCG é o DCG do ranking ideal, normaliza para [0, 1]. O <em>discount</em> log₂(i+1) penaliza relevantes em posições baixas.</p>
+        <p>Default moderno em search, news ranking, ads, qualquer cenário onde itens têm graus de relevância (1-5 estrelas, ctr, dwell time como proxy).</p>
       `
     },
     {
       id: 'beyond-accuracy',
       title: 'Para além da relevância: diversidade, serendipidade, coverage',
       body: `
-        <p>Métricas tradicionais otimizam só relevância — mas recomenders bons fazem mais:</p>
+        <p>Métricas tradicionais otimizam só relevância, mas recomenders bons fazem mais:</p>
         <ul>
           <li><strong>Coverage:</strong> que fração do catálogo é mostrada ao longo do tempo? Sistemas concentrados criam "filter bubble".</li>
           <li><strong>Diversity:</strong> os top-k são variados ou todos do mesmo gênero/marca?</li>
           <li><strong>Novelty:</strong> recomenda itens que o usuário não veria por conta própria?</li>
-          <li><strong>Serendipity:</strong> surpresa positiva — relevante mas inesperado.</li>
+          <li><strong>Serendipity:</strong> surpresa positiva, relevante mas inesperado.</li>
           <li><strong>Fairness:</strong> diferentes grupos recebem qualidade similar de recomendações?</li>
         </ul>
-        <p>Em produção, balance NDCG com pelo menos diversity e coverage — senão o sistema converge para "Justin Bieber para todos".</p>
+        <p>Em produção, balance NDCG com pelo menos diversity e coverage, senão o sistema converge para "Justin Bieber para todos".</p>
       `
     },
     {
@@ -366,7 +366,7 @@ window.LESSON_CONTENT['metrics-ranking'] = {
           <li><strong>Engagement</strong>: tempo, retenção, ações.</li>
           <li><strong>Long-term value</strong>: usuários ainda ativos em 30/90 dias?</li>
         </ul>
-        <p>Métricas offline (NDCG) e online (CTR) frequentemente discordam. <strong>A/B testing</strong> é o juiz final — métricas técnicas só fazem sentido se correlacionam com negócio.</p>
+        <p>Métricas offline (NDCG) e online (CTR) frequentemente discordam. <strong>A/B testing</strong> é o juiz final, métricas técnicas só fazem sentido se correlacionam com negócio.</p>
         <div class="callout tip">
           <strong>FRAMEWORK</strong>
           NDCG offline para iterar rápido. A/B online para validar. Múltiplas métricas de negócio para evitar gaming.
@@ -390,17 +390,17 @@ window.LESSON_CONTENT['metrics-ranking'] = {
 window.LESSON_CONTENT['metrics-unsupervised'] = {
   id: 'metrics-unsupervised',
   title: 'Métricas Não-Supervisionadas',
-  etapa: 7, etapaName: 'Métricas — modelagem clássica',
+  etapa: 7, etapaName: 'Métricas, modelagem clássica',
   time: '60 min',
   tags: ['clustering', 'anomalia', 'validação'],
   tagline: 'Sem rótulo, sem ground truth. Avaliar clustering e anomaly detection exige <em>outro vocabulário</em>.',
   intro: `
-    <p>Como você avalia um modelo quando não há resposta certa? Métricas não-supervisionadas medem propriedades intrínsecas dos resultados — coesão, separação, isolamento. Esta lição cobre as principais para clustering e anomaly detection.</p>
+    <p>Como você avalia um modelo quando não há resposta certa? Métricas não-supervisionadas medem propriedades intrínsecas dos resultados, coesão, separação, isolamento. Esta lição cobre as principais para clustering e anomaly detection.</p>
   `,
   sections: [
     {
       id: 'silhouette',
-      title: 'Silhouette score — coesão vs separação',
+      title: 'Silhouette score, coesão vs separação',
       body: `
         <p>Para cada ponto, mede:</p>
         <ul>
@@ -436,13 +436,13 @@ window.LESSON_CONTENT['metrics-unsupervised'] = {
     },
     {
       id: 'calinski-harabasz',
-      title: 'Calinski-Harabasz — variance ratio',
+      title: 'Calinski-Harabasz, variance ratio',
       body: `
         <p>Razão entre dispersão entre clusters e dispersão dentro de clusters:</p>
         <div class="math">CH = (BSS / (k − 1)) / (WSS / (n − k))</div>
         <p>Onde BSS = soma de quadrados entre clusters, WSS = dentro de clusters.</p>
         <p><strong>Maior é melhor.</strong> Penaliza naturalmente número alto de clusters (similar a R² ajustado em regressão).</p>
-        <p>Rápida, escalável, boa para datasets grandes. Como silhouette, pressupõe clusters esféricos — falha em DBSCAN.</p>
+        <p>Rápida, escalável, boa para datasets grandes. Como silhouette, pressupõe clusters esféricos, falha em DBSCAN.</p>
       `
     },
     {
@@ -478,7 +478,7 @@ window.LESSON_CONTENT['metrics-unsupervised'] = {
     },
     {
       id: 'validacao-semantica',
-      title: 'Validação semântica — o que falta nas métricas',
+      title: 'Validação semântica, o que falta nas métricas',
       body: `
         <p>Todas as métricas internas (silhouette, DB, CH) medem <strong>geometria</strong>, não <strong>utilidade</strong>. Um cluster geometricamente perfeito pode ser inútil para o negócio.</p>
         <p>Validação semântica complementar:</p>
@@ -499,29 +499,29 @@ window.LESSON_CONTENT['metrics-unsupervised'] = {
   ],
   whenNot: [
     'Não use silhouette em DBSCAN com formas irregulares',
-    'Não confie só em métricas internas — sempre valide semanticamente'
+    'Não confie só em métricas internas, sempre valide semanticamente'
   ],
   metrics: ['Silhouette, DB, CH', 'ARI, NMI (com ground truth)', 'PR-AUC, Precision@k (anomaly)']
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   ETAPA 08 — MÉTRICAS · IA MODERNA
+   ETAPA 08, MÉTRICAS · IA MODERNA
    ═══════════════════════════════════════════════════════════════ */
 
 window.LESSON_CONTENT['metrics-llm'] = {
   id: 'metrics-llm',
   title: 'Métricas de LLM',
-  etapa: 8, etapaName: 'Métricas — IA moderna',
+  etapa: 8, etapaName: 'Métricas, IA moderna',
   time: '75 min',
   tags: ['LLM', 'benchmarks', 'avaliação'],
   tagline: 'Como medir "qualidade de geração"? <em>Perplexity, BLEU, BERTScore, e os benchmarks</em> que viraram moeda.',
   intro: `
-    <p>Avaliar LLMs é um problema aberto. Métricas tradicionais (perplexity, BLEU) capturam aspectos diferentes da qualidade de geração. Benchmarks (MMLU, HumanEval) viraram a moeda do mercado para comparar modelos. Esta lição cobre todas — com os caveats de cada uma.</p>
+    <p>Avaliar LLMs é um problema aberto. Métricas tradicionais (perplexity, BLEU) capturam aspectos diferentes da qualidade de geração. Benchmarks (MMLU, HumanEval) viraram a moeda do mercado para comparar modelos. Esta lição cobre todas, com os caveats de cada uma.</p>
   `,
   sections: [
     {
       id: 'perplexity',
-      title: 'Perplexity — a métrica fundadora',
+      title: 'Perplexity, a métrica fundadora',
       body: `
         <p>Perplexity é a métrica fundamental do treino de LLM. Mede o quão "surpreso" o modelo está com um texto de teste.</p>
         <div class="math">PPL = exp(−(1/N) Σ log P(xᵢ | x₁...xᵢ₋₁))</div>
@@ -538,7 +538,7 @@ window.LESSON_CONTENT['metrics-llm'] = {
     },
     {
       id: 'bleu-rouge',
-      title: 'BLEU, ROUGE, METEOR — geração baseada em referência',
+      title: 'BLEU, ROUGE, METEOR, geração baseada em referência',
       body: `
         <p>Quando você tem respostas de referência (tradução, sumarização), métricas baseadas em sobreposição:</p>
         <ul>
@@ -561,7 +561,7 @@ window.LESSON_CONTENT['metrics-llm'] = {
           <li><strong>MoverScore</strong>: usa Earth Mover's Distance entre embeddings.</li>
         </ul>
         <p>Vantagens: capturam sinônimos, paráfrases, equivalência semântica. Bem mais alinhadas com humanos que BLEU.</p>
-        <p>Limitação: ainda exigem referência. Para geração aberta (chat, criatividade), você precisa de outras abordagens — LLM-as-judge (próxima lição).</p>
+        <p>Limitação: ainda exigem referência. Para geração aberta (chat, criatividade), você precisa de outras abordagens, LLM-as-judge (próxima lição).</p>
       `
     },
     {
@@ -607,7 +607,7 @@ window.LESSON_CONTENT['metrics-llm'] = {
     },
     {
       id: 'contaminacao',
-      title: 'Contaminação — o problema atual dos benchmarks',
+      title: 'Contaminação, o problema atual dos benchmarks',
       body: `
         <p>Benchmarks são abertos. LLMs são treinados em web crawls que <em>incluem os benchmarks</em>. Resultado: modelos podem ter <strong>memorizado</strong> as respostas, não aprendido a tarefa.</p>
         <p>Como detectar:</p>
@@ -647,12 +647,12 @@ window.LESSON_CONTENT['metrics-llm'] = {
 window.LESSON_CONTENT['metrics-llm-judge'] = {
   id: 'metrics-llm-judge',
   title: 'LLM-as-Judge',
-  etapa: 8, etapaName: 'Métricas — IA moderna',
+  etapa: 8, etapaName: 'Métricas, IA moderna',
   time: '60 min',
   tags: ['LLM-as-judge', 'evaluation', 'MT-Bench'],
-  tagline: 'Usar um LLM forte para <em>julgar</em> outros LLMs. Escalável, barato — mas com vieses conhecidos.',
+  tagline: 'Usar um LLM forte para <em>julgar</em> outros LLMs. Escalável, barato, mas com vieses conhecidos.',
   intro: `
-    <p>Geração aberta (chat, escrita criativa, raciocínio) não tem "resposta correta" — métricas baseadas em referência falham. A solução prática que dominou desde 2023: usar um LLM forte (GPT-4, Claude) para julgar saídas. Esta lição cobre como funciona, frameworks padrão e como evitar os erros.</p>
+    <p>Geração aberta (chat, escrita criativa, raciocínio) não tem "resposta correta", métricas baseadas em referência falham. A solução prática que dominou desde 2023: usar um LLM forte (GPT-4, Claude) para julgar saídas. Esta lição cobre como funciona, frameworks padrão e como evitar os erros.</p>
   `,
   sections: [
     {
@@ -665,7 +665,7 @@ window.LESSON_CONTENT['metrics-llm-judge'] = {
           <li><strong>Pairwise comparison:</strong> juiz compara duas respostas A vs B e decide qual é melhor. Mais robusto que pointwise.</li>
           <li><strong>Reference-based:</strong> juiz compara resposta com referência ideal escrita por humano.</li>
         </ul>
-        <p>Pairwise tem se mostrado o mais confiável — correlaciona melhor com julgamento humano. Pointwise sofre de "everything gets a 7" — juízes tendem ao meio da escala.</p>
+        <p>Pairwise tem se mostrado o mais confiável, correlaciona melhor com julgamento humano. Pointwise sofre de "everything gets a 7", juízes tendem ao meio da escala.</p>
       `
     },
     {
@@ -684,7 +684,7 @@ window.LESSON_CONTENT['metrics-llm-judge'] = {
     },
     {
       id: 'arena',
-      title: 'Chatbot Arena — humanos no loop',
+      title: 'Chatbot Arena, humanos no loop',
       body: `
         <p>Arena (LMSys) é a alternativa: humanos comparam pares de respostas de LLMs anônimos em prompts diversos. Resultado: ranking ELO global.</p>
         <p>Vantagens:</p>
@@ -695,7 +695,7 @@ window.LESSON_CONTENT['metrics-llm-judge'] = {
         </ul>
         <p>Limitações:</p>
         <ul>
-          <li>Lento — leva semanas para um modelo subir no ranking.</li>
+          <li>Lento, leva semanas para um modelo subir no ranking.</li>
           <li>Vieses dos avaliadores (técnicos, ocidentais, etc.).</li>
           <li>Não é reproduzível offline.</li>
         </ul>
@@ -754,7 +754,7 @@ window.LESSON_CONTENT['metrics-llm-judge'] = {
     'Quando humanos são caros/lentos demais'
   ],
   whenNot: [
-    'Decisões críticas — sempre tenha humano no loop',
+    'Decisões críticas, sempre tenha humano no loop',
     'Quando os critérios são subjetivos demais',
     'Sem calibração prévia contra humano'
   ],
@@ -764,12 +764,12 @@ window.LESSON_CONTENT['metrics-llm-judge'] = {
 window.LESSON_CONTENT['metrics-rag'] = {
   id: 'metrics-rag',
   title: 'Métricas de RAG',
-  etapa: 8, etapaName: 'Métricas — IA moderna',
+  etapa: 8, etapaName: 'Métricas, IA moderna',
   time: '60 min',
   tags: ['RAG', 'Ragas', 'faithfulness'],
   tagline: '<em>Retrieval</em> + <em>generation</em> = duas fases para medir. Faithfulness, context precision, answer relevance.',
   intro: `
-    <p>RAG combina retrieval com generation. Cada etapa pode falhar de jeitos diferentes — e cada uma exige métricas próprias. Esta lição cobre o framework Ragas (padrão de fato) e as métricas que importam.</p>
+    <p>RAG combina retrieval com generation. Cada etapa pode falhar de jeitos diferentes, e cada uma exige métricas próprias. Esta lição cobre o framework Ragas (padrão de fato) e as métricas que importam.</p>
   `,
   sections: [
     {
@@ -780,9 +780,9 @@ window.LESSON_CONTENT['metrics-rag'] = {
         <ol>
           <li><strong>Retrieval ruim:</strong> não encontrou os documentos relevantes. Métricas de IR clássicas (Recall@k, MRR, NDCG).</li>
           <li><strong>Generation ruim:</strong> encontrou o contexto certo, mas gerou resposta errada ou desconectada.</li>
-          <li><strong>Faithfulness ruim:</strong> gerou resposta que <em>não está no contexto</em> — alucinou ou contradiz os documentos.</li>
+          <li><strong>Faithfulness ruim:</strong> gerou resposta que <em>não está no contexto</em>, alucinou ou contradiz os documentos.</li>
         </ol>
-        <p>Sistemas RAG mal-medidos confundem essas falhas. Você troca o modelo de embedding e melhora geração — mas o problema era retrieval, e você quebrou a faithfulness por acidente.</p>
+        <p>Sistemas RAG mal-medidos confundem essas falhas. Você troca o modelo de embedding e melhora geração, mas o problema era retrieval, e você quebrou a faithfulness por acidente.</p>
       `
     },
     {
@@ -791,7 +791,7 @@ window.LESSON_CONTENT['metrics-rag'] = {
       body: `
         <p>Requer ground truth: para cada query, quais documentos são relevantes?</p>
         <ul>
-          <li><strong>Recall@k:</strong> dos documentos relevantes, quantos estão nos top-k retornados? Métrica mais importante — se o doc não foi retrieve, não importa o LLM.</li>
+          <li><strong>Recall@k:</strong> dos documentos relevantes, quantos estão nos top-k retornados? Métrica mais importante, se o doc não foi retrieve, não importa o LLM.</li>
           <li><strong>MRR:</strong> posição do primeiro relevante. Bom para Q&A onde uma fonte basta.</li>
           <li><strong>NDCG@k:</strong> ranking ponderado por posição.</li>
           <li><strong>Context Precision (Ragas):</strong> dos chunks no contexto enviado ao LLM, quais são realmente relevantes? Avaliado por LLM-as-judge.</li>
@@ -801,7 +801,7 @@ window.LESSON_CONTENT['metrics-rag'] = {
     },
     {
       id: 'faithfulness',
-      title: 'Faithfulness — a métrica mais importante',
+      title: 'Faithfulness, a métrica mais importante',
       body: `
         <p><strong>Faithfulness</strong>: a resposta gerada é <em>suportada</em> pelo contexto recuperado? Mede alucinação.</p>
         <p>Avaliação típica (Ragas):</p>
@@ -826,7 +826,7 @@ window.LESSON_CONTENT['metrics-rag'] = {
     },
     {
       id: 'ragas-framework',
-      title: 'Ragas — framework padrão',
+      title: 'Ragas, framework padrão',
       body: `
         <pre><code>from ragas import evaluate
 from ragas.metrics import (
@@ -888,7 +888,7 @@ print(result)
 window.LESSON_CONTENT['metrics-agents-safety'] = {
   id: 'metrics-agents-safety',
   title: 'Métricas de Agentes & Segurança',
-  etapa: 8, etapaName: 'Métricas — IA moderna',
+  etapa: 8, etapaName: 'Métricas, IA moderna',
   time: '75 min',
   tags: ['agents', 'safety', 'jailbreak', 'red-teaming'],
   tagline: 'Agentes têm múltiplos passos, cada um pode falhar. <em>Segurança</em> é métrica obrigatória em produção.',
@@ -903,8 +903,8 @@ window.LESSON_CONTENT['metrics-agents-safety'] = {
         <p>A métrica que mais importa: o agente <strong>completou a tarefa</strong>?</p>
         <p>Variantes:</p>
         <ul>
-          <li><strong>Hard success:</strong> binária — completou exatamente como esperado.</li>
-          <li><strong>Soft success:</strong> gradual — completou parcialmente, satisfez objetivo principal mesmo se desviou.</li>
+          <li><strong>Hard success:</strong> binária, completou exatamente como esperado.</li>
+          <li><strong>Soft success:</strong> gradual, completou parcialmente, satisfez objetivo principal mesmo se desviou.</li>
           <li><strong>Partial credit:</strong> N subtarefas, fração concluída.</li>
         </ul>
         <p>Como medir:</p>
@@ -970,7 +970,7 @@ window.LESSON_CONTENT['metrics-agents-safety'] = {
         <p>Avaliação de segurança em geração:</p>
         <ul>
           <li><strong>Toxicity score:</strong> Perspective API (Google) ou Detoxify (HuggingFace). Output tóxico, ofensivo, ameaçador.</li>
-          <li><strong>Bias benchmarks:</strong> BBQ, BOLD, StereoSet — medem viés contra grupos demográficos.</li>
+          <li><strong>Bias benchmarks:</strong> BBQ, BOLD, StereoSet, medem viés contra grupos demográficos.</li>
           <li><strong>Sentiment skew</strong>: tom geral consistente entre grupos?</li>
           <li><strong>Demographic parity</strong> em sistemas de classificação que afetam pessoas.</li>
         </ul>

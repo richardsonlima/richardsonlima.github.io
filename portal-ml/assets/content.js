@@ -1,4 +1,4 @@
-/* Lesson content — Etapas 01, 02, 03 (lições 01–12)
+/* Lesson content, Etapas 01, 02, 03 (lições 01–12)
    Schema:
    {
      id, title, etapa, etapaName, time, tagline, intro,
@@ -11,7 +11,7 @@
 window.LESSON_CONTENT = window.LESSON_CONTENT || {};
 
 /* ═══════════════════════════════════════════════════════════════
-   ETAPA 01 — BASE MATEMÁTICA
+   ETAPA 01, BASE MATEMÁTICA
    ═══════════════════════════════════════════════════════════════ */
 
 window.LESSON_CONTENT['linear-reg'] = {
@@ -30,7 +30,7 @@ window.LESSON_CONTENT['linear-reg'] = {
       id: 'intuicao',
       title: 'Intuição geométrica',
       body: `
-        <p>Imagine que você tem um <em>scatter plot</em> de horas estudadas vs nota da prova. Regressão linear busca a melhor reta — em 1D — ou o melhor hiperplano — em mais dimensões — que minimiza a distância vertical (no eixo do target) até os pontos.</p>
+        <p>Imagine que você tem um <em>scatter plot</em> de horas estudadas vs nota da prova. Regressão linear busca a melhor reta, em 1D, ou o melhor hiperplano, em mais dimensões, que minimiza a distância vertical (no eixo do target) até os pontos.</p>
         <p>A função aprendida é:</p>
         <div class="math">f(x) = β₀ + β₁x₁ + β₂x₂ + … + βₙxₙ</div>
         <p>Os coeficientes <code>βᵢ</code> são o que o modelo aprende. <code>β₀</code> é o intercepto (onde a reta cruza o eixo y), e cada <code>βᵢ</code> diz <strong>quanto y muda quando xᵢ aumenta em uma unidade</strong>, mantendo o resto constante. Essa última frase é o motivo da regressão linear ser tão interpretável.</p>
@@ -45,8 +45,8 @@ window.LESSON_CONTENT['linear-reg'] = {
         <p>Por que <em>ao quadrado</em> e não valor absoluto?</p>
         <ul>
           <li><strong>Diferenciabilidade:</strong> a parábola tem derivada suave em todo ponto, o que torna a otimização (gradient descent ou solução fechada) viável.</li>
-          <li><strong>Penalização de erros grandes:</strong> um erro de 10 vale 100, não 10. Isso força o modelo a focar em outliers — para o bem ou para o mal.</li>
-          <li><strong>Conexão estatística:</strong> minimizar MSE equivale a maximizar a verossimilhança assumindo erros gaussianos. Não é coincidência — é teoria sólida.</li>
+          <li><strong>Penalização de erros grandes:</strong> um erro de 10 vale 100, não 10. Isso força o modelo a focar em outliers, para o bem ou para o mal.</li>
+          <li><strong>Conexão estatística:</strong> minimizar MSE equivale a maximizar a verossimilhança assumindo erros gaussianos. Não é coincidência, é teoria sólida.</li>
         </ul>
         <div class="callout warn">
           <strong>PEGADINHA</strong>
@@ -64,10 +64,10 @@ window.LESSON_CONTENT['linear-reg'] = {
         <p>Funciona quando o dataset é pequeno e a matriz <code>XᵀX</code> é invertível. Custo: O(n·d²) + O(d³) pela inversão.</p>
         <p><strong>2. Gradient descent:</strong> iterativo. Começa com β aleatório e atualiza na direção oposta ao gradiente do MSE.</p>
         <div class="math">β ← β − η · ∇MSE(β)</div>
-        <p>Funciona em qualquer escala (basta usar mini-batches). É como o resto do deep learning treina. A escolha do <code>η</code> (learning rate) é crítica — alto demais diverge, baixo demais não converge.</p>
+        <p>Funciona em qualquer escala (basta usar mini-batches). É como o resto do deep learning treina. A escolha do <code>η</code> (learning rate) é crítica, alto demais diverge, baixo demais não converge.</p>
         <div class="callout tip">
           <strong>DICA</strong>
-          Equação normal é didática. Em produção, use SGD ou solvers especializados (LBFGS, etc.) — escalam melhor e suportam regularização.
+          Equação normal é didática. Em produção, use SGD ou solvers especializados (LBFGS, etc.), escalam melhor e suportam regularização.
         </div>
       `
     },
@@ -79,7 +79,7 @@ window.LESSON_CONTENT['linear-reg'] = {
         <ol>
           <li><strong>Linearidade:</strong> a relação entre X e y é, de fato, linear nos parâmetros. Você pode transformar features (log, polinomial), mas o modelo é linear no espaço transformado.</li>
           <li><strong>Independência:</strong> as observações são independentes entre si. Time series violam isso de cara.</li>
-          <li><strong>Homocedasticidade:</strong> a variância dos resíduos é constante. Se erra mais em valores altos do que baixos, você tem heterocedasticidade — use modelos robustos ou transformações.</li>
+          <li><strong>Homocedasticidade:</strong> a variância dos resíduos é constante. Se erra mais em valores altos do que baixos, você tem heterocedasticidade, use modelos robustos ou transformações.</li>
           <li><strong>Normalidade dos resíduos:</strong> necessária para intervalos de confiança, não para a estimativa pontual.</li>
           <li><strong>Sem multicolinearidade severa:</strong> features muito correlacionadas tornam <code>XᵀX</code> quase singular e desestabilizam os coeficientes.</li>
         </ol>
@@ -88,7 +88,7 @@ window.LESSON_CONTENT['linear-reg'] = {
     },
     {
       id: 'pratica',
-      title: 'Na prática — sklearn',
+      title: 'Na prática, sklearn',
       body: `
         <p>O código mais comum que você vai escrever:</p>
         <pre><code>from sklearn.linear_model import LinearRegression
@@ -108,7 +108,7 @@ print("Coefs:", dict(zip(feature_names, model.coef_)))</code></pre>
         <p>Coisas que NÃO aparecem no código mas devem estar na sua cabeça:</p>
         <ul>
           <li>Sempre faça <strong>train/test split antes</strong> de qualquer pré-processamento que dependa dos dados (escala, imputação).</li>
-          <li>R² isolado mente — sempre olhe RMSE/MAE também, em unidades do target.</li>
+          <li>R² isolado mente, sempre olhe RMSE/MAE também, em unidades do target.</li>
           <li>Se as features têm escalas diferentes (idade em anos vs renda em reais), a magnitude dos coeficientes não é comparável. Padronize antes se quiser comparar.</li>
         </ul>
       `
@@ -135,10 +135,10 @@ window.LESSON_CONTENT['logistic-reg'] = {
   etapa: 1, etapaName: 'Base matemática',
   time: '75 min',
   tags: ['classificação', 'paramétrico', 'probabilístico'],
-  tagline: 'O baseline obrigatório de toda classificação. <em>Não</em> é regressão — apesar do nome. Modela probabilidade.',
+  tagline: 'O baseline obrigatório de toda classificação. <em>Não</em> é regressão, apesar do nome. Modela probabilidade.',
   intro: `
     <p>Logistic regression é classificação disfarçada de regressão. O nome confunde até gente experiente. A ideia: pegar uma combinação linear (igual à regressão linear) e passar por uma função que comprime para o intervalo (0, 1), interpretando o resultado como probabilidade.</p>
-    <p>É o modelo de classificação mais usado em <strong>risk scoring</strong> (crédito, fraude, churn) e em situações regulatórias onde você precisa explicar cada coeficiente — o que árvores e redes neurais não permitem trivialmente.</p>
+    <p>É o modelo de classificação mais usado em <strong>risk scoring</strong> (crédito, fraude, churn) e em situações regulatórias onde você precisa explicar cada coeficiente, o que árvores e redes neurais não permitem trivialmente.</p>
   `,
   sections: [
     {
@@ -147,10 +147,10 @@ window.LESSON_CONTENT['logistic-reg'] = {
       body: `
         <p>O coração do modelo é a função sigmoide (logística):</p>
         <div class="math">σ(z) = 1 / (1 + e^−z)</div>
-        <p>Ela mapeia qualquer número real para o intervalo (0, 1). Para z muito negativo, σ → 0. Para z muito positivo, σ → 1. No meio, em z = 0, σ = 0.5 — a fronteira de decisão.</p>
+        <p>Ela mapeia qualquer número real para o intervalo (0, 1). Para z muito negativo, σ → 0. Para z muito positivo, σ → 1. No meio, em z = 0, σ = 0.5, a fronteira de decisão.</p>
         <p>A combinação completa é:</p>
         <div class="math">P(y = 1 | x) = σ(βᵀx + β₀) = 1 / (1 + e^−(βᵀx + β₀))</div>
-        <p>Os coeficientes β agora ficam no espaço do logit (log-odds), não em unidades do target diretamente. Isso muda como você interpreta — voltamos a isso adiante.</p>
+        <p>Os coeficientes β agora ficam no espaço do logit (log-odds), não em unidades do target diretamente. Isso muda como você interpreta, voltamos a isso adiante.</p>
       `
     },
     {
@@ -159,7 +159,7 @@ window.LESSON_CONTENT['logistic-reg'] = {
       body: `
         <p>MSE em classificação dá péssimos gradientes e tem múltiplos mínimos locais. Para classificação binária, o custo correto é a <strong>log-loss</strong> (também chamada de cross-entropy binária):</p>
         <div class="math">L = −(1/n) Σ [yᵢ log(p̂ᵢ) + (1 − yᵢ) log(1 − p̂ᵢ)]</div>
-        <p>Lendo isso devagar: para cada exemplo, se o rótulo verdadeiro é 1, penalizamos por <code>−log(p̂)</code> — bem alto quando p̂ é próximo de 0 (o modelo errou feio com confiança). Se o rótulo é 0, penalizamos por <code>−log(1 − p̂)</code>.</p>
+        <p>Lendo isso devagar: para cada exemplo, se o rótulo verdadeiro é 1, penalizamos por <code>−log(p̂)</code>, bem alto quando p̂ é próximo de 0 (o modelo errou feio com confiança). Se o rótulo é 0, penalizamos por <code>−log(1 − p̂)</code>.</p>
         <div class="callout">
           <strong>POR QUÊ?</strong>
           Log-loss é convexa (um único mínimo global), derivada simples, e equivale à máxima verossimilhança sob Bernoulli. É a escolha matematicamente "natural" para classificação binária.
@@ -171,7 +171,7 @@ window.LESSON_CONTENT['logistic-reg'] = {
       title: 'Interpretação: odds ratio',
       body: `
         <p>Cada coeficiente βᵢ tem uma interpretação precisa: <code>exp(βᵢ)</code> é o <strong>odds ratio</strong> associado a aumentar xᵢ em uma unidade.</p>
-        <p>Exemplo: se você modela "probabilidade de inadimplência" e o coeficiente de "tem cartão de crédito ativo" é <code>0.7</code>, então <code>exp(0.7) ≈ 2.01</code> — ter cartão ativo dobra as chances (odds) de inadimplir, holding tudo constante.</p>
+        <p>Exemplo: se você modela "probabilidade de inadimplência" e o coeficiente de "tem cartão de crédito ativo" é <code>0.7</code>, então <code>exp(0.7) ≈ 2.01</code>, ter cartão ativo dobra as chances (odds) de inadimplir, holding tudo constante.</p>
         <ul>
           <li><code>exp(β) > 1</code>: feature aumenta as chances do evento.</li>
           <li><code>exp(β) = 1</code>: feature não afeta.</li>
@@ -207,7 +207,7 @@ X_train_s = scaler.fit_transform(X_train)
 
 model = LogisticRegression(
     penalty='l2',       # ou 'l1', 'elasticnet'
-    C=1.0,              # inverso de λ — menor C = mais regularização
+    C=1.0,              # inverso de λ, menor C = mais regularização
     solver='lbfgs',     # 'saga' suporta L1 e ElasticNet
     max_iter=1000,
     class_weight='balanced'  # útil em classes desbalanceadas
@@ -225,7 +225,7 @@ model.fit(X_train_s, y_train)</code></pre>
     'Quando probabilidades calibradas são necessárias',
     'Risk scoring (crédito, fraude) e contextos regulados',
     'Quando interpretabilidade dos coeficientes é prioridade',
-    'Datasets de qualquer tamanho — escala muito bem'
+    'Datasets de qualquer tamanho, escala muito bem'
   ],
   whenNot: [
     'Fronteira de decisão fortemente não-linear sem feature engineering',
@@ -243,7 +243,7 @@ window.LESSON_CONTENT['metrics'] = {
   tags: ['avaliação', 'regressão', 'classificação'],
   tagline: 'Modelo bom é modelo medido <em>corretamente</em>. Escolher a métrica errada é o erro mais caro do ML.',
   intro: `
-    <p>Toda decisão técnica em ML — qual modelo usar, qual feature manter, quando parar de tunar — passa por métricas. Se você usa a métrica errada, otimiza para a coisa errada. Esta lição te dá o catálogo das métricas que importam, quando usar cada uma, e os erros mais comuns.</p>
+    <p>Toda decisão técnica em ML, qual modelo usar, qual feature manter, quando parar de tunar, passa por métricas. Se você usa a métrica errada, otimiza para a coisa errada. Esta lição te dá o catálogo das métricas que importam, quando usar cada uma, e os erros mais comuns.</p>
   `,
   sections: [
     {
@@ -253,9 +253,9 @@ window.LESSON_CONTENT['metrics'] = {
         <ul>
           <li><strong>MSE (Mean Squared Error):</strong> média dos erros ao quadrado. Penaliza outliers muito. Não está na unidade do target.</li>
           <li><strong>RMSE (Root MSE):</strong> raiz quadrada do MSE. <em>Está</em> na unidade do target. Default para report.</li>
-          <li><strong>MAE (Mean Absolute Error):</strong> média do erro absoluto. Robusta a outliers. Mais "humana" — diz literalmente quanto erra em média.</li>
+          <li><strong>MAE (Mean Absolute Error):</strong> média do erro absoluto. Robusta a outliers. Mais "humana", diz literalmente quanto erra em média.</li>
           <li><strong>MAPE (Mean Absolute Percentage Error):</strong> erro percentual. Útil quando a magnitude varia muito (preços de R$ 10 e R$ 10.000). Mas explode com valores próximos de zero.</li>
-          <li><strong>R²:</strong> proporção de variância explicada. 1.0 é perfeito, 0 é "tão bom quanto chutar a média". <strong>Pode ser negativo</strong> se o modelo for pior que a média — não é "ao quadrado".</li>
+          <li><strong>R²:</strong> proporção de variância explicada. 1.0 é perfeito, 0 é "tão bom quanto chutar a média". <strong>Pode ser negativo</strong> se o modelo for pior que a média, não é "ao quadrado".</li>
         </ul>
         <div class="callout warn">
           <strong>ARMADILHA</strong>
@@ -276,9 +276,9 @@ window.LESSON_CONTENT['metrics'] = {
         </ul>
         <p>A partir daí:</p>
         <div class="math">Accuracy = (TP + TN) / total</div>
-        <div class="math">Precision = TP / (TP + FP) — dos que previ positivo, quantos são?</div>
-        <div class="math">Recall    = TP / (TP + FN) — dos positivos reais, quantos peguei?</div>
-        <div class="math">F1 = 2 · (P · R) / (P + R) — média harmônica de P e R</div>
+        <div class="math">Precision = TP / (TP + FP), dos que previ positivo, quantos são?</div>
+        <div class="math">Recall    = TP / (TP + FN), dos positivos reais, quantos peguei?</div>
+        <div class="math">F1 = 2 · (P · R) / (P + R), média harmônica de P e R</div>
       `
     },
     {
@@ -290,7 +290,7 @@ window.LESSON_CONTENT['metrics'] = {
           <li><strong>Fraude:</strong> FN custa muito (perdeu fraude). Priorize Recall.</li>
           <li><strong>Spam:</strong> FP custa muito (email importante na lixeira). Priorize Precision.</li>
           <li><strong>Diagnóstico médico de doença rara:</strong> Recall altíssimo, depois investiga.</li>
-          <li><strong>Classes desbalanceadas (1% positivos):</strong> Accuracy mente — modelo que sempre diz "negativo" tem 99% accuracy. Use F1, PR-AUC ou Recall com Precision fixo.</li>
+          <li><strong>Classes desbalanceadas (1% positivos):</strong> Accuracy mente, modelo que sempre diz "negativo" tem 99% accuracy. Use F1, PR-AUC ou Recall com Precision fixo.</li>
           <li><strong>Quando você não sabe o threshold:</strong> AUC-ROC mede a capacidade de ranquear positivos acima de negativos, independente do threshold.</li>
         </ul>
         <div class="callout tip">
@@ -313,7 +313,7 @@ window.LESSON_CONTENT['metrics'] = {
     },
     {
       id: 'calibracao',
-      title: 'Calibração — a métrica esquecida',
+      title: 'Calibração, a métrica esquecida',
       body: `
         <p>Um modelo pode ter AUC alto e <em>ainda assim</em> dar probabilidades inúteis. Se você precisa que P(y=1) = 0.7 signifique "tem 70% de chance", você precisa de um modelo <strong>calibrado</strong>.</p>
         <ul>
@@ -326,16 +326,16 @@ window.LESSON_CONTENT['metrics'] = {
     }
   ],
   whenToUse: [
-    'Sempre — métricas são parte do design de qualquer modelo',
+    'Sempre, métricas são parte do design de qualquer modelo',
     'Para escolher entre algoritmos comparáveis',
     'Para tunar threshold de decisão em classificação',
     'Para detectar overfitting (gap train vs val)'
   ],
   whenNot: [
-    'N/A — métricas não são opcionais',
-    'Não confie em uma métrica única — sempre olhe 2-3'
+    'N/A, métricas não são opcionais',
+    'Não confie em uma métrica única, sempre olhe 2-3'
   ],
-  metrics: ['Depende da tarefa — esta lição cobre o catálogo']
+  metrics: ['Depende da tarefa, esta lição cobre o catálogo']
 };
 
 window.LESSON_CONTENT['overfitting'] = {
@@ -344,9 +344,9 @@ window.LESSON_CONTENT['overfitting'] = {
   etapa: 1, etapaName: 'Base matemática',
   time: '60 min',
   tags: ['fundamento', 'diagnóstico', 'generalização'],
-  tagline: 'O problema central do ML não é treinar — é <em>generalizar</em>. Tudo gira em torno de bias vs variance.',
+  tagline: 'O problema central do ML não é treinar, é <em>generalizar</em>. Tudo gira em torno de bias vs variance.',
   intro: `
-    <p>Treinar um modelo é fácil: aumenta a capacidade até o erro no treino chegar a zero. O problema é que esse modelo provavelmente é inútil em dados novos. Esta lição te dá o vocabulário e os diagnósticos para falar sobre <strong>generalização</strong> — a única coisa que importa em produção.</p>
+    <p>Treinar um modelo é fácil: aumenta a capacidade até o erro no treino chegar a zero. O problema é que esse modelo provavelmente é inútil em dados novos. Esta lição te dá o vocabulário e os diagnósticos para falar sobre <strong>generalização</strong>, a única coisa que importa em produção.</p>
   `,
   sections: [
     {
@@ -359,7 +359,7 @@ window.LESSON_CONTENT['overfitting'] = {
           <li>Erro alto na validação.</li>
           <li>Gap grande entre os dois.</li>
         </ul>
-        <p>Underfitting é o oposto — modelo simples demais, erra muito em ambos.</p>
+        <p>Underfitting é o oposto, modelo simples demais, erra muito em ambos.</p>
         <p>O ponto ótimo está no meio: erro de treino e validação próximos, ambos razoáveis. A jornada de ajuste do modelo é essencialmente <em>navegar</em> entre esses dois extremos.</p>
       `
     },
@@ -374,7 +374,7 @@ window.LESSON_CONTENT['overfitting'] = {
           <li><strong>Variance:</strong> sensibilidade do modelo a variações no dataset de treino. Modelos muito flexíveis (árvore profunda, KNN com k=1) têm variance alta. Cresce com a flexibilidade.</li>
           <li><strong>Noise:</strong> aleatoriedade intrínseca ao problema. Não dá pra reduzir, só estimar.</li>
         </ul>
-        <p>Bias e variance trocam: reduzir um aumenta o outro. <strong>Encontrar o equilíbrio é o jogo.</strong> Ensembles (como Random Forest) reduzem variance sem aumentar muito bias — por isso funcionam.</p>
+        <p>Bias e variance trocam: reduzir um aumenta o outro. <strong>Encontrar o equilíbrio é o jogo.</strong> Ensembles (como Random Forest) reduzem variance sem aumentar muito bias, por isso funcionam.</p>
       `
     },
     {
@@ -383,7 +383,7 @@ window.LESSON_CONTENT['overfitting'] = {
       body: `
         <p>A ferramenta mais útil para diagnosticar bias vs variance é a <strong>learning curve</strong>: plot do erro de treino e validação em função do tamanho do dataset.</p>
         <ul>
-          <li><strong>Ambas as curvas planas em erro alto:</strong> bias alto (underfitting). Modelo simples demais. Solução: aumentar capacidade — mais features, modelo mais complexo, menos regularização.</li>
+          <li><strong>Ambas as curvas planas em erro alto:</strong> bias alto (underfitting). Modelo simples demais. Solução: aumentar capacidade, mais features, modelo mais complexo, menos regularização.</li>
           <li><strong>Treino com erro baixo, validação com erro alto, gap grande:</strong> variance alta (overfitting). Solução: mais dados, mais regularização, menos features, modelo mais simples.</li>
           <li><strong>Ambas convergem com erro razoável:</strong> good fit. Mantenha.</li>
           <li><strong>Ambas ainda caindo:</strong> mais dados ajudariam.</li>
@@ -399,7 +399,7 @@ train_sizes, train_scores, val_scores = learning_curve(
     },
     {
       id: 'cross-validation',
-      title: 'Validação cruzada — por que é não-negociável',
+      title: 'Validação cruzada, por que é não-negociável',
       body: `
         <p>Um único split train/test te dá uma estimativa <em>ruidosa</em> da performance. Pode ter dado bom por sorte. Cross-validation reduz essa variância dividindo os dados em k folds:</p>
         <ol>
@@ -411,11 +411,11 @@ train_sizes, train_scores, val_scores = learning_curve(
         <ul>
           <li><strong>Stratified k-fold:</strong> mantém a proporção das classes em cada fold. Obrigatório em classificação desbalanceada.</li>
           <li><strong>Group k-fold:</strong> garante que amostras do mesmo grupo (mesmo paciente, mesma loja) ficam todas no mesmo fold. Crítico para evitar leakage.</li>
-          <li><strong>TimeSeriesSplit:</strong> respeita ordem temporal — só treina em passado, valida em futuro.</li>
+          <li><strong>TimeSeriesSplit:</strong> respeita ordem temporal, só treina em passado, valida em futuro.</li>
         </ul>
         <div class="callout warn">
           <strong>NUNCA</strong>
-          Use k-fold simples em séries temporais. Você estará treinando no futuro e validando no passado — leakage perfeito.
+          Use k-fold simples em séries temporais. Você estará treinando no futuro e validando no passado, leakage perfeito.
         </div>
       `
     },
@@ -425,7 +425,7 @@ train_sizes, train_scores, val_scores = learning_curve(
       body: `
         <p>O arsenal disponível, do mais barato para o mais caro:</p>
         <ul>
-          <li><strong>Mais dados.</strong> A solução que sempre funciona — se você tiver acesso. Aumentação de dados (data augmentation) em imagens é uma versão barata.</li>
+          <li><strong>Mais dados.</strong> A solução que sempre funciona, se você tiver acesso. Aumentação de dados (data augmentation) em imagens é uma versão barata.</li>
           <li><strong>Regularização.</strong> L1, L2, ElasticNet, dropout (em redes), pruning (em árvores). Penaliza complexidade explicitamente.</li>
           <li><strong>Early stopping.</strong> Em modelos iterativos (gradient boosting, redes neurais), pare o treino quando a métrica de validação para de melhorar.</li>
           <li><strong>Menos capacidade.</strong> max_depth menor em árvores, menos features, menos camadas em redes.</li>
@@ -435,8 +435,8 @@ train_sizes, train_scores, val_scores = learning_curve(
       `
     }
   ],
-  whenToUse: ['Sempre — todo modelo precisa ser validado', 'Em qualquer escolha de hiperparâmetros', 'Antes de qualquer "está pronto para produção"'],
-  whenNot: ['Quando você está validando em dados que vazaram do treino — corrija o pipeline primeiro'],
+  whenToUse: ['Sempre, todo modelo precisa ser validado', 'Em qualquer escolha de hiperparâmetros', 'Antes de qualquer "está pronto para produção"'],
+  whenNot: ['Quando você está validando em dados que vazaram do treino, corrija o pipeline primeiro'],
   metrics: ['Train vs Val gap', 'Learning curves', 'CV stddev (estabilidade)']
 };
 
@@ -448,7 +448,7 @@ window.LESSON_CONTENT['regularization'] = {
   tags: ['regularização', 'L1', 'L2', 'geometria'],
   tagline: 'Penalizar complexidade é a forma mais barata de generalizar. <em>Geometria</em> explica por que L1 zera e L2 não.',
   intro: `
-    <p>Regularização é o ato de adicionar uma penalidade à função custo para desencorajar coeficientes grandes. Duas formas dominam: L1 (Lasso) e L2 (Ridge). Apesar de matematicamente parecidas — diferem só num expoente — seus efeitos práticos são radicalmente diferentes. Esta lição é sobre por quê.</p>
+    <p>Regularização é o ato de adicionar uma penalidade à função custo para desencorajar coeficientes grandes. Duas formas dominam: L1 (Lasso) e L2 (Ridge). Apesar de matematicamente parecidas, diferem só num expoente, seus efeitos práticos são radicalmente diferentes. Esta lição é sobre por quê.</p>
   `,
   sections: [
     {
@@ -460,7 +460,7 @@ window.LESSON_CONTENT['regularization'] = {
         <p>O efeito: coeficientes grandes são <em>muito</em> penalizados (devido ao quadrado). O modelo encolhe todos os coeficientes em direção a zero, proporcionalmente. Mas <strong>nenhum chega exatamente a zero</strong>.</p>
         <p>Solução fechada (mesma do MSE, com um termo extra):</p>
         <div class="math">β = (XᵀX + λI)⁻¹ Xᵀy</div>
-        <p>O <code>λI</code> resolve o problema de multicolinearidade — torna <code>XᵀX</code> sempre invertível. Por isso Ridge é a primeira escolha quando você tem features correlacionadas.</p>
+        <p>O <code>λI</code> resolve o problema de multicolinearidade, torna <code>XᵀX</code> sempre invertível. Por isso Ridge é a primeira escolha quando você tem features correlacionadas.</p>
       `
     },
     {
@@ -469,7 +469,7 @@ window.LESSON_CONTENT['regularization'] = {
       body: `
         <p>L1 usa o valor absoluto:</p>
         <div class="math">L = MSE + λ · Σ |βᵢ|</div>
-        <p>Não há solução fechada — coordinate descent ou LARS resolvem iterativamente. Mas o efeito prático é mágico: <strong>coeficientes irrelevantes vão a zero</strong>. Lasso faz seleção de features automaticamente.</p>
+        <p>Não há solução fechada, coordinate descent ou LARS resolvem iterativamente. Mas o efeito prático é mágico: <strong>coeficientes irrelevantes vão a zero</strong>. Lasso faz seleção de features automaticamente.</p>
         <p>Trade-off: com features fortemente correlacionadas, Lasso escolhe <em>uma arbitrariamente</em> e zera as outras. É instável nesse cenário.</p>
       `
     },
@@ -481,9 +481,9 @@ window.LESSON_CONTENT['regularization'] = {
         <p>Imagine que você está procurando o ponto que minimiza o MSE (contornos elípticos no espaço dos coeficientes) sujeito a uma restrição de "tamanho" dos coeficientes:</p>
         <ul>
           <li>L2 restringe a um <strong>círculo</strong> (em 2D) ou esfera. Bordas suaves. O ponto de tangência entre a elipse do MSE e o círculo da restrição quase nunca cai nos eixos.</li>
-          <li>L1 restringe a um <strong>losango</strong>. Tem cantos exatamente nos eixos. O ponto de tangência tem altíssima probabilidade de cair num canto — ou seja, num eixo — o que significa que a outra coordenada é zero.</li>
+          <li>L1 restringe a um <strong>losango</strong>. Tem cantos exatamente nos eixos. O ponto de tangência tem altíssima probabilidade de cair num canto, ou seja, num eixo, o que significa que a outra coordenada é zero.</li>
         </ul>
-        <p>É essa geometria — cantos vs sem cantos — que produz a esparsidade do Lasso.</p>
+        <p>É essa geometria, cantos vs sem cantos, que produz a esparsidade do Lasso.</p>
       `
     },
     {
@@ -493,7 +493,7 @@ window.LESSON_CONTENT['regularization'] = {
         <p>ElasticNet combina L1 e L2:</p>
         <div class="math">L = MSE + λ₁ · Σ |βᵢ| + λ₂ · Σ βᵢ²</div>
         <p>O componente L1 induz esparsidade; o L2 estabiliza com features correlacionadas. É o que você quer quando tem high-dimensional data (genômica, fMRI, dados químicos).</p>
-        <p>Em sklearn, <code>ElasticNet(l1_ratio=0.5, alpha=1.0)</code> — <code>l1_ratio</code> é o peso de L1 vs L2 (0 = Ridge puro, 1 = Lasso puro).</p>
+        <p>Em sklearn, <code>ElasticNet(l1_ratio=0.5, alpha=1.0)</code>, <code>l1_ratio</code> é o peso de L1 vs L2 (0 = Ridge puro, 1 = Lasso puro).</p>
       `
     },
     {
@@ -505,7 +505,7 @@ window.LESSON_CONTENT['regularization'] = {
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 
-# Padronização é OBRIGATÓRIA — sem ela, λ pune features de escalas diferentes desigualmente
+# Padronização é OBRIGATÓRIA, sem ela, λ pune features de escalas diferentes desigualmente
 X_s = StandardScaler().fit_transform(X)
 
 # Ridge: testa 100 valores de alpha em escala log
@@ -527,14 +527,14 @@ print("R² CV:", ridge.score(X_s, y))</code></pre>
     'ElasticNet: high-dimensional com correlações'
   ],
   whenNot: [
-    'Em árvores e ensembles de árvores — eles têm seus próprios mecanismos (pruning, max_depth)',
+    'Em árvores e ensembles de árvores, eles têm seus próprios mecanismos (pruning, max_depth)',
     'Quando há poucos dados e poucas features (regularização é desnecessária)'
   ],
   metrics: ['CV score em função de λ', 'Número de coeficientes não-zero (Lasso)']
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   ETAPA 02 — ÁRVORES & ENSEMBLES
+   ETAPA 02, ÁRVORES & ENSEMBLES
    ═══════════════════════════════════════════════════════════════ */
 
 window.LESSON_CONTENT['decision-tree'] = {
@@ -543,9 +543,9 @@ window.LESSON_CONTENT['decision-tree'] = {
   etapa: 2, etapaName: 'Árvores & ensembles',
   time: '60 min',
   tags: ['árvore', 'não-paramétrico', 'interpretável'],
-  tagline: 'Glass box absoluto. Sozinha rara funciona bem — em <em>ensembles</em>, domina o mundo tabular.',
+  tagline: 'Glass box absoluto. Sozinha rara funciona bem, em <em>ensembles</em>, domina o mundo tabular.',
   intro: `
-    <p>Decision Trees são o building block de Random Forest, Gradient Boosting, XGBoost — toda a família que domina ML tabular. Entender uma árvore single tree é pré-requisito para entender qualquer ensemble.</p>
+    <p>Decision Trees são o building block de Random Forest, Gradient Boosting, XGBoost, toda a família que domina ML tabular. Entender uma árvore single tree é pré-requisito para entender qualquer ensemble.</p>
     <p>São também as únicas estruturas verdadeiramente interpretáveis em ML moderno: você lê a árvore como regras "se feature X > t, então...".</p>
   `,
   sections: [
@@ -560,7 +560,7 @@ window.LESSON_CONTENT['decision-tree'] = {
           <li>Particione os dados pelo split escolhido.</li>
           <li>Repita recursivamente em cada filho, até critério de parada.</li>
         </ol>
-        <p>Critérios de parada: profundidade máxima, mínimo de amostras por folha, ganho mínimo. Sem nenhum critério, a árvore cresce até cada folha ter uma amostra única — overfitting absoluto.</p>
+        <p>Critérios de parada: profundidade máxima, mínimo de amostras por folha, ganho mínimo. Sem nenhum critério, a árvore cresce até cada folha ter uma amostra única, overfitting absoluto.</p>
       `
     },
     {
@@ -576,20 +576,20 @@ window.LESSON_CONTENT['decision-tree'] = {
           <li>Ambas são máximas quando as classes estão igualmente distribuídas.</li>
           <li>Na prática, dão árvores quase idênticas. Gini é ligeiramente mais rápido.</li>
         </ul>
-        <p>Para regressão, usamos <strong>MSE</strong> (ou MAE) como critério de impureza — o split que minimiza a variância dos filhos.</p>
+        <p>Para regressão, usamos <strong>MSE</strong> (ou MAE) como critério de impureza, o split que minimiza a variância dos filhos.</p>
       `
     },
     {
       id: 'overfitting-tree',
       title: 'Por que árvores overfittam',
       body: `
-        <p>Uma árvore sem restrições vai construir um caminho específico para cada amostra de treino — accuracy 100% no treino, péssima generalização. Para controlar:</p>
+        <p>Uma árvore sem restrições vai construir um caminho específico para cada amostra de treino, accuracy 100% no treino, péssima generalização. Para controlar:</p>
         <ul>
           <li><strong>max_depth:</strong> limita profundidade. 3-10 costuma ser razoável.</li>
           <li><strong>min_samples_leaf:</strong> mínimo de amostras numa folha. Evita folhas com 1-2 amostras.</li>
           <li><strong>min_samples_split:</strong> mínimo para considerar split.</li>
           <li><strong>max_features:</strong> quantas features considerar em cada split (default é todas).</li>
-          <li><strong>ccp_alpha:</strong> cost-complexity pruning — poda a árvore após construir.</li>
+          <li><strong>ccp_alpha:</strong> cost-complexity pruning, poda a árvore após construir.</li>
         </ul>
         <p>Outra fragilidade: árvores são <strong>instáveis</strong>. Pequenas mudanças nos dados podem produzir árvores muito diferentes. Bagging (Random Forest) resolve isso.</p>
       `
@@ -612,7 +612,7 @@ print(export_text(tree, feature_names=feature_names))</code></pre>
 |   |   |--- class: APROVADO
 |--- idade > 30
 |   |--- ...</code></pre>
-        <p>Esse nível de transparência é raro em ML moderno e justifica usar árvores únicas em contextos regulatórios — mesmo que ensembles fossem mais acurados.</p>
+        <p>Esse nível de transparência é raro em ML moderno e justifica usar árvores únicas em contextos regulatórios, mesmo que ensembles fossem mais acurados.</p>
       `
     },
     {
@@ -621,7 +621,7 @@ print(export_text(tree, feature_names=feature_names))</code></pre>
       body: `
         <p>Duas propriedades importantes das árvores:</p>
         <ul>
-          <li><strong>Não precisam de feature scaling.</strong> Splits são "feature > threshold" — invariantes a escala. Já que você não precisa, nem padronize.</li>
+          <li><strong>Não precisam de feature scaling.</strong> Splits são "feature > threshold", invariantes a escala. Já que você não precisa, nem padronize.</li>
           <li><strong>Lidam nativamente com features categóricas</strong> em algumas implementações (CatBoost, LightGBM). Sklearn ainda exige one-hot ou target encoding.</li>
           <li><strong>Não extrapolam.</strong> Uma árvore prevê apenas valores observados durante o treino. Para extrapolação em séries temporais, prefira modelos com base linear.</li>
         </ul>
@@ -635,7 +635,7 @@ print(export_text(tree, feature_names=feature_names))</code></pre>
     'Quando o domínio tem regras "naturais" (decisões hierárquicas)'
   ],
   whenNot: [
-    'Sozinha — quase sempre RF ou XGBoost será melhor',
+    'Sozinha, quase sempre RF ou XGBoost será melhor',
     'Relações suaves e contínuas (use regressão)',
     'Quando precisa extrapolar fora da distribuição de treino'
   ],
@@ -683,7 +683,7 @@ window.LESSON_CONTENT['random-forest'] = {
       id: 'oob',
       title: 'OOB error: validação de graça',
       body: `
-        <p>Como cada árvore foi treinada em ~63% das amostras, os outros ~37% são <strong>out-of-bag</strong> (OOB) para aquela árvore. Você pode usar essas amostras para avaliar a árvore — e agregando para todo o forest, ter uma estimativa de generalização <em>sem cross-validation</em>.</p>
+        <p>Como cada árvore foi treinada em ~63% das amostras, os outros ~37% são <strong>out-of-bag</strong> (OOB) para aquela árvore. Você pode usar essas amostras para avaliar a árvore, e agregando para todo o forest, ter uma estimativa de generalização <em>sem cross-validation</em>.</p>
         <pre><code>from sklearn.ensemble import RandomForestClassifier
 
 rf = RandomForestClassifier(n_estimators=500, oob_score=True, n_jobs=-1)
@@ -694,7 +694,7 @@ print("OOB score:", rf.oob_score_)</code></pre>
     },
     {
       id: 'feature-importance',
-      title: 'Feature importance — com asterisco',
+      title: 'Feature importance, com asterisco',
       body: `
         <p>Random Forest expõe duas medidas de importância:</p>
         <ul>
@@ -716,13 +716,13 @@ result = permutation_importance(rf, X_val, y_val, n_repeats=10, n_jobs=-1)</code
       body: `
         <p>Os hiperparâmetros que mais movem a agulha:</p>
         <ul>
-          <li><code>n_estimators</code>: número de árvores. Mais nunca piora — pare quando OOB plateau.</li>
+          <li><code>n_estimators</code>: número de árvores. Mais nunca piora, pare quando OOB plateau.</li>
           <li><code>max_depth</code>: deixe <code>None</code> (default) na maioria dos casos.</li>
           <li><code>min_samples_leaf</code>: aumentar (5, 10, 20) regulariza.</li>
           <li><code>max_features</code>: pode mexer mas o default costuma ser bom.</li>
           <li><code>n_jobs=-1</code>: paraleliza em todos os cores. Sempre use.</li>
         </ul>
-        <p>RF é notoriamente <em>robusto</em> ao tuning — costuma performar bem com defaults. Por isso é o default seguro.</p>
+        <p>RF é notoriamente <em>robusto</em> ao tuning, costuma performar bem com defaults. Por isso é o default seguro.</p>
       `
     }
   ],
@@ -748,7 +748,7 @@ window.LESSON_CONTENT['gradient-boosting'] = {
   tags: ['ensemble', 'boosting', 'gradiente'],
   tagline: 'Aprende em sequência, cada nova árvore corrigindo o <em>resíduo</em> da anterior. Princípio do XGBoost.',
   intro: `
-    <p>Se Random Forest é "muitas árvores paralelas", Gradient Boosting é "muitas árvores em sequência, cada uma aprendendo o erro da anterior". Mais lento de treinar, mais preciso, mais difícil de tunar. Esta lição é sobre a ideia central — XGBoost/LightGBM são a próxima.</p>
+    <p>Se Random Forest é "muitas árvores paralelas", Gradient Boosting é "muitas árvores em sequência, cada uma aprendendo o erro da anterior". Mais lento de treinar, mais preciso, mais difícil de tunar. Esta lição é sobre a ideia central, XGBoost/LightGBM são a próxima.</p>
   `,
   sections: [
     {
@@ -767,7 +767,7 @@ window.LESSON_CONTENT['gradient-boosting'] = {
           </li>
         </ol>
         <p>Onde <code>η</code> (learning rate) é entre 0 e 1, tipicamente 0.01 a 0.3. Quanto menor, mais árvores você precisa, mas mais robusto.</p>
-        <p>O "gradient" no nome vem do fato de que, para MSE, os resíduos <em>são</em> o gradiente negativo da loss. Para outras losses (log-loss em classificação, MAE, Huber), você ajusta cada árvore ao gradiente negativo — mesma receita, generalizada.</p>
+        <p>O "gradient" no nome vem do fato de que, para MSE, os resíduos <em>são</em> o gradiente negativo da loss. Para outras losses (log-loss em classificação, MAE, Huber), você ajusta cada árvore ao gradiente negativo, mesma receita, generalizada.</p>
       `
     },
     {
@@ -775,7 +775,7 @@ window.LESSON_CONTENT['gradient-boosting'] = {
       title: 'Por que árvores fracas?',
       body: `
         <p>Em Random Forest, as árvores são <em>profundas e fortes</em> (alta variance), e o bagging reduz variance.</p>
-        <p>Em Gradient Boosting, as árvores são <em>rasas e fracas</em> (alto bias, profundidade 3-8), e o boosting reduz bias progressivamente. Cada árvore só precisa contribuir um pouco — daí "weak learners".</p>
+        <p>Em Gradient Boosting, as árvores são <em>rasas e fracas</em> (alto bias, profundidade 3-8), e o boosting reduz bias progressivamente. Cada árvore só precisa contribuir um pouco, daí "weak learners".</p>
         <p>Se você usar árvores profundas em GB, vai overfittar muito rápido. A combinação certa é: muitas árvores rasas + learning rate pequeno.</p>
       `
     },
@@ -785,10 +785,10 @@ window.LESSON_CONTENT['gradient-boosting'] = {
       body: `
         <p>Gradient Boosting é muito mais sensível a tuning que RF. Os parâmetros críticos:</p>
         <ul>
-          <li><code>n_estimators</code> (número de árvores): <strong>mais não é sempre melhor</strong> — overfitting é real. Use early stopping.</li>
+          <li><code>n_estimators</code> (número de árvores): <strong>mais não é sempre melhor</strong>, overfitting é real. Use early stopping.</li>
           <li><code>learning_rate</code>: 0.01 - 0.3. Menor + mais árvores costuma generalizar melhor.</li>
           <li><code>max_depth</code>: 3 - 8. Manter raso.</li>
-          <li><code>subsample</code>: < 1.0 ativa stochastic gradient boosting — pega só uma fração dos dados em cada árvore. Reduz variance.</li>
+          <li><code>subsample</code>: < 1.0 ativa stochastic gradient boosting, pega só uma fração dos dados em cada árvore. Reduz variance.</li>
         </ul>
         <pre><code>from sklearn.ensemble import GradientBoostingClassifier
 
@@ -821,7 +821,7 @@ gbm.fit(X_train, y_train)</code></pre>
       id: 'sklearn-vs-xgboost',
       title: 'Sklearn GBM vs XGBoost: o que muda',
       body: `
-        <p><code>GradientBoostingClassifier</code> do sklearn é didático mas lento. Para produção, use XGBoost, LightGBM ou CatBoost — eles trazem:</p>
+        <p><code>GradientBoostingClassifier</code> do sklearn é didático mas lento. Para produção, use XGBoost, LightGBM ou CatBoost, eles trazem:</p>
         <ul>
           <li>Histogram-based splits (50-100x mais rápido).</li>
           <li>Regularização L1/L2 explícita nos pesos das folhas.</li>
@@ -882,7 +882,7 @@ window.LESSON_CONTENT['xgboost'] = {
       id: 'histogram',
       title: 'Histogram-based splits',
       body: `
-        <p>Encontrar o melhor split testando cada valor de cada feature é O(n·d) por split — proibitivo em datasets grandes. A solução:</p>
+        <p>Encontrar o melhor split testando cada valor de cada feature é O(n·d) por split, proibitivo em datasets grandes. A solução:</p>
         <ol>
           <li>Discretize cada feature em ~255 bins de histograma.</li>
           <li>Para encontrar o split, só precisa olhar os 255 candidatos.</li>
@@ -935,7 +935,7 @@ model.fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=100)</code></pre>
         </ol>
         <div class="callout tip">
           <strong>CATBOOST</strong>
-          Se você tem MUITAS features categóricas (com cardinalidade alta), CatBoost frequentemente vence — ele usa ordered target encoding sem leakage. Vale o teste.
+          Se você tem MUITAS features categóricas (com cardinalidade alta), CatBoost frequentemente vence, ele usa ordered target encoding sem leakage. Vale o teste.
         </div>
       `
     },
@@ -943,7 +943,7 @@ model.fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=100)</code></pre>
       id: 'shap',
       title: 'Interpretabilidade via SHAP',
       body: `
-        <p>XGBoost (e qualquer modelo de árvore) tem suporte nativo a SHAP — Shapley values calculam quanto cada feature contribuiu para cada predição individual:</p>
+        <p>XGBoost (e qualquer modelo de árvore) tem suporte nativo a SHAP, Shapley values calculam quanto cada feature contribuiu para cada predição individual:</p>
         <pre><code>import shap
 
 explainer = shap.TreeExplainer(model)
@@ -954,7 +954,7 @@ shap.summary_plot(shap_values, X_val)
 
 # Explicação de uma predição
 shap.force_plot(explainer.expected_value, shap_values[0], X_val.iloc[0])</code></pre>
-        <p>SHAP resolve o problema da "black box" de boosting de forma rigorosa — é o que você apresenta para stakeholders e reguladores.</p>
+        <p>SHAP resolve o problema da "black box" de boosting de forma rigorosa, é o que você apresenta para stakeholders e reguladores.</p>
       `
     }
   ],
@@ -972,7 +972,7 @@ shap.force_plot(explainer.expected_value, shap_values[0], X_val.iloc[0])</code><
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   ETAPA 03 — GEOMETRIA & DISTÂNCIA
+   ETAPA 03, GEOMETRIA & DISTÂNCIA
    ═══════════════════════════════════════════════════════════════ */
 
 window.LESSON_CONTENT['knn'] = {
@@ -981,9 +981,9 @@ window.LESSON_CONTENT['knn'] = {
   etapa: 3, etapaName: 'Geometria & distância',
   time: '45 min',
   tags: ['lazy', 'distância', 'não-paramétrico'],
-  tagline: 'O modelo que não treina — só memoriza. Simples até demais, mas ensina <em>distância</em>.',
+  tagline: 'O modelo que não treina, só memoriza. Simples até demais, mas ensina <em>distância</em>.',
   intro: `
-    <p>KNN é o "modelo zero" do ML baseado em distância. Não há fit propriamente dito — o modelo memoriza todo o dataset e, na hora de prever, busca os k vizinhos mais próximos e retorna a maioria (classificação) ou a média (regressão). É o cara que você implementa em 5 linhas para sentir o problema antes de chamar algo mais sofisticado.</p>
+    <p>KNN é o "modelo zero" do ML baseado em distância. Não há fit propriamente dito, o modelo memoriza todo o dataset e, na hora de prever, busca os k vizinhos mais próximos e retorna a maioria (classificação) ou a média (regressão). É o cara que você implementa em 5 linhas para sentir o problema antes de chamar algo mais sofisticado.</p>
   `,
   sections: [
     {
@@ -999,8 +999,8 @@ window.LESSON_CONTENT['knn'] = {
             </ul>
           </li>
         </ol>
-        <p>Treino: O(1) — só armazena. Inferência: O(n·d) ingênuo, O(log n) com KD-tree ou Ball-tree em dimensões baixas/médias.</p>
-        <p>É <strong>lazy learner</strong> — adia toda a computação para a inferência. Oposto de modelos paramétricos que treinam pesado e preveem rápido.</p>
+        <p>Treino: O(1), só armazena. Inferência: O(n·d) ingênuo, O(log n) com KD-tree ou Ball-tree em dimensões baixas/médias.</p>
+        <p>É <strong>lazy learner</strong>, adia toda a computação para a inferência. Oposto de modelos paramétricos que treinam pesado e preveem rápido.</p>
       `
     },
     {
@@ -1032,14 +1032,14 @@ window.LESSON_CONTENT['knn'] = {
           <li><strong>k grande:</strong> baixa variance, alta bias. Pode classificar como a classe majoritária.</li>
         </ul>
         <p>Regras de bolso: comece com <code>k = √n</code> e tune via CV. Use k <em>ímpar</em> em classificação binária para evitar empates.</p>
-        <p>Variante útil: <strong>distance-weighted KNN</strong> — vizinhos mais próximos votam com peso maior.</p>
+        <p>Variante útil: <strong>distance-weighted KNN</strong>, vizinhos mais próximos votam com peso maior.</p>
       `
     },
     {
       id: 'curse',
       title: 'A maldição da dimensionalidade',
       body: `
-        <p>Em alta dimensionalidade, KNN deteriora dramaticamente porque <strong>todas as distâncias colapsam</strong>. Em 1000D, o ponto mais próximo está quase à mesma distância do mais distante — a noção de "vizinho" perde significado.</p>
+        <p>Em alta dimensionalidade, KNN deteriora dramaticamente porque <strong>todas as distâncias colapsam</strong>. Em 1000D, o ponto mais próximo está quase à mesma distância do mais distante, a noção de "vizinho" perde significado.</p>
         <p>Mitigação: reduza dimensionalidade antes (PCA, UMAP) ou use feature selection. Em domínios genuinamente de alta dimensão (texto, embeddings), use modelos especializados.</p>
       `
     }
@@ -1074,8 +1074,8 @@ window.LESSON_CONTENT['svm'] = {
       id: 'margem',
       title: 'A ideia da margem máxima',
       body: `
-        <p>Para classes linearmente separáveis, existem infinitos hiperplanos que separam. Qual escolher? O que tem a <strong>maior margem</strong> — maior distância dos pontos mais próximos de cada classe.</p>
-        <p>Esses pontos mais próximos são os <strong>support vectors</strong> — os únicos que realmente importam para o modelo. Mover ou remover qualquer outro ponto não muda o hiperplano.</p>
+        <p>Para classes linearmente separáveis, existem infinitos hiperplanos que separam. Qual escolher? O que tem a <strong>maior margem</strong>, maior distância dos pontos mais próximos de cada classe.</p>
+        <p>Esses pontos mais próximos são os <strong>support vectors</strong>, os únicos que realmente importam para o modelo. Mover ou remover qualquer outro ponto não muda o hiperplano.</p>
         <p>Otimização:</p>
         <div class="math">min ½‖w‖² sujeito a yᵢ(wᵀxᵢ + b) ≥ 1 para todo i</div>
         <p>É convexo, tem solução única, e é resolvido via Lagrangianos.</p>
@@ -1096,7 +1096,7 @@ window.LESSON_CONTENT['svm'] = {
     },
     {
       id: 'kernel',
-      title: 'O kernel trick — o pulo geométrico',
+      title: 'O kernel trick, o pulo geométrico',
       body: `
         <p>Para dados não-linearmente separáveis, mapeie para uma dimensão maior onde sejam:</p>
         <div class="math">φ : ℝᵈ → ℝᴰ, com D >> d</div>
@@ -1173,8 +1173,8 @@ window.LESSON_CONTENT['pca'] = {
       id: 'ideia',
       title: 'A ideia: rotacionar para ver melhor',
       body: `
-        <p>Imagine pontos espalhados num plano. Há uma direção em que a "nuvem" se estende mais — direção de <strong>máxima variância</strong>. PCA encontra essa direção (e a próxima ortogonal, e a próxima, e assim por diante).</p>
-        <p>Essas direções são os <strong>componentes principais</strong>. Você projeta os dados nessas direções e mantém apenas as primeiras k — onde está a maior parte da variância — descartando o resto.</p>
+        <p>Imagine pontos espalhados num plano. Há uma direção em que a "nuvem" se estende mais, direção de <strong>máxima variância</strong>. PCA encontra essa direção (e a próxima ortogonal, e a próxima, e assim por diante).</p>
+        <p>Essas direções são os <strong>componentes principais</strong>. Você projeta os dados nessas direções e mantém apenas as primeiras k, onde está a maior parte da variância, descartando o resto.</p>
         <p>Resultado: dados compactados em k dimensões com mínima perda de informação (no sentido de variância).</p>
       `
     },
@@ -1191,7 +1191,7 @@ window.LESSON_CONTENT['pca'] = {
           <li>Projete os dados nos primeiros k autovetores.</li>
         </ol>
         <p>O autovalor associado a cada componente é a variância dos dados naquela direção. A soma de todos é a variância total.</p>
-        <p>Em prática, usa-se SVD (Singular Value Decomposition) em vez de calcular a covariância — é mais estável numericamente.</p>
+        <p>Em prática, usa-se SVD (Singular Value Decomposition) em vez de calcular a covariância, é mais estável numericamente.</p>
       `
     },
     {
@@ -1248,7 +1248,7 @@ print("Variância explicada:", np.cumsum(pca.explained_variance_ratio_))</code><
           <li><strong>Pré-processamento para KNN/SVM:</strong> reduz a maldição da dimensionalidade.</li>
           <li><strong>Denoising:</strong> as últimas componentes carregam mais ruído que sinal.</li>
         </ul>
-        <p>NÃO use PCA quando interpretabilidade das features originais é crítica — os componentes são misturas opacas das features.</p>
+        <p>NÃO use PCA quando interpretabilidade das features originais é crítica, os componentes são misturas opacas das features.</p>
       `
     }
   ],
@@ -1262,7 +1262,7 @@ print("Variância explicada:", np.cumsum(pca.explained_variance_ratio_))</code><
   whenNot: [
     'Estrutura não-linear forte (use UMAP, kernel PCA)',
     'Interpretabilidade das features originais é crítica',
-    'Dataset categórico puro (use MCA — Multiple Correspondence Analysis)'
+    'Dataset categórico puro (use MCA, Multiple Correspondence Analysis)'
   ],
   metrics: ['Variância explicada cumulativa', 'Scree plot']
 };

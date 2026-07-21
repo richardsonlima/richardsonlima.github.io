@@ -1,4 +1,4 @@
-/* ML PORTAL — shared design system v2
+/* ML PORTAL, shared design system v2
    ───────────────────────────────────────────────────
    Fonts:  Geist · Geist Mono · Instrument Serif (editorial italic)
    Themes: light (default) · dark (via [data-theme="dark"] on <html>)
@@ -25,11 +25,11 @@
   --text-faint:  #a1a1aa;
   --text-inv:    #fafafa;
 
-  --accent1: #2563eb;   /* blue   — supervisionado     */
-  --accent2: #7c3aed;   /* violet — não-supervisionado */
-  --accent3: #059669;   /* emerald — semi              */
-  --accent4: #d97706;   /* amber  — auto              */
-  --accent5: #dc2626;   /* red    — RL                */
+  --accent1: #2563eb;   /* blue , supervisionado     */
+  --accent2: #7c3aed;   /* violet, não-supervisionado */
+  --accent3: #059669;   /* emerald, semi              */
+  --accent4: #d97706;   /* amber, auto              */
+  --accent5: #dc2626;   /* red  , RL                */
 
   --accent1-soft: rgba(37,99,235,0.08);
   --accent2-soft: rgba(124,58,237,0.08);
@@ -97,7 +97,7 @@
   --tag-bg:        var(--bg-soft);
 }
 
-/* Legacy .grad class — now renders as editorial italic serif accent */
+/* Legacy .grad class, now renders as editorial italic serif accent */
 h1.page-title .grad {
   font-family: var(--font-serif);
   font-style: italic;
@@ -125,7 +125,7 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* atmospheric halo — replaces the grid */
+/* atmospheric halo, replaces the grid */
 body::before {
   content: '';
   position: fixed;

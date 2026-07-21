@@ -1,4 +1,4 @@
-/* Lesson content — Etapa 10 — MLOps & Produção (lições 43–50)
+/* Lesson content, Etapa 10, MLOps & Produção (lições 43–50)
    Operar ML em produção: containers, CI/CD, stores, registry, serving, cloud
 */
 window.LESSON_CONTENT = window.LESSON_CONTENT || {};
@@ -18,7 +18,7 @@ window.LESSON_CONTENT['docker'] = {
       id: 'conceito',
       title: 'Containers vs VMs',
       body: `
-        <p>Uma <strong>VM</strong> virtualiza hardware inteiro — pesada, minutos para subir. Um <strong>container</strong> compartilha o kernel do host e isola apenas o necessário — leve, segundos para subir.</p>
+        <p>Uma <strong>VM</strong> virtualiza hardware inteiro, pesada, minutos para subir. Um <strong>container</strong> compartilha o kernel do host e isola apenas o necessário, leve, segundos para subir.</p>
         <ul>
           <li><strong>Image:</strong> template imutável (receita). Construída a partir de um Dockerfile.</li>
           <li><strong>Container:</strong> instância em execução de uma image.</li>
@@ -47,7 +47,7 @@ EXPOSE 8000
 CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
         <p>Princípios:</p>
         <ul>
-          <li><strong>Ordem importa:</strong> copie requirements antes do código. Layers são cacheadas — mudar código não reinstala deps.</li>
+          <li><strong>Ordem importa:</strong> copie requirements antes do código. Layers são cacheadas, mudar código não reinstala deps.</li>
           <li><strong>slim/alpine:</strong> imagens base menores = deploy mais rápido.</li>
           <li><strong>.dockerignore:</strong> exclua datasets, .git, __pycache__ do build.</li>
           <li><strong>Pin versions:</strong> <code>torch==2.1.0</code>, não <code>torch</code>.</li>
@@ -79,7 +79,7 @@ CMD ["python", "src/serve.py"]</code></pre>
       id: 'compose-ecr',
       title: 'docker-compose e registries',
       body: `
-        <p><strong>docker-compose</strong> orquestra múltiplos containers (API + banco + cache) num arquivo declarativo — ótimo para desenvolvimento local que espelha produção.</p>
+        <p><strong>docker-compose</strong> orquestra múltiplos containers (API + banco + cache) num arquivo declarativo, ótimo para desenvolvimento local que espelha produção.</p>
         <pre><code>services:
   api:
     build: .
@@ -111,9 +111,9 @@ window.LESSON_CONTENT['linux-shell'] = {
   etapa: 10, etapaName: 'MLOps & Produção',
   time: '45 min',
   tags: ['linux', 'shell', 'deploy'],
-  tagline: 'Produção roda em Linux. <em>Comandos, permissões, processos</em> — o terreno onde modelos vivem.',
+  tagline: 'Produção roda em Linux. <em>Comandos, permissões, processos</em>, o terreno onde modelos vivem.',
   intro: `
-    <p>Todo servidor de produção roda Linux. Saber navegar o sistema, gerenciar processos, debugar permissões e automatizar com shell scripts é essencial — o modelo mais bonito é inútil se você não consegue fazê-lo rodar no servidor.</p>
+    <p>Todo servidor de produção roda Linux. Saber navegar o sistema, gerenciar processos, debugar permissões e automatizar com shell scripts é essencial, o modelo mais bonito é inútil se você não consegue fazê-lo rodar no servidor.</p>
   `,
   sections: [
     {
@@ -123,8 +123,8 @@ window.LESSON_CONTENT['linux-shell'] = {
         <ul>
           <li><strong>Navegação:</strong> <code>cd</code>, <code>ls -la</code>, <code>pwd</code>, <code>find</code>, <code>tree</code>.</li>
           <li><strong>Arquivos:</strong> <code>cat</code>, <code>head</code>/<code>tail -f</code> (logs!), <code>grep</code>, <code>less</code>, <code>wc -l</code>.</li>
-          <li><strong>Texto:</strong> <code>sed</code>, <code>awk</code>, <code>cut</code>, <code>sort</code>, <code>uniq</code> — processar logs e CSVs.</li>
-          <li><strong>Pipes:</strong> <code>cat log | grep ERROR | wc -l</code> — compor comandos é o superpoder do shell.</li>
+          <li><strong>Texto:</strong> <code>sed</code>, <code>awk</code>, <code>cut</code>, <code>sort</code>, <code>uniq</code>, processar logs e CSVs.</li>
+          <li><strong>Pipes:</strong> <code>cat log | grep ERROR | wc -l</code>, compor comandos é o superpoder do shell.</li>
           <li><strong>Rede:</strong> <code>curl</code>, <code>wget</code>, <code>netstat</code>, <code>ss</code>.</li>
         </ul>
         <pre><code># Quantos erros por hora no log?
@@ -139,7 +139,7 @@ grep ERROR app.log | awk '{print $1, $2}' | cut -d: -f1 | sort | uniq -c</code><
         <ul>
           <li><strong>rwx:</strong> read/write/execute para owner/group/others. <code>chmod 755 script.sh</code>.</li>
           <li><strong>Ownership:</strong> <code>chown user:group file</code>.</li>
-          <li><strong>sudo:</strong> executar como root — com cuidado.</li>
+          <li><strong>sudo:</strong> executar como root, com cuidado.</li>
           <li><strong>Executáveis:</strong> <code>chmod +x deploy.sh</code> antes de rodar.</li>
         </ul>
         <p>Em containers, rodar como non-root user é boa prática de segurança.</p>
@@ -179,7 +179,7 @@ echo "Pipeline concluído em $DATA_DIR"</code></pre>
         <p><strong>cron</strong> agenda execuções recorrentes:</p>
         <pre><code># Retreinar todo dia às 2h da manhã
 0 2 * * * /opt/ml/retrain.sh >> /var/log/retrain.log 2>&1</code></pre>
-        <p><code>set -euo pipefail</code> é essencial — sem isso, scripts continuam após erros silenciosos.</p>
+        <p><code>set -euo pipefail</code> é essencial, sem isso, scripts continuam após erros silenciosos.</p>
       `
     }
   ],
@@ -191,7 +191,7 @@ echo "Pipeline concluído em $DATA_DIR"</code></pre>
   ],
   whenNot: [
     'Quando plataformas gerenciadas abstraem a infra',
-    'Lógica complexa — use Python, não shell de 500 linhas'
+    'Lógica complexa, use Python, não shell de 500 linhas'
   ],
   metrics: ['Tempo de debug', 'Automação de tarefas repetitivas']
 };
@@ -202,7 +202,7 @@ window.LESSON_CONTENT['cicd-ml'] = {
   etapa: 10, etapaName: 'MLOps & Produção',
   time: '90 min',
   tags: ['CI/CD', 'CD4ML', 'automação'],
-  tagline: 'Continuous Delivery for ML. <em>Três eixos</em> versionados: código, dados e modelo — não só código.',
+  tagline: 'Continuous Delivery for ML. <em>Três eixos</em> versionados: código, dados e modelo, não só código.',
   intro: `
     <p>CI/CD tradicional versiona e testa código. ML adiciona duas dimensões: dados e modelos. CD4ML (Continuous Delivery for Machine Learning, de Martin Fowler) é o framework canônico que estende DevOps para esse mundo. Esta lição cobre os componentes e como implementá-los.</p>
   `,
@@ -278,12 +278,12 @@ jobs:
         <ul>
           <li><strong>Blue-Green:</strong> dois ambientes idênticos. Troca o tráfego de uma vez. Rollback instantâneo.</li>
           <li><strong>Canary:</strong> rota uma fração pequena (5%) do tráfego para o modelo novo. Monitora antes de escalar.</li>
-          <li><strong>Shadow:</strong> modelo novo recebe tráfego real mas suas predições não afetam usuários — só são comparadas. Risco zero.</li>
+          <li><strong>Shadow:</strong> modelo novo recebe tráfego real mas suas predições não afetam usuários, só são comparadas. Risco zero.</li>
           <li><strong>A/B testing:</strong> divide tráfego e compara métricas de negócio estatisticamente.</li>
         </ul>
         <div class="callout tip">
           <strong>SHADOW PRIMEIRO</strong>
-          Para modelos críticos, comece com shadow deployment — você valida em tráfego real sem risco antes de canary/A-B.
+          Para modelos críticos, comece com shadow deployment, você valida em tráfego real sem risco antes de canary/A-B.
         </div>
       `
     },
@@ -294,7 +294,7 @@ jobs:
         <p>Quando algo dá errado (e vai), você precisa voltar rápido:</p>
         <ul>
           <li><strong>Rollback automático:</strong> se métricas degradam além de threshold, reverter para versão anterior.</li>
-          <li><strong>Model Registry stages:</strong> production/staging/archived — promover e despromover.</li>
+          <li><strong>Model Registry stages:</strong> production/staging/archived, promover e despromover.</li>
           <li><strong>Audit trail:</strong> quem deployou o quê, quando, com qual aprovação.</li>
           <li><strong>Feature flags:</strong> ligar/desligar modelo sem redeploy.</li>
         </ul>
@@ -322,7 +322,7 @@ window.LESSON_CONTENT['feature-store'] = {
   tags: ['feature store', 'serving', 'consistência'],
   tagline: 'Onde as features moram. Resolve <em>training-serving skew</em> e reúso entre times.',
   intro: `
-    <p>O maior problema operacional de ML: a feature computada no treino é diferente da computada no serving — training-serving skew. Feature stores centralizam a definição e o cálculo de features, garantindo que treino e produção usem exatamente a mesma lógica. Também permitem reúso entre modelos e times.</p>
+    <p>O maior problema operacional de ML: a feature computada no treino é diferente da computada no serving, training-serving skew. Feature stores centralizam a definição e o cálculo de features, garantindo que treino e produção usem exatamente a mesma lógica. Também permitem reúso entre modelos e times.</p>
   `,
   sections: [
     {
@@ -354,12 +354,12 @@ window.LESSON_CONTENT['feature-store'] = {
       id: 'point-in-time',
       title: 'Point-in-time correctness',
       body: `
-        <p>O conceito mais sutil e crítico. Ao construir o dataset de treino histórico, cada exemplo deve usar o valor da feature <strong>como era naquele momento</strong> — não o valor atual.</p>
-        <p>Exemplo: prever se um cliente vai cancelar em janeiro. A feature "número de tickets de suporte" deve refletir o estado em janeiro, não o estado de hoje (que inclui tickets posteriores ao cancelamento — leakage do futuro).</p>
+        <p>O conceito mais sutil e crítico. Ao construir o dataset de treino histórico, cada exemplo deve usar o valor da feature <strong>como era naquele momento</strong>, não o valor atual.</p>
+        <p>Exemplo: prever se um cliente vai cancelar em janeiro. A feature "número de tickets de suporte" deve refletir o estado em janeiro, não o estado de hoje (que inclui tickets posteriores ao cancelamento, leakage do futuro).</p>
         <p>Feature stores fazem <strong>point-in-time joins</strong> automaticamente: para cada evento, buscam o valor da feature válido naquele timestamp.</p>
         <div class="callout warn">
           <strong>SEM POINT-IN-TIME = LEAKAGE</strong>
-          Joins ingênuos com o estado atual vazam o futuro. É um dos leakages mais comuns e difíceis de detectar — métricas ótimas no treino, fracasso em produção.
+          Joins ingênuos com o estado atual vazam o futuro. É um dos leakages mais comuns e difíceis de detectar, métricas ótimas no treino, fracasso em produção.
         </div>
       `
     },
@@ -397,7 +397,7 @@ user_stats = FeatureView(
   ],
   whenNot: [
     'Um único modelo batch simples',
-    'Protótipos — adiciona complexidade significativa',
+    'Protótipos, adiciona complexidade significativa',
     'Quando features são triviais de recalcular'
   ],
   metrics: ['Training-serving consistency', 'Latência do online store', 'Reúso de features entre modelos']
@@ -409,9 +409,9 @@ window.LESSON_CONTENT['model-registry'] = {
   etapa: 10, etapaName: 'MLOps & Produção',
   time: '60 min',
   tags: ['registry', 'versionamento', 'MLflow'],
-  tagline: 'O "Git dos modelos". Versões, <em>stages</em>, lineage — governança do ciclo de vida.',
+  tagline: 'O "Git dos modelos". Versões, <em>stages</em>, lineage, governança do ciclo de vida.',
   intro: `
-    <p>Você treinou 50 versões do modelo este mês. Qual está em produção? Qual foi treinada com quais dados? Pode voltar para a de duas semanas atrás? Model Registry responde tudo isso — é o sistema central de governança do ciclo de vida de modelos.</p>
+    <p>Você treinou 50 versões do modelo este mês. Qual está em produção? Qual foi treinada com quais dados? Pode voltar para a de duas semanas atrás? Model Registry responde tudo isso, é o sistema central de governança do ciclo de vida de modelos.</p>
   `,
   sections: [
     {
@@ -439,7 +439,7 @@ window.LESSON_CONTENT['model-registry'] = {
           <li><strong>Production:</strong> servindo tráfego real.</li>
           <li><strong>Archived:</strong> aposentado, mas preservado para rollback/auditoria.</li>
         </ul>
-        <p>Transições entre stages são <strong>governadas</strong> — exigem aprovação, testes passados, às vezes assinatura. Isso evita que um modelo não-validado vá para produção por acidente.</p>
+        <p>Transições entre stages são <strong>governadas</strong>, exigem aprovação, testes passados, às vezes assinatura. Isso evita que um modelo não-validado vá para produção por acidente.</p>
       `
     },
     {
@@ -480,7 +480,7 @@ model = mlflow.pyfunc.load_model("models:/churn_predictor/Production")</code></p
           <li>"Quais modelos usam esta feature que vamos descontinuar?"</li>
           <li>"Auditoria: prove como esta decisão de crédito foi tomada."</li>
         </ul>
-        <p>Em domínios regulados (crédito, saúde), lineage não é opcional — é requisito legal.</p>
+        <p>Em domínios regulados (crédito, saúde), lineage não é opcional, é requisito legal.</p>
       `
     }
   ],
@@ -546,13 +546,13 @@ window.LESSON_CONTENT['mlops-design'] = {
       body: `
         <p>A régua do mercado para medir sofisticação, do Google Cloud:</p>
         <ul>
-          <li><strong>Level 0 — Manual:</strong> processo manual, script-driven, notebooks. Deploy raro e manual. Sem CI/CD. A maioria começa aqui.</li>
-          <li><strong>Level 1 — ML pipeline automation:</strong> pipeline de treino automatizado, retraining contínuo com dados novos. Validação automática de dados e modelo. Feature store, metadata management.</li>
-          <li><strong>Level 2 — CI/CD pipeline automation:</strong> CI/CD completo do pipeline em si. Mudanças no código do pipeline são testadas e deployadas automaticamente. Múltiplos experimentos, deploy contínuo de pipelines.</li>
+          <li><strong>Level 0, Manual:</strong> processo manual, script-driven, notebooks. Deploy raro e manual. Sem CI/CD. A maioria começa aqui.</li>
+          <li><strong>Level 1, ML pipeline automation:</strong> pipeline de treino automatizado, retraining contínuo com dados novos. Validação automática de dados e modelo. Feature store, metadata management.</li>
+          <li><strong>Level 2, CI/CD pipeline automation:</strong> CI/CD completo do pipeline em si. Mudanças no código do pipeline são testadas e deployadas automaticamente. Múltiplos experimentos, deploy contínuo de pipelines.</li>
         </ul>
         <div class="callout tip">
           <strong>EM ENTREVISTA</strong>
-          Saber em que nível uma organização está e o que falta para subir é pergunta clássica. Memorize as diferenças. Quase ninguém precisa de Level 2 — saiba justificar o nível adequado ao contexto.
+          Saber em que nível uma organização está e o que falta para subir é pergunta clássica. Memorize as diferenças. Quase ninguém precisa de Level 2, saiba justificar o nível adequado ao contexto.
         </div>
       `
     },
@@ -570,7 +570,7 @@ window.LESSON_CONTENT['mlops-design'] = {
           <li><strong>Monitoramento:</strong> que métricas? Como detectar drift? Quando retreinar?</li>
           <li><strong>Trade-offs:</strong> sempre verbalize as escolhas e alternativas.</li>
         </ol>
-        <p>O entrevistador quer ver pensamento estruturado e consciência de trade-offs — não a "resposta certa".</p>
+        <p>O entrevistador quer ver pensamento estruturado e consciência de trade-offs, não a "resposta certa".</p>
       `
     },
     {
@@ -596,7 +596,7 @@ window.LESSON_CONTENT['mlops-design'] = {
   ],
   whenNot: [
     'Antes de validar que ML é necessário (às vezes regra simples basta)',
-    'Over-engineering — comece no Level 0/1 e evolua'
+    'Over-engineering, comece no Level 0/1 e evolua'
   ],
   metrics: ['Nível de maturidade MLOps', 'Latência de serving', 'Frequência de retraining', 'Cobertura de monitoramento']
 };
@@ -609,7 +609,7 @@ window.LESSON_CONTENT['cloud-aws'] = {
   tags: ['AWS', 'cloud', 'well-architected'],
   tagline: 'ML em escala mora na nuvem. Serviços core da AWS + os <em>6 pilares</em> do Well-Architected ML Lens.',
   intro: `
-    <p>A grande maioria dos sistemas de ML em produção roda em nuvem — AWS, GCP ou Azure. Conhecer os serviços core e os princípios de arquitetura (Well-Architected Framework) é esperado em qualquer posição sênior. Esta lição foca em AWS (o mais cobrado), mas os conceitos transferem.</p>
+    <p>A grande maioria dos sistemas de ML em produção roda em nuvem, AWS, GCP ou Azure. Conhecer os serviços core e os princípios de arquitetura (Well-Architected Framework) é esperado em qualquer posição sênior. Esta lição foca em AWS (o mais cobrado), mas os conceitos transferem.</p>
   `,
   sections: [
     {
@@ -618,7 +618,7 @@ window.LESSON_CONTENT['cloud-aws'] = {
       body: `
         <ul>
           <li><strong>S3:</strong> object storage. Onde os dados e artefatos moram. Base de tudo.</li>
-          <li><strong>SageMaker:</strong> plataforma ML gerenciada — training, hosting, pipelines, feature store, registry, monitoring. O canivete suíço.</li>
+          <li><strong>SageMaker:</strong> plataforma ML gerenciada, training, hosting, pipelines, feature store, registry, monitoring. O canivete suíço.</li>
           <li><strong>Lambda:</strong> serverless compute. Inferência leve sem gerenciar servidor.</li>
           <li><strong>ECR:</strong> registry de containers Docker.</li>
           <li><strong>Step Functions:</strong> orquestração de workflows (pipelines ML como state machine).</li>
@@ -699,9 +699,9 @@ window.LESSON_CONTENT['monitoring-drift'] = {
   etapa: 10, etapaName: 'MLOps & Produção',
   time: '60 min',
   tags: ['monitoramento', 'drift', 'observabilidade'],
-  tagline: 'O modelo nasce ótimo e <em>apodrece</em> em produção. O mundo muda — e seu modelo precisa saber.',
+  tagline: 'O modelo nasce ótimo e <em>apodrece</em> em produção. O mundo muda, e seu modelo precisa saber.',
   intro: `
-    <p>Software tradicional, uma vez correto, continua correto. Modelos de ML degradam silenciosamente conforme o mundo muda — comportamento de usuários, sazonalidade, novos padrões de fraude. Monitoramento é o que detecta essa degradação antes que ela custe caro. Esta lição fecha o loop de MLOps.</p>
+    <p>Software tradicional, uma vez correto, continua correto. Modelos de ML degradam silenciosamente conforme o mundo muda, comportamento de usuários, sazonalidade, novos padrões de fraude. Monitoramento é o que detecta essa degradação antes que ela custe caro. Esta lição fecha o loop de MLOps.</p>
   `,
   sections: [
     {
@@ -711,12 +711,12 @@ window.LESSON_CONTENT['monitoring-drift'] = {
         <p>Duas formas distintas de degradação:</p>
         <ul>
           <li><strong>Data drift (covariate shift):</strong> a distribuição das features de entrada P(X) muda. Ex: novos perfis de usuário, mudança sazonal. O modelo ainda pode estar certo, mas opera fora da distribuição que viu no treino.</li>
-          <li><strong>Concept drift:</strong> a relação P(y|X) muda. A mesma entrada agora tem outro resultado. Ex: pandemia muda comportamento de compra, fraude evolui para escapar do modelo. Mais grave — o modelo está genuinamente errado.</li>
+          <li><strong>Concept drift:</strong> a relação P(y|X) muda. A mesma entrada agora tem outro resultado. Ex: pandemia muda comportamento de compra, fraude evolui para escapar do modelo. Mais grave, o modelo está genuinamente errado.</li>
           <li><strong>Label drift:</strong> a distribuição do target P(y) muda.</li>
         </ul>
         <div class="callout warn">
           <strong>O PERIGO SILENCIOSO</strong>
-          Drift não gera erro nem exceção. O sistema continua respondendo — só que cada vez mais errado. Sem monitoramento, você só descobre quando o negócio reclama.
+          Drift não gera erro nem exceção. O sistema continua respondendo, só que cada vez mais errado. Sem monitoramento, você só descobre quando o negócio reclama.
         </div>
       `
     },
@@ -745,7 +745,7 @@ window.LESSON_CONTENT['monitoring-drift'] = {
           <li><strong>Dados:</strong> drift de features, taxa de nulos, valores fora de range, schema.</li>
           <li><strong>Predições:</strong> distribuição das saídas, confiança média, taxa de cada classe.</li>
           <li><strong>Performance:</strong> métricas de modelo quando ground truth chega (accuracy, F1, AUC reais).</li>
-          <li><strong>Negócio:</strong> conversão, receita, satisfação — o que realmente importa.</li>
+          <li><strong>Negócio:</strong> conversão, receita, satisfação, o que realmente importa.</li>
         </ul>
       `
     },
@@ -766,14 +766,14 @@ window.LESSON_CONTENT['monitoring-drift'] = {
       id: 'retraining',
       title: 'Fechando o loop: retraining',
       body: `
-        <p>Detectar drift é metade — a outra é reagir. Estratégias de retraining:</p>
+        <p>Detectar drift é metade, a outra é reagir. Estratégias de retraining:</p>
         <ul>
           <li><strong>Agendado:</strong> retreina periodicamente (diário, semanal). Simples, previsível.</li>
           <li><strong>Trigger por drift:</strong> retreina quando drift ou queda de performance cruza threshold. Eficiente.</li>
           <li><strong>Trigger por volume:</strong> retreina a cada N novos exemplos rotulados.</li>
           <li><strong>Online learning:</strong> atualização contínua incremental (raro, complexo).</li>
         </ul>
-        <p>Sempre valide o modelo retreinado contra o atual antes de promover — retreinar com dados ruins (drift de qualidade) pode piorar. O loop completo: monitorar → detectar → retreinar → validar → deployar → monitorar.</p>
+        <p>Sempre valide o modelo retreinado contra o atual antes de promover, retreinar com dados ruins (drift de qualidade) pode piorar. O loop completo: monitorar → detectar → retreinar → validar → deployar → monitorar.</p>
       `
     }
   ],

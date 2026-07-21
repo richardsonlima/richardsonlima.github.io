@@ -1,4 +1,4 @@
-/* Theme init — runs BEFORE CSS to prevent FOUC.
+/* Theme init, runs BEFORE CSS to prevent FOUC.
    Include as inline <script> in <head> before stylesheet, OR <script src> with no defer. */
 (function () {
   try {

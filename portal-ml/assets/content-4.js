@@ -1,5 +1,5 @@
-/* Lesson content — Etapa 09 — Engenharia de ML & Dados (lições 37–42)
-   O "gap de engenharia" — feature engineering, SQL, modelagem, dados, código
+/* Lesson content, Etapa 09, Engenharia de ML & Dados (lições 37–42)
+   O "gap de engenharia", feature engineering, SQL, modelagem, dados, código
 */
 window.LESSON_CONTENT = window.LESSON_CONTENT || {};
 
@@ -11,7 +11,7 @@ window.LESSON_CONTENT['feature-engineering'] = {
   tags: ['features', 'pré-processamento', 'leakage'],
   tagline: 'O trabalho que separa juniors de seniors. Modelo medíocre + features ótimas <em>vence</em> modelo ótimo + features ruins.',
   intro: `
-    <p>Há um ditado no ML aplicado: "garbage in, garbage out". A qualidade das features determina o teto de performance — nenhum algoritmo recupera informação que não está nos dados. Feature engineering é onde o conhecimento de domínio entra, e é frequentemente o maior diferencial entre um modelo de produção e um protótipo.</p>
+    <p>Há um ditado no ML aplicado: "garbage in, garbage out". A qualidade das features determina o teto de performance, nenhum algoritmo recupera informação que não está nos dados. Feature engineering é onde o conhecimento de domínio entra, e é frequentemente o maior diferencial entre um modelo de produção e um protótipo.</p>
   `,
   sections: [
     {
@@ -21,8 +21,8 @@ window.LESSON_CONTENT['feature-engineering'] = {
         <p>Modelos numéricos não entendem "São Paulo" ou "cartão de crédito". Estratégias de encoding:</p>
         <ul>
           <li><strong>One-Hot Encoding:</strong> uma coluna binária por categoria. Bom para baixa cardinalidade (&lt;15 valores). Explode em alta cardinalidade.</li>
-          <li><strong>Label/Ordinal Encoding:</strong> inteiros. Só use quando há ordem natural (P/M/G) — senão o modelo inventa ordem falsa.</li>
-          <li><strong>Target Encoding:</strong> substitui categoria pela média do target naquela categoria. Poderoso em alta cardinalidade, mas <strong>vaza target</strong> se mal feito — use com cross-fold e smoothing.</li>
+          <li><strong>Label/Ordinal Encoding:</strong> inteiros. Só use quando há ordem natural (P/M/G), senão o modelo inventa ordem falsa.</li>
+          <li><strong>Target Encoding:</strong> substitui categoria pela média do target naquela categoria. Poderoso em alta cardinalidade, mas <strong>vaza target</strong> se mal feito, use com cross-fold e smoothing.</li>
           <li><strong>Frequency Encoding:</strong> substitui pela frequência da categoria.</li>
           <li><strong>Embeddings:</strong> aprende representação densa (redes neurais, CatBoost). Melhor para altíssima cardinalidade (IDs de usuário, produtos).</li>
         </ul>
@@ -44,7 +44,7 @@ window.LESSON_CONTENT['feature-engineering'] = {
           <li><strong>Log transform:</strong> para distribuições com cauda longa (renda, preços). Comprime a cauda.</li>
           <li><strong>Power transform (Box-Cox, Yeo-Johnson):</strong> aproxima de normal.</li>
         </ul>
-        <p>Árvores e ensembles de árvores <strong>não precisam</strong> de scaling — são invariantes a transformações monotônicas.</p>
+        <p>Árvores e ensembles de árvores <strong>não precisam</strong> de scaling, são invariantes a transformações monotônicas.</p>
       `
     },
     {
@@ -54,7 +54,7 @@ window.LESSON_CONTENT['feature-engineering'] = {
         <p>Datas e timestamps carregam muito sinal, mas precisam ser extraídos:</p>
         <ul>
           <li><strong>Componentes:</strong> hora, dia da semana, mês, trimestre, é feriado, é fim de semana.</li>
-          <li><strong>Cíclicas:</strong> hora do dia e dia da semana são cíclicas — codifique com seno/cosseno para o modelo entender que 23h está perto de 0h.</li>
+          <li><strong>Cíclicas:</strong> hora do dia e dia da semana são cíclicas, codifique com seno/cosseno para o modelo entender que 23h está perto de 0h.</li>
           <li><strong>Lags:</strong> valor de N períodos atrás (vendas da semana passada).</li>
           <li><strong>Rolling windows:</strong> média/desvio/máximo móvel dos últimos K períodos.</li>
           <li><strong>Time since:</strong> tempo desde último evento (última compra, último login).</li>
@@ -74,14 +74,14 @@ window.LESSON_CONTENT['feature-engineering'] = {
           <li><strong>Imputação simples:</strong> média/mediana (numérica), moda (categórica). Mediana é mais robusta.</li>
           <li><strong>Imputação por modelo:</strong> KNN imputer, MICE. Mais sofisticado, risco de leakage.</li>
           <li><strong>Indicador de ausência:</strong> adicione uma coluna binária "estava faltando". O <em>fato</em> de faltar pode ser sinal.</li>
-          <li><strong>Deixar faltar:</strong> XGBoost, LightGBM lidam nativamente com NaN — às vezes melhor que imputar.</li>
+          <li><strong>Deixar faltar:</strong> XGBoost, LightGBM lidam nativamente com NaN, às vezes melhor que imputar.</li>
         </ul>
         <p>Sempre pergunte: o dado falta aleatoriamente (MCAR), por algo observável (MAR), ou pelo próprio valor (MNAR)? Isso muda a estratégia correta.</p>
       `
     },
     {
       id: 'leakage',
-      title: 'Data leakage — o erro mais caro',
+      title: 'Data leakage, o erro mais caro',
       body: `
         <p>Data leakage é quando informação que não estaria disponível em produção vaza para o treino. Infla métricas no desenvolvimento e o modelo falha em produção. Tipos comuns:</p>
         <ul>
@@ -127,7 +127,7 @@ full.fit(X_train, y_train)  # tudo aprendido APENAS no treino</code></pre>
     }
   ],
   whenToUse: [
-    'Sempre — é o trabalho de maior alavancagem em ML tabular',
+    'Sempre, é o trabalho de maior alavancagem em ML tabular',
     'Quando o modelo deu plateau (features novas > algoritmo novo)',
     'Quando há conhecimento de domínio a incorporar'
   ],
@@ -146,7 +146,7 @@ window.LESSON_CONTENT['sql-ml'] = {
   tags: ['SQL', 'dados', 'window functions'],
   tagline: 'Antes do modelo, os dados. E os dados quase sempre estão num <em>banco relacional</em>.',
   intro: `
-    <p>A maior parte das features de produção nasce de queries SQL. Dominar SQL avançado — window functions, CTEs, agregações — é o que permite construir features em escala diretamente na fonte, sem trazer terabytes para a memória. É uma habilidade subestimada por quem vem do "sklearn mindset".</p>
+    <p>A maior parte das features de produção nasce de queries SQL. Dominar SQL avançado, window functions, CTEs, agregações, é o que permite construir features em escala diretamente na fonte, sem trazer terabytes para a memória. É uma habilidade subestimada por quem vem do "sklearn mindset".</p>
   `,
   sections: [
     {
@@ -156,7 +156,7 @@ window.LESSON_CONTENT['sql-ml'] = {
         <p>O erro #1 em feature engineering com SQL é errar a granularidade. Antes de juntar tabelas, pergunte: "qual é uma linha do meu dataset final?"</p>
         <ul>
           <li><strong>INNER JOIN:</strong> só linhas com match nos dois lados.</li>
-          <li><strong>LEFT JOIN:</strong> mantém todas as linhas da esquerda — essencial quando o lado direito pode não ter match (e você quer NULL, não perder a linha).</li>
+          <li><strong>LEFT JOIN:</strong> mantém todas as linhas da esquerda, essencial quando o lado direito pode não ter match (e você quer NULL, não perder a linha).</li>
           <li><strong>Fan-out trap:</strong> join com tabela de granularidade mais fina multiplica linhas. Agregue antes de juntar.</li>
         </ul>
         <div class="callout warn">
@@ -167,9 +167,9 @@ window.LESSON_CONTENT['sql-ml'] = {
     },
     {
       id: 'window',
-      title: 'Window functions — a ferramenta-chave',
+      title: 'Window functions, a ferramenta-chave',
       body: `
-        <p>Window functions calculam agregações sem colapsar linhas — perfeitas para features. A estrutura:</p>
+        <p>Window functions calculam agregações sem colapsar linhas, perfeitas para features. A estrutura:</p>
         <div class="math">FUNC() OVER (PARTITION BY ... ORDER BY ... ROWS BETWEEN ...)</div>
         <pre><code>SELECT
   user_id,
@@ -190,7 +190,7 @@ FROM orders;</code></pre>
     },
     {
       id: 'cte',
-      title: 'CTEs — legibilidade e composição',
+      title: 'CTEs, legibilidade e composição',
       body: `
         <p>Common Table Expressions (WITH) quebram queries complexas em passos nomeados. Essencial para feature pipelines legíveis:</p>
         <pre><code>WITH user_stats AS (
@@ -209,7 +209,7 @@ recency AS (
 SELECT s.*, r.days_since_last
 FROM user_stats s
 JOIN recency r USING (user_id);</code></pre>
-        <p>CTEs também permitem recursão (hierarquias, grafos) — útil em features de árvore organizacional, categorias aninhadas.</p>
+        <p>CTEs também permitem recursão (hierarquias, grafos), útil em features de árvore organizacional, categorias aninhadas.</p>
       `
     },
     {
@@ -221,7 +221,7 @@ JOIN recency r USING (user_id);</code></pre>
           <li><strong>Recency:</strong> dias desde último evento.</li>
           <li><strong>Frequency:</strong> contagem de eventos numa janela.</li>
           <li><strong>Monetary:</strong> soma/média de valor.</li>
-          <li><strong>Conditional aggregation:</strong> <code>SUM(CASE WHEN status='paid' THEN amount ELSE 0 END)</code> — agrega condicionalmente.</li>
+          <li><strong>Conditional aggregation:</strong> <code>SUM(CASE WHEN status='paid' THEN amount ELSE 0 END)</code>, agrega condicionalmente.</li>
         </ul>
         <p>Para grandes volumes, agregue no banco (que é otimizado) em vez de trazer dados crus para Python. Bancos colunares (BigQuery, Redshift, Snowflake) são feitos para isso.</p>
       `
@@ -271,14 +271,14 @@ window.LESSON_CONTENT['data-modeling'] = {
       body: `
         <p><strong>OLTP (Online Transaction Processing):</strong> sistemas operacionais. Otimizados para escritas rápidas e consultas pontuais.</p>
         <ul>
-          <li>Normalizado (3NF) — sem redundância.</li>
+          <li>Normalizado (3NF), sem redundância.</li>
           <li>Row-oriented.</li>
           <li>Exemplos: PostgreSQL, MySQL transacional.</li>
           <li>"Qual o saldo do cliente X agora?"</li>
         </ul>
         <p><strong>OLAP (Online Analytical Processing):</strong> sistemas analíticos. Otimizados para agregações sobre grandes volumes.</p>
         <ul>
-          <li>Desnormalizado (star/snowflake schema) — redundância proposital.</li>
+          <li>Desnormalizado (star/snowflake schema), redundância proposital.</li>
           <li>Column-oriented.</li>
           <li>Exemplos: BigQuery, Redshift, Snowflake, ClickHouse.</li>
           <li>"Qual a média de vendas por região nos últimos 3 anos?"</li>
@@ -319,7 +319,7 @@ window.LESSON_CONTENT['data-modeling'] = {
         <p>Considerações específicas de ML:</p>
         <ul>
           <li><strong>Training-serving skew:</strong> as features no treino devem ser computadas exatamente como no serving. Feature stores resolvem isso.</li>
-          <li><strong>Point-in-time correctness:</strong> ao construir o dataset histórico, use apenas dados disponíveis naquele momento — não o estado atual.</li>
+          <li><strong>Point-in-time correctness:</strong> ao construir o dataset histórico, use apenas dados disponíveis naquele momento, não o estado atual.</li>
           <li><strong>Snapshots vs eventos:</strong> guardar o estado a cada momento (snapshot) vs reconstruir de eventos (event sourcing).</li>
           <li><strong>Feature freshness:</strong> com que frequência as features são atualizadas? Batch diário? Streaming?</li>
         </ul>
@@ -349,7 +349,7 @@ window.LESSON_CONTENT['unstructured-data'] = {
   etapa: 9, etapaName: 'Engenharia de ML & Dados',
   time: '60 min',
   tags: ['texto', 'imagens', 'embeddings'],
-  tagline: 'Texto, imagens, áudio — 80% dos dados do mundo. Transformá-los em <em>vetores</em> é a ponte para ML.',
+  tagline: 'Texto, imagens, áudio, 80% dos dados do mundo. Transformá-los em <em>vetores</em> é a ponte para ML.',
   intro: `
     <p>A maior parte dos dados não cabe numa tabela: e-mails, documentos, fotos, áudio, logs. Trabalhar com dados não-estruturados exige técnicas de pré-processamento e, crucialmente, transformá-los em representações vetoriais (embeddings) que modelos conseguem consumir.</p>
   `,
@@ -374,7 +374,7 @@ window.LESSON_CONTENT['unstructured-data'] = {
       body: `
         <ul>
           <li><strong>Representação:</strong> imagens são tensores (altura × largura × canais). Normalização por canal é padrão.</li>
-          <li><strong>Augmentation:</strong> rotation, flip, crop, color jitter — aumenta dados e regulariza.</li>
+          <li><strong>Augmentation:</strong> rotation, flip, crop, color jitter, aumenta dados e regulariza.</li>
           <li><strong>Embeddings:</strong> use CNNs/ViTs pré-treinados (ResNet, CLIP) para extrair vetores de features sem treinar do zero.</li>
           <li><strong>Resolução:</strong> trade-off entre detalhe e custo computacional.</li>
         </ul>
@@ -382,11 +382,11 @@ window.LESSON_CONTENT['unstructured-data'] = {
     },
     {
       id: 'embeddings',
-      title: 'Embeddings — a representação universal',
+      title: 'Embeddings, a representação universal',
       body: `
         <p>Embeddings são vetores densos que capturam semântica. A ideia central: objetos similares ficam próximos no espaço vetorial.</p>
         <ul>
-          <li>Texto, imagem, áudio, grafos — tudo vira embedding.</li>
+          <li>Texto, imagem, áudio, grafos, tudo vira embedding.</li>
           <li>Permitem busca por similaridade (cosine, dot product).</li>
           <li>Base de retrieval, RAG, recomendação, clustering, deduplicação.</li>
         </ul>
@@ -409,8 +409,8 @@ top_k = np.argsort(sims)[-5:][::-1]</code></pre>
       body: `
         <p>Dados não-estruturados são volumosos e exigem infraestrutura adequada:</p>
         <ul>
-          <li><strong>Object storage:</strong> S3, GCS, Azure Blob — para arquivos brutos (imagens, áudio, documentos).</li>
-          <li><strong>Vector databases:</strong> Pinecone, Weaviate, Qdrant, pgvector — para embeddings com busca por similaridade.</li>
+          <li><strong>Object storage:</strong> S3, GCS, Azure Blob, para arquivos brutos (imagens, áudio, documentos).</li>
+          <li><strong>Vector databases:</strong> Pinecone, Weaviate, Qdrant, pgvector, para embeddings com busca por similaridade.</li>
           <li><strong>Data lakes:</strong> formato aberto (Parquet, Delta Lake) para volume + flexibilidade de schema.</li>
           <li><strong>Lakehouse:</strong> combina flexibilidade de lake com performance de warehouse (Databricks, Iceberg).</li>
         </ul>
@@ -438,7 +438,7 @@ window.LESSON_CONTENT['python-dsa'] = {
   tags: ['python', 'algoritmos', 'estruturas de dados'],
   tagline: 'Entrevistas técnicas ainda cobram código. Estruturas de dados e <em>padrões</em> de algoritmo, sem pacotes.',
   intro: `
-    <p>Mesmo em posições de ML, a entrevista técnica frequentemente inclui problemas estilo LeetCode — implementar algoritmos com estruturas de dados puras, sem numpy ou pandas. Esta lição cobre as estruturas e os padrões que mais aparecem, com foco no que importa para ML eng (não DP avançada ou grafos complexos).</p>
+    <p>Mesmo em posições de ML, a entrevista técnica frequentemente inclui problemas estilo LeetCode, implementar algoritmos com estruturas de dados puras, sem numpy ou pandas. Esta lição cobre as estruturas e os padrões que mais aparecem, com foco no que importa para ML eng (não DP avançada ou grafos complexos).</p>
   `,
   sections: [
     {
@@ -447,11 +447,11 @@ window.LESSON_CONTENT['python-dsa'] = {
       body: `
         <ul>
           <li><strong>Array/List:</strong> acesso O(1), inserção no fim O(1), no meio O(n).</li>
-          <li><strong>Hash Map (dict):</strong> lookup/insert O(1) médio. A estrutura mais usada em entrevistas — memoização, contagem, deduplicação.</li>
+          <li><strong>Hash Map (dict):</strong> lookup/insert O(1) médio. A estrutura mais usada em entrevistas, memoização, contagem, deduplicação.</li>
           <li><strong>Set:</strong> pertencimento O(1), deduplicação.</li>
           <li><strong>Stack (LIFO):</strong> use list ou deque. Parsing, backtracking, undo.</li>
-          <li><strong>Queue (FIFO):</strong> use <code>collections.deque</code> — list.pop(0) é O(n)!</li>
-          <li><strong>Heap:</strong> <code>heapq</code> — min-heap. Top-k, priority queue, streaming median.</li>
+          <li><strong>Queue (FIFO):</strong> use <code>collections.deque</code>, list.pop(0) é O(n)!</li>
+          <li><strong>Heap:</strong> <code>heapq</code>, min-heap. Top-k, priority queue, streaming median.</li>
         </ul>
         <div class="callout tip">
           <strong>DICA PYTHON</strong>
@@ -463,7 +463,7 @@ window.LESSON_CONTENT['python-dsa'] = {
       id: 'two-pointers',
       title: 'Padrão: Two Pointers',
       body: `
-        <p>Dois índices percorrem a estrutura — frente/trás ou rápido/lento. Resolve problemas de array ordenado em O(n) em vez de O(n²).</p>
+        <p>Dois índices percorrem a estrutura, frente/trás ou rápido/lento. Resolve problemas de array ordenado em O(n) em vez de O(n²).</p>
         <pre><code># Two Sum em array ordenado
 def two_sum_sorted(arr, target):
     left, right = 0, len(arr) - 1
@@ -532,11 +532,11 @@ def count_bits(n):
       body: `
         <p>Sempre saiba dizer a complexidade de tempo e espaço da sua solução:</p>
         <ul>
-          <li><strong>O(1):</strong> tempo constante — hash lookup, operação aritmética.</li>
+          <li><strong>O(1):</strong> tempo constante, hash lookup, operação aritmética.</li>
           <li><strong>O(log n):</strong> busca binária, heap operations.</li>
-          <li><strong>O(n):</strong> percorrer uma vez — two pointers, sliding window.</li>
+          <li><strong>O(n):</strong> percorrer uma vez, two pointers, sliding window.</li>
           <li><strong>O(n log n):</strong> sorting, divide-and-conquer.</li>
-          <li><strong>O(n²):</strong> nested loops — evite quando possível.</li>
+          <li><strong>O(n²):</strong> nested loops, evite quando possível.</li>
         </ul>
         <p>Em entrevista, sempre proponha a solução brute-force primeiro, depois otimize. Comunique o trade-off tempo vs espaço.</p>
       `
@@ -548,7 +548,7 @@ def count_bits(n):
     'Entender complexidade de algoritmos ML'
   ],
   whenNot: [
-    'Produção real — use bibliotecas otimizadas (numpy, pandas)',
+    'Produção real, use bibliotecas otimizadas (numpy, pandas)',
     'Não reinvente a roda fora de contexto de entrevista'
   ],
   metrics: ['Complexidade de tempo/espaço', 'Casos de borda cobertos', 'Clareza da solução']
@@ -562,7 +562,7 @@ window.LESSON_CONTENT['git-testing'] = {
   tags: ['git', 'testes', 'DVC', 'versionamento'],
   tagline: 'Código não versionado não existe. Modelo não testado não vai para produção. <em>Disciplina</em> de engenharia em ML.',
   intro: `
-    <p>ML não é só notebooks. Para chegar a produção, código, dados e modelos precisam ser versionados, e o pipeline precisa de testes — não só do código, mas dos dados e do próprio modelo. Esta lição cobre as práticas de engenharia que separam um experimento de um sistema.</p>
+    <p>ML não é só notebooks. Para chegar a produção, código, dados e modelos precisam ser versionados, e o pipeline precisa de testes, não só do código, mas dos dados e do próprio modelo. Esta lição cobre as práticas de engenharia que separam um experimento de um sistema.</p>
   `,
   sections: [
     {

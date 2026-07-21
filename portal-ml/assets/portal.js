@@ -1,4 +1,4 @@
-/* ML Portal — shared chrome + progress + theme
+/* ML Portal, shared chrome + progress + theme
    - Renders topbar (with theme toggle) and footer
    - Tracks completion in localStorage
    - Handles theme switching
@@ -14,8 +14,9 @@
     { href: 'index.html',      label: 'Início',     key: 'home' },
     { href: 'curriculum.html', label: 'Trilha',     key: 'curriculum' },
     { href: 'lessons.html',    label: 'Algoritmos', key: 'lessons' },
-    { href: 'interview.html',  label: 'Flashcards', key: 'interview' },
+    { href: 'interview.html',  label: 'Entrevista', key: 'interview' },
     { href: 'resources.html',  label: 'Recursos',   key: 'resources' },
+    { href: 'pipeline.html',   label: 'Pipeline',   key: 'pipeline' },
     { href: 'glossary.html',   label: 'Glossário',  key: 'glossary' },
   ];
 
@@ -244,7 +245,7 @@
     const pct = totalAll ? Math.round(100 * totalDone / totalAll) : 0;
 
     // current stage = first stage with incomplete lessons
-    let currentStage = catalog[catalog.length - 1] || { n: 0, title: '—' };
+    let currentStage = catalog[catalog.length - 1] || { n: 0, title: ', ' };
     for (const e of catalog) {
       const ld = e.lessons.filter(l => snap.progress[l.id]).length;
       if (ld < e.lessons.length) { currentStage = e; break; }
@@ -257,19 +258,19 @@
     const now = new Date();
     const stamp = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
 
-    let md = `# Portal de ML — Progresso\n\n`;
+    let md = `# Portal de ML, Progresso\n\n`;
     md += `**Exportado em** ${stamp}  \n`;
     md += `**Versão** ${snap.version}\n\n`;
     md += `## Resumo\n\n`;
     md += `- **Lições concluídas:** ${totalDone}/${totalAll} (${pct}%)\n`;
-    md += `- **Etapa atual:** Etapa ${pad(currentStage.n)} — ${currentStage.title}\n`;
+    md += `- **Etapa atual:** Etapa ${pad(currentStage.n)}, ${currentStage.title}\n`;
     md += `- **Flashcards:** ${fc.seen} vistos · ${fc.hit} acertos · ${fc.miss} erros${fcTotal ? ` (${fcRate}% de acerto)` : ''}\n`;
     md += `- **Tema:** ${snap.theme}\n\n`;
 
     if (catalog.length) {
       md += `## Trilha\n\n`;
       catalog.forEach(e => {
-        md += `### Etapa ${pad(e.n)} — ${e.title}\n\n`;
+        md += `### Etapa ${pad(e.n)}, ${e.title}\n\n`;
         e.lessons.forEach(l => {
           const done = !!snap.progress[l.id];
           const mark = done ? 'x' : ' ';
@@ -281,7 +282,7 @@
     }
 
     md += `---\n\n`;
-    md += `## Estado (não editar à mão — usado para import)\n\n`;
+    md += `## Estado (não editar à mão, usado para import)\n\n`;
     md += '```json\n' + JSON.stringify(snap, null, 2) + '\n```\n';
 
     return md;
@@ -300,7 +301,7 @@
     }
     // 2) Try parsing the whole text as JSON
     try { return JSON.parse(text); } catch(_) {}
-    // 3) Fallback: parse markdown checkboxes — `- [x] ... `slug`` lines
+    // 3) Fallback: parse markdown checkboxes, `- [x] ... `slug`` lines
     const progress = {};
     const lineRe = /^- \[(x|X)\] .*?`([a-z0-9-]+)`/gm;
     let m;

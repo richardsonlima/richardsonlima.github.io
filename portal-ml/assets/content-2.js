@@ -1,10 +1,10 @@
-/* Lesson content — Etapas 04, 05, 06 (lições 13–24)
+/* Lesson content, Etapas 04, 05, 06 (lições 13–24)
    Mesma schema de content.js
 */
 window.LESSON_CONTENT = window.LESSON_CONTENT || {};
 
 /* ═══════════════════════════════════════════════════════════════
-   ETAPA 04 — NÃO-SUPERVISIONADO
+   ETAPA 04, NÃO-SUPERVISIONADO
    ═══════════════════════════════════════════════════════════════ */
 
 window.LESSON_CONTENT['clustering'] = {
@@ -13,9 +13,9 @@ window.LESSON_CONTENT['clustering'] = {
   etapa: 4, etapaName: 'Não-supervisionado',
   time: '75 min',
   tags: ['clustering', 'K-Means', 'DBSCAN'],
-  tagline: 'Quando não há rótulo, agrupe por <em>similaridade</em>. K-Means, DBSCAN, Hierarchical — cada um para um tipo de cluster.',
+  tagline: 'Quando não há rótulo, agrupe por <em>similaridade</em>. K-Means, DBSCAN, Hierarchical, cada um para um tipo de cluster.',
   intro: `
-    <p>Clustering é o paradigma não-supervisionado mais usado. Você tem dados sem rótulo e quer descobrir grupos naturais — segmentação de clientes, agrupamento de documentos, exploração inicial. Esta lição cobre os três algoritmos canônicos e quando usar cada um.</p>
+    <p>Clustering é o paradigma não-supervisionado mais usado. Você tem dados sem rótulo e quer descobrir grupos naturais, segmentação de clientes, agrupamento de documentos, exploração inicial. Esta lição cobre os três algoritmos canônicos e quando usar cada um.</p>
   `,
   sections: [
     {
@@ -70,7 +70,7 @@ window.LESSON_CONTENT['clustering'] = {
           <li><strong>Average:</strong> distância média.</li>
           <li><strong>Ward:</strong> minimiza variância intra-cluster. Mais robusto na prática.</li>
         </ul>
-        <p>O resultado é um <strong>dendrograma</strong> que você "corta" em uma altura para obter os clusters finais. Excelente para análise exploratória, mas O(n²) — não escala.</p>
+        <p>O resultado é um <strong>dendrograma</strong> que você "corta" em uma altura para obter os clusters finais. Excelente para análise exploratória, mas O(n²), não escala.</p>
       `
     },
     {
@@ -111,9 +111,9 @@ window.LESSON_CONTENT['anomaly'] = {
   etapa: 4, etapaName: 'Não-supervisionado',
   time: '60 min',
   tags: ['anomalia', 'fraude', 'monitoramento'],
-  tagline: 'Encontre o <em>raro</em> num oceano de normal. Sem rótulo, sem precisão prometida — só sinal.',
+  tagline: 'Encontre o <em>raro</em> num oceano de normal. Sem rótulo, sem precisão prometida, só sinal.',
   intro: `
-    <p>Detecção de anomalia é onde você tem dados predominantemente normais e precisa flagar o estranho — fraude, intrusão, defeito industrial, transação suspeita. Geralmente sem rótulos, ou com rótulos extremamente desbalanceados. Esta lição cobre as três técnicas canônicas e os trade-offs.</p>
+    <p>Detecção de anomalia é onde você tem dados predominantemente normais e precisa flagar o estranho, fraude, intrusão, defeito industrial, transação suspeita. Geralmente sem rótulos, ou com rótulos extremamente desbalanceados. Esta lição cobre as três técnicas canônicas e os trade-offs.</p>
   `,
   sections: [
     {
@@ -171,7 +171,7 @@ preds = iso.predict(X)         # -1 = anomalia, 1 = normal</code></pre>
         </ul>
         <div class="callout warn">
           <strong>BASE RATE FALLACY</strong>
-          Mesmo um modelo "preciso" (95% accuracy) em fraude (0.1% positivos) gera 99% de falsos alarmes. Sempre raciocine em termos absolutos de Precision e Recall — não accuracy.
+          Mesmo um modelo "preciso" (95% accuracy) em fraude (0.1% positivos) gera 99% de falsos alarmes. Sempre raciocine em termos absolutos de Precision e Recall, não accuracy.
         </div>
       `
     }
@@ -184,7 +184,7 @@ preds = iso.predict(X)         # -1 = anomalia, 1 = normal</code></pre>
   ],
   whenNot: [
     'Quando você tem rótulos suficientes (use classificação desbalanceada)',
-    'Quando anomalias estão concentradas em clusters densos (paradoxo — anomalia precisa ser rara)'
+    'Quando anomalias estão concentradas em clusters densos (paradoxo, anomalia precisa ser rara)'
   ],
   metrics: ['PR-AUC', 'Precision@k', 'Recall@FPR fixo']
 };
@@ -206,11 +206,11 @@ window.LESSON_CONTENT['tsne-umap'] = {
       body: `
         <p>Ideia: defina uma distribuição de probabilidade no espaço original (vizinhos próximos têm alta probabilidade) e tente reproduzi-la no espaço de saída (2D ou 3D), minimizando a divergência KL.</p>
         <div class="math">min KL(P‖Q)</div>
-        <p>Detalhe técnico: usa distribuição t-Student na saída para evitar "crowding" — daí o "t" no nome.</p>
+        <p>Detalhe técnico: usa distribuição t-Student na saída para evitar "crowding", daí o "t" no nome.</p>
         <ul>
           <li>Excelente para preservar estrutura <strong>local</strong>.</li>
-          <li>Distâncias <strong>globais não são preservadas</strong> — clusters distantes no t-SNE não significam clusters distantes nos dados.</li>
-          <li>Não é função — você não pode aplicar a novos pontos sem retreinar.</li>
+          <li>Distâncias <strong>globais não são preservadas</strong>, clusters distantes no t-SNE não significam clusters distantes nos dados.</li>
+          <li>Não é função, você não pode aplicar a novos pontos sem retreinar.</li>
           <li>Hiperparâmetro chave: <code>perplexity</code> (5-50). Diferentes perplexities dão visualizações diferentes.</li>
         </ul>
         <div class="callout warn">
@@ -226,8 +226,8 @@ window.LESSON_CONTENT['tsne-umap'] = {
         <p>UMAP (Uniform Manifold Approximation and Projection) usa topologia algébrica para construir uma representação que preserva estrutura <strong>local e parcialmente global</strong>.</p>
         <p>Vantagens sobre t-SNE:</p>
         <ul>
-          <li><strong>Mais rápido</strong> — escala para milhões.</li>
-          <li><strong>Preserva alguma estrutura global</strong> — clusters distantes no UMAP estão distantes nos dados (mais ou menos).</li>
+          <li><strong>Mais rápido</strong>, escala para milhões.</li>
+          <li><strong>Preserva alguma estrutura global</strong>, clusters distantes no UMAP estão distantes nos dados (mais ou menos).</li>
           <li><strong>É uma função.</strong> Pode aplicar a novos dados (<code>umap.transform()</code>).</li>
           <li>Pode ser usado em <strong>pipelines de produção</strong>.</li>
         </ul>
@@ -279,18 +279,18 @@ embedding = reducer.fit_transform(X_s)</code></pre>
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   ETAPA 05 — DEEP LEARNING
+   ETAPA 05, DEEP LEARNING
    ═══════════════════════════════════════════════════════════════ */
 
 window.LESSON_CONTENT['mlp'] = {
   id: 'mlp',
-  title: 'MLP — Multi-Layer Perceptron',
+  title: 'MLP, Multi-Layer Perceptron',
   etapa: 5, etapaName: 'Deep learning',
   time: '120 min',
   tags: ['deep', 'backprop', 'universal'],
   tagline: 'Regressão logística <em>empilhada</em>. O building block de todo deep learning.',
   intro: `
-    <p>Um MLP nada mais é que múltiplas camadas de regressão logística empilhadas, com ativações não-lineares no meio. É um aproximador universal — pode representar qualquer função suave. Esta lição cobre os fundamentos: arquitetura, backprop, inicialização, regularização. Sem entender MLP, não há como entender CNN, RNN ou Transformer.</p>
+    <p>Um MLP nada mais é que múltiplas camadas de regressão logística empilhadas, com ativações não-lineares no meio. É um aproximador universal, pode representar qualquer função suave. Esta lição cobre os fundamentos: arquitetura, backprop, inicialização, regularização. Sem entender MLP, não há como entender CNN, RNN ou Transformer.</p>
   `,
   sections: [
     {
@@ -324,7 +324,7 @@ window.LESSON_CONTENT['mlp'] = {
           <li><strong>Backward pass:</strong> derive a loss em relação aos parâmetros usando chain rule.</li>
           <li><strong>Update:</strong> <code>W ← W − η · ∂L/∂W</code>.</li>
         </ol>
-        <p>Frameworks (PyTorch, TensorFlow, JAX) fazem isso automaticamente via <strong>autograd</strong> — você só especifica o forward, eles calculam o backward.</p>
+        <p>Frameworks (PyTorch, TensorFlow, JAX) fazem isso automaticamente via <strong>autograd</strong>, você só especifica o forward, eles calculam o backward.</p>
         <p>Problemas históricos:</p>
         <ul>
           <li><strong>Vanishing gradient:</strong> em redes muito profundas com sigmoid/tanh, gradientes encolhem a cada camada → camadas iniciais não aprendem. ReLU + skip connections resolveram em grande parte.</li>
@@ -386,7 +386,7 @@ window.LESSON_CONTENT['mlp'] = {
 
 window.LESSON_CONTENT['cnn'] = {
   id: 'cnn',
-  title: 'CNN — Convolutional Neural Networks',
+  title: 'CNN, Convolutional Neural Networks',
   etapa: 5, etapaName: 'Deep learning',
   time: '90 min',
   tags: ['deep', 'visão', 'convolução'],
@@ -405,7 +405,7 @@ window.LESSON_CONTENT['cnn'] = {
         <ul>
           <li><strong>Compartilhamento de pesos:</strong> o mesmo kernel se aplica em toda a imagem. Drasticamente menos parâmetros que MLP.</li>
           <li><strong>Translation equivariance:</strong> mover o input move a saída da mesma forma. Bom para objetos que podem estar em qualquer lugar.</li>
-          <li><strong>Local receptive field:</strong> cada neurônio "vê" só uma região. Camadas mais profundas têm receptive field maior — aprendem padrões mais abstratos.</li>
+          <li><strong>Local receptive field:</strong> cada neurônio "vê" só uma região. Camadas mais profundas têm receptive field maior, aprendem padrões mais abstratos.</li>
         </ul>
       `
     },
@@ -424,7 +424,7 @@ window.LESSON_CONTENT['cnn'] = {
         <ul>
           <li><strong>ResNet:</strong> skip connections permitem redes muito profundas (50, 100, 1000+ camadas).</li>
           <li><strong>EfficientNet:</strong> escala balanceada de profundidade, largura e resolução.</li>
-          <li><strong>ConvNeXt:</strong> "moderniza" CNNs com truques de transformers — competitiva com ViT.</li>
+          <li><strong>ConvNeXt:</strong> "moderniza" CNNs com truques de transformers, competitiva com ViT.</li>
         </ul>
       `
     },
@@ -486,8 +486,8 @@ window.LESSON_CONTENT['rnn'] = {
         <p>A cada passo, uma RNN mantém um estado oculto h que captura "memória" do passado:</p>
         <div class="math">hₜ = tanh(W_h · h_{t-1} + W_x · xₜ + b)</div>
         <div class="math">yₜ = W_y · hₜ + b_y</div>
-        <p>Os mesmos pesos W são aplicados em todos os passos — uma forma de weight sharing temporal análoga ao spatial sharing da CNN.</p>
-        <p>Treino: <strong>Backprop Through Time (BPTT)</strong> — desenrola a rede no tempo e aplica backprop normal.</p>
+        <p>Os mesmos pesos W são aplicados em todos os passos, uma forma de weight sharing temporal análoga ao spatial sharing da CNN.</p>
+        <p>Treino: <strong>Backprop Through Time (BPTT)</strong>, desenrola a rede no tempo e aplica backprop normal.</p>
       `
     },
     {
@@ -509,7 +509,7 @@ window.LESSON_CONTENT['rnn'] = {
           <li><strong>Input gate:</strong> quanto da nova entrada incorporar.</li>
           <li><strong>Output gate:</strong> quanto da cell state expor como h.</li>
         </ul>
-        <p>Cada gate é uma sigmoide aprendida — entre 0 (bloquear) e 1 (deixar passar). O gradiente flui através da cell state quase intacto, evitando vanishing.</p>
+        <p>Cada gate é uma sigmoide aprendida, entre 0 (bloquear) e 1 (deixar passar). O gradiente flui através da cell state quase intacto, evitando vanishing.</p>
         <p>LSTMs lidam confortavelmente com sequências de 100-1000 passos.</p>
       `
     },
@@ -527,11 +527,11 @@ window.LESSON_CONTENT['rnn'] = {
       body: `
         <p>Apesar das melhorias, RNNs têm limitações fundamentais:</p>
         <ul>
-          <li><strong>Sequencialidade:</strong> não paraleliza no tempo — cada passo depende do anterior.</li>
+          <li><strong>Sequencialidade:</strong> não paraleliza no tempo, cada passo depende do anterior.</li>
           <li><strong>Memória limitada:</strong> mesmo LSTM tem dificuldade com sequências muito longas.</li>
           <li><strong>Bottleneck:</strong> toda a informação tem que passar por um único vetor h.</li>
         </ul>
-        <p>Transformers resolvem todos os três via self-attention — voltamos lá na próxima lição.</p>
+        <p>Transformers resolvem todos os três via self-attention, voltamos lá na próxima lição.</p>
       `
     }
   ],
@@ -557,7 +557,7 @@ window.LESSON_CONTENT['transformers'] = {
   tags: ['deep', 'attention', 'LLM'],
   tagline: 'A arquitetura que mudou IA. <em>Self-attention</em> + posicionamento + escala = foundation models.',
   intro: `
-    <p>Transformers (Vaswani et al, 2017 — "Attention Is All You Need") são a arquitetura dominante de IA moderna. Base de LLMs (GPT, Claude, Llama), modelos de visão (ViT), multimodal (CLIP), código (Codex), e praticamente tudo que escalou nos últimos 5 anos.</p>
+    <p>Transformers (Vaswani et al, 2017, "Attention Is All You Need") são a arquitetura dominante de IA moderna. Base de LLMs (GPT, Claude, Llama), modelos de visão (ViT), multimodal (CLIP), código (Codex), e praticamente tudo que escalou nos últimos 5 anos.</p>
     <p>Esta lição cobre os componentes essenciais: self-attention, multi-head, positional encoding, e por que a arquitetura escala tão bem.</p>
   `,
   sections: [
@@ -566,18 +566,18 @@ window.LESSON_CONTENT['transformers'] = {
       title: 'Self-attention: a operação central',
       body: `
         <p>Para cada token na sequência, attention permite olhar para todos os outros tokens e decidir, <em>dinamicamente</em>, quais são relevantes.</p>
-        <p>Cada token gera três vetores: <strong>Q</strong> (query), <strong>K</strong> (key), <strong>V</strong> (value) — projeções lineares de sua representação.</p>
+        <p>Cada token gera três vetores: <strong>Q</strong> (query), <strong>K</strong> (key), <strong>V</strong> (value), projeções lineares de sua representação.</p>
         <div class="math">Attention(Q, K, V) = softmax(QKᵀ / √dₖ) · V</div>
         <p>Lendo: para cada query, calcule similaridade com todas as keys (produto interno). Normalize com softmax. Use como peso para combinar as values.</p>
-        <p>A divisão por √dₖ é uma normalização para evitar que produtos internos grandes saturarem o softmax — detalhe técnico crítico.</p>
-        <p>Custo: O(n²·d), onde n é o tamanho da sequência. Esse é o gargalo das sequências longas — atacado por variantes lineares (Linformer, Performer, Mamba).</p>
+        <p>A divisão por √dₖ é uma normalização para evitar que produtos internos grandes saturarem o softmax, detalhe técnico crítico.</p>
+        <p>Custo: O(n²·d), onde n é o tamanho da sequência. Esse é o gargalo das sequências longas, atacado por variantes lineares (Linformer, Performer, Mamba).</p>
       `
     },
     {
       id: 'multi-head',
       title: 'Multi-head attention',
       body: `
-        <p>Uma única attention captura uma "relação". Multi-head aplica attention em paralelo, com diferentes projeções de Q, K, V — cada "head" pode aprender uma relação diferente (sintática, semântica, posicional).</p>
+        <p>Uma única attention captura uma "relação". Multi-head aplica attention em paralelo, com diferentes projeções de Q, K, V, cada "head" pode aprender uma relação diferente (sintática, semântica, posicional).</p>
         <p>Tipicamente 8 ou 16 heads, depois concatenados e projetados de volta.</p>
       `
     },
@@ -585,7 +585,7 @@ window.LESSON_CONTENT['transformers'] = {
       id: 'positional',
       title: 'Positional encoding',
       body: `
-        <p>Attention não tem noção nativa de ordem — para o algoritmo, a sequência "the cat sat" e "sat cat the" parecem iguais. Precisamos injetar informação de posição.</p>
+        <p>Attention não tem noção nativa de ordem, para o algoritmo, a sequência "the cat sat" e "sat cat the" parecem iguais. Precisamos injetar informação de posição.</p>
         <p>Duas abordagens:</p>
         <ul>
           <li><strong>Absolute positional encoding:</strong> adiciona um vetor único por posição. Sinusoidal (original) ou aprendido.</li>
@@ -652,7 +652,7 @@ window.LESSON_CONTENT['transformers'] = {
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   ETAPA 06 — AI MODERNA
+   ETAPA 06, AI MODERNA
    ═══════════════════════════════════════════════════════════════ */
 
 window.LESSON_CONTENT['ssl'] = {
@@ -677,7 +677,7 @@ window.LESSON_CONTENT['ssl'] = {
           <li>Treine o modelo para reconstruí-los a partir do contexto bidirecional.</li>
         </ol>
         <div class="math">L = − Σ log P(x_masked | x_context)</div>
-        <p>O resultado é um modelo que entende bem texto — útil para classificação, NER, similaridade. Mas <em>não gera</em> bem.</p>
+        <p>O resultado é um modelo que entende bem texto, útil para classificação, NER, similaridade. Mas <em>não gera</em> bem.</p>
       `
     },
     {
@@ -690,7 +690,7 @@ window.LESSON_CONTENT['ssl'] = {
           <li>Treine para prever o próximo token dado apenas o passado.</li>
         </ol>
         <div class="math">L = − Σₜ log P(xₜ | x_&lt;t)</div>
-        <p>Simples na superfície. Profundo nos efeitos: em escala, emergem capacidades de raciocínio, código, tradução, sumarização — sem nunca terem sido treinadas explicitamente. É o que está por trás de toda LLM moderna.</p>
+        <p>Simples na superfície. Profundo nos efeitos: em escala, emergem capacidades de raciocínio, código, tradução, sumarização, sem nunca terem sido treinadas explicitamente. É o que está por trás de toda LLM moderna.</p>
       `
     },
     {
@@ -740,7 +740,7 @@ window.LESSON_CONTENT['rlhf'] = {
   tags: ['RL', 'LLM', 'alinhamento'],
   tagline: 'Alinhar LLMs a preferências humanas. O que transformou GPT em <em>ChatGPT</em>.',
   intro: `
-    <p>Um LLM pretreinado em NTP é tecnicamente impressionante mas raramente útil — completa frases sem necessariamente responder, gera conteúdo tóxico, alucina com confiança. RLHF (Reinforcement Learning from Human Feedback) é o processo que transforma esses modelos em assistentes utilizáveis. É a "última milha" da maioria dos LLMs modernos.</p>
+    <p>Um LLM pretreinado em NTP é tecnicamente impressionante mas raramente útil, completa frases sem necessariamente responder, gera conteúdo tóxico, alucina com confiança. RLHF (Reinforcement Learning from Human Feedback) é o processo que transforma esses modelos em assistentes utilizáveis. É a "última milha" da maioria dos LLMs modernos.</p>
   `,
   sections: [
     {
@@ -762,7 +762,7 @@ window.LESSON_CONTENT['rlhf'] = {
         <p>Loss típica (Bradley-Terry):</p>
         <div class="math">L = −log σ(r(x, y_w) − r(x, y_l))</div>
         <p>Onde y_w é a resposta preferida e y_l a rejeitada.</p>
-        <p>Qualidade do RM é o gargalo — se os labelers discordam ou são mal-instruídos, o RM aprende ruído, e o LLM final otimiza para a coisa errada.</p>
+        <p>Qualidade do RM é o gargalo, se os labelers discordam ou são mal-instruídos, o RM aprende ruído, e o LLM final otimiza para a coisa errada.</p>
       `
     },
     {
@@ -849,7 +849,7 @@ window.LESSON_CONTENT['rag'] = {
           <li><strong>Tamanho:</strong> tipicamente 200-1000 tokens. Pequeno demais perde contexto, grande demais dilui.</li>
           <li><strong>Overlap:</strong> 10-20% para preservar continuidade.</li>
           <li><strong>Semântico:</strong> dividir por seções/parágrafos é melhor que dividir por número fixo de tokens.</li>
-          <li><strong>Metadata:</strong> guarde título do documento, seção, data — para filtros e contexto.</li>
+          <li><strong>Metadata:</strong> guarde título do documento, seção, data, para filtros e contexto.</li>
         </ul>
       `
     },
@@ -925,14 +925,14 @@ window.LESSON_CONTENT['agents'] = {
           <li><strong>APIs externas:</strong> calendário, e-mail, CRM, ferramentas internas.</li>
           <li><strong>Computer use:</strong> controlar mouse e teclado (Claude Computer Use, etc.).</li>
         </ul>
-        <p>Cada ferramenta é definida por um schema (descrição + parâmetros). O LLM aprende a invocá-las via function calling — formato padronizado em modelos modernos.</p>
+        <p>Cada ferramenta é definida por um schema (descrição + parâmetros). O LLM aprende a invocá-las via function calling, formato padronizado em modelos modernos.</p>
       `
     },
     {
       id: 'planning',
       title: 'Planning: além do reativo',
       body: `
-        <p>ReAct é puramente reativo — decide o próximo passo sem plano. Para tarefas complexas, agentes mais sofisticados:</p>
+        <p>ReAct é puramente reativo, decide o próximo passo sem plano. Para tarefas complexas, agentes mais sofisticados:</p>
         <ul>
           <li><strong>Planner-Executor:</strong> primeiro gera plano completo, depois executa passo a passo.</li>
           <li><strong>Tree of Thoughts:</strong> explora múltiplas trajetórias em paralelo, escolhe a melhor.</li>
@@ -951,7 +951,7 @@ window.LESSON_CONTENT['agents'] = {
           <li><strong>Reviewer</strong> verifica qualidade.</li>
           <li><strong>Orchestrator</strong> decide quem age quando.</li>
         </ul>
-        <p>Frameworks: AutoGen, CrewAI, LangGraph. Pode aumentar qualidade mas multiplica custo de tokens — sempre justifique.</p>
+        <p>Frameworks: AutoGen, CrewAI, LangGraph. Pode aumentar qualidade mas multiplica custo de tokens, sempre justifique.</p>
       `
     },
     {
@@ -960,7 +960,7 @@ window.LESSON_CONTENT['agents'] = {
       body: `
         <ul>
           <li><strong>Loops infinitos</strong> ou ações repetidas. Sempre tenha max_steps.</li>
-          <li><strong>Custos explodem</strong> rapidamente — agentes complexos podem usar dezenas de chamadas por tarefa.</li>
+          <li><strong>Custos explodem</strong> rapidamente, agentes complexos podem usar dezenas de chamadas por tarefa.</li>
           <li><strong>Erros se acumulam</strong> entre passos. Cada passo precisa ter qualidade alta.</li>
           <li><strong>Prompt injection</strong> via ferramentas (input externo) é vetor real de ataque.</li>
         </ul>
@@ -1080,7 +1080,7 @@ window.LESSON_CONTENT['fine-tuning'] = {
   tags: ['fine-tuning', 'BERT', 'LoRA', 'PEFT'],
   tagline: 'Pegue um modelo pré-treinado e <em>adapte</em> à sua tarefa. Da classificação com BERT à instruction tuning com LoRA.',
   intro: `
-    <p>Fine-tuning é o trabalho braçal mais valioso da IA aplicada: pegar um foundation model e adaptá-lo a um problema específico. Pode ir do tradicional (BERT para classificação de texto) ao moderno (LoRA fine-tune de um LLM de 70B). Esta lição cobre o espectro inteiro — quando vale a pena, qual técnica usar, como evitar os erros comuns.</p>
+    <p>Fine-tuning é o trabalho braçal mais valioso da IA aplicada: pegar um foundation model e adaptá-lo a um problema específico. Pode ir do tradicional (BERT para classificação de texto) ao moderno (LoRA fine-tune de um LLM de 70B). Esta lição cobre o espectro inteiro, quando vale a pena, qual técnica usar, como evitar os erros comuns.</p>
   `,
   sections: [
     {
@@ -1130,7 +1130,7 @@ args = TrainingArguments(
     output_dir="./out",
     num_train_epochs=3,
     per_device_train_batch_size=16,
-    learning_rate=2e-5,            # crítico — BERT diverge com lr alto
+    learning_rate=2e-5,            # crítico, BERT diverge com lr alto
     weight_decay=0.01,
     eval_strategy="epoch",
     save_strategy="epoch",
@@ -1151,7 +1151,7 @@ trainer.train()</code></pre>
     },
     {
       id: 'sft-llms',
-      title: 'SFT — Supervised Fine-Tuning de LLMs',
+      title: 'SFT, Supervised Fine-Tuning de LLMs',
       body: `
         <p>Para LLMs generativos (Llama, Mistral, Phi), o paradigma é diferente. Você fornece pares (prompt, resposta_ideal) e treina o modelo para reproduzir a resposta.</p>
         <p>Estrutura típica do dataset (formato OpenAI/instruct):</p>
@@ -1163,7 +1163,7 @@ trainer.train()</code></pre>
   ]
 }</code></pre>
         <p>Tamanho mínimo: 500-1000 exemplos de alta qualidade. <strong>Qualidade vence quantidade.</strong> 100 exemplos curados batem 10.000 ruidosos em muitos cenários.</p>
-        <p>O treino aplica next-token-prediction nas respostas (não no prompt — geralmente mascarado da loss).</p>
+        <p>O treino aplica next-token-prediction nas respostas (não no prompt, geralmente mascarado da loss).</p>
       `
     },
     {
@@ -1182,7 +1182,7 @@ model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.1-8B-Instruct",
                                               load_in_4bit=True)  # quantização
 
 config = LoraConfig(
-    r=16,                          # rank — 8, 16, 32, 64
+    r=16,                          # rank, 8, 16, 32, 64
     lora_alpha=32,                 # scaling
     target_modules=["q_proj", "v_proj"],  # quais camadas adaptar
     lora_dropout=0.05,
@@ -1193,7 +1193,7 @@ config = LoraConfig(
 model = get_peft_model(model, config)
 model.print_trainable_parameters()
 # "trainable params: 4M  ||  all params: 8B  ||  0.05%"</code></pre>
-        <p>O adapter LoRA gerado tem dezenas de MB (vs dezenas de GB do modelo base). Você pode carregá-lo sob demanda — múltiplos adapters para múltiplas tarefas, todos compartilhando o mesmo modelo base.</p>
+        <p>O adapter LoRA gerado tem dezenas de MB (vs dezenas de GB do modelo base). Você pode carregá-lo sob demanda, múltiplos adapters para múltiplas tarefas, todos compartilhando o mesmo modelo base.</p>
       `
     },
     {
@@ -1203,7 +1203,7 @@ model.print_trainable_parameters()
         <p>LoRA é o membro mais conhecido da família <strong>PEFT</strong> (Parameter-Efficient Fine-Tuning). Outros métodos:</p>
         <ul>
           <li><strong>Prefix tuning:</strong> treina prefixos virtuais ("soft prompts") em vez de modificar pesos.</li>
-          <li><strong>Prompt tuning:</strong> versão simples — só treina o embedding dos tokens iniciais.</li>
+          <li><strong>Prompt tuning:</strong> versão simples, só treina o embedding dos tokens iniciais.</li>
           <li><strong>Adapter layers:</strong> insere pequenas camadas entre os blocos do transformer. LoRA é uma variante mais eficiente disso.</li>
           <li><strong>DoRA, VeRA:</strong> refinamentos de LoRA com melhor convergência.</li>
         </ul>
@@ -1246,7 +1246,7 @@ window.LESSON_CONTENT['mas'] = {
   tags: ['multi-agent', 'orquestração', 'coordenação'],
   tagline: 'Múltiplos agentes especializados <em>colaborando</em>. Quando um único LLM não dá conta.',
   intro: `
-    <p>Multi-Agent Systems (MAS) são sistemas onde múltiplos agentes autônomos cooperam (ou competem) para resolver problemas. No contexto de LLMs, MAS surge quando uma única chain-of-thought não basta — você precisa de divisão de trabalho, especialização e revisão. Esta lição cobre os princípios de design e as armadilhas.</p>
+    <p>Multi-Agent Systems (MAS) são sistemas onde múltiplos agentes autônomos cooperam (ou competem) para resolver problemas. No contexto de LLMs, MAS surge quando uma única chain-of-thought não basta, você precisa de divisão de trabalho, especialização e revisão. Esta lição cobre os princípios de design e as armadilhas.</p>
   `,
   sections: [
     {
@@ -1303,7 +1303,7 @@ window.LESSON_CONTENT['mas'] = {
         <ul>
           <li><strong>Mensagens estruturadas:</strong> JSON com campos definidos (resultado, próximo_passo, erros). Mais robusto que texto livre.</li>
           <li><strong>Shared memory / blackboard:</strong> um estado comum que todos leem e escrevem. Útil para tarefas longas com estado complexo.</li>
-          <li><strong>Handoff explícito:</strong> o agente A invoca o agente B passando contexto resumido (não a conversa inteira — explode o token budget).</li>
+          <li><strong>Handoff explícito:</strong> o agente A invoca o agente B passando contexto resumido (não a conversa inteira, explode o token budget).</li>
         </ul>
         <p>Truque essencial: <strong>sumarize contexto entre agentes</strong>. Passar 50k tokens de histórico de um agente para outro é desperdício. Um agente "summarizer" pode comprimir antes do handoff.</p>
       `
@@ -1341,7 +1341,7 @@ window.LESSON_CONTENT['mas'] = {
     'Sistemas que combinam múltiplas ferramentas heterogêneas'
   ],
   whenNot: [
-    'Tarefas simples — um agente basta',
+    'Tarefas simples, um agente basta',
     'Quando latência é crítica',
     'Quando custo de tokens é restrição forte',
     'Sem infraestrutura de observabilidade'
@@ -1399,7 +1399,7 @@ window.LESSON_CONTENT['agent-patterns'] = {
       id: 'handoff',
       title: 'Handoff (Transferência)',
       body: `
-        <p>Padrão onde um agente <strong>transfere o controle da conversa</strong> para outro — em vez de chamar como subrotina e retornar.</p>
+        <p>Padrão onde um agente <strong>transfere o controle da conversa</strong> para outro, em vez de chamar como subrotina e retornar.</p>
         <p>Diferença crucial vs SubAgent:</p>
         <ul>
           <li>SubAgent: A invoca B, B retorna para A, A continua.</li>
@@ -1427,7 +1427,7 @@ window.LESSON_CONTENT['agent-patterns'] = {
           <li>Repete até passar no critic (com max iterations).</li>
         </ol>
         <p>Eficaz para: geração de código, escrita longa, planejamento. Cuidado para não cair em loops de autocrítica infinita.</p>
-        <p>Variante: <strong>Self-Refine</strong> — mesmo modelo refina iterativamente sem critic explícito.</p>
+        <p>Variante: <strong>Self-Refine</strong>, mesmo modelo refina iterativamente sem critic explícito.</p>
       `
     },
     {
@@ -1461,7 +1461,7 @@ window.LESSON_CONTENT['agent-patterns'] = {
         </ul>
         <div class="callout tip">
           <strong>REGRA</strong>
-          Comece simples (Router + SubAgent). Adicione padrões só quando o problema explicitamente os exige. Cada padrão adiciona complexidade — pague esse custo conscientemente.
+          Comece simples (Router + SubAgent). Adicione padrões só quando o problema explicitamente os exige. Cada padrão adiciona complexidade, pague esse custo conscientemente.
         </div>
       `
     }
@@ -1474,8 +1474,8 @@ window.LESSON_CONTENT['agent-patterns'] = {
     'Plan-and-Execute: tarefas longas com passos previsíveis'
   ],
   whenNot: [
-    'Quando a tarefa é simples — direto melhor que indireto',
-    'Sem observabilidade — padrões complexos viram caixa-preta'
+    'Quando a tarefa é simples, direto melhor que indireto',
+    'Sem observabilidade, padrões complexos viram caixa-preta'
   ],
   metrics: ['Task success rate por padrão', 'Custo médio', 'Latência p95', 'Falhas de roteamento']
 };
@@ -1486,7 +1486,7 @@ window.LESSON_CONTENT['agent-frameworks'] = {
   etapa: 6, etapaName: 'AI moderna',
   time: '60 min',
   tags: ['frameworks', 'LangChain', 'LangGraph', 'AutoGen', 'CrewAI'],
-  tagline: 'Os frameworks que tornam agentes <em>operáveis</em>: LangChain, LangGraph, AutoGen, CrewAI — quando usar cada.',
+  tagline: 'Os frameworks que tornam agentes <em>operáveis</em>: LangChain, LangGraph, AutoGen, CrewAI, quando usar cada.',
   intro: `
     <p>Construir agentes do zero é viável (e útil para entender), mas em produção você quer alavancar frameworks que resolvem os problemas comuns: memory, tracing, retries, parallelism, deployment. Esta lição compara os principais frameworks e dá um veredito honesto de quando usar cada um.</p>
   `,
@@ -1498,7 +1498,7 @@ window.LESSON_CONTENT['agent-frameworks'] = {
         <p>O cenário em 2025 é dinâmico. Os frameworks mais relevantes:</p>
         <ul>
           <li><strong>LangChain:</strong> o pioneiro. Vasto, opinativo, em constante mudança. Abstrações para LLMs, ferramentas, chains, agents, memory.</li>
-          <li><strong>LangGraph:</strong> da mesma equipe. Modela agentes como grafos de estado — controle explícito do fluxo. Cresceu muito como sucessor "production-ready" do LangChain.</li>
+          <li><strong>LangGraph:</strong> da mesma equipe. Modela agentes como grafos de estado, controle explícito do fluxo. Cresceu muito como sucessor "production-ready" do LangChain.</li>
           <li><strong>AutoGen (Microsoft):</strong> foco em multi-agent. Conversas estruturadas entre agentes especializados.</li>
           <li><strong>CrewAI:</strong> abstração de "crew" e "tasks". Mais opinativo, foco em workflows tipo time de pessoas.</li>
           <li><strong>OpenAI Agents SDK / Swarm:</strong> minimalista. Handoffs como abstração central.</li>
@@ -1510,18 +1510,18 @@ window.LESSON_CONTENT['agent-frameworks'] = {
     },
     {
       id: 'langchain',
-      title: 'LangChain — o canivete suíço',
+      title: 'LangChain, o canivete suíço',
       body: `
         <p>O framework mais amplo. Suporta tudo: LLMs, embeddings, vector stores, retrievers, chains, agents, callbacks.</p>
         <p><strong>Forças:</strong></p>
         <ul>
-          <li>Ecossistema gigante de integrações — qualquer LLM, qualquer vector store.</li>
+          <li>Ecossistema gigante de integrações, qualquer LLM, qualquer vector store.</li>
           <li>Comunidade grande, muitos tutoriais.</li>
           <li>Bom para prototipagem rápida.</li>
         </ul>
         <p><strong>Fraquezas:</strong></p>
         <ul>
-          <li>API instável historicamente — breaking changes frequentes.</li>
+          <li>API instável historicamente, breaking changes frequentes.</li>
           <li>Abstrações pesadas que escondem o que o LLM realmente vê.</li>
           <li>Muitos preferiram migrar para LangGraph em produção.</li>
         </ul>
@@ -1542,7 +1542,7 @@ result = executor.invoke({"input": "Qual o PIB do Brasil em 2024?"})</code></pre
     },
     {
       id: 'langgraph',
-      title: 'LangGraph — controle de fluxo explícito',
+      title: 'LangGraph, controle de fluxo explícito',
       body: `
         <p>LangGraph modela agentes como <strong>grafos de estado</strong>: nós são funções, edges são transições, state é compartilhado. Você decide o fluxo, o framework garante execução, persistência e recovery.</p>
         <p>Mental model: state machine + agents. Cada nó é "uma rodada de pensamento" do agente; edges são "para onde ir baseado no resultado".</p>
@@ -1574,7 +1574,7 @@ app = graph.compile()</code></pre>
     },
     {
       id: 'autogen-crewai',
-      title: 'AutoGen e CrewAI — multi-agent em primeiro plano',
+      title: 'AutoGen e CrewAI, multi-agent em primeiro plano',
       body: `
         <p><strong>AutoGen</strong> modela conversas entre agentes. Você define agentes (cada um um LLM com prompt customizado) e organiza como eles trocam mensagens. Bom para padrões de debate, código com revisão, planning.</p>
         <p><strong>CrewAI</strong> usa a metáfora de "crew" (time): você define agentes com papéis, tarefas atomicas, e o framework orquestra. Mais opinativo. Bom para quem quer estrutura clara sem montar tudo do zero.</p>
@@ -1630,7 +1630,7 @@ app = graph.compile()</code></pre>
   ],
   whenNot: [
     'Use vanilla Python + SDK direto quando a tarefa for simples',
-    'Não use framework por hype — entenda o trade-off de abstração'
+    'Não use framework por hype, entenda o trade-off de abstração'
   ],
   metrics: ['Tempo de desenvolvimento', 'Custo de manutenção', 'Observabilidade nativa', 'Maturidade da comunidade']
 };
