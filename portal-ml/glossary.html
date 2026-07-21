@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glossário — Portal de ML</title>
+<title>Glossário, Portal de ML</title>
 <script src="assets/theme-init.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,8 +157,8 @@
       <div class="eyebrow">Índice · 90+ termos</div>
       <h1 class="page-title"><em>Glossário</em> de ML</h1>
       <p class="page-sub">
-        Os termos que aparecem em entrevista, prova e leitura de papers — definidos em uma linha cada.
-        Para fundir vocabulário: leia o glossário 1× por semana. É barato e paga muito.
+        Os termos que aparecem em entrevista, prova e na leitura de papers, cada um definido em uma linha.
+        Uma dica que funciona: releia tudo uma vez por semana. Custa pouco tempo e fixa o vocabulário.
       </p>
     </div>
     <input class="search-input" id="search" placeholder="Buscar termo: 'overfitting', 'kernel', 'embedding'..." />
@@ -192,7 +192,7 @@
 
   const TERMS = [
     // A
-    { name: 'Accuracy',          tag: 'Métrica',        def: 'Fração de predições corretas. Engana com classes desbalanceadas — use F1 ou AUC.' },
+    { name: 'Accuracy',          tag: 'Métrica',        def: 'Fração de predições corretas. Engana com classes desbalanceadas, use F1 ou AUC.' },
     { name: 'Active Learning',   tag: 'Semi',           cat: 'semi', def: 'Modelo escolhe ativamente quais amostras o humano deve rotular para maximizar ganho de informação.' },
     { name: 'AUC-ROC',           tag: 'Métrica',        def: 'Área sob a curva ROC. Probabilidade de o modelo ranquear um positivo aleatório acima de um negativo aleatório.' },
     { name: 'Autoencoder',       tag: 'Deep',           cat: 'deep', def: 'Rede que comprime input em representação latente e tenta reconstruí-lo. Usado em redução, denoising e anomalia.' },
@@ -260,7 +260,7 @@
     // I
     { name: 'Imbalanced Classes', tag: 'Pré-process.',  def: 'Quando uma classe é muito mais frequente. Use SMOTE, class weights, ou métricas adequadas.' },
     { name: 'In-Context Learning', tag: 'LLMs',         cat: 'self', def: 'LLM aprende uma tarefa apenas vendo exemplos no prompt, sem atualizar pesos.' },
-    { name: 'Isolation Forest',  tag: 'Anomalia',       cat: 'unsupervised', def: 'Anomalias são fáceis de isolar — caminhos curtos em árvores aleatórias.' },
+    { name: 'Isolation Forest',  tag: 'Anomalia',       cat: 'unsupervised', def: 'Anomalias são fáceis de isolar, caminhos curtos em árvores aleatórias.' },
 
     // K
     { name: 'K-Means',           tag: 'Clustering',     cat: 'unsupervised', def: 'Particiona em k clusters minimizando distância aos centróides. Pressupõe clusters esféricos.' },
@@ -269,7 +269,7 @@
     { name: 'KNN',               tag: 'Modelo',         cat: 'supervised', def: 'Classifica pela maioria dos k vizinhos mais próximos no espaço de features.' },
 
     // L
-    { name: 'L1 Regularization', tag: 'Regularização',  def: 'Penaliza |β|. Induz esparsidade — zera coeficientes.' },
+    { name: 'L1 Regularization', tag: 'Regularização',  def: 'Penaliza |β|. Induz esparsidade, zera coeficientes.' },
     { name: 'L2 Regularization', tag: 'Regularização',  def: 'Penaliza β². Encolhe coeficientes uniformemente.' },
     { name: 'Label Propagation', tag: 'Semi',           cat: 'semi', def: 'Propaga rótulos por similaridade em grafo dos pontos rotulados aos não rotulados.' },
     { name: 'Lasso',             tag: 'Regressão',      cat: 'supervised', def: 'Regressão linear com L1. Faz seleção automática de features.' },
@@ -282,10 +282,10 @@
     // M
     { name: 'MAE',               tag: 'Métrica',        def: 'Mean Absolute Error. Robusto a outliers. Mesma unidade do target.' },
     { name: 'Manifold',          tag: 'Geometria',      def: 'Subespaço curvo de baixa dimensão onde dados de alta dim "vivem". Base de UMAP, autoencoders.' },
-    { name: 'MAP / NDCG',        tag: 'Ranking',        def: 'Métricas de ranking — quão bem o modelo ordena os resultados relevantes no topo.' },
+    { name: 'MAP / NDCG',        tag: 'Ranking',        def: 'Métricas de ranking, quão bem o modelo ordena os resultados relevantes no topo.' },
     { name: 'Masked LM',         tag: 'SSL',            cat: 'self', def: 'Esconde tokens e treina para reconstruí-los. Receita do BERT.' },
     { name: 'MDP',               tag: 'RL',             cat: 'rl', def: 'Markov Decision Process. Estado, ação, recompensa, transição. A formalização do RL.' },
-    { name: 'MLOps',             tag: 'Engenharia',     def: 'Pipelines, CI/CD, monitoramento, drift detection, serving — operar ML em produção.' },
+    { name: 'MLOps',             tag: 'Engenharia',     def: 'Pipelines, CI/CD, monitoramento, drift detection, serving, operar ML em produção.' },
     { name: 'Multicolinearidade', tag: 'Pré-process.',  def: 'Features fortemente correlacionadas. Desestabiliza coeficientes em regressão linear.' },
 
     // N
@@ -353,7 +353,7 @@
 
     // W
     { name: 'Weak Supervision',  tag: 'Semi',           cat: 'semi', def: 'Combina múltiplas fontes ruidosas de rótulos (heurísticas, regras) para treinar.' },
-    { name: 'Weight Decay',      tag: 'Regularização',  def: 'Equivalente a L2 — encolhe pesos a cada passo. Padrão em deep learning.' },
+    { name: 'Weight Decay',      tag: 'Regularização',  def: 'Equivalente a L2, encolhe pesos a cada passo. Padrão em deep learning.' },
 
     // X
     { name: 'XGBoost',           tag: 'Boosting',       cat: 'supervised', def: 'Gradient boosting com regularização explícita, segunda derivada, histogramas. Domina Kaggle tabular.' },

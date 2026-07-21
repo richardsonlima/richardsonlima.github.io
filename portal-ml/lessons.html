@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Algoritmos — Portal de ML</title>
+<title>Algoritmos, Portal de ML</title>
 <script src="assets/theme-init.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -324,8 +324,9 @@
     <div class="eyebrow">24 algoritmos canônicos · 5 paradigmas</div>
     <h1 class="page-title"><em>Catálogo</em> de algoritmos</h1>
     <p class="page-sub">
-      Clique em qualquer algoritmo para abrir a ficha técnica completa — hipóteses, trade-offs, complexidade,
-      métricas, escala, interpretabilidade e quando NÃO usar. Filtre por paradigma ou busque.
+      Abra qualquer algoritmo pra ver a ficha completa: o que ele assume, onde troca uma coisa por outra,
+      custo computacional, métricas, como escala, se dá pra interpretar e, principalmente, quando NÃO usar.
+      Dá pra filtrar por paradigma ou buscar pelo nome.
     </p>
   </div>
 
@@ -470,7 +471,7 @@
           <div class="fw-grid">
             ${a.fw.map((row,i) => `
               <div class="fw-row">
-                <div class="q">${String(i+1).padStart(2,'0')} — ${row.q}</div>
+                <div class="q">${String(i+1).padStart(2,'0')}, ${row.q}</div>
                 <div class="a">${row.a}</div>
               </div>
             `).join('')}

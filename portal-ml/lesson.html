@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lição — Portal de ML</title>
+<title>Lição, Portal de ML</title>
 <script src="assets/theme-init.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +89,7 @@
   .lpc-bar { margin-bottom: 12px; }
   .lpc-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
 
-  /* layout — 2 col */
+  /* layout, 2 col */
   .lesson-grid {
     display: grid;
     grid-template-columns: 1fr 280px;
@@ -289,7 +289,7 @@
     color: var(--text-strong);
   }
 
-  /* sidebar — TOC */
+  /* sidebar, TOC */
   .lesson-sidebar {
     position: sticky;
     top: 80px;
@@ -411,7 +411,7 @@
   }
 
   function renderLesson(c) {
-    document.title = `${c.title} — Portal de ML`;
+    document.title = `${c.title}, Portal de ML`;
     const nbs = neighbors(c.id);
     const etapaName = c.etapaName || (nbs.self ? nbs.self.etapaName : '');
     const etapaN = c.etapa || (nbs.self ? nbs.self.etapa : '?');
@@ -425,7 +425,7 @@
         <span class="sep">/</span>
         <a href="curriculum.html">Trilha</a>
         <span class="sep">/</span>
-        <a href="curriculum.html#etapa-${etapaN}">Etapa ${String(etapaN).padStart(2,'0')} — ${etapaName}</a>
+        <a href="curriculum.html#etapa-${etapaN}">Etapa ${String(etapaN).padStart(2,'0')}, ${etapaName}</a>
         <span class="sep">/</span>
         <span class="current">${c.title}</span>
       </div>
@@ -495,7 +495,7 @@
               <a class="nav-card prev" href="lesson.html?id=${nbs.prev.id}">
                 <div class="lbl">← Anterior</div>
                 <div class="title">${nbs.prev.title}</div>
-              </a>` : `<div class="nav-card disabled"><div class="lbl">← Anterior</div><div class="title">—</div></div>`}
+              </a>` : `<div class="nav-card disabled"><div class="lbl">← Anterior</div><div class="title">Início da trilha</div></div>`}
             ${nbs.next ? `
               <a class="nav-card next" href="lesson.html?id=${nbs.next.id}">
                 <div class="lbl">Próxima →</div>

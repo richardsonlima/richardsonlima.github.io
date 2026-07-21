@@ -9,7 +9,7 @@ sitemap: false
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Machine Learning — Início</title>
+    <title>Portal de Machine Learning, Início</title>
     <script src="assets/theme-init.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -480,68 +480,32 @@ sitemap: false
         position: relative;
         overflow: hidden;
       }
-
       .data-block::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        top: 0; left: 0; right: 0;
         height: 3px;
       }
-
-      .data-block.export::before {
-        background: var(--accent1);
-      }
-
-      .data-block.import::before {
-        background: var(--accent2);
-      }
-
-      .data-block.sync::before {
-        background: var(--accent3);
-      }
-
-      .data-block:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-      }
-
-      .data-block.export:hover {
-        border-color: color-mix(in srgb, var(--accent1) 45%, var(--border));
-      }
-
-      .data-block.import:hover {
-        border-color: color-mix(in srgb, var(--accent2) 45%, var(--border));
-      }
-
-      .data-block.sync:hover {
-        border-color: color-mix(in srgb, var(--accent3) 45%, var(--border));
-      }
+      .data-block.export::before { background: var(--accent1); }
+      .data-block.import::before { background: var(--accent2); }
+      .data-block.sync::before   { background: var(--accent3); }
+      .data-block:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+      .data-block.export:hover { border-color: color-mix(in srgb, var(--accent1) 45%, var(--border)); }
+      .data-block.import:hover { border-color: color-mix(in srgb, var(--accent2) 45%, var(--border)); }
+      .data-block.sync:hover   { border-color: color-mix(in srgb, var(--accent3) 45%, var(--border)); }
 
       .db-icon {
-        width: 36px;
-        height: 36px;
+        width: 36px; height: 36px;
         border-radius: 10px;
-        display: grid;
-        place-items: center;
+        display: grid; place-items: center;
         font-size: 17px;
         color: #fff;
         flex-shrink: 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.16);
       }
-
-      .data-block.export .db-icon {
-        background: linear-gradient(135deg, #3b82f6, #2563eb);
-      }
-
-      .data-block.import .db-icon {
-        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-      }
-
-      .data-block.sync .db-icon {
-        background: linear-gradient(135deg, #10b981, #059669);
-      }
+      .data-block.export .db-icon { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+      .data-block.import .db-icon { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+      .data-block.sync   .db-icon { background: linear-gradient(135deg, #10b981, #059669); }
 
       .data-block-head {
         display: flex;
@@ -593,84 +557,33 @@ sitemap: false
         border-top: 1px solid var(--border-faint);
       }
 
-      .data-block.unsupported {
-        opacity: 0.7;
-      }
-
-      .data-block.unsupported .btn {
-        pointer-events: none;
-        opacity: 0.55;
-      }
+      .data-block.unsupported { opacity: 0.7; }
+      .data-block.unsupported .btn { pointer-events: none; opacity: 0.55; }
 
       /* ── vivid buttons (Dados & Backup) ── */
       .btn-vivid {
         color: #fff;
         border: none;
         font-weight: 600;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.14);
       }
-
-      .btn-vivid.blue {
-        background: linear-gradient(135deg, #3b82f6, #2563eb);
-      }
-
-      .btn-vivid.violet {
-        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-      }
-
-      .btn-vivid.green {
-        background: linear-gradient(135deg, #10b981, #059669);
-      }
-
-      .btn-vivid:hover {
-        filter: brightness(1.07);
-        transform: translateY(-1px);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
-        color: #fff;
-      }
+      .btn-vivid.blue   { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+      .btn-vivid.violet { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+      .btn-vivid.green  { background: linear-gradient(135deg, #10b981, #059669); }
+      .btn-vivid:hover  { filter: brightness(1.07); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.22); color: #fff; }
 
       .btn-out {
         background: var(--bg-elev);
         font-weight: 600;
       }
-
-      .btn-out.blue {
-        color: #2563eb;
-        border-color: color-mix(in srgb, #2563eb 38%, var(--border));
-      }
-
-      .btn-out.green {
-        color: #059669;
-        border-color: color-mix(in srgb, #059669 38%, var(--border));
-      }
-
-      .btn-out.blue:hover {
-        background: #2563eb;
-        color: #fff;
-        border-color: #2563eb;
-      }
-
-      .btn-out.green:hover {
-        background: #059669;
-        color: #fff;
-        border-color: #059669;
-      }
-
-      [data-theme="dark"] .btn-out.blue {
-        color: #60a5fa;
-      }
-
-      [data-theme="dark"] .btn-out.green {
-        color: #34d399;
-      }
-
-      [data-theme="dark"] .btn-out.blue:hover {
-        color: #fff;
-      }
-
-      [data-theme="dark"] .btn-out.green:hover {
-        color: #fff;
-      }
+      .btn-out.blue   { color: #2563eb; border-color: color-mix(in srgb, #2563eb 38%, var(--border)); }
+      .btn-out.green  { color: #059669; border-color: color-mix(in srgb, #059669 38%, var(--border)); }
+      .btn-out.blue:hover  { background: #2563eb; color: #fff; border-color: #2563eb; }
+      .btn-out.green:hover { background: #059669; color: #fff; border-color: #059669; }
+      [data-theme="dark"] .btn-out.blue  { color: #60a5fa; }
+      [data-theme="dark"] .btn-out.green { color: #34d399; }
+      [data-theme="dark"] .btn-out.blue:hover  { color: #fff; }
+      [data-theme="dark"] .btn-out.green:hover { color: #fff; }
 
       .btn-danger {
         background: var(--bg-elev);
@@ -678,20 +591,9 @@ sitemap: false
         border-color: color-mix(in srgb, #dc2626 32%, var(--border));
         font-weight: 600;
       }
-
-      .btn-danger:hover {
-        background: #dc2626;
-        color: #fff;
-        border-color: #dc2626;
-      }
-
-      [data-theme="dark"] .btn-danger {
-        color: #f87171;
-      }
-
-      [data-theme="dark"] .btn-danger:hover {
-        color: #fff;
-      }
+      .btn-danger:hover { background: #dc2626; color: #fff; border-color: #dc2626; }
+      [data-theme="dark"] .btn-danger { color: #f87171; }
+      [data-theme="dark"] .btn-danger:hover { color: #fff; }
 
       .toast {
         position: fixed;
@@ -814,8 +716,8 @@ sitemap: false
             <div class="eyebrow">Especialista ML & MLOps · Desafio Sênior</div>
             <h1 class="page-title">Machine Learning <em>operacional</em>,<br>não decorado.</h1>
             <p class="page-sub">
-              Uma arquitetura mental navegável sob pressão — design de solução e discussão
-              técnica.
+              Um mapa mental que você consegue percorrer sob pressão. Serve na entrevista, na prova,
+              no desenho de uma solução ou numa discussão técnica com o time.
               Paradigma → objetivo matemático → algoritmo → trade-offs → métricas → quando NÃO usar.
             </p>
 
@@ -841,7 +743,7 @@ sitemap: false
             <div class="hero-cta">
               <a class="btn primary" href="curriculum.html">Começar pela trilha <span class="btn-arrow">→</span></a>
               <a class="btn" href="lessons.html">Explorar algoritmos</a>
-              <a class="btn ghost" href="interview.html">Modo Flashcards</a>
+              <a class="btn ghost" href="interview.html">Modo entrevista</a>
             </div>
           </div>
 
@@ -936,34 +838,40 @@ sitemap: false
           <div class="section-line"></div>
         </div>
 
-        <div class="feat-row" style="grid-template-columns:repeat(4,1fr)">
+        <div class="feat-row" style="grid-template-columns:repeat(5,1fr)">
           <a class="feat fade-up" href="curriculum.html">
             <div class="feat-icon">→</div>
             <div class="feat-title">Trilha sequencial</div>
-            <div class="feat-desc">10 etapas, 50 lições — da regressão linear ao MLOps em produção. Marque o que
-              dominou.</div>
+            <div class="feat-desc">10 etapas e 50 lições, começando na regressão linear e indo até o MLOps em produção. Vá marcando o que
+              já domina.</div>
             <div class="feat-link">Abrir trilha <span>→</span></div>
           </a>
           <a class="feat fade-up d1" href="lessons.html">
             <div class="feat-icon">⌗</div>
             <div class="feat-title">Catálogo de algoritmos</div>
-            <div class="feat-desc">33 algoritmos canônicos. Filtre por paradigma, abra a ficha técnica: hipótese,
-              trade-off, métrica, quando NÃO usar.</div>
+            <div class="feat-desc">33 algoritmos que valem a pena saber. Filtre por paradigma e abra a ficha técnica: o que assume,
+              onde troca uma coisa por outra, métrica e quando NÃO usar.</div>
             <div class="feat-link">Explorar <span>→</span></div>
           </a>
           <a class="feat fade-up d2" href="interview.html">
             <div class="feat-icon">?</div>
-            <div class="feat-title">Modo Flashcards</div>
-            <div class="feat-desc">Framework de 10 dimensões por algoritmo + flashcards de active recall com sorteio
-              aleatório.</div>
+            <div class="feat-title">Modo entrevista</div>
+            <div class="feat-desc">Dez dimensões pra cobrir em cada algoritmo, mais flashcards que sorteiam as perguntas
+              pra você treinar de surpresa.</div>
             <div class="feat-link">Praticar <span>→</span></div>
           </a>
           <a class="feat fade-up d3" href="resources.html">
             <div class="feat-icon">▣</div>
             <div class="feat-title">Recursos & plano</div>
-            <div class="feat-desc">Cronograma de 4 semanas, livros, whitepapers canônicos, plataformas de prática e
+            <div class="feat-desc">O cronograma das 4 semanas, os livros, os whitepapers que importam, onde praticar e a
               matriz de competências.</div>
             <div class="feat-link">Abrir <span>→</span></div>
+          </a>
+          <a class="feat fade-up d3" href="pipeline.html">
+            <div class="feat-icon">⇉</div>
+            <div class="feat-title">MLOps Pipeline</div>
+            <div class="feat-desc">Um caso real de ponta a ponta: pipeline de separação de vozes aberto estágio a estágio, do DSP no laptop ao serving em produção (AWS + OSS).</div>
+            <div class="feat-link">Ver pipeline <span>→</span></div>
           </a>
         </div>
       </section>
@@ -1037,19 +945,18 @@ sitemap: false
               <button class="btn btn-vivid blue" id="btn-export-md">↓ Markdown <span class="btn-arrow">→</span></button>
               <button class="btn btn-out blue" id="btn-export-json">↓ JSON</button>
             </div>
-            <div class="data-block-meta" id="data-meta">— vistas, — acertos</div>
+            <div class="data-block-meta" id="data-meta">vistas, acertos</div>
           </div>
 
           <div class="data-block import">
             <div class="data-block-head">
               <div class="data-block-title"><span class="db-icon">↑</span>Importar progresso</div>
               <div class="data-block-sub">Selecione um <code>.md</code> ou <code>.json</code> exportado. O estado
-                é mesclado — timestamps mais recentes vencem.</div>
+                é mesclado, timestamps mais recentes vencem.</div>
             </div>
             <div class="data-block-actions">
               <button class="btn btn-vivid violet" id="btn-import">↑ Selecionar arquivo</button>
-              <button class="btn btn-danger" id="btn-reset-all" title="Apagar todo o progresso local">Apagar
-                tudo</button>
+              <button class="btn btn-danger" id="btn-reset-all" title="Apagar todo o progresso local">Apagar tudo</button>
             </div>
             <div class="data-block-meta" id="import-status">aguardando arquivo…</div>
           </div>
@@ -1060,7 +967,7 @@ sitemap: false
                 <span class="db-icon">⟳</span>Sincronizar com arquivo
                 <span class="badge badge-ghost" id="sync-badge">não conectado</span>
               </div>
-              <div class="data-block-sub" id="sync-help">Conecte um arquivo <code>.md</code> local — toda
+              <div class="data-block-sub" id="sync-help">Conecte um arquivo <code>.md</code> local, toda
                 atualização (concluir lição, flashcard) grava automaticamente. Funciona como um vault do Obsidian.
               </div>
             </div>
@@ -1082,7 +989,7 @@ sitemap: false
     <script>
       MLPortal.mount('home');
 
-      // Roadmap — render all etapas from the catalog
+      // Roadmap, render all etapas from the catalog
       (function renderRoadmap() {
         const host = document.getElementById('roadmap-grid');
         if (!host || !window.LESSON_CATALOG) return;
@@ -1098,7 +1005,7 @@ sitemap: false
         }).join('');
       })();
 
-      // Phase progress visualization — derived from the catalog (always in sync)
+      // Phase progress visualization, derived from the catalog (always in sync)
       const PHASES = (window.LESSON_CATALOG || []).map(e => ({
         name: e.title,
         lessons: e.lessons.map(l => l.id)
