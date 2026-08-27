@@ -21,7 +21,7 @@ window.AWS_PIPELINE_9 = [
     bullets: [
       'Validação de schema e detecção de dados corrompidos com <b>Glue DataBrew</b> ou scripts <b>Great Expectations</b> rodando em job Glue/Lambda, o análogo direto do estágio 02.',
       'Split treino/validação, normalização, encoding e feature engineering.',
-      '<b>SageMaker Feature Store</b> versiona e serve as features nos dois lados: <em>offline store</em> (histórico, treino) e <em>online store</em> (baixa latência, inferência), garantindo consistência treino↔serving.'
+      '<b>SageMaker Feature Store</b> versiona e serve as features nos dois lados: <em>offline store</em> (histórico, treino) e <em>online store</em> (baixa latência, inferência), garantindo consistência treino<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M7.4 8.6 4 12l3.4 3.4"/><path d="M16.6 8.6 20 12l-3.4 3.4"/></g></svg>serving.'
     ],
     svc: ['Glue DataBrew', 'Great Expectations', 'SageMaker Feature Store', 'Lambda']
   },
@@ -101,7 +101,7 @@ window.AWS_PIPELINE_9 = [
 /* ---------- AWS Well-Architected ML Lens, 6 pillars ---------- */
 window.WELL_ARCHITECTED = [
   {
-    icon: '⚙',
+    icon: '<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.6v2.6M12 18.8v2.6M4.6 12H2M22 12h-2.6M6.4 6.4 4.6 4.6M19.4 19.4l-1.8-1.8M17.6 6.4l1.8-1.8M4.6 19.4l1.8-1.8"/></g></svg>',
     t: 'Operational Excellence',
     q: 'Executar e monitorar sistemas para entregar valor de negócio e melhorar continuamente.',
     body: [
@@ -113,7 +113,7 @@ window.WELL_ARCHITECTED = [
     tradeoff: 'Mais automação custa esforço inicial de engenharia, mas paga em confiabilidade e velocidade de iteração.'
   },
   {
-    icon: '🔒',
+    icon: '<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4.6" y="10.4" width="14.8" height="9.8" rx="2"/><path d="M8.4 10.4V7.6a3.6 3.6 0 0 1 7.2 0v2.8"/></g></svg>',
     t: 'Security',
     q: 'Proteger dados, sistemas e ativos, e gerenciar acesso com o menor privilégio.',
     body: [
@@ -126,7 +126,7 @@ window.WELL_ARCHITECTED = [
     tradeoff: 'Controles mais rígidos adicionam latência operacional (aprovações, perímetros), mas são inegociáveis com dados regulados.'
   },
   {
-    icon: '🛡',
+    icon: '<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 4.6 6v6c0 4.4 3 7.6 7.4 8.8 4.4-1.2 7.4-4.4 7.4-8.8V6L12 3.2Z"/></g></svg>',
     t: 'Reliability',
     q: 'Garantir que a workload execute a função pretendida corretamente e se recupere de falhas.',
     body: [
@@ -138,7 +138,7 @@ window.WELL_ARCHITECTED = [
     tradeoff: 'Redundância (multi-region, multi-AZ) aumenta o custo, balanceie com o pilar de Cost Optimization conforme o SLA do negócio.'
   },
   {
-    icon: '⚡',
+    icon: '<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13.4 2.6 5.6 13.4h5l-.8 8 8-11h-5l.6-7.8Z"/></g></svg>',
     t: 'Performance Efficiency',
     q: 'Usar os recursos computacionais certos e mantê-los eficientes conforme a demanda muda.',
     body: [
@@ -150,7 +150,7 @@ window.WELL_ARCHITECTED = [
     tradeoff: 'Hardware mais potente resolve latência mas eleva custo, meça antes de superdimensionar (right-sizing).'
   },
   {
-    icon: '💰',
+    icon: '<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><path d="M12 7.4v9.2"/><path d="M14.6 9.4c0-1.1-1.2-2-2.6-2s-2.6.9-2.6 2 1.2 2 2.6 2 2.6.9 2.6 2-1.2 2-2.6 2-2.6-.9-2.6-2"/></g></svg>',
     t: 'Cost Optimization',
     q: 'Entregar valor de negócio pelo menor preço, evitando custos desnecessários.',
     body: [
@@ -163,7 +163,7 @@ window.WELL_ARCHITECTED = [
     tradeoff: 'Cortar custo agressivamente pode ferir reliability e performance, o equilíbrio depende da criticidade da workload.'
   },
   {
-    icon: '🌱',
+    icon: '<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-7"/><path d="M12 13C8 13 5.6 10.6 5.6 6.6c4 0 6.4 2.4 6.4 6.4Z"/><path d="M12 13c4 0 6.4-2.4 6.4-6.4-4 0-6.4 2.4-6.4 6.4Z"/></g></svg>',
     t: 'Sustainability',
     q: 'Minimizar o impacto ambiental da execução de workloads de nuvem.',
     body: [

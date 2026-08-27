@@ -688,3 +688,34 @@ footer.portal-foot {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ---- language switch ---- */
+.seg-lang{display:flex;gap:2px;background:var(--bg-soft);border:1px solid var(--border);border-radius:999px;padding:2px;flex:none}
+.seg-lang button{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;color:var(--text-muted);font-family:var(--font-sans);font-size:11px;font-weight:600;padding:4px 7px;border-radius:999px;transition:all .16s;line-height:1}
+.seg-lang button:hover{color:var(--text)}
+.seg-lang button.active{background:var(--bg-elev);box-shadow:var(--shadow-sm)}
+.seg-lang button:not(.active) .flag{filter:grayscale(1) opacity(.55)}
+.seg-lang .flag{font-size:13px;line-height:1}
+.seg-lang .lang-tag{display:none}
+/* single-row topbar: nav takes the slack, nothing wraps out of the 60px bar */
+.topbar{height:auto;min-height:60px}
+.topbar .topnav{flex:1 1 auto;min-width:0;flex-wrap:nowrap}
+.topbar .brand{flex:0 1 auto;min-width:0}
+.topbar .brand-name{white-space:nowrap}
+.topbar .brand-sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:26ch}
+.topbar .topbar-right{flex:none}
+@media (max-width:1180px){.topbar .brand-sub{display:none}}
+
+/* ---- inline vector symbols (replaces emoji) ---- */
+.vi{display:inline-block;vertical-align:-0.14em;flex:none}
+.seg-lang .flag{display:inline-flex;align-items:center;line-height:1}
+.seg-lang .vflag{width:17px;height:11.5px;border-radius:2px;display:block}
+.seg-lang button:not(.active) .vflag{filter:grayscale(1) opacity(.5)}
+.prio .vi,.badge-when .vi{vertical-align:-0.1em}
+.callout .vi,.rc-note .vi{vertical-align:-0.16em}
+.pl-ic .vi,.eco-ic .vi,.p-icon .vi,.feat-icon .vi{width:1em;height:1em}
+
+/* mid-width nav breathing room */
+@media (max-width:1180px){.topbar .topnav{gap:14px}.topbar .topnav a{font-size:13px}}
+@media (max-width:1040px){.topbar #mlp-streak{display:none}.topbar .topnav{gap:11px}.topbar .topnav a{font-size:12.5px}}
+@media (max-width:880px){.topbar .brand-name{font-size:14px}.topbar .topnav{gap:9px}.topbar .topnav a{font-size:12px}}

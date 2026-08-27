@@ -94,7 +94,7 @@ window.PIPELINE_STAGES = [
       <h4>Propósito</h4>
       <p>Dado um sinal misto com duas (ou mais) pessoas falando, possivelmente ao mesmo tempo, estima <strong>um stream por fonte acústica</strong>. É o único estágio que roda em Colab: transformers de dezenas de milhões de parâmetros sobre waveforms de minutos.</p>
       <div class="callout tip"><strong>VOICE ≠ SPEAKER SEPARATION</strong>
-      O modelo não tem noção de <em>identidade</em>, separa <em>fontes acústicas</em> por padrões espectro-temporais aprendidos, sem saber <em>quem</em> fala. Descobrir quem é o trabalho do estágio 04; casar falante↔fonte é o do 05.</div>
+      O modelo não tem noção de <em>identidade</em>, separa <em>fontes acústicas</em> por padrões espectro-temporais aprendidos, sem saber <em>quem</em> fala. Descobrir quem é o trabalho do estágio 04; casar falante<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M7.4 8.6 4 12l3.4 3.4"/><path d="M16.6 8.6 20 12l-3.4 3.4"/></g></svg>fonte é o do 05.</div>
 
       <h4>Seleção automática de modelo</h4>
       <div class="miniflow">
@@ -183,7 +183,7 @@ window.PIPELINE_STAGES = [
       <h4>Algoritmo</h4>
       <div class="miniflow">
         <span class="mf">merge segmentos &lt;0.3s</span><span class="a">→</span>
-        <span class="mf">score fonte↔falante</span><span class="a">→</span>
+        <span class="mf">score fonte<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M7.4 8.6 4 12l3.4 3.4"/><path d="M16.6 8.6 20 12l-3.4 3.4"/></g></svg>falante</span><span class="a">→</span>
         <span class="mf">argmax por falante</span><span class="a">→</span>
         <span class="mf">time-mask</span><span class="a">→</span>
         <span class="mf ok">fade 8ms → WAV</span>
@@ -266,20 +266,20 @@ window.ARCH_OSS = {
 /* ---------------- Transferable MLOps lessons ---------------- */
 
 window.PRINCIPLES = [
-  { icon:'⛔', title:'Fail-fast, barato e primeiro', tag:'estágio 02 · Well-Architected',
+  { icon:'<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><path d="M7.6 12h8.8"/></g></svg>', title:'Fail-fast, barato e primeiro', tag:'estágio 02 · Well-Architected',
     desc:'Rode as checagens <b>baratas e determinísticas</b> (header, NaN, RMS) <em>antes</em> do compute caro. Um NaN pego localmente de graça evita um <code>CUDA error</code> confuso minutos adentro de uma GPU paga. Colete todos os problemas de uma vez.' },
-  { icon:'🎯', title:'Degradação graciosa por fallback', tag:'estágio 03 · reliability',
+  { icon:'<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="4.4"/><circle cx="12" cy="12" r="1"/></g></svg>', title:'Degradação graciosa por fallback', tag:'estágio 03 · reliability',
     desc:'Nunca hard-code um único modelo. Uma <b>cadeia de prioridade</b> (MossFormer3→2→SepFormer) que usa o primeiro que carrega absorve checkpoints indisponíveis e rede instável, e adota melhorias futuras com zero mudança de código.' },
-  { icon:'🧬', title:'Lineage não é opcional', tag:'estágios 03–05 · registry',
+  { icon:'<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3c0 6 8 12 8 18"/><path d="M16 3c0 6-8 12-8 18"/><path d="M9.2 8h5.6M9.2 16h5.6"/></g></svg>', title:'Lineage não é opcional', tag:'estágios 03–05 · registry',
     desc:'Todo resultado registra <b>qual versão de modelo o produziu</b> (<code>model_used</code> no relatório → Model Registry em produção). Sem isso, "por que a run de ontem era melhor?" não tem resposta, e em domínios regulados é requisito legal.' },
-  { icon:'🔀', title:'Desacople estágios independentes', tag:'estágio 04 · orquestração',
+  { icon:'<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h4l10 10h4"/><path d="M18 4l3 3-3 3"/><path d="M3 17h4l3-3"/><path d="M18 14l3 3-3 3"/></g></svg>', title:'Desacople estágios independentes', tag:'estágio 04 · orquestração',
     desc:'A diarização depende só do 01, não do 03, então roda <b>em paralelo</b> ao round-trip de GPU (<code>--pre-colab</code>). Mapear o grafo de dependências real, não a ordem de numeração, é o que destrava paralelismo em produção.' },
-  { icon:'📉', title:'Monitore drift do que entra', tag:'monitoramento · feedback',
+  { icon:'<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 4v16h16.8"/><path d="M7 9l4 4 3-2 4 5"/></g></svg>', title:'Monitore drift do que entra', tag:'monitoramento · feedback',
     desc:'Modelos apodrecem quando o mundo muda. Monitorar <b>qualidade/RMS do áudio de entrada</b> contra o baseline (Model Monitor / Evidently) dispara o alarme antes do negócio reclamar, e alimenta o loop de retraining.' },
-  { icon:'🌱', title:'Inference-only ⇒ treino é ramo opcional', tag:'arquitetura · custo',
+  { icon:'<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-7"/><path d="M12 13C8 13 5.6 10.6 5.6 6.6c4 0 6.4 2.4 6.4 6.4Z"/><path d="M12 13c4 0 6.4-2.4 6.4-6.4-4 0-6.4 2.4-6.4 6.4Z"/></g></svg>', title:'Inference-only ⇒ treino é ramo opcional', tag:'arquitetura · custo',
     desc:'Como todo modelo é <b>pré-treinado</b>, o "training" de uma arquitetura MLOps de referência vira um <em>ramo de fine-tuning opcional</em>, disparado por drift ou cadência, não o loop central. Reconhecer isso simplifica (e barateia) toda a arquitetura.' },
-  { icon:'🚪', title:'Gate de promoção antes do serving', tag:'CI/CD · qualidade',
+  { icon:'<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5.6 3.6h12.8v16.8H5.6z"/><path d="M15 12h.01"/></g></svg>', title:'Gate de promoção antes do serving', tag:'CI/CD · qualidade',
     desc:'Um modelo fine-tuned só volta ao registry se passar num <b>gate de avaliação</b> (threshold de DER/SI-SDR). Retreinar com dados ruins pode piorar, validar contra o atual antes de promover é não-negociável.' },
-  { icon:'📦', title:'Container = ambiente reprodutível', tag:'ECR/Harbor · paridade',
+  { icon:'<svg class="vi" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" ><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 7.6 12 3.6l8.4 4v8.8L12 20.4l-8.4-4V7.6Z"/><path d="M3.6 7.6 12 11.6l8.4-4"/><path d="M12 11.6v8.8"/></g></svg>', title:'Container = ambiente reprodutível', tag:'ECR/Harbor · paridade',
     desc:'Trocar <code>pip install</code> em runtime por <b>imagens versionadas</b> (ECR/Harbor) mata o "na minha máquina funciona": o mesmo runtime roda no laptop, no CI e na GPU de produção, com pesos cacheados à parte.' }
 ];

@@ -1,4 +1,4 @@
-/* ML Portal, shared chrome + progress + theme
+/* Vektia, shared chrome + progress + theme
    - Renders topbar (with theme toggle) and footer
    - Tracks completion in localStorage
    - Handles theme switching
@@ -98,10 +98,10 @@
     return `
       <div class="topbar">
         <a class="brand" href="index.html">
-          <div class="brand-mark">ml</div>
+          <div class="brand-mark">vk</div>
           <div>
-            <div class="brand-name">Portal de ML</div>
-            <div class="brand-sub">Desafio · Sênior</div>
+            <div class="brand-name">Vektia</div>
+            <div class="brand-sub">Machine Learning, do zero ao topo</div>
           </div>
         </a>
         <nav class="topnav">${links}</nav>
@@ -109,6 +109,14 @@
           <div class="streak" id="mlp-streak" title="Lições concluídas">
             <span class="streak-dot"></span>
             <span id="mlp-streak-text">${done}/${total}</span>
+          </div>
+          <div class="seg-lang" id="mlp-lang">
+            <button type="button" data-lang-value="en" aria-label="English">
+              <span class="flag"><svg class="vflag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#f4f5f7"/><g fill="#d7282f"><rect y="0" width="24" height="1.23"/><rect y="2.46" width="24" height="1.23"/><rect y="4.92" width="24" height="1.23"/><rect y="7.38" width="24" height="1.23"/><rect y="9.85" width="24" height="1.23"/><rect y="12.31" width="24" height="1.23"/><rect y="14.77" width="24" height="1.23"/></g><rect width="10" height="8.61" fill="#1a3263"/><g fill="#fff"><circle cx="2" cy="1.7" r=".6"/><circle cx="5" cy="1.7" r=".6"/><circle cx="8" cy="1.7" r=".6"/><circle cx="3.5" cy="4.3" r=".6"/><circle cx="6.5" cy="4.3" r=".6"/><circle cx="2" cy="6.9" r=".6"/><circle cx="5" cy="6.9" r=".6"/><circle cx="8" cy="6.9" r=".6"/></g><rect width="24" height="16" rx="2" fill="none" stroke="rgba(0,0,0,.14)"/></svg></span><span class="lang-tag">EN</span>
+            </button>
+            <button type="button" data-lang-value="pt" aria-label="Português (Brasil)">
+              <span class="flag"><svg class="vflag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#009c3b"/><path d="M12 2.2 21.6 8 12 13.8 2.4 8Z" fill="#ffdf00"/><circle cx="12" cy="8" r="3.5" fill="#002776"/><path d="M8.8 6.9a7 7 0 0 1 6.4 1.5" stroke="#fff" stroke-width=".9" fill="none"/><rect width="24" height="16" rx="2" fill="none" stroke="rgba(0,0,0,.14)"/></svg></span><span class="lang-tag">PT/BR</span>
+            </button>
           </div>
           <button class="theme-toggle" id="mlp-theme-toggle" title="Alternar tema (light/dark)" aria-label="Alternar tema">
             ${SUN_ICON}${MOON_ICON}
@@ -122,7 +130,7 @@
     const year = new Date().getFullYear();
     return `
       <footer class="portal-foot">
-        <span>Portal de ML · Desafio Machine Learning · ${year}</span>
+        <span>Vektia · Desafio Machine Learning · ${year}</span>
         <span>paradigmas → algoritmos → engenharia → produção</span>
       </footer>
     `;
@@ -138,16 +146,28 @@
     const btn = document.getElementById('mlp-theme-toggle');
     if (btn) btn.addEventListener('click', toggleTheme);
 
+    // language toggle wiring
+    const langHost = document.getElementById('mlp-lang');
+    if (langHost && window.I18N) {
+      langHost.addEventListener('click', e => {
+        const b = e.target.closest('[data-lang-value]');
+        if (b) window.I18N.setLang(b.getAttribute('data-lang-value'));
+      });
+      langHost.querySelectorAll('[data-lang-value]').forEach(b =>
+        b.classList.toggle('active', b.getAttribute('data-lang-value') === window.I18N.getLang()));
+    }
+
     // refresh streak when progress changes
     window.addEventListener('mlp:progress', () => {
       const el = document.getElementById('mlp-streak-text');
       if (el) el.textContent = `${completedCount()}/${TOTAL_LESSONS}`;
     });
 
-    // keyboard shortcut: T toggles theme (when not typing)
+    // keyboard shortcut: T toggles theme, L toggles language (when not typing)
     document.addEventListener('keydown', e => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
       if (e.key === 't' || e.key === 'T') toggleTheme();
+      if ((e.key === 'l' || e.key === 'L') && window.I18N) window.I18N.toggleLang();
     });
   }
 
@@ -258,7 +278,7 @@
     const now = new Date();
     const stamp = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
 
-    let md = `# Portal de ML, Progresso\n\n`;
+    let md = `# Vektia, Progresso\n\n`;
     md += `**Exportado em** ${stamp}  \n`;
     md += `**Versão** ${snap.version}\n\n`;
     md += `## Resumo\n\n`;
@@ -333,12 +353,12 @@
   function downloadMarkdown() {
     const d = new Date();
     const stamp = `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}`;
-    downloadBlob(`ml-portal-progresso-${stamp}.md`, exportMarkdown(), 'text/markdown');
+    downloadBlob(`vektia-progresso-${stamp}.md`, exportMarkdown(), 'text/markdown');
   }
   function downloadJSON() {
     const d = new Date();
     const stamp = `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}`;
-    downloadBlob(`ml-portal-progresso-${stamp}.json`, exportJSON(), 'application/json');
+    downloadBlob(`vektia-progresso-${stamp}.json`, exportJSON(), 'application/json');
   }
 
   function pickAndImport(mode = 'merge') {
@@ -416,7 +436,7 @@
   async function connectSyncFile() {
     if (!fsaSupported) throw new Error('Seu browser não suporta File System Access API. Use Chrome/Edge.');
     const handle = await window.showSaveFilePicker({
-      suggestedName: 'ml-portal-progresso.md',
+      suggestedName: 'vektia-progresso.md',
       types: [{ description: 'Markdown', accept: { 'text/markdown': ['.md'] } }]
     });
     cachedHandle = handle;
