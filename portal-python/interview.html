@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modo Entrevista Python, Vektia</title>
+<script src="assets/theme-init.js?v=2"></script>
+<script src="assets/i18n.js?v=3"></script>
+<script src="assets/i18n-pt-en.js?v=3"></script>
+<script src="assets/i18n-catalog.js?v=3"></script>
+<script src="assets/i18n-algorithms.js?v=3"></script>
+<script src="assets/i18n-glossary.js?v=3"></script>
+<script src="assets/i18n-interview.js?v=1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portal.css?v=2">
+<style>
+  .iv-head {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 900px) { .iv-head { grid-template-columns: 1fr; } }
+
+  /* Framework grid -- 10 dimensões */
+  .fw-grid-big {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .fw-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+  .fw-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(0,112,243,0.3); }
+  .fw-item .fw-n {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 2.2rem;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--accent1);
+    position: absolute;
+    top: 16px; right: 18px;
+    opacity: 0.15;
+  }
+  .fw-item .fw-q {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+  .fw-item .fw-a {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  .fw-item .fw-tag {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  /* FLASHCARD ------------------------------------------------ */
+  .flashcard-stage {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    margin-top: 24px;
+  }
+  .fc-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .fc-counter {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  .fc-counter strong { color: var(--text); font-family: var(--font-sans); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.5px; }
+  .fc-controls {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+
+  .flashcard {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    min-height: 360px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .flashcard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent1);
+  }
+  .flashcard.cyan::before   { background: var(--accent1); }
+  .flashcard.violet::before { background: var(--accent2); }
+  .flashcard.green::before  { background: var(--accent3); }
+  .flashcard.amber::before  { background: var(--accent4); }
+  .flashcard.red::before    { background: var(--accent5); }
+  .flashcard:hover { box-shadow: var(--shadow-md); }
+
+  .fc-algo {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .fc-q-num {
+    font-size: 10px;
+    color: var(--accent1);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .fc-question {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  .fc-hint {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px dashed var(--border);
+  }
+  .fc-answer {
+    display: none;
+    background: linear-gradient(135deg, rgba(0,112,243,0.04), rgba(124,58,237,0.04));
+    border: 1px solid rgba(0,112,243,0.2);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-top: 12px;
+  }
+  .fc-answer.shown { display: block; animation: slideDown 0.25s ease both; }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  .fc-answer .lbl { font-size: 10px; letter-spacing: 2px; color: var(--accent1); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+  .fc-answer .txt { font-size: 13.5px; color: var(--text); line-height: 1.7; }
+
+  .fc-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 24px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .fc-score {
+    display: flex; gap: 8px;
+  }
+  .fc-score .btn { padding: 8px 14px; font-size: 10.5px; }
+  .fc-score .miss { color: var(--accent5); border-color: rgba(220,38,38,0.3); }
+  .fc-score .miss:hover { background: var(--accent5); color: white; border-color: var(--accent5); }
+  .fc-score .hit  { color: var(--accent3); border-color: rgba(5,150,105,0.3); }
+  .fc-score .hit:hover  { background: var(--accent3); color: white; border-color: var(--accent3); }
+  .fc-nav { display: flex; gap: 6px; }
+
+  /* stats row */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .stat .lbl { font-size: 10px; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px; }
+  .stat .val { font-family: var(--font-sans); font-weight: 800; font-size: 1.6rem; line-height: 1; letter-spacing: -0.5px; }
+  .stat.green .val { color: var(--accent3); }
+  .stat.red   .val { color: var(--accent5); }
+  .stat.cyan  .val { color: var(--accent1); }
+
+  /* quick recall */
+  .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .qr {
+    padding: 14px 18px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: all 0.15s;
+  }
+  .qr:hover { border-color: rgba(0,112,243,0.3); background: rgba(0,112,243,0.02); }
+  .qr .qr-n {
+    min-width: 26px; height: 26px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg3);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent1);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .qr .qr-q { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+  /* filter row */
+  .fc-filter-row {
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .fc-filter-row .lbl { font-size: 10px; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div id="mlp-topbar"></div>
+
+<main>
+
+  <!-- HEAD -->
+  <div class="iv-head fade-up">
+    <div>
+      <div class="eyebrow">Framework + Active Recall · Python sênior</div>
+      <h1 class="page-title">Modo <em>entrevista</em></h1>
+      <p class="page-sub">
+        Pegue qualquer padrão e tente responder as 10 dimensões de cabeça. Se você dá conta disso,
+        já está à frente da maioria dos candidatos. Os flashcards servem pra treinar a lembrança no susto,
+        porque aguentar a pressão da entrevista se aprende repetindo, não é dom.
+      </p>
+    </div>
+    <div class="highlight-box">
+      <div class="hl-title">Como usar</div>
+      <p>
+        1. Revise o framework abaixo.<br>
+        2. Vá para os flashcards, leia a pergunta, formule resposta mentalmente.<br>
+        3. Revele a resposta de referência e marque acertou / errei.<br>
+        4. Atalhos: <span class="kbd">␣</span> revelar · <span class="kbd">→</span> próximo · <span class="kbd">A</span> acertei · <span class="kbd">E</span> errei
+      </p>
+    </div>
+  </div>
+
+  <!-- FRAMEWORK 10 -->
+  <section class="section" style="margin-top:24px">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Framework, 10 dimensões por padrão</h2>
+      <div class="section-line"></div>
+      <span class="section-aside">Aplica a TODO padrão do catálogo</span>
+    </div>
+
+    <div class="fw-grid-big">
+      <div class="fw-item">
+        <div class="fw-n">01</div>
+        <div class="fw-tag">Problema</div>
+        <div class="fw-q">Que problema resolve?</div>
+        <div class="fw-a">A dor concreta que motivou o padrão e o sinal de que você precisa dele. Sem problema real, não há padrão.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">02</div>
+        <div class="fw-tag">Participantes</div>
+        <div class="fw-q">Quais são os participantes?</div>
+        <div class="fw-a">Os papéis (Strategy, Context, Handler, Repository...) e quem conhece quem. Se não sabe desenhar, não entendeu.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">03</div>
+        <div class="fw-tag">Pythônico</div>
+        <div class="fw-q">Qual a forma pythônica?</div>
+        <div class="fw-a">Função, Protocol, dict de callables, decorator, generator, context manager ou módulo, no lugar da hierarquia clássica do GoF.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">04</div>
+        <div class="fw-tag">Falha</div>
+        <div class="fw-q">Quando falha ou vira overengineering?</div>
+        <div class="fw-a">O ponto em que o padrão custa mais do que resolve: indireção sem variação real, estado global, hierarquia profunda.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">05</div>
+        <div class="fw-tag">Custo</div>
+        <div class="fw-q">Qual o custo (complexidade, indireção, performance)?</div>
+        <div class="fw-a">Classes e arquivos a mais, chamadas extras, memória, latência e custo de leitura para quem chega depois.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">06</div>
+        <div class="fw-tag">Teste</div>
+        <div class="fw-q">Como testar?</div>
+        <div class="fw-a">Dublês e fakes nas fronteiras, testes de contrato, tabelas de entrada e saída, propriedades com hypothesis.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">07</div>
+        <div class="fw-tag">Exemplo</div>
+        <div class="fw-q">Exemplo real (stdlib ou lib famosa)?</div>
+        <div class="fw-a">Onde o padrão aparece de verdade: functools, logging, asyncio, SQLAlchemy, Django, FastAPI.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">08</div>
+        <div class="fw-tag">SOLID</div>
+        <div class="fw-q">Qual a relação com SOLID?</div>
+        <div class="fw-a">Quais princípios o padrão materializa (OCP, DIP, SRP) e quais ele pode ferir (LSP, ISP).</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">09</div>
+        <div class="fw-tag">Vizinhos</div>
+        <div class="fw-q">Padrões vizinhos e confusões comuns?</div>
+        <div class="fw-a">Parentes que se confundem: Strategy e State, Decorator e Proxy, Adapter e Facade, Observer e Mediator.</div>
+      </div>
+      <div class="fw-item">
+        <div class="fw-n">10</div>
+        <div class="fw-tag">Entrevista</div>
+        <div class="fw-q">Como explicar em entrevista?</div>
+        <div class="fw-a">Uma frase de definição, o exemplo em Python e o trade-off honesto, em menos de 60 segundos.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLASHCARDS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Flashcards, Active Recall</h2>
+      <div class="section-line"></div>
+      <span class="section-aside" id="fc-deck-size">cartas</span>
+    </div>
+
+    <div class="fc-filter-row">
+      <span class="lbl">Filtrar:</span>
+      <div class="pill-row" id="fc-filter"></div>
+      <button class="btn ghost" id="fc-shuffle">↻ Embaralhar</button>
+      <button class="btn ghost" id="fc-reset">Reset Stats</button>
+    </div>
+
+    <div class="flashcard-stage">
+      <div class="fc-meta">
+        <div class="fc-counter">Carta <strong id="fc-idx">1</strong> / <span id="fc-total">100</span></div>
+        <div class="fc-controls">
+          <button class="btn ghost" id="fc-prev">← Anterior</button>
+          <button class="btn" id="fc-reveal">Revelar resposta <span class="btn-arrow">↓</span></button>
+          <button class="btn primary" id="fc-next">Próxima <span class="btn-arrow">→</span></button>
+        </div>
+      </div>
+
+      <div class="flashcard cyan" id="fc-card">
+        <div class="fc-q-num" id="fc-q-num">Dimensão 01, Problema</div>
+        <div class="fc-algo" id="fc-algo">Strategy</div>
+        <div class="fc-question" id="fc-question">Carregando...</div>
+        <div class="fc-answer" id="fc-answer">
+          <div class="lbl">Resposta de referência</div>
+          <div class="txt" id="fc-answer-txt"></div>
+        </div>
+        <div class="fc-hint" id="fc-hint">clique para revelar · ou ␣ espaço</div>
+      </div>
+
+      <div class="fc-foot">
+        <div class="fc-score">
+          <button class="btn miss" id="fc-miss">✗ Errei (E)</button>
+          <button class="btn hit"  id="fc-hit">✓ Acertei (A)</button>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat cyan">
+          <div class="lbl">Vistas</div>
+          <div class="val" id="st-seen">0</div>
+        </div>
+        <div class="stat green">
+          <div class="lbl">Acertos</div>
+          <div class="val" id="st-hit">0</div>
+        </div>
+        <div class="stat red">
+          <div class="lbl">Errados</div>
+          <div class="val" id="st-miss">0</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Taxa de acerto</div>
+          <div class="val" id="st-rate">0%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK RECALL -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Perguntas-armadilha mais comuns</h2>
+      <div class="section-line"></div>
+      <span class="section-aside">se você travar aqui, sabe onde estudar</span>
+    </div>
+
+    <div class="quick-grid">
+      <div class="qr"><div class="qr-n">01</div><div class="qr-q">Por que def f(x, acc=[]) é uma armadilha? Como corrigir e quando o default mutável é intencional?</div></div>
+      <div class="qr"><div class="qr-n">02</div><div class="qr-q">Por que [lambda: i for i in range(3)] devolve três vezes o mesmo valor? Como resolver o late binding?</div></div>
+      <div class="qr"><div class="qr-n">03</div><div class="qr-q">Qual a diferença entre is e ==? Por que "a is b" para ints pequenos às vezes dá True?</div></div>
+      <div class="qr"><div class="qr-n">04</div><div class="qr-q">Threads aceleram código CPU-bound com o GIL? O que muda com o free-threading do 3.13 e do 3.14?</div></div>
+      <div class="qr"><div class="qr-n">05</div><div class="qr-q">O que acontece com __hash__ quando você define __eq__ sem definir __hash__? Por que isso importa em set e dict?</div></div>
+      <div class="qr"><div class="qr-n">06</div><div class="qr-q">Como o MRO (C3) resolve a herança múltipla e o que o super() realmente chama?</div></div>
+      <div class="qr"><div class="qr-n">07</div><div class="qr-q">O que acontece se você chamar time.sleep ou requests.get dentro de uma função async? Como detectar e corrigir?</div></div>
+      <div class="qr"><div class="qr-n">08</div><div class="qr-q">Por que um generator ou iterator "esvazia" na segunda passada? Como estruturar para reusar?</div></div>
+      <div class="qr"><div class="qr-n">09</div><div class="qr-q">Qual a diferença entre cópia rasa e profunda? Por que [[0]*3]*3 gera linhas ligadas entre si?</div></div>
+      <div class="qr"><div class="qr-n">10</div><div class="qr-q">Por que alterar uma lista enquanto você itera sobre ela dá resultados estranhos? Qual a alternativa segura?</div></div>
+      <div class="qr"><div class="qr-n">11</div><div class="qr-q">Por que "except Exception" e "except:" não são equivalentes? O que engolir CancelledError causa em asyncio?</div></div>
+      <div class="qr"><div class="qr-n">12</div><div class="qr-q">Por que um dataclass com campo list = [] falha (ValueError) e qual o papel de field(default_factory)?</div></div>
+      <div class="qr"><div class="qr-n">13</div><div class="qr-q">Quando usar "if x:" e quando "if x is not None:"? Que valores são falsy e já morderam você?</div></div>
+      <div class="qr"><div class="qr-n">14</div><div class="qr-q">Por que esquecer functools.wraps quebra um decorator, e por que a ordem de empilhar decorators importa?</div></div>
+      <div class="qr"><div class="qr-n">15</div><div class="qr-q">Por que @lru_cache em método de instância pode vazar memória? Como mitigar?</div></div>
+      <div class="qr"><div class="qr-n">16</div><div class="qr-q">Como um import circular acontece, como diagnosticar e qual a correção na raiz (não o import dentro da função)?</div></div>
+      <div class="qr"><div class="qr-n">17</div><div class="qr-q">Quando usar threading, multiprocessing ou asyncio? Cite o critério por tipo de carga (I/O ou CPU).</div></div>
+      <div class="qr"><div class="qr-n">18</div><div class="qr-q">Por que 0.1 + 0.2 != 0.3 e quando usar Decimal ou Fraction em vez de float?</div></div>
+    </div>
+  </section>
+
+</main>
+
+<div id="mlp-footer"></div>
+
+<script src="assets/lessons.js?v=2"></script>
+<script src="assets/portal.js?v=2"></script>
+<script src="assets/algorithms.js?v=2"></script>
+<script>
+  MLPortal.mount('interview');
+
+  // ---------- FLASHCARDS ----------
+  const STATS_KEY = 'py_portal_fc_stats_v1';
+  function loadStats() { try { return JSON.parse(localStorage.getItem(STATS_KEY)) || { seen:0, hit:0, miss:0 }; } catch(_){ return { seen:0, hit:0, miss:0 }; } }
+  function saveStats(s) {
+    localStorage.setItem(STATS_KEY, JSON.stringify(s));
+    window.dispatchEvent(new CustomEvent('mlp:fcstats', { detail: s }));
+  }
+
+  function buildDeck(paradigm) {
+    const deck = [];
+    ALGORITHMS.forEach(a => {
+      if (paradigm !== 'all' && a.paradigm !== paradigm) return;
+      a.fw.forEach((row, i) => {
+        deck.push({
+          algo: a.name,
+          paradigm: a.paradigm,
+          qNum: i + 1,
+          q: row.q,
+          a: row.a
+        });
+      });
+    });
+    return deck;
+  }
+
+  const PARADIGMS = [
+    { id: 'all',          label: 'Todas' },
+    { id: 'supervised',   label: 'Criacionais' },
+    { id: 'unsupervised', label: 'Estruturais' },
+    { id: 'semi',         label: 'Comportamentais' },
+    { id: 'self',         label: 'Arquiteturais' },
+    { id: 'rl',           label: 'Concorrência & perf.' },
+  ];
+
+  const DIMS = ['Problema', 'Participantes', 'Pythônico', 'Falha', 'Custo', 'Teste', 'Exemplo', 'SOLID', 'Vizinhos', 'Entrevista'];
+
+  let filter = 'all';
+  let deck = buildDeck(filter);
+  let idx = 0;
+  let revealed = false;
+  let stats = loadStats();
+
+  function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  shuffle(deck);
+
+  function renderFilters() {
+    const host = document.getElementById('fc-filter');
+    host.innerHTML = PARADIGMS.map(p =>
+      `<button class="pill ${filter === p.id ? 'active' : ''}" data-id="${p.id}">${p.label}</button>`
+    ).join('');
+    host.querySelectorAll('.pill').forEach(b => {
+      b.addEventListener('click', () => {
+        filter = b.dataset.id;
+        deck = shuffle(buildDeck(filter));
+        idx = 0; revealed = false;
+        renderFilters();
+        render();
+      });
+    });
+  }
+
+  function render() {
+    const c = deck[idx];
+    if (!c) return;
+    const colorMap = { supervised:'cyan', unsupervised:'violet', semi:'green', self:'amber', rl:'red' };
+    const card = document.getElementById('fc-card');
+    card.className = 'flashcard ' + (colorMap[c.paradigm] || 'cyan');
+    document.getElementById('fc-q-num').textContent = 'Dimensão ' + String(c.qNum).padStart(2,'0') + ', ' + (DIMS[c.qNum - 1] || '');
+    document.getElementById('fc-algo').textContent = c.algo;
+    document.getElementById('fc-question').textContent = c.q;
+    document.getElementById('fc-answer-txt').textContent = c.a;
+    document.getElementById('fc-answer').classList.toggle('shown', revealed);
+    document.getElementById('fc-hint').style.display = revealed ? 'none' : 'block';
+    document.getElementById('fc-idx').textContent = idx + 1;
+    document.getElementById('fc-total').textContent = deck.length;
+    document.getElementById('fc-deck-size').textContent = deck.length + ' cartas';
+    renderStats();
+  }
+
+  function renderStats() {
+    document.getElementById('st-seen').textContent = stats.seen;
+    document.getElementById('st-hit').textContent = stats.hit;
+    document.getElementById('st-miss').textContent = stats.miss;
+    const total = stats.hit + stats.miss;
+    document.getElementById('st-rate').textContent = total ? Math.round(100*stats.hit/total) + '%' : ', ';
+  }
+
+  function reveal() {
+    revealed = true;
+    document.getElementById('fc-answer').classList.add('shown');
+    document.getElementById('fc-hint').style.display = 'none';
+  }
+
+  function next(dir = 1) {
+    if (!revealed && dir > 0) stats.seen++;
+    revealed = false;
+    idx = (idx + dir + deck.length) % deck.length;
+    saveStats(stats);
+    render();
+  }
+
+  function score(hit) {
+    if (!revealed) reveal();
+    if (hit) stats.hit++; else stats.miss++;
+    saveStats(stats);
+    setTimeout(() => next(1), 250);
+  }
+
+  document.getElementById('fc-card').addEventListener('click', reveal);
+  document.getElementById('fc-reveal').addEventListener('click', reveal);
+  document.getElementById('fc-next').addEventListener('click', () => next(1));
+  document.getElementById('fc-prev').addEventListener('click', () => next(-1));
+  document.getElementById('fc-hit').addEventListener('click', () => score(true));
+  document.getElementById('fc-miss').addEventListener('click', () => score(false));
+  document.getElementById('fc-shuffle').addEventListener('click', () => { shuffle(deck); idx = 0; revealed = false; render(); });
+  document.getElementById('fc-reset').addEventListener('click', () => {
+    if (confirm('Zerar estatísticas dos flashcards?')) { stats = { seen:0, hit:0, miss:0 }; saveStats(stats); renderStats(); }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === ' ') { e.preventDefault(); reveal(); }
+    else if (e.key === 'ArrowRight') next(1);
+    else if (e.key === 'ArrowLeft')  next(-1);
+    else if (e.key.toLowerCase() === 'a') score(true);
+    else if (e.key.toLowerCase() === 'e') score(false);
+  });
+
+  renderFilters();
+  render();
+</script>
+</body>
+</html>

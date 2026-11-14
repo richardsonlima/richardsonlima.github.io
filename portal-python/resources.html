@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos, Vektia Python</title>
+<script src="assets/theme-init.js?v=2"></script>
+<script src="assets/i18n.js?v=3"></script>
+<script src="assets/i18n-pt-en.js?v=3"></script>
+<script src="assets/i18n-catalog.js?v=3"></script>
+<script src="assets/i18n-algorithms.js?v=3"></script>
+<script src="assets/i18n-glossary.js?v=3"></script>
+<script src="assets/i18n-resources.js?v=1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/portal.css?v=2">
+<style>
+  .res-head { margin-bottom: 16px; }
+
+  /* tab switcher */
+  .res-tabs {
+    display: flex;
+    gap: 4px;
+    margin: 32px 0 40px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .res-tabs::-webkit-scrollbar { display: none; }
+  .res-tab {
+    padding: 12px 18px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.15s;
+    letter-spacing: -0.01em;
+  }
+  .res-tab:hover { color: var(--text); }
+  .res-tab.active { color: var(--text); border-bottom-color: var(--accent1); }
+
+  .res-panel { display: none; animation: fadeUp 0.4s ease both; }
+  .res-panel.active { display: block; }
+
+  /* cronograma */
+  .weeks { display: grid; gap: 16px; }
+  .week {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+  }
+  .week::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 3px;
+  }
+  .week.w1::before { background: var(--accent1); }
+  .week.w2::before { background: var(--accent2); }
+  .week.w3::before { background: var(--accent3); }
+  .week.w4::before { background: var(--accent4); }
+  .week-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 22px 26px 14px;
+    flex-wrap: wrap;
+  }
+  .week-n {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 2.4rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--text-strong);
+  }
+  .week-meta .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+  .week-meta .ttl { font-family: var(--font-sans); font-weight: 600; font-size: 1.15rem; letter-spacing: -0.02em; color: var(--text-strong); margin-top: 2px; }
+  .week-focus {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-muted);
+    align-self: center;
+  }
+  .week-body { padding: 0 26px 24px; }
+  .topic-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+    border-top: 1px solid var(--border-faint);
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+  .prio {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .prio.high { color: var(--accent5); background: var(--accent5-soft); }
+  .prio.med  { color: var(--accent4); background: var(--accent4-soft); }
+  .prio.low  { color: var(--accent3); background: var(--accent3-soft); }
+  .week-dyn {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .week-dyn strong { color: var(--text); font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.5px; }
+
+  /* resource cards */
+  .res-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 820px) { .res-grid { grid-template-columns: 1fr; } }
+
+  .res-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .res-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .res-card .rc-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .res-card .rc-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: var(--text-strong);
+    line-height: 1.25;
+  }
+  .res-card .rc-author { font-size: 12.5px; color: var(--text-muted); }
+  .res-card .rc-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; flex: 1; }
+  .res-card .rc-note {
+    font-size: 12px;
+    color: var(--accent4);
+    background: var(--accent4-soft);
+    border-radius: 6px;
+    padding: 8px 12px;
+    line-height: 1.5;
+  }
+  .res-card .rc-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  .rc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent1);
+    padding: 5px 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: all 0.15s;
+  }
+  .rc-link:hover { border-color: var(--accent1); background: var(--accent1-soft); }
+
+  .badge-when {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border-faint);
+    color: var(--text-dim);
+  }
+
+  .group-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 32px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .group-label::after { content: ''; flex: 1; height: 1px; background: var(--border-faint); }
+  .group-label:first-child { margin-top: 0; }
+
+  .intro-note {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent1);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+  .intro-note strong { color: var(--text); }
+
+  .res-card .rc-tag span + span::before { content: "· "; }
+  .res-card .rc-tag span.badge-when + span::before { content: none; }
+
+  /* matriz table */
+  .matrix-note { font-size: 12.5px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div id="mlp-topbar"></div>
+
+<main>
+
+  <div class="res-head fade-up">
+    <div class="eyebrow">Curso completo de Python · 13 etapas · 83 lições</div>
+    <h1 class="page-title"><em>Recursos</em> & plano de estudo</h1>
+    <p class="page-sub">
+      Tudo o que sustenta a trilha num lugar só: o cronograma de 16 semanas, os livros essenciais do mundo e do Brasil, cursos, canais, podcasts, portais e comunidades, os papers que fundamentam cada ideia e a matriz que liga tudo às etapas. Cada item tem link e foi conferido na fonte.
+    </p>
+  </div>
+
+  <div class="res-tabs" id="res-tabs">
+    <button class="res-tab active" data-panel="cronograma">Cronograma</button>
+    <button class="res-tab" data-panel="livros">Livros</button>
+    <button class="res-tab" data-panel="cursos">Cursos</button>
+    <button class="res-tab" data-panel="youtube">YouTube</button>
+    <button class="res-tab" data-panel="podcasts">Podcasts</button>
+    <button class="res-tab" data-panel="portais">Portais e comunidades</button>
+    <button class="res-tab" data-panel="papers">Papers</button>
+    <button class="res-tab" data-panel="matriz">Matriz</button>
+  </div>
+
+  <!-- CRONOGRAMA -->
+  <div class="res-panel active" id="panel-cronograma">
+    <div class="intro-note"><strong>16 semanas, 8 fases, um projeto que cresce junto.</strong> Ritmo de 8 a 10 horas por semana; com 15 horas dá para fechar em 12 semanas juntando fases. Cada fase termina com algo construído, porque é o código que você escreve que fixa o conteúdo. <span style="white-space:nowrap"><span class="prio high" style="padding:1px 7px">High</span></span> é prioridade máxima; <span class="prio med" style="padding:1px 7px">Medium</span> complementa; <span class="prio low" style="padding:1px 7px">Low</span> é leitura de apoio.</div>
+    <div class="weeks">
+      <div class="week w1">
+        <div class="week-head">
+          <div class="week-n">1</div>
+          <div class="week-meta">
+            <div class="lbl">Semanas 1-2 · Etapas 1 e 2</div>
+            <div class="ttl">Fundamentos e Python idiomático</div>
+          </div>
+          <div class="week-focus">Modelo de objetos e protocolos</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Ambiente com uv, pyproject.toml e layout src/</div>
+          <div class="topic-row"><span class="prio high">High</span> Nomes, referências, mutabilidade e cópia</div>
+          <div class="topic-row"><span class="prio high">High</span> Coleções e o custo Big-O de cada operação</div>
+          <div class="topic-row"><span class="prio high">High</span> Iteradores, geradores e itertools</div>
+          <div class="topic-row"><span class="prio high">High</span> Decorators, closures e context managers</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Data model: __repr__, __eq__, __hash__, descritores</div>
+          <div class="topic-row"><span class="prio low">Low</span> Leitura: Fluent Python, partes I e II</div>
+          <div class="week-dyn"><strong>CONSTRUIR</strong><br>Construir: uma CLI que lê logs de vários GB com geradores (memória constante), empacotada com uv, com decorators de timing e um context manager para recursos.</div>
+        </div>
+      </div>
+      <div class="week w2">
+        <div class="week-head">
+          <div class="week-n">2</div>
+          <div class="week-meta">
+            <div class="lbl">Semanas 3-4 · Etapas 3 e 4</div>
+            <div class="ttl">OOP, tipagem e Clean Code</div>
+          </div>
+          <div class="week-focus">Contratos explícitos e testes</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Classes, MRO, dataclasses e Pydantic</div>
+          <div class="topic-row"><span class="prio high">High</span> Protocols, generics e mypy ou pyright em modo strict</div>
+          <div class="topic-row"><span class="prio high">High</span> pytest: fixtures, parametrize, property-based</div>
+          <div class="topic-row"><span class="prio high">High</span> Nomes, funções pequenas e tratamento de erros</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Code smells, refactoring e TDD</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Ruff, pre-commit e CI de qualidade</div>
+          <div class="topic-row"><span class="prio low">Low</span> Leitura: Robust Python e Refactoring, caps. 1 a 3</div>
+          <div class="week-dyn"><strong>CONSTRUIR</strong><br>Construir: evoluir a CLI para uma biblioteca tipada (mypy strict sem ignores), com cobertura acima de 90%, testes com Hypothesis e pipeline de CI com Ruff e pre-commit.</div>
+        </div>
+      </div>
+      <div class="week w3">
+        <div class="week-head">
+          <div class="week-n">3</div>
+          <div class="week-meta">
+            <div class="lbl">Semanas 5-6 · Etapas 5, 6 e 7</div>
+            <div class="ttl">SOLID, criacionais e estruturais</div>
+          </div>
+          <div class="week-focus">Desenho de objetos sem overengineering</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Os cinco princípios SOLID com Protocols</div>
+          <div class="topic-row"><span class="prio high">High</span> Liskov: contratos, pré e pós-condições</div>
+          <div class="topic-row"><span class="prio high">High</span> Factory, Builder e por que evitar Singleton</div>
+          <div class="topic-row"><span class="prio high">High</span> Adapter, Facade, Proxy e Decorator (GoF)</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Composição sobre herança, DRY, KISS, YAGNI</div>
+          <div class="topic-row"><span class="prio low">Low</span> Leitura: GoF (catálogo) e python-patterns.guide</div>
+          <div class="week-dyn"><strong>CONSTRUIR</strong><br>Construir: refatorar um kata legado (por exemplo, Gilded Rose) com testes de caracterização primeiro, aplicando só os padrões que o código pede e registrando cada decisão.</div>
+        </div>
+      </div>
+      <div class="week w4">
+        <div class="week-head">
+          <div class="week-n">4</div>
+          <div class="week-meta">
+            <div class="lbl">Semanas 7-9 · Etapas 8 e 9</div>
+            <div class="ttl">Comportamentais e architecture patterns</div>
+          </div>
+          <div class="week-focus">Domínio no centro, infraestrutura na borda</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Strategy, Observer, Command, State</div>
+          <div class="topic-row"><span class="prio high">High</span> Hexagonal, Repository, Unit of Work, Service Layer</div>
+          <div class="topic-row"><span class="prio high">High</span> DDD tático: entities, value objects, aggregates</div>
+          <div class="topic-row"><span class="prio high">High</span> Domain events, message bus e outbox</div>
+          <div class="topic-row"><span class="prio med">Medium</span> CQRS, event sourcing e injeção de dependência</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Monólito modular vs microsserviços</div>
+          <div class="topic-row"><span class="prio low">Low</span> Leitura: Architecture Patterns with Python, livro inteiro</div>
+          <div class="week-dyn"><strong>CONSTRUIR</strong><br>Construir: um serviço de domínio (pedidos, alocação ou pagamentos) seguindo Cosmic Python: núcleo testável sem banco, Repository e UoW com SQLAlchemy, eventos e um handler assíncrono.</div>
+        </div>
+      </div>
+      <div class="week w1">
+        <div class="week-head">
+          <div class="week-n">5</div>
+          <div class="week-meta">
+            <div class="lbl">Semana 10 · Etapa 10</div>
+            <div class="ttl">Concorrência e async</div>
+          </div>
+          <div class="week-focus">CPU-bound ou I/O-bound?</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> GIL, PEP 703 e builds free-threaded</div>
+          <div class="topic-row"><span class="prio high">High</span> asyncio por dentro: event loop, tasks, TaskGroup</div>
+          <div class="topic-row"><span class="prio high">High</span> Timeouts, cancelamento, backpressure e retries</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Threads, processos e memória compartilhada</div>
+          <div class="topic-row"><span class="prio low">Low</span> Leitura: Python Concurrency with asyncio</div>
+          <div class="week-dyn"><strong>CONSTRUIR</strong><br>Construir: um crawler assíncrono com semáforo, timeouts e cancelamento limpo; comparar com ThreadPoolExecutor e ProcessPoolExecutor medindo, não supondo.</div>
+        </div>
+      </div>
+      <div class="week w2">
+        <div class="week-head">
+          <div class="week-n">6</div>
+          <div class="week-meta">
+            <div class="lbl">Semanas 11-12 · Etapa 11</div>
+            <div class="ttl">High performance</div>
+          </div>
+          <div class="week-focus">Medir antes de otimizar</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Profiling com cProfile, py-spy e Scalene</div>
+          <div class="topic-row"><span class="prio high">High</span> NumPy, broadcasting e vetorização</div>
+          <div class="topic-row"><span class="prio high">High</span> Memória, gc e tracemalloc</div>
+          <div class="topic-row"><span class="prio med">Medium</span> CPython por dentro: bytecode, PEP 659, JIT</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Numba, Cython e extensões em Rust com PyO3</div>
+          <div class="topic-row"><span class="prio low">Low</span> Leitura: High Performance Python, 3ª ed.</div>
+          <div class="week-dyn"><strong>CONSTRUIR</strong><br>Construir: pegar um hot path real, medir com pyperf, otimizar em três degraus (algoritmo, NumPy, Numba ou Rust) e publicar o relatório com variância e limites da medição.</div>
+        </div>
+      </div>
+      <div class="week w3">
+        <div class="week-head">
+          <div class="week-n">7</div>
+          <div class="week-meta">
+            <div class="lbl">Semanas 13-14 · Etapa 12</div>
+            <div class="ttl">Master large data</div>
+          </div>
+          <div class="week-focus">Dados maiores que a memória</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Arrow, Parquet, row groups e particionamento</div>
+          <div class="topic-row"><span class="prio high">High</span> Polars lazy e DuckDB sobre Parquet</div>
+          <div class="topic-row"><span class="prio high">High</span> pandas com dtypes certos e copy-on-write</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Dask, Ray e PySpark: quando distribuir</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Orquestração, idempotência e data contracts</div>
+          <div class="topic-row"><span class="prio low">Low</span> Leitura: DDIA, caps. de armazenamento e batch</div>
+          <div class="week-dyn"><strong>CONSTRUIR</strong><br>Construir: um pipeline que processa um dataset público de dezenas de GB num notebook comum, com Polars ou DuckDB em streaming, saída em Parquet particionado e testes de qualidade de dados.</div>
+        </div>
+      </div>
+      <div class="week w4">
+        <div class="week-head">
+          <div class="week-n">8</div>
+          <div class="week-meta">
+            <div class="lbl">Semanas 15-16 · Etapa 13 + projeto final</div>
+            <div class="ttl">Python em produção</div>
+          </div>
+          <div class="week-focus">Do repositório ao serviço no ar</div>
+        </div>
+        <div class="week-body">
+          <div class="topic-row"><span class="prio high">High</span> Packaging, wheels e publicação no PyPI</div>
+          <div class="topic-row"><span class="prio high">High</span> FastAPI, ASGI e async correto</div>
+          <div class="topic-row"><span class="prio high">High</span> Logging estruturado, OpenTelemetry e SLOs</div>
+          <div class="topic-row"><span class="prio high">High</span> Supply chain, segredos e pip-audit</div>
+          <div class="topic-row"><span class="prio med">Medium</span> Imagens enxutas, multi-stage e 12-factor</div>
+          <div class="topic-row"><span class="prio low">Low</span> Leitura: Release It! e o livro de SRE do Google</div>
+          <div class="week-dyn"><strong>CONSTRUIR</strong><br>Projeto final: expor o serviço da semana 9 via FastAPI, em container, com tracing, métricas, testes de contrato, CI/CD e um runbook. É o portfólio que fala por você na entrevista sênior.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVROS -->
+  <div class="res-panel" id="panel-livros">
+    <div class="intro-note"><strong>O selo E indica a etapa da trilha.</strong> Quando existe edição brasileira confirmada, ela aparece no card. Livros com exemplos em Java estão aqui pelo conteúdo de design, que se transpõe para Python sem perda.</div>
+    <div class="group-label">Linguagem e Python idiomático</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E3</span><span>essencial</span><span>EN</span></div>
+        <div class="rc-title">Fluent Python, 2nd Edition</div>
+        <div class="rc-author">Luciano Ramalho (O&#x27;Reilly, 2022)</div>
+        <div class="rc-desc">O livro mais profundo sobre o data model, protocolos, geradores, decorators, tipagem e concorrência em Python. Escrito por um brasileiro, é a espinha dorsal das etapas 1 a 3.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.fluentpython.com/" target="_blank" rel="noopener">Site oficial →</a>
+          <a class="rc-link" href="https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E3</span><span>essencial</span><span>PT-BR</span><span>grátis online</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Python Fluente, 2ª Edição</div>
+        <div class="rc-author">Luciano Ramalho (tradução autorizada, online)</div>
+        <div class="rc-desc">A segunda edição em português, publicada online pelo próprio autor sob licença da O&#x27;Reilly. A primeira edição saiu pela Novatec em 2015 e hoje está esgotada na editora.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pythonfluente.com/" target="_blank" rel="noopener">Ler grátis →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E2-E4</span><span>essencial</span><span>EN</span></div>
+        <div class="rc-title">Effective Python, 3rd Edition</div>
+        <div class="rc-author">Brett Slatkin (Addison-Wesley)</div>
+        <div class="rc-desc">125 itens curtos e acionáveis sobre como escrever Python melhor. Ótimo para revisar idiomas antes de code review e entrevista. A 1ª edição saiu em português como Python Eficaz (Novatec, 2016).</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://effectivepython.com/" target="_blank" rel="noopener">Site oficial →</a>
+          <a class="rc-link" href="https://www.informit.com/store/effective-python-125-specific-ways-to-write-better-9780138172183" target="_blank" rel="noopener">Editora →</a>
+          <a class="rc-link" href="https://novatec.com.br/livros/python-eficaz/" target="_blank" rel="noopener">Ed. brasileira →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E2</span><span>consulta</span><span>EN</span></div>
+        <div class="rc-title">Python Cookbook, 3rd Edition</div>
+        <div class="rc-author">David Beazley e Brian K. Jones (O&#x27;Reilly, 2013)</div>
+        <div class="rc-desc">Receitas de estruturas de dados, iteradores, metaprogramação e concorrência. Escrito para Python 3.3, mas as ideias continuam valendo; leia como consulta, não de capa a capa.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.oreilly.com/library/view/python-cookbook-3rd/9781449357337/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E2</span><span>EN</span></div>
+        <div class="rc-title">Python Distilled</div>
+        <div class="rc-author">David Beazley (Addison-Wesley)</div>
+        <div class="rc-desc">A linguagem destilada ao essencial por quem a ensina há décadas. Curto, denso e preciso sobre o modelo de execução.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.informit.com/store/python-distilled-9780134173276" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1</span><span>PT-BR</span><span>iniciante</span></div>
+        <div class="rc-title">Pense em Python, 3ª Edição</div>
+        <div class="rc-author">Allen B. Downey (Novatec, 2024)</div>
+        <div class="rc-desc">Tradução de Think Python. Introdução cuidadosa à programação com Python; a 2ª edição em português tem versão online gratuita.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://novatec.com.br/livros/pense-em-python-3ed/" target="_blank" rel="noopener">Ed. brasileira →</a>
+          <a class="rc-link" href="https://penseallen.github.io/PensePython2e/" target="_blank" rel="noopener">Ler grátis →</a>
+          <a class="rc-link" href="https://greenteapress.com/wp/think-python-3rd-edition/" target="_blank" rel="noopener">Livro →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1</span><span>PT-BR</span><span>iniciante</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Introdução à Programação com Python, 4ª Edição</div>
+        <div class="rc-author">Nilo Ney Coutinho Menezes (Novatec, 2024)</div>
+        <div class="rc-desc">O livro-texto brasileiro clássico de algoritmos e lógica com Python. Bom para nivelar quem chega de outra linguagem.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://novatec.com.br/livros/introducao-python-4ed/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1</span><span>PT-BR</span><span>iniciante</span></div>
+        <div class="rc-title">Curso Intensivo de Python, 3ª Edição</div>
+        <div class="rc-author">Eric Matthes (Novatec, 2023)</div>
+        <div class="rc-desc">Tradução de Python Crash Course: fundamentos e três projetos guiados. Rápido para quem precisa de base prática.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://novatec.com.br/livros/curso-intensivo-python-3ed/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E2</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Python: Escreva seus primeiros programas</div>
+        <div class="rc-author">Felipe Cruz (Casa do Código, 2015)</div>
+        <div class="rc-desc">Sintaxe, arquivos, exceções, estruturas de dados e a biblioteca padrão, em português e direto ao ponto.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-python-3" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E3</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Trilhas Python</div>
+        <div class="rc-author">Eduardo Pereira (Casa do Código)</div>
+        <div class="rc-desc">Do básico a decorators, programação estruturada e orientação a objetos, com um projeto que evolui ao longo do livro e termina na web com Flask.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-trilhas-python" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">OOP, tipagem e testes</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E3-E4</span><span>essencial</span><span>EN</span></div>
+        <div class="rc-title">Robust Python</div>
+        <div class="rc-author">Patrick Viafore (O&#x27;Reilly, 2021)</div>
+        <div class="rc-desc">Tipagem como ferramenta de design: tipos definidos pelo usuário, Protocols, extensibilidade e testes como rede de segurança.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.oreilly.com/library/view/robust-python/9781098100650/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>essencial</span><span>EN</span><span>grátis online</span></div>
+        <div class="rc-title">Test-Driven Development with Python, 3rd Edition</div>
+        <div class="rc-author">Harry Percival (O&#x27;Reilly, 2025)</div>
+        <div class="rc-desc">TDD de ponta a ponta construindo uma aplicação real com Django, Selenium e CI. O autor mantém a versão online gratuita.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.obeythetestinggoat.com/" target="_blank" rel="noopener">Ler grátis →</a>
+          <a class="rc-link" href="https://www.oreilly.com/library/view/test-driven-development-with/9781098148706/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>EN</span></div>
+        <div class="rc-title">Python Testing with pytest, 2nd Edition</div>
+        <div class="rc-author">Brian Okken (Pragmatic Bookshelf, 2022)</div>
+        <div class="rc-desc">O guia prático de pytest: fixtures, parametrize, plugins e organização de suítes grandes.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pragprog.com/titles/bopytest2/python-testing-with-pytest-second-edition/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>EN</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Effective Software Testing</div>
+        <div class="rc-author">Maurício Aniche (Manning, 2022)</div>
+        <div class="rc-desc">Testes sistemáticos (especificação, fronteiras, estrutural, property-based) por um pesquisador brasileiro de engenharia de software. Exemplos em Java, técnicas universais.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.manning.com/books/effective-software-testing" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Testes automatizados de software: Um guia prático</div>
+        <div class="rc-author">Mauricio Aniche (Casa do Código, 2015)</div>
+        <div class="rc-desc">A versão em português do pensamento do autor sobre testes automatizados e design guiado por testes.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-testes-de-software" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Clean Code, refactoring e design</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>clássico</span><span>exemplos em Java</span></div>
+        <div class="rc-title">Clean Code</div>
+        <div class="rc-author">Robert C. Martin (Prentice Hall, 2008)</div>
+        <div class="rc-desc">O vocabulário de nomes, funções e smells que todo time usa. Leia com senso crítico: nem toda regra se traduz para Python. Edição brasileira: Código Limpo (Alta Books).</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.informit.com/store/clean-code-a-handbook-of-agile-software-craftsmanship-9780132350884" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E5</span><span>essencial</span><span>PT-BR</span></div>
+        <div class="rc-title">Refactoring, 2nd Edition</div>
+        <div class="rc-author">Martin Fowler (Addison-Wesley, 2018)</div>
+        <div class="rc-desc">O catálogo de refactorings seguros e de code smells. A 2ª edição usa JavaScript, mas os movimentos valem para Python. Edição brasileira: Refatoração, 2ª Edição (Novatec, 2020).</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://martinfowler.com/books/refactoring.html" target="_blank" rel="noopener">Site oficial →</a>
+          <a class="rc-link" href="https://novatec.com.br/livros/refatoracao/" target="_blank" rel="noopener">Ed. brasileira →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>clássico</span></div>
+        <div class="rc-title">Working Effectively with Legacy Code</div>
+        <div class="rc-author">Michael Feathers (Prentice Hall, 2004)</div>
+        <div class="rc-desc">Como colocar código sem testes sob controle: seams, testes de caracterização e quebra de dependências.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.informit.com/store/working-effectively-with-legacy-code-9780131177055" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E5</span><span>essencial</span></div>
+        <div class="rc-title">A Philosophy of Software Design, 2nd Edition</div>
+        <div class="rc-author">John Ousterhout</div>
+        <div class="rc-desc">Complexidade, módulos profundos e ocultação de informação. Um contraponto útil ao Clean Code, direto da linhagem de Parnas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://web.stanford.edu/~ouster/cgi-bin/book.php" target="_blank" rel="noopener">Site oficial →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E13</span><span>clássico</span></div>
+        <div class="rc-title">The Pragmatic Programmer, 20th Anniversary Edition</div>
+        <div class="rc-author">David Thomas e Andrew Hunt (2019)</div>
+        <div class="rc-desc">Hábitos de engenharia que atravessam linguagens: DRY, ortogonalidade, tracer bullets, automação.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Deixe seu código limpo e brilhante</div>
+        <div class="rc-author">José Yoshiriro (Casa do Código)</div>
+        <div class="rc-desc">Clean Code desmistificado com exemplos em Java e Python, em português.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-deixe-seu-codigo-limpo" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E9</span><span>PT-BR</span><span>grátis online</span><span>livro aberto</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Engenharia de Software Moderna</div>
+        <div class="rc-author">Marco Tulio Valente (UFMG, 2020)</div>
+        <div class="rc-desc">Livro aberto da UFMG sobre princípios de projeto, padrões, testes, refactoring, arquitetura e DevOps. A melhor referência acadêmica brasileira para o curso inteiro.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://engsoftmoderna.info/" target="_blank" rel="noopener">Ler grátis →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">SOLID e design patterns</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E6-E8</span><span>clássico</span><span>essencial</span></div>
+        <div class="rc-title">Design Patterns: Elements of Reusable Object-Oriented Software</div>
+        <div class="rc-author">Gamma, Helm, Johnson e Vlissides (Addison-Wesley, 1994)</div>
+        <div class="rc-desc">O catálogo GoF original, com 23 padrões. Leia a introdução e use o resto como catálogo; em Python muitos padrões viram função. Edição brasileira: Padrões de Projeto (Bookman).</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.informit.com/store/design-patterns-elements-of-reusable-object-oriented-9780201633610" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E6-E8</span><span>iniciante</span><span>exemplos em Java</span></div>
+        <div class="rc-title">Head First Design Patterns, 2nd Edition</div>
+        <div class="rc-author">Eric Freeman e Elisabeth Robson (O&#x27;Reilly, 2020)</div>
+        <div class="rc-desc">A porta de entrada mais didática para os padrões e os princípios OO por trás deles. Exemplos em Java.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.oreilly.com/library/view/head-first-design/9781492077992/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E5, E9</span><span>clássico</span><span>exemplos em Java</span></div>
+        <div class="rc-title">Clean Architecture</div>
+        <div class="rc-author">Robert C. Martin (Prentice Hall, 2017)</div>
+        <div class="rc-desc">SOLID, regra de dependência e fronteiras arquiteturais explicados pelo autor dos princípios. Edição brasileira: Arquitetura Limpa (Alta Books).</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.informit.com/store/clean-architecture-a-craftsmans-guide-to-software-structure-9780134494166" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E5</span><span>PT-BR</span><span>autor brasileiro</span><span>exemplos em Java</span></div>
+        <div class="rc-title">Orientação a Objetos e SOLID para Ninjas: Projetando classes flexíveis</div>
+        <div class="rc-author">Mauricio Aniche (Casa do Código, 2015)</div>
+        <div class="rc-desc">SOLID com exemplos curtos e bons e maus exemplos lado a lado. Rápido de ler e fácil de transpor para Python.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-oo-solid" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E5</span><span>PT-BR</span><span>autor brasileiro</span><span>exemplos em Java</span></div>
+        <div class="rc-title">Desbravando SOLID: Práticas avançadas para códigos de qualidade em Java moderno</div>
+        <div class="rc-author">Alexandre Aquiles (Casa do Código, 2022)</div>
+        <div class="rc-desc">Práticas de design e arquitetura organizadas pelos princípios SOLID, com tópicos avançados de orientação a objetos.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-desbravando-solid" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E6-E8</span><span>PT-BR</span><span>autor brasileiro</span><span>exemplos em Java</span></div>
+        <div class="rc-title">Design Patterns com Java: Projeto orientado a objetos guiado por padrões</div>
+        <div class="rc-author">Eduardo Guerra (Casa do Código, 2012)</div>
+        <div class="rc-desc">Projeto orientado a objetos guiado por padrões, por um pesquisador brasileiro da área. Útil para ver os padrões aplicados em casos do dia a dia.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-design-patterns" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Architecture patterns e DDD</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9</span><span>essencial</span><span>grátis online</span></div>
+        <div class="rc-title">Architecture Patterns with Python</div>
+        <div class="rc-author">Harry Percival e Bob Gregory (O&#x27;Reilly, 2020)</div>
+        <div class="rc-desc">O livro que traduz DDD, Hexagonal, Repository, Unit of Work, Service Layer, eventos e CQRS para Python idiomático. A etapa 9 segue a mesma ordem. Leitura gratuita no site.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.cosmicpython.com/" target="_blank" rel="noopener">Ler grátis →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9</span><span>clássico</span></div>
+        <div class="rc-title">Domain-Driven Design</div>
+        <div class="rc-author">Eric Evans (Addison-Wesley, 2003)</div>
+        <div class="rc-desc">A fonte de linguagem ubíqua, bounded contexts, aggregates e value objects. Denso; leia as partes II e IV primeiro.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.domainlanguage.com/ddd/" target="_blank" rel="noopener">Site oficial →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9</span><span>consulta</span></div>
+        <div class="rc-title">Implementing Domain-Driven Design</div>
+        <div class="rc-author">Vaughn Vernon (Addison-Wesley, 2013)</div>
+        <div class="rc-desc">O lado prático do DDD: aggregates bem dimensionados, eventos de domínio e integração entre contextos.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.informit.com/store/implementing-domain-driven-design-9780321834577" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9</span><span>PT-BR</span></div>
+        <div class="rc-title">Fundamentos da Arquitetura de Software, 2ª Edição</div>
+        <div class="rc-author">Mark Richards e Neal Ford (Novatec, 2025)</div>
+        <div class="rc-desc">Características arquiteturais, estilos (camadas, microkernel, eventos, microsserviços) e trade-offs. Bom para a lição de monólito modular.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://novatec.com.br/livros/fundamentos-arquitetura-software-2ed/" target="_blank" rel="noopener">Ed. brasileira →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Arquitetura Hexagonal e DDD: Construa softwares que evoluem com propósito</div>
+        <div class="rc-author">André Campos (Casa do Código, 2026)</div>
+        <div class="rc-desc">Ports and adapters e DDD sem depender de framework, com foco em clareza, manutenção e evolução. Lançamento de 2026.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-arquitetura-hexagonal" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Arquitetura Orientada a Eventos: Soluções escaláveis e em tempo real com EDA</div>
+        <div class="rc-author">Roberto Picanço (Casa do Código, 2023)</div>
+        <div class="rc-desc">Fundamentos e catálogo de padrões de arquitetura orientada a eventos, com prós e contras de cada um.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-eda" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E13</span><span>grátis online</span></div>
+        <div class="rc-title">Software Engineering at Google</div>
+        <div class="rc-author">Winters, Manshreck e Wright (O&#x27;Reilly, 2020)</div>
+        <div class="rc-desc">Engenharia de software como programação ao longo do tempo: testes, code review, dependências e escala.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://abseil.io/resources/swe-book" target="_blank" rel="noopener">Ler grátis →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Concorrência e performance</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10</span><span>essencial</span></div>
+        <div class="rc-title">Python Concurrency with asyncio</div>
+        <div class="rc-author">Matthew Fowler (Manning, 2022)</div>
+        <div class="rc-desc">asyncio do event loop aos padrões de produção, com threads e processos comparados de forma honesta.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.manning.com/books/python-concurrency-with-asyncio" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>essencial</span></div>
+        <div class="rc-title">High Performance Python, 3rd Edition</div>
+        <div class="rc-author">Micha Gorelick e Ian Ozsvald (O&#x27;Reilly, 2025)</div>
+        <div class="rc-desc">Profiling, estruturas de dados, NumPy, compilação, concorrência e clusters, sempre com medição. A referência da etapa 11.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.oreilly.com/library/view/high-performance-python/9781098165956/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>avançado</span></div>
+        <div class="rc-title">CPython Internals</div>
+        <div class="rc-author">Anthony Shaw (Real Python, 2021)</div>
+        <div class="rc-desc">Como o interpretador funciona: compilador, avaliação de bytecode, memória, GIL e a biblioteca padrão em C.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://realpython.com/products/cpython-internals-book/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11-E12</span><span>intermediário</span></div>
+        <div class="rc-title">Fast Python</div>
+        <div class="rc-author">Tiago Rodrigues Antão (Manning, 2023)</div>
+        <div class="rc-desc">Performance para dados: estruturas eficientes, NumPy, Cython, paralelismo e formatos de armazenamento.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.manning.com/books/fast-python" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Dados em larga escala</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>essencial</span><span>grátis online</span><span>PT-BR</span></div>
+        <div class="rc-title">Python for Data Analysis, 3rd Edition</div>
+        <div class="rc-author">Wes McKinney (O&#x27;Reilly, 2022)</div>
+        <div class="rc-desc">pandas explicado pelo criador do pandas. Versão online aberta; edição brasileira: Python para Análise de Dados, 3ª Edição (Novatec, 2023).</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://wesmckinney.com/book/" target="_blank" rel="noopener">Ler grátis →</a>
+          <a class="rc-link" href="https://novatec.com.br/livros/python-para-analise-de-dados-3ed/" target="_blank" rel="noopener">Ed. brasileira →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Pandas Python: Data Wrangling para Ciência de Dados</div>
+        <div class="rc-author">Eduardo Corrêa (Casa do Código, 2020)</div>
+        <div class="rc-desc">pandas sob a perspectiva profissional, resolvendo problemas reais de data wrangling com um projeto prático.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-pandas-python" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>EN</span></div>
+        <div class="rc-title">Python Polars: The Definitive Guide</div>
+        <div class="rc-author">Jeroen Janssens e Thijs Nieuwdorp (O&#x27;Reilly, 2025)</div>
+        <div class="rc-desc">APIs eager, lazy e streaming do Polars, dados maiores que a memória e aceleração por GPU.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.oreilly.com/library/view/python-polars-the/9781098156077/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>EN</span></div>
+        <div class="rc-title">DuckDB in Action</div>
+        <div class="rc-author">Mark Needham, Michael Hunger e Michael Simons (Manning)</div>
+        <div class="rc-desc">SQL analítico in-process: Parquet, CSV, integração com Python e Arrow, e pipelines locais.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.manning.com/books/duckdb-in-action" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9, E12</span><span>essencial</span><span>PT-BR</span></div>
+        <div class="rc-title">Designing Data-Intensive Applications, 2nd Edition</div>
+        <div class="rc-author">Martin Kleppmann e Chris Riccomini (O&#x27;Reilly, 2026)</div>
+        <div class="rc-desc">Armazenamento, replicação, particionamento, transações, batch e streaming. A 1ª edição (2017) virou referência da área; a 2ª saiu em 2026 e já tem edição brasileira pela Novatec.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://dataintensive.net/" target="_blank" rel="noopener">Site oficial →</a>
+          <a class="rc-link" href="https://novatec.com.br/livros/projetando-aplicacoes-com-uso-intensivo-de-dados-2ed/" target="_blank" rel="noopener">Ed. brasileira →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>PT-BR</span></div>
+        <div class="rc-title">Fundamentals of Data Engineering</div>
+        <div class="rc-author">Joe Reis e Matt Housley (O&#x27;Reilly, 2022)</div>
+        <div class="rc-desc">O ciclo de vida da engenharia de dados: ingestão, armazenamento, transformação, orquestração e qualidade. Edição brasileira: Fundamentos de Engenharia de Dados (Novatec, 2023).</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://novatec.com.br/livros/fundamentos-de-engenharia-de-dados/" target="_blank" rel="noopener">Ed. brasileira →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12-E13</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Engenharia de Software para Ciência de Dados</div>
+        <div class="rc-author">Kalinowski, Escovedo, Villamizar e Lopes (Casa do Código, 2023)</div>
+        <div class="rc-desc">Engenharia de software aplicada a sistemas com dados e modelos, em Python, por pesquisadores da PUC-Rio.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.casadocodigo.com.br/products/livro-escd" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Produção e confiabilidade</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E13</span><span>clássico</span></div>
+        <div class="rc-title">Release It!, 2nd Edition</div>
+        <div class="rc-author">Michael Nygard (Pragmatic Bookshelf, 2018)</div>
+        <div class="rc-desc">Padrões de estabilidade (timeouts, circuit breakers, bulkheads) e antipadrões que derrubam sistemas em produção.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pragprog.com/titles/mnee2/release-it-second-edition/" target="_blank" rel="noopener">Editora →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E13</span><span>grátis online</span></div>
+        <div class="rc-title">Site Reliability Engineering</div>
+        <div class="rc-author">Google (O&#x27;Reilly, 2016)</div>
+        <div class="rc-desc">SLOs, error budgets, monitoramento e resposta a incidentes. Os livros de SRE do Google são gratuitos online.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://sre.google/books/" target="_blank" rel="noopener">Ler grátis →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURSOS -->
+  <div class="res-panel" id="panel-cursos">
+    <div class="intro-note"><strong>Cursos completam livros, não substituem.</strong> Use os gratuitos para nivelar e os guias oficiais das engines de dados como curso da etapa 12: são mantidos por quem escreve o código.</div>
+    <div class="group-label">Brasil</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E2</span><span>PT-BR</span><span>gratuito</span><span>iniciante</span></div>
+        <div class="rc-title">Curso em Vídeo: Python 3 (Mundos 1, 2 e 3)</div>
+        <div class="rc-author">Gustavo Guanabara</div>
+        <div class="rc-desc">A porta de entrada mais popular do Brasil, com exercícios a cada aula. Ideal para nivelar a etapa 1.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.cursoemvideo.com/curso/python-3-mundo-1/" target="_blank" rel="noopener">Curso →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E2</span><span>PT-BR</span><span>gratuito</span></div>
+        <div class="rc-title">Introdução à Ciência da Computação com Python</div>
+        <div class="rc-author">USP no Coursera (partes 1 e 2)</div>
+        <div class="rc-desc">Disciplina introdutória da USP com rigor de computação: algoritmos, testes e raciocínio, usando Python.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.coursera.org/learn/ciencia-computacao-python-conceitos" target="_blank" rel="noopener">Curso →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>PT-BR</span><span>gratuito</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Live de Python e cursos do Eduardo Mendes</div>
+        <div class="rc-author">Eduardo Mendes (Dunossauro)</div>
+        <div class="rc-desc">Centenas de lives semanais sobre a linguagem, tipagem, testes, async e bibliotecas, mais materiais organizados no site do autor.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@Dunossauro" target="_blank" rel="noopener">Canal →</a>
+          <a class="rc-link" href="https://dunossauro.com/" target="_blank" rel="noopener">Site oficial →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9, E13</span><span>PT-BR</span><span>gratuito</span><span>hands-on</span><span>autor brasileiro</span></div>
+        <div class="rc-title">FastAPI do Zero</div>
+        <div class="rc-author">Eduardo Mendes</div>
+        <div class="rc-desc">Curso aberto que constrói uma API do zero com FastAPI, SQLAlchemy, Alembic, testes, Docker e deploy. Encaixa na etapa 13.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://fastapidozero.dunossauro.com/estavel/" target="_blank" rel="noopener">Curso →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">DevPro (antigo Python Pro)</div>
+        <div class="rc-author">Renzo Nuccitelli</div>
+        <div class="rc-desc">Formação e conteúdo de carreira em Python e desenvolvimento web. O antigo domínio do Python Pro hoje redireciona para o canal DevPro.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@canaldevpro" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Universidades e plataformas</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E4</span><span>gratuito</span><span>EN</span></div>
+        <div class="rc-title">MIT 6.0001 e 6.100L: Introduction to CS and Programming in Python</div>
+        <div class="rc-author">MIT OpenCourseWare</div>
+        <div class="rc-desc">A introdução do MIT a computação com Python: abstração, recursão, OOP, complexidade. Aulas, slides e problem sets abertos.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/" target="_blank" rel="noopener">Curso →</a>
+          <a class="rc-link" href="https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/" target="_blank" rel="noopener">Curso →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E4</span><span>gratuito</span><span>EN</span></div>
+        <div class="rc-title">CS50&#x27;s Introduction to Programming with Python (CS50P)</div>
+        <div class="rc-author">Harvard University</div>
+        <div class="rc-desc">Funções, exceções, bibliotecas, testes unitários, expressões regulares e OOP, com problem sets corrigidos automaticamente.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">Curso →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E2</span><span>gratuito</span><span>iniciante</span></div>
+        <div class="rc-title">Python for Everybody</div>
+        <div class="rc-author">Charles Severance (University of Michigan)</div>
+        <div class="rc-desc">Especialização clássica para iniciantes; o material completo também é aberto no py4e.com.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.coursera.org/specializations/python" target="_blank" rel="noopener">Curso →</a>
+          <a class="rc-link" href="https://www.py4e.com/" target="_blank" rel="noopener">Site oficial →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E2</span><span>gratuito</span><span>hands-on</span></div>
+        <div class="rc-title">Practical Python Programming</div>
+        <div class="rc-author">David Beazley</div>
+        <div class="rc-desc">O curso que Beazley ministrou por anos para empresas, aberto no GitHub. Excelente ponte entre o básico e o idiomático.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://dabeaz-course.github.io/practical-python/" target="_blank" rel="noopener">Curso →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>pago</span></div>
+        <div class="rc-title">Real Python: Learning Paths</div>
+        <div class="rc-author">Real Python</div>
+        <div class="rc-desc">Trilhas temáticas de tutoriais e vídeos: OOP, testes, concorrência, packaging, dados. Boa parte dos artigos é aberta.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://realpython.com/learning-paths/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10, E13</span><span>pago</span></div>
+        <div class="rc-title">Talk Python Training</div>
+        <div class="rc-author">Michael Kennedy</div>
+        <div class="rc-desc">Cursos práticos de FastAPI, async, testes e deploy. O curso de concorrência cobre async, threads e multiprocessing.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://training.talkpython.fm/" target="_blank" rel="noopener">Acessar →</a>
+          <a class="rc-link" href="https://training.talkpython.fm/courses/python-concurrency-deep-dive" target="_blank" rel="noopener">Curso →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E2-E8</span><span>pago</span></div>
+        <div class="rc-title">Python Morsels</div>
+        <div class="rc-author">Trey Hunner</div>
+        <div class="rc-desc">Exercícios semanais curtos focados em Python idiomático, com soluções comentadas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.pythonmorsels.com/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E8</span><span>gratuito</span><span>hands-on</span></div>
+        <div class="rc-title">Exercism: trilha Python</div>
+        <div class="rc-author">Exercism</div>
+        <div class="rc-desc">Exercícios com mentoria humana gratuita; ótimo para praticar idiomas e receber feedback de código.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://exercism.org/tracks/python" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11-E12</span><span>gratuito</span></div>
+        <div class="rc-title">Scientific Python Lectures</div>
+        <div class="rc-author">Comunidade Scientific Python</div>
+        <div class="rc-desc">NumPy, SciPy, matplotlib e otimização de código numérico, mantido pela própria comunidade científica.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://lectures.scientific-python.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4, E12</span><span>gratuito</span></div>
+        <div class="rc-title">Software Carpentry</div>
+        <div class="rc-author">The Carpentries</div>
+        <div class="rc-desc">Lições abertas de Python, shell e Git para pesquisa reprodutível.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://software-carpentry.org/lessons/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Large data: cursos e guias oficiais</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>gratuito</span><span>hands-on</span></div>
+        <div class="rc-title">Data Engineering Zoomcamp</div>
+        <div class="rc-author">DataTalks.Club</div>
+        <div class="rc-desc">Curso gratuito de 9 semanas: ingestão, data warehouse, dbt, Spark e streaming, com projeto final avaliado por pares.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://github.com/DataTalksClub/data-engineering-zoomcamp" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">Polars User Guide</div>
+        <div class="rc-author">Polars</div>
+        <div class="rc-desc">O guia oficial: expressions, lazy API, streaming e otimizador de consultas. É o melhor curso de Polars que existe.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://docs.pola.rs/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">DuckDB Documentation</div>
+        <div class="rc-author">DuckDB Foundation</div>
+        <div class="rc-desc">SQL, cliente Python, leitura de Parquet e integração com Arrow, pandas e Polars.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://duckdb.org/docs/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">PySpark Documentation</div>
+        <div class="rc-author">Apache Spark</div>
+        <div class="rc-desc">Guia oficial do PySpark: DataFrames, Spark SQL, pandas API on Spark e Structured Streaming.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://spark.apache.org/docs/latest/api/python/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>oficial</span></div>
+        <div class="rc-title">Databricks Training</div>
+        <div class="rc-author">Databricks</div>
+        <div class="rc-desc">Trilhas oficiais de Spark e engenharia de dados da empresa criada pelos autores do Spark; há opções gratuitas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.databricks.com/learn/training/home" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>oficial</span><span>gratuito</span></div>
+        <div class="rc-title">Dask Tutorial</div>
+        <div class="rc-author">Dask</div>
+        <div class="rc-desc">Tutorial oficial em notebooks: arrays, dataframes, delayed e o scheduler distribuído.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://tutorial.dask.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">Ray Documentation</div>
+        <div class="rc-author">Anyscale e comunidade Ray</div>
+        <div class="rc-desc">Tasks, actors, Ray Data e o modelo de execução distribuída descrito no paper de 2018.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://docs.ray.io/en/latest/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>oficial</span><span>gratuito</span></div>
+        <div class="rc-title">NumPy: Learn</div>
+        <div class="rc-author">NumPy</div>
+        <div class="rc-desc">Tutoriais oficiais e a curadoria de material de aprendizado do projeto NumPy.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://numpy.org/learn/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUTUBE -->
+  <div class="res-panel" id="panel-youtube">
+    <div class="intro-note"><strong>Palestras de conferência envelhecem bem.</strong> As da lista abaixo continuam corretas no Python atual e explicam o porquê melhor que qualquer tutorial.</div>
+    <div class="group-label">Canais: mundo</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E9</span><span>canal</span><span>EN</span></div>
+        <div class="rc-title">ArjanCodes</div>
+        <div class="rc-author">Arjan Egges</div>
+        <div class="rc-desc">Design de software em Python: SOLID, patterns, refactoring e arquitetura, sempre com código real.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@ArjanCodes" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E2-E11</span><span>canal</span><span>EN</span></div>
+        <div class="rc-title">mCoding</div>
+        <div class="rc-author">James Murphy</div>
+        <div class="rc-desc">Vídeos curtos e precisos sobre detalhes da linguagem, armadilhas e performance.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@mCoding" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E4</span><span>canal</span><span>EN</span></div>
+        <div class="rc-title">Corey Schafer</div>
+        <div class="rc-author">Corey Schafer</div>
+        <div class="rc-desc">Tutoriais didáticos de fundamentos, OOP, ambientes e bibliotecas. Um acervo clássico.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@coreyms" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4, E13</span><span>canal</span><span>EN</span></div>
+        <div class="rc-title">anthonywritescode</div>
+        <div class="rc-author">Anthony Sottile</div>
+        <div class="rc-desc">Mantenedor de pre-commit e flake8 explicando tooling, packaging e detalhes do CPython ao vivo.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@anthonywritescode" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>canal</span><span>EN</span></div>
+        <div class="rc-title">Talk Python</div>
+        <div class="rc-author">Michael Kennedy</div>
+        <div class="rc-desc">Versão em vídeo do podcast Talk Python To Me, com entrevistas de mantenedores.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@talkpython" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>canal</span><span>EN</span></div>
+        <div class="rc-title">Real Python</div>
+        <div class="rc-author">Real Python</div>
+        <div class="rc-desc">Tutoriais em vídeo e trechos dos cursos da plataforma.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@realpython" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>canal</span><span>evento</span></div>
+        <div class="rc-title">PyCon US</div>
+        <div class="rc-author">Python Software Foundation</div>
+        <div class="rc-desc">Todas as palestras e tutoriais da PyCon US. Os tutoriais de 3 horas valem como minicursos.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@PyConUS" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>canal</span><span>evento</span></div>
+        <div class="rc-title">EuroPython Conference</div>
+        <div class="rc-author">EuroPython Society</div>
+        <div class="rc-desc">Palestras da maior conferência europeia, fortes em CPython, tipagem e performance.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@EuroPythonConference" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11-E12</span><span>canal</span><span>evento</span></div>
+        <div class="rc-title">PyData</div>
+        <div class="rc-author">NumFOCUS</div>
+        <div class="rc-desc">Palestras sobre NumPy, pandas, Polars, Arrow, Dask e engenharia de dados.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@PyDataTV" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Canais: Brasil</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>canal</span><span>PT-BR</span><span>autor brasileiro</span></div>
+        <div class="rc-title">Eduardo Mendes: Live de Python</div>
+        <div class="rc-author">Eduardo Mendes (Dunossauro)</div>
+        <div class="rc-desc">A Live de Python é o maior acervo de Python em português: da linguagem a tipagem, testes, async e arquitetura.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@Dunossauro" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E2</span><span>canal</span><span>PT-BR</span></div>
+        <div class="rc-title">Curso em Vídeo</div>
+        <div class="rc-author">Gustavo Guanabara</div>
+        <div class="rc-desc">Os três mundos do curso de Python 3, gratuitos e com exercícios.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@CursoemVideo" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>canal</span><span>PT-BR</span><span>evento</span></div>
+        <div class="rc-title">Python Brasil</div>
+        <div class="rc-author">Associação Python Brasil</div>
+        <div class="rc-desc">Gravações das edições da conferência Python Brasil e de eventos da comunidade.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@PythonBrasilOficial" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>canal</span><span>PT-BR</span></div>
+        <div class="rc-title">Código Fonte TV</div>
+        <div class="rc-author">Gabriel Fróes e Vanessa Weber</div>
+        <div class="rc-desc">Conceitos de programação e carreira em vídeos curtos; bom para vocabulário e panorama.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@codigofontetv" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10-E13</span><span>canal</span><span>PT-BR</span></div>
+        <div class="rc-title">Fabio Akita</div>
+        <div class="rc-author">Fabio Akita</div>
+        <div class="rc-desc">Episódios longos e profundos sobre sistemas operacionais, concorrência, bancos de dados e infraestrutura.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/@Akitando" target="_blank" rel="noopener">Canal →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Palestras que todo sênior deveria assistir</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E2</span><span>palestra</span><span>clássico</span></div>
+        <div class="rc-title">Transforming Code into Beautiful, Idiomatic Python</div>
+        <div class="rc-author">Raymond Hettinger (PyCon US 2013)</div>
+        <div class="rc-desc">O antes e depois de dezenas de trechos: de loops com índice a iteradores e geradores.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=OSGv2VnC0go" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>palestra</span><span>clássico</span></div>
+        <div class="rc-title">Beyond PEP 8: Best practices for beautiful intelligible code</div>
+        <div class="rc-author">Raymond Hettinger (PyCon US 2015)</div>
+        <div class="rc-desc">Por que obedecer ao PEP 8 não basta e como o Adapter e as properties deixam o código pythônico.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=wf-BqAjZb8M" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E3</span><span>palestra</span></div>
+        <div class="rc-title">Super considered super!</div>
+        <div class="rc-author">Raymond Hettinger (PyCon US 2015)</div>
+        <div class="rc-desc">super(), MRO e herança cooperativa explicados por quem escreveu boa parte disso.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=EiOglTERPEo" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1, E11</span><span>palestra</span></div>
+        <div class="rc-title">Modern Python Dictionaries: A confluence of a dozen great ideas</div>
+        <div class="rc-author">Raymond Hettinger (PyCon US 2017)</div>
+        <div class="rc-desc">Como o dict compacto e ordenado foi construído, com os custos de memória e de busca.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=npw4s1QTmPg" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1</span><span>palestra</span></div>
+        <div class="rc-title">Facts and Myths about Python names and values</div>
+        <div class="rc-author">Ned Batchelder (PyCon US 2015)</div>
+        <div class="rc-desc">A melhor explicação de nomes, referências e mutabilidade. Assista antes da lição 2.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=_AEJHKGk9ns" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E3</span><span>palestra</span></div>
+        <div class="rc-title">Stop Writing Classes</div>
+        <div class="rc-author">Jack Diederich (PyCon US 2012)</div>
+        <div class="rc-desc">Quando uma classe deveria ser só uma função. O antídoto para o overengineering das etapas 5 a 8.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=o9pEzgHorH0" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9</span><span>palestra</span></div>
+        <div class="rc-title">The Clean Architecture in Python</div>
+        <div class="rc-author">Brandon Rhodes (PyOhio 2014)</div>
+        <div class="rc-desc">Separar I/O da lógica pura com exemplos em Python; base direta da lição de Hexagonal.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=DJtef410XaM" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E2-E3</span><span>palestra</span><span>avançado</span></div>
+        <div class="rc-title">So you want to be a Python expert?</div>
+        <div class="rc-author">James Powell (PyData Seattle 2017)</div>
+        <div class="rc-desc">Data model, decorators, geradores, context managers e metaclasses costurados num só raciocínio.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=cKPlPJyQrt4" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10</span><span>palestra</span><span>clássico</span></div>
+        <div class="rc-title">Python Concurrency From the Ground Up: LIVE!</div>
+        <div class="rc-author">David Beazley (PyCon US 2015)</div>
+        <div class="rc-desc">Threads, processos e um event loop construídos ao vivo do zero. A melhor intuição de async que existe.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=MCs5OvhV9S4" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10</span><span>palestra</span><span>clássico</span></div>
+        <div class="rc-title">Understanding the Python GIL</div>
+        <div class="rc-author">David Beazley (PyCon US 2010)</div>
+        <div class="rc-desc">Como o GIL realmente se comporta com threads CPU-bound e I/O-bound. Contexto histórico para a PEP 703.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=Obt-vMVdM8s" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10</span><span>palestra</span></div>
+        <div class="rc-title">Thinking about Concurrency</div>
+        <div class="rc-author">Raymond Hettinger (PyCon Russia 2016)</div>
+        <div class="rc-desc">Regras práticas para escolher entre threads, processos e async, e para não se enganar com locks.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=Bv25Dwe84g0" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10</span><span>palestra</span></div>
+        <div class="rc-title">Thinking In Coroutines</div>
+        <div class="rc-author">Łukasz Langa (PyCon US 2016)</div>
+        <div class="rc-desc">O modelo mental de corrotinas e do event loop, por um core developer.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=l4Nn-y9ktd4" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10-E11</span><span>palestra</span></div>
+        <div class="rc-title">Removing Python&#x27;s GIL: The Gilectomy</div>
+        <div class="rc-author">Larry Hastings (PyCon US 2016)</div>
+        <div class="rc-desc">A tentativa anterior de remover o GIL e por que ela não decolou. Ajuda a entender o desenho da PEP 703.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.youtube.com/watch?v=P3AyI_u66Bw" target="_blank" rel="noopener">Assistir →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PODCASTS -->
+  <div class="res-panel" id="panel-podcasts">
+    <div class="intro-note"><strong>Para o deslocamento e o treino.</strong> Podcasts marcados como acervo não publicam com regularidade, mas o arquivo continua valendo.</div>
+    <div class="group-label">Mundo</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>ativo</span><span>semanal</span><span>EN</span></div>
+        <div class="rc-title">Talk Python To Me</div>
+        <div class="rc-author">Michael Kennedy</div>
+        <div class="rc-desc">Entrevistas longas com mantenedores e core developers. O acervo cobre praticamente toda biblioteca relevante do curso.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://talkpython.fm/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>ativo</span><span>semanal</span><span>EN</span></div>
+        <div class="rc-title">Python Bytes</div>
+        <div class="rc-author">Michael Kennedy e Brian Okken</div>
+        <div class="rc-desc">Notícias semanais do ecossistema em episódios curtos: releases, PEPs e bibliotecas novas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pythonbytes.fm/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>ativo</span><span>semanal</span><span>EN</span></div>
+        <div class="rc-title">The Real Python Podcast</div>
+        <div class="rc-author">Christopher Bailey (Real Python)</div>
+        <div class="rc-desc">Episódios práticos sobre técnicas, ferramentas e carreira, com indicações de artigos.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://realpython.com/podcasts/rpp/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9-E13</span><span>ativo</span><span>EN</span></div>
+        <div class="rc-title">Software Engineering Daily</div>
+        <div class="rc-author">Software Engineering Daily</div>
+        <div class="rc-desc">Arquitetura, infraestrutura e sistemas distribuídos com engenheiros das empresas que os constroem.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://softwareengineeringdaily.com/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>ativo</span><span>EN</span></div>
+        <div class="rc-title">Data Engineering Podcast</div>
+        <div class="rc-author">Tobias Macey</div>
+        <div class="rc-desc">Ferramentas e práticas de engenharia de dados: formatos, engines, orquestração e qualidade.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.dataengineeringpodcast.com/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>acervo</span><span>EN</span></div>
+        <div class="rc-title">Podcast.__init__</div>
+        <div class="rc-author">Tobias Macey</div>
+        <div class="rc-desc">Podcast sobre Python e as pessoas que o constroem; vale pelo acervo de entrevistas com mantenedores.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.pythonpodcast.com/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Brasil</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E9</span><span>ativo</span><span>PT-BR</span></div>
+        <div class="rc-title">Fronteiras da Engenharia de Software</div>
+        <div class="rc-author">Pesquisadores brasileiros de engenharia de software</div>
+        <div class="rc-desc">Pesquisa em engenharia de software explicada pelos próprios pesquisadores: testes, refactoring, métodos ágeis, mineração de repositórios.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://fronteirases.github.io/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>ativo</span><span>PT-BR</span></div>
+        <div class="rc-title">Hipsters Ponto Tech</div>
+        <div class="rc-author">Alura</div>
+        <div class="rc-desc">Debates semanais sobre tecnologia, arquitetura e carreira, com episódios dedicados a Python e dados.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.hipsters.tech/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>PT-BR</span><span>comunidade</span></div>
+        <div class="rc-title">Data Hackers Podcast</div>
+        <div class="rc-author">Comunidade Data Hackers</div>
+        <div class="rc-desc">A maior comunidade brasileira de dados: engenharia de dados, ciência de dados e carreira.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.datahackers.com.br/podcast" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>acervo</span><span>PT-BR</span></div>
+        <div class="rc-title">Pizza de Dados</div>
+        <div class="rc-author">Pizza de Dados</div>
+        <div class="rc-desc">Conversas sobre ciência e engenharia de dados no Brasil; vale pelo acervo.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pizzadedados.com/" target="_blank" rel="noopener">Ouvir →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTAIS -->
+  <div class="res-panel" id="panel-portais">
+    <div class="group-label">Oficiais</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">docs.python.org</div>
+        <div class="rc-author">Python Software Foundation</div>
+        <div class="rc-desc">A documentação oficial: tutorial, referência da linguagem, biblioteca padrão e os HOWTOs (descritores, logging, sorting).</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://docs.python.org/3/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>oficial</span><span>PEP</span></div>
+        <div class="rc-title">peps.python.org</div>
+        <div class="rc-author">Python Software Foundation</div>
+        <div class="rc-desc">O índice das PEPs. Leia as que motivam cada lição: 8, 20, 484, 544, 634, 659, 695, 703, 744.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://peps.python.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E3</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">Static Typing with Python</div>
+        <div class="rc-author">Python typing council</div>
+        <div class="rc-desc">A especificação e os guias oficiais de tipagem, independentes de checker.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://typing.python.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E13</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">Python Packaging User Guide</div>
+        <div class="rc-author">Python Packaging Authority</div>
+        <div class="rc-desc">pyproject.toml, build backends, wheels e publicação no PyPI pela fonte oficial.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://packaging.python.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">Python Developer&#x27;s Guide</div>
+        <div class="rc-author">CPython core team</div>
+        <div class="rc-desc">Como o CPython é desenvolvido, compilado e testado. Porta de entrada para contribuir e para estudar internals.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://devguide.python.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E13</span><span>oficial</span></div>
+        <div class="rc-title">PyPI</div>
+        <div class="rc-author">Python Software Foundation</div>
+        <div class="rc-desc">O índice de pacotes. Confira mantenedores, releases e attestations antes de adicionar uma dependência.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pypi.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>oficial</span><span>blog</span></div>
+        <div class="rc-title">Python Insider</div>
+        <div class="rc-author">Python core team</div>
+        <div class="rc-desc">Anúncios oficiais de releases e mudanças do CPython.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://blog.python.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>oficial</span><span>comunidade</span></div>
+        <div class="rc-title">discuss.python.org</div>
+        <div class="rc-author">Python Software Foundation</div>
+        <div class="rc-desc">Onde PEPs e decisões da linguagem são discutidas. Ler as threads mostra o porquê das escolhas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://discuss.python.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Design, arquitetura e boas práticas</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>EN</span></div>
+        <div class="rc-title">Real Python</div>
+        <div class="rc-author">Real Python</div>
+        <div class="rc-desc">Milhares de tutoriais revisados; dos fundamentos a async, packaging e performance.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://realpython.com/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E6-E8</span><span>essencial</span><span>grátis online</span></div>
+        <div class="rc-title">Python Design Patterns</div>
+        <div class="rc-author">Brandon Rhodes</div>
+        <div class="rc-desc">Os padrões GoF reavaliados para Python: quais sobrevivem, quais viram função e quais são antipadrões.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://python-patterns.guide/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E8</span><span>PT-BR</span><span>grátis online</span></div>
+        <div class="rc-title">Refactoring.Guru</div>
+        <div class="rc-author">Alexander Shvets</div>
+        <div class="rc-desc">Catálogo ilustrado de design patterns, code smells e refactorings, com versão em português e exemplos em Python.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://refactoring.guru/pt-br/design-patterns" target="_blank" rel="noopener">Acessar →</a>
+          <a class="rc-link" href="https://refactoring.guru/pt-br/refactoring" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9</span><span>essencial</span><span>grátis online</span></div>
+        <div class="rc-title">Cosmic Python</div>
+        <div class="rc-author">Harry Percival e Bob Gregory</div>
+        <div class="rc-desc">O site do Architecture Patterns with Python, com o livro inteiro e posts sobre DDD em Python.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.cosmicpython.com/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E9</span><span>clássico</span></div>
+        <div class="rc-title">martinfowler.com</div>
+        <div class="rc-author">Martin Fowler</div>
+        <div class="rc-desc">Bliki e artigos sobre refactoring, arquitetura, microsserviços, CQRS, event sourcing e testes.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://martinfowler.com/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>grátis online</span></div>
+        <div class="rc-title">The Hitchhiker&#x27;s Guide to Python</div>
+        <div class="rc-author">Kenneth Reitz e comunidade</div>
+        <div class="rc-desc">Guia opinativo de boas práticas, estrutura de projetos e ferramentas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://docs.python-guide.org/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>comunidade</span></div>
+        <div class="rc-title">Awesome Python</div>
+        <div class="rc-author">vinta e comunidade</div>
+        <div class="rc-desc">Lista curada de bibliotecas por categoria; útil para mapear alternativas antes de escolher.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://github.com/vinta/awesome-python" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E3, E13</span><span>blog</span></div>
+        <div class="rc-title">Hynek Schlawack</div>
+        <div class="rc-author">Hynek Schlawack</div>
+        <div class="rc-desc">Artigos de referência sobre packaging, testes, attrs e design de APIs em Python.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://hynek.me/articles/" target="_blank" rel="noopener">Blog →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E13</span><span>clássico</span></div>
+        <div class="rc-title">The Twelve-Factor App</div>
+        <div class="rc-author">Adam Wiggins</div>
+        <div class="rc-desc">Os 12 fatores para serviços portáteis e operáveis; base da lição de deploy.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://12factor.net/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E13</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">OpenTelemetry para Python</div>
+        <div class="rc-author">OpenTelemetry</div>
+        <div class="rc-desc">Instrumentação de traces, métricas e logs; referência da lição de observabilidade.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://opentelemetry.io/docs/languages/python/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E13</span><span>oficial</span></div>
+        <div class="rc-title">OWASP Top 10</div>
+        <div class="rc-author">OWASP Foundation</div>
+        <div class="rc-desc">As classes de vulnerabilidade web mais críticas; checklist da lição de segurança.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>oficial</span><span>documentação</span></div>
+        <div class="rc-title">pandas, Apache Arrow e Parquet</div>
+        <div class="rc-author">Documentações oficiais</div>
+        <div class="rc-desc">Os três documentos que você vai consultar toda semana na etapa 12.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pandas.pydata.org/docs/" target="_blank" rel="noopener">Acessar →</a>
+          <a class="rc-link" href="https://arrow.apache.org/docs/python/" target="_blank" rel="noopener">Acessar →</a>
+          <a class="rc-link" href="https://parquet.apache.org/docs/file-format/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Comunidade brasileira</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>Brasil</span><span>comunidade</span></div>
+        <div class="rc-title">Python Brasil</div>
+        <div class="rc-author">Associação Python Brasil</div>
+        <div class="rc-desc">O portal da comunidade brasileira: listas, eventos, grupos e materiais em português.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://python.org.br/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>Brasil</span><span>comunidade</span></div>
+        <div class="rc-title">Comunidades locais</div>
+        <div class="rc-author">Python Brasil</div>
+        <div class="rc-desc">O mapa dos grupos regionais (GruPys e afins) por estado. Meetups são o melhor lugar para revisar código com gente experiente.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://python.org.br/comunidades-locais/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>Brasil</span><span>evento</span></div>
+        <div class="rc-title">Python Brasil 2026 (PyCon Brasil)</div>
+        <div class="rc-author">Associação Python Brasil</div>
+        <div class="rc-desc">A conferência nacional anual da comunidade. As palestras das edições anteriores ficam no canal Python Brasil.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://2026.pythonbrasil.org.br/" target="_blank" rel="noopener">Acessar →</a>
+          <a class="rc-link" href="https://2025.pythonbrasil.org.br/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>Brasil</span><span>comunidade</span></div>
+        <div class="rc-title">PyLadies Brasil</div>
+        <div class="rc-author">PyLadies Brasil</div>
+        <div class="rc-desc">Rede nacional de capítulos que promove a diversidade na comunidade Python.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://brasil.pyladies.com/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Newsletters e notícias</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>newsletter</span><span>semanal</span></div>
+        <div class="rc-title">PyCoder&#x27;s Weekly</div>
+        <div class="rc-author">Real Python</div>
+        <div class="rc-desc">Curadoria semanal de artigos, projetos e releases.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://pycoders.com/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1-E13</span><span>newsletter</span><span>semanal</span></div>
+        <div class="rc-title">Python Weekly</div>
+        <div class="rc-author">Rahul Chaudhary</div>
+        <div class="rc-desc">Newsletter semanal com artigos, vídeos e projetos novos.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.pythonweekly.com/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10-E11</span><span>clássico</span></div>
+        <div class="rc-title">LWN.net</div>
+        <div class="rc-author">LWN</div>
+        <div class="rc-desc">Cobertura técnica detalhada do Language Summit e de mudanças do CPython como free-threading e JIT.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://lwn.net/" target="_blank" rel="noopener">Acessar →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAPERS -->
+  <div class="res-panel" id="panel-papers">
+    <div class="intro-note"><strong>Os artigos por trás das ideias do curso.</strong> Cada item traz autores, venue, ano e link para o DOI ou para a página oficial. Ler a fonte primária é o que separa quem repete o padrão de quem sabe quando quebrá-lo.</div>
+    <div class="group-label">Fundamentos de design e de concorrência</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E5, E9</span><span>paper</span><span>clássico</span></div>
+        <div class="rc-title">On the criteria to be used in decomposing systems into modules</div>
+        <div class="rc-author">David L. Parnas · Communications of the ACM, 1972</div>
+        <div class="rc-desc">Inventa a ocultação de informação: módulos devem esconder decisões que podem mudar. A raiz de SRP, ISP e Hexagonal.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/361598.361623" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E5</span><span>paper</span><span>clássico</span></div>
+        <div class="rc-title">A behavioral notion of subtyping</div>
+        <div class="rc-author">Barbara Liskov e Jeannette Wing · ACM TOPLAS, 1994</div>
+        <div class="rc-desc">A definição formal do princípio de substituição de Liskov, com invariantes e restrições históricas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/197320.197383" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E5</span><span>paper</span></div>
+        <div class="rc-title">Applying &#x27;design by contract&#x27;</div>
+        <div class="rc-author">Bertrand Meyer · IEEE Computer, 1992</div>
+        <div class="rc-desc">Pré-condições, pós-condições e invariantes como contrato entre cliente e fornecedor. Fundamenta a lição de LSP.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1109/2.161279" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E6-E8</span><span>paper</span></div>
+        <div class="rc-title">Design Patterns: Abstraction and Reuse of Object-Oriented Design</div>
+        <div class="rc-author">Gamma, Helm, Johnson e Vlissides · ECOOP 1993 (LNCS)</div>
+        <div class="rc-desc">O artigo que antecede o livro GoF e apresenta a ideia de catálogo de padrões.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1007/3-540-47910-4_21" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>paper</span><span>clássico</span></div>
+        <div class="rc-title">Go To Statement Considered Harmful</div>
+        <div class="rc-author">Edsger W. Dijkstra · Communications of the ACM, 1968</div>
+        <div class="rc-desc">A carta que inaugurou a programação estruturada: o código deve refletir o processo que executa.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/362929.362947" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E2, E10</span><span>paper</span><span>clássico</span></div>
+        <div class="rc-title">Design of a separable transition-diagram compiler</div>
+        <div class="rc-author">Melvin E. Conway · Communications of the ACM, 1963</div>
+        <div class="rc-desc">O artigo que introduz o termo corrotina, ancestral direto de geradores e de async/await.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/366663.366704" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10</span><span>paper</span><span>clássico</span></div>
+        <div class="rc-title">Communicating sequential processes</div>
+        <div class="rc-author">C. A. R. Hoare · Communications of the ACM, 1978</div>
+        <div class="rc-desc">Processos que se comunicam por mensagens em vez de memória compartilhada; base de filas e canais.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/359576.359585" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E9, E12</span><span>paper</span><span>clássico</span></div>
+        <div class="rc-title">Time, clocks, and the ordering of events in a distributed system</div>
+        <div class="rc-author">Leslie Lamport · Communications of the ACM, 1978</div>
+        <div class="rc-desc">Ordem parcial de eventos e relógios lógicos; essencial para event sourcing e sistemas distribuídos.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/359545.359563" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Linguagens, Python e CPython</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1</span><span>blog</span><span>clássico</span></div>
+        <div class="rc-title">The History of Python</div>
+        <div class="rc-author">Guido van Rossum · blog, a partir de 2009</div>
+        <div class="rc-desc">O criador do Python conta as decisões de design: tipos, classes, exceções, Python 3. Fonte primária da história da linguagem.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://python-history.blogspot.com/" target="_blank" rel="noopener">Blog →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1</span><span>paper</span><span>Brasil</span></div>
+        <div class="rc-title">Lua: an extensible extension language</div>
+        <div class="rc-author">Roberto Ierusalimschy, Luiz Henrique de Figueiredo e Waldemar Celes Filho · Software: Practice and Experience, 1996</div>
+        <div class="rc-desc">A linguagem brasileira da PUC-Rio que virou referência mundial em design de linguagens embutíveis. Ótimo contraponto ao design do Python.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1002/(SICI)1097-024X(199606)26:6%3C635::AID-SPE26%3E3.0.CO;2-P" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E1, E11</span><span>paper</span><span>Brasil</span></div>
+        <div class="rc-title">The evolution of Lua</div>
+        <div class="rc-author">Roberto Ierusalimschy, Luiz Henrique de Figueiredo e Waldemar Celes · HOPL III, 2007</div>
+        <div class="rc-desc">Como decisões de design de uma linguagem evoluem ao longo de 15 anos; publicado na conferência de história das linguagens da ACM.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/1238844.1238846" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E3</span><span>PEP</span></div>
+        <div class="rc-title">PEP 484: Type Hints</div>
+        <div class="rc-author">Guido van Rossum, Jukka Lehtosalo e Łukasz Langa · 2014</div>
+        <div class="rc-desc">O documento fundador da tipagem gradual em Python.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://peps.python.org/pep-0484/" target="_blank" rel="noopener">PEP →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>PEP</span></div>
+        <div class="rc-title">PEP 659: Specializing Adaptive Interpreter</div>
+        <div class="rc-author">Mark Shannon</div>
+        <div class="rc-desc">O interpretador que se especializa em tempo de execução, origem dos ganhos de velocidade do Python 3.11.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://peps.python.org/pep-0659/" target="_blank" rel="noopener">PEP →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10</span><span>PEP</span></div>
+        <div class="rc-title">PEP 703: Making the Global Interpreter Lock Optional in CPython</div>
+        <div class="rc-author">Sam Gross</div>
+        <div class="rc-desc">O desenho do CPython sem GIL: contagem de referências enviesada, alocador mimalloc e o plano de transição.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://peps.python.org/pep-0703/" target="_blank" rel="noopener">PEP →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>PEP</span></div>
+        <div class="rc-title">PEP 744: JIT Compilation</div>
+        <div class="rc-author">Brandt Bucher e Savannah Ostrowski</div>
+        <div class="rc-desc">O JIT experimental do CPython, baseado na técnica copy-and-patch.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://peps.python.org/pep-0744/" target="_blank" rel="noopener">PEP →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>paper</span></div>
+        <div class="rc-title">Copy-and-patch compilation</div>
+        <div class="rc-author">Haoran Xu e Fredrik Kjolstad · OOPSLA (PACMPL), 2021</div>
+        <div class="rc-desc">A técnica de compilação rápida por templates que o JIT do CPython adotou.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/3485513" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Computação científica e performance</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>paper</span></div>
+        <div class="rc-title">Python for Scientific Computing</div>
+        <div class="rc-author">Travis E. Oliphant · Computing in Science &amp; Engineering, 2007</div>
+        <div class="rc-desc">O argumento a favor de Python como linguagem científica, escrito pelo criador do NumPy.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1109/MCSE.2007.58" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>paper</span></div>
+        <div class="rc-title">The NumPy Array: A Structure for Efficient Numerical Computation</div>
+        <div class="rc-author">van der Walt, Colbert e Varoquaux · CiSE, 2011</div>
+        <div class="rc-desc">Strides, views e broadcasting explicados; o melhor texto curto para a lição de vetorização.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1109/MCSE.2011.37" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>paper</span><span>essencial</span></div>
+        <div class="rc-title">Array programming with NumPy</div>
+        <div class="rc-author">Charles R. Harris et al. · Nature, 2020</div>
+        <div class="rc-desc">A descrição de referência do NumPy e do seu papel como base de todo o ecossistema científico.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1038/s41586-020-2649-2" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>paper</span></div>
+        <div class="rc-title">SciPy 1.0: fundamental algorithms for scientific computing in Python</div>
+        <div class="rc-author">Pauli Virtanen et al. · Nature Methods, 2020</div>
+        <div class="rc-desc">Arquitetura, governança e algoritmos do SciPy; exemplo de projeto científico mantido por comunidade.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1038/s41592-019-0686-2" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>paper</span></div>
+        <div class="rc-title">Matplotlib: A 2D Graphics Environment</div>
+        <div class="rc-author">John D. Hunter · CiSE, 2007</div>
+        <div class="rc-desc">O artigo de referência do Matplotlib.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1109/MCSE.2007.55" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>paper</span></div>
+        <div class="rc-title">Cython: The Best of Both Worlds</div>
+        <div class="rc-author">Stefan Behnel et al. · CiSE, 2011</div>
+        <div class="rc-desc">Como o Cython combina sintaxe Python e desempenho de C; base da lição Numba e Cython.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1109/MCSE.2010.118" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E11</span><span>paper</span></div>
+        <div class="rc-title">Numba: a LLVM-based Python JIT compiler</div>
+        <div class="rc-author">Siu Kwan Lam, Antoine Pitrou e Stanley Seibert · LLVM-HPC 2015</div>
+        <div class="rc-desc">O desenho do Numba: inferência de tipos e geração de código via LLVM para funções numéricas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/2833157.2833162" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Dados em larga escala</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span><span>essencial</span></div>
+        <div class="rc-title">Data Structures for Statistical Computing in Python</div>
+        <div class="rc-author">Wes McKinney · SciPy 2010</div>
+        <div class="rc-desc">O artigo que apresenta o pandas e suas decisões de design de índice e alinhamento.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.25080/Majora-92bf1922-00a" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span><span>clássico</span></div>
+        <div class="rc-title">MapReduce: Simplified Data Processing on Large Clusters</div>
+        <div class="rc-author">Jeffrey Dean e Sanjay Ghemawat · OSDI 2004</div>
+        <div class="rc-desc">O modelo map e reduce sobre clusters baratos com tolerância a falhas. Tudo o que veio depois responde a ele.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/" target="_blank" rel="noopener">Paper →</a>
+          <a class="rc-link" href="https://doi.org/10.1145/1327452.1327492" target="_blank" rel="noopener">Versão CACM →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span><span>essencial</span></div>
+        <div class="rc-title">Dremel: Interactive Analysis of Web-Scale Datasets</div>
+        <div class="rc-author">Sergey Melnik et al. · PVLDB, 2010</div>
+        <div class="rc-desc">Armazenamento colunar aninhado com repetition e definition levels: a ideia que o Parquet implementa.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.14778/1920841.1920886" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span><span>essencial</span></div>
+        <div class="rc-title">Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing</div>
+        <div class="rc-author">Matei Zaharia et al. · NSDI 2012</div>
+        <div class="rc-desc">RDDs, linhagem e computação em memória: o núcleo do Spark.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.usenix.org/conference/nsdi12/technical-sessions/presentation/zaharia" target="_blank" rel="noopener">Paper →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span></div>
+        <div class="rc-title">Spark SQL: Relational Data Processing in Spark</div>
+        <div class="rc-author">Michael Armbrust et al. · SIGMOD 2015</div>
+        <div class="rc-desc">DataFrames e o otimizador Catalyst; explica por que UDFs Python custam caro e como evitá-las.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/2723372.2742797" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span></div>
+        <div class="rc-title">Apache Spark: a unified engine for big data processing</div>
+        <div class="rc-author">Matei Zaharia et al. · Communications of the ACM, 2016</div>
+        <div class="rc-desc">Visão geral acessível do Spark como engine unificada de batch, SQL, streaming e ML.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/2934664" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span></div>
+        <div class="rc-title">Dask: Parallel Computation with Blocked algorithms and Task Scheduling</div>
+        <div class="rc-author">Matthew Rocklin · SciPy 2015</div>
+        <div class="rc-desc">Task graphs e algoritmos em blocos para paralelizar NumPy e pandas.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.25080/Majora-7b98e3ed-013" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span></div>
+        <div class="rc-title">Ray: A Distributed Framework for Emerging AI Applications</div>
+        <div class="rc-author">Philipp Moritz et al. · OSDI 2018</div>
+        <div class="rc-desc">Tasks e actors com um scheduler distribuído de baixa latência; base da lição Dask e Ray.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://www.usenix.org/conference/osdi18/presentation/moritz" target="_blank" rel="noopener">Paper →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E12</span><span>paper</span><span>essencial</span></div>
+        <div class="rc-title">DuckDB: an Embeddable Analytical Database</div>
+        <div class="rc-author">Mark Raasveldt e Hannes Mühleisen · SIGMOD 2019 (demo)</div>
+        <div class="rc-desc">OLAP in-process com execução vetorizada: por que um banco embutido resolve tanto trabalho analítico local.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/3299869.3320212" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+    </div>
+    <div class="group-label">Engenharia de software empírica no Brasil</div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>paper</span><span>Brasil</span></div>
+        <div class="rc-title">Why we refactor? Confessions of GitHub contributors</div>
+        <div class="rc-author">Danilo Silva, Nikolaos Tsantalis e Marco Tulio Valente · FSE 2016</div>
+        <div class="rc-desc">Estudo da UFMG com desenvolvedores reais: refactoring é motivado por mudanças de requisito, não por smells. Muda como você justifica refactoring no time.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/2950290.2950305" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E10</span><span>paper</span><span>Brasil</span></div>
+        <div class="rc-title">Understanding energy behaviors of thread management constructs</div>
+        <div class="rc-author">Gustavo Pinto, Fernando Castor e Yu David Liu · OOPSLA 2014</div>
+        <div class="rc-desc">Pesquisa liderada por brasileiros mostrando que a escolha do construto de concorrência muda consumo de energia e desempenho. Lição: meça.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.1145/2660193.2660235" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4</span><span>paper</span><span>Brasil</span></div>
+        <div class="rc-title">Code Smell Classification in Python: Are Small Language Models Up to the Task?</div>
+        <div class="rc-author">Oliveira, Carneiro, Ribas e Pereira · SBES 2025</div>
+        <div class="rc-desc">Estudo brasileiro recente sobre detecção de Long Method e Long Parameter List em código Python, publicado no Simpósio Brasileiro de Engenharia de Software.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://doi.org/10.5753/sbes.2025.11046" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="rc-tag"><span class="badge-when">E4-E9</span><span>livro aberto</span><span>Brasil</span></div>
+        <div class="rc-title">Engenharia de Software Moderna</div>
+        <div class="rc-author">Marco Tulio Valente · UFMG, 2020</div>
+        <div class="rc-desc">A síntese acadêmica brasileira de princípios de projeto, padrões, testes, refactoring e arquitetura, com referências à pesquisa empírica.</div>
+        <div class="rc-links">
+          <a class="rc-link" href="https://engsoftmoderna.info/" target="_blank" rel="noopener">Ler grátis →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATRIZ -->
+  <div class="res-panel" id="panel-matriz">
+    <div class="matrix-note">Matriz da trilha: prioridade, semanas do cronograma, recurso principal e recurso em português ou complementar por etapa.</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Etapa</th><th>Tema</th><th>Prioridade</th><th>Semanas</th><th>Recurso principal</th><th>Em português ou complementar</th></tr>
+        </thead>
+        <tbody id="matrix-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<div id="mlp-footer"></div>
+
+<script src="assets/lessons.js?v=2"></script>
+<script src="assets/portal.js?v=2"></script>
+<script>
+  MLPortal.mount('resources');
+
+  // tabs
+  const tabs = document.getElementById('res-tabs');
+  tabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.res-tab');
+    if (!btn) return;
+    tabs.querySelectorAll('.res-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.res-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+  });
+
+  // matriz: etapa, tema, prioridade, semanas, recurso principal, em português ou complementar
+  const MATRIX = [
+    ["E1", "Fundamentos da linguagem", "high", "S1-S2", "Fluent Python (I e II)", "Python Fluente online + Live de Python"],
+    ["E2", "Python idiomático", "high", "S1-S2", "Fluent Python + Effective Python", "Palestras de Hettinger e Powell"],
+    ["E3", "OOP & tipagem", "high", "S3-S4", "Robust Python + typing.python.org", "Live de Python (tipagem)"],
+    ["E4", "Clean Code", "high", "S3-S4", "Refactoring + TDD with Python", "Engenharia de Software Moderna"],
+    ["E5", "SOLID & princípios", "high", "S5-S6", "Clean Architecture + Liskov e Wing 1994", "SOLID para Ninjas e Desbravando SOLID"],
+    ["E6", "Patterns criacionais", "med", "S5-S6", "python-patterns.guide + GoF", "Refactoring.Guru (PT-BR)"],
+    ["E7", "Patterns estruturais", "med", "S5-S6", "python-patterns.guide + GoF", "Design Patterns com Java (Guerra)"],
+    ["E8", "Patterns comportamentais", "med", "S7-S9", "Head First DP + ArjanCodes", "Refactoring.Guru (PT-BR)"],
+    ["E9", "Architecture patterns", "high", "S7-S9", "Cosmic Python + Evans", "Arquitetura Hexagonal e DDD (Casa do Código)"],
+    ["E10", "Concorrência & async", "high", "S10", "Python Concurrency with asyncio + PEP 703", "Beazley 2015 (palestra)"],
+    ["E11", "High performance", "high", "S11-S12", "High Performance Python 3e + CPython Internals", "Harris et al. 2020 (Nature)"],
+    ["E12", "Master large data", "high", "S13-S14", "Polars Guide + DuckDB + DDIA", "Python para Análise de Dados (Novatec)"],
+    ["E13", "Python em produção", "high", "S15-S16", "Packaging Guide + Release It!", "FastAPI do Zero (Eduardo Mendes)"],
+  ];
+  const prioLabel = { high: '<svg class="vi" viewBox="0 0 24 24" width=".72em" height=".72em" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="#dc2626"/></svg> High', med: '<svg class="vi" viewBox="0 0 24 24" width=".72em" height=".72em" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="#d97706"/></svg> Medium', low: '<svg class="vi" viewBox="0 0 24 24" width=".72em" height=".72em" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="#059669"/></svg> Low' };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  document.getElementById('matrix-body').innerHTML = MATRIX.map(r => `
+    <tr>
+      <td>${esc(r[0])}</td>
+      <td>${esc(r[1])}</td>
+      <td><span class="prio ${r[2]}">${prioLabel[r[2]]}</span></td>
+      <td>${esc(r[3])}</td>
+      <td>${esc(r[4])}</td>
+      <td>${esc(r[5])}</td>
+    </tr>
+  `).join('');
+</script>
+</body>
+</html>
